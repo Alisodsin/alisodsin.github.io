@@ -23,6 +23,10 @@
                 h3 {
                         color: red;
                 }
+
+                span {
+                        color: #d7ba7d;
+                }
         </style>
         <title>python notes</title>
 </head>
@@ -3948,39 +3952,1163 @@
                 </div>
         </div>
         <h3>#077 - Modules Part 2 - Create Your Module</h3>
-        
+        <span>show python library pathes and apped a runtime path</span><br><br>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #c586c0;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">sys</span></div>
+                        <div><span style="color: #4ec9b0;">sys</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">path</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">append</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"/home/ali/bin"</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;</span><span style="color: #6a9955;">#
+                                        append a path in runtime</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">sys</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">path</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;</span><span style="color: #6a9955;">#
+                                        python modules pathes</span></div>
+                </div>
+        </div>
+        <br><br> <span>importing your owin module</span><br><br>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;"># import your own module</span></div>
+                        <div><span style="color: #c586c0;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">ali</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">dir</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">ali</span><span
+                                        style="color: #d4d4d4;">))&#160;&#160;</span><span style="color: #6a9955;">#
+                                        show all module functions and data</span></div><br>
+                        <div><span style="color: #6a9955;"># using module functions</span></div>
+                        <div><span style="color: #4ec9b0;">ali</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">sayHello</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"ali"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #4ec9b0;">ali</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">sayHowAreYou</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"ali"</span><span
+                                        style="color: #d4d4d4;">)</span></div><br>
+                        <div><span style="color: #6a9955;"># using alias for the module</span></div>
+                        <div><span style="color: #c586c0;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">ali</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">as</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">al</span></div>
+                        <div><span style="color: #4ec9b0;">al</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">sayHello</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"ali"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #4ec9b0;">al</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">sayHowAreYou</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"ali"</span><span
+                                        style="color: #d4d4d4;">)</span></div><br>
+                        <div><span style="color: #6a9955;"># using alias for functions</span></div>
+                        <div><span style="color: #c586c0;">from</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">ali</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">sayHello</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #c586c0;">as</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #dcdcaa;">hello</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #dcdcaa;">sayHowAreYou</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #c586c0;">as</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #dcdcaa;">how</span></div>
+                        <div><span style="color: #dcdcaa;">hello</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"ali"</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #dcdcaa;">how</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"ali"</span><span style="color: #d4d4d4;">) </span>
+                        </div>
+                </div>
+        </div>
+        <h3>#078 - Modules Part 3 - Install External Packages</h3>
+        <span>moudle : a single py file</span><br><br>
+        <span>package : a folder containing group of modules</span><br><br>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;"># you can install python packages with Python Package Manager
+                                        PIP</span></div>
+                        <div><span style="color: #6a9955;"># pip Install the packages and its dependencies</span></div>
+                        <div><span style="color: #6a9955;"># Module list
+                                        "https://docs.python.org/3/py-modindex.html"</span></div>
+                        <div><span style="color: #6a9955;"># Packages and Module Directory "https://pypi.org/"</span>
+                        </div>
+                        <div><span style="color: #6a9955;"># PIP Manual "https://pip.pypa.io/en/stable/"</span></div>
+                        <div><span style="color: #6a9955;"># pip -- version : check pip version</span></div>
+                        <div><span style="color: #6a9955;"># pip list : list all installed packages</span></div>
+                        <div><span style="color: #6a9955;"># pip install termcolor : install termcolor module or
+                                        package</span></div>
+                        <div><span style="color: #6a9955;"># pip install module1,module2,module3 : install multiple
+                                        modules</span></div>
+                        <div><span style="color: #6a9955;"># pip install pyfiglet&gt;=1.0.4 : install the latest
+                                        version</span></div>
+                        <div><span style="color: #6a9955;"># pip install pip --upgrade : upgrade pip</span></div>
+                        <br><br>
+                        <div><span style="color: #6a9955;"># import a module from package</span></div>
+                        <div><span style="color: #c586c0;">from</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">autokey</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #c586c0;">import</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #4ec9b0;">monitor</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #c586c0;">as</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #4ec9b0;">mono</span></div><br>
+                        <div><span style="color: #6a9955;"># import an installed module</span></div>
+                        <div><span style="color: #c586c0;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">pyfiglet</span></div>
+                        <div><span style="color: #c586c0;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">termcolor</span></div><br>
+                        <div><span style="color: #6a9955;"># using modules</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">termcolor</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">colored</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">pyfiglet</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">figlet_format</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"ali
+                                        saber"</span><span style="color: #d4d4d4;">), </span><span
+                                        style="color: #9cdcfe;">color</span><span style="color: #d4d4d4;">=</span><span
+                                        style="color: #ce9178;">"red"</span><span style="color: #d4d4d4;">))
+                                </span><span style="color: #6a9955;"># colord asci art for my name</span></div>
+                </div>
+        </div>
+        <h3>#079 - Date And Time Introduction</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #c586c0;">from</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">datetime</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #c586c0;">import</span><span style="color: #d4d4d4;">
+                                        *</span></div><br>
+                        <div><span style="color: #6a9955;"># datetime</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">datetime</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">now</span><span
+                                        style="color: #d4d4d4;">())&#160;&#160;</span><span style="color: #6a9955;">#
+                                        print the current date and time</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">'='</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">70</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">datetime</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">now</span><span
+                                        style="color: #d4d4d4;">().</span><span style="color: #9cdcfe;">year</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;</span><span style="color: #6a9955;">#
+                                        print the current year</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">'='</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">70</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">datetime</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">now</span><span
+                                        style="color: #d4d4d4;">().</span><span
+                                        style="color: #9cdcfe;">month</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;</span><span style="color: #6a9955;">#
+                                        print the current month</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">'='</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">70</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">datetime</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">now</span><span
+                                        style="color: #d4d4d4;">().</span><span style="color: #9cdcfe;">day</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;</span><span style="color: #6a9955;">#
+                                        print the current day</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">'='</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">70</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">datetime</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">now</span><span
+                                        style="color: #d4d4d4;">().</span><span style="color: #9cdcfe;">hour</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;</span><span style="color: #6a9955;">#
+                                        print the current hour</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">'='</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">70</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">datetime</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">now</span><span
+                                        style="color: #d4d4d4;">().</span><span
+                                        style="color: #9cdcfe;">second</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;</span><span style="color: #6a9955;">#
+                                        print the current second</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">'='</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">70</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">datetime</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">now</span><span
+                                        style="color: #d4d4d4;">().</span><span
+                                        style="color: #9cdcfe;">second</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;</span><span style="color: #6a9955;">#
+                                        print the current second</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">'='</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">70</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">datetime</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">now</span><span
+                                        style="color: #d4d4d4;">().</span><span
+                                        style="color: #9cdcfe;">microsecond</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;</span><span style="color: #6a9955;">#
+                                        print the current milliseconds</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">'='</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">70</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">datetime</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">min</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;</span><span style="color: #6a9955;">#
+                                        001-01-01 00:00:00</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">'='</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">70</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">datetime</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">max</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;</span><span style="color: #6a9955;">#
+                                        9999-12-31 23:59:59.999999</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">'='</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">70</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">datetime</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">now</span><span
+                                        style="color: #d4d4d4;">().</span><span style="color: #dcdcaa;">time</span><span
+                                        style="color: #d4d4d4;">())&#160;&#160;</span><span style="color: #6a9955;">#
+                                        print the current time</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">'='</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">70</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">datetime</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">now</span><span
+                                        style="color: #d4d4d4;">().</span><span style="color: #dcdcaa;">time</span><span
+                                        style="color: #d4d4d4;">().</span><span style="color: #9cdcfe;">hour</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;</span><span style="color: #6a9955;">#
+                                        print the current time&#160;&#160;hour</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">'='</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">70</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">datetime</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">now</span><span
+                                        style="color: #d4d4d4;">().</span><span style="color: #dcdcaa;">time</span><span
+                                        style="color: #d4d4d4;">().</span><span
+                                        style="color: #9cdcfe;">minute</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;</span><span style="color: #6a9955;">#
+                                        print the current time&#160;&#160;minute</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">'='</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">70</span><span style="color: #d4d4d4;">)</span></div>
+                        <br>
+                        <div><span style="color: #6a9955;"># time</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">time</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">min</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;</span><span style="color: #6a9955;">#
+                                        begining of the time</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">'='</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">70</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">time</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">max</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;</span><span style="color: #6a9955;"># end
+                                        of the time</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">'='</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">70</span><span style="color: #d4d4d4;">)</span></div>
+                        <br>
+                        <div><span style="color: #6a9955;"># print specific date</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">datetime</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #b5cea8;">1982</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #b5cea8;">4</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #b5cea8;">21</span><span
+                                        style="color: #d4d4d4;">))&#160;&#160;</span><span style="color: #6a9955;">#
+                                        mybirth day</span></div><br>
+                        <div><span style="color: #6a9955;"># calculate your age </span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">datetime</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">now</span><span
+                                        style="color: #d4d4d4;">() - </span><span
+                                        style="color: #4ec9b0;">datetime</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #b5cea8;">1982</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #b5cea8;">4</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #b5cea8;">21</span><span
+                                        style="color: #d4d4d4;">)) </span><span style="color: #6a9955;"># your age in
+                                        days ,hours,minutes,seconds amd milliseconds</span></div><br>
+                        <div><span style="color: #6a9955;"># calculate your ages in days</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">((</span><span
+                                        style="color: #4ec9b0;">datetime</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">now</span><span
+                                        style="color: #d4d4d4;">() - </span><span
+                                        style="color: #4ec9b0;">datetime</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #b5cea8;">1982</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #b5cea8;">4</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #b5cea8;">21</span><span
+                                        style="color: #d4d4d4;">)).</span><span style="color: #9cdcfe;">days</span><span
+                                        style="color: #d4d4d4;">) </span><span style="color: #6a9955;"># your age in
+                                        days</span></div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                </div>
+        </div>
+        <h3>#080 - Date And Time Format Date</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #c586c0;">from</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">datetime</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #c586c0;">import</span><span style="color: #d4d4d4;">
+                                        *</span></div>
+                        <div><span style="color: #6a9955;"># strftime directives "https://strftime.org/"</span></div>
+                        <div><span style="color: #6a9955;"># fromate birthday as string</span></div>
+                        <div><span style="color: #9cdcfe;">myBirthDay</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #4ec9b0;">datetime</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #b5cea8;">1982</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #b5cea8;">4</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #b5cea8;">21</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">myBirthDay</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">strftime</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #569cd6;">%a</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">))&#160;&#160;</span><span style="color: #6a9955;">#
+                                        Wed</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">'='</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">70</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">myBirthDay</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">strftime</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"%A"</span><span
+                                        style="color: #d4d4d4;">))&#160;&#160;</span><span style="color: #6a9955;">#
+                                        Wednesday</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">'='</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">70</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">myBirthDay</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">strftime</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #569cd6;">%b</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">))&#160;&#160;</span><span style="color: #6a9955;">#
+                                        Apr</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">'='</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">70</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">myBirthDay</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">strftime</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"%B"</span><span
+                                        style="color: #d4d4d4;">))&#160;&#160;</span><span style="color: #6a9955;">#
+                                        April</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">'='</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">70</span><span style="color: #d4d4d4;">)</span></div>
+                        <br>
+                        <div><span style="color: #6a9955;"># print full date string</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">f</span><span style="color: #ce9178;">'your bithday is
+                                </span><span style="color: #569cd6;">{</span><span
+                                        style="color: #9cdcfe;">myBirthDay</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">strftime</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"%Y ,</span><span
+                                        style="color: #569cd6;">%b</span><span style="color: #ce9178;"> ,</span><span
+                                        style="color: #569cd6;">%a</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">)</span><span style="color: #569cd6;">}</span><span
+                                        style="color: #ce9178;">'</span><span style="color: #d4d4d4;">)</span></div>
+                </div>
+        </div>
+        <h3>#081 - Iterable Vs Iterator</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;"># iterable is Object contains data that can be iterated
+                                        Upon</span></div>
+                        <div><span style="color: #6a9955;"># iterable examples are
+                                        {string,list,set,tuple,dictionary}</span></div>
+                        <div><span style="color: #6a9955;">#
+                                        -----------------------------------------------------------</span></div>
+                        <div><span style="color: #6a9955;"># iterator object used to iterate over iterable using next()
+                                        method return 1 element at a time</span></div>
+                        <div><span style="color: #6a9955;"># you can generate iterator from iterable using iter()
+                                        method</span></div>
+                        <div><span style="color: #6a9955;"># for loop already calls iter() Method on the iterable behind
+                                        the scene</span></div>
+                        <div><span style="color: #6a9955;"># gives "stopIteration" if there no next elements</span>
+                        </div>
+                        <div><span style="color: #6a9955;">#
+                                        -------------------------------------------------------------</span></div><br>
+                        <div><span style="color: #6a9955;"># iterable</span></div>
+                        <div><span style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">"ali saber ali"</span></div><br>
+                        <div><span style="color: #6a9955;"># generating iterator from iterable</span></div>
+                        <div><span style="color: #9cdcfe;">nameIterator</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #dcdcaa;">iter</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">name</span><span
+                                        style="color: #d4d4d4;">)</span></div><br>
+                        <div><span style="color: #6a9955;"># iterate over iterable using next</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">next</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">nameIterator</span><span
+                                        style="color: #d4d4d4;">))&#160;&#160;</span><span style="color: #6a9955;">#
+                                        a</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">next</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">nameIterator</span><span
+                                        style="color: #d4d4d4;">))&#160;&#160;</span><span style="color: #6a9955;">#
+                                        l</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">next</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">nameIterator</span><span
+                                        style="color: #d4d4d4;">))&#160;&#160;</span><span style="color: #6a9955;">#
+                                        i</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">next</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">nameIterator</span><span
+                                        style="color: #d4d4d4;">))&#160;&#160;</span><span
+                                        style="color: #6a9955;">#</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">next</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">nameIterator</span><span
+                                        style="color: #d4d4d4;">))&#160;&#160;</span><span style="color: #6a9955;">#
+                                        s</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">next</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">nameIterator</span><span
+                                        style="color: #d4d4d4;">))&#160;&#160;</span><span style="color: #6a9955;">#
+                                        a</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">'='</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">70</span><span style="color: #d4d4d4;">)</span></div>
+                        <br>
+                        <div><span style="color: #6a9955;"># make for lop call next behind the scene and complete
+                                        iteration&#160;&#160;using iterator</span></div>
+                        <div><span style="color: #c586c0;">for</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">i</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">in</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">nameIterator</span><span
+                                        style="color: #d4d4d4;">:</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">i</span><span style="color: #d4d4d4;">)</span></div>
+                </div>
+        </div>
+        <h3>#082 - Generators</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;"># Generator is a function with "yield" keyword instead of
+                                        "return"</span></div>
+                        <div><span style="color: #6a9955;"># it support Iteration and return generator iterator by
+                                        calling "yield"</span></div>
+                        <div><span style="color: #6a9955;"># Generator function can have 1 or more yield</span></div>
+                        <div><span style="color: #6a9955;"># by using next() it resume from where it called "yield" not
+                                        from begining</span></div>
+                        <div><span style="color: #6a9955;"># when called , it doesn't start automatically , it just
+                                        gives you the control</span></div>
+                        <div><span style="color: #6a9955;"># ----------------------------</span></div><br>
+                        <div><span style="color: #6a9955;"># define generator function</span></div>
+                        <div><span style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">myGenerator</span><span
+                                        style="color: #d4d4d4;">():</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">yield</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">1</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">yield</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">2</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">yield</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">3</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">yield</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">4</span></div><br><br>
+                        <div><span style="color: #6a9955;"># using the Generator function to generate iterator</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">myGen</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #dcdcaa;">myGenerator</span><span
+                                        style="color: #d4d4d4;">()&#160;&#160;</span><span style="color: #6a9955;">#
+                                        mygen is now iterator object</span></div><br>
+                        <div><span style="color: #6a9955;"># using iterator in&#160;&#160;next and&#160;&#160;for
+                                        loop</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">myGen</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">__next__</span><span style="color: #d4d4d4;">())</span>
+                        </div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">'='</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">70</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #c586c0;">for</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">num</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">in</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">myGen</span><span style="color: #d4d4d4;">:</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">num</span><span style="color: #d4d4d4;">)</span></div>
+                </div>
+        </div>
+        <h3>#083 - Decorators - Intro</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;"># some time called Meta Programming</span></div>
+                        <div><span style="color: #6a9955;"># every thing in python is Object even function</span></div>
+                        <div><span style="color: #6a9955;"># Decorator Take a function and add some Functionality to
+                                        it</span></div>
+                        <div><span style="color: #6a9955;"># Decorator Wrap function and enhance their Behavior</span>
+                        </div>
+                        <div><span style="color: #6a9955;"># Decorator is Higher order function</span></div>
+                        <div><span style="color: #6a9955;">#
+                                        -------------------------------------------------------</span></div><br>
+                        <div><span style="color: #6a9955;"># create Decorator</span></div><br>
+                        <div><span style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">myDecorator</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">func</span><span
+                                        style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">nestedFunc</span><span
+                                        style="color: #d4d4d4;">():&#160;&#160;</span><span style="color: #6a9955;">#
+                                        Any Name it's just for Decoration</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"Before"</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;</span><span style="color: #6a9955;">#
+                                        message from decorator</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">func</span><span
+                                        style="color: #d4d4d4;">()&#160;&#160;</span><span style="color: #6a9955;">#
+                                        excute function</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"after"</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;</span><span style="color: #6a9955;">#
+                                        message from decorator</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">return</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">nestedFunc</span><span
+                                        style="color: #d4d4d4;">&#160;&#160;</span><span style="color: #6a9955;">#
+                                        return all data</span></div><br><br>
+                        <div><span style="color: #6a9955;"># define a func that will be decorated</span></div>
+                        <div><span style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">sayHello</span><span style="color: #d4d4d4;">():</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"Hello from sayHello function"</span><span
+                                        style="color: #d4d4d4;">)</span></div><br>
+                        <div><span style="color: #6a9955;"># decorate sayHello function with Decorator</span></div>
+                        <div><span style="color: #9cdcfe;">afterDecoration</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">myDecorator</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">sayHello</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #dcdcaa;">afterDecoration</span><span style="color: #d4d4d4;">()</span>
+                        </div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">'='</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">70</span><span style="color: #d4d4d4;">)</span></div>
+                        <br><br>
+                        <div><span style="color: #6a9955;"># define a function that will be decorated using sugar
+                                        syntax</span></div>
+                        <div><span style="color: #d4d4d4;">@</span><span style="color: #9cdcfe;">myDecorator</span>
+                        </div>
+                        <div><span style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">sayHi</span><span style="color: #d4d4d4;">():</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"Hi from sayHi function"</span><span
+                                        style="color: #d4d4d4;">)</span></div><br>
+                        <div><span style="color: #dcdcaa;">sayHi</span><span style="color: #d4d4d4;">() </span><span
+                                        style="color: #6a9955;"># wrapped by myDecorator</span></div>
+                </div>
+        </div>
+        <h3>#084 - Decorators - Function With Parameters</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">myDecorator</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">func</span><span
+                                        style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">nestedFunc</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">x</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">y</span><span
+                                        style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">if</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">x</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">&lt;</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">or</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">x</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">&lt;</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">:</span></div>
+                        <div><span
+                                        style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"be ware one of the numbers is negative"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">func</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">x</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">y</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">return</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">nestedFunc</span></div><br><br>
+                        <div><span style="color: #d4d4d4;">@</span><span style="color: #9cdcfe;">myDecorator</span>
+                        </div>
+                        <div><span style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">calc</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">x</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">y</span><span style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">x</span><span style="color: #d4d4d4;">+</span><span
+                                        style="color: #9cdcfe;">y</span><span style="color: #d4d4d4;">)</span></div>
+                        <br><br>
+                        <div><span style="color: #dcdcaa;">calc</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #d4d4d4;">-</span><span style="color: #b5cea8;">2</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #b5cea8;">3</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;</span><span style="color: #6a9955;">#
+                                        envloped by myDecorator</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">'='</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">70</span><span style="color: #d4d4d4;">)</span></div>
+                        <br>
+                        <div><span style="color: #6a9955;"># using multipe decorator for one function</span></div><br>
+                        <div><span style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">myDecorator2</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">func</span><span
+                                        style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">nestedFunc</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">x</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">y</span><span
+                                        style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">func</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">x</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">y</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"this message coming from decorator2"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">return</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">nestedFunc</span></div><br><br>
+                        <div><span style="color: #6a9955;"># define the decorated function wrraped by 2 decorating
+                                        funcs</span></div>
+                        <div><span style="color: #d4d4d4;">@</span><span style="color: #9cdcfe;">myDecorator</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">@</span><span style="color: #9cdcfe;">myDecorator2</span>
+                        </div>
+                        <div><span style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">mult</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">x</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">y</span><span style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">x</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #9cdcfe;">y</span><span style="color: #d4d4d4;">)</span></div><br>
+                        <div><span style="color: #dcdcaa;">mult</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #d4d4d4;">-</span><span style="color: #b5cea8;">2</span><span
+                                        style="color: #d4d4d4;">,</span><span style="color: #b5cea8;">3</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                </div>
+        </div>
+        <h3>#085 - Decorators - Practical Speed Test</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">from</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">time</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">time</span></div>
+                        <div><span style="color: #6a9955;"># decorator with variable paramter</span></div>
+                        <div><span style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">myDecorator</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">func</span><span
+                                        style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">nestedFunc</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #9cdcfe;">nums</span><span style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">for</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">num</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">in</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">nums</span><span style="color: #d4d4d4;">:</span></div>
+                        <div><span
+                                        style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">if</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">num</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">&lt;</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">:</span></div>
+                        <div><span
+                                        style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"there at least one number is negative"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">func</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #d4d4d4;">*</span><span style="color: #9cdcfe;">nums</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">return</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">nestedFunc</span></div>
+                        <div><span style="color: #d4d4d4;">@</span><span style="color: #9cdcfe;">myDecorator</span>
+                        </div>
+                        <div><span style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">calc</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #d4d4d4;">*</span><span style="color: #9cdcfe;">nums</span><span
+                                        style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">sum</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">nums</span><span style="color: #d4d4d4;">))</span></div>
+                        <br>
+                        <div><span style="color: #dcdcaa;">calc</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #d4d4d4;">-</span><span style="color: #b5cea8;">1</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #b5cea8;">2</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #b5cea8;">2</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;</span><span style="color: #6a9955;">#
+                                        wrapped by myDecorator</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">'='</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">70</span><span style="color: #d4d4d4;">)</span></div>
+                        <br><br><br>
+                        <div><span style="color: #6a9955;"># speed test using decorator</span></div>
+                        <div><span style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">speedTest</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">func</span><span
+                                        style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">wrapper</span><span style="color: #d4d4d4;">():</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">start</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">time</span><span style="color: #d4d4d4;">()</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">func</span><span style="color: #d4d4d4;">()</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">end</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">time</span><span style="color: #d4d4d4;">()</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">f</span><span style="color: #ce9178;">"function take
+                                </span><span style="color: #ce9178;">{</span><span
+                                        style="color: #ce9178;">round</span><span style="color: #ce9178;">(end -
+                                        start,</span><span style="color: #ce9178;">3</span><span
+                                        style="color: #ce9178;">)*</span><span style="color: #ce9178;">1000</span><span
+                                        style="color: #ce9178;">}</span><span style="color: #ce9178;"> milliseconds to
+                                        finish"</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">return</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">wrapper</span></div><br><br>
+                        <div><span style="color: #d4d4d4;">@</span><span style="color: #9cdcfe;">speedTest</span></div>
+                        <div><span style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">bigLoop</span><span style="color: #d4d4d4;">():</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">for</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">num</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">in</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">range</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #b5cea8;">100000</span><span style="color: #d4d4d4;">):</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">num</span><span style="color: #d4d4d4;">)</span></div>
+                        <br>
+                        <div><span style="color: #dcdcaa;">bigLoop</span><span style="color: #d4d4d4;">()</span></div>
+                </div>
+        </div>
+        <h3>#086 - Practical Loop On Many Iterators With Zip</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;"># zip() Return a Zip Object contains all objects</span></div>
+                        <div><span style="color: #6a9955;"># zip() length is the length of the lowest Object</span>
+                        </div>
+                        <div><span style="color: #6a9955;"># ----------------------------------------------------</span>
+                        </div><br>
+                        <div><span style="color: #9cdcfe;">lis1</span><span style="color: #d4d4d4;"> = [</span><span
+                                        style="color: #b5cea8;">1</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">2</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">3</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">4</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">5</span><span style="color: #d4d4d4;">]</span></div>
+                        <div><span style="color: #9cdcfe;">lis2</span><span style="color: #d4d4d4;"> = [</span><span
+                                        style="color: #ce9178;">"A"</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #ce9178;">"B"</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #ce9178;">"C"</span><span style="color: #d4d4d4;">]</span></div>
+                        <div><span style="color: #6a9955;"># wrap lis1 and lis2 with zip Object</span></div>
+                        <div><span style="color: #9cdcfe;">ziplist</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #4ec9b0;">zip</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">lis1</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">lis2</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;</span><span style="color: #6a9955;"># zip
+                                        object</span></div><br>
+                        <div><span style="color: #6a9955;"># looping through zip object with length = len(lis2) i.e the
+                                        shortest lis</span></div>
+                        <div><span style="color: #c586c0;">for</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">item</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">in</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">ziplist</span><span style="color: #d4d4d4;">:</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">item</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">'='</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">70</span><span style="color: #d4d4d4;">)</span></div>
+                        <br><br>
+                        <div><span style="color: #6a9955;"># regenerating the ziplist with added tuple and dict</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">lis1</span><span style="color: #d4d4d4;"> = [</span><span
+                                        style="color: #b5cea8;">1</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">2</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">3</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">4</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">5</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">6</span><span style="color: #d4d4d4;">]</span></div>
+                        <div><span style="color: #9cdcfe;">lis2</span><span style="color: #d4d4d4;"> = [</span><span
+                                        style="color: #ce9178;">"A"</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #ce9178;">"B"</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #ce9178;">"C"</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #ce9178;">"D"</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #ce9178;">"E"</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #ce9178;">"F"</span><span style="color: #d4d4d4;">]</span></div>
+                        <div><span style="color: #9cdcfe;">tupl</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">"ali"</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #ce9178;">"Hassan"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"Hussein"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"Ebrahim"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"soso"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"boody"</span></div>
+                        <div><span style="color: #9cdcfe;">dict</span><span style="color: #d4d4d4;"> = {</span><span
+                                        style="color: #ce9178;">"name"</span><span style="color: #d4d4d4;">:
+                                </span><span style="color: #ce9178;">"Ali"</span><span style="color: #d4d4d4;">,</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #ce9178;">"Age"</span><span style="color: #d4d4d4;">: </span><span
+                                        style="color: #b5cea8;">36</span><span style="color: #d4d4d4;">,</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #ce9178;">"Countery"</span><span style="color: #d4d4d4;">:
+                                </span><span style="color: #ce9178;">"Egypt"</span><span
+                                        style="color: #d4d4d4;">,</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #ce9178;">"tall"</span><span style="color: #d4d4d4;">:
+                                </span><span style="color: #b5cea8;">182</span><span style="color: #d4d4d4;">,</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #ce9178;">"color"</span><span style="color: #d4d4d4;">:
+                                </span><span style="color: #ce9178;">"white"</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">ziplist</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #4ec9b0;">zip</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">lis1</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">lis2</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">tupl</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">dict</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #c586c0;">for</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">itm1</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">itm2</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">itm3</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">itm4</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">in</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">ziplist</span><span style="color: #d4d4d4;">:</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"list 1 item =&gt;"</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">itm1</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"list 2 item =&gt;"</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">itm2</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"tuple&#160;&#160;item =&gt;"</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">itm3</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"dict&#160;&#160;&#160;key =&gt;"</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">itm4</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                </div>
+        </div>
+        <h3> #087 - Practical Image Manipulation With Pillow</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #c586c0;">from</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">PIL</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Image</span></div>
+                        <div><span style="color: #9cdcfe;">img</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #4ec9b0;">Image</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">open</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"lv.jpg"</span><span style="color: #d4d4d4;">)
+                                </span><span style="color: #6a9955;"># # open the img</span></div>
+                        <div><span style="color: #9cdcfe;">img</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">show</span><span
+                                        style="color: #d4d4d4;">()&#160;&#160;</span><span style="color: #6a9955;">#
+                                        show the image</span></div><br>
+                        <div><span style="color: #6a9955;"># crop image</span></div>
+                        <div><span style="color: #9cdcfe;">box</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">400</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">400</span><span
+                                        style="color: #d4d4d4;">&#160;&#160;</span><span style="color: #6a9955;">#
+                                        coordinates</span></div>
+                        <div><span style="color: #9cdcfe;">croppedImage</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #9cdcfe;">img</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">crop</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">box</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;</span><span style="color: #6a9955;"># crop
+                                        the image</span></div>
+                        <div><span style="color: #9cdcfe;">croppedImage</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">show</span><span
+                                        style="color: #d4d4d4;">()&#160;&#160;</span><span style="color: #6a9955;">#
+                                        show the image</span></div>
+                </div>
+        </div>
+        <h3> #088 - Docstring And Commenting vs Documenting</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;"># single line docstring</span></div>
+                        <div><span style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">hello_func</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">name</span><span
+                                        style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #ce9178;">''' this func to say hello for the name '''</span><span
+                                        style="color: #d4d4d4;">&#160;&#160;</span><span style="color: #6a9955;">#
+                                        documenting the function</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">f</span><span style="color: #ce9178;">"hello
+                                </span><span style="color: #ce9178;">{</span><span
+                                        style="color: #ce9178;">name</span><span style="color: #ce9178;">}</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #d4d4d4;">)</span></div>
+                        <br><br>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">hello_func</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">__doc__</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;</span><span style="color: #6a9955;"># get
+                                        the documentation</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">'='</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">70</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #dcdcaa;">help</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">hello_func</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;</span><span style="color: #6a9955;"># get
+                                        the documentation</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">'='</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">70</span><span style="color: #d4d4d4;">)</span></div>
+                        <br><br><br>
+                        <div><span style="color: #6a9955;"># multiline docstring</span></div>
+                        <div><span style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">sayHi</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #ce9178;">"""</span></div>
+                        <div><span style="color: #ce9178;">&#160;&#160;&#160;&#160;sayHi function</span></div>
+                        <div><span style="color: #ce9178;">&#160;&#160;&#160;&#160;this function say hi to the name
+                                        parameter</span></div>
+                        <div><span style="color: #ce9178;">&#160;&#160;&#160;&#160;i am testing this function</span>
+                        </div>
+                        <div><span style="color: #ce9178;">&#160;&#160;&#160;&#160;Parameter:</span></div>
+                        <div><span style="color: #ce9178;">&#160;&#160;&#160;&#160;name =&gt; the name that will be
+                                        greeted with hi</span></div>
+                        <div><span style="color: #ce9178;">&#160;&#160;&#160;&#160;Return:</span></div>
+                        <div><span style="color: #ce9178;">&#160;&#160;&#160;&#160;Return hi message to the name</span>
+                        </div>
+                        <div><span style="color: #ce9178;">&#160;&#160;&#160;&#160;"""</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">return</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">f</span><span style="color: #ce9178;">"hi </span><span
+                                        style="color: #ce9178;">{</span><span style="color: #ce9178;">name</span><span
+                                        style="color: #ce9178;">}</span><span style="color: #ce9178;">"</span></div>
+                        <br><br>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">sayHi</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">__doc__</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">help</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">sayHi</span><span style="color: #d4d4d4;">))</span>
+                        </div>
+                </div>
+        </div>
+        <h3>#089 - Installing And Use Pylint For Better Code</h3>
+        <span>it will be reviewed later</span>
+        <h3>#090 - Errors And Exceptions Raising</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;"># made your own custom error</span></div>
+                        <div><span style="color: #9cdcfe;">age</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">input</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"age? "</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #c586c0;">if</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">int</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">age</span><span style="color: #d4d4d4;">) </span><span
+                                        style="color: #d4d4d4;">&lt;</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">18</span><span style="color: #d4d4d4;">:</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">raise</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">Exception</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"you must be over
+                                        18"</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #c586c0;">else</span><span style="color: #d4d4d4;">:</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"entering..."</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                </div>
+        </div>
+        <h3>#091 - Exceptions Handling Try, Except, Else, Finally</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;"># try&#160;&#160;, Except , else</span></div><br>
+                        <div><span style="color: #c586c0;">while</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">True</span><span style="color: #d4d4d4;">:</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">try</span><span style="color: #d4d4d4;">:</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">age</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">int</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">input</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"Age: "</span><span style="color: #d4d4d4;">))</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">except</span><span
+                                        style="color: #d4d4d4;">:&#160;&#160;</span><span style="color: #6a9955;">#
+                                        handle errors</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"Only numbers allowed , try again please"</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">end</span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #ce9178;">" "</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">else</span><span
+                                        style="color: #d4d4d4;">:&#160;&#160;</span><span style="color: #6a9955;">#
+                                        excute if no errors</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">f</span><span style="color: #ce9178;">"your age is
+                                </span><span style="color: #ce9178;">{</span><span
+                                        style="color: #ce9178;">age</span><span style="color: #ce9178;">}</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">end</span><span style="color: #d4d4d4;">=</span><span
+                                        style="color: #ce9178;">" "</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">break</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">finally</span><span
+                                        style="color: #d4d4d4;">:&#160;&#160;</span><span style="color: #6a9955;">#
+                                        excute whatever condition</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"❤️"</span><span style="color: #d4d4d4;">)</span></div>
+                        <br>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">'='</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">70</span><span style="color: #d4d4d4;">)</span></div>
+                        <br><br>
+                        <div><span style="color: #6a9955;"># specifying error type</span></div>
+                        <div><span style="color: #c586c0;">try</span><span style="color: #d4d4d4;">:</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">x</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">10</span><span style="color: #d4d4d4;">/</span><span
+                                        style="color: #b5cea8;">0</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">x</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #c586c0;">except</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">ZeroDivisionError</span><span
+                                        style="color: #d4d4d4;">:&#160;&#160;</span><span style="color: #6a9955;">#
+                                        specifying error type</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"can't divide by zero"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #c586c0;">except</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">NameError</span><span
+                                        style="color: #d4d4d4;">:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;"># specifying error type</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"identifier not found"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #c586c0;">except</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">ValueError</span><span style="color: #d4d4d4;">:</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"value error"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                </div>
+        </div>
+        <h3> #092 - Exceptions Handling Advanced Example</h3>
+        <span>will be reviewed later</span>
+        <h3>#093 - Debugging Code</h3>
+        <a href="https://www.youtube.com/embed/U2ePyJsiVdw?list=PLDoPjvoNmBAyE_gei5d18qkfIe-Z8mocs">debugging python</a>
+        <h3>#094 - Type Hinting</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">sayHi</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;">) -&gt;
+                                </span><span style="color: #4ec9b0;">str</span><span
+                                        style="color: #d4d4d4;">:&#160;&#160;</span><span style="color: #6a9955;">#
+                                        define function paramter type "Hinting"</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">f</span><span style="color: #ce9178;">"hello
+                                </span><span style="color: #ce9178;">{</span><span
+                                        style="color: #ce9178;">name</span><span style="color: #ce9178;">}</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #d4d4d4;">)</span></div><br>
+                        <div><span style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">calc</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">n1</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">n2</span><span style="color: #d4d4d4;">) -&gt;
+                                </span><span style="color: #4ec9b0;">int</span><span style="color: #d4d4d4;">:</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">return</span><span style="color: #d4d4d4;">
+                                        (</span><span style="color: #9cdcfe;">n1</span><span
+                                        style="color: #d4d4d4;">+</span><span style="color: #9cdcfe;">n2</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                </div>
+        </div>
+        <h3>Regular Expressions Part 1 Intro</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                
+        </div>
 
 
 
