@@ -3306,8 +3306,363 @@
         <h3>multidimensional arrays ⬜</h3>
         <p>c#</p>
         <div class="cods" contenteditable="" spellcheck="false">
-
+                <div>
+                        <div><span style="color: #569cd6;">using</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">System</span><span style="color: #d4d4d4;">;</span>
+                        </div><br>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Program</span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">static</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">Main</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">string</span><span style="color: #d4d4d4;">[]
+                                </span><span style="color: #9cdcfe;">args</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">//arrays</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">String</span><span style="color: #d4d4d4;">[]
+                                </span><span style="color: #9cdcfe;">ford</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> {
+                                </span><span style="color: #ce9178;">"Mustang"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"F-150"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"Explorer"</span><span style="color: #d4d4d4;">
+                                        };</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">String</span><span style="color: #d4d4d4;">[]
+                                </span><span style="color: #9cdcfe;">chevy</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> {
+                                </span><span style="color: #ce9178;">"Corvette"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"Camaro"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"Silverado"</span><span style="color: #d4d4d4;">
+                                        };</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">String</span><span style="color: #d4d4d4;">[]
+                                </span><span style="color: #9cdcfe;">toyota</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> {
+                                </span><span style="color: #ce9178;">"Corollo"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"Camry"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"Rav4"</span><span style="color: #d4d4d4;">
+                                        };</span></div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">//multidimensional array</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">String</span><span style="color: #d4d4d4;">[,]
+                                </span><span style="color: #9cdcfe;">parkinglot</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; { </span><span
+                                        style="color: #ce9178;">"Mustang"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"F-150"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"Explorer"</span><span style="color: #d4d4d4;">
+                                        },</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; { </span><span
+                                        style="color: #ce9178;">"Corvette"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"Camaro"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"Silverado"</span><span style="color: #d4d4d4;">
+                                        },</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; { </span><span
+                                        style="color: #ce9178;">"Corollo"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"Camry"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"Rav4"</span><span style="color: #d4d4d4;">
+                                        }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; };</span></div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">//acess element</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">parkinglot</span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #b5cea8;">2</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #b5cea8;">0</span><span
+                                        style="color: #d4d4d4;">]);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Sep</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">seperator</span><span style="color: #d4d4d4;">();</span>
+                        </div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">//iterate over multidimensional array with
+                                        foreach</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">foreach</span><span style="color: #d4d4d4;">
+                                        (</span><span style="color: #569cd6;">var</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #9cdcfe;">car</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #c586c0;">in</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #9cdcfe;">parkinglot</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span style="color: #d4d4d4;">
+                                        (</span><span style="color: #9cdcfe;">car</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Sep</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">seperator</span><span style="color: #d4d4d4;">();</span>
+                        </div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">//iterate over multidimensional array with for</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">for</span><span style="color: #d4d4d4;"> (</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">int</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">i</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">i</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">&lt;</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">parkinglot</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">GetLength</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #b5cea8;">0</span><span
+                                        style="color: #d4d4d4;">); </span><span style="color: #6a9955;">//
+                                        GetLength(dimension)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">i</span><span style="color: #d4d4d4;">++</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; )</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">for</span><span style="color: #d4d4d4;"> (</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                </span><span style="color: #569cd6;">int</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #9cdcfe;">n</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                </span><span style="color: #9cdcfe;">n</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">&lt;</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">parkinglot</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">GetLength</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #b5cea8;">1</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                </span><span style="color: #9cdcfe;">n</span><span
+                                        style="color: #d4d4d4;">++</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #6a9955;">// GetLength(dimension)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; )</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                </span><span style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">parkinglot</span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #9cdcfe;">i</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">n</span><span
+                                        style="color: #d4d4d4;">]);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
                 </div>
+        </div>
+        <p>powershell</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">. .\Sep.ps1</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">string</span><span
+                                        style="color: #d4d4d4;">[][]] </span><span
+                                        style="color: #9cdcfe;">$parkinglot</span><span style="color: #d4d4d4;"> =
+                                        (</span><span style="color: #ce9178;">"Mustang"</span><span
+                                        style="color: #d4d4d4;">, </span><span
+                                        style="color: #ce9178;">"F-150"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"Explorer"</span><span style="color: #d4d4d4;">),
+                                        (</span><span style="color: #ce9178;">"Corvette"</span><span
+                                        style="color: #d4d4d4;">, </span><span
+                                        style="color: #ce9178;">"Camaro"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"Silverado"</span><span style="color: #d4d4d4;">),
+                                        (</span><span style="color: #ce9178;">"Corollo"</span><span
+                                        style="color: #d4d4d4;">, </span><span
+                                        style="color: #ce9178;">"Camry"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"Rav4"</span><span style="color: #d4d4d4;">)</span>
+                        </div><br>
+                        <div><span style="color: #6a9955;"># type</span></div>
+                        <div><span style="color: #9cdcfe;">$parkinglot</span><span
+                                        style="color: #dcdcaa;">.GetType</span><span
+                                        style="color: #d4d4d4;">().Name</span></div>
+                        <div><span style="color: #d4d4d4;">seperator</span></div><br>
+                        <div><span style="color: #6a9955;"># acess element</span></div>
+                        <div><span style="color: #9cdcfe;">$parkinglot</span><span style="color: #d4d4d4;">[</span><span
+                                        style="color: #b5cea8;">2</span><span style="color: #d4d4d4;">][</span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">]</span></div>
+                        <div><span style="color: #d4d4d4;">seperator</span></div><br>
+                        <div><span style="color: #6a9955;"># iterate over multidimensional array with foreach</span>
+                        </div>
+                        <div><span style="color: #c586c0;">foreach</span><span style="color: #d4d4d4;"> (</span><span
+                                        style="color: #9cdcfe;">$car</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">in</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">$parkinglot</span><span style="color: #d4d4d4;">)
+                                        {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">$car</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        <h3>classes</h3>
+        <p>c#</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">using</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">System</span><span style="color: #d4d4d4;">;</span>
+                        </div><br>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Program</span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">static</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">Main</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">string</span><span style="color: #d4d4d4;">[]
+                                </span><span style="color: #9cdcfe;">args</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">//using class to initilaize object</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">Message</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #9cdcfe;">message</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">new</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Message</span><span style="color: #d4d4d4;">();</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">message</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">hello</span><span
+                                        style="color: #d4d4d4;">();</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">message</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">waiting</span><span style="color: #d4d4d4;">();</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">Sep</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">seperator</span><span style="color: #d4d4d4;">();</span>
+                        </div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">//using static Method</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">Message</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">bye</span><span
+                                        style="color: #d4d4d4;">();</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div><br>
+                        <div><span style="color: #6a9955;">// class = A bundle of related code.</span></div>
+                        <div><span style="color: #6a9955;">// Can be used as a blueprint to create objects (OOP)</span>
+                        </div>
+                        <div><span style="color: #6a9955;">// define a class</span></div>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Message</span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">hello</span><span style="color: #d4d4d4;">()</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"hello"</span><span style="color: #d4d4d4;">);</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">waiting</span><span style="color: #d4d4d4;">()</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"I am waiting for
+                                        something "</span><span style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">static</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">bye</span><span style="color: #d4d4d4;">()</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"googbye!"</span><span style="color: #d4d4d4;">);</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        <p>powershell</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">. .\Sep.ps1</span></div>
+                        <div><span style="color: #6a9955;"># define a class </span></div>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">Message</span><span style="color: #d4d4d4;"> {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; [</span><span
+                                        style="color: #569cd6;">void</span><span style="color: #d4d4d4;">]hello()
+                                        {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; [</span><span
+                                        style="color: #569cd6;">System.Console</span><span
+                                        style="color: #d4d4d4;">]::WriteLine(</span><span
+                                        style="color: #ce9178;">"hello"</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; [</span><span
+                                        style="color: #569cd6;">void</span><span style="color: #d4d4d4;">]waiting()
+                                        {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; [</span><span
+                                        style="color: #569cd6;">System.Console</span><span
+                                        style="color: #d4d4d4;">]::WriteLine( </span><span style="color: #ce9178;">"I am
+                                        waiting for something "</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">static</span><span style="color: #d4d4d4;">
+                                        [</span><span style="color: #569cd6;">void</span><span
+                                        style="color: #d4d4d4;">]bye() {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; [</span><span
+                                        style="color: #569cd6;">System.Console</span><span
+                                        style="color: #d4d4d4;">]::WriteLine( </span><span
+                                        style="color: #ce9178;">"goodbye"</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                        <div><span style="color: #6a9955;"># using class to initilaize object</span></div>
+                        <div><span style="color: #9cdcfe;">$message</span><span style="color: #d4d4d4;"> = [</span><span
+                                        style="color: #569cd6;">Message</span><span
+                                        style="color: #d4d4d4;">]::new()</span></div>
+                        <div><span style="color: #9cdcfe;">$message</span><span
+                                        style="color: #dcdcaa;">.hello</span><span style="color: #d4d4d4;">()</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">$message</span><span
+                                        style="color: #dcdcaa;">.waiting</span><span style="color: #d4d4d4;">()</span>
+                        </div><br>
+                        <div><span style="color: #6a9955;"># using static Method</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">Message</span><span
+                                        style="color: #d4d4d4;">]::bye() </span></div>
+                </div>
+        </div>
+
+
+
+
 
 
 
