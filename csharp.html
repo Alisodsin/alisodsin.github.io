@@ -2905,7 +2905,418 @@
                                         style="color: #d4d4d4;">,</span><span style="color: #b5cea8;">2.5</span></div>
                 </div>
         </div>
-        
+        <h3>exception handling ⚠️</h3>
+        <p>c#</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">using</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">System</span><span style="color: #d4d4d4;">;</span>
+                        </div><br>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Program</span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">static</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">Main</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">string</span><span style="color: #d4d4d4;">[]
+                                </span><span style="color: #9cdcfe;">args</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">double</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">x</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">double</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">y</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">double</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">result</span><span style="color: #d4d4d4;">;</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">try</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"Enter number 1:
+                                        "</span><span style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">x</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Convert</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">ToDouble</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">ReadLine</span><span style="color: #d4d4d4;">());</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"Enter number 2:
+                                        "</span><span style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">y</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Convert</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">ToDouble</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">ReadLine</span><span style="color: #d4d4d4;">());</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">result</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">x</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">/</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">y</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">$"</span><span
+                                        style="color: #ce9178;">result = </span><span
+                                        style="color: #ce9178;">{</span><span style="color: #9cdcfe;">result</span><span
+                                        style="color: #ce9178;">}</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">catch</span><span style="color: #d4d4d4;"> (</span><span
+                                        style="color: #4ec9b0;">FormatException</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #9cdcfe;">e</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">$"</span><span
+                                        style="color: #ce9178;">error : </span><span
+                                        style="color: #ce9178;">{</span><span style="color: #9cdcfe;">e</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">Message</span><span
+                                        style="color: #ce9178;">}</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">catch</span><span style="color: #d4d4d4;"> (</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">DivideByZeroException</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">e</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #6a9955;">// </span><span
+                                        style="color: #6a9955;">it</span><span style="color: #6a9955;"> </span><span
+                                        style="color: #6a9955;">doesn</span><span style="color: #6a9955;">'</span><span
+                                        style="color: #6a9955;">t</span><span style="color: #6a9955;"> </span><span
+                                        style="color: #6a9955;">exist</span><span style="color: #6a9955;"> </span><span
+                                        style="color: #6a9955;">anymore</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; )</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">e</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">Message</span><span style="color: #d4d4d4;">);</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">catch</span><span style="color: #d4d4d4;"> (</span><span
+                                        style="color: #4ec9b0;">Exception</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #9cdcfe;">e</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">$"</span><span
+                                        style="color: #ce9178;">error : </span><span
+                                        style="color: #ce9178;">{</span><span style="color: #9cdcfe;">e</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">Message</span><span
+                                        style="color: #ce9178;">}</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">finally</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"done"</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        <p>powershell</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">double</span><span
+                                        style="color: #d4d4d4;">] </span><span style="color: #9cdcfe;">$x</span><span
+                                        style="color: #d4d4d4;"> = </span><span style="color: #b5cea8;">0</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">double</span><span
+                                        style="color: #d4d4d4;">] </span><span style="color: #9cdcfe;">$y</span><span
+                                        style="color: #d4d4d4;"> = </span><span style="color: #b5cea8;">0</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">double</span><span
+                                        style="color: #d4d4d4;">] </span><span
+                                        style="color: #9cdcfe;">$result</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #b5cea8;">0</span></div><br>
+                        <div><span style="color: #c586c0;">try</span><span style="color: #d4d4d4;"> {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span style="color: #ce9178;">"Enter
+                                        number 1"</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">$x</span><span style="color: #d4d4d4;"> = [</span><span
+                                        style="color: #569cd6;">System.Convert</span><span
+                                        style="color: #d4d4d4;">]::ToDouble([</span><span
+                                        style="color: #569cd6;">System.Console</span><span
+                                        style="color: #d4d4d4;">]::ReadLine())</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span style="color: #ce9178;">"Enter
+                                        number 2"</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">$y</span><span style="color: #d4d4d4;"> = [</span><span
+                                        style="color: #569cd6;">System.Convert</span><span
+                                        style="color: #d4d4d4;">]::ToDouble([</span><span
+                                        style="color: #569cd6;">System.Console</span><span
+                                        style="color: #d4d4d4;">]::ReadLine())</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">$result</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #9cdcfe;">$x</span><span style="color: #d4d4d4;"> /
+                                </span><span style="color: #9cdcfe;">$y</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span style="color: #ce9178;">"result =
+                                </span><span style="color: #9cdcfe;">$result</span><span
+                                        style="color: #ce9178;">"</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                        <div><span style="color: #c586c0;">catch</span><span style="color: #d4d4d4;"> {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span style="color: #ce9178;">"Error
+                                        happen"</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                        <div><span style="color: #c586c0;">finally</span><span style="color: #d4d4d4;"> {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #ce9178;">"done"</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        <h3>conditional operator ❓</h3>
+        <p>c#</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">using</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">System</span><span style="color: #d4d4d4;">;</span>
+                        </div><br>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Program</span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">static</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">Main</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">string</span><span style="color: #d4d4d4;">[]
+                                </span><span style="color: #9cdcfe;">args</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">// conditional operator = used in conditional assignment
+                                        if a condition is true/false</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">//(condition) ? x : y</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">double</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">temperature</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">20</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">string</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">message</span><span style="color: #d4d4d4;">;</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">if</span><span style="color: #d4d4d4;"> (</span><span
+                                        style="color: #9cdcfe;">temperature</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">&gt;=</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #b5cea8;">15</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">message</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"it's warm outside"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">else</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">message</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"it's cold outside"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span style="color: #d4d4d4;">
+                                        (</span><span style="color: #9cdcfe;">message</span><span
+                                        style="color: #d4d4d4;">);</span></div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">// alternative way to use conditional operator ?</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">message</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">temperature</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">&gt;=</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #b5cea8;">15</span><span style="color: #d4d4d4;">)
+                                </span><span style="color: #d4d4d4;">?</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"it's warm outside"</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">:</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"it's cold outside"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">message</span><span style="color: #d4d4d4;">);</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        <p>powershell</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">double</span><span
+                                        style="color: #d4d4d4;">] </span><span
+                                        style="color: #9cdcfe;">$temperature</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #b5cea8;">20</span></div>
+                        <div><span style="color: #9cdcfe;">$message</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #c586c0;">if</span><span style="color: #d4d4d4;"> (</span><span
+                                        style="color: #9cdcfe;">$temperature</span><span style="color: #d4d4d4;"> -ge
+                                </span><span style="color: #b5cea8;">15</span><span style="color: #d4d4d4;">) {
+                                </span><span style="color: #ce9178;">"it's warm outside"</span><span
+                                        style="color: #d4d4d4;"> } </span><span style="color: #c586c0;">else</span><span
+                                        style="color: #d4d4d4;"> { </span><span style="color: #ce9178;">"it's cold
+                                        outside"</span><span style="color: #d4d4d4;"> }</span></div>
+                        <div><span style="color: #9cdcfe;">$message</span><span style="color: #d4d4d4;"> </span></div>
+                </div>
+        </div>
+        <h3>string interpolation </h3>
+        <p>c#</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">using</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">System</span><span style="color: #d4d4d4;">;</span>
+                        </div><br>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Program</span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">static</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">Main</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">string</span><span style="color: #d4d4d4;">[]
+                                </span><span style="color: #9cdcfe;">args</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">// string interpolation = allows us to insert variables
+                                        into a string literal</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">// &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;precede a string literal with $</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">// &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{} are placeholders</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">String</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">firstName</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"ali"</span><span style="color: #d4d4d4;">;</span></div>
+                        <br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">String</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">lastName</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"saber"</span><span style="color: #d4d4d4;">;</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">int</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">age</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">40</span><span style="color: #d4d4d4;">;</span></div>
+                        <br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">$"</span><span
+                                        style="color: #ce9178;">Hello </span><span style="color: #ce9178;">{</span><span
+                                        style="color: #9cdcfe;">firstName</span><span
+                                        style="color: #ce9178;">}</span><span style="color: #ce9178;"> </span><span
+                                        style="color: #ce9178;">{</span><span
+                                        style="color: #9cdcfe;">lastName</span><span
+                                        style="color: #ce9178;">}</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">);</span></div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">$"</span><span
+                                        style="color: #ce9178;">You are </span><span
+                                        style="color: #ce9178;">{</span><span style="color: #9cdcfe;">age</span><span
+                                        style="color: #ce9178;">}</span><span style="color: #ce9178;"> old.</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        <p>powershell</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">string</span><span
+                                        style="color: #d4d4d4;">] </span><span
+                                        style="color: #9cdcfe;">$firstNma</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #ce9178;">"ali"</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">string</span><span
+                                        style="color: #d4d4d4;">] </span><span
+                                        style="color: #9cdcfe;">$lastName</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #ce9178;">"saber"</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">Int16</span><span
+                                        style="color: #d4d4d4;">] </span><span style="color: #9cdcfe;">$age</span><span
+                                        style="color: #d4d4d4;"> = </span><span style="color: #b5cea8;">40</span></div>
+                        <div><span style="color: #ce9178;">"hello </span><span
+                                        style="color: #9cdcfe;">$firstNma</span><span style="color: #ce9178;">
+                                </span><span style="color: #9cdcfe;">$lastName</span><span
+                                        style="color: #ce9178;">"</span></div>
+                        <div><span style="color: #ce9178;">"you are </span><span
+                                        style="color: #9cdcfe;">$age</span><span style="color: #ce9178;"> years
+                                        old"</span></div>
+                </div>
+        </div>
+        <h3>multidimensional arrays ⬜</h3>
+        <p>c#</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+
+                </div>
+
+
+
+
+
+
+
+
+
 
 
 
