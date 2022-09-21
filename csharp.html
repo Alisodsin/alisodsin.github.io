@@ -5230,6 +5230,815 @@
                 </div>
         </div>
         <h3>objects as arguments 🧳</h3>
+        <p>c#</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">using</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">System</span><span style="color: #d4d4d4;">;</span>
+                        </div><br>
+                        <div><span style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Program</span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">static</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">Main</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">string</span><span style="color: #d4d4d4;">[]
+                                </span><span style="color: #9cdcfe;">args</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">Car</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">car1</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">new</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"Mustang"</span><span
+                                        style="color: #d4d4d4;">,</span><span style="color: #ce9178;">"red"</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">car1</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">color</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">//changing color property for car1 object</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">changeColor</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">car1</span><span
+                                        style="color: #d4d4d4;">,</span><span style="color: #ce9178;">"blue"</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">car1</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">color</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Sep</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">seperator</span><span style="color: #d4d4d4;">();</span>
+                        </div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">//copy car1 using copy method </span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">Car</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">car2</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">copy</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">car1</span><span style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">car2</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">model</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">car2</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">color</span><span
+                                        style="color: #d4d4d4;">);</span></div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">//define method which take Car object as a parameter
+                                </span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">static</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">changeColor</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #4ec9b0;">Car</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">car</span><span
+                                        style="color: #d4d4d4;">,</span><span style="color: #4ec9b0;">String</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">color</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">car</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">color</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">color</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span style="color: #6a9955;">//define
+                                        method which return a Car object</span></div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">static</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Car</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">copy</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">Car</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">car</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">return</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">new</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Car</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">car</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">model</span><span style="color: #d4d4d4;">,</span><span
+                                        style="color: #9cdcfe;">car</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">color</span><span style="color: #d4d4d4;">);</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div><br><br>
+                        <div><span style="color: #d4d4d4;">}</span></div><br>
+                        <div><span style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Car</span><span style="color: #d4d4d4;"> </span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">String</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">model</span><span style="color: #d4d4d4;">;</span></div>
+                        <br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">String</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">color</span><span style="color: #d4d4d4;">;</span></div>
+                        <br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Car</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">String</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">model</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #569cd6;">string</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">color</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">this</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">model</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">model</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">this</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">color</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">color</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        <p>powershell</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">. .\Sep.ps1</span></div>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">Car</span><span style="color: #d4d4d4;"> {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; [</span><span
+                                        style="color: #569cd6;">string</span><span style="color: #d4d4d4;">]
+                                </span><span style="color: #9cdcfe;">$model</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; [</span><span
+                                        style="color: #569cd6;">string</span><span style="color: #d4d4d4;">]
+                                </span><span style="color: #9cdcfe;">$color</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; Car([</span><span
+                                        style="color: #569cd6;">string</span><span style="color: #d4d4d4;">]</span><span
+                                        style="color: #9cdcfe;">$model</span><span style="color: #d4d4d4;">,
+                                        [</span><span style="color: #569cd6;">string</span><span
+                                        style="color: #d4d4d4;">] </span><span
+                                        style="color: #9cdcfe;">$color</span><span style="color: #d4d4d4;">) {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">$this</span><span
+                                        style="color: #dcdcaa;">.model</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #9cdcfe;">$model</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">$this</span><span
+                                        style="color: #dcdcaa;">.color</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #9cdcfe;">$color</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div><br>
+                        <div><span style="color: #9cdcfe;">$car1</span><span style="color: #d4d4d4;"> = [</span><span
+                                        style="color: #569cd6;">Car</span><span
+                                        style="color: #d4d4d4;">]::new(</span><span
+                                        style="color: #ce9178;">"Mustang"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"red"</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">$car1</span><span style="color: #dcdcaa;">.color</span></div>
+                        <div><span style="color: #d4d4d4;">seperator</span></div><br><br>
+                        <div><span style="color: #6a9955;"># define method which take Car object as a parameter</span>
+                        </div>
+                        <div><span style="color: #569cd6;">function</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">changeColor</span><span
+                                        style="color: #d4d4d4;">([</span><span style="color: #569cd6;">Car</span><span
+                                        style="color: #d4d4d4;">]</span><span style="color: #9cdcfe;">$car</span><span
+                                        style="color: #d4d4d4;">, [</span><span
+                                        style="color: #569cd6;">string</span><span style="color: #d4d4d4;">]</span><span
+                                        style="color: #9cdcfe;">$color</span><span style="color: #d4d4d4;">) {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">$car</span><span
+                                        style="color: #dcdcaa;">.color</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #9cdcfe;">$color</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div><br>
+                        <div><span style="color: #6a9955;"># changing color property for car1 object</span></div>
+                        <div><span style="color: #d4d4d4;">changeColor </span><span
+                                        style="color: #9cdcfe;">$car1</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"blue"</span><span style="color: #d4d4d4;"> </span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">$car1</span><span style="color: #dcdcaa;">.color</span></div>
+                        <div><span style="color: #d4d4d4;">seperator </span></div><br>
+                        <div><span style="color: #6a9955;"># define function which return a Car object</span></div><br>
+                        <div><span style="color: #569cd6;">function</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">copyy</span><span style="color: #d4d4d4;">([</span><span
+                                        style="color: #569cd6;">Car</span><span style="color: #d4d4d4;">] </span><span
+                                        style="color: #9cdcfe;">$car</span><span style="color: #d4d4d4;">) {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">return</span><span style="color: #d4d4d4;">
+                                        [</span><span style="color: #569cd6;">Car</span><span
+                                        style="color: #d4d4d4;">]::new(</span><span
+                                        style="color: #9cdcfe;">$car</span><span
+                                        style="color: #dcdcaa;">.model</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #9cdcfe;">$car</span><span
+                                        style="color: #dcdcaa;">.color</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div><br>
+                        <div><span style="color: #6a9955;"># copy car1 using copyy method </span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">Car</span><span
+                                        style="color: #d4d4d4;">] </span><span style="color: #9cdcfe;">$car2</span><span
+                                        style="color: #d4d4d4;"> = copyy </span><span
+                                        style="color: #9cdcfe;">$car1</span></div>
+                        <div><span style="color: #9cdcfe;">$car2</span><span style="color: #dcdcaa;">.model</span></div>
+                        <div><span style="color: #9cdcfe;">$car2</span><span style="color: #dcdcaa;">.color</span></div>
+                </div>
+        </div>
+        <h3>method overriding</h3>
+        <p>c#</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">using</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">System</span><span style="color: #d4d4d4;">;</span>
+                        </div><br>
+                        <div><span style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Program</span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">static</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">Main</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">string</span><span style="color: #d4d4d4;">[]
+                                </span><span style="color: #9cdcfe;">args</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">//method overriding = provides a new version of a method
+                                        inherited from a parent class</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">// inherited method must be: abstract, virtual, or
+                                        already overriden</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">// Used with ToString(), polymorphism</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">Dog</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">dog</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">new</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Dog</span><span style="color: #d4d4d4;">();</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">Cat</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">cat</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">new</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Cat</span><span style="color: #d4d4d4;">();</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">dog</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">speak</span><span style="color: #d4d4d4;">();</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">cat</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">speak</span><span style="color: #d4d4d4;">();</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div><br>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Animal</span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">virtual</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #dcdcaa;">speak</span><span style="color: #d4d4d4;">()</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"the animal goes
+                                        *brrrrr*"</span><span style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div><br>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Dog</span><span style="color: #d4d4d4;"> : </span><span
+                                        style="color: #4ec9b0;">Animal</span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">override</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #dcdcaa;">speak</span><span style="color: #d4d4d4;">()</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"the dog goes
+                                        *wooof*"</span><span style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div><br>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Cat</span><span style="color: #d4d4d4;"> : </span><span
+                                        style="color: #4ec9b0;">Animal</span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">override</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #dcdcaa;">speak</span><span style="color: #d4d4d4;">()</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"the cat goes
+                                        *meow*"</span><span style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        <p>powershell</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">Animal</span><span style="color: #d4d4d4;"> {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; [</span><span
+                                        style="color: #569cd6;">void</span><span style="color: #d4d4d4;">] speak()
+                                        {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; [</span><span
+                                        style="color: #569cd6;">System.Console</span><span
+                                        style="color: #d4d4d4;">]::WriteLine(</span><span style="color: #ce9178;">"the
+                                        animal goes *brrrrr*"</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">Dog</span><span style="color: #d4d4d4;"> : Animal
+                                        {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; [</span><span
+                                        style="color: #569cd6;">void</span><span style="color: #d4d4d4;">] speak()
+                                        {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; [</span><span
+                                        style="color: #569cd6;">System.Console</span><span
+                                        style="color: #d4d4d4;">]::WriteLine(</span><span style="color: #ce9178;">"the
+                                        dog goes *wooof*"</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">Cat</span><span style="color: #d4d4d4;"> : Animal
+                                        {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; [</span><span
+                                        style="color: #569cd6;">void</span><span style="color: #d4d4d4;">] speak()
+                                        {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; [</span><span
+                                        style="color: #569cd6;">System.Console</span><span
+                                        style="color: #d4d4d4;">]::WriteLine(</span><span style="color: #ce9178;">"the
+                                        cat goes *meow*"</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div><br>
+                        <div><span style="color: #9cdcfe;">$dog</span><span style="color: #d4d4d4;"> = [</span><span
+                                        style="color: #569cd6;">Dog</span><span style="color: #d4d4d4;">]::new()</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">$cat</span><span style="color: #d4d4d4;"> = [</span><span
+                                        style="color: #569cd6;">Cat</span><span style="color: #d4d4d4;">]::new()</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">$dog</span><span style="color: #dcdcaa;">.speak</span><span
+                                        style="color: #d4d4d4;">()</span></div>
+                        <div><span style="color: #9cdcfe;">$cat</span><span style="color: #dcdcaa;">.speak</span><span
+                                        style="color: #d4d4d4;">()</span></div>
+                </div>
+        </div>
+        <h3>ToString method</h3>
+        <p>c#</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">using</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">System</span><span style="color: #d4d4d4;">;</span>
+                        </div><br>
+                        <div><span style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Program</span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">static</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">Main</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">string</span><span style="color: #d4d4d4;">[]
+                                </span><span style="color: #9cdcfe;">args</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">//ToString() = converts an object to its string
+                                        representation so that it is suitable for display</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">Car</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">car</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">new</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"Chevy"</span><span
+                                        style="color: #d4d4d4;">,</span><span
+                                        style="color: #ce9178;">"Corvette"</span><span
+                                        style="color: #d4d4d4;">,</span><span style="color: #b5cea8;">2022</span><span
+                                        style="color: #d4d4d4;">,</span><span style="color: #ce9178;">"blue"</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">car</span><span
+                                        style="color: #d4d4d4;">); </span><span style="color: #6a9955;">// call
+                                        overidden string method</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div><br>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Car</span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">String</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">make</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">String</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">model</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">int</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">year</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">String</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">color</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Car</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">String</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">make</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #4ec9b0;">String</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">model</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #569cd6;">int</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">year</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #4ec9b0;">String</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">color</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">this</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">make</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">make</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">this</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">model</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">model</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">this</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">year</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">year</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">this</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">color</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">color</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">override</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #569cd6;">string</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #dcdcaa;">ToString</span><span
+                                        style="color: #d4d4d4;">()</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">return</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">$"</span><span style="color: #ce9178;">this is a
+                                </span><span style="color: #ce9178;">{</span><span
+                                        style="color: #9cdcfe;">make</span><span style="color: #ce9178;">}</span><span
+                                        style="color: #ce9178;"> </span><span style="color: #ce9178;">{</span><span
+                                        style="color: #9cdcfe;">model</span><span style="color: #ce9178;">}</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        <p>powershell</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">Car</span><span style="color: #d4d4d4;"> {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; [</span><span
+                                        style="color: #569cd6;">string</span><span style="color: #d4d4d4;">]
+                                </span><span style="color: #9cdcfe;">$make</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; [</span><span
+                                        style="color: #569cd6;">string</span><span style="color: #d4d4d4;">]
+                                </span><span style="color: #9cdcfe;">$model</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; [</span><span
+                                        style="color: #569cd6;">int</span><span style="color: #d4d4d4;">] </span><span
+                                        style="color: #9cdcfe;">$year</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; [</span><span
+                                        style="color: #569cd6;">string</span><span style="color: #d4d4d4;">]
+                                </span><span style="color: #9cdcfe;">$color</span><span style="color: #d4d4d4;"> </span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; Car([</span><span
+                                        style="color: #569cd6;">string</span><span style="color: #d4d4d4;">]</span><span
+                                        style="color: #9cdcfe;">$make</span><span style="color: #d4d4d4;"> ,
+                                        [</span><span style="color: #569cd6;">string</span><span
+                                        style="color: #d4d4d4;">] </span><span
+                                        style="color: #9cdcfe;">$model</span><span style="color: #d4d4d4;">,
+                                        [</span><span style="color: #569cd6;">int</span><span style="color: #d4d4d4;">]
+                                </span><span style="color: #9cdcfe;">$year</span><span style="color: #d4d4d4;">,
+                                        [</span><span style="color: #569cd6;">string</span><span
+                                        style="color: #d4d4d4;">] </span><span
+                                        style="color: #9cdcfe;">$color</span><span style="color: #d4d4d4;">) {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">$this</span><span
+                                        style="color: #dcdcaa;">.make</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #9cdcfe;">$make</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">$this</span><span
+                                        style="color: #dcdcaa;">.model</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #9cdcfe;">$model</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">$this</span><span
+                                        style="color: #dcdcaa;">.year</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #9cdcfe;">$year</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">$this</span><span
+                                        style="color: #dcdcaa;">.color</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #9cdcfe;">$color</span></div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; [</span><span
+                                        style="color: #569cd6;">string</span><span style="color: #d4d4d4;">] ToString()
+                                        {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">return</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"this is a </span><span
+                                        style="color: #569cd6;">$(</span><span style="color: #9cdcfe;">$this</span><span
+                                        style="color: #dcdcaa;">.make</span><span style="color: #569cd6;">)</span><span
+                                        style="color: #ce9178;"> </span><span style="color: #569cd6;">$(</span><span
+                                        style="color: #9cdcfe;">$this</span><span
+                                        style="color: #dcdcaa;">.model</span><span style="color: #569cd6;">)</span><span
+                                        style="color: #ce9178;">"</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div><br>
+                        <div><span style="color: #6a9955;"># useing toString method to display the Car object</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">$car</span><span style="color: #d4d4d4;"> = [</span><span
+                                        style="color: #569cd6;">Car</span><span
+                                        style="color: #d4d4d4;">]::new(</span><span
+                                        style="color: #ce9178;">"Chevy"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"Corvette"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #b5cea8;">2022</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"blue"</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">[</span><span
+                                        style="color: #569cd6;">System.Console</span><span
+                                        style="color: #d4d4d4;">]::WriteLine(</span><span
+                                        style="color: #9cdcfe;">$car</span><span style="color: #d4d4d4;">) </span></div>
+                </div>
+        </div>
+        <h3>polymorphism 🎭</h3>
+        <p>c#</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">using</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">System</span><span style="color: #d4d4d4;">;</span>
+                        </div><br>
+                        <div><span style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Program</span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">static</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">Main</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">string</span><span style="color: #d4d4d4;">[]
+                                </span><span style="color: #9cdcfe;">args</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">// polymorphism = Greek word that means to "have many
+                                        forms"</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">// Objects can be identified by more than one
+                                        type</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">// Ex. A Dog is also: Canine, Animal, Organism</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">Car</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">car</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">new</span><span style="color: #d4d4d4;">();</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">Bicycle</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #9cdcfe;">bicycle</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">new</span><span style="color: #d4d4d4;">();</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">Boat</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">boat</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">new</span><span style="color: #d4d4d4;">();</span></div>
+                        <br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">//polymorphism : common type Vehicle to contain
+                                        different types</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">Vehicle</span><span style="color: #d4d4d4;">[]
+                                </span><span style="color: #9cdcfe;">vehicles</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> {
+                                </span><span style="color: #9cdcfe;">car</span><span style="color: #d4d4d4;">
+                                        ,</span><span style="color: #9cdcfe;">bicycle</span><span
+                                        style="color: #d4d4d4;"> , </span><span style="color: #9cdcfe;">boat</span><span
+                                        style="color: #d4d4d4;"> };</span></div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">// iterate over vehicles</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">foreach</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">Vehicle</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #9cdcfe;">v</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">in</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">vehicles</span><span style="color: #d4d4d4;">) {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">v</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Go</span><span style="color: #d4d4d4;">();</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div><br>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Vehicle</span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">virtual</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #dcdcaa;">Go</span><span style="color: #d4d4d4;">()</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div><br>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Car</span><span style="color: #d4d4d4;"> : </span><span
+                                        style="color: #4ec9b0;">Vehicle</span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">override</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #dcdcaa;">Go</span><span style="color: #d4d4d4;">()</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"The car is
+                                        moving!"</span><span style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div><br>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Bicycle</span><span style="color: #d4d4d4;"> :
+                                </span><span style="color: #4ec9b0;">Vehicle</span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">override</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #dcdcaa;">Go</span><span style="color: #d4d4d4;">()</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"The bicycle is
+                                        moving!"</span><span style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div><br>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Boat</span><span style="color: #d4d4d4;"> : </span><span
+                                        style="color: #4ec9b0;">Vehicle</span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">override</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #dcdcaa;">Go</span><span style="color: #d4d4d4;">()</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"The boat is
+                                        moving!"</span><span style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        <p>powershell</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">Vehicle</span><span style="color: #d4d4d4;"> {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; [</span><span
+                                        style="color: #569cd6;">void</span><span style="color: #d4d4d4;">] Go() {</span>
+                        </div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">Car</span><span style="color: #d4d4d4;"> : Vehicle
+                                        {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; [</span><span
+                                        style="color: #569cd6;">void</span><span style="color: #d4d4d4;">] Go() {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; [</span><span
+                                        style="color: #569cd6;">System.Console</span><span
+                                        style="color: #d4d4d4;">]::WriteLine(</span><span style="color: #ce9178;">"The
+                                        car is moving!"</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">Bicycle</span><span style="color: #d4d4d4;"> &nbsp;:
+                                        Vehicle {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; [</span><span
+                                        style="color: #569cd6;">void</span><span style="color: #d4d4d4;">] Go() {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; [</span><span
+                                        style="color: #569cd6;">System.Console</span><span
+                                        style="color: #d4d4d4;">]::WriteLine(</span><span style="color: #ce9178;">"The
+                                        bicycle is moving!"</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">Boat</span><span style="color: #d4d4d4;"> &nbsp;:
+                                        Vehicle {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; [</span><span
+                                        style="color: #569cd6;">void</span><span style="color: #d4d4d4;">] Go() {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; [</span><span
+                                        style="color: #569cd6;">System.Console</span><span
+                                        style="color: #d4d4d4;">]::WriteLine(</span><span style="color: #ce9178;">"The
+                                        boat is moving!"</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div><br>
+                        <div><span style="color: #9cdcfe;">$car</span><span style="color: #d4d4d4;"> = [</span><span
+                                        style="color: #569cd6;">Car</span><span style="color: #d4d4d4;">]::new()</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">$bicycle</span><span style="color: #d4d4d4;"> = [</span><span
+                                        style="color: #569cd6;">Bicycle</span><span
+                                        style="color: #d4d4d4;">]::new()</span></div>
+                        <div><span style="color: #9cdcfe;">$boat</span><span style="color: #d4d4d4;"> = [</span><span
+                                        style="color: #569cd6;">Boat</span><span style="color: #d4d4d4;">]::new()</span>
+                        </div><br><br><br>
+                        <div><span style="color: #6a9955;"># polymorphism : common type Vehicle to contain different
+                                        types</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp;</span><span
+                                        style="color: #9cdcfe;">$vehicles</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #569cd6;">@</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">$car</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">$bicycle</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #9cdcfe;">$boat</span><span style="color: #d4d4d4;">)</span>
+                        </div><br>
+                        <div><span style="color: #6a9955;"># iterate over vehicles</span></div>
+                        <div><span style="color: #c586c0;">foreach</span><span style="color: #d4d4d4;"> (</span><span
+                                        style="color: #9cdcfe;">$v</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">in</span><span style="color: #d4d4d4;">
+                                        &nbsp;</span><span style="color: #9cdcfe;">$vehicles</span><span
+                                        style="color: #d4d4d4;"> ) {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">$v</span><span style="color: #dcdcaa;">.Go</span><span
+                                        style="color: #d4d4d4;">()</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+
+
+
+
+
+
+
+
+
 
 
 
