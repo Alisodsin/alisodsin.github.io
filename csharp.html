@@ -6030,6 +6030,674 @@
                         <div><span style="color: #d4d4d4;">}</span></div>
                 </div>
         </div>
+        <h3>interfaces 🐟</h3>
+        <p>c#</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">using</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">System</span><span style="color: #d4d4d4;">;</span>
+                        </div><br>
+                        <div><span style="color: #6a9955;">// interface = defines a "contract" that all the classes
+                                        inheriting from should follow</span></div>
+                        <div><span style="color: #6a9955;">// An interface declares "what a class should have"</span>
+                        </div>
+                        <div><span style="color: #6a9955;">// An inheriting class defines "how it should do it"</span>
+                        </div>
+                        <div><span style="color: #6a9955;">// Benefit = security + multiple inheritance +
+                                        "plug-and-play"</span></div>
+                        <div><span style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Program</span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">static</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">Main</span><span style="color: #d4d4d4;">()</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">Rabbit</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">rabbit</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">new</span><span style="color: #d4d4d4;">();</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">rabbit</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Flee</span><span style="color: #d4d4d4;">();</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">Sep</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">seperator</span><span style="color: #d4d4d4;">();</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">Hawk</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">hawk</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">new</span><span style="color: #d4d4d4;">();</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">hawk</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Hunt</span><span style="color: #d4d4d4;">();</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">Sep</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">seperator</span><span style="color: #d4d4d4;">();</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">Fish</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">fish</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">new</span><span style="color: #d4d4d4;">();</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">fish</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Hunt</span><span style="color: #d4d4d4;">();</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">fish</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Flee</span><span style="color: #d4d4d4;">();</span>
+                        </div><br><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div><br>
+                        <div><span style="color: #569cd6;">interface</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">IPrey</span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">Flee</span><span style="color: #d4d4d4;">();</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">}</span></div><br>
+                        <div><span style="color: #569cd6;">interface</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">IPredator</span><span style="color: #d4d4d4;"> {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">Hunt</span><span style="color: #d4d4d4;">();</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">}</span></div><br>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Rabbit</span><span style="color: #d4d4d4;"> :
+                                </span><span style="color: #4ec9b0;">IPrey</span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">Flee</span><span style="color: #d4d4d4;">()</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"the rabbit runs
+                                        away"</span><span style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div><br>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Hawk</span><span style="color: #d4d4d4;"> :</span><span
+                                        style="color: #4ec9b0;">IPredator</span><span style="color: #d4d4d4;"> &nbsp;{
+                                </span></div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">Hunt</span><span style="color: #d4d4d4;">()</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"the huk is
+                                        searching for food"</span><span style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div><br>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Fish</span><span style="color: #d4d4d4;"> : </span><span
+                                        style="color: #4ec9b0;">IPredator</span><span style="color: #d4d4d4;"> ,
+                                </span><span style="color: #4ec9b0;">IPrey</span><span style="color: #d4d4d4;"> {</span>
+                        </div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">Flee</span><span style="color: #d4d4d4;">()</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"the fish swims
+                                        away"</span><span style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">Hunt</span><span style="color: #d4d4d4;">() {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"the fish is
+                                        searching for smaller fish"</span><span style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">} </span></div>
+                </div>
+        </div>
+        <p>powershell</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #9cdcfe;">$code</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">@"</span></div>
+                        <div><span style="color: #ce9178;">using System;</span></div><br>
+                        <div><span style="color: #ce9178;">public class Program</span></div>
+                        <div><span style="color: #ce9178;">{</span></div>
+                        <div><span style="color: #ce9178;">&nbsp; &nbsp; public static void Main()</span></div>
+                        <div><span style="color: #ce9178;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #ce9178;">&nbsp; &nbsp; &nbsp; &nbsp; Rabbit rabbit = new();</span>
+                        </div>
+                        <div><span style="color: #ce9178;">&nbsp; &nbsp; &nbsp; &nbsp; rabbit.Flee();</span></div>
+                        <div><span style="color: #ce9178;">&nbsp; &nbsp; &nbsp; &nbsp; Hawk hawk = new();</span></div>
+                        <div><span style="color: #ce9178;">&nbsp; &nbsp; &nbsp; &nbsp; hawk.Hunt();</span></div>
+                        <div><span style="color: #ce9178;">&nbsp; &nbsp; &nbsp; &nbsp; Fish fish = new();</span></div>
+                        <div><span style="color: #ce9178;">&nbsp; &nbsp; &nbsp; &nbsp; fish.Hunt();</span></div>
+                        <div><span style="color: #ce9178;">&nbsp; &nbsp; &nbsp; &nbsp; fish.Flee();</span></div><br>
+                        <div><span style="color: #ce9178;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #ce9178;">}</span></div><br>
+                        <div><span style="color: #ce9178;">interface IPrey</span></div>
+                        <div><span style="color: #ce9178;">{</span></div>
+                        <div><span style="color: #ce9178;">&nbsp; &nbsp; void Flee();</span></div>
+                        <div><span style="color: #ce9178;">}</span></div><br>
+                        <div><span style="color: #ce9178;">interface IPredator {</span></div>
+                        <div><span style="color: #ce9178;">&nbsp; &nbsp; void Hunt();</span></div>
+                        <div><span style="color: #ce9178;">}</span></div><br>
+                        <div><span style="color: #ce9178;">class Rabbit : IPrey</span></div>
+                        <div><span style="color: #ce9178;">{</span></div>
+                        <div><span style="color: #ce9178;">&nbsp; &nbsp; public void Flee()</span></div>
+                        <div><span style="color: #ce9178;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #ce9178;">&nbsp; &nbsp; &nbsp; &nbsp; Console.WriteLine("the rabbit
+                                        runs away");</span></div>
+                        <div><span style="color: #ce9178;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #ce9178;">}</span></div><br>
+                        <div><span style="color: #ce9178;">class Hawk :IPredator &nbsp;{</span></div><br>
+                        <div><span style="color: #ce9178;">&nbsp; &nbsp; public void Hunt()</span></div>
+                        <div><span style="color: #ce9178;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #ce9178;">&nbsp; &nbsp; &nbsp; &nbsp; Console.WriteLine("the huk is
+                                        searching for food");</span></div>
+                        <div><span style="color: #ce9178;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #ce9178;">}</span></div><br>
+                        <div><span style="color: #ce9178;">class Fish : IPredator , IPrey {</span></div><br>
+                        <div><span style="color: #ce9178;">&nbsp; &nbsp; public void Flee()</span></div>
+                        <div><span style="color: #ce9178;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #ce9178;">&nbsp; &nbsp; &nbsp; &nbsp; Console.WriteLine("the fish swims
+                                        away");</span></div>
+                        <div><span style="color: #ce9178;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #ce9178;">&nbsp; &nbsp; public void Hunt() {</span></div>
+                        <div><span style="color: #ce9178;">&nbsp; &nbsp; &nbsp; &nbsp; Console.WriteLine("the fish is
+                                        searching for smaller fish");</span></div>
+                        <div><span style="color: #ce9178;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #ce9178;">}</span></div>
+                        <div><span style="color: #ce9178;">"@</span></div>
+                        <div><span style="color: #dcdcaa;">Add-Type</span><span style="color: #d4d4d4;"> -TypeDefinition
+                                </span><span style="color: #9cdcfe;">$code</span><span style="color: #d4d4d4;">
+                                        -Language CSharp</span></div><br>
+                        <div><span style="color: #6a9955;"># instantize in powershell code</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">Program</span><span
+                                        style="color: #d4d4d4;">]::Main()</span></div>
+                </div>
+        </div>
+        <h3>Lists 📃</h3>
+        <p>c#</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">using</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">System</span><span style="color: #d4d4d4;">;</span>
+                        </div>
+                        <div><span style="color: #569cd6;">using</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">System</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #4ec9b0;">Collections</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #4ec9b0;">Generic</span><span style="color: #d4d4d4;">;</span>
+                        </div><br>
+                        <div><span style="color: #6a9955;">// List = data structure that represents a list of objects
+                                        that can be accessed by index.</span></div>
+                        <div><span style="color: #6a9955;">// Similar to array, but can dynamically increase/decrease in
+                                        size</span></div>
+                        <div><span style="color: #6a9955;">// using System.Collections.Generic;</span></div>
+                        <div><span style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Program</span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">static</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">Main</span><span style="color: #d4d4d4;">()</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">// declaring a list</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">List</span><span
+                                        style="color: #d4d4d4;">&lt;</span><span
+                                        style="color: #4ec9b0;">String</span><span style="color: #d4d4d4;">&gt;
+                                </span><span style="color: #9cdcfe;">food</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">new</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">List</span><span
+                                        style="color: #d4d4d4;">&lt;</span><span
+                                        style="color: #4ec9b0;">String</span><span
+                                        style="color: #d4d4d4;">&gt;();</span></div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">// add method</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">food</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Add</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"Pizza"</span><span style="color: #d4d4d4;">);</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">food</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Add</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"Hamburger"</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">food</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Add</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"hotdog"</span><span style="color: #d4d4d4;">);</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">food</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Add</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"fries"</span><span style="color: #d4d4d4;">);</span>
+                        </div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">//acessing elements of the list</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">food</span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #b5cea8;">0</span><span
+                                        style="color: #d4d4d4;">]);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">food</span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #b5cea8;">2</span><span
+                                        style="color: #d4d4d4;">]);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Sep</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">seperator</span><span style="color: #d4d4d4;">();</span>
+                        </div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">//iterating through a list</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">foreach</span><span style="color: #d4d4d4;">
+                                        (</span><span style="color: #569cd6;">var</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #9cdcfe;">item</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #c586c0;">in</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #9cdcfe;">food</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span style="color: #d4d4d4;">
+                                        (</span><span style="color: #9cdcfe;">item</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Sep</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">seperator</span><span style="color: #d4d4d4;">();</span>
+                        </div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">//remove &nbsp;method</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">food</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Remove</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"Hamburger"</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">foreach</span><span style="color: #d4d4d4;">
+                                        (</span><span style="color: #569cd6;">var</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #9cdcfe;">item</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #c586c0;">in</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #9cdcfe;">food</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span style="color: #d4d4d4;">
+                                        (</span><span style="color: #9cdcfe;">item</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Sep</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">seperator</span><span style="color: #d4d4d4;">();</span>
+                        </div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">//insert method</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">food</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Insert</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #ce9178;">"Succi"</span><span style="color: #d4d4d4;">);</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">foreach</span><span style="color: #d4d4d4;">
+                                        (</span><span style="color: #569cd6;">var</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #9cdcfe;">item</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #c586c0;">in</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #9cdcfe;">food</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span style="color: #d4d4d4;">
+                                        (</span><span style="color: #9cdcfe;">item</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Sep</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">seperator</span><span style="color: #d4d4d4;">();</span>
+                        </div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">//count property</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">food</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">Count</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Sep</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">seperator</span><span style="color: #d4d4d4;">();</span>
+                        </div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">//index method</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">food</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">IndexOf</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"Succi"</span><span style="color: #d4d4d4;">));</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Sep</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">seperator</span><span style="color: #d4d4d4;">();</span>
+                        </div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">//lastIndex</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">food</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">LastIndexOf</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"Succi"</span><span style="color: #d4d4d4;">));</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Sep</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">seperator</span><span style="color: #d4d4d4;">();</span>
+                        </div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">//contains method</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">food</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Contains</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"Succi"</span><span style="color: #d4d4d4;">));</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Sep</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">seperator</span><span style="color: #d4d4d4;">();</span>
+                        </div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">//sort method</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">food</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Sort</span><span style="color: #d4d4d4;">();</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">foreach</span><span style="color: #d4d4d4;">
+                                        (</span><span style="color: #569cd6;">var</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #9cdcfe;">item</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #c586c0;">in</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #9cdcfe;">food</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span style="color: #d4d4d4;">
+                                        (</span><span style="color: #9cdcfe;">item</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Sep</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">seperator</span><span style="color: #d4d4d4;">();</span>
+                        </div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">//clear method</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">food</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Clear</span><span style="color: #d4d4d4;">();</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">foreach</span><span style="color: #d4d4d4;">
+                                        (</span><span style="color: #569cd6;">var</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #9cdcfe;">item</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #c586c0;">in</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #9cdcfe;">food</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span style="color: #d4d4d4;">
+                                        (</span><span style="color: #9cdcfe;">item</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">food</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Add</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"Pizza"</span><span style="color: #d4d4d4;">);</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">food</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Add</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"Hamburger"</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">food</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Add</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"hotdog"</span><span style="color: #d4d4d4;">);</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">food</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Add</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"fries"</span><span style="color: #d4d4d4;">);</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Sep</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">seperator</span><span style="color: #d4d4d4;">();</span>
+                        </div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">//ToArray method</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">string</span><span style="color: #d4d4d4;">[]
+                                </span><span style="color: #9cdcfe;">foodArray</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">food</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">ToArray</span><span style="color: #d4d4d4;">();</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">foreach</span><span style="color: #d4d4d4;">
+                                        (</span><span style="color: #569cd6;">var</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #9cdcfe;">item</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #c586c0;">in</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #9cdcfe;">foodArray</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span style="color: #d4d4d4;">
+                                        (</span><span style="color: #9cdcfe;">item</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        <p>powershell</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">. .\Sep.ps1</span></div>
+                        <div><span style="color: #6a9955;"># declaring a list</span></div>
+                        <div><span style="color: #9cdcfe;">$food</span><span style="color: #d4d4d4;"> = [</span><span
+                                        style="color: #569cd6;">System.Collections.Generic.List</span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #569cd6;">string</span><span
+                                        style="color: #d4d4d4;">]]::new() </span></div><br>
+                        <div><span style="color: #6a9955;"># adding elements to the list</span></div>
+                        <div><span style="color: #9cdcfe;">$food</span><span style="color: #dcdcaa;">.Add</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"Pizza"</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">$food</span><span style="color: #dcdcaa;">.Add</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"Hamburger"</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">$food</span><span style="color: #dcdcaa;">.Add</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"hotdog"</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">$food</span><span style="color: #dcdcaa;">.Add</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"fries"</span><span style="color: #d4d4d4;">)</span>
+                        </div><br>
+                        <div><span style="color: #6a9955;">#getType</span></div>
+                        <div><span style="color: #9cdcfe;">$food</span><span
+                                        style="color: #dcdcaa;">.GetType</span><span style="color: #d4d4d4;">().Name
+                                </span><span style="color: #6a9955;">#List </span></div>
+                        <div><span style="color: #d4d4d4;">seperator</span></div><br>
+                        <div><span style="color: #6a9955;"># acessing elements of the list</span></div>
+                        <div><span style="color: #9cdcfe;">$food</span><span style="color: #d4d4d4;">[</span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">]</span></div>
+                        <div><span style="color: #9cdcfe;">$food</span><span style="color: #d4d4d4;">[</span><span
+                                        style="color: #b5cea8;">2</span><span style="color: #d4d4d4;">]</span></div>
+                        <div><span style="color: #d4d4d4;">seperator</span></div><br>
+                        <div><span style="color: #6a9955;"># iterating through a list</span></div>
+                        <div><span style="color: #c586c0;">foreach</span><span style="color: #d4d4d4;"> (</span><span
+                                        style="color: #9cdcfe;">$item</span><span style="color: #d4d4d4;">
+                                        &nbsp;</span><span style="color: #c586c0;">in</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">$food</span><span
+                                        style="color: #d4d4d4;">) {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">$item</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                        <div><span style="color: #d4d4d4;">seperator</span></div><br>
+                        <div><span style="color: #6a9955;"># remove &nbsp;method</span></div>
+                        <div><span style="color: #9cdcfe;">$food</span><span style="color: #dcdcaa;">.Remove</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"hotdog"</span><span style="color: #d4d4d4;">) &gt;
+                                </span><span style="color: #569cd6;">$null</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #6a9955;"># return true directed to null</span></div>
+                        <div><span style="color: #c586c0;">foreach</span><span style="color: #d4d4d4;"> (</span><span
+                                        style="color: #9cdcfe;">$item</span><span style="color: #d4d4d4;">
+                                        &nbsp;</span><span style="color: #c586c0;">in</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">$food</span><span
+                                        style="color: #d4d4d4;">) {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">$item</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                        <div><span style="color: #d4d4d4;">seperator</span></div><br>
+                        <div><span style="color: #6a9955;"># insert method</span></div>
+                        <div><span style="color: #9cdcfe;">$food</span><span style="color: #dcdcaa;">.Insert</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #b5cea8;">0</span><span
+                                        style="color: #d4d4d4;">, </span><span
+                                        style="color: #ce9178;">"Succi"</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #c586c0;">foreach</span><span style="color: #d4d4d4;"> (</span><span
+                                        style="color: #9cdcfe;">$item</span><span style="color: #d4d4d4;">
+                                        &nbsp;</span><span style="color: #c586c0;">in</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">$food</span><span
+                                        style="color: #d4d4d4;">) {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">$item</span></div>
+                        <div><span style="color: #d4d4d4;">} </span></div>
+                        <div><span style="color: #d4d4d4;">seperator</span></div><br>
+                        <div><span style="color: #6a9955;"># count property</span></div>
+                        <div><span style="color: #9cdcfe;">$food</span><span style="color: #dcdcaa;">.Count</span></div>
+                        <div><span style="color: #d4d4d4;">seperator</span></div><br>
+                        <div><span style="color: #6a9955;"># index method</span></div>
+                        <div><span style="color: #9cdcfe;">$food</span><span
+                                        style="color: #dcdcaa;">.IndexOf</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"Succi"</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">seperator</span></div><br>
+                        <div><span style="color: #6a9955;"># lastIndex</span></div>
+                        <div><span style="color: #9cdcfe;">$food</span><span
+                                        style="color: #dcdcaa;">.LastIndexOf</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"Succi"</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">seperator</span></div><br>
+                        <div><span style="color: #6a9955;"># contains method</span></div>
+                        <div><span style="color: #9cdcfe;">$food</span><span
+                                        style="color: #dcdcaa;">.Contains</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"Succi"</span><span style="color: #d4d4d4;">)</span>
+                        </div><br>
+                        <div><span style="color: #6a9955;"># sort method</span></div>
+                        <div><span style="color: #9cdcfe;">$food</span><span style="color: #dcdcaa;">.Clear</span><span
+                                        style="color: #d4d4d4;">()</span></div>
+                        <div><span style="color: #9cdcfe;">$food</span><span style="color: #dcdcaa;">.Add</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"Pizza"</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">$food</span><span style="color: #dcdcaa;">.Add</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"Hamburger"</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">$food</span><span style="color: #dcdcaa;">.Add</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"hotdog"</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">$food</span><span style="color: #dcdcaa;">.Add</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"fries"</span><span style="color: #d4d4d4;">) </span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">seperator</span></div><br>
+                        <div><span style="color: #6a9955;"># ToArray method</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">string</span><span
+                                        style="color: #d4d4d4;">[]] </span><span
+                                        style="color: #9cdcfe;">$foodArray</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #9cdcfe;">$food</span><span
+                                        style="color: #dcdcaa;">.ToArray</span><span style="color: #d4d4d4;">()</span>
+                        </div>
+                        <div><span style="color: #c586c0;">foreach</span><span style="color: #d4d4d4;"> (</span><span
+                                        style="color: #9cdcfe;">$item</span><span style="color: #d4d4d4;">
+                                        &nbsp;</span><span style="color: #c586c0;">in</span><span
+                                        style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">$foodArray</span><span style="color: #d4d4d4;">)
+                                        {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">$item</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+
+
+
+
 
 
 
