@@ -48,6 +48,16 @@
                         font-size: smaller !important;
                         list-style-type: decimal;
                 }
+
+                table,
+                th,
+                td {
+                        color: bisque;
+                        text-align: center;
+                        border: 1px solid white;
+                        border-collapse: collapse;
+                        font-size: small;
+                }
         </style>
         <title>JavaScript</title>
 </head>
@@ -3825,7 +3835,7 @@
                 </ul>
         </details>
 
-        <details class="dad">
+        <details  class="dad">
                 <summary>Data types</summary>
                 <ul>
                         <li>
@@ -4618,31 +4628,507 @@
 
                                                 </li>
                                         </ul>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 </details>
                         </li>
                         <li>
                                 <details>
                                         <summary>Strings</summary>
+                                        <ul>
+                                                <li>
+                                                        <h3>Strings</h3>
+                                                        <p>In JavaScript, the textual data is stored as strings. There
+                                                                is no separate type for a single character.</p>
+                                                        <p>The internal format for strings is always UTF-16, it is not
+                                                                tied to the page encoding.</p>
+                                                </li>
+                                                <li>
+                                                        <h3>Quotes</h3>
+                                                        <p>Strings can be enclosed within either single quotes, double
+                                                                quotes or backticks:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #6a9955;">//quotes
+                                                                                        types </span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">single</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">'single-quoted'</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">double</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"double-quoted"</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">backticks</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">`backticks`</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div><br><br><br>
+                                                                        <div><span style="color: #6a9955;">// Single and
+                                                                                        double quotes are essentially
+                                                                                        the same. Backticks, however,
+                                                                                        allow us to embed any expression
+                                                                                        into the string, by wrapping it
+                                                                                        in ${…}:</span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">sum</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">a</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">b</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">return</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">a</span><span
+                                                                                        style="color: #d4d4d4;"> +
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">b</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">`1 + 2 =
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">${</span><span
+                                                                                        style="color: #dcdcaa;">sum</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #b5cea8;">1</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">2</span><span
+                                                                                        style="color: #d4d4d4;">)</span><span
+                                                                                        style="color: #569cd6;">}</span><span
+                                                                                        style="color: #ce9178;">.`</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        1 + 2 = 3.</span></div>
+                                                                        <br><br><br>
+                                                                        <div><span style="color: #6a9955;">// Another
+                                                                                        advantage of using backticks is
+                                                                                        that they allow a string to span
+                                                                                        multiple lines:</span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">guestList</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">`Guests:</span>
+                                                                        </div>
+                                                                        <div><span style="color: #ce9178;">&nbsp;*
+                                                                                        John</span></div>
+                                                                        <div><span style="color: #ce9178;">&nbsp;*
+                                                                                        Pete</span></div>
+                                                                        <div><span style="color: #ce9178;">&nbsp;*
+                                                                                        Mary</span></div>
+                                                                        <div><span style="color: #ce9178;">`</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">guestList</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        a list of guests, multiple
+                                                                                        lines</span></div>
+                                                                </div>
+
+
+                                                        </div>
+
+
+
+
+                                                </li>
+                                                <li>
+                                                        <h3>Special characters</h3>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #6a9955;">// new line
+                                                                                        character \n</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">"Guests:</span><span
+                                                                                        style="color: #d7ba7d;">\n</span><span
+                                                                                        style="color: #ce9178;"> *
+                                                                                        John</span><span
+                                                                                        style="color: #d7ba7d;">\n</span><span
+                                                                                        style="color: #ce9178;"> *
+                                                                                        Pete</span><span
+                                                                                        style="color: #d7ba7d;">\n</span><span
+                                                                                        style="color: #ce9178;"> *
+                                                                                        Mary"</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        a multiline list of guests, same
+                                                                                        as above</span></div>
+                                                                </div>
+                                                        </div>
+
+                                                        <p>There are other, less common special characters:</p>
+                                                        <table>
+                                                                <thead>
+                                                                        <tr>
+                                                                                <th>Character</th>
+                                                                                <th>Description</th>
+                                                                        </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                        <tr>
+                                                                                <td><code>\n</code></td>
+                                                                                <td>New line</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                                <td><code>\r</code></td>
+                                                                                <td>In Windows text files a combination
+                                                                                        of two characters
+                                                                                        <code>\r\n</code> represents a
+                                                                                        new break, while on non-Windows
+                                                                                        OS it’s just <code>\n</code>.
+                                                                                        That’s for historical reasons,
+                                                                                        most Windows software also
+                                                                                        understands <code>\n</code>.
+                                                                                </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                                <td><code>\'</code>,&nbsp;<code>\"</code>,&nbsp;<code>\`</code>
+                                                                                </td>
+                                                                                <td>Quotes</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                                <td><code>\\</code></td>
+                                                                                <td>Backslash</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                                <td><code>\t</code></td>
+                                                                                <td>Tab</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                                <td><code>\b</code>, <code>\f</code>,
+                                                                                        <code>\v</code>
+                                                                                </td>
+                                                                                <td>Backspace, Form Feed, Vertical Tab –
+                                                                                        mentioned for completeness,
+                                                                                        coming from old times, not used
+                                                                                        nowadays (you can forget them
+                                                                                        right now).</td>
+                                                                        </tr>
+                                                                </tbody>
+                                                        </table>
+                                                </li>
+                                                <li>
+                                                        <h3>String length</h3>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">`Ali`</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #4fc1ff;">length</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        3 </span></div>
+                                                                </div>
+                                                        </div>
+
+                                                </li>
+                                                <li>
+                                                        <h3>Accessing characters</h3>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">str</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">`Hello`</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #6a9955;">// the first
+                                                                                        character</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">str</span><span
+                                                                                        style="color: #d4d4d4;">[</span><span
+                                                                                        style="color: #b5cea8;">0</span><span
+                                                                                        style="color: #d4d4d4;">]);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        H</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">str</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">at</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #b5cea8;">0</span><span
+                                                                                        style="color: #d4d4d4;">));
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        H</span></div><br><br><br>
+                                                                        <div><span style="color: #6a9955;">// the last
+                                                                                        character</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">str</span><span
+                                                                                        style="color: #d4d4d4;">[</span><span
+                                                                                        style="color: #9cdcfe;">str</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #4fc1ff;">length</span><span
+                                                                                        style="color: #d4d4d4;"> -
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">1</span><span
+                                                                                        style="color: #d4d4d4;">]);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        o</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">str</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">at</span><span
+                                                                                        style="color: #d4d4d4;">(-</span><span
+                                                                                        style="color: #b5cea8;">1</span><span
+                                                                                        style="color: #d4d4d4;">));</span>
+                                                                        </div><br><br><br>
+                                                                        <div><span style="color: #6a9955;">// We can
+                                                                                        also iterate over characters
+                                                                                        using for..of: </span></div>
+                                                                        <div><span
+                                                                                        style="color: #c586c0;">for</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        (</span><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">char</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">of</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"Hello"</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">char</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        H,e,l,l,o (char becomes "H",
+                                                                                        then "e", then "l" etc)</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+
+                                                </li>
+                                                <li>
+                                                        <h3>Strings are immutable</h3>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #6a9955;">// Strings
+                                                                                        can’t be changed in JavaScript.
+                                                                                        It is impossible to change a
+                                                                                        character. Let’s try it to show
+                                                                                        that it doesn’t work:</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">str</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">'Hi'</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">str</span><span
+                                                                                        style="color: #d4d4d4;">[</span><span
+                                                                                        style="color: #b5cea8;">0</span><span
+                                                                                        style="color: #d4d4d4;">] =
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">'h'</span><span
+                                                                                        style="color: #d4d4d4;">;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        error</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">str</span><span
+                                                                                        style="color: #d4d4d4;">[</span><span
+                                                                                        style="color: #b5cea8;">0</span><span
+                                                                                        style="color: #d4d4d4;">]);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        doesn't work</span></div>
+                                                                        <br><br><br>
+                                                                        <div><span style="color: #6a9955;">// The usual
+                                                                                        workaround is to create a whole
+                                                                                        new string and assign it to str
+                                                                                        instead of the old one. For
+                                                                                        instance:</span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">str</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">'Hi'</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">str</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">'h'</span><span
+                                                                                        style="color: #d4d4d4;"> +
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">str</span><span
+                                                                                        style="color: #d4d4d4;">[</span><span
+                                                                                        style="color: #b5cea8;">1</span><span
+                                                                                        style="color: #d4d4d4;">];
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        replace the string</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">str</span><span
+                                                                                        style="color: #d4d4d4;"> );
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        hi</span></div>
+                                                                </div>
+                                                        </div>
+
+                                                </li>
+                                                <li>
+                                                        <h3>Changing the case</h3>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #6a9955;">// Methods
+                                                                                        toLowerCase() and toUpperCase()
+                                                                                        change the case:</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">'Interface'</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">toUpperCase</span><span
+                                                                                        style="color: #d4d4d4;">());
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        INTERFACE</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">'Interface'</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">toLowerCase</span><span
+                                                                                        style="color: #d4d4d4;">());
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        interface</span></div>
+                                                                        <br><br><br>
+                                                                        <div><span style="color: #6a9955;">// Or, if we
+                                                                                        want a single character
+                                                                                        lowercased:</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">'Interface'</span><span
+                                                                                        style="color: #d4d4d4;">[</span><span
+                                                                                        style="color: #b5cea8;">0</span><span
+                                                                                        style="color: #d4d4d4;">].</span><span
+                                                                                        style="color: #dcdcaa;">toLowerCase</span><span
+                                                                                        style="color: #d4d4d4;">());
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        'i' </span></div>
+                                                                </div>
+                                                        </div>
+
+                                                </li>
+                                                <li>
+                                                        <h3>Searching for a substring</h3>
+                                                        <p>There are multiple ways to look for a substring within a
+                                                                string.</p>
+
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+
+                                                        </div>
+
+                                                </li>
+                                                <li>
+                                                        <h3>Getting a substring</h3>
+                                                </li>
+                                                <li>
+                                                        <h3>Comparing strings</h3>
+                                                </li>
+                                        </ul>
+
                                 </details>
                         </li>
                         <li>
