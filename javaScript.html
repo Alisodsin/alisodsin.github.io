@@ -8814,8 +8814,392 @@
                                 </details>
                         </li>
                         <li>
-                                <details >
+                                <details>
                                         <summary>Iterables</summary>
+                                        <ul>
+                                                <li>
+                                                        <h3>Iterables</h3>
+                                                        <p>Iterable objects are a generalization of arrays. That’s a
+                                                                concept that allows us to make any object useable in a
+                                                                for..of loop.</p>
+                                                        <p>Of course, Arrays are iterable. But there are many other
+                                                                built-in objects, that are iterable as well. For
+                                                                instance, strings are also iterable.</p>
+                                                        <p>If an object isn’t technically an array, but represents a
+                                                                collection (list, set) of something, then for..of is a
+                                                                great syntax to loop over it, so let’s see how to make
+                                                                it work.</p>
+
+
+
+
+                                                </li>
+                                                <li>
+                                                        <h3>Symbol.iterator</h3>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">range</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">from</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">1</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">to</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">50</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        [</span><span
+                                                                                        style="color: #9cdcfe;">Symbol</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #4fc1ff;">iterator</span><span
+                                                                                        style="color: #d4d4d4;">]()
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #c586c0;">return</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">current</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">this</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">from</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">last</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">this</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">to</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">next</span><span
+                                                                                        style="color: #d4d4d4;">()
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #c586c0;">if</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        (</span><span
+                                                                                        style="color: #569cd6;">this</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">current</span><span
+                                                                                        style="color: #d4d4d4;"> &lt;=
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">this</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">last</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">return</span><span
+                                                                                        style="color: #d4d4d4;"> {
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">done</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">false</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">value</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">this</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">current</span><span
+                                                                                        style="color: #d4d4d4;">++
+                                                                                        };</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; } </span><span
+                                                                                        style="color: #c586c0;">else</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">return</span><span
+                                                                                        style="color: #d4d4d4;"> {
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">done</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">true</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        };</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; }</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                                        }</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; }</span></div><br>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div><br>
+                                                                        <div><span
+                                                                                        style="color: #c586c0;">for</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        (</span><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">num</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">of</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">range</span><span
+                                                                                        style="color: #d4d4d4;">) {
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        num =
+                                                                                        &nbsp;range[Symbol.iterator]().next().value
+                                                                                </span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">num</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        1, then 2, 3, 4, 5 </span></div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+
+                                                </li>
+                                                <li>
+                                                        <h3>String is iterable</h3>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #6a9955;">// For a
+                                                                                        string, for..of loops over its
+                                                                                        characters:</span></div>
+                                                                        <div><span
+                                                                                        style="color: #c586c0;">for</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        (</span><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">char</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">of</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"test"</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        triggers 4 times: once for each
+                                                                                        character</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">char</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        t, then e, then s, then t</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">"-"</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">repeat</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #b5cea8;">10</span><span
+                                                                                        style="color: #d4d4d4;">));</span>
+                                                                        </div><br><br><br>
+                                                                        <div><span style="color: #6a9955;">// And it
+                                                                                        works correctly with surrogate
+                                                                                        pairs!</span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">str</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">'𝒳😂'</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #c586c0;">for</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        (</span><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">char</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">of</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">str</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">char</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        𝒳, and then 😂</span></div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+
+                                                </li>
+                                                <li>
+                                                        <h3>Calling an iterator explicitly</h3>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">str</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"Hello"</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div><br>
+                                                                        <div><span style="color: #6a9955;">// does the
+                                                                                        same as</span></div>
+                                                                        <div><span style="color: #6a9955;">// for (let
+                                                                                        char of str) alert(char);</span>
+                                                                        </div><br>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">iterator</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">str</span><span
+                                                                                        style="color: #d4d4d4;">[</span><span
+                                                                                        style="color: #9cdcfe;">Symbol</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #4fc1ff;">iterator</span><span
+                                                                                        style="color: #d4d4d4;">]();</span>
+                                                                        </div><br>
+                                                                        <div><span
+                                                                                        style="color: #c586c0;">while</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        (</span><span
+                                                                                        style="color: #569cd6;">true</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">result</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">iterator</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">next</span><span
+                                                                                        style="color: #d4d4d4;">();</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">if</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        (</span><span
+                                                                                        style="color: #9cdcfe;">result</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">done</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">break</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">result</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">value</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        outputs characters one by
+                                                                                        one</span></div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+
+                                                </li>
+                                                <li>
+                                                        <h3>Iterables and array-likes</h3>
+                                                </li>
+                                                <li>
+                                                        <h3>Array.from</h3>
+                                                </li>
+                                        </ul>
 
 
 
@@ -8833,7 +9217,7 @@
 
 
 
-                                        
+
                                 </details>
                         </li>
                         <li>
