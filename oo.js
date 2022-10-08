@@ -24,7 +24,7 @@ Array.from(h3).forEach(element => {
     a.href = `#${element.id}`;
     a.style.textDecoration = "none";
     a.style.color = "#00ffff";
-    a.innerText = element.innerText;
+    a.textContent = element.textContent;
     a.onclick = function (e) {
         if ([...previousState].at(-1)) {
             let sub = document.getElementById([...previousState].at(-1));
@@ -50,4 +50,4 @@ up.style.cursor = "pointer";
 document.body.prepend(up);
 up.onclick = _ => {
     a.click();
-}
+} 

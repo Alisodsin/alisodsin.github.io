@@ -7,6 +7,7 @@
         <link rel="shortcut icon" href="./javascript.ico" type="image/x-icon">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="./oo.js" defer></script>
+        <script src="code.js" defer></script>
         <style>
                 .dad {
                         color: #f44336 !important;
@@ -3836,8 +3837,7 @@
                         </li>
                 </ul>
         </details>
-
-        <details  class="dad">
+        <details class="dad">
                 <summary>Data types</summary>
                 <ul>
                         <li>
@@ -11917,22 +11917,417 @@
                                                                         </div>
                                                                 </div>
                                                         </div>
-
                                                 </li>
                                                 <li>
                                                         <h3>Nested destructuring</h3>
+                                                        <p>If an object or an array contain other nested objects and
+                                                                arrays, we can use more complex left-side patterns to
+                                                                extract deeper portions.</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">options</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">size</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">width</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">100</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">height</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">200</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        },</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">items</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        [</span><span
+                                                                                        style="color: #ce9178;">"Cake"</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"Donut"</span><span
+                                                                                        style="color: #d4d4d4;">],</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">extra</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">true</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">};</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;"> {
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">size</span><span
+                                                                                        style="color: #d4d4d4;">: {
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">width</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">height</span><span
+                                                                                        style="color: #d4d4d4;"> },
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">items</span><span
+                                                                                        style="color: #d4d4d4;">:
+                                                                                        [</span><span
+                                                                                        style="color: #9cdcfe;">item1</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">item2</span><span
+                                                                                        style="color: #d4d4d4;">],
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">title</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"Menu"</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">extra</span><span
+                                                                                        style="color: #d4d4d4;"> } =
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">options</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">title</span><span
+                                                                                        style="color: #d4d4d4;">);</span><span
+                                                                                        style="color: #6a9955;">// Menu
+                                                                                </span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">width</span><span
+                                                                                        style="color: #d4d4d4;">);</span><span
+                                                                                        style="color: #6a9955;">// 100
+                                                                                </span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">height</span><span
+                                                                                        style="color: #d4d4d4;">);</span><span
+                                                                                        style="color: #6a9955;">// 200
+                                                                                </span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">item1</span><span
+                                                                                        style="color: #d4d4d4;">);</span><span
+                                                                                        style="color: #6a9955;">// Cake
+                                                                                </span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">item2</span><span
+                                                                                        style="color: #d4d4d4;">);</span><span
+                                                                                        style="color: #6a9955;">// Donut
+                                                                                        &nbsp;</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">extra</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        true</span></div>
+                                                                </div>
+                                                        </div>
+                                                        <p>All properties of options object except extra that is absent
+                                                                in the left part, are assigned to corresponding
+                                                                variables:</p>
+                                                        <img style="background-color:white;"
+                                                                src="https://javascript.info/article/destructuring-assignment/destructuring-complex.svg">
+
+                                                        <p>Note that there are no variables for size and items, as we
+                                                                take their content instead.</p>
+
                                                 </li>
                                                 <li>
                                                         <h3>Smart function parameters</h3>
-                                                </li>
-                                                <li>
-                                                        <h3></h3>
-                                                </li>
-                                                <li>
-                                                        <h3></h3>
-                                                </li>
-                                                <li>
-                                                        <h3></h3>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #6a9955;">// We can
+                                                                                        pass parameters as an object,
+                                                                                        and the function immediately
+                                                                                        destructurizes them into
+                                                                                        variables:</span></div>
+                                                                        <div><span style="color: #6a9955;">// we pass
+                                                                                        object to function</span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">options</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">title</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span style="color: #ce9178;">"My
+                                                                                        menu"</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">items</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        [</span><span
+                                                                                        style="color: #ce9178;">"Item1"</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"Item2"</span><span
+                                                                                        style="color: #d4d4d4;">]</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">};</span>
+                                                                        </div><br>
+                                                                        <div><span style="color: #6a9955;">// ...and it
+                                                                                        immediately expands it to
+                                                                                        variables</span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">showMenu</span><span
+                                                                                        style="color: #d4d4d4;">({
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">title</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"Untitled"</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">width</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">200</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">height</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">100</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">items</span><span
+                                                                                        style="color: #d4d4d4;"> = [] })
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        title, items – taken from
+                                                                                        options,</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        width, height – defaults
+                                                                                        used</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">`</span><span
+                                                                                        style="color: #569cd6;">${</span><span
+                                                                                        style="color: #9cdcfe;">title</span><span
+                                                                                        style="color: #569cd6;">}</span><span
+                                                                                        style="color: #ce9178;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">${</span><span
+                                                                                        style="color: #9cdcfe;">width</span><span
+                                                                                        style="color: #569cd6;">}</span><span
+                                                                                        style="color: #ce9178;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">${</span><span
+                                                                                        style="color: #9cdcfe;">height</span><span
+                                                                                        style="color: #569cd6;">}</span><span
+                                                                                        style="color: #ce9178;">`</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        My Menu 200 100</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">items</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        Item1, Item2</span></div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #dcdcaa;">showMenu</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">options</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">"-"</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">repeat</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #b5cea8;">10</span><span
+                                                                                        style="color: #d4d4d4;">));</span>
+                                                                        </div><br><br><br>
+                                                                        <div><span style="color: #6a9955;">// We can
+                                                                                        also use more complex
+                                                                                        destructuring with nested
+                                                                                        objects and colon
+                                                                                        mappings:</span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">showMenu</span><span
+                                                                                        style="color: #d4d4d4;">({</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">title</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"Untitled"</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">width</span><span
+                                                                                        style="color: #d4d4d4;">:
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">w</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">100</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                        &nbsp;</span><span
+                                                                                        style="color: #6a9955;">// width
+                                                                                        goes to w</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">height</span><span
+                                                                                        style="color: #d4d4d4;">:
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">h</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">200</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        height goes to h</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">items</span><span
+                                                                                        style="color: #d4d4d4;">:
+                                                                                        [</span><span
+                                                                                        style="color: #9cdcfe;">item1</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">item2</span><span
+                                                                                        style="color: #d4d4d4;">]
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        items first element goes to
+                                                                                        item1, second to item2</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">}) {</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">`</span><span
+                                                                                        style="color: #569cd6;">${</span><span
+                                                                                        style="color: #9cdcfe;">title</span><span
+                                                                                        style="color: #569cd6;">}</span><span
+                                                                                        style="color: #ce9178;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">${</span><span
+                                                                                        style="color: #9cdcfe;">w</span><span
+                                                                                        style="color: #569cd6;">}</span><span
+                                                                                        style="color: #ce9178;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">${</span><span
+                                                                                        style="color: #9cdcfe;">h</span><span
+                                                                                        style="color: #569cd6;">}</span><span
+                                                                                        style="color: #ce9178;">`</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        My Menu 100 200</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">item1</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        Item1</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">item2</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        Item2</span></div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #dcdcaa;">showMenu</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">options</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+
                                                 </li>
                                         </ul>
                                 </details>
