@@ -3,9 +3,7 @@ ol.style.lineHeight = "25px";
 let previousState = new Set();
 let p = document.createElement("h2");
 let up = document.createElement("div");
-let a = document.createElement("a");
 p.id = "begin";
-a.href = `#${p.id}`;
 p.innerText = "JavaScript Index";
 p.style.color = "white";
 ol.style.height = "150px";
@@ -49,5 +47,5 @@ up.style.fontSize = "3rem";
 up.style.cursor = "pointer";
 document.body.prepend(up);
 up.onclick = _ => {
-    a.click();
+    p.scrollIntoView();
 } 

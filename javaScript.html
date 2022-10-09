@@ -7,6 +7,7 @@
         <link rel="shortcut icon" href="./javascript.ico" type="image/x-icon">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="./oo.js" defer></script>
+        <script src="code.js" defer></script>
         <style>
                 .dad {
                         color: #f44336 !important;
@@ -3836,7 +3837,7 @@
                         </li>
                 </ul>
         </details>
-        <details  class="dad">
+        <details open class="dad">
                 <summary>Data types</summary>
                 <ul>
                         <li>
@@ -12070,7 +12071,7 @@
                                                         <p>All properties of options object except extra that is absent
                                                                 in the left part, are assigned to corresponding
                                                                 variables:</p>
-                                                        <img style="background-color:white;"
+                                                        <img style="background-color:white;width:100%;"
                                                                 src="https://javascript.info/article/destructuring-assignment/destructuring-complex.svg">
 
                                                         <p>Note that there are no variables for size and items, as we
@@ -13316,8 +13317,1217 @@
                                 </details>
                         </li>
                         <li>
-                                <details >
+                                <details open>
                                         <summary>JSON methods, toJSON</summary>
+                                        <ul>
+                                                <li>
+                                                        <h3>JSON methods, toJSON</h3>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #6a9955;">/*Let’s say
+                                                                                        we have a complex object, and
+                                                                                        we’d like to convert it
+                                                                                        into</span></div>
+                                                                        <div><span style="color: #6a9955;">a string, to
+                                                                                        send it over a network, or just
+                                                                                        to output it for logging
+                                                                                        purposes.</span></div>
+                                                                        <div><span style="color: #6a9955;">Naturally,
+                                                                                        such a string should include all
+                                                                                        important properties.</span>
+                                                                        </div>
+                                                                        <div><span style="color: #6a9955;">We could
+                                                                                        implement the conversion like
+                                                                                        this:*/</span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">user</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">name</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"John"</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">age</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">30</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">toString</span><span
+                                                                                        style="color: #d4d4d4;">()
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #c586c0;">return</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">`{name:
+                                                                                        "</span><span
+                                                                                        style="color: #569cd6;">${this</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">name</span><span
+                                                                                        style="color: #569cd6;">}</span><span
+                                                                                        style="color: #ce9178;">", age:
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">${this</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">age</span><span
+                                                                                        style="color: #569cd6;">}</span><span
+                                                                                        style="color: #ce9178;">}`</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div>
+                                                                        <div><span style="color: #d4d4d4;">};</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #dcdcaa;">alert</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">user</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        {name: "John", age: 30} </span>
+                                                                        </div><br>
+                                                                        <div><span style="color: #6a9955;">// but we
+                                                                                        have a better method which is
+                                                                                        &nbsp;JSON.stringify </span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+
+
+                                                </li>
+                                                <li>
+                                                        <h3>JSON.stringify</h3>
+                                                        <p>JavaScript provides methods:</p>
+                                                        <ul class="son">
+                                                                <li><code>JSON.stringify</code> to convert objects into
+                                                                        JSON.</li>
+                                                                <li><code>JSON.parse</code> to convert JSON back into an
+                                                                        object.</li>
+                                                        </ul>
+                                                        <p>For instance, here we JSON.stringify a student:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">student</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">name</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">'John'</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">age</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">30</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">isAdmin</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">false</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">courses</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        [</span><span
+                                                                                        style="color: #ce9178;">'html'</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">'css'</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">'js'</span><span
+                                                                                        style="color: #d4d4d4;">],</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">spouse</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">null</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">};</span>
+                                                                        </div><br>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">json</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">JSON</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">stringify</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">student</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div><br>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #569cd6;">typeof</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">json</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        we've got a string!</span></div>
+                                                                        <br>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">json</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                </span><span style="color: #6a9955;">/*
+                                                                                        JSON-encoded object:</span>
+                                                                        </div>
+                                                                        <div><span style="color: #6a9955;">{</span>
+                                                                        </div>
+                                                                        <div><span style="color: #6a9955;">&nbsp;
+                                                                                        "name": "John",</span></div>
+                                                                        <div><span style="color: #6a9955;">&nbsp; "age":
+                                                                                        30,</span></div>
+                                                                        <div><span style="color: #6a9955;">&nbsp;
+                                                                                        "isAdmin": false,</span></div>
+                                                                        <div><span style="color: #6a9955;">&nbsp;
+                                                                                        "courses": ["html", "css",
+                                                                                        "js"],</span></div>
+                                                                        <div><span style="color: #6a9955;">&nbsp;
+                                                                                        "spouse": null</span></div>
+                                                                        <div><span style="color: #6a9955;">}</span>
+                                                                        </div>
+                                                                        <div><span style="color: #6a9955;">*/</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <p>JSON.stringify can be applied to primitives as well.</p>
+                                                        <p>JSON supports following data types:</p>
+                                                        <ul class="son">
+                                                                <li>Objects <code>{ ... }</code></li>
+                                                                <li>Arrays <code>[ ... ]</code></li>
+                                                                <li>Primitives:
+                                                                        <ul>
+                                                                                <li>strings,</li>
+                                                                                <li>numbers,</li>
+                                                                                <li>boolean values
+                                                                                        <code>true/false</code>,
+                                                                                </li>
+                                                                                <li><code>null</code>.</li>
+                                                                        </ul>
+                                                                </li>
+                                                        </ul>
+                                                        <p>For instance:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #6a9955;">// a number
+                                                                                        in JSON is just a number</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">JSON</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">stringify</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #b5cea8;">1</span><span
+                                                                                        style="color: #d4d4d4;">))
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        1</span></div><br>
+                                                                        <div><span style="color: #6a9955;">// a string
+                                                                                        in JSON is still a string, but
+                                                                                        double-quoted</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">JSON</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">stringify</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">'test'</span><span
+                                                                                        style="color: #d4d4d4;">))
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        "test"</span></div><br>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">JSON</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">stringify</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #569cd6;">true</span><span
+                                                                                        style="color: #d4d4d4;">));
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        true</span></div><br>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">JSON</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">stringify</span><span
+                                                                                        style="color: #d4d4d4;">([</span><span
+                                                                                        style="color: #b5cea8;">1</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">2</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">3</span><span
+                                                                                        style="color: #d4d4d4;">]));
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        [1,2,3]</span></div>
+                                                                </div>
+                                                        </div>
+                                                        <p>JSON is data-only language-independent specification, so some
+                                                                JavaScript-specific object properties are skipped by
+                                                                JSON.stringify.</p>
+                                                        <p>Namely:</p>
+                                                        <ul class="son">
+                                                                <li>Function properties (methods).</li>
+                                                                <li>Symbolic keys and values.</li>
+                                                                <li>Properties that store <code>undefined</code>.</li>
+                                                        </ul><br>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">user</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">sayHi</span><span
+                                                                                        style="color: #d4d4d4;">() {
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        ignored</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">"Hello"</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        },</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">[</span><span
+                                                                                        style="color: #dcdcaa;">Symbol</span><span
+                                                                                        style="color: #9cdcfe;">(</span><span
+                                                                                        style="color: #ce9178;">"id"</span><span
+                                                                                        style="color: #9cdcfe;">)]:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">123</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        ignored</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">something</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">undefined</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        ignored</span></div>
+                                                                        <div><span style="color: #d4d4d4;">};</span>
+                                                                        </div><br>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">JSON</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">stringify</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">user</span><span
+                                                                                        style="color: #d4d4d4;">));
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        {} (empty object)</span></div>
+                                                                </div>
+                                                        </div>
+                                                        <p>nested objects are supported and converted automatically.</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">meetup</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">title</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"Conference"</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">room</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">number</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">23</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">participants</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        [</span><span
+                                                                                        style="color: #ce9178;">"john"</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"ann"</span><span
+                                                                                        style="color: #d4d4d4;">]</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div>
+                                                                        <div><span style="color: #d4d4d4;">};</span>
+                                                                        </div><br>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">JSON</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">stringify</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">meetup</span><span
+                                                                                        style="color: #d4d4d4;">));</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                </span><span style="color: #6a9955;">/*
+                                                                                        The whole structure is
+                                                                                        stringified:</span></div>
+                                                                        <div><span style="color: #6a9955;">{</span>
+                                                                        </div>
+                                                                        <div><span style="color: #6a9955;">&nbsp;
+                                                                                        "title":"Conference",</span>
+                                                                        </div>
+                                                                        <div><span style="color: #6a9955;">&nbsp;
+                                                                                        "room":{"number":23,"participants":["john","ann"]},</span>
+                                                                        </div>
+                                                                        <div><span style="color: #6a9955;">}</span>
+                                                                        </div>
+                                                                        <div><span style="color: #6a9955;">*/</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <p>important limitation: there must be no circular references.
+                                                        </p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">room</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">number</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">23</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">};</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">meetup</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">title</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"Conference"</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">participants</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        [</span><span
+                                                                                        style="color: #ce9178;">"john"</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"ann"</span><span
+                                                                                        style="color: #d4d4d4;">]</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">};</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">meetup</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">place</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">room</span><span
+                                                                                        style="color: #d4d4d4;">; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #6a9955;">//
+                                                                                        meetup references room</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">room</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">occupiedBy</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">meetup</span><span
+                                                                                        style="color: #d4d4d4;">;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        room references meetup</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">JSON</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">stringify</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">meetup</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        Error: Converting circular
+                                                                                        structure to JSON</span></div>
+                                                                </div>
+                                                        </div>
+                                                </li>
+                                                <li>
+                                                        <h3>Excluding and transforming: replacer</h3>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #6a9955;">//stringfy
+                                                                                        cyclic object result in error
+                                                                                </span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">info</span><span
+                                                                                        style="color: #d4d4d4;"> = {
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">name</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"ali"</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">extra</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;"> {
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">tall</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">180</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">countery</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"egypt"</span><span
+                                                                                        style="color: #d4d4d4;"> }
+                                                                                        }</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">info</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">self</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">info</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #c586c0;">try</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">JSON</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">stringify</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">info</span><span
+                                                                                        style="color: #d4d4d4;">)</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">}
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">catch</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        (</span><span
+                                                                                        style="color: #9cdcfe;">error</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">error</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">message</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        cyclic object value</span></div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">"-"</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">repeat</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #b5cea8;">10</span><span
+                                                                                        style="color: #d4d4d4;">));</span>
+                                                                        </div><br><br><br>
+                                                                        <div><span style="color: #6a9955;">// we can use
+                                                                                        replacer -Array of properties to
+                                                                                        encode or a mapping function
+                                                                                        function(key, value)- to solve
+                                                                                        this problem</span></div><br>
+                                                                        <div><span style="color: #6a9955;">// replacer =
+                                                                                        Array</span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">infoJson</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">JSON</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">stringify</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">info</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                        [</span><span
+                                                                                        style="color: #ce9178;">"name"</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"extra"</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"tall"</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"countery"</span><span
+                                                                                        style="color: #d4d4d4;">])</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">infoJson</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        {"name":"ali","extra":{"tall":180,"countery":"egypt"}}</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">"-"</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">repeat</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #b5cea8;">10</span><span
+                                                                                        style="color: #d4d4d4;">));</span>
+                                                                        </div><br><br>
+                                                                        <div><span style="color: #6a9955;">// replacer =
+                                                                                        function</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">infoJson</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">JSON</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">stringify</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">info</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        (</span><span
+                                                                                        style="color: #9cdcfe;">key</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">value</span><span
+                                                                                        style="color: #d4d4d4;">) {
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">return</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        (</span><span
+                                                                                        style="color: #9cdcfe;">key</span><span
+                                                                                        style="color: #d4d4d4;"> ==
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"self"</span><span
+                                                                                        style="color: #d4d4d4;">) ?
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">undefined</span><span
+                                                                                        style="color: #d4d4d4;"> :
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">value</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        })</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">infoJson</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+
+
+                                                </li>
+                                                <li>
+                                                        <h3>Formatting: space</h3>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #6a9955;">// The third
+                                                                                        argument of
+                                                                                        JSON.stringify(value, replacer,
+                                                                                        space) is the number of spaces
+                                                                                        to use for pretty
+                                                                                        formatting.</span></div>
+                                                                        <div><span style="color: #6a9955;">// Here space
+                                                                                        = 2 tells JavaScript to show
+                                                                                        nested objects on multiple
+                                                                                        lines, with indentation of 2
+                                                                                        spaces inside an object:</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">user</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">name</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"John"</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">age</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">25</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">roles</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">isAdmin</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">false</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">isEditor</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">true</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div>
+                                                                        <div><span style="color: #d4d4d4;">};</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">JSON</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">stringify</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">user</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">null</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">2</span><span
+                                                                                        style="color: #d4d4d4;">));</span>
+                                                                        </div>
+                                                                        <div><span style="color: #6a9955;">/*</span>
+                                                                        </div>
+                                                                        <div><span style="color: #6a9955;">{</span>
+                                                                        </div>
+                                                                        <div><span style="color: #6a9955;">&nbsp;
+                                                                                        "name": "John",</span></div>
+                                                                        <div><span style="color: #6a9955;">&nbsp; "age":
+                                                                                        25,</span></div>
+                                                                        <div><span style="color: #6a9955;">&nbsp;
+                                                                                        "roles": {</span></div>
+                                                                        <div><span style="color: #6a9955;">&nbsp; &nbsp;
+                                                                                        "isAdmin": false,</span></div>
+                                                                        <div><span style="color: #6a9955;">&nbsp; &nbsp;
+                                                                                        "isEditor": true</span></div>
+                                                                        <div><span style="color: #6a9955;">&nbsp;
+                                                                                        }</span></div>
+                                                                        <div><span style="color: #6a9955;">}</span>
+                                                                        </div>
+                                                                        <div><span style="color: #6a9955;">*/</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+
+                                                </li>
+                                                <li>
+                                                        <h3>Custom “toJSON”</h3>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #6a9955;">// Like
+                                                                                        toString for string conversion,
+                                                                                        an object may provide method
+                                                                                        toJSON for to-JSON conversion.
+                                                                                        JSON.stringify automatically
+                                                                                        calls it if available.</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">meetup</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">title</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"Conference"</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">date</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">new</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">Date</span><span
+                                                                                        style="color: #d4d4d4;">(),</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">room</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;"> {
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">number</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">23</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        }</span></div>
+                                                                        <div><span style="color: #d4d4d4;">};</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">JSON</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">stringify</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">meetup</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">null</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">2</span><span
+                                                                                        style="color: #d4d4d4;">));</span>
+                                                                        </div>
+                                                                        <div><span style="color: #6a9955;">// Here we
+                                                                                        can see that date &nbsp;became a
+                                                                                        string. That’s because all dates
+                                                                                        have a built-in toJSON method
+                                                                                        which returns such kind of
+                                                                                        string.</span></div>
+                                                                        <div><span style="color: #6a9955;">/*</span>
+                                                                        </div>
+                                                                        <div><span style="color: #6a9955;">{</span>
+                                                                        </div>
+                                                                        <div><span style="color: #6a9955;">&nbsp;
+                                                                                        "title": "Conference",</span>
+                                                                        </div>
+                                                                        <div><span style="color: #6a9955;">&nbsp;
+                                                                                        "date":
+                                                                                        "2022-10-09T03:40:48.493Z",</span>
+                                                                        </div>
+                                                                        <div><span style="color: #6a9955;">&nbsp;
+                                                                                        "room": {</span></div>
+                                                                        <div><span style="color: #6a9955;">&nbsp; &nbsp;
+                                                                                        "number": 23</span></div>
+                                                                        <div><span style="color: #6a9955;">&nbsp;
+                                                                                        }</span></div>
+                                                                        <div><span style="color: #6a9955;">}</span>
+                                                                        </div>
+                                                                        <div><span style="color: #6a9955;">*/</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">"-"</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">repeat</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #b5cea8;">10</span><span
+                                                                                        style="color: #d4d4d4;">));</span>
+                                                                        </div><br><br><br>
+                                                                        <div><span style="color: #6a9955;">// add a
+                                                                                        custom toJSON for our
+                                                                                        object</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">meetup</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">number</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">23</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">toJSON</span><span
+                                                                                        style="color: #d4d4d4;">()
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #c586c0;">return</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">this</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">number</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div>
+                                                                        <div><span style="color: #d4d4d4;">};</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">JSON</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">stringify</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">meetup</span><span
+                                                                                        style="color: #d4d4d4;">));
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        23</span></div>
+                                                                </div>
+                                                        </div>
+
+
+                                                </li>
+                                                <li>
+                                                        <h3>JSON.parse</h3>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #6a9955;">// To decode
+                                                                                        a JSON-string, we need another
+                                                                                        method named JSON.parse</span>
+                                                                        </div>
+                                                                        <div><span style="color: #6a9955;">/*</span>
+                                                                        </div>
+                                                                        <div><span style="color: #6a9955;">let value =
+                                                                                        JSON.parse(str, [reviver]);
+                                                                                        reviver is a
+                                                                                        function(key,value)</span></div>
+                                                                        <div><span style="color: #6a9955;">*/</span>
+                                                                        </div>
+                                                                        <div><span style="color: #6a9955;">//
+                                                                                        stringified array</span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">numbers</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"[0, 1,
+                                                                                        2, 3]"</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">numbers</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">JSON</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">parse</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">numbers</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">numbers</span><span
+                                                                                        style="color: #d4d4d4;">[</span><span
+                                                                                        style="color: #b5cea8;">1</span><span
+                                                                                        style="color: #d4d4d4;">]);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        1</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">"-"</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">repeat</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #b5cea8;">10</span><span
+                                                                                        style="color: #d4d4d4;">));</span>
+                                                                        </div><br><br><br>
+                                                                        <div><span style="color: #6a9955;">// Or for
+                                                                                        nested objects:</span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">userData</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span style="color: #ce9178;">'{
+                                                                                        "name": "John", "age": 35,
+                                                                                        "isAdmin": false, "friends":
+                                                                                        [0,1,2,3] }'</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">user</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">JSON</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">parse</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">userData</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">user</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">"-"</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">repeat</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #b5cea8;">10</span><span
+                                                                                        style="color: #d4d4d4;">));</span>
+                                                                        </div><br><br><br>
+                                                                        <div><span style="color: #6a9955;">// Using
+                                                                                        reviver </span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">str</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">'{"title":"Conference","date":"2017-11-30T12:00:00.000Z"}'</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">meetup</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">JSON</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">parse</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">str</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        (</span><span
+                                                                                        style="color: #9cdcfe;">key</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">value</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">return</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        (</span><span
+                                                                                        style="color: #9cdcfe;">key</span><span
+                                                                                        style="color: #d4d4d4;"> ==
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"date"</span><span
+                                                                                        style="color: #d4d4d4;">) ?
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">new</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">Date</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">"2017-11-30T12:00:00.000Z"</span><span
+                                                                                        style="color: #d4d4d4;">) :
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">value</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">})</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">meetup</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">date</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">getFullYear</span><span
+                                                                                        style="color: #d4d4d4;">());
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        2017 </span></div>
+                                                                </div>
+                                                        </div>
+
+                                                </li>
+                                                
+                                        </ul>
 
                                         <p></p>
                                 </details>
