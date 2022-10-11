@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كلامنجى شات</title>
+    <link rel="shortcut icon" href="./imgs/Hopstarter-Soft-Scraps-User-Chat.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Changa:wght@500&amp;family=Lalezar&amp;family=Scheherazade&amp;display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            text-shadow: 20px 0px 19px black;
+            font-family: 'Scheherazade', serif;
+        }
+
+        div {
+
+
+            text-align: center;
+        }
+
+        input {
+            display: inline-block;
+            border-radius: 20px;
+            font-size: 2em;
+            font-weight: bold;
+            text-align: center;
+        }
+
+
+        #cgiirclogin {
+            overflow: auto;
+            margin: auto;
+            display: flex;
+            width: 50%;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            font-family: cursive;
+            border-radius: 50px;
+        }
+        label {
+            font-size: 5vw;
+        }
+        input:focus {
+            outline: none;
+            background-color: aqua;
+        }
+        @media screen and (max-width:565px) {
+
+            #cgiirclogin {
+                width: 80%;
+            }
+
+        }
+    </style>
+</head>
+<body class="w3-black">
+    <form class="w3-content" id="cgiirclogin" action="https://www.kalamngychat.com/chat-rooms/dardesh/" method="post"
+        autocomplete="off" name="cgiirclogin">
+        <div><label for="NickName">الاسم المستعار</label></div>
+        <div><input id="NickName" dir="ltr" id="NickName" name="Nickname" size="20" type="text">
+        </div>
+        </div>
+        <div><label for="room">الغرفه</label></div>
+        <div> <input name="Channel" value="#مصر" id="room"></div>
+        <div style="visibility: hidden;">dcfcs</div>
+        <div><input type="submit" value="ادخل" id="Submit"></div>
+    </form>
+    <script>
+        let inpu = document.querySelector("[name=Channel]"), inpu1 = document.getElementById("NickName"),
+            randoms = () => {
+                for (let f = 0; f < 100000000000; f++) {
+                    let ran = (Math.random() * 10000).toFixed();
+                    if (ran < 1000) { continue }
+                    inpu1.value = `Kalamngy_${ran}`;
+                    break;
+                }
+            }, uniCharCode = (event) => {
+                let char = event.which
+                if (char == 112 && inpu.value == "#مصر" && inpu == document.querySelector(":focus")) {
+                    inpu.value = "#رومانسية"
+                    return false;
+                }
+                else if (char == 112 && inpu.value == "#رومانسية" && inpu == document.querySelector(":focus")) {
+                    inpu.value = "#كل_العرب"
+                    return false;
+                }
+                else if (char == 112 && inpu.value == "#كل_العرب" && inpu == document.querySelector(":focus")) {
+                    inpu.value = "#فلسطين"
+                    return false;
+                }
+                else if (char == 112 && inpu.value == "#فلسطين" && inpu == document.querySelector(":focus")) {
+                    inpu.value = "#السعودية"
+                    return false;
+                }
+                else if (char == 112 && inpu.value == "#السعودية" && inpu == document.querySelector(":focus")) {
+                    inpu.value = "#الاردن"
+                    return false;
+                }
+                else if (char == 112 && inpu.value == "#الاردن" && inpu == document.querySelector(":focus")) {
+                    inpu.value = "#مصر"
+                    return false;
+                }
+                else if (char == 112 && inpu.value == "" && inpu == document.querySelector(":focus")) {
+                    inpu.value = "#مصر"
+                    return false;
+                }
+                else if (char == 112 && inpu1 == document.querySelector(":focus")) { randoms(); return false }
+            }
+        inpu.onkeydown = uniCharCode;
+        inpu1.onkeydown = uniCharCode;
+        randoms();
+    </script>
+</body>
+
+</html>

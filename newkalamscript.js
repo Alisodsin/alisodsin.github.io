@@ -80,7 +80,7 @@ let _fmain = parent.fmain,
         attributes: false,
         characterData: false
     },
-    audio = new Audio("https://arabylogin.herokuapp.com/mp3/Short.mp3"),
+    audio = new Audio("https://alisodsin.github.io/Short.mp3"),
     bll = new Audio("https://www.soundjay.com/phone/cell-phone-1-nr0.mp3"),
     check = setInterval(_ => {
         if (Boolean(Object.keys(_fwindowlist.Witems)[1])) {
@@ -215,7 +215,7 @@ function closAll() {
 }
 
 function goToLogin() {
-    open("https://arabylogin.herokuapp.com/kalamngy.html", "_self")
+    open("https://alisodsin.github.io/kalamngy.html", "_self") 
 }
 
 function efsl() {
