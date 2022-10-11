@@ -224,8 +224,8 @@ function efsl() {
 
 function togleMessage() {
     if (message1.includes("خير")) {
-        message1 = "انيكك جيتس او تلجرام؟";
-        message2 = "?";
+        message1 = "هاى";
+        message2 = "نتعرف؟";
         alert(`the bad message`);
     }
     else {
@@ -401,10 +401,3 @@ function keysHandelr(e) {
         e.preventDefault()
     }
 }
-
-// function powerfullReconnect() {
-//     let req = new XMLHttpRequest();
-//     req.open("post", `https://www.kalamngychat.com/chat-rooms/dardesh/`);
-//     req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-//     req.send(`Nickname=${myNick}&Channel=${roomName}`);
-// }
