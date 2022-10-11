@@ -10,6 +10,7 @@ let _fmain = parent.fmain,
     input,
     myNick,
     num = 0,
+    num1 = 0,
     blockObj = new Map(),
     buttons,
     message1 = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير",
@@ -25,6 +26,7 @@ let _fmain = parent.fmain,
     joinPerson,
     join,
     listTarget,
+    patterns = [["*[<=5]", /^.{1,6}$/], ["ar<=5", /^[\u0621-\u064A\xA0\x5F\0-9]{1,7}$/], ["*digts", /\d+$/], ["ar*", /^[\u0621-\u064A\xA0\x5F\0-9]+$/], ["*", /^.+$/], ["k|short", /(^.{1,5}$|^Kalamngy_)/i], ["^k$", /^Kalamngy_\d{4}$/]],
     mainTarget = _fmain.document.querySelector(".main-span"),
     mainObserver = new MutationObserver(_ => {
         joinPerson = [...joiningPplClass].at(-1)
@@ -267,7 +269,7 @@ function toggleContainer() {
     }
 }
 function buttonsCreator() {
-    for (let index = 1; index <= 15; index++) {
+    for (let index = 1; index <= 16; index++) {
         let button = document.createElement("button");
         button.innerText = `F${index}`;
         switch (index) {
@@ -344,6 +346,11 @@ function buttonsCreator() {
                 button.style.color = "white";
                 button.onclick = _ => parent.location.reload();
                 break;
+            case 16:
+                button.style.background = "black";
+                button.style.color = "white";
+                button.onclick = _ => changePattern;
+                break;
         }
         button.style.border = "none"
         button.style.padding = "7px"
@@ -401,4 +408,13 @@ function keysHandelr(e) {
         togleMessage();
         e.preventDefault()
     }
+}
+
+function changePattern() {
+    if (num1 == 7) {
+        num1 = 0;
+    }
+    regex = patterns[num1][1];
+    input.placeholder = patterns[num1][0];
+    num1++;
 }
