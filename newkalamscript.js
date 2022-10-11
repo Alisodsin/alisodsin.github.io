@@ -91,6 +91,7 @@ let _fmain = parent.fmain,
             joiningPplClass = _fmain.document.getElementsByClassName("main-nickg");
             listTarget = _fwindowlist.document.getElementById("windowlist");
             input = parent.fform.document.querySelector("#say");
+            input.dir="rtl";
             listObserver.observe(listTarget, objConfig);
             mainObserver.observe(mainTarget, objConfig);
             fform.onkeydown = keysHandelr;
