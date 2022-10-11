@@ -349,7 +349,7 @@ function buttonsCreator() {
             case 16:
                 button.style.background = "black";
                 button.style.color = "white";
-                button.onclick = _ => changePattern;
+                button.onclick = changePattern;
                 break;
         }
         button.style.border = "none"
