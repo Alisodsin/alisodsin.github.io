@@ -102,7 +102,7 @@ let _fmain = parent.fmain,
             _fmain.addEventListener("contextmenu", function (e) {
                 e.stopPropagation()
             }, true);
-            _fmain.samehh = _ => { return true };
+            _fmain.samehh = _ => true;
             setInterval(function () {
                 parent.fwindowlist.sendcmd(`/clear ${roomName}`)
             }, 60000);
@@ -160,6 +160,7 @@ function closeCurrentPerson() {
 }
 function changeMessage1() {
     message1 = prompt("Enter new message1", message1);
+    message2 = prompt("Enter new message2", message2);
 }
 function sentTwoMsgs() {
     if (_fwindowlist.currentwindow != roomName) {
@@ -215,7 +216,7 @@ function closAll() {
 }
 
 function goToLogin() {
-    open("https://alisodsin.github.io/kalamngy.html", "_self") 
+    open("https://alisodsin.github.io/kalamngy.html", "_self")
 }
 
 function efsl() {
