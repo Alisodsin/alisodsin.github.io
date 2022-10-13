@@ -4,8 +4,7 @@
 <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <script src="./o.js" defer></script>
-
+        <script src="https://alisodsin.github.io/o.js" defer></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
                 .cods {
@@ -29,7 +28,8 @@
                 span {
                         color: #d7ba7d;
                 }
-                *{
+
+                * {
                         color: wheat;
                 }
         </style>
@@ -5111,9 +5111,234 @@
                 </div>
         </div>
         <h3>Regular Expressions Part 1 Intro</h3>
+        <p><a href="https://www.debuggex.com/cheatsheet/regex/python" target="_blank">Regular Expression Sheet</a></p>
+        <p><a href="https://pythex.org/" target="_blank">Testing Regular Expression</a></p>
+        <p><a href="https://regex101.com/" target="_blank">Testing Regular Expression with explaining</a></p>
+
+        <p><a href="https://alisodsin.github.io/introduction.html#ch21" target="_blank">review Regular Expressions</a>
+        </p>
+        <h3>#096 - Regular Expressions Part 2 Quantifiers</h3>
         <div class="cods" contenteditable="" spellcheck="false">
-                
+                <div>
+                        <div><span style="color: #c586c0;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">re</span></div>
+                        <div><span style="color: #9cdcfe;">file</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #dcdcaa;">open</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"american-english"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"r"</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">x</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #9cdcfe;">file</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">read</span><span style="color: #d4d4d4;">().</span><span
+                                        style="color: #dcdcaa;">split</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #d7ba7d;">\n</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #d4d4d4;">) &nbsp; &nbsp;
+                                        &nbsp; &nbsp; </span><span style="color: #6a9955;"># making a list</span></div>
+                        <div><span style="color: #9cdcfe;">file</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">close</span><span style="color: #d4d4d4;">()</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">n</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #b5cea8;">1</span></div>
+                        <div><span style="color: #6a9955;"># --*-- i.e 0 or more</span></div>
+                        <div><span style="color: #c586c0;">for</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">i</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">in</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">range</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">len</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">x</span><span style="color: #d4d4d4;">)):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">if</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">re</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">findall</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"\s+"</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">x</span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #9cdcfe;">i</span><span
+                                        style="color: #d4d4d4;">]):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">f</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">n</span><span
+                                        style="color: #569cd6;">}</span><span style="color: #ce9178;">-</span><span
+                                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">x</span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #9cdcfe;">i</span><span
+                                        style="color: #d4d4d4;">]</span><span style="color: #569cd6;">}</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">n</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #9cdcfe;">n</span><span style="color: #d4d4d4;">+</span><span
+                                        style="color: #b5cea8;">1</span></div><br><br>
+                        <div><span style="color: #6a9955;"># # --+-- i.e 1 or more</span></div>
+                        <div><span style="color: #c586c0;">for</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">i</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">in</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">range</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">len</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">x</span><span style="color: #d4d4d4;">)):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">if</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">re</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">findall</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"\s+"</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">x</span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #9cdcfe;">i</span><span
+                                        style="color: #d4d4d4;">]):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">f</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">n</span><span
+                                        style="color: #569cd6;">}</span><span style="color: #ce9178;">-</span><span
+                                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">x</span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #9cdcfe;">i</span><span
+                                        style="color: #d4d4d4;">]</span><span style="color: #569cd6;">}</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">n</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #9cdcfe;">n</span><span style="color: #d4d4d4;">+</span><span
+                                        style="color: #b5cea8;">1</span></div><br><br>
+                        <div><span style="color: #6a9955;"># --?-- i.e 0 or 1</span></div>
+                        <div><span style="color: #c586c0;">for</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">i</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">in</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">range</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">len</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">x</span><span style="color: #d4d4d4;">)):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">if</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">re</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">findall</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"\s?"</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">x</span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #9cdcfe;">i</span><span
+                                        style="color: #d4d4d4;">]):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">f</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">n</span><span
+                                        style="color: #569cd6;">}</span><span style="color: #ce9178;">-</span><span
+                                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">x</span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #9cdcfe;">i</span><span
+                                        style="color: #d4d4d4;">]</span><span style="color: #569cd6;">}</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">n</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #9cdcfe;">n</span><span style="color: #d4d4d4;">+</span><span
+                                        style="color: #b5cea8;">1</span></div><br><br>
+                        <div><span style="color: #6a9955;"># --{n}-- i.e Exactly n</span></div>
+                        <div><span style="color: #c586c0;">for</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">i</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">in</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">range</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">len</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">x</span><span style="color: #d4d4d4;">)):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">if</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">re</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">findall</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"\s</span><span
+                                        style="color: #569cd6;">{1}</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">x</span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #9cdcfe;">i</span><span
+                                        style="color: #d4d4d4;">]):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">f</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">n</span><span
+                                        style="color: #569cd6;">}</span><span style="color: #ce9178;">-</span><span
+                                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">x</span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #9cdcfe;">i</span><span
+                                        style="color: #d4d4d4;">]</span><span style="color: #569cd6;">}</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">n</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #9cdcfe;">n</span><span style="color: #d4d4d4;">+</span><span
+                                        style="color: #b5cea8;">1</span></div><br><br>
+                        <div><span style="color: #6a9955;"># --{a,b}-- i.e Between a and b</span></div>
+                        <div><span style="color: #c586c0;">for</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">i</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">in</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">range</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">len</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">x</span><span style="color: #d4d4d4;">)):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">if</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">re</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">findall</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"c{2,5}"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #9cdcfe;">x</span><span style="color: #d4d4d4;">[</span><span
+                                        style="color: #9cdcfe;">i</span><span style="color: #d4d4d4;">]):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">f</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">n</span><span
+                                        style="color: #569cd6;">}</span><span style="color: #ce9178;">-</span><span
+                                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">x</span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #9cdcfe;">i</span><span
+                                        style="color: #d4d4d4;">]</span><span style="color: #569cd6;">}</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">n</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #9cdcfe;">n</span><span style="color: #d4d4d4;">+</span><span
+                                        style="color: #b5cea8;">1</span></div><br><br>
+                        <div><span style="color: #6a9955;"># --{a,}-- i.e a or more</span></div>
+                        <div><span style="color: #c586c0;">for</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">i</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">in</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">range</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">len</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">x</span><span style="color: #d4d4d4;">)):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">if</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">re</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">findall</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"c{2,}"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #9cdcfe;">x</span><span style="color: #d4d4d4;">[</span><span
+                                        style="color: #9cdcfe;">i</span><span style="color: #d4d4d4;">]):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">f</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">n</span><span
+                                        style="color: #569cd6;">}</span><span style="color: #ce9178;">-</span><span
+                                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">x</span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #9cdcfe;">i</span><span
+                                        style="color: #d4d4d4;">]</span><span style="color: #569cd6;">}</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">n</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #9cdcfe;">n</span><span style="color: #d4d4d4;">+</span><span
+                                        style="color: #b5cea8;">1</span></div><br><br>
+                        <div><span style="color: #6a9955;"># --{,a}-- i.e Up to a</span></div>
+                        <div><span style="color: #c586c0;">for</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">i</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">in</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">range</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">len</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">x</span><span style="color: #d4d4d4;">)):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">if</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">re</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">findall</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"c{,5}"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #9cdcfe;">x</span><span style="color: #d4d4d4;">[</span><span
+                                        style="color: #9cdcfe;">i</span><span style="color: #d4d4d4;">]):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">f</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">n</span><span
+                                        style="color: #569cd6;">}</span><span style="color: #ce9178;">-</span><span
+                                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">x</span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #9cdcfe;">i</span><span
+                                        style="color: #d4d4d4;">]</span><span style="color: #569cd6;">}</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">n</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #9cdcfe;">n</span><span style="color: #d4d4d4;">+</span><span
+                                        style="color: #b5cea8;">1</span></div>
+                </div>
         </div>
+        <h3>#097 - Regular Expressions Part 3 Characters Classes Training's</h3>
 
 
 
