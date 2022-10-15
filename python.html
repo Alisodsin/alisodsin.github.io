@@ -6726,7 +6726,7 @@
                 </div>
         </div>
         <h3> Databases - SQLite Insert Data Into Database</h3>
-        <div class="cods" contenteditable="" spellcheck="false">
+        <div class="cods" spellcheck="false" contenteditable="">
                 <div>
                         <div><span style="color: #c586c0;">import</span><span style="color: #d4d4d4;"> </span><span
                                         style="color: #4ec9b0;">sqlite3</span><span style="color: #d4d4d4;">
@@ -6739,65 +6739,64 @@
                                         style="color: #ce9178;">"dataBase.db"</span><span
                                         style="color: #d4d4d4;">)</span></div><br>
                         <div><span style="color: #6a9955;"># setting up the cursor</span></div>
-                        <div><span style="color: #9cdcfe;">excuter</span><span style="color: #d4d4d4;"> = </span><span
+                        <div><span style="color: #9cdcfe;">cr</span><span style="color: #d4d4d4;"> = </span><span
                                         style="color: #9cdcfe;">db</span><span style="color: #d4d4d4;">.</span><span
                                         style="color: #dcdcaa;">cursor</span><span style="color: #d4d4d4;">()</span>
                         </div><br>
                         <div><span style="color: #6a9955;"># craeting tables and fields</span></div>
-                        <div><span style="color: #9cdcfe;">excuter</span><span style="color: #d4d4d4;">.</span><span
+                        <div><span style="color: #9cdcfe;">cr</span><span style="color: #d4d4d4;">.</span><span
                                         style="color: #dcdcaa;">execute</span><span
                                         style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"CREATE TABLE if
                                         not exists users (user_id integer , name text)"</span><span
                                         style="color: #d4d4d4;">)</span></div>
-                        <div><span style="color: #9cdcfe;">excuter</span><span style="color: #d4d4d4;">.</span><span
+                        <div><span style="color: #9cdcfe;">cr</span><span style="color: #d4d4d4;">.</span><span
                                         style="color: #dcdcaa;">execute</span><span
                                         style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"CREATE TABLE if
                                         not exists skills (name text ,progress integer,user_id integer)"</span><span
                                         style="color: #d4d4d4;">)</span></div><br>
                         <div><span style="color: #6a9955;"># inserting data</span></div>
-                        <div><span style="color: #9cdcfe;">excuter</span><span style="color: #d4d4d4;">.</span><span
+                        <div><span style="color: #9cdcfe;">cr</span><span style="color: #d4d4d4;">.</span><span
                                         style="color: #dcdcaa;">execute</span><span
                                         style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"INSERT INTO
                                         users(user_id, name) values(1,'Ali')"</span><span
                                         style="color: #d4d4d4;">)</span></div>
-                        <div><span style="color: #9cdcfe;">excuter</span><span style="color: #d4d4d4;">.</span><span
+                        <div><span style="color: #9cdcfe;">cr</span><span style="color: #d4d4d4;">.</span><span
                                         style="color: #dcdcaa;">execute</span><span
                                         style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"INSERT INTO
                                         users(user_id, name) values(2,'Sayed')"</span><span
                                         style="color: #d4d4d4;">)</span></div>
-                        <div><span style="color: #9cdcfe;">excuter</span><span style="color: #d4d4d4;">.</span><span
+                        <div><span style="color: #9cdcfe;">cr</span><span style="color: #d4d4d4;">.</span><span
                                         style="color: #dcdcaa;">execute</span><span
                                         style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"INSERT INTO
                                         users(user_id, name) values(3,'Osama')"</span><span
                                         style="color: #d4d4d4;">)</span></div><br>
-                        <div><span style="color: #6a9955;"># inserting data using list and for loop</span></div>
-                        <div><span style="color: #9cdcfe;">users</span><span style="color: #d4d4d4;"> = [</span><span
+                        <div><span style="color: #6a9955;"># inserting data using enumerated list and for loop</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">users</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #4ec9b0;">enumerate</span><span
+                                        style="color: #d4d4d4;">([</span><span
                                         style="color: #ce9178;">"Hussein"</span><span style="color: #d4d4d4;">,
                                 </span><span style="color: #ce9178;">"Hassan"</span><span style="color: #d4d4d4;">,
                                 </span><span style="color: #ce9178;">"Yousef"</span><span style="color: #d4d4d4;">,
-                                </span><span style="color: #ce9178;">"Rody"</span><span style="color: #d4d4d4;">]</span>
-                        </div>
-                        <div><span style="color: #9cdcfe;">i</span><span style="color: #d4d4d4;"> = </span><span
-                                        style="color: #b5cea8;">4</span></div>
+                                </span><span style="color: #ce9178;">"Rody"</span><span
+                                        style="color: #d4d4d4;">])</span></div>
                         <div><span style="color: #c586c0;">for</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">id</span><span style="color: #d4d4d4;">, </span><span
                                         style="color: #9cdcfe;">user</span><span style="color: #d4d4d4;"> </span><span
                                         style="color: #c586c0;">in</span><span style="color: #d4d4d4;"> </span><span
                                         style="color: #9cdcfe;">users</span><span style="color: #d4d4d4;">:</span></div>
                         <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
-                                        style="color: #9cdcfe;">excuter</span><span
-                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">cr</span><span style="color: #d4d4d4;">.</span><span
                                         style="color: #dcdcaa;">execute</span><span
                                         style="color: #d4d4d4;">(</span><span style="color: #569cd6;">f</span><span
                                         style="color: #ce9178;">"INSERT INTO users(user_id, name) values('</span><span
-                                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">i</span><span
+                                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">id</span><span
+                                        style="color: #d4d4d4;">+</span><span style="color: #b5cea8;">4</span><span
                                         style="color: #569cd6;">}</span><span style="color: #ce9178;">','</span><span
                                         style="color: #569cd6;">{</span><span style="color: #9cdcfe;">user</span><span
                                         style="color: #569cd6;">}</span><span style="color: #ce9178;">')"</span><span
-                                        style="color: #d4d4d4;">)</span></div>
-                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
-                                        style="color: #9cdcfe;">i</span><span style="color: #d4d4d4;"> += </span><span
-                                        style="color: #b5cea8;">1</span></div><br>
-                        <div><span style="color: #6a9955;"># commit changes</span></div>
+                                        style="color: #d4d4d4;">)</span></div><br>
+                        <div><span style="color: #6a9955;"># commit changes "save changes"</span></div>
                         <div><span style="color: #9cdcfe;">db</span><span style="color: #d4d4d4;">.</span><span
                                         style="color: #dcdcaa;">commit</span><span style="color: #d4d4d4;">()</span>
                         </div><br>
@@ -6807,6 +6806,374 @@
                         </div>
                 </div>
         </div>
+        <h3>Databases - SQLite Retrieve Data From Database</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #c586c0;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">sqlite3</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #c586c0;">as</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #4ec9b0;">sqlite</span></div>
+                        <div><span style="color: #9cdcfe;">db</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #4ec9b0;">sqlite</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">connect</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"dataBase.db"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #9cdcfe;">cr</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #9cdcfe;">db</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">cursor</span><span style="color: #d4d4d4;">()</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">cr</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">execute</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"select * from
+                                        users"</span><span style="color: #d4d4d4;">)</span></div><br>
+                        <div><span style="color: #6a9955;"># fetch data from database</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">cr</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">fetchmany</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #b5cea8;">2</span><span
+                                        style="color: #d4d4d4;">)) </span><span style="color: #6a9955;"># &nbsp;[(1,
+                                        'Ali'), (2, 'Sayed')]</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">cr</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">fetchall</span><span style="color: #d4d4d4;">()) &nbsp;
+                                </span><span style="color: #6a9955;"># [(3, 'Osama'), (4, 'Hussein'), (5, 'Hassan'), (6,
+                                        'Yousef'), (7, 'Rody')]</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">cr</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">fetchone</span><span style="color: #d4d4d4;">()) &nbsp;
+                                </span><span style="color: #6a9955;"># None</span></div>
+                </div>
+        </div>
+        <h3>Databases - SQLite Training On Everything</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #c586c0;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">sqlite3</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #c586c0;">as</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #4ec9b0;">sqlite</span></div><br><br>
+                        <div><span style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">get_all_data</span><span
+                                        style="color: #d4d4d4;">():</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">try</span><span style="color: #d4d4d4;">:</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">db</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #4ec9b0;">sqlite</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">connect</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"dataBase.db"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"connected 🙂"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"-"</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">50</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">cr</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #9cdcfe;">db</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">cursor</span><span style="color: #d4d4d4;">()</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">cr</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">execute</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"select * from
+                                        users"</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">results</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #9cdcfe;">cr</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">fetchall</span><span style="color: #d4d4d4;">()</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">results</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"-"</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">50</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">f</span><span style="color: #ce9178;">"number of rows is
+                                </span><span style="color: #569cd6;">{</span><span
+                                        style="color: #dcdcaa;">len</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">results</span><span
+                                        style="color: #d4d4d4;">)</span><span style="color: #569cd6;">}</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"-"</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">50</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">for</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">result</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">in</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">results</span><span style="color: #d4d4d4;">:</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">f</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">result</span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #b5cea8;">0</span><span
+                                        style="color: #d4d4d4;">]</span><span style="color: #569cd6;">}</span><span
+                                        style="color: #ce9178;"> =&gt; </span><span
+                                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">result</span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #b5cea8;">1</span><span
+                                        style="color: #d4d4d4;">]</span><span style="color: #569cd6;">}</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"-"</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">50</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">except</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">sqlite</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #4ec9b0;">Error</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">as</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">er</span><span style="color: #d4d4d4;">:</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">f</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">er</span><span
+                                        style="color: #569cd6;">}</span><span style="color: #ce9178;"> 😞"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">finally</span><span style="color: #d4d4d4;">:</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">if</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">db</span><span style="color: #d4d4d4;">:</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"database will be closed now"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">db</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">close</span><span style="color: #d4d4d4;">()</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"bye"</span><span style="color: #d4d4d4;">)</span></div>
+                        <br><br>
+                        <div><span style="color: #dcdcaa;">get_all_data</span><span style="color: #d4d4d4;">()</span>
+                        </div>
+                </div>
+        </div>
+        <h3>Databases - SQLite Update And Delete From Database</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #c586c0;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">sqlite3</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #c586c0;">as</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #4ec9b0;">sqlite</span></div>
+                        <div><span style="color: #c586c0;">from</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">os</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">system</span></div>
+                        <div><span style="color: #c586c0;">from</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">time</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">sleep</span></div><br>
+                        <div><span style="color: #9cdcfe;">db</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #4ec9b0;">sqlite</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">connect</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"dataBase.db"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #9cdcfe;">cr</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #9cdcfe;">db</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">cursor</span><span style="color: #d4d4d4;">()</span>
+                        </div><br>
+                        <div><span style="color: #6a9955;"># update data</span></div>
+                        <div><span style="color: #9cdcfe;">cr</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">execute</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"update users set
+                                        name='gamal' where user_id=2"</span><span style="color: #d4d4d4;">)
+                                        &nbsp;</span><span style="color: #6a9955;"># update a row</span></div><br>
+                        <div><span style="color: #6a9955;"># delete data</span></div>
+                        <div><span style="color: #9cdcfe;">cr</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">execute</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"delete from users
+                                        where user_id=3"</span><span style="color: #d4d4d4;">) &nbsp;</span><span
+                                        style="color: #6a9955;"># delete a row</span></div>
+                        <div><span style="color: #9cdcfe;">cr</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">execute</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"DROP TABLE
+                                        skills"</span><span style="color: #d4d4d4;">) &nbsp;</span><span
+                                        style="color: #6a9955;"># delte a whole table</span></div><br>
+                        <div><span style="color: #6a9955;"># save updates</span></div>
+                        <div><span style="color: #9cdcfe;">db</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">commit</span><span style="color: #d4d4d4;">()</span>
+                        </div><br>
+                        <div><span style="color: #6a9955;"># close data base</span></div>
+                        <div><span style="color: #9cdcfe;">db</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">close</span><span style="color: #d4d4d4;">()</span>
+                        </div><br>
+                        <div><span style="color: #6a9955;"># wait 2 minutes for closing</span></div>
+                        <div><span style="color: #dcdcaa;">sleep</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #b5cea8;">2</span><span style="color: #d4d4d4;">)</span></div><br>
+                        <div><span style="color: #6a9955;"># open database</span></div>
+                        <div><span style="color: #dcdcaa;">system</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">".\dataBase.db"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                </div>
+        </div>
+        <h3>Databases - SQLite Create Skills App Part 1</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #c586c0;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">sqlite3</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #c586c0;">as</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #4ec9b0;">sqlite</span></div>
+                        <div><span style="color: #9cdcfe;">db</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #4ec9b0;">sqlite</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">connect</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"dataBase.db"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #9cdcfe;">cr</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #9cdcfe;">db</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">cursor</span><span style="color: #d4d4d4;">()</span>
+                        </div><br>
+                        <div><span style="color: #9cdcfe;">input_message</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #ce9178;">"""</span></div>
+                        <div><span style="color: #ce9178;">what do you want to do? </span></div>
+                        <div><span style="color: #ce9178;">s =&gt; show all skill</span></div>
+                        <div><span style="color: #ce9178;">a =&gt; add new skill</span></div>
+                        <div><span style="color: #ce9178;">d =&gt; delete a skill</span></div>
+                        <div><span style="color: #ce9178;">u =&gt; update skill progress</span></div>
+                        <div><span style="color: #ce9178;">q =&gt; quit the app</span></div>
+                        <div><span style="color: #ce9178;">choose option: </span></div>
+                        <div><span style="color: #ce9178;">"""</span></div>
+                        <div><span style="color: #9cdcfe;">user_input</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #dcdcaa;">input</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">input_message</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">strip</span><span
+                                        style="color: #d4d4d4;">()).</span><span
+                                        style="color: #dcdcaa;">lower</span><span style="color: #d4d4d4;">()</span>
+                        </div><br><br>
+                        <div><span style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">modify</span><span style="color: #d4d4d4;">():</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">if</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">user_input</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #569cd6;">in</span><span style="color: #d4d4d4;">
+                                        [</span><span style="color: #ce9178;">"s"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"a"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"d"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"u"</span><span style="color: #d4d4d4;">]:</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">if</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">user_input</span><span style="color: #d4d4d4;"> ==
+                                </span><span style="color: #ce9178;">"s"</span><span style="color: #d4d4d4;">:</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">cr</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">execute</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"select * from
+                                        skills"</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">list</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">cr</span><span style="color: #d4d4d4;">))</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">else</span><span style="color: #d4d4d4;">:</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #dcdcaa;">input</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"Enter the skill name: "</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">progress</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #dcdcaa;">input</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"Enter the
+                                        progress: "</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">user_id</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #dcdcaa;">input</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"Enter your id:
+                                        "</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">mapy</span><span style="color: #d4d4d4;"> =
+                                        {</span><span style="color: #ce9178;">"a"</span><span style="color: #d4d4d4;">:
+                                </span><span style="color: #569cd6;">f</span><span style="color: #ce9178;">"INSERT INTO
+                                        skills(name,progress,user_id) values('</span><span
+                                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">name</span><span
+                                        style="color: #569cd6;">}</span><span style="color: #ce9178;">','</span><span
+                                        style="color: #569cd6;">{</span><span
+                                        style="color: #9cdcfe;">progress</span><span
+                                        style="color: #569cd6;">}</span><span style="color: #ce9178;">','</span><span
+                                        style="color: #569cd6;">{</span><span
+                                        style="color: #9cdcfe;">user_id</span><span
+                                        style="color: #569cd6;">}</span><span style="color: #ce9178;">')"</span><span
+                                        style="color: #d4d4d4;">,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        &nbsp; &nbsp; </span><span style="color: #ce9178;">"d"</span><span
+                                        style="color: #d4d4d4;">: </span><span style="color: #569cd6;">f</span><span
+                                        style="color: #ce9178;">"delete from skills where user_id=</span><span
+                                        style="color: #569cd6;">{</span><span
+                                        style="color: #9cdcfe;">user_id</span><span
+                                        style="color: #569cd6;">}</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #ce9178;">"u"</span><span
+                                        style="color: #d4d4d4;">: </span><span style="color: #569cd6;">f</span><span
+                                        style="color: #ce9178;">"update skills set name='</span><span
+                                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">name</span><span
+                                        style="color: #569cd6;">}</span><span style="color: #ce9178;">' where
+                                        user_id=</span><span style="color: #569cd6;">{</span><span
+                                        style="color: #9cdcfe;">user_id</span><span
+                                        style="color: #569cd6;">}</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">}</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">cr</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">execute</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">mapy</span><span
+                                        style="color: #d4d4d4;">[</span><span
+                                        style="color: #9cdcfe;">user_input</span><span style="color: #d4d4d4;">])</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">db</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">commit</span><span style="color: #d4d4d4;">()</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">cr</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">execute</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"select name from
+                                        skills"</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">list</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">cr</span><span style="color: #d4d4d4;">))</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">db</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">close</span><span style="color: #d4d4d4;">()</span>
+                        </div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">else</span><span style="color: #d4d4d4;">:</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"uknown keyword"</span><span
+                                        style="color: #d4d4d4;">)</span></div><br><br>
+                        <div><span style="color: #dcdcaa;">modify</span><span style="color: #d4d4d4;">()</span></div>
+                </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
