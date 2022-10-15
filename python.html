@@ -5951,12 +5951,884 @@
         </div>
         <h3>OOP Part 8 - Inheritance</h3>
         <div class="cods" contenteditable="" spellcheck="false">
-                
+                <div>
+                        <div><span style="color: #6a9955;"># father class</span></div>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Food</span><span style="color: #d4d4d4;">:
+                                        &nbsp;</span><span style="color: #6a9955;"># Base Class</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">__init__</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">self</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">name</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">price</span><span
+                                        style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">self</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #9cdcfe;">name</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">self</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">price</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #9cdcfe;">price</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">f</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">name</span><span
+                                        style="color: #569cd6;">}</span><span style="color: #ce9178;"> Is Created From
+                                </span><span style="color: #569cd6;">{</span><span
+                                        style="color: #9cdcfe;">self</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">__class__</span><span
+                                        style="color: #569cd6;">}</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">)</span></div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">eat</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">self</span><span style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">f</span><span style="color: #ce9178;">"the </span><span
+                                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">self</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">name</span><span
+                                        style="color: #569cd6;">}</span><span style="color: #ce9178;"> is being
+                                        eated"</span><span style="color: #d4d4d4;">)</span></div><br><br>
+                        <div><span style="color: #6a9955;"># son class</span></div>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Apple</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">Food</span><span style="color: #d4d4d4;">):
+                                        &nbsp;</span><span style="color: #6a9955;"># Derived Class</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">__init__</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">self</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">name</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">price</span><span
+                                        style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">amount</span><span style="color: #d4d4d4;">):</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">super</span><span
+                                        style="color: #d4d4d4;">().</span><span
+                                        style="color: #dcdcaa;">__init__</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">name</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">price</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">self</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">amount</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #9cdcfe;">amount</span></div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">catch</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">self</span><span style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">f</span><span style="color: #ce9178;">"catch this
+                                </span><span style="color: #569cd6;">{</span><span
+                                        style="color: #9cdcfe;">self</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">name</span><span style="color: #569cd6;">}</span><span
+                                        style="color: #ce9178;"> from tree"</span><span style="color: #d4d4d4;">)</span>
+                        </div><br><br>
+                        <div><span style="color: #9cdcfe;">food_1</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #4ec9b0;">Food</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"undefined"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #b5cea8;">25</span><span style="color: #d4d4d4;">)
+                                        &nbsp;</span><span style="color: #6a9955;"># Object from Base Class</span></div>
+                        <div><span style="color: #9cdcfe;">food_2</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #4ec9b0;">Apple</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"apple"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #b5cea8;">30</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #b5cea8;">3</span><span style="color: #d4d4d4;">)
+                                        &nbsp;</span><span style="color: #6a9955;"># Object from Son Class</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">f</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">food_1</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">name</span><span
+                                        style="color: #569cd6;">}</span><span style="color: #d7ba7d;">\n</span><span
+                                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">food_1</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">price</span><span
+                                        style="color: #569cd6;">}</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">f</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">food_2</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">name</span><span
+                                        style="color: #569cd6;">}</span><span style="color: #d7ba7d;">\n</span><span
+                                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">food_2</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">price</span><span
+                                        style="color: #569cd6;">}</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"-"</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">50</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #9cdcfe;">food_1</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">eat</span><span style="color: #d4d4d4;">()</span></div>
+                        <div><span style="color: #9cdcfe;">food_2</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">eat</span><span style="color: #d4d4d4;">()</span></div>
+                        <div><span style="color: #9cdcfe;">food_2</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">catch</span><span style="color: #d4d4d4;">()</span>
+                        </div>
                 </div>
+        </div>
+        <h3>OOP Part 9 - Multiple Inheritance And Method Overriding</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Human</span><span style="color: #d4d4d4;">:</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">num</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #b5cea8;">1</span></div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">__init__</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">self</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">name</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">age</span><span
+                                        style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">self</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #9cdcfe;">name</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">self</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">age</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #9cdcfe;">age</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">f</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">name</span><span
+                                        style="color: #569cd6;">}</span><span style="color: #ce9178;"> is number
+                                </span><span style="color: #569cd6;">{</span><span
+                                        style="color: #9cdcfe;">self</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">__class__</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">num</span><span
+                                        style="color: #569cd6;">}</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">self</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">__class__</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">num</span><span
+                                        style="color: #d4d4d4;"> += </span><span style="color: #b5cea8;">1</span></div>
+                        <br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">speak</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">self</span><span style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">f</span><span style="color: #ce9178;">"my name is
+                                </span><span style="color: #569cd6;">{</span><span
+                                        style="color: #9cdcfe;">self</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">name</span><span style="color: #569cd6;">}</span><span
+                                        style="color: #ce9178;"> and I am </span><span
+                                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">self</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">age</span><span
+                                        style="color: #569cd6;">}</span><span style="color: #ce9178;"> years
+                                        old"</span><span style="color: #d4d4d4;">)</span></div><br>
+                        <div><span style="color: #6a9955;"># override method</span></div><br><br>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Man</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">Human</span><span style="color: #d4d4d4;">):</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">num</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #b5cea8;">1</span></div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">__init__</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">self</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">name</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">age</span><span
+                                        style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">super</span><span
+                                        style="color: #d4d4d4;">().</span><span
+                                        style="color: #dcdcaa;">__init__</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">name</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">age</span><span
+                                        style="color: #d4d4d4;">)</span></div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span style="color: #6a9955;"># override
+                                        method</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">speak</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">self</span><span style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">f</span><span style="color: #ce9178;">"I am </span><span
+                                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">self</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">name</span><span
+                                        style="color: #569cd6;">}</span><span style="color: #ce9178;"> and my age is
+                                </span><span style="color: #569cd6;">{</span><span
+                                        style="color: #9cdcfe;">self</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">age</span><span style="color: #569cd6;">}</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #d4d4d4;">)</span></div>
+                        <br><br>
+                        <div><span style="color: #9cdcfe;">ali</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #4ec9b0;">Human</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"ali"</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">40</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #9cdcfe;">huss</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #4ec9b0;">Human</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"huss"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #b5cea8;">43</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">hema</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #4ec9b0;">Man</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"Hema"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #b5cea8;">37</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">hass</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #4ec9b0;">Man</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"Hassan"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #b5cea8;">46</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"-"</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">50</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #9cdcfe;">ali</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">speak</span><span style="color: #d4d4d4;">()</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">huss</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">speak</span><span style="color: #d4d4d4;">()</span>
+                        </div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"-"</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">50</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #9cdcfe;">hema</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">speak</span><span style="color: #d4d4d4;">()</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">hass</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">speak</span><span style="color: #d4d4d4;">()</span>
+                        </div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"-"</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">50</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"-"</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">50</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"-"</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">50</span><span style="color: #d4d4d4;">)</span></div>
+                        <br><br>
+                        <div><span style="color: #6a9955;"># multiple inheritance</span></div>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">BaseOne</span><span style="color: #d4d4d4;">:</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">__init__</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">self</span><span
+                                        style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"Base 1"</span><span style="color: #d4d4d4;">)</span>
+                        </div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">func_1</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">self</span><span style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"one"</span><span style="color: #d4d4d4;">)</span></div>
+                        <br><br>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">BaseTwo</span><span style="color: #d4d4d4;">:</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">__init__</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">self</span><span
+                                        style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"Base 2"</span><span style="color: #d4d4d4;">)</span>
+                        </div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">func_2</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">self</span><span style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"two"</span><span style="color: #d4d4d4;">)</span></div>
+                        <br><br>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Derived</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">BaseOne</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #4ec9b0;">BaseTwo</span><span
+                                        style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">pass</span></div><br><br>
+                        <div><span style="color: #9cdcfe;">var</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #4ec9b0;">Derived</span><span style="color: #d4d4d4;">()</span>
+                        </div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">Derived</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">mro</span><span
+                                        style="color: #d4d4d4;">()) </span><span style="color: #6a9955;"># method
+                                        resolution order =&gt; [&lt;class '__main__.Derived'&gt;, &lt;class
+                                        '__main__.BaseOne'&gt;, &lt;class '__main__.BaseTwo'&gt;, &lt;class
+                                        'object'&gt;]</span></div><br>
+                        <div><span style="color: #6a9955;"># acessing the inherited classes methods </span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">var</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">func_1</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">var</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">func_2</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">var</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">func_1</span><span style="color: #d4d4d4;">()</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">var</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">func_2</span><span style="color: #d4d4d4;">()</span>
+                        </div>
+                </div>
+        </div>
+        <h3>OOP Part 10 - Polymorphism</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;"># polymorphism : function does multiple action based on
+                                        context is polymorphism</span></div>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">A</span><span style="color: #d4d4d4;">:</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">do_something</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">self</span><span
+                                        style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">f</span><span style="color: #ce9178;">"i am </span><span
+                                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">self</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">__class__</span><span
+                                        style="color: #569cd6;">}</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;"># you must implement this method in the inheritor
+                                        classes</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">raise</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">NotImplementedError</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"do_something must
+                                        be implemented"</span><span style="color: #d4d4d4;">)</span></div><br><br>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">B</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">A</span><span style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">pass</span></div><br><br>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">C</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">A</span><span style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">do_something</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">self</span><span
+                                        style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">f</span><span style="color: #ce9178;">"i am </span><span
+                                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">self</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">__class__</span><span
+                                        style="color: #569cd6;">}</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">)</span></div><br><br>
+                        <div><span style="color: #4ec9b0;">C</span><span style="color: #d4d4d4;">().</span><span
+                                        style="color: #dcdcaa;">do_something</span><span
+                                        style="color: #d4d4d4;">()</span></div>
+                        <div><span style="color: #4ec9b0;">B</span><span style="color: #d4d4d4;">().</span><span
+                                        style="color: #dcdcaa;">do_something</span><span style="color: #d4d4d4;">()
+                                        &nbsp;</span><span style="color: #6a9955;"># NotImplementedError: do_something
+                                        must be implemented</span></div>
+                        <div><span style="color: #6a9955;"># do_something has a state of polymorphism</span></div>
+                </div>
+        </div>
+        <h3>OOP Part 11 - Encapsulation</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Member</span><span style="color: #d4d4d4;">:</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">__init__</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">self</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">name</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">age</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">tall</span><span
+                                        style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;"># public property [acessed or modified from
+                                        anywhere]</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">self</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #9cdcfe;">name</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;"># protected property</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">self</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">_age</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #9cdcfe;">age</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;"># private property [not acessed or modified from
+                                        anywhere outside class]</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">self</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">__tall</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #9cdcfe;">tall</span></div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span style="color: #6a9955;"># this
+                                        method access the private tall property</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">myTall</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">self</span><span style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">return</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">self</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">__tall</span></div><br><br>
+                        <div><span style="color: #9cdcfe;">one</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #4ec9b0;">Member</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"ali"</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">45</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">180</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">one</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">one</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">_age</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">one</span><span style="color: #d4d4d4;">._Member__tall)
+                                        &nbsp;</span><span style="color: #6a9955;"># acessing the private property
+                                        !</span></div>
+                        <div><span style="color: #6a9955;"># print(one.__tall) &nbsp;# err</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">one</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">myTall</span><span style="color: #d4d4d4;">())
+                                        &nbsp;</span><span style="color: #6a9955;"># displaying the private tall
+                                        property through a class method</span></div>
+                </div>
+        </div>
+        <h3>OOP Part 12 Getters And Setters</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Member</span><span style="color: #d4d4d4;">:</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">__init__</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">self</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">name</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">age</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">tall</span><span
+                                        style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">self</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #9cdcfe;">name</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">self</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">_age</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #9cdcfe;">age</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">self</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">__tall</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #9cdcfe;">tall</span></div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span style="color: #6a9955;"># setter
+                                        for __tall private property</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">set_tall</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">self</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">tall</span><span
+                                        style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">self</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">__tall</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #9cdcfe;">tall</span></div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp;</span><span style="color: #6a9955;">#
+                                        getter property &nbsp;for __tall private property</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">@</span><span style="color: #4ec9b0;">property</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">get_tall</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">self</span><span
+                                        style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">return</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">self</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">__tall</span></div><br><br>
+                        <div><span style="color: #9cdcfe;">me</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #4ec9b0;">Member</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"ali"</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">40</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">179</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #9cdcfe;">me</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">set_tall</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #b5cea8;">200</span><span
+                                        style="color: #d4d4d4;">) &nbsp;</span><span style="color: #6a9955;">#
+                                        setter</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">me</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">get_tall</span><span style="color: #d4d4d4;">)
+                                        &nbsp;</span><span style="color: #6a9955;"># getter</span></div>
+                </div>
+        </div>
+        <h3>OOP Part 14 ABCs Abstract Base Class</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;"># class is called abstract class if it has one or more
+                                        abtract methods</span></div>
+                        <div><span style="color: #6a9955;"># abc module in python provides infrastructure for defining
+                                        custom abstract classes</span></div>
+                        <div><span style="color: #6a9955;"># by adding @abstractmethod Decorator ob the methods</span>
+                        </div>
+                        <div><span style="color: #6a9955;"># ABCMETA class is a metaclass used for defining abstract
+                                        base class</span></div><br>
+                        <div><span style="color: #c586c0;">from</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">abc</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">ABCMeta</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #dcdcaa;">abstractmethod</span></div><br><br>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Programming</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">metaclass</span><span
+                                        style="color: #d4d4d4;">=</span><span
+                                        style="color: #4ec9b0;">ABCMeta</span><span style="color: #d4d4d4;">):
+                                        &nbsp;</span><span style="color: #6a9955;"># make class abstract</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">@</span><span
+                                        style="color: #dcdcaa;">abstractmethod</span><span style="color: #d4d4d4;">
+                                        &nbsp;</span><span style="color: #6a9955;"># make method abstract which must be
+                                        implemented in inheritors</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">has_oop</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">self</span><span
+                                        style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">pass</span></div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">sayHello</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">self</span><span
+                                        style="color: #d4d4d4;">): &nbsp;</span><span style="color: #6a9955;"># not
+                                        abstract not needed to be implemented in inheritors</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"hello"</span><span style="color: #d4d4d4;">)</span>
+                        </div><br><br>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Python</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">Programming</span><span
+                                        style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">has_oop</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">self</span><span
+                                        style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">return</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"yes"</span></div><br><br>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">C</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">Programming</span><span
+                                        style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">has_oop</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">self</span><span
+                                        style="color: #d4d4d4;">):</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">return</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"No"</span></div><br><br>
+                        <div><span style="color: #6a9955;"># print(Programming()) &nbsp;# Error : you cant instantiate
+                                        abstract class</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">Python</span><span
+                                        style="color: #d4d4d4;">().</span><span
+                                        style="color: #dcdcaa;">has_oop</span><span style="color: #d4d4d4;">())</span>
+                        </div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">C</span><span style="color: #d4d4d4;">().</span><span
+                                        style="color: #dcdcaa;">has_oop</span><span style="color: #d4d4d4;">())</span>
+                        </div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"-"</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">50</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #4ec9b0;">Python</span><span style="color: #d4d4d4;">().</span><span
+                                        style="color: #dcdcaa;">sayHello</span><span style="color: #d4d4d4;">()</span>
+                        </div>
+                        <div><span style="color: #4ec9b0;">C</span><span style="color: #d4d4d4;">().</span><span
+                                        style="color: #dcdcaa;">sayHello</span><span style="color: #d4d4d4;">()</span>
+                        </div>
+                </div>
+        </div>
+        <h3>mySql in python</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #c586c0;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">mysql</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #4ec9b0;">connector</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #c586c0;">as</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #4ec9b0;">sql</span></div>
+                        <div><span style="color: #9cdcfe;">mydb</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #4ec9b0;">sql</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">connect</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">host</span><span
+                                        style="color: #d4d4d4;">=</span><span
+                                        style="color: #ce9178;">"192.168.1.8"</span><span
+                                        style="color: #d4d4d4;">,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        &nbsp; &nbsp;</span><span style="color: #9cdcfe;">user</span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #ce9178;">"ali"</span><span
+                                        style="color: #d4d4d4;">,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        &nbsp; &nbsp;</span><span style="color: #9cdcfe;">passwd</span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #ce9178;">"111"</span><span
+                                        style="color: #d4d4d4;">,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        &nbsp; &nbsp;</span><span style="color: #9cdcfe;">database</span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #ce9178;">"sql_store"</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        &nbsp; &nbsp;)</span></div>
+                        <div><span style="color: #9cdcfe;">sqlexcuter</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #9cdcfe;">mydb</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">cursor</span><span
+                                        style="color: #d4d4d4;">()</span></div><br><br>
+                        <div><span style="color: #9cdcfe;">sqlexcuter</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">execute</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"show
+                                        tables"</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #c586c0;">for</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">db</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">in</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">sqlexcuter</span><span style="color: #d4d4d4;">:</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">db</span><span style="color: #d4d4d4;">[</span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">])</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"-"</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">50</span><span style="color: #d4d4d4;">)</span></div>
+                        <br>
+                        <div><span style="color: #9cdcfe;">sqlexcuter</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">execute</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"select last_name
+                                        from customers"</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #c586c0;">for</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">db</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">in</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">sqlexcuter</span><span style="color: #d4d4d4;">:</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">db</span><span style="color: #d4d4d4;">[</span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">])</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"-"</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">50</span><span style="color: #d4d4d4;">)</span></div>
+                        <br>
+                        <div><span style="color: #9cdcfe;">sqlexcuter</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">execute</span><span style="color: #d4d4d4;">(</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span style="color: #ce9178;">"SELECT *
+                                        FROM customers &nbsp;WHERE customer_id &gt; 1 ORDER BY first_name"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #c586c0;">for</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">db</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">in</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">sqlexcuter</span><span style="color: #d4d4d4;">:</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">db</span><span style="color: #d4d4d4;">[</span><span
+                                        style="color: #b5cea8;">6</span><span style="color: #d4d4d4;">])</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"-"</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">50</span><span style="color: #d4d4d4;">)</span></div>
+                        <br><br>
+                        <div><span style="color: #9cdcfe;">sqlexcuter</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">execute</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"SELECT
+                                        first_name,last_name,points+10 FROM customers"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #c586c0;">for</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">db</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">in</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">sqlexcuter</span><span style="color: #d4d4d4;">:</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">db</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"-"</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">50</span><span style="color: #d4d4d4;">)</span></div>
+                        <br><br>
+                        <div><span style="color: #9cdcfe;">query</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">"""SELECT &nbsp;*</span></div>
+                        <div><span style="color: #ce9178;">FROM order_items</span></div>
+                        <div><span style="color: #ce9178;">WHERE order_id = 6</span></div>
+                        <div><span style="color: #ce9178;">AND unit_price * quantity &gt; 30;</span></div>
+                        <div><span style="color: #ce9178;">"""</span></div>
+                        <div><span style="color: #9cdcfe;">sqlexcuter</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">execute</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">query</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #c586c0;">for</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">db</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">in</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">sqlexcuter</span><span style="color: #d4d4d4;">:</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">db</span><span style="color: #d4d4d4;">)</span></div>
+                </div>
+        </div>
+        <h3>Databases - Intro About Databases</h3>
+        <p><a href="https://www.youtube.com/watch?v=7F_4DYQG6LM&list=PLDoPjvoNmBAyE_gei5d18qkfIe-Z8mocs&index=118&ab_channel=ElzeroWebSchool"
+                        target="_blank">watch me </a></p>
+
+        <h3> Databases - SQLite Create Database And Connect</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #c586c0;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">sqlite3</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #c586c0;">as</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #4ec9b0;">sqlite</span></div>
+                        <div><span style="color: #6a9955;"># create database and connect</span></div>
+                        <div><span style="color: #9cdcfe;">db</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #4ec9b0;">sqlite</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">connect</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"dataBase.db"</span><span
+                                        style="color: #d4d4d4;">)</span></div><br>
+                        <div><span style="color: #6a9955;"># create table and fields</span></div>
+                        <div><span style="color: #9cdcfe;">db</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">execute</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"CREATE TABLE if
+                                        not exists skills (name text ,progress integer,user_id integer)"</span><span
+                                        style="color: #d4d4d4;">)</span></div><br>
+                        <div><span style="color: #6a9955;"># closing connection</span></div>
+                        <div><span style="color: #9cdcfe;">db</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">close</span><span style="color: #d4d4d4;">()</span>
+                        </div>
+                </div>
+        </div>
+        <h3> Databases - SQLite Insert Data Into Database</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #c586c0;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">sqlite3</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #c586c0;">as</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #4ec9b0;">sqlite</span></div>
+                        <div><span style="color: #9cdcfe;">db</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #4ec9b0;">sqlite</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">connect</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"dataBase.db"</span><span
+                                        style="color: #d4d4d4;">)</span></div><br>
+                        <div><span style="color: #6a9955;"># setting up the cursor</span></div>
+                        <div><span style="color: #9cdcfe;">excuter</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #9cdcfe;">db</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">cursor</span><span style="color: #d4d4d4;">()</span>
+                        </div><br>
+                        <div><span style="color: #6a9955;"># craeting tables and fields</span></div>
+                        <div><span style="color: #9cdcfe;">excuter</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">execute</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"CREATE TABLE if
+                                        not exists users (user_id integer , name text)"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #9cdcfe;">excuter</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">execute</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"CREATE TABLE if
+                                        not exists skills (name text ,progress integer,user_id integer)"</span><span
+                                        style="color: #d4d4d4;">)</span></div><br>
+                        <div><span style="color: #6a9955;"># inserting data</span></div>
+                        <div><span style="color: #9cdcfe;">excuter</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">execute</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"INSERT INTO
+                                        users(user_id, name) values(1,'Ali')"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #9cdcfe;">excuter</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">execute</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"INSERT INTO
+                                        users(user_id, name) values(2,'Sayed')"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #9cdcfe;">excuter</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">execute</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"INSERT INTO
+                                        users(user_id, name) values(3,'Osama')"</span><span
+                                        style="color: #d4d4d4;">)</span></div><br>
+                        <div><span style="color: #6a9955;"># inserting data using list and for loop</span></div>
+                        <div><span style="color: #9cdcfe;">users</span><span style="color: #d4d4d4;"> = [</span><span
+                                        style="color: #ce9178;">"Hussein"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"Hassan"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"Yousef"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"Rody"</span><span style="color: #d4d4d4;">]</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">i</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #b5cea8;">4</span></div>
+                        <div><span style="color: #c586c0;">for</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">user</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">in</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">users</span><span style="color: #d4d4d4;">:</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">excuter</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">execute</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #569cd6;">f</span><span
+                                        style="color: #ce9178;">"INSERT INTO users(user_id, name) values('</span><span
+                                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">i</span><span
+                                        style="color: #569cd6;">}</span><span style="color: #ce9178;">','</span><span
+                                        style="color: #569cd6;">{</span><span style="color: #9cdcfe;">user</span><span
+                                        style="color: #569cd6;">}</span><span style="color: #ce9178;">')"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">i</span><span style="color: #d4d4d4;"> += </span><span
+                                        style="color: #b5cea8;">1</span></div><br>
+                        <div><span style="color: #6a9955;"># commit changes</span></div>
+                        <div><span style="color: #9cdcfe;">db</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">commit</span><span style="color: #d4d4d4;">()</span>
+                        </div><br>
+                        <div><span style="color: #6a9955;"># close database</span></div>
+                        <div><span style="color: #9cdcfe;">db</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">close</span><span style="color: #d4d4d4;">()</span>
+                        </div>
+                </div>
+        </div>
 
 
 
-                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
