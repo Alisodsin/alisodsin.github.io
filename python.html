@@ -7684,6 +7684,269 @@
                                         style="color: #d4d4d4;">)</span></div>
                 </div>
         </div>
+        <h3>Flask - Create And Extends HTML Templates</h3>
+        <p>app.js</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;"># ----------------------------------------------</span></div>
+                        <div><span style="color: #6a9955;"># -- Flask =&gt; Create &amp; Extends Html Templates
+                                        --</span></div>
+                        <div><span style="color: #6a9955;"># ----------------------------------------------</span></div>
+                        <br>
+                        <div><span style="color: #c586c0;">from</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">flask</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Flask</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #dcdcaa;">render_template</span></div><br>
+                        <div><span style="color: #9cdcfe;">skills_app</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #4ec9b0;">Flask</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">__name__</span><span style="color: #d4d4d4;">)</span>
+                        </div><br><br>
+                        <div><span style="color: #dcdcaa;">@</span><span style="color: #9cdcfe;">skills_app</span><span
+                                        style="color: #dcdcaa;">.</span><span style="color: #dcdcaa;">route</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"/"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">homepage</span><span style="color: #d4d4d4;">():</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">return</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">render_template</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"homepage.html"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #9cdcfe;">pagetitle</span><span
+                                        style="color: #d4d4d4;">=</span><span
+                                        style="color: #ce9178;">"Homepage"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #9cdcfe;">cssfile</span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #ce9178;">"home"</span><span
+                                        style="color: #d4d4d4;">)</span></div><br><br>
+                        <div><span style="color: #dcdcaa;">@</span><span style="color: #9cdcfe;">skills_app</span><span
+                                        style="color: #dcdcaa;">.</span><span style="color: #dcdcaa;">route</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"/about"</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">about</span><span style="color: #d4d4d4;">():</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">return</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">render_template</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"aboutt.html"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #9cdcfe;">pagetitle</span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #ce9178;">"About
+                                        Us"</span><span style="color: #d4d4d4;">)</span></div><br><br>
+                        <div><span style="color: #c586c0;">if</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">__name__</span><span style="color: #d4d4d4;"> ==
+                                </span><span style="color: #ce9178;">"__main__"</span><span
+                                        style="color: #d4d4d4;">:</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">skills_app</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">run</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">debug</span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #569cd6;">True</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">port</span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #b5cea8;">9000</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                </div>
+        </div>
+        <p>base.html</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #808080;">&lt;!</span><span style="color: #569cd6;">DOCTYPE</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">html</span><span
+                                        style="color: #808080;">&gt;</span></div>
+                        <div><span style="color: #808080;">&lt;</span><span style="color: #569cd6;">html</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">lang</span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #ce9178;">"en"</span><span
+                                        style="color: #808080;">&gt;</span></div><br>
+                        <div><span style="color: #808080;">&lt;</span><span style="color: #569cd6;">head</span><span
+                                        style="color: #808080;">&gt;</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #808080;">&lt;</span><span
+                                        style="color: #569cd6;">meta</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">charset</span><span
+                                        style="color: #d4d4d4;">=</span><span
+                                        style="color: #ce9178;">"UTF-8"</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #808080;">/&gt;</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #808080;">&lt;</span><span
+                                        style="color: #569cd6;">title</span><span
+                                        style="color: #808080;">&gt;</span><span style="color: #d4d4d4;">{{ pagetitle
+                                        }}</span><span style="color: #808080;">&lt;/</span><span
+                                        style="color: #569cd6;">title</span><span style="color: #808080;">&gt;</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #808080;">&lt;</span><span
+                                        style="color: #569cd6;">link</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">rel</span><span style="color: #d4d4d4;">=</span><span
+                                        style="color: #ce9178;">"stylesheet"</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #9cdcfe;">href</span><span
+                                        style="color: #d4d4d4;">=</span><span
+                                        style="color: #ce9178;">"main.css"</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #808080;">/&gt;</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #808080;">&lt;</span><span
+                                        style="color: #569cd6;">link</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">rel</span><span style="color: #d4d4d4;">=</span><span
+                                        style="color: #ce9178;">"stylesheet"</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #9cdcfe;">href</span><span
+                                        style="color: #d4d4d4;">=</span><span
+                                        style="color: #ce9178;">"master.css"</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #808080;">/&gt;</span></div>
+                        <div><span style="color: #808080;">&lt;/</span><span style="color: #569cd6;">head</span><span
+                                        style="color: #808080;">&gt;</span></div><br>
+                        <div><span style="color: #808080;">&lt;</span><span style="color: #569cd6;">body</span><span
+                                        style="color: #808080;">&gt;</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;{% block body %}</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;{% endblock %}</span></div>
+                        <div><span style="color: #808080;">&lt;/</span><span style="color: #569cd6;">body</span><span
+                                        style="color: #808080;">&gt;</span></div><br>
+                        <div><span style="color: #808080;">&lt;/</span><span style="color: #569cd6;">html</span><span
+                                        style="color: #808080;">&gt;</span></div>
+                </div>
+        </div>
+        <p>homepage.html</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">{% extends 'base.html' %}</span></div>
+                        <div><span style="color: #d4d4d4;">{% block body %}</span></div>
+                        <div><span style="color: #d4d4d4;">Hello From Homepage Html File</span></div>
+                        <div><span style="color: #d4d4d4;">{% endblock %}</span></div>
+                </div>
+        </div>
+        <p>about.html</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">{% extends 'base.html' %}</span></div>
+                        <div><span style="color: #d4d4d4;">{% block body %}</span></div>
+                        <div><span style="color: #d4d4d4;">Hello From About Html File</span></div>
+                        <div><span style="color: #d4d4d4;">{% endblock %}</span></div>
+                </div>
+        </div>
+        <h3>Flask - Jinja Template</h3>
+        <p>app.js</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;"># ----------------------------------------------</span></div>
+                        <div><span style="color: #6a9955;"># -- Flask =&gt; Create &amp; Extends Html Templates
+                                        --</span></div>
+                        <div><span style="color: #6a9955;"># ----------------------------------------------</span></div>
+                        <br>
+                        <div><span style="color: #c586c0;">from</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">flask</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Flask</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #dcdcaa;">render_template</span></div><br>
+                        <div><span style="color: #9cdcfe;">skills_app</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #4ec9b0;">Flask</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">__name__</span><span style="color: #d4d4d4;">)</span>
+                        </div><br><br>
+                        <div><span style="color: #dcdcaa;">@</span><span style="color: #9cdcfe;">skills_app</span><span
+                                        style="color: #dcdcaa;">.</span><span style="color: #dcdcaa;">route</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"/"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">homepage</span><span style="color: #d4d4d4;">():</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">return</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">render_template</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"homepage.html"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #9cdcfe;">pagetitle</span><span
+                                        style="color: #d4d4d4;">=</span><span
+                                        style="color: #ce9178;">"Homepage"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #9cdcfe;">cssfile</span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #ce9178;">"home"</span><span
+                                        style="color: #d4d4d4;">)</span></div><br><br>
+                        <div><span style="color: #dcdcaa;">@</span><span style="color: #9cdcfe;">skills_app</span><span
+                                        style="color: #dcdcaa;">.</span><span style="color: #dcdcaa;">route</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"/about"</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #569cd6;">def</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">about</span><span style="color: #d4d4d4;">():</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">return</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">render_template</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"aboutt.html"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #9cdcfe;">pagetitle</span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #ce9178;">"About
+                                        Us"</span><span style="color: #d4d4d4;">)</span></div><br><br>
+                        <div><span style="color: #c586c0;">if</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">__name__</span><span style="color: #d4d4d4;"> ==
+                                </span><span style="color: #ce9178;">"__main__"</span><span
+                                        style="color: #d4d4d4;">:</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">skills_app</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">run</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">debug</span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #569cd6;">True</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">port</span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #b5cea8;">9000</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                </div>
+        </div>
+        <p>base.html</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #808080;">&lt;!</span><span style="color: #569cd6;">DOCTYPE</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">html</span><span
+                                        style="color: #808080;">&gt;</span></div>
+                        <div><span style="color: #808080;">&lt;</span><span style="color: #569cd6;">html</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">lang</span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #ce9178;">"en"</span><span
+                                        style="color: #808080;">&gt;</span></div><br>
+                        <div><span style="color: #808080;">&lt;</span><span style="color: #569cd6;">head</span><span
+                                        style="color: #808080;">&gt;</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #808080;">&lt;</span><span
+                                        style="color: #569cd6;">meta</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">charset</span><span
+                                        style="color: #d4d4d4;">=</span><span
+                                        style="color: #ce9178;">"UTF-8"</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #808080;">/&gt;</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #808080;">&lt;</span><span
+                                        style="color: #569cd6;">title</span><span
+                                        style="color: #808080;">&gt;</span><span style="color: #d4d4d4;">{{ </span><span
+                                        style="color: #9cdcfe;">pagetitle</span><span style="color: #d4d4d4;">
+                                        }}</span><span style="color: #808080;">&lt;/</span><span
+                                        style="color: #569cd6;">title</span><span style="color: #808080;">&gt;</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #808080;">&lt;</span><span
+                                        style="color: #569cd6;">link</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">rel</span><span style="color: #d4d4d4;">=</span><span
+                                        style="color: #ce9178;">"stylesheet"</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #9cdcfe;">href</span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #ce9178;">"{{
+                                        url_for('static', filename='main.css') }}"</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #808080;">/&gt;</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #6a9955;">&lt;!-- Jinja code inside href --&gt;</span></div>
+                        <div><span style="color: #808080;">&lt;/</span><span style="color: #569cd6;">head</span><span
+                                        style="color: #808080;">&gt;</span></div><br>
+                        <div><span style="color: #808080;">&lt;</span><span style="color: #569cd6;">body</span><span
+                                        style="color: #808080;">&gt;</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;{% </span><span
+                                        style="color: #c586c0;">block</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">body</span><span style="color: #d4d4d4;"> %}</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;{% </span><span
+                                        style="color: #c586c0;">endblock</span><span style="color: #d4d4d4;"> %}</span>
+                        </div>
+                        <div><span style="color: #808080;">&lt;/</span><span style="color: #569cd6;">body</span><span
+                                        style="color: #808080;">&gt;</span></div><br>
+                        <div><span style="color: #808080;">&lt;/</span><span style="color: #569cd6;">html</span><span
+                                        style="color: #808080;">&gt;</span></div>
+                </div>
+        </div>
+
 
 
 
