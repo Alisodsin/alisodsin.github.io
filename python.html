@@ -7926,9 +7926,21 @@
                                         style="color: #ce9178;">"stylesheet"</span><span style="color: #d4d4d4;">
                                 </span><span style="color: #9cdcfe;">href</span><span
                                         style="color: #d4d4d4;">=</span><span style="color: #ce9178;">"{{
-                                        url_for('static', filename='main.css') }}"</span><span style="color: #d4d4d4;">
-                                </span><span style="color: #808080;">/&gt;</span><span style="color: #d4d4d4;">
-                                </span><span style="color: #6a9955;">&lt;!-- Jinja code inside href --&gt;</span></div>
+                                        url_for('static', filename='css/main.css') }}"</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #808080;">/&gt;</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #6a9955;">&lt;!-- Jinja code
+                                        inside href --&gt;</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #808080;">&lt;</span><span
+                                        style="color: #569cd6;">link</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">rel</span><span style="color: #d4d4d4;">=</span><span
+                                        style="color: #ce9178;">"stylesheet"</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #9cdcfe;">href</span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #ce9178;">"{{
+                                        url_for('static', filename='css/master.css') }}"</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #808080;">/&gt;</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #6a9955;">&lt;!-- Jinja code
+                                        inside href --&gt;</span></div>
                         <div><span style="color: #808080;">&lt;/</span><span style="color: #569cd6;">head</span><span
                                         style="color: #808080;">&gt;</span></div><br>
                         <div><span style="color: #808080;">&lt;</span><span style="color: #569cd6;">body</span><span
@@ -7946,6 +7958,189 @@
                                         style="color: #808080;">&gt;</span></div>
                 </div>
         </div>
+        <h3> Web Scraping Control Browser With Selenium</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #c586c0;">from</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">time</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">sleep</span></div>
+                        <div><span style="color: #c586c0;">from</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">selenium</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #c586c0;">import</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #4ec9b0;">webdriver</span></div>
+                        <div><span style="color: #c586c0;">from</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">webdriver_manager</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #4ec9b0;">firefox</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #c586c0;">import</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #4ec9b0;">GeckoDriverManager</span></div>
+                        <div><span style="color: #9cdcfe;">browser</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #4ec9b0;">webdriver</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #4ec9b0;">Firefox</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">executable_path</span><span
+                                        style="color: #d4d4d4;">=</span><span
+                                        style="color: #4ec9b0;">GeckoDriverManager</span><span
+                                        style="color: #d4d4d4;">().</span><span
+                                        style="color: #dcdcaa;">install</span><span style="color: #d4d4d4;">())</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">browser</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">get</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"https://alisodsin.github.io/kalamngy.html"</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;</span><span style="color: #6a9955;"># open
+                                        kalamngy</span></div>
+                        <div><span style="color: #9cdcfe;">browser</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">find_element</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">value</span><span
+                                        style="color: #d4d4d4;">=</span><span
+                                        style="color: #ce9178;">"NickName"</span><span
+                                        style="color: #d4d4d4;">).</span><span
+                                        style="color: #dcdcaa;">send_keys</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #b5cea8;">12</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;</span><span style="color: #6a9955;">#
+                                        insert userName</span></div>
+                        <div><span style="color: #9cdcfe;">browser</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">find_element</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">value</span><span
+                                        style="color: #d4d4d4;">=</span><span
+                                        style="color: #ce9178;">"Submit"</span><span
+                                        style="color: #d4d4d4;">).</span><span style="color: #dcdcaa;">click</span><span
+                                        style="color: #d4d4d4;">()&#160;&#160;</span><span style="color: #6a9955;">#
+                                        submit</span></div>
+                </div>
+        </div>
+        <h3>Numpy - Compare Performance And Memory Use</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #c586c0;">from</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">array</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">ArrayType</span></div>
+                        <div><span style="color: #c586c0;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">numpy</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">as</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">np</span></div>
+                        <div><span style="color: #c586c0;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">time</span></div>
+                        <div><span style="color: #c586c0;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">sys</span></div><br><br>
+                        <div><span style="color: #6a9955;"># measure perfomance =&gt; list vs np.array</span></div>
+                        <div><span style="color: #9cdcfe;">elements</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #b5cea8;">15000000</span></div>
+                        <div><span style="color: #9cdcfe;">list1</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #4ec9b0;">range</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">elements</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">list2</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #4ec9b0;">range</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">elements</span><span style="color: #d4d4d4;">)</span>
+                        </div><br>
+                        <div><span style="color: #9cdcfe;">arr1</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #4ec9b0;">np</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">arange</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">elements</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">arr2</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #4ec9b0;">np</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">arange</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">elements</span><span style="color: #d4d4d4;">)</span>
+                        </div><br>
+                        <div><span style="color: #9cdcfe;">listStart</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #4ec9b0;">time</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">time</span><span style="color: #d4d4d4;">()</span></div>
+                        <div><span style="color: #9cdcfe;">listResult</span><span style="color: #d4d4d4;"> =
+                                        [(</span><span style="color: #9cdcfe;">n1</span><span
+                                        style="color: #d4d4d4;">+</span><span style="color: #9cdcfe;">n2</span><span
+                                        style="color: #d4d4d4;">) </span><span style="color: #c586c0;">for</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">n1</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">n2</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #c586c0;">in</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #4ec9b0;">zip</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">list1</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">list2</span><span
+                                        style="color: #d4d4d4;">)]</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">f</span><span style="color: #ce9178;">"list time =
+                                </span><span style="color: #569cd6;">{</span><span
+                                        style="color: #4ec9b0;">time</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">time</span><span style="color: #d4d4d4;">() -
+                                </span><span style="color: #9cdcfe;">listStart</span><span
+                                        style="color: #569cd6;">}</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">)</span></div><br><br>
+                        <div><span style="color: #9cdcfe;">arrayStart</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #4ec9b0;">time</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">time</span><span
+                                        style="color: #d4d4d4;">()</span></div>
+                        <div><span style="color: #9cdcfe;">arrResult</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #9cdcfe;">arr1</span><span style="color: #d4d4d4;">+</span><span
+                                        style="color: #9cdcfe;">arr2</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">f</span><span style="color: #ce9178;">"Array time =
+                                </span><span style="color: #569cd6;">{</span><span
+                                        style="color: #4ec9b0;">time</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">time</span><span style="color: #d4d4d4;">() -
+                                </span><span style="color: #9cdcfe;">arrayStart</span><span
+                                        style="color: #569cd6;">}</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">'='</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">70</span><span style="color: #d4d4d4;">)</span></div>
+                        <br><br>
+                        <div><span style="color: #6a9955;"># memory use =&gt; list vs np.array</span></div>
+                        <div><span style="color: #9cdcfe;">lis</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #4ec9b0;">range</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #b5cea8;">100</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">sys</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">getsizeof</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">lis</span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #b5cea8;">98</span><span
+                                        style="color: #d4d4d4;">]))</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">lis</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">__len__</span><span style="color: #d4d4d4;">())</span>
+                        </div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">sys</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">getsizeof</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">lis</span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #b5cea8;">98</span><span
+                                        style="color: #d4d4d4;">]) * </span><span
+                                        style="color: #9cdcfe;">lis</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">__len__</span><span style="color: #d4d4d4;">())</span>
+                        </div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">'='</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">70</span><span style="color: #d4d4d4;">)</span></div>
+                        <br><br>
+                        <div><span style="color: #9cdcfe;">arr</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #4ec9b0;">np</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">arange</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #b5cea8;">100</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">arr</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">itemsize</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;</span><span style="color: #6a9955;"># 8
+                                        bytes</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">arr</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">size</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;</span><span style="color: #6a9955;"># 100
+                                        elemenys</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">arr</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">itemsize</span><span style="color: #d4d4d4;"> *
+                                </span><span style="color: #9cdcfe;">arr</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">size</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;</span><span style="color: #6a9955;"># 800
+                                        bytes</span></div>
+                </div>
+        </div>
+
+
+
 
 
 
