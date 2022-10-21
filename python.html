@@ -181,132 +181,176 @@
         <div class="cods" contenteditable="" spellcheck="false">
                 <div>
                         <div><span style="color: #6a9955;"># string length</span></div>
-                        <div><span style="color: #9cdcfe;">name</span> = <span style="color: #ce9178;">"ali
-                                        saber"</span></div>
-                        <div><span style="color: #dcdcaa;">print</span>(<span style="color: #dcdcaa;">len</span>(<span
-                                        style="color: #9cdcfe;">name</span>)) &nbsp;<span style="color: #6a9955;">#
-                                        string lenght</span>
-                        </div>
-                        <div><span style="color: #dcdcaa;">print</span>(<span style="color: #ce9178;">"-"</span>*<span
-                                        style="color: #b5cea8;">20</span>)</div><br>
+                        <div><span style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">"ali saber"</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">len</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">name</span><span
+                                        style="color: #d4d4d4;">))&#160;&#160;</span><span style="color: #6a9955;">#
+                                        string lenght</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"-"</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">20</span><span style="color: #d4d4d4;">)</span></div>
+                        <br>
                         <div><span style="color: #6a9955;">#strip , rstrip() , lstrip()</span></div>
-                        <div><span style="color: #9cdcfe;">name</span> = <span style="color: #ce9178;">" &nbsp; &nbsp;
-                                        &nbsp;
-                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ali saber &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                                        &nbsp; &nbsp;
-                                        &nbsp; &nbsp; &nbsp; &nbsp;"</span></div>
-                        <div><span style="color: #dcdcaa;">print</span>(<span style="color: #9cdcfe;">name</span>.<span
-                                        style="color: #dcdcaa;">strip</span>()) &nbsp;<span style="color: #6a9955;">#
-                                        remove white space
-                                        before and after string</span></div>
-                        <div><span style="color: #dcdcaa;">print</span>(<span style="color: #9cdcfe;">name</span>.<span
-                                        style="color: #dcdcaa;">rstrip</span>()) &nbsp;<span style="color: #6a9955;">#
-                                        remove the left
-                                        white space</span></div>
-                        <div><span style="color: #dcdcaa;">print</span>(<span style="color: #9cdcfe;">name</span>.<span
-                                        style="color: #dcdcaa;">lstrip</span>()) &nbsp;<span style="color: #6a9955;">#
-                                        remove the right
-                                        white space</span></div>
-                        <div><span style="color: #dcdcaa;">print</span>(<span style="color: #ce9178;">"-"</span>*<span
-                                        style="color: #b5cea8;">20</span>)</div><br>
+                        <div><span style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">"&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ali
+                                        saber&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;"</span>
+                        </div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">strip</span><span
+                                        style="color: #d4d4d4;">())&#160;&#160;</span><span style="color: #6a9955;">#
+                                        remove white space before and after string</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">rstrip</span><span
+                                        style="color: #d4d4d4;">())&#160;&#160;</span><span style="color: #6a9955;">#
+                                        remove the right white space</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">lstrip</span><span
+                                        style="color: #d4d4d4;">())&#160;&#160;</span><span style="color: #6a9955;">#
+                                        remove the left white space</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"-"</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">20</span><span style="color: #d4d4d4;">)</span></div>
+                        <br>
                         <div><span style="color: #6a9955;"># strip , rstrip() , lstrip() with parameters</span></div>
-                        <div><span style="color: #9cdcfe;">name</span> = <span
-                                        style="color: #ce9178;">"###################ali #
-                                        saber##############"</span></div>
-                        <div><span style="color: #dcdcaa;">print</span>(<span style="color: #9cdcfe;">name</span>.<span
-                                        style="color: #dcdcaa;">strip</span>(<span style="color: #ce9178;">"#"</span>))
-                                &nbsp;<span style="color: #6a9955;"># remove # before and after string</span></div>
-                        <div><span style="color: #dcdcaa;">print</span>(<span style="color: #9cdcfe;">name</span>.<span
-                                        style="color: #dcdcaa;">rstrip</span>(<span style="color: #ce9178;">"#"</span>))
-                                &nbsp;<span style="color: #6a9955;"># remove the left #</span></div>
-                        <div><span style="color: #dcdcaa;">print</span>(<span style="color: #9cdcfe;">name</span>.<span
-                                        style="color: #dcdcaa;">lstrip</span>(<span style="color: #ce9178;">"#"</span>))
-                                &nbsp;<span style="color: #6a9955;"># remove the right #</span></div>
-                        <div><span style="color: #dcdcaa;">print</span>(<span style="color: #ce9178;">"-"</span>*<span
-                                        style="color: #b5cea8;">20</span>)</div>
-                        <div><span style="color: #9cdcfe;">name</span> = <span style="color: #ce9178;">"@#@#ali @#
-                                        sabe@#"</span></div>
-                        <div><span style="color: #dcdcaa;">print</span>(<span style="color: #9cdcfe;">name</span>.<span
-                                        style="color: #dcdcaa;">strip</span>(<span style="color: #ce9178;">"@#"</span>))
-                                &nbsp;<span style="color: #6a9955;"># remove @# before and after string</span></div>
-                        <div><span style="color: #dcdcaa;">print</span>(<span style="color: #9cdcfe;">name</span>.<span
-                                        style="color: #dcdcaa;">rstrip</span>(<span
-                                        style="color: #ce9178;">"@#"</span>)) &nbsp;<span style="color: #6a9955;">#
-                                        remove the left @#</span></div>
-                        <div><span style="color: #dcdcaa;">print</span>(<span style="color: #9cdcfe;">name</span>.<span
-                                        style="color: #dcdcaa;">lstrip</span>(<span
-                                        style="color: #ce9178;">"@#"</span>)) &nbsp;<span style="color: #6a9955;">#
+                        <div><span style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">"###################ali # saber##############"</span>
+                        </div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">strip</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"#"</span><span
+                                        style="color: #d4d4d4;">))&#160;&#160;</span><span style="color: #6a9955;">#
+                                        remove # before and after string</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">rstrip</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"#"</span><span
+                                        style="color: #d4d4d4;">))&#160;&#160;</span><span style="color: #6a9955;">#
+                                        remove the right #</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">lstrip</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"#"</span><span
+                                        style="color: #d4d4d4;">))&#160;&#160;</span><span style="color: #6a9955;">#
+                                        remove the left #</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"-"</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">20</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">"@#@#ali @# sabe@#"</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">strip</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"@#"</span><span
+                                        style="color: #d4d4d4;">))&#160;&#160;</span><span style="color: #6a9955;">#
+                                        remove @# before and after string</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">rstrip</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"@#"</span><span
+                                        style="color: #d4d4d4;">))&#160;&#160;</span><span style="color: #6a9955;">#
                                         remove the right @#</span></div>
-                        <div><span style="color: #dcdcaa;">print</span>(<span style="color: #ce9178;">"-"</span>*<span
-                                        style="color: #b5cea8;">20</span>)</div><br>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">lstrip</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"@#"</span><span
+                                        style="color: #d4d4d4;">))&#160;&#160;</span><span style="color: #6a9955;">#
+                                        remove the left @#</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"-"</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">20</span><span style="color: #d4d4d4;">)</span></div>
+                        <br>
                         <div><span style="color: #6a9955;"># title()</span></div>
-                        <div><span style="color: #9cdcfe;">name</span> = <span style="color: #ce9178;">"Ali : 180 tall
-                                        42
-                                        age"</span></div>
-                        <div><span style="color: #6a9955;"># Ali : 180 Tall 42 Age &nbsp;"make letter after number
-                                        capital if
-                                        it's small"</span></div>
-                        <div><span style="color: #dcdcaa;">print</span>(<span style="color: #9cdcfe;">name</span>.<span
-                                        style="color: #dcdcaa;">title</span>())</div>
-                        <div><span style="color: #dcdcaa;">print</span>(<span style="color: #ce9178;">"-"</span>*<span
-                                        style="color: #b5cea8;">20</span>)</div><br>
+                        <div><span style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">"Ali : 180 tall 42 age"</span></div>
+                        <div><span style="color: #6a9955;"># Ali : 180 Tall 42 Age&#160;&#160;"make letter after number
+                                        capital if it's small"</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">title</span><span style="color: #d4d4d4;">())</span>
+                        </div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"-"</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">20</span><span style="color: #d4d4d4;">)</span></div>
+                        <br>
                         <div><span style="color: #6a9955;"># capitalize</span></div>
-                        <div><span style="color: #9cdcfe;">name</span> = <span style="color: #ce9178;">"ALI SABER
-                                        ALI"</span>
-                        </div>
-                        <div><span style="color: #dcdcaa;">print</span>(<span style="color: #9cdcfe;">name</span>.<span
-                                        style="color: #dcdcaa;">capitalize</span>()) &nbsp;<span
-                                        style="color: #6a9955;"># make the
-                                        first character capital and the rest small</span></div>
-                        <div><span style="color: #9cdcfe;">name</span> = <span style="color: #ce9178;">"ali saber
-                                        ali"</span>
-                        </div>
-                        <div><span style="color: #dcdcaa;">print</span>(<span style="color: #9cdcfe;">name</span>.<span
-                                        style="color: #dcdcaa;">capitalize</span>()) &nbsp;<span
-                                        style="color: #6a9955;"># make the
-                                        first character capital and the rest small</span></div>
-                        <div><span style="color: #dcdcaa;">print</span>(<span style="color: #ce9178;">"-"</span>*<span
-                                        style="color: #b5cea8;">20</span>)</div><br>
+                        <div><span style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">"ALI SABER ALI"</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">capitalize</span><span
+                                        style="color: #d4d4d4;">())&#160;&#160;</span><span style="color: #6a9955;">#
+                                        make the first character capital and the rest small</span></div>
+                        <div><span style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">"ali saber ali"</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">capitalize</span><span
+                                        style="color: #d4d4d4;">())&#160;&#160;</span><span style="color: #6a9955;">#
+                                        make the first character capital and the rest small</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"-"</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">20</span><span style="color: #d4d4d4;">)</span></div>
+                        <br>
                         <div><span style="color: #6a9955;"># zfill</span></div>
-                        <div><span style="color: #9cdcfe;">c</span>, <span style="color: #9cdcfe;">d</span>, <span
-                                        style="color: #9cdcfe;">e</span>, <span style="color: #9cdcfe;">f</span> = <span
-                                        style="color: #ce9178;">"1"</span>, <span style="color: #ce9178;">"11"</span>,
-                                <span style="color: #ce9178;">"111"</span>, <span style="color: #ce9178;">"1111"</span>
-                        </div>
+                        <div><span style="color: #9cdcfe;">c</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">d</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">e</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">f</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">"1"</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #ce9178;">"11"</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #ce9178;">"111"</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #ce9178;">"1111"</span></div>
                         <div><span style="color: #6a9955;"># make string length 3 with zero padding to left if leth than
                                         3</span></div>
-                        <div><span style="color: #dcdcaa;">print</span>(<span style="color: #9cdcfe;">c</span>.<span
-                                        style="color: #dcdcaa;">zfill</span>(<span style="color: #b5cea8;">3</span>))
-                        </div>
-                        <div><span style="color: #dcdcaa;">print</span>(<span style="color: #9cdcfe;">d</span>.<span
-                                        style="color: #dcdcaa;">zfill</span>(<span style="color: #b5cea8;">3</span>))
-                        </div>
-                        <div><span style="color: #dcdcaa;">print</span>(<span style="color: #9cdcfe;">e</span>.<span
-                                        style="color: #dcdcaa;">zfill</span>(<span style="color: #b5cea8;">3</span>))
-                        </div>
-                        <div><span style="color: #dcdcaa;">print</span>(<span style="color: #9cdcfe;">f</span>.<span
-                                        style="color: #dcdcaa;">zfill</span>(<span style="color: #b5cea8;">3</span>))
-                                &nbsp;<span style="color: #6a9955;"># just print f value</span></div>
-                        <div><span style="color: #dcdcaa;">print</span>(<span style="color: #ce9178;">"-"</span>*<span
-                                        style="color: #b5cea8;">20</span>)</div><br>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">c</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">zfill</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #b5cea8;">3</span><span style="color: #d4d4d4;">))</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">d</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">zfill</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #b5cea8;">3</span><span style="color: #d4d4d4;">))</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">e</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">zfill</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #b5cea8;">3</span><span style="color: #d4d4d4;">))</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">f</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">zfill</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #b5cea8;">3</span><span
+                                        style="color: #d4d4d4;">))&#160;&#160;</span><span style="color: #6a9955;">#
+                                        just print f value</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"-"</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">20</span><span style="color: #d4d4d4;">)</span></div>
+                        <br>
                         <div><span style="color: #6a9955;"># upper</span></div>
-                        <div><span style="color: #9cdcfe;">name</span> = <span style="color: #ce9178;">"ali
-                                        saber"</span></div>
-                        <div><span style="color: #dcdcaa;">print</span>(<span style="color: #9cdcfe;">name</span>.<span
-                                        style="color: #dcdcaa;">upper</span>()) &nbsp;<span style="color: #6a9955;">#
-                                        make all letters
-                                        capital</span></div>
-                        <div><span style="color: #dcdcaa;">print</span>(<span style="color: #ce9178;">"-"</span>*<span
-                                        style="color: #b5cea8;">20</span>)</div><br>
+                        <div><span style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">"ali saber"</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">upper</span><span
+                                        style="color: #d4d4d4;">())&#160;&#160;</span><span style="color: #6a9955;">#
+                                        make all letters capital</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"-"</span><span style="color: #d4d4d4;">*</span><span
+                                        style="color: #b5cea8;">20</span><span style="color: #d4d4d4;">)</span></div>
+                        <br>
                         <div><span style="color: #6a9955;"># lower()</span></div>
-                        <div><span style="color: #9cdcfe;">name</span> = <span style="color: #ce9178;">"ALI
-                                        SABER"</span></div>
-                        <div><span style="color: #dcdcaa;">print</span>(<span style="color: #9cdcfe;">name</span>.<span
-                                        style="color: #dcdcaa;">lower</span>()) &nbsp;<span style="color: #6a9955;">#
-                                        make all letters
-                                        small</span></div>
+                        <div><span style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">"ALI SABER"</span></div>
+                        <div><span style="color: #dcdcaa;">print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">lower</span><span
+                                        style="color: #d4d4d4;">())&#160;&#160;</span><span style="color: #6a9955;">#
+                                        make all letters small</span></div>
                 </div>
-
         </div>
         <h3>Strings Methods Part 2</h3>
 
