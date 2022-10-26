@@ -4760,8 +4760,405 @@
         </div>
         <h3>#071 - Array Filter, Array Map</h3>
         <div class="cods" contenteditable="" spellcheck="false">
-                
+                <div>
+                        <div><span style="color: #569cd6;">&lt;?php</span></div>
+                        <div><span style="color: #569cd6;">function</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">add_title</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$fname</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">return</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"Hello Mr </span><span
+                                        style="color: #9cdcfe;">$fname</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                        <div><span style="color: #569cd6;">function</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">add_title2</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$fname</span><span
+                                        style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">$lname</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">return</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"Hello Mr </span><span
+                                        style="color: #9cdcfe;">$fname</span><span style="color: #ce9178;"> </span><span
+                                        style="color: #9cdcfe;">$lname</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                        <div><span style="color: #9cdcfe;">$first_names</span><span style="color: #d4d4d4;"> =
+                                        [</span><span style="color: #ce9178;">"Osama"</span><span
+                                        style="color: #d4d4d4;">, </span><span
+                                        style="color: #ce9178;">"Ahmed"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"Sayed"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"Mahmoud"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"Sameh"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"Gamal"</span><span
+                                        style="color: #d4d4d4;">];</span></div>
+                        <div><span style="color: #9cdcfe;">$last_names</span><span style="color: #d4d4d4;"> =
+                                        [</span><span style="color: #ce9178;">"Ameer"</span><span
+                                        style="color: #d4d4d4;">, </span><span
+                                        style="color: #ce9178;">"Samy"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"Shady"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"Amr"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"Mohamed"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"Ibrahim"</span><span
+                                        style="color: #d4d4d4;">];</span></div><br><br><br>
+                        <div><span style="color: #6a9955;">// array_map - Applies the callback to the elements of the
+                                        given arrays</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;pre&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">print_r</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">array_map</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"add_title"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #9cdcfe;">$first_names</span><span
+                                        style="color: #d4d4d4;">));</span></div>
+                        <div><span style="color: #6a9955;">//with arrow function </span></div>
+                        <div><span style="color: #dcdcaa;">print_r</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">array_map</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #569cd6;">fn</span><span
+                                        style="color: #d4d4d4;"> (</span><span style="color: #9cdcfe;">$f</span><span
+                                        style="color: #d4d4d4;">) =&gt; </span><span style="color: #ce9178;">"hello
+                                </span><span style="color: #9cdcfe;">$f</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">$first_names</span><span
+                                        style="color: #d4d4d4;">));</span></div>
+                        <div><span style="color: #6a9955;">// -- </span></div>
+                        <div><span style="color: #dcdcaa;">print_r</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">array_map</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"add_title2"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #9cdcfe;">$first_names</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #9cdcfe;">$last_names</span><span
+                                        style="color: #d4d4d4;">));</span></div>
+                        <div><span style="color: #6a9955;">//with arrow function </span></div>
+                        <div><span style="color: #dcdcaa;">print_r</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">array_map</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #569cd6;">fn</span><span
+                                        style="color: #d4d4d4;"> (</span><span style="color: #9cdcfe;">$f</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">$l</span><span
+                                        style="color: #d4d4d4;">) =&gt; </span><span style="color: #ce9178;">"hello
+                                </span><span style="color: #9cdcfe;">$f</span><span style="color: #ce9178;">
+                                </span><span style="color: #9cdcfe;">$l</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">$first_names</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #9cdcfe;">$last_names</span><span
+                                        style="color: #d4d4d4;">));</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;/pre&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;hr&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div><br><br><br>
+                        <div><span style="color: #6a9955;">// array_filter -- Iterates over each value in the array
+                                        passing them to the callback function</span></div>
+                        <div><span style="color: #569cd6;">function</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">filter</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">$ele</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">return</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">str_starts_with</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$ele</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #ce9178;">"a"</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                        <div><span style="color: #9cdcfe;">$arr</span><span style="color: #d4d4d4;"> = [</span><span
+                                        style="color: #ce9178;">"ali"</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #ce9178;">"hassan"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"hema"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"huss"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"ahmed"</span><span
+                                        style="color: #d4d4d4;">];</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;pre&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">print_r</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">array_filter</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$arr</span><span
+                                        style="color: #d4d4d4;">, </span><span
+                                        style="color: #ce9178;">"filter"</span><span style="color: #d4d4d4;">));
+                                </span><span style="color: #6a9955;">// [ali , ahmed] </span></div>
+                        <div><span style="color: #6a9955;">//with arrow function </span></div>
+                        <div><span style="color: #dcdcaa;">print_r</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">array_filter</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$arr</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #569cd6;">fn</span><span
+                                        style="color: #d4d4d4;"> (</span><span style="color: #9cdcfe;">$name</span><span
+                                        style="color: #d4d4d4;">) =&gt; </span><span
+                                        style="color: #dcdcaa;">str_starts_with</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$name</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #ce9178;">"a"</span><span
+                                        style="color: #d4d4d4;">))); </span><span style="color: #6a9955;">// [ali ,
+                                        ahmed] </span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;/pre&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #6a9955;">//filter &nbsp;using keys &amp;&amp; keys and values</span>
+                        </div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;pre&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #9cdcfe;">$arr</span><span style="color: #d4d4d4;"> = [</span><span
+                                        style="color: #ce9178;">"ali"</span><span style="color: #d4d4d4;"> =&gt;
+                                </span><span style="color: #ce9178;">"ali"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"hassan"</span><span style="color: #d4d4d4;"> =&gt;
+                                </span><span style="color: #ce9178;">"hassan"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"hema"</span><span style="color: #d4d4d4;"> =&gt;
+                                </span><span style="color: #ce9178;">"hassan"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"huss"</span><span style="color: #d4d4d4;"> =&gt;
+                                </span><span style="color: #ce9178;">"huss"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"ahmed"</span><span style="color: #d4d4d4;"> =&gt;
+                                </span><span style="color: #ce9178;">"ahmed"</span><span
+                                        style="color: #d4d4d4;">];</span></div>
+                        <div><span style="color: #dcdcaa;">print_r</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">array_filter</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$arr</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #569cd6;">fn</span><span
+                                        style="color: #d4d4d4;"> (</span><span style="color: #9cdcfe;">$name</span><span
+                                        style="color: #d4d4d4;">) =&gt; </span><span
+                                        style="color: #dcdcaa;">str_starts_with</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$name</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #ce9178;">"a"</span><span
+                                        style="color: #d4d4d4;">), ARRAY_FILTER_USE_KEY));</span></div>
+                        <div><span style="color: #dcdcaa;">print_r</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">array_filter</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$arr</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #569cd6;">fn</span><span
+                                        style="color: #d4d4d4;"> (</span><span style="color: #9cdcfe;">$name</span><span
+                                        style="color: #d4d4d4;">) =&gt; </span><span
+                                        style="color: #dcdcaa;">str_starts_with</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$name</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #ce9178;">"a"</span><span
+                                        style="color: #d4d4d4;">), ARRAY_FILTER_USE_BOTH));</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;/pre&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #569cd6;">?</span><span style="color: #569cd6;">&gt;</span></div>
                 </div>
+        </div>
+        <h3>#072 - Array Reduce</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">&lt;?php</span></div>
+                        <div><span style="color: #569cd6;">function</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">add</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">$carry</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #9cdcfe;">$item</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #c586c0;">return</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">$carry</span><span style="color: #d4d4d4;"> +
+                                </span><span style="color: #9cdcfe;">$item</span><span style="color: #d4d4d4;">;</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                        <div><span style="color: #9cdcfe;">$nums</span><span style="color: #d4d4d4;"> = [</span><span
+                                        style="color: #b5cea8;">10</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">20</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">50</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">100</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">10</span><span style="color: #d4d4d4;">];</span></div>
+                        <br><br>
+                        <div><span style="color: #6a9955;">// array_reduce - Iteratively reduce the array to a single
+                                        value using a callback function</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">array_reduce</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$nums</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #ce9178;">"add"</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #b5cea8;">100</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #569cd6;">?</span><span style="color: #569cd6;">&gt;</span></div>
+                </div>
+        </div>
+        <h3>#073 - abs, mt_rand, intdiv, fmod</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">//abs</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">abs</span><span style="color: #d4d4d4;">(-</span><span
+                                        style="color: #b5cea8;">10</span><span style="color: #d4d4d4;">) </span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;hr&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div><br>
+                        <div><span style="color: #6a9955;">// mt_rand</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">mt_rand</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #b5cea8;">0</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #b5cea8;">100</span><span
+                                        style="color: #d4d4d4;">) </span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;hr&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div><br>
+                        <div><span style="color: #6a9955;">//intdiv</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">intdiv</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #b5cea8;">15</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">7</span><span style="color: #d4d4d4;">) </span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;hr&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">intdiv</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #b5cea8;">16</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">7</span><span style="color: #d4d4d4;">) </span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;hr&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">intdiv</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #b5cea8;">17</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">7</span><span style="color: #d4d4d4;">) </span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;hr&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">intdiv</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #b5cea8;">20</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">7</span><span style="color: #d4d4d4;">) </span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;hr&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">intdiv</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #b5cea8;">21</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">7</span><span style="color: #d4d4d4;">) </span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;hr&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div><br>
+                        <div><span style="color: #6a9955;">// fmod</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">fmod</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #b5cea8;">11.5</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">2</span><span style="color: #d4d4d4;">) </span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;hr&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #569cd6;">?</span><span style="color: #569cd6;">&gt;</span></div>
+                </div>
+        </div>
+        <h3>#074 - ceil, floor</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">&lt;?php</span></div>
+                        <div><span style="color: #6a9955;">// ceil = Round fractions up</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">ceil</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #b5cea8;">2.1</span><span style="color: #d4d4d4;">) </span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;br&gt;"</span><span style="color: #d4d4d4;">;
+                                </span><span style="color: #6a9955;">// 3</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">ceil</span><span style="color: #d4d4d4;">(-</span><span
+                                        style="color: #b5cea8;">2.1</span><span style="color: #d4d4d4;">) </span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;br&gt;"</span><span style="color: #d4d4d4;">;
+                                </span><span style="color: #6a9955;">// -2 </span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;hr&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div><br>
+                        <div><span style="color: #6a9955;">// floor - Round fractions down</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">floor</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #b5cea8;">2.9</span><span style="color: #d4d4d4;">) </span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;br&gt;"</span><span style="color: #d4d4d4;">;
+                                </span><span style="color: #6a9955;">//2</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">floor</span><span style="color: #d4d4d4;">(-</span><span
+                                        style="color: #b5cea8;">2.9</span><span style="color: #d4d4d4;">) </span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;br&gt;"</span><span style="color: #d4d4d4;">;
+                                </span><span style="color: #6a9955;">//-3 </span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;hr&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #569cd6;">?</span><span style="color: #569cd6;">&gt;</span></div>
+                </div>
+        </div>
+        <h3>round</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">&lt;?php</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">round</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #b5cea8;">2.8</span><span style="color: #d4d4d4;">) </span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;br&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">round</span><span style="color: #d4d4d4;">(-</span><span
+                                        style="color: #b5cea8;">2.8</span><span style="color: #d4d4d4;">) </span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;br&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #569cd6;">?</span><span style="color: #569cd6;">&gt;</span></div>
+                </div>
+        </div>
+        <h3>#076 - sqrt, min, max</h3>
+        <p>ok</p>
+        <h3>#077 - filter_list, filter_id, filter_var</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">&lt;?php</span></div>
+                        <div><span style="color: #6a9955;">// filter_list - Returns a list of all supported
+                                        filters</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;pre&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">print_r</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">filter_list</span><span
+                                        style="color: #d4d4d4;">());</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;/pre&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;hr&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div><br><br><br>
+                        <div><span style="color: #6a9955;">// filter_id - Returns the filter ID belonging to a named
+                                        filter </span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">filter_id</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"boolean"</span><span style="color: #d4d4d4;">)
+                                </span><span style="color: #d4d4d4;">.</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;br&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;hr&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div><br><br><br>
+                        <div><span style="color: #6a9955;">// filter_var - Filters a variable with a specified
+                                        filter</span></div>
+                        <div><span style="color: #9cdcfe;">$val</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #569cd6;">true</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">var_dump</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">filter_var</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$val</span><span
+                                        style="color: #d4d4d4;">, FILTER_VALIDATE_BOOL));</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;br&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #9cdcfe;">$val</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">"me"</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">var_dump</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">filter_var</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$val</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #b5cea8;">258</span><span
+                                        style="color: #d4d4d4;">));</span></div>
+                        <div><span style="color: #569cd6;">?</span><span style="color: #569cd6;">&gt;</span></div>
+                </div>
+        </div>
+        <h3>#078 - filter_var Validate Filters Part 1</h3>
+
+
+
+
+
+
+
+
 
 
 
