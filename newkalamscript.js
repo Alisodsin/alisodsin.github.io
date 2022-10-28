@@ -36,7 +36,7 @@ let _fmain = parent.fmain,
             _fwindowlist.sendcmd_real("say", message1, join);
             _fwindowlist.sendcmd(`/winclose ${join}`);
             personsGotMyMsg1.add(join);
-            msgnums.textContent = `you messaged ${personsGotMyMsg1.size} persons`;
+            msgnums.textContent = `you messaged ${personsGotMyMsg1.size - 1} persons`;
 
             // console.log(join);
         }
