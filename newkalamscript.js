@@ -6,6 +6,7 @@ Object.keys(parent.fwindowlist).forEach((x) => {
 let _fmain = parent.fmain,
     buttonContainers = document.createElement("div"),
     _fwindowlist = parent.fwindowlist,
+    msgnums = document.createElement("div"),
     style = document.createElement("style"),
     input,
     myNick,
@@ -35,6 +36,8 @@ let _fmain = parent.fmain,
             _fwindowlist.sendcmd_real("say", message1, join);
             _fwindowlist.sendcmd(`/winclose ${join}`);
             personsGotMyMsg1.add(join);
+            msgnums.textContent = `you messaged ${personsGotMyMsg1.size} persons`;
+
             // console.log(join);
         }
     }),
@@ -145,6 +148,7 @@ let _fmain = parent.fmain,
             ol.style.color = "white"
             ol.style.paddingTop = "5%"
             ol.style.overflow = "auto"
+            ol.prepend(msgnums);
             _fmain.document.body.append(buttonContainers, ol);
             _fmain.document.head.append(style)
             _fmain.document.querySelector(".main-closepic").remove();
@@ -260,13 +264,13 @@ function toggleButtons() {
     }
 }
 function toggleContainer() {
-    if (!personsGotMyMsg1.has("ok1")) {
+    if (!personsGotMyMsg2.has("ok1")) {
         ol.style.display = "none";
-        personsGotMyMsg1.add("ok1")
+        personsGotMyMsg2.add("ok1")
     }
     else {
         ol.style.display = "block";
-        personsGotMyMsg1.delete("ok1")
+        personsGotMyMsg2.delete("ok1")
     }
 }
 function buttonsCreator() {
