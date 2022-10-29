@@ -5151,6 +5151,438 @@
                 </div>
         </div>
         <h3>#078 - filter_var Validate Filters Part 1</h3>
+        <div class="cods" spellcheck="false" contenteditable="">
+                <div>
+                        <div><span style="color: #569cd6;">&lt;?php</span></div>
+                        <div><span style="color: #6a9955;">// FILTER_VALIDATE_BOOL</span></div>
+                        <div><span style="color: #9cdcfe;">$bool</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #569cd6;">true</span><span style="color: #d4d4d4;"> ||
+                                </span><span style="color: #b5cea8;">1</span><span style="color: #d4d4d4;"> ||
+                                </span><span style="color: #ce9178;">"yes"</span><span style="color: #d4d4d4;"> ||
+                                </span><span style="color: #ce9178;">"one"</span><span style="color: #d4d4d4;">;</span>
+                        </div>
+                        <div><span style="color: #dcdcaa;">var_dump</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">$bool</span><span style="color: #d4d4d4;">);
+                                </span><span style="color: #6a9955;">// true </span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;br&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">var_dump</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">filter_var</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$bool</span><span
+                                        style="color: #d4d4d4;">, FILTER_VALIDATE_BOOL)); </span><span
+                                        style="color: #6a9955;">// true </span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;br&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #9cdcfe;">$bool</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">""</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">var_dump</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">filter_var</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$bool</span><span
+                                        style="color: #d4d4d4;">, FILTER_VALIDATE_BOOL)); </span><span
+                                        style="color: #6a9955;">// false</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;br&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #9cdcfe;">$name</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">"Osama"</span><span style="color: #d4d4d4;">;</span>
+                        </div>
+                        <div><span style="color: #dcdcaa;">var_dump</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">filter_var</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$name</span><span
+                                        style="color: #d4d4d4;">, FILTER_VALIDATE_BOOL, FILTER_NULL_ON_FAILURE));
+                                </span><span style="color: #6a9955;">// NNULL </span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;hr&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div><br><br>
+                        <div><span style="color: #6a9955;">// FILTER_VALIDATE_URL</span></div>
+                        <div><span style="color: #9cdcfe;">$url</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">"https://elzero.org"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">var_dump</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">filter_var</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$url</span><span
+                                        style="color: #d4d4d4;">, FILTER_VALIDATE_URL)); </span><span
+                                        style="color: #6a9955;">// string(18) "https://elzero.org" </span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;BR&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div><br>
+                        <div><span style="color: #9cdcfe;">$url</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">"https://elzero.org/"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">var_dump</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">filter_var</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$url</span><span
+                                        style="color: #d4d4d4;">, FILTER_VALIDATE_URL, FILTER_FLAG_PATH_REQUIRED));
+                                </span><span style="color: #6a9955;">// string(19) "https://elzero.org/" </span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;br&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div><br>
+                        <div><span style="color: #9cdcfe;">$url</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">"hello"</span><span style="color: #d4d4d4;">;</span>
+                        </div>
+                        <div><span style="color: #dcdcaa;">var_dump</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">filter_var</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$url</span><span
+                                        style="color: #d4d4d4;">, FILTER_VALIDATE_URL, FILTER_NULL_ON_FAILURE));
+                                </span><span style="color: #6a9955;">//NULL</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;br&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div><br>
+                        <div><span style="color: #9cdcfe;">$url</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">"https://elzero.org/?id=100"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">var_dump</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">filter_var</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$url</span><span
+                                        style="color: #d4d4d4;">, FILTER_VALIDATE_URL, FILTER_FLAG_QUERY_REQUIRED));
+                                </span><span style="color: #6a9955;">// string(26) "https://elzero.org/?id=100" </span>
+                        </div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;br&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div><br>
+                        <div><span style="color: #9cdcfe;">$url</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">"https://elzero.org/?id=100"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">var_dump</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">filter_var</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$url</span><span
+                                        style="color: #d4d4d4;">, FILTER_VALIDATE_URL, [</span><span
+                                        style="color: #ce9178;">"flags"</span><span style="color: #d4d4d4;"> =&gt;
+                                        FILTER_NULL_ON_FAILURE | FILTER_FLAG_PATH_REQUIRED |
+                                        FILTER_FLAG_QUERY_REQUIRED])); </span><span style="color: #6a9955;">//
+                                        string(26) "https://elzero.org/?id=100" </span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;hr&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div><br><br>
+                        <div><span style="color: #6a9955;">// FILTER_VALIDATE_IP</span></div>
+                        <div><span style="color: #9cdcfe;">$ip4</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">"192.168.1.9"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">var_dump</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">filter_var</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$ip4</span><span
+                                        style="color: #d4d4d4;">, FILTER_VALIDATE_IP)); </span><span
+                                        style="color: #6a9955;">// string(11) "192.168.1.9" </span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;br&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div><br>
+                        <div><span style="color: #9cdcfe;">$ip6</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">"fe80::aa0d:4b6f:d275:1fca"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">var_dump</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">filter_var</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$ip6</span><span
+                                        style="color: #d4d4d4;">, FILTER_VALIDATE_IP)); </span><span
+                                        style="color: #6a9955;">// string(25) "fe80::aa0d:4b6f:d275:1fca" </span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;br&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div><br>
+                        <div><span style="color: #dcdcaa;">var_dump</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">filter_var</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$ip6</span><span
+                                        style="color: #d4d4d4;">, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)); </span><span
+                                        style="color: #6a9955;">// false</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;br&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">var_dump</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">filter_var</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$ip4</span><span
+                                        style="color: #d4d4d4;">, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)); </span><span
+                                        style="color: #6a9955;">// false</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;hr&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div><br><br>
+                        <div><span style="color: #6a9955;">// FILTER_VALIDATE_MAC =&gt; </span></div>
+                        <div><span style="color: #9cdcfe;">$mac</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">"1c:bf:ce:89:55:5d"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">var_dump</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">filter_var</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$mac</span><span
+                                        style="color: #d4d4d4;">, FILTER_VALIDATE_MAC)); </span><span
+                                        style="color: #6a9955;">// string(17) "1c:bf:ce:89:55:5d" </span></div><span
+                                style="color: #569cd6;">?</span><span style="color: #569cd6;">&gt;</span>
+                </div>
+        </div>
+        <h3>#079 - filter_var Validate Filters Part 2</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">&lt;?php</span></div>
+                        <div><span style="color: #6a9955;">// FILTER_VALIDATE_EMAIL</span></div>
+                        <div><span style="color: #9cdcfe;">$email</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">"o@nn2.sa"</span><span style="color: #d4d4d4;">;</span>
+                        </div>
+                        <div><span style="color: #dcdcaa;">var_dump</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">filter_var</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$email</span><span
+                                        style="color: #d4d4d4;">, FILTER_VALIDATE_EMAIL, FILTER_NULL_ON_FAILURE));
+                                </span><span style="color: #6a9955;">// string(7) "o@nn.sa"</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;hr&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div><br><br>
+                        <div><span style="color: #6a9955;">// FILTER_VALIDATE_INT</span></div>
+                        <div><span style="color: #9cdcfe;">$int</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">"90"</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">var_dump</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">filter_var</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$int</span><span
+                                        style="color: #d4d4d4;">, FILTER_VALIDATE_INT, [</span><span
+                                        style="color: #ce9178;">"flags"</span><span style="color: #d4d4d4;"> =&gt;
+                                        FILTER_NULL_ON_FAILURE, </span><span
+                                        style="color: #ce9178;">"options"</span><span style="color: #d4d4d4;"> =&gt;
+                                        [</span><span style="color: #ce9178;">"min_range"</span><span
+                                        style="color: #d4d4d4;"> =&gt; </span><span
+                                        style="color: #b5cea8;">50</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #ce9178;">"max_range"</span><span style="color: #d4d4d4;"> =&gt;
+                                </span><span style="color: #b5cea8;">100</span><span
+                                        style="color: #d4d4d4;">]]));</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;hr&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div><br><br>
+                        <div><span style="color: #6a9955;">// FILTER_VALIDATE_FLOAT</span></div>
+                        <div><span style="color: #9cdcfe;">$float</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">"90.50"</span><span style="color: #d4d4d4;">;</span>
+                        </div>
+                        <div><span style="color: #dcdcaa;">var_dump</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">filter_var</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$float</span><span
+                                        style="color: #d4d4d4;">, FILTER_VALIDATE_FLOAT, [</span><span
+                                        style="color: #ce9178;">"flags"</span><span style="color: #d4d4d4;"> =&gt;
+                                        FILTER_NULL_ON_FAILURE, </span><span
+                                        style="color: #ce9178;">"options"</span><span style="color: #d4d4d4;"> =&gt;
+                                        [</span><span style="color: #ce9178;">"min_range"</span><span
+                                        style="color: #d4d4d4;"> =&gt; </span><span
+                                        style="color: #b5cea8;">50</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #ce9178;">"max_range"</span><span style="color: #d4d4d4;"> =&gt;
+                                </span><span style="color: #b5cea8;">100</span><span
+                                        style="color: #d4d4d4;">]]));</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;hr&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #569cd6;">?</span><span style="color: #569cd6;">&gt;</span></div>
+                </div>
+        </div>
+        <h3>#080 - filter_var Sanitize Filters</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">&lt;?php</span></div>
+                        <div><span style="color: #6a9955;">// FILTER_SANITIZE_EMAIL</span></div>
+                        <div><span style="color: #9cdcfe;">$email</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">"o &lt;&gt; ¥ &nbsp;@n.sa"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">filter_var</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$email</span><span
+                                        style="color: #d4d4d4;">, FILTER_SANITIZE_EMAIL); </span><span
+                                        style="color: #6a9955;">// o@n.sa </span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;hr&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div><br><br>
+                        <div><span style="color: #6a9955;">// FILTER_SANITIZE_NUMBER_INT</span></div>
+                        <div><span style="color: #9cdcfe;">$int</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">"100 + !@@@LHKLJKJFKLJKLJFKL
+                                        &nbsp;f;ldkf;lsdkfl;ksdf;lkdsf===-100"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">filter_var</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$int</span><span
+                                        style="color: #d4d4d4;">, FILTER_SANITIZE_NUMBER_INT) </span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;br&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;hr&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div><br><br>
+                        <div><span style="color: #6a9955;">// FILTER_SANITIZE_NUMBER_FLOAT</span></div>
+                        <div><span style="color: #9cdcfe;">$float</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">"1,950,ss150,65.41"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">filter_var</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$float</span><span
+                                        style="color: #d4d4d4;">, FILTER_SANITIZE_NUMBER_FLOAT, [</span><span
+                                        style="color: #ce9178;">"flags"</span><span style="color: #d4d4d4;"> =&gt;
+                                        FILTER_FLAG_ALLOW_THOUSAND | FILTER_FLAG_ALLOW_FRACTION]);</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;hr&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div><br><br>
+                        <div><span style="color: #6a9955;">// FILTER_SANITIZE_URL</span></div>
+                        <div><span style="color: #9cdcfe;">$url</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">"https://el &nbsp; &nbsp; zer¥¥¥¥¥o.org"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">filter_var</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">$url</span><span
+                                        style="color: #d4d4d4;">, FILTER_SANITIZE_URL) </span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;br&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #569cd6;">?</span><span style="color: #569cd6;">&gt;</span></div>
+                </div>
+        </div>
+        <h3>#081 - filter_input</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">&lt;?php</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">filter_input</span><span
+                                        style="color: #d4d4d4;">(INPUT_GET, </span><span
+                                        style="color: #ce9178;">"num"</span><span style="color: #d4d4d4;">,
+                                        FILTER_VALIDATE_INT) </span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;br&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">filter_input</span><span
+                                        style="color: #d4d4d4;">(INPUT_GET, </span><span
+                                        style="color: #ce9178;">"num"</span><span style="color: #d4d4d4;">,
+                                        FILTER_SANITIZE_NUMBER_INT) </span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;br&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #569cd6;">?</span><span style="color: #569cd6;">&gt;</span></div>
+                </div>
+        </div>
+        <h3>#082 - File System Function Part One 4 Functions</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">&lt;?php</span></div>
+                        <div><span style="color: #6a9955;">// disk_total_space - Returns the total size of a filesystem
+                                        or disk partition</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">disk_total_space</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"/"</span><span
+                                        style="color: #d4d4d4;">) </span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;hr&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div><br><br>
+                        <div><span style="color: #6a9955;">// disk_free_space - Returns available space on filesystem or
+                                        disk partition</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">disk_free_space</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"/"</span><span
+                                        style="color: #d4d4d4;">) </span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;hr&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div><br><br>
+                        <div><span style="color: #6a9955;">// file_exists - Checks whether a file or directory
+                                        exists</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">file_exists</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"test.html"</span><span style="color: #d4d4d4;">)
+                                </span><span style="color: #d4d4d4;">.</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;br&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">file_exists</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"testt.html"</span><span style="color: #d4d4d4;">)
+                                </span><span style="color: #d4d4d4;">.</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;hr&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div><br><br>
+                        <div><span style="color: #6a9955;">// filesize - Gets file size</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">filesize</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"test.html"</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #569cd6;">?</span><span style="color: #569cd6;">&gt;</span></div>
+                </div>
+        </div>
+        <h3> #083 - Is_Dir, MkDir, RmDir</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">&lt;?php</span></div>
+                        <div><span style="color: #6a9955;">// is_dir - Tells whether the filename is a directory</span>
+                        </div>
+                        <div><span style="color: #dcdcaa;">var_dump</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">is_dir</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"tst"</span><span style="color: #d4d4d4;">));
+                                </span><span style="color: #6a9955;">// bool(true) </span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;br&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">var_dump</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">is_dir</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"test.html"</span><span style="color: #d4d4d4;">));
+                                </span><span style="color: #6a9955;">// bool(true) </span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;br&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;hr&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div><br><br><br>
+                        <div><span style="color: #6a9955;">// mkdir - Attempts to create the directory specified by
+                                        pathname.</span></div>
+                        <div><span style="color: #dcdcaa;">mkdir</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"ali"</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">0777</span><span style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #dcdcaa;">mkdir</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"ali/one/two/three"</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #b5cea8;">0777</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #569cd6;">true</span><span
+                                        style="color: #d4d4d4;">);</span></div><br><br>
+                        <div><span style="color: #6a9955;">// rmdir - Removes directory &nbsp;</span></div>
+                        <div><span style="color: #dcdcaa;">rmdir</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"tst"</span><span style="color: #d4d4d4;">);</span>
+                        </div>
+                        <div><span style="color: #569cd6;">?</span><span style="color: #569cd6;">&gt;</span></div>
+                </div>
+        </div>
+        <h3>#084 - Chmod, Fileperms, Clearstatcache</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div class="cods" spellcheck="false" contenteditable="">
+
+                        <div>
+                                <div><span style="color: #569cd6;">&lt;?php</span></div>
+                                <div><span style="color: #6a9955;">// fileperms - Gets file permissions</span></div>
+                                <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;">
+                                        </span><span style="color: #dcdcaa;">decoct</span><span
+                                                style="color: #d4d4d4;">((</span><span
+                                                style="color: #569cd6;">int</span><span
+                                                style="color: #d4d4d4;">)(</span><span
+                                                style="color: #dcdcaa;">fileperms</span><span
+                                                style="color: #d4d4d4;">(</span><span
+                                                style="color: #ce9178;">"ali"</span><span style="color: #d4d4d4;">)))
+                                        </span><span style="color: #d4d4d4;">.</span><span style="color: #d4d4d4;">
+                                        </span><span style="color: #ce9178;">"&lt;br&gt;"</span><span
+                                                style="color: #d4d4d4;">; </span><span style="color: #6a9955;">// 40775
+                                                &nbsp;</span></div><br><br>
+                                <div><span style="color: #6a9955;">// chmod - Changes file mode</span></div>
+                                <div><span style="color: #dcdcaa;">chmod</span><span
+                                                style="color: #d4d4d4;">(</span><span
+                                                style="color: #ce9178;">"ali"</span><span style="color: #d4d4d4;">,
+                                        </span><span style="color: #b5cea8;">0644</span><span
+                                                style="color: #d4d4d4;">);</span></div>
+                                <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;">
+                                        </span><span style="color: #dcdcaa;">decoct</span><span
+                                                style="color: #d4d4d4;">((</span><span
+                                                style="color: #569cd6;">int</span><span
+                                                style="color: #d4d4d4;">)(</span><span
+                                                style="color: #dcdcaa;">fileperms</span><span
+                                                style="color: #d4d4d4;">(</span><span
+                                                style="color: #ce9178;">"ali"</span><span style="color: #d4d4d4;">)))
+                                        </span><span style="color: #d4d4d4;">.</span><span style="color: #d4d4d4;">
+                                        </span><span style="color: #ce9178;">"&lt;br&gt;"</span><span
+                                                style="color: #d4d4d4;">; </span><span style="color: #6a9955;">// 40775
+                                        </span></div>
+                                <div><span style="color: #569cd6;">?</span><span style="color: #569cd6;">&gt;</span>
+                                </div>
+                        </div>
+                </div>
+        </div>
+
+
+
+
+
+
+
 
 
 
