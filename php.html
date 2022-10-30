@@ -5510,7 +5510,7 @@
                         <div><span style="color: #dcdcaa;">var_dump</span><span style="color: #d4d4d4;">(</span><span
                                         style="color: #dcdcaa;">is_dir</span><span style="color: #d4d4d4;">(</span><span
                                         style="color: #ce9178;">"test.html"</span><span style="color: #d4d4d4;">));
-                                </span><span style="color: #6a9955;">// bool(true) </span></div>
+                                </span><span style="color: #6a9955;">// bool(false) </span></div>
                         <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
                                         style="color: #ce9178;">"&lt;br&gt;"</span><span
                                         style="color: #d4d4d4;">;</span></div>
@@ -5790,6 +5790,162 @@
                         <div><span style="color: #569cd6;">?</span><span style="color: #569cd6;">&gt;</span></div>
                 </div>
         </div>
+        <h3> ftell, fseek, rewind</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">&lt;?php</span></div>
+                        <div><span style="color: #6a9955;">// ftell - returns the current position of the file
+                                        read/write pointer</span></div>
+                        <div><span style="color: #9cdcfe;">$handle</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #dcdcaa;">fopen</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"file.txt"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"r"</span><span style="color: #d4d4d4;">);</span>
+                        </div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">fgets</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">$handle</span><span style="color: #d4d4d4;">)
+                                </span><span style="color: #d4d4d4;">.</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;br&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">ftell</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">$handle</span><span style="color: #d4d4d4;">);
+                                </span><span style="color: #6a9955;">// 21 </span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;hr&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div><br><br>
+                        <div><span style="color: #6a9955;">// rewind - Rewind the position of a file pointer</span>
+                        </div>
+                        <div><span style="color: #dcdcaa;">rewind</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">$handle</span><span style="color: #d4d4d4;">);</span>
+                        </div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">fgets</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">$handle</span><span style="color: #d4d4d4;">);</span>
+                        </div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;hr&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div><br><br>
+                        <div><span style="color: #6a9955;">// fseek - Seeks on a file pointer</span></div>
+                        <div><span style="color: #dcdcaa;">fseek</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">$handle</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #b5cea8;">5</span><span style="color: #d4d4d4;">);
+                                </span><span style="color: #6a9955;">// seek position 0</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">fgets</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">$handle</span><span style="color: #d4d4d4;">)
+                                </span><span style="color: #d4d4d4;">.</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;br&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div><br>
+                        <div><span style="color: #dcdcaa;">fseek</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">$handle</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #b5cea8;">2</span><span style="color: #d4d4d4;">, SEEK_CUR);
+                                </span><span style="color: #6a9955;">// current pointer + 2 </span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">fgets</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">$handle</span><span style="color: #d4d4d4;">)
+                                </span><span style="color: #d4d4d4;">.</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;br&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div><br>
+                        <div><span style="color: #dcdcaa;">fseek</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">$handle</span><span style="color: #d4d4d4;">,
+                                        -</span><span style="color: #b5cea8;">5</span><span style="color: #d4d4d4;">,
+                                        SEEK_END); </span><span style="color: #6a9955;">// fileEnd + (-5) &nbsp;</span>
+                        </div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">fgets</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">$handle</span><span style="color: #d4d4d4;">)
+                                </span><span style="color: #d4d4d4;">.</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;br&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">fclose</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">$handle</span><span style="color: #d4d4d4;">);</span>
+                        </div>
+                        <div><span style="color: #569cd6;">?</span><span style="color: #569cd6;">&gt;</span></div>
+                </div>
+        </div>
+        <h3>glob, rename, copy, unlink</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">&lt;?php</span></div>
+                        <div><span style="color: #6a9955;">// glob - Find pathnames matching a pattern &nbsp;</span>
+                        </div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;pre&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #dcdcaa;">print_r</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">glob</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"*.*"</span><span style="color: #d4d4d4;">));
+                                </span><span style="color: #6a9955;">// i.e ls *.*</span></div>
+                        <div><span style="color: #dcdcaa;">print_r</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">glob</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"*php"</span><span style="color: #d4d4d4;">));
+                                </span><span style="color: #6a9955;">// i.e ls *php </span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;/pre&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div><br><br>
+                        <div><span style="color: #6a9955;">// rename -- Renames a file or directory </span></div>
+                        <div><span style="color: #dcdcaa;">rename</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"file.txt"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"oly.txt"</span><span style="color: #d4d4d4;">);
+                                </span><span style="color: #6a9955;">// i.e mv file.txt oly.txt &nbsp;</span></div>
+                        <br><br>
+                        <div><span style="color: #6a9955;">// copy -- Copies file </span></div>
+                        <div><span style="color: #dcdcaa;">copy</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"file.txt"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"test.txt"</span><span style="color: #d4d4d4;">);
+                                </span><span style="color: #6a9955;">// i.e cp file.txt test.txt</span></div><br><br>
+                        <div><span style="color: #6a9955;">// unlink -- Deletes a file</span></div>
+                        <div><span style="color: #dcdcaa;">unlink</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"test.txt"</span><span style="color: #d4d4d4;">)
+                                </span><span style="color: #6a9955;">// i.e rm test.txt </span></div>
+                        <div><span style="color: #569cd6;">?</span></div>
+                </div>
+        </div>
+        <h3>file_get_contents, file_put_contents</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">&lt;?php</span></div>
+                        <div><span style="color: #6a9955;">// file_get_contents - Reads entire file into a string</span>
+                        </div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">file_get_contents</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"file.txt"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #569cd6;">true</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #569cd6;">null</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #b5cea8;">5</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #b5cea8;">10</span><span style="color: #d4d4d4;">)
+                                </span><span style="color: #d4d4d4;">.</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;br&gt;"</span><span style="color: #d4d4d4;">;
+                                </span><span style="color: #6a9955;">// i.e cat file.txt &nbsp;which in cureent
+                                        directory or in /opt/lampp/lib/php form offset 4 with length 10</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">get_include_path</span><span style="color: #d4d4d4;">()
+                                </span><span style="color: #d4d4d4;">.</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"&lt;hr&gt;"</span><span
+                                        style="color: #d4d4d4;">;</span></div><br><br>
+                        <div><span style="color: #6a9955;">// file_put_contents - Write a string to a file and return
+                                        its length </span></div>
+                        <div><span style="color: #dcdcaa;">file_put_contents</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"file.txt"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"elzero web school"</span><span
+                                        style="color: #d4d4d4;">); </span><span style="color: #6a9955;">// i.e echo
+                                        "elzero web school" &gt; file.txt </span></div>
+                        <div><span style="color: #dcdcaa;">file_put_contents</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"file.txt"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d7ba7d;">\n</span><span style="color: #ce9178;">I learn from
+                                        it"</span><span style="color: #d4d4d4;">, FILE_APPEND) </span><span
+                                        style="color: #6a9955;">// i.e echo "I learn from it" &gt;&gt; file.txt</span>
+                        </div>
+                        <div><span style="color: #569cd6;">?</span><span style="color: #569cd6;">&gt;</span></div>
+                </div>
+        </div>
+
+
 
 
 
