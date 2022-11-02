@@ -6074,7 +6074,7 @@
                 let s = document.getElementsByClassName("cods");
                 let arr = [...s];
                 arr.forEach(ele => {
-                        ele.onclick = function () {
+                        ele.ondblclick = function () {
                                 ele.innerText = ele.innerText.replaceAll(/\xA0{1,}/ig, " ")
                                 navigator.clipboard.writeText(ele.innerText);
                         }
