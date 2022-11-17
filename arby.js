@@ -17,7 +17,7 @@ let pplJoin = id("on"),
     allPeople = pplJoin.children,
     msg1 = "",
     input = id("ta"),
-    msg2 = "نتعرف 🙂؟",
+    msg2 = "انا مهندس على 37 سنه من المنصوره اتعرف؟",
     audio = new Audio("https://soundbible.com/mp3/A-Tone-His_Self-1266414414.mp3"),
     bll = new Audio("https://www.soundjay.com/phone/cell-phone-1-nr0.mp3"),
     inbox = id("hs"),
@@ -300,9 +300,9 @@ let pplJoin = id("on"),
         }
     })
 if (new Date().getHours() >= 2 && new Date().getHours() <= 14) {
-    msg1 = "صب(🍀)اح الۣخـ(🌸)ـيۡر";
+    msg1 = "صباح الخير";
 } else {
-    msg1 = "مۡسَـ(🍀)ـاء الۣخـ(🌸)ـيۡݛ"
+    msg1 = "مساء الخير"
 }
 if (localStorage.chatNames) {
 
