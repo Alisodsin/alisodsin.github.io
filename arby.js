@@ -651,8 +651,8 @@ button12.onclick = _ => {
 button13.innerText = "gdMsg"
 button13.onclick = _ => {
     if (msgSwitch == 0) {
-        msg1 = "انيكك فويس على جيتسى او تلجرام؟"
-        msg2 = "🫦🫦"
+        msg1 = "انيكك بعنف واقطع كسك جيتسى؟"
+        msg2 = "😉"
         button13.innerText = "bdMsg"
         msgSwitch = 1
     }
