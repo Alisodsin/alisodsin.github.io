@@ -252,6 +252,7 @@ let pplJoin = id("on"),
         "عوز",
         "شواذ",
         "سافل",
+        "دردش"
     ],
     fatherDiv = document.createElement("div"),
     peopleWhoReplyAgain = document.createElement("ol"),
