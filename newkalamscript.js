@@ -41,9 +41,14 @@ let _fmain = parent.fmain,
     listObserver = new MutationObserver((e) => {
         let addedNodes = e[0].addedNodes;
         let listPersonName = addedNodes[0]?.firstElementChild?.lastElementChild?.previousElementSibling?.innerText;
-
-        if (typeof listPersonName == "string" && listPersonName != roomName && !personsGotMyMsg1.has(listPersonName) && !listPersonName.includes("Guest")) {
-            _fwindowlist.sendcmd(`/winclose ${listPersonName}`);
+        if (typeof listPersonName == "string" && listPersonName != roomName && !personsGotMyMsg1.has(listPersonName)) {
+            if (listPersonName.includes("Guest")) {
+                audio.play();
+                _fwindowlist.sendcmd(`/query ${listPersonName}`);
+            }
+            else {
+                _fwindowlist.sendcmd(`/winclose ${listPersonName}`);
+            }
         }
         else {
             personsGotMyMsg1.forEach(name => {
