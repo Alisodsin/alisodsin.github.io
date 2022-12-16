@@ -42,7 +42,7 @@ let _fmain = parent.fmain,
         let addedNodes = e[0].addedNodes;
         let listPersonName = addedNodes[0]?.firstElementChild?.lastElementChild?.previousElementSibling?.innerText;
 
-        if (typeof listPersonName == "string" && listPersonName != roomName && !personsGotMyMsg1.has(listPersonName)) {
+        if (typeof listPersonName == "string" && listPersonName != roomName && !personsGotMyMsg1.has(listPersonName) && !listPersonName.includes("Guest")) {
             _fwindowlist.sendcmd(`/winclose ${listPersonName}`);
         }
         else {
