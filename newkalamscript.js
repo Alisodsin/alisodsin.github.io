@@ -227,8 +227,8 @@ function efsl() {
 
 function togleMessage() {
     if (message1.includes("خير")) {
-        message1 = "هاى";
-        message2 = "نتعرف؟";
+        message1 = "تسمعى شخرتى وانا بفشخك نيك؟";
+        message2 = "يالا؟";
         alert(`the bad message`);
     }
     else {
