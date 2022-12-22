@@ -14,7 +14,8 @@ let _fmain = parent.fmain,
     blockObj = new Map(),
     buttons,
     message1 = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير",
-    message2 = "انا مهندس على من المنصوره , نتعرف؟",
+    message2 = "انا مهندس على 35 سنه من المنصوره",
+    message3 = "ممكن نتعرف؟",
     regex = /(^.{1,6}$|^Kalamngy_\d{4}$)/i,
     personsGotMyMsg1 = new Set(),
     personsGotMyMsg2 = new Set(),
@@ -68,6 +69,7 @@ let _fmain = parent.fmain,
 
                         }
                         _fwindowlist.sendcmd_real("say", message2, name);
+                        _fwindowlist.sendcmd_real("say", message3, name);
                         num++;
                         personsGotMyMsg2.add(name);
                     }
@@ -163,6 +165,7 @@ function closeCurrentPerson() {
 function changeMessage1() {
     message1 = prompt("Enter new message1", message1);
     message2 = prompt("Enter new message2", message2);
+    message3 = prompt("Enter new message3", message3);
 }
 function sentTwoMsgs() {
     if (_fwindowlist.currentwindow != roomName) {
@@ -227,13 +230,15 @@ function efsl() {
 
 function togleMessage() {
     if (message1.includes("خير")) {
-        message1 = "هاى";
-        message2 = "نتعرف؟";
+        message1 = "تسمعى شخرتى وانا بفشخك نيك؟";
+        message2 = "يالا؟";
+        message3 = "ولا ايه؟";
         alert(`the bad message`);
     }
     else {
         message1 = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير";
-        message2 = "نتعرف؟";
+        message2 = "انا مهندس على 35 سنه من المنصوره";
+        message3 = "ممكن نتعرف؟";
         alert("the good message");
     }
 }
