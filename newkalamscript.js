@@ -69,7 +69,9 @@ let _fmain = parent.fmain,
 
                         }
                         _fwindowlist.sendcmd_real("say", message2, name);
-                        _fwindowlist.sendcmd_real("say", message3, name);
+                        setTimeout(() => {
+                            _fwindowlist.sendcmd_real("say", message3, name);
+                        }, 1000);
                         num++;
                         personsGotMyMsg2.add(name);
                     }
