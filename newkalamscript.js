@@ -173,7 +173,7 @@ function sentTwoMsgs() {
     if (_fwindowlist.currentwindow != roomName) {
         let personName = _fwindowlist.currentwindow;
         _fwindowlist.sendcmd_real("say", "الو", personName);
-        _fwindowlist.sendcmd_real("say", "مشغوله؟", personName);
+        _fwindowlist.sendcmd_real("say", "معايا؟", personName);
     }
 }
 function defineMySelf() {
