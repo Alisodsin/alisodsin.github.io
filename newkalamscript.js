@@ -302,14 +302,7 @@ function buttonsCreator() {
             case 5:
                 button.style.background = "#795548";
                 button.style.color = "white";
-                button.id = "btn5";
-                button.onclick = _ => {
-                    parent.fwindowlist.sendcmd("/query Status");
-                    function fsl() {
-                        parent.fwindowlist.sendcmd("/reconnect");
-                    };
-                    setTimeout(fsl, 2000);
-                }
+                button.onclick = restart();
                 break;
             case 6:
                 button.style.background = "#8bc34a";
@@ -391,7 +384,7 @@ function keysHandelr(e) {
         e.preventDefault()
     }
     else if (e.key == "F5") {
-        _fmain.document.querySelector("#btn5").click();
+        restart();
         e.preventDefault();
     }
     else if (e.key == "F6") {
