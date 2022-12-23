@@ -234,7 +234,7 @@ function togleMessage() {
     if (message1.includes("خير")) {
         message1 = "تسمعى شخرتى وانا بفشخك نيك؟";
         message2 = "يالا؟";
-        message3 = ";63";
+        message3 = ".";
         alert(`the bad message`);
     }
     else {
