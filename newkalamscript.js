@@ -437,5 +437,5 @@ _fmain.document.addEventListener('click', function (event) {
 
         }, 2000);
     }
-    num++;
+    event.target.preventDefault();
 });
