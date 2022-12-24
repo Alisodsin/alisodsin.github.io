@@ -426,9 +426,9 @@ function changePattern() {
     num1++;
 }
 
-_fmain.document.addEventListener('click', function (event) {
+_fmain.document.addEventListener('click',function(event){
     if (event.target.matches('.main-nickg')) {
-        event.target.removeAttribute('onclick');
+        event.target.removeAttribute("onclick");
         let txt = event.target.innerText;
         personsGotMyMsg1.add(txt);
         _fwindowlist.sendcmd_real("say", message1, txt);
@@ -437,5 +437,4 @@ _fmain.document.addEventListener('click', function (event) {
 
         }, 2000);
     }
-    event.target.preventDefault();
 });
