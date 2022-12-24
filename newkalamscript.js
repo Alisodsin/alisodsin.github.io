@@ -32,6 +32,7 @@ let _fmain = parent.fmain,
     mainObserver = new MutationObserver(_ => {
         let joinPerson = [...joiningPplClass].at(-1),
             join = joinPerson?.innerText;
+            console.log(joinPerson);
         joinPerson.removeEventListener('click', _ => {
             joinPerson.onclick = function () {
                 personsGotMyMsg1.add(join);
