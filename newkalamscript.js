@@ -100,7 +100,7 @@ let _fmain = parent.fmain,
             fform.onkeydown = keysHandelr;
             firstli = _fwindowlist.document.getElementsByClassName("wlist-chooser")
             personsGotMyMsg1.add(myNick);
-            _fmain.nickmenu = function(){return false}
+            _fmain.nickmenu = function () { return false }
             _fmain.document.getElementById("menu").remove();
             _fmain.document.getElementById("mainplusbtn").click();
             parent.fform.addEventListener("contextmenu", function (e) {
@@ -435,6 +435,6 @@ _fmain.document.addEventListener('click', function (event) {
         setTimeout(() => {
             _fwindowlist.sendcmd(`/winclose ${txt}`);
 
-        }, 2000);
+        }, 1000);
     }
 });
