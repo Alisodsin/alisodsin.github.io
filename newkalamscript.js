@@ -31,7 +31,6 @@ let _fmain = parent.fmain,
     mainTarget = _fmain.document.querySelector(".main-span"),
     mainObserver = new MutationObserver(_ => {
         joinPerson = [...joiningPplClass].at(-1);
-        joinPerson?.removeAttribute("onclick");
         join = joinPerson?.innerText
         if (!personsGotMyMsg1.has(join) && regex.test(join) && joinPerson.nextSibling.data.includes("Joine")) {
             _fwindowlist.sendcmd_real("say", message1, join);
@@ -100,7 +99,8 @@ let _fmain = parent.fmain,
             mainObserver.observe(mainTarget, objConfig);
             fform.onkeydown = keysHandelr;
             firstli = _fwindowlist.document.getElementsByClassName("wlist-chooser")
-            personsGotMyMsg1.add(myNick)
+            personsGotMyMsg1.add(myNick);
+            _fmain.nickmenu = function(){return false}
             _fmain.document.getElementById("menu").remove();
             _fmain.document.getElementById("mainplusbtn").click();
             parent.fform.addEventListener("contextmenu", function (e) {
