@@ -38,6 +38,13 @@ let _fmain = parent.fmain,
             personsGotMyMsg1.add(join);
             // console.log(join);
         }
+        else if (!personsGotMyMsg1.has(join) && joinPerson.nextSibling.data.includes("Joine")) {
+            joinPerson.onclick = function () {
+                personsGotMyMsg1.add(join);
+                personsGotMyMsg2.add(join);
+                _fwindowlist.sendcmd(`/query ${join}`);
+            }
+        }
     }),
     listObserver = new MutationObserver((e) => {
         let addedNodes = e[0].addedNodes;
