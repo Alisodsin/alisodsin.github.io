@@ -30,8 +30,8 @@ let _fmain = parent.fmain,
     patterns = [["*[<=5]", /^.{1,6}$/], ["ar<=5", /^[\u0621-\u064A\xA0\x5F\0-9]{1,7}$/], ["*digts", /\d+$/], ["ar*", /^[\u0621-\u064A\xA0\x5F\0-9]+$/], ["*", /^.+$/], ["k|short", /(^.{1,5}$|^Kalamngy_)/i], ["^k$", /^Kalamngy_\d{4}$/]],
     mainTarget = _fmain.document.querySelector(".main-span"),
     mainObserver = new MutationObserver(_ => {
-        joinPerson = [...joiningPplClass].at(-1)
-        join = joinPerson?.innerText
+        let joinPerson = [...joiningPplClass].at(-1),
+            join = joinPerson?.innerText;
         joinPerson.removeEventListener('click', _ => {
             joinPerson.onclick = function () {
                 personsGotMyMsg1.add(join);
