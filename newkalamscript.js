@@ -46,7 +46,6 @@ let _fmain = parent.fmain,
                     joinPerson[property] = null;
                 }
             }
-
         }
     }),
     listObserver = new MutationObserver((e) => {
