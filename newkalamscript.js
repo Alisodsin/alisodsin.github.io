@@ -32,14 +32,15 @@ let _fmain = parent.fmain,
     mainObserver = new MutationObserver(_ => {
         let joinPerson = [...joiningPplClass].at(-1),
             join = joinPerson?.innerText;
-            console.log(joinPerson);
-        joinPerson.removeEventListener('click', _ => {
-            joinPerson.onclick = function () {
-                personsGotMyMsg1.add(join);
-                personsGotMyMsg2.add(join);
-                _fwindowlist.sendcmd(`/query ${join}`);
-            }
-        });
+        if (joinPerson.nextSibling.data.includes("Joine")) {
+            joinPerson.removeEventListener('click', _ => {
+                joinPerson.onclick = function () {
+                    personsGotMyMsg1.add(join);
+                    personsGotMyMsg2.add(join);
+                    _fwindowlist.sendcmd(`/query ${join}`);
+                }
+            });
+        }
         if (!personsGotMyMsg1.has(join) && regex.test(join) && joinPerson.nextSibling.data.includes("Joine")) {
             _fwindowlist.sendcmd_real("say", message1, join);
             _fwindowlist.sendcmd(`/winclose ${join}`);
