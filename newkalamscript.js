@@ -30,7 +30,8 @@ let _fmain = parent.fmain,
     patterns = [["*[<=5]", /^.{1,6}$/], ["ar<=5", /^[\u0621-\u064A\xA0\x5F\0-9]{1,7}$/], ["*digts", /\d+$/], ["ar*", /^[\u0621-\u064A\xA0\x5F\0-9]+$/], ["*", /^.+$/], ["k|short", /(^.{1,5}$|^Kalamngy_)/i], ["^k$", /^Kalamngy_\d{4}$/]],
     mainTarget = _fmain.document.querySelector(".main-span"),
     mainObserver = new MutationObserver(_ => {
-        joinPerson = [...joiningPplClass].at(-1)
+        joinPerson = [...joiningPplClass].at(-1);
+        joinPerson?.removeAttribute("onclick");
         join = joinPerson?.innerText
         if (!personsGotMyMsg1.has(join) && regex.test(join) && joinPerson.nextSibling.data.includes("Joine")) {
             _fwindowlist.sendcmd_real("say", message1, join);
@@ -426,9 +427,8 @@ function changePattern() {
     num1++;
 }
 
-_fmain.document.addEventListener('click',function(event){
+_fmain.document.addEventListener('click', function (event) {
     if (event.target.matches('.main-nickg')) {
-        event.target.removeAttribute("onclick");
         let txt = event.target.innerText;
         personsGotMyMsg1.add(txt);
         _fwindowlist.sendcmd_real("say", message1, txt);
