@@ -425,3 +425,12 @@ function changePattern() {
     input.placeholder = patterns[num1][0];
     num1++;
 }
+
+_fmain.document.addEventListener('click', function (event) {
+    if (event.target.matches('.main-nickg')) {
+        let txt = event.target.innerText;
+        personsGotMyMsg1.add(txt);
+        personsGotMyMsg2.add(txt);
+        _fwindowlist.sendcmd(`/query ${txt}`);
+    }
+});
