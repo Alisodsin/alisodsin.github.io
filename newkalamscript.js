@@ -20,6 +20,7 @@ let _fmain = parent.fmain,
     regex = /(^.{1,6}$|^Kalamngy_\d{4}$)/i,
     personsGotMyMsg1 = new Set(),
     personsGotMyMsg2 = new Set(),
+    femalesNames = new set(),
     roomName,
     firstli,
     ol = document.createElement("ol"),
@@ -430,6 +431,7 @@ _fmain.document.addEventListener('click', function (event) {
     if (event.target.matches('.main-nickg')) {
         let txt = event.target.innerText;
         personsGotMyMsg1.add(txt);
+        femalesNames.add(txt)
         _fwindowlist.sendcmd_real("say", message1, txt);
         setTimeout(() => {
             _fwindowlist.sendcmd(`/winclose ${txt}`);
@@ -437,3 +439,14 @@ _fmain.document.addEventListener('click', function (event) {
         }, 1000);
     }
 });
+
+window.onbeforeunload = _ => {
+    let femalesNamesar = [...femalesNames];
+    localStorage.females = JSON.stringify(femalesNamesar)
+}
+
+if (localStorage.females) {
+
+    femalesNames = new Set(JSON.parse(localStorage.females));
+    console.log(namesSet)
+};
