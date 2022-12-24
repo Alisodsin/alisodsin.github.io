@@ -9,6 +9,7 @@ let _fmain = parent.fmain,
     style = document.createElement("style"),
     input,
     myNick,
+    ters,
     num = 0,
     num1 = 0,
     blockObj = new Map(),
@@ -98,11 +99,15 @@ let _fmain = parent.fmain,
             listObserver.observe(listTarget, objConfig);
             mainObserver.observe(mainTarget, objConfig);
             fform.onkeydown = keysHandelr;
+            ters = fform.document.getElementsByTagName("img")[0]
             firstli = _fwindowlist.document.getElementsByClassName("wlist-chooser")
             personsGotMyMsg1.add(myNick);
             _fmain.nickmenu = function () { return false }
             _fmain.document.getElementById("menu").remove();
             _fmain.document.getElementById("mainplusbtn").click();
+            ters.onclick = function name() {
+                togleMessage();
+            }
             parent.fform.addEventListener("contextmenu", function (e) {
                 e.stopPropagation()
             }, true);
@@ -180,8 +185,8 @@ function sentTwoMsgs() {
 function defineMySelf() {
     if (_fwindowlist.currentwindow != roomName) {
         let personName = _fwindowlist.currentwindow;
-        _fwindowlist.sendcmd_real("say", "انا على 37 سنه من المنصوره ", personName);
-        _fwindowlist.sendcmd_real("say", "وانتى؟", personName);
+        _fwindowlist.sendcmd_real("say", message2, personName);
+        _fwindowlist.sendcmd_real("say", message3, personName);
     }
 }
 function restart() {
@@ -236,13 +241,13 @@ function togleMessage() {
         message1 = "تسمعى شخرتى وانا بفشخك نيك؟";
         message2 = "يالا؟";
         message3 = ".";
-        alert(`the bad message`);
+        input.placeholder = `the bad message`;
     }
     else {
         message1 = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير";
         message2 = "انا مهندس على 35 سنه من المنصوره";
         message3 = "ممكن نتعرف؟";
-        alert("the good message");
+        input.placeholder = "the good message";
     }
 }
 
@@ -412,12 +417,7 @@ function keysHandelr(e) {
         efsl();
         e.preventDefault()
     }
-    else if (e.key == "ArrowDown") {
-        togleMessage();
-        e.preventDefault()
-    }
 }
-
 function changePattern() {
     if (num1 >= 7) {
         num1 = 0;
@@ -426,7 +426,6 @@ function changePattern() {
     input.placeholder = patterns[num1][0];
     num1++;
 }
-
 _fmain.document.addEventListener('click', function (event) {
     if (event.target.matches('.main-nickg')) {
         let txt = event.target.innerText;
