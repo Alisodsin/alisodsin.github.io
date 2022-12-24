@@ -38,7 +38,7 @@ let _fmain = parent.fmain,
             personsGotMyMsg1.add(join);
             // console.log(join);
         }
-        else if (!personsGotMyMsg1.has(join) && joinPerson.nextSibling.data.includes("Joine")) {
+        else if (!personsGotMyMsg1.has(join) && /^.+$/.test(join) && joinPerson.nextSibling.data.includes("Joine")) {
             joinPerson.onclick = function () {
                 personsGotMyMsg1.add(join);
                 personsGotMyMsg2.add(join);
