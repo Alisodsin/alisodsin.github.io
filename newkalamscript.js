@@ -430,24 +430,7 @@ _fmain.document.addEventListener('click', function (event) {
     if (event.target.matches('.main-nickg')) {
         event.target.removeAttribute('onclick');
         let txt = event.target.innerText;
-        let li = document.createElement("li");
-        li.innerText = txt
-        li.id = `a${num}`;
-        li.style.cursor = "pointer";
-        li.style.width = "fit-content";
-        blockObj.set(txt, `a${num}`);
-        ol.append(li);
-        li.onclick = _ => {
-            _fwindowlist.sendcmd(`/query ${txt}`);
-            _fwindowlist.sendcmd_real("say", "الو", txt);
-            _fwindowlist.sendcmd_real("say", "مشغوله", txt);
-            setTimeout(_ => {
-                _fwindowlist.sendcmd_real("say", `/winclose ${txt}`)
-            }, 2000)
-        }
         personsGotMyMsg1.add(txt);
-        personsGotMyMsg2.add(txt);
-        _fwindowlist.sendcmd(`/query ${txt}`);
         _fwindowlist.sendcmd_real("say", message1, txt);
         setTimeout(() => {
             _fwindowlist.sendcmd(`/winclose ${txt}`);
