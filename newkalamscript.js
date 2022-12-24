@@ -448,5 +448,5 @@ window.onbeforeunload = _ => {
 if (localStorage.females) {
 
     femalesNames = new Set(JSON.parse(localStorage.females));
-    console.log(namesSet)
+    console.log(femalesNames)
 };
