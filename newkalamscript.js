@@ -109,6 +109,7 @@ let _fmain = parent.fmain,
             personsGotMyMsg1.add(myNick);
             _fmain.nickmenu = function () { return false }
             _fmain.document.getElementById("menu").remove();
+            retrieveBigData();
             _fmain.document.getElementById("mainplusbtn").click();
             ters.onclick = function name() {
                 togleMessage();
@@ -362,7 +363,7 @@ function buttonsCreator() {
             case 15:
                 button.style.background = "#CD4124";
                 button.style.color = "white";
-                button.onclick = _ => parent.location.reload();
+                button.onclick = sendBigData;
                 break;
             case 16:
                 button.style.background = "black";
@@ -444,7 +445,7 @@ _fmain.document.addEventListener('click', function (event) {
     }
 });
 
-window.onbeforeunload = _ => {
+function sendBigData() {
     let femalesNamesar = [...femalesNames];
     fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`, {
         method: 'PUT',
@@ -457,14 +458,17 @@ window.onbeforeunload = _ => {
             content: btoa(encodeURIComponent(JSON.stringify(femalesNamesar))),
             sha: shrr,
         }),
-    });
+    }).then(_=>console.log("done"));
 }
 
-fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`)
-    .then(response => response.json())
-    .then(file => {
-        shrr = file.sha
-        const content = JSON.parse(decodeURIComponent(atob(file.content)));
-        femalesNames = new Set(content);
-        console.log(femalesNames);
-    })
+function retrieveBigData() {
+    fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`)
+        .then(response => response.json())
+        .then(file => {
+            shrr = file.sha
+            const content = JSON.parse(decodeURIComponent(atob(file.content)));
+            femalesNames = new Set(content);
+            console.log(femalesNames);
+        })
+
+}
