@@ -464,7 +464,7 @@ fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`)
     .then(response => response.json())
     .then(file => {
         shrr = file.sha
-        const content = JSON.parse(atob(file.content));
+        const content = JSON.parse(file.content);
         femalesNames = new Set(content);
         console.log(femalesNames);
     })
