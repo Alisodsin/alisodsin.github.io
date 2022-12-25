@@ -13,6 +13,7 @@ let _fmain = parent.fmain,
     repo = 'alisodsin.github.io',
     path = 'femaleNames.json',
     TOKEN = "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",
+    shrr,
     ters,
     num = 0,
     num1 = 0,
@@ -446,12 +447,24 @@ _fmain.document.addEventListener('click', function (event) {
 
 window.onbeforeunload = _ => {
     let femalesNamesar = [...femalesNames];
-    localStorage.females = JSON.stringify(femalesNamesar)
+    fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${TOKEN}`,  // Replace TOKEN with a personal access token
+        },
+        body: JSON.stringify({
+            message: 'Add new names',
+            content: btoa(JSON.stringify(femalesNamesar)),
+            sha: shrr,
+        }),
+    });
 }
 
 fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`)
     .then(response => response.json())
     .then(file => {
+        shrr = file.sha
         const content = JSON.parse(atob(file.content));
         femalesNames = new Set(content);
         console.log(femalesNames);
