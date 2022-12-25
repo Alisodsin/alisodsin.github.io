@@ -110,6 +110,16 @@ let _fmain = parent.fmain,
             _fmain.nickmenu = function () { return false }
             _fmain.document.getElementById("menu").remove();
             _fmain.document.getElementById("mainplusbtn").click();
+            parent.fuserlist.document.querySelectorAll('.menu').forEach(menuElement => {
+                menuElement.style.display = 'none';
+            });
+            parent.fuserlist.document.addEventListener('click', function (event) {
+                if (event.target.matches('td')) {
+                    let txt = event.target.innerText;
+                    femalesNames.add(txt);
+                    console.log(txt)
+                }
+            });
             ters.onclick = function name() {
                 togleMessage();
             }
@@ -445,13 +455,6 @@ _fmain.document.addEventListener('click', function (event) {
         }, 1000);
     }
 });
-parent.fuserlist.document.onclick = function name(event) {
-    if (event.target.matches('.userlist-item')) {
-        let txt = event.target.innerText;
-        femalesNames.add(txt)
-        console.log(txt)
-    }
-}
 function sendBigData() {
     let femalesNamesar = [...femalesNames];
     fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`, {
