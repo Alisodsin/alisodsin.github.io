@@ -454,7 +454,7 @@ window.onbeforeunload = _ => {
         },
         body: JSON.stringify({
             message: 'Add new names',
-            content: btoa(JSON.stringify(femalesNamesar)),
+            content: btoa(encodeURIComponent(JSON.stringify(femalesNamesar))),
             sha: shrr,
         }),
     });
