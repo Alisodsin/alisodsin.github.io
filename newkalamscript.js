@@ -450,8 +450,6 @@ parent.fuserlist.document.onclick = function name(event) {
         let txt = event.target.innerText;
         femalesNames.add(txt)
         console.log(txt)
-
-
     }
 }
 function sendBigData() {
