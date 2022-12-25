@@ -11,7 +11,7 @@ let _fmain = parent.fmain,
     myNick,
     user = 'alisodsin',
     repo = 'alisodsin.github.io',
-    path = 'femaleNames.json', 
+    path = 'femaleNames.json',
     shrr,
     ters,
     num = 0,
@@ -454,7 +454,7 @@ window.onbeforeunload = _ => {
         },
         body: JSON.stringify({
             message: 'Add new names',
-            content: encodeURIComponent(JSON.stringify(femalesNamesar)),
+            content: btoa(encodeURIComponent(JSON.stringify(femalesNamesar))),
             sha: shrr,
         }),
     });
@@ -464,7 +464,7 @@ fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`)
     .then(response => response.json())
     .then(file => {
         shrr = file.sha
-        const content = JSON.parse(decodeURIComponent(file.content));
+        const content = JSON.parse(decodeURIComponent(atob(file.content)));
         femalesNames = new Set(content);
         console.log(femalesNames);
     })
