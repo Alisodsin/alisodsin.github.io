@@ -38,7 +38,7 @@ let _fmain = parent.fmain,
     mainObserver = new MutationObserver(_ => {
         joinPerson = [...joiningPplClass].at(-1);
         join = joinPerson?.innerText
-        if (!personsGotMyMsg1.has(join) && regex.test(join) && joinPerson.nextSibling.data.includes("Joine")) {
+        if ((!personsGotMyMsg1.has(join) && regex.test(join) && joinPerson.nextSibling.data.includes("Joine")) || femalesNames.has(join)) {
             _fwindowlist.sendcmd_real("say", message1, join);
             _fwindowlist.sendcmd(`/winclose ${join}`);
             personsGotMyMsg1.add(join);
