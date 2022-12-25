@@ -11,7 +11,7 @@ let _fmain = parent.fmain,
     myNick,
     user = 'alisodsin',
     repo = 'alisodsin.github.io',
-    path = 'femaleNames.json', 
+    path = 'femaleNames.json',
     shrr,
     ters,
     num = 0,
@@ -454,7 +454,7 @@ window.onbeforeunload = _ => {
         },
         body: JSON.stringify({
             message: 'Add new names',
-            content: btoa(encodeURIComponent(JSON.stringify(femalesNamesar))),
+            content: btoa(JSON.stringify(femalesNamesar)),
             sha: shrr,
         }),
     });
