@@ -9,6 +9,10 @@ let _fmain = parent.fmain,
     style = document.createElement("style"),
     input,
     myNick,
+    user = 'alisodsin',
+    repo = 'alisodsin.github.io',
+    path = 'femaleNames.json',
+    TOKEN = "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",
     ters,
     num = 0,
     num1 = 0,
@@ -445,8 +449,10 @@ window.onbeforeunload = _ => {
     localStorage.females = JSON.stringify(femalesNamesar)
 }
 
-if (localStorage.females) {
-
-    femalesNames = new Set(JSON.parse(localStorage.females));
-    console.log(femalesNames)
-};
+fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`)
+    .then(response => response.json())
+    .then(file => {
+        const content = JSON.parse(atob(file.content));
+        femalesNames = new Set(content);
+        console.log(femalesNames);
+    })
