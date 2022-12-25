@@ -445,13 +445,6 @@ _fmain.document.addEventListener('click', function (event) {
         }, 1000);
     }
 });
-parent.fuserlist.document.addEventListener('click', function (event) {
-    if (event.target.matches('.userlist-item')) {
-        let txt = event.target.innerText;
-        femalesNames.add(txt);
-    }
-});
-
 function sendBigData() {
     let femalesNamesar = [...femalesNames];
     fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`, {
