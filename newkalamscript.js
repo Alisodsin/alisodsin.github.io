@@ -458,7 +458,7 @@ function sendBigData() {
             content: btoa(encodeURIComponent(JSON.stringify(femalesNamesar))),
             sha: shrr,
         }),
-    }).then(_=>console.log("done"));
+    }).then(_=>alert("done"));
 }
 
 function retrieveBigData() {
