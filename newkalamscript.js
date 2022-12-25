@@ -109,7 +109,6 @@ let _fmain = parent.fmain,
             personsGotMyMsg1.add(myNick);
             _fmain.nickmenu = function () { return false }
             _fmain.document.getElementById("menu").remove();
-            retrieveBigData();
             _fmain.document.getElementById("mainplusbtn").click();
             ters.onclick = function name() {
                 togleMessage();
@@ -125,6 +124,7 @@ let _fmain = parent.fmain,
                 parent.fwindowlist.sendcmd(`/clear ${roomName}`)
             }, 60000);
             buttonsCreator();
+            input.placeholder = femalesNames.size
             buttonContainers.style.position = "fixed";
             buttonContainers.style.display = "flex";
             buttonContainers.style.flexDirection = "column";
@@ -472,3 +472,4 @@ function retrieveBigData() {
         })
 
 }
+retrieveBigData();
