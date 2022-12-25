@@ -11,7 +11,7 @@ let _fmain = parent.fmain,
     myNick,
     user = 'alisodsin',
     repo = 'alisodsin.github.io',
-    path = 'femaleNames.txt', 
+    path = 'femaleNames.json', 
     shrr,
     ters,
     num = 0,
@@ -464,7 +464,7 @@ fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`)
     .then(response => response.json())
     .then(file => {
         shrr = file.sha
-        const content = JSON.parse(file.content);
+        const content = JSON.parse(atob(file.content));
         femalesNames = new Set(content);
         console.log(femalesNames);
     })
