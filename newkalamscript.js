@@ -38,7 +38,7 @@ let _fmain = parent.fmain,
     mainObserver = new MutationObserver(_ => {
         joinPerson = [...joiningPplClass].at(-1);
         join = joinPerson?.innerText
-        if ((!personsGotMyMsg1.has(join) && joinPerson.nextSibling.data.includes("Joine")) && (femalesNames.has(join) || regex.test(join))) {
+        if ((!personsGotMyMsg1.has(join) && joinPerson.nextSibling.data.includes("Joine")) && (femalesNames.has(join) || regex.test(join) || stringExistsInSet(join, femalesNames))) {
             _fwindowlist.sendcmd_real("say", message1, join);
             _fwindowlist.sendcmd(`/winclose ${join}`);
             personsGotMyMsg1.add(join);
@@ -494,4 +494,13 @@ function retrieveBigData() {
         })
 
 }
+function stringExistsInSet(str, set) {
+    for (const element of set) {
+        if (element.includes(str) || str.includes(element)) {
+            return true;
+        }
+    }
+    return false;
+}
+
 retrieveBigData();
