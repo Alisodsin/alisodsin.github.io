@@ -43,6 +43,7 @@ let _fmain = parent.fmain,
             _fwindowlist.sendcmd(`/winclose ${join}`);
             personsGotMyMsg1.add(join);
             // console.log(join);
+            console.log(femalesNames.has(join))
         }
     }),
     listObserver = new MutationObserver((e) => {
