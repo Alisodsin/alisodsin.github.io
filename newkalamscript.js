@@ -121,7 +121,7 @@ let _fmain = parent.fmain,
                     }
                     else {
                         femalesNames.add(txt);
-                        console.log([...femalesNames].at(-1))
+                        console.log(`${[...femalesNames].at(-1)} added to the femalesNames set`)
                     }
                 }
             });
