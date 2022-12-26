@@ -452,7 +452,14 @@ _fmain.document.addEventListener('click', function (event) {
     if (event.target.matches('.main-nickg')) {
         let txt = event.target.innerText;
         personsGotMyMsg1.add(txt);
-        femalesNames.add(txt)
+        if (femalesNames.has(txt)) {
+            console.log(`${txt} exists in the femalesNames set`)
+        }
+        else {
+            femalesNames.add(txt)
+            console.log(`${[...femalesNames].at(-1)} added to  the femalesNames set`)
+
+        }
         _fwindowlist.sendcmd_real("say", message1, txt);
         setTimeout(() => {
             _fwindowlist.sendcmd(`/winclose ${txt}`);
