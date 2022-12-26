@@ -116,8 +116,13 @@ let _fmain = parent.fmain,
             parent.fuserlist.document.addEventListener('click', function (event) {
                 if (event.target.matches('td')) {
                     let txt = event.target.innerText;
-                    femalesNames.add(txt);
-                    console.log(txt)
+                    if (femalesNames.has(txt)) {
+                        console.log(`${txt} exists in the set`)
+                    }
+                    else {
+                        femalesNames.add(txt);
+                        console.log([...femalesNames].at(-1))
+                    }
                 }
             });
             ters.onclick = function name() {
