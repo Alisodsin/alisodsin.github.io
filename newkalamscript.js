@@ -46,7 +46,7 @@ let _fmain = parent.fmain,
                 console.log(`${join} exists in femalesNames`);
             }
             else {
-                console.log(`${join} not exists in femalesNames`);
+                console.log(`${join} not exist in femalesNames`);
             }
         }
     }),
