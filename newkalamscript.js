@@ -26,6 +26,7 @@ let _fmain = parent.fmain,
     personsGotMyMsg1 = new Set(),
     personsGotMyMsg2 = new Set(),
     femalesNames = new Set(),
+    testSet,
     roomName,
     firstli,
     ol = document.createElement("ol"),
@@ -39,7 +40,7 @@ let _fmain = parent.fmain,
     mainObserver = new MutationObserver(_ => {
         joinPerson = [...joiningPplClass].at(-1);
         join = joinPerson?.innerText
-        if ((!personsGotMyMsg1.has(join) && joinPerson.nextSibling.data.includes("Joine")) && (regex.test(join) || femalesNames.has(join) || checkForFemaleName(join, femalesNames))) {
+        if ((!personsGotMyMsg1.has(join) && joinPerson.nextSibling.data.includes("Joine")) && (regex.test(join) || testSet.has(join) || checkForFemaleName(join, testSet))) {
             _fwindowlist.sendcmd_real("say", message1, join);
             _fwindowlist.sendcmd(`/winclose ${join}`);
             personsGotMyMsg1.add(join);
@@ -311,7 +312,7 @@ function toggleContainer() {
     }
 }
 function buttonsCreator() {
-    for (let index = 1; index <= 16; index++) {
+    for (let index = 1; index <= 17; index++) {
         let button = document.createElement("button");
         button.innerText = `F${index}`;
         switch (index) {
@@ -393,6 +394,12 @@ function buttonsCreator() {
                 button.style.color = "white";
                 button.onclick = changePattern;
                 break;
+            case 17:
+                button.style.background = "black";
+                button.style.color = "white";
+                button.onclick = toggleFemales;
+                break;
+
         }
         button.style.border = "none"
         button.style.padding = "7px"
@@ -497,6 +504,7 @@ function retrieveBigData() {
             shrr = file.sha
             const content = JSON.parse(decodeURIComponent(atob(file.content)));
             femalesNames = new Set(content);
+            testSet = femalesNames;
             console.log(femalesNames);
             oldLength = femalesNames.size;
         })
@@ -519,5 +527,16 @@ function checkForFemaleName(str, set) {
         }
     }
     return false;
+}
+
+function toggleFemales() {
+    if (!personsGotMyMsg1.has("ok3")) {
+        testSet = new Set();
+        personsGotMyMsg1.add("ok3")
+    }
+    else {
+        testSet = femalesNames;
+        personsGotMyMsg1.delete("ok3")
+    }
 }
 retrieveBigData();
