@@ -509,19 +509,20 @@ function stringExistsInSet(str, set) {
 }
 
 function checkForFemaleName(str, set) {
-    // Split the input string into an array of words using a regular expression
-    // that matches any sequence of non-alphabetic characters as a delimiter
     const words = str.split(/[^\p{L}]/u);
-
-    // Iterate through the array of words
     for (const word of words) {
-        // Check if the word is present in the set of female names
         if (set.has(word)) {
-            // If the word is present, return true
             return true;
         }
+        for (const setWord of set) {
+            const setElements = setWord.split(/[^\p{L}]/u);
+            for (const element of setElements) {
+                if (element === word) {
+                    return true;
+                }
+            }
+        }
     }
-    // If none of the words were present in the set, return false
     return false;
 }
 retrieveBigData();
