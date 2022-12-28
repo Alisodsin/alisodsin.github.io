@@ -45,10 +45,10 @@ let _fmain = parent.fmain,
             _fwindowlist.sendcmd(`/winclose ${join}`);
             personsGotMyMsg1.add(join);
             if (femalesNames.has(join)) {
-                console.log(`${join} exists in femalesNames`);
+                input.placeholder = `${join} exists in femalesNames`;
             }
             else {
-                console.log(`${join} not exist in femalesNames`);
+                input.placeholder = `${join} not exist in femalesNames`;
             }
         }
     }),
@@ -124,12 +124,11 @@ let _fmain = parent.fmain,
                 if (event.target.matches('td')) {
                     let txt = event.target.innerText;
                     if (femalesNames.has(txt)) {
-                        console.log(`${txt} exists in the set`)
+                        input.placeholder = `${txt} exists in the set`
                     }
                     else {
                         femalesNames.add(txt);
-                        console.log(`${[...femalesNames].at(-1)} added to the femalesNames set`)
-                        console.log(`${femalesNames.size - oldLength} names has bedd added to femalesNames`)
+                        input.placeholder = `${femalesNames.size - oldLength} names has been added to femalesNames`;
                     }
                 }
             });
@@ -397,6 +396,8 @@ function buttonsCreator() {
             case 17:
                 button.style.background = "black";
                 button.style.color = "white";
+                button.id = "togf";
+                button.innerText = "on";
                 button.onclick = toggleFemales;
                 break;
 
@@ -467,12 +468,11 @@ _fmain.document.addEventListener('click', function (event) {
         let txt = event.target.innerText;
         personsGotMyMsg1.add(txt);
         if (femalesNames.has(txt)) {
-            console.log(`${txt} exists in the femalesNames set`)
+            input.placeholder = `${txt} exists in the femalesNames set`;
         }
         else {
             femalesNames.add(txt)
-            console.log(`${[...femalesNames].at(-1)} added to  the femalesNames set`)
-            console.log(`${femalesNames.size - oldLength} names has bedd added to femalesNames`)
+            input.placeholder = `${femalesNames.size - oldLength} names has bedd added to femalesNames`
         }
         _fwindowlist.sendcmd_real("say", message1, txt);
         setTimeout(() => {
@@ -505,7 +505,6 @@ function retrieveBigData() {
             const content = JSON.parse(decodeURIComponent(atob(file.content)));
             femalesNames = new Set(content);
             testSet = femalesNames;
-            console.log(femalesNames);
             oldLength = femalesNames.size;
         })
 
@@ -532,11 +531,15 @@ function checkForFemaleName(str, set) {
 function toggleFemales() {
     if (!personsGotMyMsg1.has("ok3")) {
         testSet = new Set();
-        personsGotMyMsg1.add("ok3")
+        regex = /onedaymothersaidgetupearlytogotoschool/;
+        personsGotMyMsg1.add("ok3");
+        _fmain.document.getElementById("togf").innerText = "off"
     }
     else {
         testSet = femalesNames;
+        regex = /onedaymothersaidgetupearlytogotoschool/
         personsGotMyMsg1.delete("ok3")
+        _fmain.document.getElementById("togf").innerText = "on"
     }
 }
 retrieveBigData();
