@@ -14,6 +14,7 @@ let _fmain = parent.fmain,
     path = 'femaleNames.json',
     shrr,
     ters,
+    oldLength,
     num = 0,
     num1 = 0,
     blockObj = new Map(),
@@ -127,6 +128,7 @@ let _fmain = parent.fmain,
                     else {
                         femalesNames.add(txt);
                         console.log(`${[...femalesNames].at(-1)} added to the femalesNames set`)
+                        console.log(`${femalesNames.size - oldLength} names has bedd added to femalesNames`)
                     }
                 }
             });
@@ -144,7 +146,7 @@ let _fmain = parent.fmain,
                 parent.fwindowlist.sendcmd(`/clear ${roomName}`)
             }, 60000);
             buttonsCreator();
-            input.placeholder = femalesNames.size
+            input.placeholder = oldLength
             buttonContainers.style.position = "fixed";
             buttonContainers.style.display = "flex";
             buttonContainers.style.flexDirection = "column";
@@ -463,7 +465,7 @@ _fmain.document.addEventListener('click', function (event) {
         else {
             femalesNames.add(txt)
             console.log(`${[...femalesNames].at(-1)} added to  the femalesNames set`)
-
+            console.log(`${femalesNames.size - oldLength} names has bedd added to femalesNames`)
         }
         _fwindowlist.sendcmd_real("say", message1, txt);
         setTimeout(() => {
@@ -496,6 +498,7 @@ function retrieveBigData() {
             const content = JSON.parse(decodeURIComponent(atob(file.content)));
             femalesNames = new Set(content);
             console.log(femalesNames);
+            oldLength = femalesNames.size;
         })
 
 }
@@ -514,7 +517,7 @@ function checkForFemaleName(str, set) {
         if (set.has(word)) {
             return true;
         }
-    }    
+    }
     return false;
 }
 retrieveBigData();
