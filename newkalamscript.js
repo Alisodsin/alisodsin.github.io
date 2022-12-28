@@ -514,15 +514,7 @@ function checkForFemaleName(str, set) {
         if (set.has(word)) {
             return true;
         }
-        for (const setWord of set) {
-            const setElements = setWord.split(/[^\p{L}]/u);
-            for (const element of setElements) {
-                if (element === word) {
-                    return true;
-                }
-            }
-        }
-    }
+    }    
     return false;
 }
 retrieveBigData();
