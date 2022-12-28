@@ -310,7 +310,7 @@ function toggleContainer() {
     }
 }
 function buttonsCreator() {
-    for (let index = 1; index <= 17; index++) {
+    for (let index = 1; index <= 18; index++) {
         let button = document.createElement("button");
         button.innerText = `F${index}`;
         switch (index) {
@@ -398,6 +398,12 @@ function buttonsCreator() {
                 button.id = "togf";
                 button.innerText = "on";
                 button.onclick = toggleFemales;
+                break;
+            case 18:
+                button.style.background = "black";
+                button.style.color = "white";
+                button.innerText = "addName";
+                button.onclick = addName;
                 break;
 
         }
@@ -540,5 +546,11 @@ function toggleFemales() {
         personsGotMyMsg1.delete("ok3")
         _fmain.document.getElementById("togf").innerText = "on"
     }
+}
+function addName() {
+    let name = prompt();
+    femalesNames.add(name);
+    input.placeholder = `${femalesNames.size - oldLength} names has been added to the femalesNames`
+
 }
 retrieveBigData();
