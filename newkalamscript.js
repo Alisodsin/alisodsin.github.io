@@ -588,18 +588,18 @@ function selectFontElementsContainingQuit() {
     }
     return quitElements;
 }
-function removeMultiWordElements(femalesNames) {
+function removeMultiWordElements(x) {
     const singleWordElements = new Set();
-    for (const element of femalesNames) {
+    for (const element of x) {
         if (!element.includes("\u00A0")) {
-            if (femalesNames.has(element)) {
+            if (x.has(element)) {
                 singleWordElements.add(element);
             }
         } else {
             let anyWordsExist = false;
             const words = element.split("\u00A0");
             for (const word of words) {
-                if (femalesNames.has(word)) {
+                if (x.has(word)) {
                     anyWordsExist = true;
                     break;
                 }
