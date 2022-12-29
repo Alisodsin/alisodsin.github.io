@@ -537,7 +537,6 @@ function retrieveBigData() {
             testSet = femalesNames;
             oldLength = femalesNames.size;
         })
-
 }
 function stringExistsInSet(str, set) {
     for (const element of set) {
@@ -580,18 +579,13 @@ function addName() {
 
 }
 function selectFontElementsContainingQuit() {
-    // Select all <font> elements
     var elements = _fmain.document.getElementsByTagName('font');
-
-    // Filter through the elements to find ones that contain the word "Quit" in their inner text
     var quitElements = [];
     for (var i = 0; i < elements.length; i++) {
         if (elements[i].innerText.indexOf('Quit') !== -1) {
             quitElements.push(elements[i]);
         }
     }
-
-    // Return the <font> elements that contain the word "Quit" in their inner text
     return quitElements;
 }
 retrieveBigData();
