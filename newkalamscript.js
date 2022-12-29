@@ -198,7 +198,9 @@ let _fmain = parent.fmain,
                     for (let person of personsGotMyMsg1) {
                         if (lastElement.innerText.indexOf(person) !== -1) {
                             personsGotMyMsg1.delete(person);
-                            console.log(`Deleted ${person} from set, set size is now ${personsGotMyMsg1.size}`);
+                            if (personsGotMyMsg2.has(person)) {
+                                input.placeholder = `${person} quit}`;
+                            }
                         }
                     }
                 }
