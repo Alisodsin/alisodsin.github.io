@@ -422,6 +422,7 @@ function buttonsCreator() {
             case 18:
                 button.style.background = "black";
                 button.style.color = "white";
+                button.id = "kokos"
                 button.innerText = "addName";
                 button.onclick = addName;
                 break;
@@ -571,6 +572,7 @@ function addName() {
     let name = prompt();
     femalesNames.add(name);
     input.placeholder = `${femalesNames.size - oldLength} names has been added to the femalesNames`
+    _fmain.document.getElementById("kokos").innerText = femalesNames.size - oldLength
 
 }
 function selectFontElementsContainingQuit() {
