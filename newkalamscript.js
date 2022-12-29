@@ -199,7 +199,7 @@ let _fmain = parent.fmain,
                         if (lastElement.innerText.indexOf(person) !== -1) {
                             personsGotMyMsg1.delete(person);
                             if (personsGotMyMsg2.has(person)) {
-                                input.placeholder = `${person} quit}`;
+                                input.placeholder = `${person} quit`;
                             }
                         }
                     }
