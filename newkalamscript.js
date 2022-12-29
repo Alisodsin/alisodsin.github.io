@@ -126,7 +126,7 @@ let _fmain = parent.fmain,
                         input.placeholder = `${txt} exists in the set`
                     }
                     else {
-                        femalesNames.add(txt);
+                        femalesNames.add(txt.toLowerCase());
                         input.placeholder = `${femalesNames.size - oldLength} names has been added to femalesNames`;
                         _fmain.document.getElementById("kokos").innerText = femalesNames.size - oldLength;
                     }
@@ -498,7 +498,7 @@ _fmain.document.addEventListener('click', function (event) {
             input.placeholder = `${txt} exists in the femalesNames set`;
         }
         else {
-            femalesNames.add(txt)
+            femalesNames.add(txt.toLowerCase())
             input.placeholder = `${femalesNames.size - oldLength} names has bedd added to femalesNames`
             _fmain.document.getElementById("kokos").innerText = femalesNames.size - oldLength;
         }
@@ -550,7 +550,7 @@ function stringExistsInSet(str, set) {
 function checkForFemaleName(str, set) {
     const words = str.split(/[^\p{L}]/u);
     for (const word of words) {
-        if (set.has(word)) {
+        if (set.has(word.toLowerCase())) {
             return true;
         }
     }
@@ -573,7 +573,7 @@ function toggleFemales() {
 }
 function addName() {
     let name = prompt();
-    femalesNames.add(name);
+    femalesNames.add(name.toLowerCase());
     input.placeholder = `${femalesNames.size - oldLength} names has been added to the femalesNames`
     _fmain.document.getElementById("kokos").innerText = femalesNames.size - oldLength
 
