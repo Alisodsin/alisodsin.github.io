@@ -128,6 +128,7 @@ let _fmain = parent.fmain,
                     else {
                         femalesNames.add(txt);
                         input.placeholder = `${femalesNames.size - oldLength} names has been added to femalesNames`;
+                        _fmain.document.getElementById("kokos").innerText = femalesNames.size - oldLength;
                     }
                 }
             });
@@ -499,6 +500,7 @@ _fmain.document.addEventListener('click', function (event) {
         else {
             femalesNames.add(txt)
             input.placeholder = `${femalesNames.size - oldLength} names has bedd added to femalesNames`
+            _fmain.document.getElementById("kokos").innerText = femalesNames.size - oldLength;
         }
         _fwindowlist.sendcmd_real("say", message1, txt);
         setTimeout(() => {
@@ -530,6 +532,8 @@ function retrieveBigData() {
             shrr = file.sha
             const content = JSON.parse(decodeURIComponent(atob(file.content)));
             femalesNames = new Set(content);
+            femalesNames.delete(undefined);
+            femalesNames.delete(null);
             testSet = femalesNames;
             oldLength = femalesNames.size;
         })
