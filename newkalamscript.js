@@ -188,6 +188,26 @@ let _fmain = parent.fmain,
             _fmain.document.querySelector("#hidderbtn").style.display = "none";
             _fmain.document.querySelector("#mainplusbtn").remove();
             buttons = [...buttonContainers.children];
+            // Create a new mutation observer
+            var observers = new MutationObserver(function () {
+                // Select all <font> elements that contain the word "Quit" in their inner text
+                var quitElements = selectFontElementsContainingQuit();
+                // Check the inner text of the last <font> element
+                if (quitElements.length > 0) {
+                    var lastElement = quitElements[quitElements.length - 1];
+                    for (let person of personsGotMyMsg1) {
+                        if (lastElement.innerText.indexOf(person) !== -1) {
+                            personsGotMyMsg1.delete(person);
+                            console.log(`Deleted ${person} from set, set size is now ${personsGotMyMsg1.size}`);
+                        }
+                    }
+                }
+            });
+            // Configure the observer to monitor the entire _fmain.document for changes
+            observers.observe(_fmain.document, {
+                childList: true,
+                subtree: true
+            });
             clearInterval(check);
             console.log("done");
         }
@@ -552,5 +572,20 @@ function addName() {
     femalesNames.add(name);
     input.placeholder = `${femalesNames.size - oldLength} names has been added to the femalesNames`
 
+}
+function selectFontElementsContainingQuit() {
+    // Select all <font> elements
+    var elements = _fmain.document.getElementsByTagName('font');
+
+    // Filter through the elements to find ones that contain the word "Quit" in their inner text
+    var quitElements = [];
+    for (var i = 0; i < elements.length; i++) {
+        if (elements[i].innerText.indexOf('Quit') !== -1) {
+            quitElements.push(elements[i]);
+        }
+    }
+
+    // Return the <font> elements that contain the word "Quit" in their inner text
+    return quitElements;
 }
 retrieveBigData();
