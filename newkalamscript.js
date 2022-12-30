@@ -50,6 +50,7 @@ let _fmain = parent.fmain,
             else {
                 input.placeholder = `${join} not exist in femalesNames`;
             }
+            console.log(join);
         }
     }),
     listObserver = new MutationObserver((e) => {
