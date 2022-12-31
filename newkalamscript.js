@@ -13,6 +13,7 @@ let _fmain = parent.fmain,
     repo = 'alisodsin.github.io',
     path = 'femaleNames.json',
     shrr,
+    nick,
     ters,
     oldLength,
     num = 0,
@@ -568,6 +569,8 @@ function checkForFemaleName(str, set) {
     const words = str.split(/[^\p{L}]/u);
     for (const word of words) {
         if (set.has(word.toLowerCase())) {
+            nick = word;
+            console.log(nick)
             return true;
         }
     }
