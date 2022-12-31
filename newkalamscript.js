@@ -46,11 +46,11 @@ let _fmain = parent.fmain,
             personsGotMyMsg1.add(join);
             if (femalesNames.has(join)) {
                 input.placeholder = `${join} inSet`;
-                console.log(`${join} in`)
+                console.log(`${join} inSet`)
             }
             else {
-                input.placeholder = `${join} outSt`;
-                console.log(`${join} out`)
+                input.placeholder = `${join} outSet`;
+                console.log(`${join} outSet`)
             }
         }
     }),
