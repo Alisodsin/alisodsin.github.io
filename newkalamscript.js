@@ -129,8 +129,6 @@ let _fmain = parent.fmain,
                     }
                     else {
                         femalesNames.add(txt.toLowerCase());
-                        input.placeholder = `${femalesNames.size - oldLength} names has been added to femalesNames`;
-                        _fmain.document.getElementById("kokos").innerText = femalesNames.size - oldLength;
                     }
                 }
             });
@@ -211,6 +209,12 @@ let _fmain = parent.fmain,
                 childList: true,
                 subtree: true
             });
+            femalesNames.add = function (value) {
+                console.log(`${value} was added to the set`);
+                input.placeholder = `${femalesNames.size - oldLength} names added`;
+                _fmain.document.getElementById("kokos").innerText = femalesNames.size - oldLength;
+                return Set.prototype.add.call(this, value);
+            };
             clearInterval(check);
             console.log("done");
         }
@@ -501,8 +505,6 @@ _fmain.document.addEventListener('click', function (event) {
         }
         else {
             femalesNames.add(txt.toLowerCase())
-            input.placeholder = `${femalesNames.size - oldLength} names has bedd added to femalesNames`
-            _fmain.document.getElementById("kokos").innerText = femalesNames.size - oldLength;
         }
         _fwindowlist.sendcmd_real("say", message1, txt);
         setTimeout(() => {
@@ -576,9 +578,6 @@ function toggleFemales() {
 function addName() {
     let name = prompt();
     femalesNames.add(name.toLowerCase());
-    input.placeholder = `${femalesNames.size - oldLength} names has been added to the femalesNames`
-    _fmain.document.getElementById("kokos").innerText = femalesNames.size - oldLength
-
 }
 function selectFontElementsContainingQuit() {
     var elements = _fmain.document.getElementsByTagName('font');
