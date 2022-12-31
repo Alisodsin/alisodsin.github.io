@@ -342,7 +342,7 @@ function toggleContainer() {
     }
 }
 function buttonsCreator() {
-    for (let index = 1; index <= 18; index++) {
+    for (let index = 1; index <= 19; index++) {
         let button = document.createElement("button");
         button.innerText = `F${index}`;
         switch (index) {
@@ -438,11 +438,17 @@ function buttonsCreator() {
                 button.innerText = "addName";
                 button.onclick = addName;
                 break;
+            case 19:
+                button.style.background = "black";
+                button.style.color = "white";
+                button.onclick = _ => {
+                    removeMultiWordElements(femalesNames);
+                };
+                break;
 
         }
         button.style.border = "none"
         button.style.padding = "2px"
-        // button.style.fontWeight = "bold"
         button.style.borderRadius = "40%"
         buttonContainers.append(button);
     }
