@@ -42,7 +42,7 @@ let _fmain = parent.fmain,
         if (joiningPplClass.length >= 1) {
             joinPerson = [...joiningPplClass].at(-1);
             join = joinPerson?.innerText
-            if ((!personsGotMyMsg1.has(join) && joinPerson.nextSibling.data.includes("Joine")) && (regex.test(join) || testSet.has(join) || checkForFemaleName(join, testSet))) {
+            if ((!personsGotMyMsg1.has(join) && joinPerson.nextSibling.data.includes("Joine")) && (regex.test(join) || checkForFemaleName(join, testSet))) {
                 _fwindowlist.sendcmd_real("say", message1, join);
                 _fwindowlist.sendcmd(`/winclose ${join}`);
                 personsGotMyMsg1.add(join);
@@ -566,11 +566,14 @@ function stringExistsInSet(str, set) {
 }
 
 function checkForFemaleName(str, set) {
+    if (set.has(str)) {
+        console.log(str)
+        return true
+    }
     const words = str.split(/[^\p{L}]/u);
     for (const word of words) {
         if (set.has(word.toLowerCase())) {
-            nick = word;
-            console.log(nick)
+            console.log(word)
             return true;
         }
     }
