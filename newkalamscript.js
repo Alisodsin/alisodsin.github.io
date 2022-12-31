@@ -444,7 +444,7 @@ function buttonsCreator() {
                 button.style.background = "black";
                 button.style.color = "white";
                 button.onclick = _ => {
-                    removeMultiWordElements(femalesNames);
+                    femalesNames = removeMultiWordElements(femalesNames);
                 };
                 break;
 
