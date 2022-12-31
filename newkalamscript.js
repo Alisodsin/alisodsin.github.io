@@ -432,8 +432,8 @@ function buttonsCreator() {
 
         }
         button.style.border = "none"
-        button.style.padding = "7px"
-        button.style.fontWeight = "bold"
+        button.style.padding = "5px"
+        // button.style.fontWeight = "bold"
         button.style.borderRadius = "40%"
         buttonContainers.append(button);
     }
