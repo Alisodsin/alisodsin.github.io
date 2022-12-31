@@ -38,19 +38,21 @@ let _fmain = parent.fmain,
     patterns = [["*[<=5]", /^.{1,6}$/], ["ar<=5", /^[\u0621-\u064A\xA0\x5F\0-9]{1,7}$/], ["*digts", /\d+$/], ["ar*", /^[\u0621-\u064A\xA0\x5F\0-9]+$/], ["*", /^.+$/], ["k|short", /(^.{1,5}$|^Kalamngy_)/i], ["^k$", /^Kalamngy_\d{4}$/]],
     mainTarget = _fmain.document.querySelector(".main-span"),
     mainObserver = new MutationObserver(_ => {
-        joinPerson = [...joiningPplClass].at(-1);
-        join = joinPerson?.innerText
-        if ((!personsGotMyMsg1.has(join) && joinPerson.nextSibling.data.includes("Joine")) && (regex.test(join) || testSet.has(join) || checkForFemaleName(join, testSet))) {
-            _fwindowlist.sendcmd_real("say", message1, join);
-            _fwindowlist.sendcmd(`/winclose ${join}`);
-            personsGotMyMsg1.add(join);
-            if (femalesNames.has(join)) {
-                input.placeholder = `${join} inSet`;
-                console.log(`${join} inSet`)
-            }
-            else {
-                input.placeholder = `${join} outSet`;
-                console.log(`${join} outSet`)
+        if (joiningPplClass.length >= 1) {
+            joinPerson = [...joiningPplClass].at(-1);
+            join = joinPerson?.innerText
+            if ((!personsGotMyMsg1.has(join) && joinPerson.nextSibling.data.includes("Joine")) && (regex.test(join) || testSet.has(join) || checkForFemaleName(join, testSet))) {
+                _fwindowlist.sendcmd_real("say", message1, join);
+                _fwindowlist.sendcmd(`/winclose ${join}`);
+                personsGotMyMsg1.add(join);
+                if (femalesNames.has(join)) {
+                    input.placeholder = `${join} inSet`;
+                    console.log(`${join} inSet`)
+                }
+                else {
+                    input.placeholder = `${join} outSet`;
+                    console.log(`${join} outSet`)
+                }
             }
         }
     }),
