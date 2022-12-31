@@ -45,12 +45,13 @@ let _fmain = parent.fmain,
             _fwindowlist.sendcmd(`/winclose ${join}`);
             personsGotMyMsg1.add(join);
             if (femalesNames.has(join)) {
-                input.placeholder = `${join} exists in femalesNames`;
+                input.placeholder = `${join} in`;
+                console.log(`${join} in`)
             }
             else {
-                input.placeholder = `${join} not exist in femalesNames`;
+                input.placeholder = `${join} out`;
+                console.log(`${join} out`)
             }
-            console.log(join);
         }
     }),
     listObserver = new MutationObserver((e) => {
@@ -124,7 +125,7 @@ let _fmain = parent.fmain,
                 if (event.target.matches('td')) {
                     let txt = event.target.innerText;
                     if (femalesNames.has(txt)) {
-                        input.placeholder = `${txt} exists in the set`
+                        input.placeholder = `${txt} in`
                     }
                     else {
                         femalesNames.add(txt.toLowerCase());
