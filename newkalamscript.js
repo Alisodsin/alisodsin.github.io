@@ -441,7 +441,7 @@ function buttonsCreator() {
 
         }
         button.style.border = "none"
-        button.style.padding = "5px"
+        button.style.padding = "2px"
         // button.style.fontWeight = "bold"
         button.style.borderRadius = "40%"
         buttonContainers.append(button);
