@@ -210,7 +210,12 @@ let _fmain = parent.fmain,
                 subtree: true
             });
             femalesNames.add = function (value) {
-                console.log(`${value} was added to the set`);
+                if (this.has(value)) {
+                    console.log(`${value} already in the set`);
+                }
+                else {
+                    console.log(`${value} was added to the set`);
+                }
                 input.placeholder = `${femalesNames.size - oldLength} names added`;
                 _fmain.document.getElementById("kokos").innerText = femalesNames.size - oldLength;
                 return Set.prototype.add.call(this, value);
