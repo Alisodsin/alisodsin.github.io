@@ -567,15 +567,11 @@ function stringExistsInSet(str, set) {
 
 function checkForFemaleName(str, set) {
     if (set.has(str)) {
-        _fwindowlist.sendcmd_real("say", `ازيك يا ${str}`, str);
-        console.log(str)
         return true
     }
     const words = str.split(/[^\p{L}]/u);
     for (const word of words) {
         if (set.has(word.toLowerCase())) {
-            _fwindowlist.sendcmd_real("say", `ازيك يا ${word}`, str);
-            console.log(word)
             return true;
         }
     }
