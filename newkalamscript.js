@@ -45,11 +45,11 @@ let _fmain = parent.fmain,
             _fwindowlist.sendcmd(`/winclose ${join}`);
             personsGotMyMsg1.add(join);
             if (femalesNames.has(join)) {
-                input.placeholder = `${join} in`;
+                input.placeholder = `${join} inSet`;
                 console.log(`${join} in`)
             }
             else {
-                input.placeholder = `${join} out`;
+                input.placeholder = `${join} outSt`;
                 console.log(`${join} out`)
             }
         }
@@ -125,7 +125,7 @@ let _fmain = parent.fmain,
                 if (event.target.matches('td')) {
                     let txt = event.target.innerText;
                     if (femalesNames.has(txt)) {
-                        input.placeholder = `${txt} in`
+                        input.placeholder = `${txt} inSet`
                     }
                     else {
                         femalesNames.add(txt.toLowerCase());
