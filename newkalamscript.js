@@ -219,8 +219,12 @@ let _fmain = parent.fmain,
                 else {
                     console.log(`${value} was added to the set`);
                 }
-                input.placeholder = `${femalesNames.size - oldLength} names added`;
-                _fmain.document.getElementById("kokos").innerText = femalesNames.size - oldLength;
+
+                setTimeout(_ => {
+                    input.placeholder = `${femalesNames.size - oldLength} names added`;
+                    _fmain.document.getElementById("kokos").innerText = femalesNames.size - oldLength;
+                }, 100)
+
                 return Set.prototype.add.call(this, value);
             };
             clearInterval(check);
