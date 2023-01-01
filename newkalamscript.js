@@ -279,7 +279,6 @@ function block() {
         _fwindowlist.sendcmd_real("say", `/winclose ${personName}`)
         personsGotMyMsg1.delete(personName);
         personsGotMyMsg2.delete(personName);
-        femalesNames.delete(personName);
         _fmain.document.getElementById(blockObj.get(personName)).remove();
         blockObj.delete(personName);
     }
