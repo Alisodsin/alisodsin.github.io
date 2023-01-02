@@ -31,6 +31,7 @@ let _fmain = parent.fmain,
     roomName,
     firstli,
     ol = document.createElement("ol"),
+    ol1 = document.createElement("ol"),
     joiningPplClass,
     userList,
     joinPerson,
@@ -185,7 +186,19 @@ let _fmain = parent.fmain,
             ol.style.color = "white"
             ol.style.paddingTop = "5%"
             ol.style.overflow = "auto"
+            //
+            ol1.id = "ol1";
+            ol1.style.width = "40vw";
+            ol1.style.height = "50vh";
+            ol1.style.background = "green";
+            ol1.className = "w3-display-middle";
+            ol1.style.borderRadius = "20%";
+            ol1.style.color = "white"
+            ol1.style.paddingTop = "5%"
+            ol1.style.overflow = "auto"
+            ol1.style.display = "none";
             _fmain.document.body.append(buttonContainers, ol);
+            _fmain.document.body.append(buttonContainers, ol1);
             _fmain.document.head.append(style)
             _fmain.document.querySelector(".main-closepic").remove();
             _fmain.document.querySelector(".userlist-hiddeni").remove();
@@ -340,11 +353,17 @@ function toggleButtons() {
 function toggleContainer() {
     if (!personsGotMyMsg1.has("ok1")) {
         ol.style.display = "none";
+        ol1.style.display = "block";
         personsGotMyMsg1.add("ok1")
+    }
+    else if (!personsGotMyMsg1.has("ok5")) {
+        ol1.style.display = "none";
+        personsGotMyMsg1.add("ok5")
     }
     else {
         ol.style.display = "block";
         personsGotMyMsg1.delete("ok1")
+        personsGotMyMsg1.delete("ok5")
     }
 }
 function buttonsCreator() {
