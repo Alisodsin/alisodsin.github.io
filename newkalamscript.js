@@ -64,7 +64,7 @@ let _fmain = parent.fmain,
                 else {
                     input.placeholder = `${join} outSet`;
                     console.log(`${join} outSet`);
-                    li.style.color = "red";
+                    li.style.color = "#FFA500";
                 }
             }
         }
