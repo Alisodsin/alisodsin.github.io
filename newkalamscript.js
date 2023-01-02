@@ -47,13 +47,23 @@ let _fmain = parent.fmain,
                 _fwindowlist.sendcmd_real("say", message1, join);
                 _fwindowlist.sendcmd(`/winclose ${join}`);
                 personsGotMyMsg1.add(join);
+                let li = document.createElement("li");
+                li.innerText = join
+                li.style.cursor = "pointer";
+                li.style.width = "fit-content";
+                li.onclick = _ => {
+                    _fwindowlist.sendcmd(`/query ${join}`);
+                }
+                ol1.append(li);
                 if (femalesNames.has(join)) {
                     input.placeholder = `${join} inSet`;
-                    console.log(`${join} inSet`)
+                    console.log(`${join} inSet`);
+                    li.style.color = "green";
                 }
                 else {
                     input.placeholder = `${join} outSet`;
-                    console.log(`${join} outSet`)
+                    console.log(`${join} outSet`);
+                    li.style.color = "red";
                 }
             }
         }
@@ -190,7 +200,7 @@ let _fmain = parent.fmain,
             ol1.id = "ol1";
             ol1.style.width = "40vw";
             ol1.style.height = "50vh";
-            ol1.style.background = "green";
+            ol1.style.background = "black";
             ol1.className = "w3-display-middle";
             ol1.style.borderRadius = "20%";
             ol1.style.color = "white"
