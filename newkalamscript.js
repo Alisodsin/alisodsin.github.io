@@ -203,7 +203,6 @@ let _fmain = parent.fmain,
             ol1.style.height = "50vh";
             ol1.style.background = "black";
             ol1.className = "w3-display-middle";
-            ol1.style.borderRadius = "20%";
             ol1.style.color = "white"
             ol1.style.paddingTop = "5%"
             ol1.style.overflow = "auto"
