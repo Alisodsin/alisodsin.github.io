@@ -339,13 +339,13 @@ function togleMessage() {
         message1 = "هاى";
         message2 = "ازيك";
         message3 = "؟";
-        input.placeholder = `the bad message`;
+        input.placeholder = `good message2`;
     }
     else {
         message1 = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير";
         message2 = "انا مهندس على 35 سنه من المنصوره";
         message3 = "ممكن نتعرف؟";
-        input.placeholder = "the good message";
+        input.placeholder = "good message1";
     }
 }
 
