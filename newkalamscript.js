@@ -197,8 +197,7 @@ let _fmain = parent.fmain,
             ol1.style.paddingTop = "5%"
             ol1.style.overflow = "auto"
             ol1.style.display = "none";
-            _fmain.document.body.append(buttonContainers, ol);
-            _fmain.document.body.append(buttonContainers, ol1);
+            _fmain.document.body.append(buttonContainers, ol, ol1);
             _fmain.document.head.append(style)
             _fmain.document.querySelector(".main-closepic").remove();
             _fmain.document.querySelector(".userlist-hiddeni").remove();
