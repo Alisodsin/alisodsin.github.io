@@ -180,6 +180,9 @@ let _fmain = parent.fmain,
                 #ol{
                     display:none !important;
                 }
+                #ol1{
+                    display:none !important;
+                }
             }
             .w3-display-middle{
                 position:absolute;
