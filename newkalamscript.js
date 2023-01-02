@@ -334,6 +334,13 @@ function togleMessage() {
         message3 = " ";
         input.placeholder = `the bad message`;
     }
+
+    else if (message1.includes("بفشخك")) {
+        message1 = "هاى";
+        message2 = "ازيك";
+        message3 = "؟";
+        input.placeholder = `the bad message`;
+    }
     else {
         message1 = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير";
         message2 = "انا مهندس على 35 سنه من المنصوره";
