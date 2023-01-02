@@ -612,13 +612,13 @@ function selectFontElementsContainingQuit() {
 function removeMultiWordElements(x) {
     const singleWordElements = new Set();
     for (const element of x) {
-        if (!element.includes("\u00A0")) {
+        if (!element.match(/[^\p{L}]/u)) {
             if (x.has(element)) {
                 singleWordElements.add(element);
             }
         } else {
             let anyWordsExist = false;
-            const words = element.split("\u00A0");
+            const words = element.split(/[^\p{L}]/u);
             for (const word of words) {
                 if (x.has(word)) {
                     anyWordsExist = true;
