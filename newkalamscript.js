@@ -51,8 +51,8 @@ let _fmain = parent.fmain,
                 li.innerText = join
                 li.style.cursor = "pointer";
                 li.style.width = "fit-content";
-                li.onclick = _ => {
-                    _fwindowlist.sendcmd(`/query ${join}`);
+                li.onclick = function () {
+                    _fwindowlist.sendcmd(`/query ${this.innerText}`);
                 }
                 ol1.append(li);
                 if (femalesNames.has(join)) {
