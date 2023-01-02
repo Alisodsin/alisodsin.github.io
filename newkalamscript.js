@@ -55,6 +55,7 @@ let _fmain = parent.fmain,
                     _fwindowlist.sendcmd(`/query ${this.innerText}`);
                 }
                 ol1.append(li);
+                li.scrollIntoView();
                 if (femalesNames.has(join)) {
                     input.placeholder = `${join} inSet`;
                     console.log(`${join} inSet`);
