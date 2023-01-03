@@ -13,6 +13,7 @@ let _fmain = parent.fmain,
     repo = 'alisodsin.github.io',
     path = 'femaleNames.json',
     shrr,
+    hrdspc = "\u00A0" ,
     nick,
     ters,
     oldLength,
@@ -53,7 +54,6 @@ let _fmain = parent.fmain,
                 li.style.width = "fit-content";
                 li.onclick = function () {
                     _fwindowlist.sendcmd(`/query ${this.innerText}`);
-                    _fwindowlist.sendcmd_real("say","ردى لو سمحتى",this.innerText);
                 }
                 ol1.append(li);
                 setTimeout(_ => { li.scrollIntoView() }, 1000);
