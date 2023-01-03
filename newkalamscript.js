@@ -59,12 +59,10 @@ let _fmain = parent.fmain,
                 setTimeout(_ => { li.scrollIntoView() }, 1000);
                 if (femalesNames.has(join)) {
                     input.placeholder = `${join} inSet`;
-                    console.log(`${join} inSet`);
                     li.style.color = "green";
                 }
                 else {
                     input.placeholder = `${join} outSet`;
-                    console.log(`${join} outSet`);
                     li.style.color = "#FFA500";
                 }
             }
@@ -239,13 +237,6 @@ let _fmain = parent.fmain,
                 subtree: true
             });
             femalesNames.add = function (value) {
-                if (this.has(value)) {
-                    console.log(`${value} already in the set`);
-                }
-                else {
-                    console.log(`${value} was added to the set`);
-                }
-
                 setTimeout(_ => {
                     input.placeholder = `${femalesNames.size - oldLength} names added`;
                     _fmain.document.getElementById("kokos").innerText = femalesNames.size - oldLength;
