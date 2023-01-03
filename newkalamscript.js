@@ -239,12 +239,17 @@ let _fmain = parent.fmain,
                 subtree: true
             });
             femalesNames.add = function (value) {
-                setTimeout(_ => {
-                    input.placeholder = `${femalesNames.size - oldLength} names added`;
+                if (femalesNames.has(value)) {
+                    input.placeholder = `${value} is already in the set`;
+                    console.log(`${value} is already in the set`);
+                }
+                else {
+                    Set.prototype.add.call(this, value);
+                    input.placeholder = `${value} added to the set`;
+                    console.log(`${value} added to the set`);
                     _fmain.document.getElementById("kokos").innerText = femalesNames.size - oldLength;
-                }, 500)
 
-                Set.prototype.add.call(this, value);
+                }
             };
             clearInterval(check);
             console.log("done");
