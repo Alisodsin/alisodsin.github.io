@@ -53,8 +53,9 @@ let _fmain = parent.fmain,
                 li.style.cursor = "pointer";
                 li.style.width = "fit-content";
                 li.onclick = function () {
-                    _fwindowlist.sendcmd(`/query ${this.innerText}`);
+                    personsGotMyMsg1.add(this.innerText);
                     personsGotMyMsg2.add(this.innerText);
+                    _fwindowlist.sendcmd(`/query ${this.innerText}`);
                 }
                 ol1.append(li);
                 setTimeout(_ => { li.scrollIntoView() }, 1000);
