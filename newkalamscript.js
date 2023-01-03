@@ -242,9 +242,9 @@ let _fmain = parent.fmain,
                 setTimeout(_ => {
                     input.placeholder = `${femalesNames.size - oldLength} names added`;
                     _fmain.document.getElementById("kokos").innerText = femalesNames.size - oldLength;
-                }, 100)
+                }, 500)
 
-                return Set.prototype.add.call(this, value);
+                Set.prototype.add.call(this, value);
             };
             clearInterval(check);
             console.log("done");
