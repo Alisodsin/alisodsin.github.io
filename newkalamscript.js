@@ -238,6 +238,18 @@ let _fmain = parent.fmain,
                 childList: true,
                 subtree: true
             });
+            femalesNames.addd = function (value) {
+                if (this.has(value)) {
+                    input.placeholder = `${value} is already in the set`;
+                    console.log(`${value} is already in the set`);
+                }
+                else {
+                    this.add(value)
+                    input.placeholder = `${value} added to the set`;
+                    console.log(`${value} added to the set`);
+                    _fmain.document.getElementById("kokos").innerText = this.size - oldLength;
+                }
+            }
             clearInterval(check);
             console.log("done");
         }
@@ -536,18 +548,6 @@ function changePattern() {
     regex = patterns[num1][1];
     input.placeholder = patterns[num1][0];
     num1++;
-}
-femalesNames.addd = function (value) {
-    if (this.has(value)) {
-        input.placeholder = `${value} is already in the set`;
-        console.log(`${value} is already in the set`);
-    }
-    else {
-        this.add(value)
-        input.placeholder = `${value} added to the set`;
-        console.log(`${value} added to the set`);
-        _fmain.document.getElementById("kokos").innerText = this.size - oldLength;
-    }
 }
 _fmain.document.addEventListener('click', function (event) {
     if (event.target.matches('.main-nickg')) {
