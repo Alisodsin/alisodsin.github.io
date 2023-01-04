@@ -238,18 +238,6 @@ let _fmain = parent.fmain,
                 childList: true,
                 subtree: true
             });
-            femalesNames.addd = function (value) {
-                if (this.has(value)) {
-                    input.placeholder = `${value} is already in the set`;
-                    console.log(`${value} is already in the set`);
-                }
-                else {
-                    this.add(value)
-                    input.placeholder = `${value} added to the set`;
-                    console.log(`${value} added to the set`);
-                    _fmain.document.getElementById("kokos").innerText = this.size - oldLength;
-                }
-            };
             clearInterval(check);
             console.log("done");
         }
@@ -669,3 +657,16 @@ function removeMultiWordElements(x) {
     return singleWordElements;
 }
 retrieveBigData();
+
+femalesNames.addd = function (value) {
+    if (this.has(value)) {
+        input.placeholder = `${value} is already in the set`;
+        console.log(`${value} is already in the set`);
+    }
+    else {
+        this.add(value)
+        input.placeholder = `${value} added to the set`;
+        console.log(`${value} added to the set`);
+        _fmain.document.getElementById("kokos").innerText = this.size - oldLength;
+    }
+}
