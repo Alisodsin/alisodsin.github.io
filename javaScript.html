@@ -3837,7 +3837,7 @@
                         </li>
                 </ul>
         </details>
-        <details  class="dad">
+        <details class="dad">
                 <summary>Data types</summary>
                 <ul>
                         <li>
@@ -14526,13 +14526,597 @@
                                                         </div>
 
                                                 </li>
-                                                
+
                                         </ul>
 
                                         <p></p>
                                 </details>
                         </li>
                 </ul>
+        </details>
+        <details open class="dad">
+
+                <summary>Advanced working with functions</summary>
+                <ul>
+                        <li>
+                                <details>
+                                        <summary>Recursion and stack</summary>
+                                        <ul>
+                                                <li>
+                                                        <h3>Two ways of thinking</h3>
+                                                        <p>we can implement the pow function in 2 ways</p>
+                                                        <ol class="son">
+                                                                <li>Iterative thinking: the for loop:
+
+                                                                        <div class="cods" contenteditable=""
+                                                                                spellcheck="false">
+                                                                                <div>
+                                                                                        <div><span
+                                                                                                        style="color: #569cd6;">function</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                </span><span
+                                                                                                        style="color: #dcdcaa;">pow</span><span
+                                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                                        style="color: #9cdcfe;">x</span><span
+                                                                                                        style="color: #d4d4d4;">,
+                                                                                                </span><span
+                                                                                                        style="color: #9cdcfe;">n</span><span
+                                                                                                        style="color: #d4d4d4;">)
+                                                                                                        {</span></div>
+                                                                                        <div><span
+                                                                                                        style="color: #d4d4d4;">&nbsp;
+                                                                                                        &nbsp;
+                                                                                                </span><span
+                                                                                                        style="color: #569cd6;">let</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                </span><span
+                                                                                                        style="color: #9cdcfe;">result</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                        = </span><span
+                                                                                                        style="color: #b5cea8;">1</span><span
+                                                                                                        style="color: #d4d4d4;">;
+                                                                                                        &nbsp;</span>
+                                                                                        </div>
+                                                                                        <div><span
+                                                                                                        style="color: #d4d4d4;">&nbsp;
+                                                                                                        &nbsp;
+                                                                                                </span><span
+                                                                                                        style="color: #c586c0;">for</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                        (</span><span
+                                                                                                        style="color: #569cd6;">let</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                </span><span
+                                                                                                        style="color: #9cdcfe;">i</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                        = </span><span
+                                                                                                        style="color: #b5cea8;">0</span><span
+                                                                                                        style="color: #d4d4d4;">;
+                                                                                                </span><span
+                                                                                                        style="color: #9cdcfe;">i</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                        &lt;
+                                                                                                </span><span
+                                                                                                        style="color: #9cdcfe;">n</span><span
+                                                                                                        style="color: #d4d4d4;">;
+                                                                                                </span><span
+                                                                                                        style="color: #9cdcfe;">i</span><span
+                                                                                                        style="color: #d4d4d4;">++)
+                                                                                                        {</span></div>
+                                                                                        <div><span
+                                                                                                        style="color: #d4d4d4;">&nbsp;
+                                                                                                        &nbsp; &nbsp;
+                                                                                                </span><span
+                                                                                                        style="color: #9cdcfe;">result</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                        *= </span><span
+                                                                                                        style="color: #9cdcfe;">x</span><span
+                                                                                                        style="color: #d4d4d4;">;</span>
+                                                                                        </div>
+                                                                                        <div><span
+                                                                                                        style="color: #d4d4d4;">&nbsp;
+                                                                                                        &nbsp; }</span>
+                                                                                        </div>
+                                                                                        <div><span
+                                                                                                        style="color: #d4d4d4;">&nbsp;
+                                                                                                        &nbsp;
+                                                                                                </span><span
+                                                                                                        style="color: #c586c0;">return</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                </span><span
+                                                                                                        style="color: #9cdcfe;">result</span><span
+                                                                                                        style="color: #d4d4d4;">;</span>
+                                                                                        </div>
+                                                                                        <div><span
+                                                                                                        style="color: #d4d4d4;">&nbsp;
+                                                                                                        }</span></div>
+                                                                                        <div><span
+                                                                                                        style="color: #d4d4d4;">&nbsp;
+                                                                                                </span><span
+                                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                                        style="color: #d4d4d4;">(
+                                                                                                </span><span
+                                                                                                        style="color: #dcdcaa;">pow</span><span
+                                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                                        style="color: #b5cea8;">2</span><span
+                                                                                                        style="color: #d4d4d4;">,
+                                                                                                </span><span
+                                                                                                        style="color: #b5cea8;">3</span><span
+                                                                                                        style="color: #d4d4d4;">)
+                                                                                                        ); </span><span
+                                                                                                        style="color: #6a9955;">//
+                                                                                                        8</span></div>
+                                                                                </div>
+                                                                        </div>
+
+
+
+
+
+                                                                </li><br>
+                                                                <li>Recursive thinking: simplify the task and call self:
+                                                                        <div class="cods" contenteditable=""
+                                                                                spellcheck="false">
+                                                                                <div>
+                                                                                        <div><span
+                                                                                                        style="color: #569cd6;">function</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                </span><span
+                                                                                                        style="color: #dcdcaa;">pow</span><span
+                                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                                        style="color: #9cdcfe;">x</span><span
+                                                                                                        style="color: #d4d4d4;">,
+                                                                                                </span><span
+                                                                                                        style="color: #9cdcfe;">n</span><span
+                                                                                                        style="color: #d4d4d4;">)
+                                                                                                        {</span></div>
+                                                                                        <div><span
+                                                                                                        style="color: #d4d4d4;">&nbsp;
+                                                                                                        &nbsp;
+                                                                                                </span><span
+                                                                                                        style="color: #c586c0;">if</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                        (</span><span
+                                                                                                        style="color: #9cdcfe;">n</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                        == </span><span
+                                                                                                        style="color: #b5cea8;">1</span><span
+                                                                                                        style="color: #d4d4d4;">)
+                                                                                                        {</span></div>
+                                                                                        <div><span
+                                                                                                        style="color: #d4d4d4;">&nbsp;
+                                                                                                        &nbsp; &nbsp;
+                                                                                                </span><span
+                                                                                                        style="color: #c586c0;">return</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                </span><span
+                                                                                                        style="color: #9cdcfe;">x</span><span
+                                                                                                        style="color: #d4d4d4;">;</span>
+                                                                                        </div>
+                                                                                        <div><span
+                                                                                                        style="color: #d4d4d4;">&nbsp;
+                                                                                                        &nbsp; }
+                                                                                                </span><span
+                                                                                                        style="color: #c586c0;">else</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                        {</span></div>
+                                                                                        <div><span
+                                                                                                        style="color: #d4d4d4;">&nbsp;
+                                                                                                        &nbsp; &nbsp;
+                                                                                                </span><span
+                                                                                                        style="color: #c586c0;">return</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                </span><span
+                                                                                                        style="color: #9cdcfe;">x</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                        * </span><span
+                                                                                                        style="color: #dcdcaa;">pow</span><span
+                                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                                        style="color: #9cdcfe;">x</span><span
+                                                                                                        style="color: #d4d4d4;">,
+                                                                                                </span><span
+                                                                                                        style="color: #9cdcfe;">n</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                        - </span><span
+                                                                                                        style="color: #b5cea8;">1</span><span
+                                                                                                        style="color: #d4d4d4;">);</span>
+                                                                                        </div>
+                                                                                        <div><span
+                                                                                                        style="color: #d4d4d4;">&nbsp;
+                                                                                                        &nbsp; }</span>
+                                                                                        </div>
+                                                                                        <div><span
+                                                                                                        style="color: #d4d4d4;">&nbsp;
+                                                                                                        }</span></div>
+                                                                                        <div><span
+                                                                                                        style="color: #d4d4d4;">&nbsp;
+                                                                                                </span><span
+                                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                                        style="color: #d4d4d4;">(
+                                                                                                </span><span
+                                                                                                        style="color: #dcdcaa;">pow</span><span
+                                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                                        style="color: #b5cea8;">2</span><span
+                                                                                                        style="color: #d4d4d4;">,
+                                                                                                </span><span
+                                                                                                        style="color: #b5cea8;">3</span><span
+                                                                                                        style="color: #d4d4d4;">)
+                                                                                                        ); </span><span
+                                                                                                        style="color: #6a9955;">//
+                                                                                                        8</span></div>
+                                                                                </div>
+                                                                        </div><br>
+                                                                        <div class="cods" contenteditable=""
+                                                                                spellcheck="false">
+                                                                                <div>
+                                                                                        <div><span
+                                                                                                        style="color: #569cd6;">function</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                </span><span
+                                                                                                        style="color: #dcdcaa;">pow</span><span
+                                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                                        style="color: #9cdcfe;">x</span><span
+                                                                                                        style="color: #d4d4d4;">,
+                                                                                                </span><span
+                                                                                                        style="color: #9cdcfe;">n</span><span
+                                                                                                        style="color: #d4d4d4;">)
+                                                                                                        {</span></div>
+                                                                                        <div><span
+                                                                                                        style="color: #d4d4d4;">&nbsp;
+                                                                                                        &nbsp;
+                                                                                                </span><span
+                                                                                                        style="color: #c586c0;">return</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                        (</span><span
+                                                                                                        style="color: #9cdcfe;">n</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                        == </span><span
+                                                                                                        style="color: #b5cea8;">1</span><span
+                                                                                                        style="color: #d4d4d4;">)
+                                                                                                        ? </span><span
+                                                                                                        style="color: #9cdcfe;">x</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                        : (</span><span
+                                                                                                        style="color: #9cdcfe;">x</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                        * </span><span
+                                                                                                        style="color: #dcdcaa;">pow</span><span
+                                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                                        style="color: #9cdcfe;">x</span><span
+                                                                                                        style="color: #d4d4d4;">,
+                                                                                                </span><span
+                                                                                                        style="color: #9cdcfe;">n</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                        - </span><span
+                                                                                                        style="color: #b5cea8;">1</span><span
+                                                                                                        style="color: #d4d4d4;">));</span>
+                                                                                        </div>
+                                                                                        <div><span
+                                                                                                        style="color: #d4d4d4;">&nbsp;
+                                                                                                        }</span></div>
+                                                                                </div>
+                                                                        </div>
+
+
+                                                                </li>
+                                                        </ol>
+                                                </li>
+                                                <li>
+                                                        <h3>The execution context and stack</h3>
+                                                        <p>When a function makes a recursive call, it:</p>
+                                                        <ol class="son">
+                                                                <li>Pauses the current function and stores its execution
+                                                                        context in a stack.</li>
+                                                                <li>Executes the nested function call.</li>
+                                                                <li>Retrieves the old execution context from the stack
+                                                                        once the nested function call has completed.
+                                                                </li>
+                                                                <li>Resumes the outer function from where it left off.
+                                                                </li>
+                                                        </ol>
+                                                        <p>Let’s see what happens during the pow(2, 3) call.</p>
+                                                        <ol class="son">
+                                                                <li>The <code>pow()</code> function is called with
+                                                                        <code>x</code> equal to 2 and <code>n</code>
+                                                                        equal to 3. Its execution context is stored in
+                                                                        the execution context stack.
+                                                                </li>
+                                                                <li>It makes recursive calls to itself with decreasing
+                                                                        values of <code>n</code> until <code>n</code> is
+                                                                        equal to 1. The execution contexts of the nested
+                                                                        function calls are stored in the stack.</li>
+                                                                <li>It returns <code>x</code> when <code>n</code> is
+                                                                        equal to 1.</li>
+                                                                <li>The return values are multiplied together to get the
+                                                                        final result. The old execution contexts are
+                                                                        retrieved from the stack and the outer function
+                                                                        is resumed from where it left off. The final
+                                                                        result of the <code>pow()</code> function is 8.
+                                                                </li>
+                                                        </ol>
+                                                        <h3>Recursive traversals</h3>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">preOrderTraversal</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">node</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">if</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        (</span><span
+                                                                                        style="color: #9cdcfe;">node</span><span
+                                                                                        style="color: #d4d4d4;"> ==
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">null</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #c586c0;">return</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div><br>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">node</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">value</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">preOrderTraversal</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">node</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">left</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">preOrderTraversal</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">node</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">right</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">}
+                                                                                        &nbsp;</span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">const</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4fc1ff;">tree</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">value</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">1</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">left</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">value</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">2</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">left</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">value</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">4</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">left</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">null</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">right</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">null</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; },</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">right</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">value</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">5</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">left</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">null</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">right</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">null</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; }</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        },</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">right</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">value</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">3</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">left</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">value</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">6</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">left</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">null</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">right</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">null</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; },</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">right</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">value</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">7</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">left</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">null</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">right</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">null</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; }</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                        };</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">preOrderTraversal</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #4fc1ff;">tree</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+
+                                                        <div>
+                                                                <p>The <code>preOrderTraversal()</code> function
+                                                                        performs a pre-order traversal of a binary tree
+                                                                        as follows:</p>
+                                                                <ol class="son">
+                                                                        <li>It takes a node as an argument and checks if
+                                                                                it is <code>null</code>. If it is, the
+                                                                                function returns without doing anything.
+                                                                        </li>
+                                                                        <li>It outputs the value of the node to the
+                                                                                console.</li>
+                                                                        <li>It calls itself with the left child of the
+                                                                                node as an argument.</li>
+                                                                        <li>It calls itself with the right child of the
+                                                                                node as an argument.</li>
+                                                                        <li>The function returns after the left and
+                                                                                right sub-trees have been traversed.
+                                                                        </li>
+                                                                </ol>
+                                                        </div>
 
 
 
@@ -14549,6 +15133,805 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                </li>
+                                                <li></li>
+                                                <li></li>
+                                                <li></li>
+                                        </ul>
+                                </details>
+                        </li>
+                        <li>
+                                <details open>
+                                        <summary>Rest parameters and spread syntax</summary>
+                                        <ul>
+                                                <li>
+                                                        <h3>Rest parameters ...</h3>
+                                                        <p>The rest of the parameters can be included in the function
+                                                                definition by
+                                                                using three dots ... followed by the name of the array
+                                                                that will contain
+                                                                them. The dots literally mean “gather the remaining
+                                                                parameters into an
+                                                                array”.For instance, to gather all arguments into array
+                                                                args:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">sumAll</span><span
+                                                                                        style="color: #d4d4d4;">(...</span><span
+                                                                                        style="color: #9cdcfe;">args</span><span
+                                                                                        style="color: #d4d4d4;">) {
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        args is the name for
+                                                                                        the array</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">sum</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">0</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div><br>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">for</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        (</span><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">arg</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">of</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">args</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">sum</span><span
+                                                                                        style="color: #d4d4d4;"> +=
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">arg</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div><br>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">return</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">sum</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #dcdcaa;">sumAll</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #b5cea8;">1</span><span
+                                                                                        style="color: #d4d4d4;">));
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        1</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #dcdcaa;">sumAll</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #b5cea8;">1</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">2</span><span
+                                                                                        style="color: #d4d4d4;">));
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        3</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #dcdcaa;">sumAll</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #b5cea8;">1</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">2</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">3</span><span
+                                                                                        style="color: #d4d4d4;">));
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        6</span></div>
+                                                                </div>
+                                                        </div>
+                                                        <p>Here the first two arguments go into variables and the rest
+                                                                go into titles
+                                                                array:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">showName</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">firstName</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">lastName</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                        ...</span><span
+                                                                                        style="color: #9cdcfe;">titles</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">firstName</span><span
+                                                                                        style="color: #d4d4d4;"> +
+                                                                                </span><span style="color: #ce9178;">'
+                                                                                        '</span><span
+                                                                                        style="color: #d4d4d4;"> +
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">lastName</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        Julius Caesar</span>
+                                                                        </div><br>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        the rest go into
+                                                                                        titles array</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        i.e. titles =
+                                                                                        ["Consul", "Imperator"]</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">titles</span><span
+                                                                                        style="color: #d4d4d4;">[</span><span
+                                                                                        style="color: #b5cea8;">0</span><span
+                                                                                        style="color: #d4d4d4;">]);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        Consul</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">titles</span><span
+                                                                                        style="color: #d4d4d4;">[</span><span
+                                                                                        style="color: #b5cea8;">1</span><span
+                                                                                        style="color: #d4d4d4;">]);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        Imperator</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">titles</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">length</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        2</span></div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #dcdcaa;">showName</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">"Julius"</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"Caesar"</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"Consul"</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"Imperator"</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span></div>
+                                                                </div>
+                                                        </div>
+                                                        <p>The rest parameters must be at the end</p>
+
+                                                        <h3>The “arguments” variable</h3>
+                                                        <p>There is also a special array-like object named arguments
+                                                                that contains all
+                                                                arguments by their index.</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">showName</span><span
+                                                                                        style="color: #d4d4d4;">()
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">arguments</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">length</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        );</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">arguments</span><span
+                                                                                        style="color: #d4d4d4;">[</span><span
+                                                                                        style="color: #b5cea8;">0</span><span
+                                                                                        style="color: #d4d4d4;">]
+                                                                                        );</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">arguments</span><span
+                                                                                        style="color: #d4d4d4;">[</span><span
+                                                                                        style="color: #b5cea8;">1</span><span
+                                                                                        style="color: #d4d4d4;">]
+                                                                                        );</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                </span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        it's iterable</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        for(let arg of
+                                                                                        arguments) alert(arg);</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                        }</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                </span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        shows: 2, Julius,
+                                                                                        Caesar</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">showName</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">"Julius"</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"Caesar"</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                </span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        shows: 1, Ilya,
+                                                                                        undefined (no second
+                                                                                        argument)</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">showName</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">"Ilya"</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <p>it's for legacy code , rest parameters are preferred.</p>
+                                                        <p>Arrow functions do not have "arguments"</p>
+
+                                                </li>
+                                                <li>
+                                                        <h3>Spread syntax</h3>
+                                                        <p>The spread syntax in JavaScript allows you to expand an
+                                                                iterable (such as an array) into individual elements. It
+                                                                is represented by three dots (...).</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #6a9955;">//In this
+                                                                                        example, the copy array will
+                                                                                        contain the same elements as the
+                                                                                        numbers array</span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">const</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4fc1ff;">numbers</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                        [</span><span
+                                                                                        style="color: #b5cea8;">1</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">2</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">3</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">4</span><span
+                                                                                        style="color: #d4d4d4;">];</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">const</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4fc1ff;">copy</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                        [...</span><span
+                                                                                        style="color: #4fc1ff;">numbers</span><span
+                                                                                        style="color: #d4d4d4;">];</span>
+                                                                        </div><br>
+                                                                        <div><span style="color: #6a9955;">// You can
+                                                                                        also use the spread syntax to
+                                                                                        merge multiple arrays into a
+                                                                                        single array:</span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">const</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4fc1ff;">a</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                        [</span><span
+                                                                                        style="color: #b5cea8;">1</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">2</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">3</span><span
+                                                                                        style="color: #d4d4d4;">];</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">const</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4fc1ff;">b</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                        [</span><span
+                                                                                        style="color: #b5cea8;">4</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">5</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">6</span><span
+                                                                                        style="color: #d4d4d4;">];</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">const</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4fc1ff;">c</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                        [...</span><span
+                                                                                        style="color: #4fc1ff;">a</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                        ...</span><span
+                                                                                        style="color: #4fc1ff;">b</span><span
+                                                                                        style="color: #d4d4d4;">];</span>
+                                                                        </div><br>
+                                                                        <div><span style="color: #6a9955;">// The spread
+                                                                                        syntax can also be used to
+                                                                                        expand an iterable in function
+                                                                                        calls:</span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">sum</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">x</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">y</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">z</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">return</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">x</span><span
+                                                                                        style="color: #d4d4d4;"> +
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">y</span><span
+                                                                                        style="color: #d4d4d4;"> +
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">z</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                        }</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">const</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4fc1ff;">numberss</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                        [</span><span
+                                                                                        style="color: #b5cea8;">1</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">2</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">3</span><span
+                                                                                        style="color: #d4d4d4;">];</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #dcdcaa;">sum</span><span
+                                                                                        style="color: #d4d4d4;">(...</span><span
+                                                                                        style="color: #4fc1ff;">numbers</span><span
+                                                                                        style="color: #d4d4d4;">));
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        6</span></div><br><br>
+                                                                        <div><span style="color: #6a9955;">// Split the
+                                                                                        word into an array of individual
+                                                                                        characters.</span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">const</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4fc1ff;">word</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">'hello'</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">const</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4fc1ff;">chars</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                        [...</span><span
+                                                                                        style="color: #4fc1ff;">word</span><span
+                                                                                        style="color: #d4d4d4;">];</span>
+                                                                        </div><br>
+                                                                        <div><span style="color: #6a9955;">// Output the
+                                                                                        resulting array.</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #4fc1ff;">chars</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        ['h', 'e', 'l', 'l', 'o']</span>
+                                                                        </div><br>
+                                                                        <div><span style="color: #6a9955;">// Define a
+                                                                                        function that takes individual
+                                                                                        letters as arguments.</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">printLetters</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">a</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">b</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">c</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">d</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">e</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        Output the letters to the
+                                                                                        console.</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">a</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">b</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">c</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">d</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">e</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div><br>
+                                                                        <div><span style="color: #6a9955;">// Call the
+                                                                                        function with the spread syntax
+                                                                                        to expand the word into separate
+                                                                                        arguments.</span></div>
+                                                                        <div><span
+                                                                                        style="color: #dcdcaa;">printLetters</span><span
+                                                                                        style="color: #d4d4d4;">(...</span><span
+                                                                                        style="color: #4fc1ff;">word</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        h e l l o</span></div>
+                                                                </div>
+                                                        </div>
+                                                        <p>with objects</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #6a9955;">// Define an
+                                                                                        object with some
+                                                                                        properties.</span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">const</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4fc1ff;">obj</span><span
+                                                                                        style="color: #d4d4d4;"> = {
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">x</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">1</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">y</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">2</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">z</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">3</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        };</span></div><br>
+                                                                        <div><span style="color: #6a9955;">// Use the
+                                                                                        spread syntax to create a copy
+                                                                                        of the object.</span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">const</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4fc1ff;">copy</span><span
+                                                                                        style="color: #d4d4d4;"> = {
+                                                                                        ...</span><span
+                                                                                        style="color: #4fc1ff;">obj</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        };</span></div><br>
+                                                                        <div><span style="color: #6a9955;">// Output the
+                                                                                        copy to the console.</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #4fc1ff;">copy</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        { x: 1, y: 2, z: 3 }</span>
+                                                                        </div><br>
+                                                                        <div><span style="color: #6a9955;">// Define two
+                                                                                        more objects with overlapping
+                                                                                        properties.</span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">const</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4fc1ff;">a</span><span
+                                                                                        style="color: #d4d4d4;"> = {
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">x</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">1</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">y</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">2</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        };</span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">const</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4fc1ff;">b</span><span
+                                                                                        style="color: #d4d4d4;"> = {
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">y</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">3</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">z</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">4</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        };</span></div><br>
+                                                                        <div><span style="color: #6a9955;">// Use the
+                                                                                        spread syntax to merge the two
+                                                                                        objects into a single
+                                                                                        object.</span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">const</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4fc1ff;">c</span><span
+                                                                                        style="color: #d4d4d4;"> = {
+                                                                                        ...</span><span
+                                                                                        style="color: #4fc1ff;">a</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                        ...</span><span
+                                                                                        style="color: #4fc1ff;">b</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        };</span></div><br>
+                                                                        <div><span style="color: #6a9955;">// Output the
+                                                                                        merged object to the
+                                                                                        console.</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #4fc1ff;">c</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        { x: 1, y: 3, z: 4 }</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                </li>
+                                        </ul>
+
+
+
+
+
+
+
+
+                                </details>
+                        </li>
+                        <li>
+                                <details>
+                                        <summary>Variable scope, closure</summary>
+                                </details>
+                        </li>
+                        <li>
+                                <details>
+                                        <summary>the old "var"</summary>
+                                </details>
+                        </li>
+                        <li>
+                                <details>
+                                        <summary>Global object</summary>
+                                </details>
+                        </li>
+                        <li>
+                                <details>
+                                        <summary>Function object, NFE</summary>
+                                </details>
+                        </li>
+                        <li>
+                                <details>
+                                        <summary>The "new Function" syntax</summary>
+                                </details>
+                        </li>
+                        <li>
+                                <details>
+                                        <summary>Scheduling: setTimeout and setInterval</summary>
+                                </details>
+                        </li>
+                        <li>
+                                <details>
+                                        <summary>Decorators and forwarding, call/apply</summary>
+                                </details>
+                        </li>
+                        <li>
+                                <details>
+                                        <summary>Function binding</summary>
+                                </details>
+                        </li>
+                        <li>
+                                <details>
+                                        <summary>Arrow functions revisited</summary>
+                                </details>
+                        </li>
+
+                </ul>
 
 
         </details>
