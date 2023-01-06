@@ -15866,7 +15866,7 @@
                                 </details>
                         </li>
                         <li>
-                                <details open>
+                                <details>
                                         <summary>Variable scope, closure</summary>
                                         <ul>
                                                 <li>
@@ -15911,30 +15911,1704 @@
                                                                                 <td>No</td>
                                                                         </tr>
                                                                 </tbody>
-                                                        </table>
+                                                        </table><br>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #6a9955;">// Variables
+                                                                                        declared with the "let" keyword
+                                                                                        are block-scoped, which means
+                                                                                        that they are only visible
+                                                                                        within the block in which they
+                                                                                        are declared.</span></div>
+                                                                        <div><span style="color: #d4d4d4;">{</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">message</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"Hello"</span><span
+                                                                                        style="color: #d4d4d4;">;
+                                                                                        &nbsp;</span><span
+                                                                                        style="color: #6a9955;">//
+                                                                                        Declare a block-scoped variable
+                                                                                        "message" with the value
+                                                                                        "Hello"</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">alert</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">message</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                        &nbsp;</span><span
+                                                                                        style="color: #6a9955;">//
+                                                                                        Output: "Hello"</span></div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div><br>
+                                                                        <div><span
+                                                                                        style="color: #dcdcaa;">alert</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">message</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                        &nbsp;</span><span
+                                                                                        style="color: #6a9955;">// This
+                                                                                        line will throw an error because
+                                                                                        the "message" variable is not
+                                                                                        defined outside of the
+                                                                                        block</span></div><br>
+                                                                        <div><span style="color: #6a9955;">// We can use
+                                                                                        blocks to isolate pieces of code
+                                                                                        and prevent variables from
+                                                                                        leaking into the global scope or
+                                                                                        into other blocks</span></div>
+                                                                        <div><span style="color: #d4d4d4;">{</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">message</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"Hello"</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">alert</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">message</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                        &nbsp;</span><span
+                                                                                        style="color: #6a9955;">//
+                                                                                        Output: "Hello"</span></div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div><br>
+                                                                        <div><span style="color: #d4d4d4;">{</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">message</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"Goodbye"</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">alert</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">message</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                        &nbsp;</span><span
+                                                                                        style="color: #6a9955;">//
+                                                                                        Output: "Goodbye"</span></div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div><br>
+                                                                        <div><span style="color: #6a9955;">// Without
+                                                                                        separate blocks, we would get an
+                                                                                        error if we tried to declare a
+                                                                                        variable with the same name as
+                                                                                        an existing variable</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">message</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"Hello"</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #dcdcaa;">alert</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">message</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                        &nbsp;</span><span
+                                                                                        style="color: #6a9955;">//
+                                                                                        Output: "Hello"</span></div><br>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">message</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"Goodbye"</span><span
+                                                                                        style="color: #d4d4d4;">;
+                                                                                        &nbsp;</span><span
+                                                                                        style="color: #6a9955;">// This
+                                                                                        line will throw an error because
+                                                                                        the "message" variable has
+                                                                                        already been declared</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #dcdcaa;">alert</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">message</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div><br>
+                                                                        <div><span style="color: #6a9955;">// Variables
+                                                                                        declared within a "for" loop or
+                                                                                        an "if" statement are also only
+                                                                                        visible within the block of that
+                                                                                        loop or statement</span></div>
+                                                                        <div><span
+                                                                                        style="color: #c586c0;">if</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        (</span><span
+                                                                                        style="color: #569cd6;">true</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">phrase</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"Hello!"</span><span
+                                                                                        style="color: #d4d4d4;">;
+                                                                                        &nbsp;</span><span
+                                                                                        style="color: #6a9955;">//
+                                                                                        Declare a block-scoped variable
+                                                                                        "phrase" with the value
+                                                                                        "Hello!"</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">alert</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">phrase</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                        &nbsp;</span><span
+                                                                                        style="color: #6a9955;">//
+                                                                                        Output: "Hello!"</span></div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div><br>
+                                                                        <div><span
+                                                                                        style="color: #dcdcaa;">alert</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">phrase</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                        &nbsp;</span><span
+                                                                                        style="color: #6a9955;">// This
+                                                                                        line will throw an error because
+                                                                                        the "phrase" variable is not
+                                                                                        defined outside of the
+                                                                                        block</span></div><br>
+                                                                        <div><span
+                                                                                        style="color: #c586c0;">for</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        (</span><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">i</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">0</span><span
+                                                                                        style="color: #d4d4d4;">;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">i</span><span
+                                                                                        style="color: #d4d4d4;"> &lt;
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">3</span><span
+                                                                                        style="color: #d4d4d4;">;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">i</span><span
+                                                                                        style="color: #d4d4d4;">++)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        The "i" variable is only visible
+                                                                                        within this "for" loop</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">alert</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">i</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                        &nbsp;</span><span
+                                                                                        style="color: #6a9955;">//
+                                                                                        Output: 0, 1, 2</span></div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div><br>
+                                                                        <div><span
+                                                                                        style="color: #dcdcaa;">alert</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">i</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                        &nbsp;</span><span
+                                                                                        style="color: #6a9955;">// This
+                                                                                        line will throw an error because
+                                                                                        the "i" variable is not defined
+                                                                                        outside of the loop</span></div>
+                                                                </div>
+
+                                                        </div>
+
+                                                </li>
+                                                <li>
+                                                        <h3>Nested functions</h3><br>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #6a9955;">// This is
+                                                                                        the outer function
+                                                                                        "sayHiBye"</span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">sayHiBye</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">firstName</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">lastName</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                        {</span></div><br>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        This is the nested function
+                                                                                        "getFullName"</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">getFullName</span><span
+                                                                                        style="color: #d4d4d4;">()
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #6a9955;">// The
+                                                                                        nested function has access to
+                                                                                        the variables declared in the
+                                                                                        outer function</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #c586c0;">return</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">firstName</span><span
+                                                                                        style="color: #d4d4d4;"> +
+                                                                                </span><span style="color: #ce9178;">"
+                                                                                        "</span><span
+                                                                                        style="color: #d4d4d4;"> +
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">lastName</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div><br>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        We can use the nested function
+                                                                                        to return the full name</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">alert</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">"Hello,
+                                                                                        "</span><span
+                                                                                        style="color: #d4d4d4;"> +
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">getFullName</span><span
+                                                                                        style="color: #d4d4d4;">());</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">alert</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">"Bye,
+                                                                                        "</span><span
+                                                                                        style="color: #d4d4d4;"> +
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">getFullName</span><span
+                                                                                        style="color: #d4d4d4;">());</span>
+                                                                        </div><br>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div><br>
+                                                                        <div><span style="color: #6a9955;">// We can
+                                                                                        call the outer function to run
+                                                                                        the nested function</span></div>
+                                                                        <div><span
+                                                                                        style="color: #dcdcaa;">sayHiBye</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">"John"</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"Doe"</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                        &nbsp;</span><span
+                                                                                        style="color: #6a9955;">//
+                                                                                        Output: "Hello, John Doe" and
+                                                                                        "Bye, John Doe"</span></div>
+                                                                </div>
+                                                        </div>
+                                                </li>
+                                                <li>
+                                                        <h3>Lexical Environment</h3>
+                                                        <a href="https://javascript.info/closure#lexical-environment">click
+                                                                here</a>
+                                                </li>
+                                                <li>
+                                                        <h3>Closure</h3>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">outer</span><span
+                                                                                        style="color: #d4d4d4;">()
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">x</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">10</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div><br>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">inner</span><span
+                                                                                        style="color: #d4d4d4;">()
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">x</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                        &nbsp;</span><span
+                                                                                        style="color: #6a9955;">//
+                                                                                        Output: 10</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div><br>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">return</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">inner</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div><br>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">closure</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">outer</span><span
+                                                                                        style="color: #d4d4d4;">();</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #dcdcaa;">closure</span><span
+                                                                                        style="color: #d4d4d4;">();
+                                                                                        &nbsp;</span></div>
+                                                                </div>
+                                                        </div>
+                                                        <p>in this code, the outer function declares a variable x with
+                                                                the let keyword and assigns it a value of 10. It then
+                                                                defines an inner function called inner that logs the
+                                                                value of x. Finally, it returns the inner function.
+                                                                When the outer function is called, it creates a new
+                                                                lexical environment and associates it with the inner
+                                                                function using the [[Environment]] property. This
+                                                                lexical environment contains the identifier-variable
+                                                                mapping for the x variable, which has a value of 10.
+                                                                When the closure function is called, it uses the
+                                                                [[Environment]] property to access the lexical
+                                                                environment associated with the inner function and
+                                                                retrieves the value of the x variable. Because the x
+                                                                variable has a value of 10, the closure function logs
+                                                                the value 10.
+                                                                I hope this helps to clarify the role of the
+                                                                [[Environment]] property in JavaScript! Let me know if
+                                                                you have any other questions.</p>
+                                                </li>
+                                                <li>
+
+
+                                                        <p>The [[Environment]] property is a hidden internal property of
+                                                                functions in JavaScript that references the lexical
+                                                                environment in which the function was created. It is
+                                                                used by closures to remember and access the outer
+                                                                variables that they need to close over.
+
+                                                                Every time you create a function in JavaScript, the
+                                                                JavaScript engine creates a new lexical environment and
+                                                                associates it with the function using the
+                                                                [[Environment]] property. This lexical environment
+                                                                contains the identifier-variable mappings for the code
+                                                                that the function executes.</p>
+
+
+
+
 
 
 
 
                                                 </li>
-                                                <li></li>
+                                                <li>
+                                                        <h3>Garbage collection</h3>
+                                                        <a href="https://javascript.info/closure#garbage-collection">
+                                                                click here</a>
+
+                                                </li>
+                                        </ul><br>
+                                </details>
+                        </li>
+                        <li>
+                                <details>
+                                        <summary>the old "var"</summary>
+                                        <ul>
+                                                <li>
+                                                        <h3>“var” has no block scope</h3>
+                                                        <p>Variables, declared with var, are either function-scoped or
+                                                                global-scoped. They are visible through blocks.</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #c586c0;">if</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        (</span><span
+                                                                                        style="color: #569cd6;">true</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">var</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">test</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">true</span><span
+                                                                                        style="color: #d4d4d4;">;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        use "var" instead of
+                                                                                        "let"</span></div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">test</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        true, the variable lives after
+                                                                                        if </span></div>
+                                                                </div>
+                                                        </div>
+                                                        <p>The same thing for loops: var cannot be block- or loop-local:
+                                                        </p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #c586c0;">for</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        (</span><span
+                                                                                        style="color: #569cd6;">var</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">i</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">0</span><span
+                                                                                        style="color: #d4d4d4;">;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">i</span><span
+                                                                                        style="color: #d4d4d4;"> &lt;
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">10</span><span
+                                                                                        style="color: #d4d4d4;">;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">i</span><span
+                                                                                        style="color: #d4d4d4;">++)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">var</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">one</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">1</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        ...</span></div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">i</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                        &nbsp; </span><span
+                                                                                        style="color: #6a9955;">// 10,
+                                                                                        "i" is visible after loop, it's
+                                                                                        a global variable</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">one</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        1, "one" is visible after loop,
+                                                                                        it's a global variable</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <p>If a code block is inside a function, then var becomes a
+                                                                function-level variable:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">sayHi</span><span
+                                                                                        style="color: #d4d4d4;">()
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">if</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        (</span><span
+                                                                                        style="color: #569cd6;">true</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #569cd6;">var</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">phrase</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"Hello"</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div><br>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">phrase</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        works</span></div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div><br>
+                                                                        <div><span
+                                                                                        style="color: #dcdcaa;">sayHi</span><span
+                                                                                        style="color: #d4d4d4;">();</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">phrase</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        ReferenceError: phrase is not
+                                                                                        defined</span></div>
+                                                                </div>
+                                                        </div>
+                                                </li>
+                                                <li>
+                                                        <h3>“var” tolerates redeclarations</h3>
+                                                        <p>With var, we can redeclare a variable any number of times. If
+                                                                we use var with an already-declared variable, it’s just
+                                                                ignored:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">var</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">user</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"Pete"</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">var</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">user</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"John"</span><span
+                                                                                        style="color: #d4d4d4;">;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        this "var" does nothing (already
+                                                                                        declared)</span></div>
+                                                                        <div><span style="color: #6a9955;">// ...it
+                                                                                        doesn't trigger an error</span>
+                                                                        </div><br>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">user</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        John </span></div>
+                                                                </div>
+
+                                                        </div>
+                                                </li>
+                                                <li>
+                                                        <h3>“var” variables can be declared below their use</h3>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">sayHi</span><span
+                                                                                        style="color: #d4d4d4;">()
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">phrase</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"Hello"</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div><br>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">phrase</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div><br>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">var</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">phrase</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #dcdcaa;">sayHi</span><span
+                                                                                        style="color: #d4d4d4;">();</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <p>Declarations are hoisted, but assignments are not.</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">sayHi</span><span
+                                                                                        style="color: #d4d4d4;">()
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">phrase</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div><br>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">var</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">phrase</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"Hello"</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #dcdcaa;">sayHi</span><span
+                                                                                        style="color: #d4d4d4;">();</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                </li>
+                                                <li>
+                                                        <h3>IIFE:“immediately-invoked function expressions”</h3>
+                                                </li>
+                                                <div class="cods" contenteditable="" spellcheck="false">
+                                                        <div>
+                                                                <div><span style="color: #6a9955;">// Ways to create
+                                                                                IIFE</span></div><br>
+                                                                <div><span style="color: #d4d4d4;">(</span><span
+                                                                                style="color: #569cd6;">function</span><span
+                                                                                style="color: #d4d4d4;"> () {</span>
+                                                                </div>
+                                                                <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                        </span><span
+                                                                                style="color: #9cdcfe;">console</span><span
+                                                                                style="color: #d4d4d4;">.</span><span
+                                                                                style="color: #dcdcaa;">log</span><span
+                                                                                style="color: #d4d4d4;">(</span><span
+                                                                                style="color: #ce9178;">"Parentheses
+                                                                                around the function"</span><span
+                                                                                style="color: #d4d4d4;">);</span></div>
+                                                                <div><span style="color: #d4d4d4;">})();</span></div>
+                                                                <br>
+                                                                <div><span style="color: #d4d4d4;">(</span><span
+                                                                                style="color: #569cd6;">function</span><span
+                                                                                style="color: #d4d4d4;"> () {</span>
+                                                                </div>
+                                                                <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                        </span><span
+                                                                                style="color: #9cdcfe;">console</span><span
+                                                                                style="color: #d4d4d4;">.</span><span
+                                                                                style="color: #dcdcaa;">log</span><span
+                                                                                style="color: #d4d4d4;">(</span><span
+                                                                                style="color: #ce9178;">"Parentheses
+                                                                                around the whole thing"</span><span
+                                                                                style="color: #d4d4d4;">);</span></div>
+                                                                <div><span style="color: #d4d4d4;">}());</span></div>
+                                                                <br>
+                                                                <div><span style="color: #d4d4d4;">!</span><span
+                                                                                style="color: #569cd6;">function</span><span
+                                                                                style="color: #d4d4d4;"> () {</span>
+                                                                </div>
+                                                                <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                        </span><span
+                                                                                style="color: #9cdcfe;">console</span><span
+                                                                                style="color: #d4d4d4;">.</span><span
+                                                                                style="color: #dcdcaa;">log</span><span
+                                                                                style="color: #d4d4d4;">(</span><span
+                                                                                style="color: #ce9178;">"Bitwise NOT
+                                                                                operator starts the
+                                                                                expression"</span><span
+                                                                                style="color: #d4d4d4;">);</span></div>
+                                                                <div><span style="color: #d4d4d4;">}();</span></div><br>
+                                                                <div><span style="color: #d4d4d4;">+</span><span
+                                                                                style="color: #569cd6;">function</span><span
+                                                                                style="color: #d4d4d4;"> () {</span>
+                                                                </div>
+                                                                <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                        </span><span
+                                                                                style="color: #9cdcfe;">console</span><span
+                                                                                style="color: #d4d4d4;">.</span><span
+                                                                                style="color: #dcdcaa;">log</span><span
+                                                                                style="color: #d4d4d4;">(</span><span
+                                                                                style="color: #ce9178;">"Unary plus
+                                                                                starts the expression"</span><span
+                                                                                style="color: #d4d4d4;">);</span></div>
+                                                                <div><span style="color: #d4d4d4;">}();</span></div>
+                                                        </div>
+                                                </div>
+
                                                 <li></li>
                                         </ul>
                                 </details>
                         </li>
                         <li>
                                 <details>
-                                        <summary>the old "var"</summary>
-                                </details>
-                        </li>
-                        <li>
-                                <details>
                                         <summary>Global object</summary>
+                                        <ul>
+                                                <li>
+                                                        <h3>global object</h3>
+                                                        <ul class="son">
+                                                                <li>
+
+                                                                        The global object provides variables and
+                                                                        functions
+                                                                        that are
+                                                                        available anywhere in the environment.</li>
+                                                                <li>In a browser, the global object is called
+                                                                        <code>window</code>. In
+                                                                        Node.js, it is called <code>global</code>.
+                                                                </li>
+                                                                <li>The standardized name for the global object is
+                                                                        <code>globalThis</code>, which is supported in
+                                                                        all major
+                                                                        browsers.
+                                                                </li>
+                                                                <li>It is recommended to use <code>globalThis</code>
+                                                                        instead of
+                                                                        <code>window</code> in scripts that may run in
+                                                                        other
+                                                                        environments.
+                                                                </li>
+                                                        </ul>
+                                                        <p>All properties of the global object can be accessed directly
+                                                        </p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">"Hello"</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                        <div><span style="color: #6a9955;">// is the
+                                                                                        same as</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">window</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">"Hello"</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <p>In a browser, global functions and variables declared with
+                                                                var (not let/const!) become the property of the global
+                                                                object:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">var</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">gVar</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">5</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">window</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">gVar</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        5 (became a property of the
+                                                                                        global object)</span></div>
+                                                                </div>
+                                                        </div>
+
+
+
+
+
+
+
+
+                                                </li>
+                                                <li>
+                                                        <h3>function declaration</h3>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #6a9955;">// This
+                                                                                        function declaration creates a
+                                                                                        global variable "gFunc"</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">gFunc</span><span
+                                                                                        style="color: #d4d4d4;">()
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        Function code goes here</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">window</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">gFunc</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                        &nbsp;</span><span
+                                                                                        style="color: #6a9955;">//
+                                                                                        Output: function gFunc() { ...
+                                                                                        }</span></div>
+                                                                        <div><span style="color: #6a9955;">// Declare a
+                                                                                        variable with the "let"
+                                                                                        keyword</span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">gLet</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">5</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">window</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">gLet</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                        &nbsp;</span><span
+                                                                                        style="color: #6a9955;">//
+                                                                                        Output: undefined (does not
+                                                                                        become a property of the global
+                                                                                        object) &nbsp;</span></div>
+                                                                </div>
+                                                        </div>
+                                                        <p>In this example, the function declaration function gFunc() {
+                                                                ... } creates a global variable gFunc, which becomes a
+                                                                property of the global object (e.g. window.gFunc). On
+                                                                the other hand, the let declaration let gLet = 5 does
+                                                                not create a global variable. Instead, it is only
+                                                                accessible within the block in which it is defined. This
+                                                                can be seen in the second console.log statement, which
+                                                                logs undefined to the console because gLet is not a
+                                                                property of the global object.</p>
+
+
+
+
+
+
+
+                                                </li>
+                                                <li>
+                                                        <h3>Using for polyfills</h3>
+                                                        <p>We use the global object to test for support of modern
+                                                                language features.</p>
+                                                        <p>For instance, test if a built-in Promise object exists (it
+                                                                doesn’t in really old browsers):</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #c586c0;">if</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        (!</span><span
+                                                                                        style="color: #9cdcfe;">window</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #4ec9b0;">Promise</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">"Your
+                                                                                        browser is really
+                                                                                        old!"</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <p>If there’s none (say, we’re in an old browser), we can create
+                                                                “polyfills”: add functions that are not supported by the
+                                                                environment, but exist in the modern standard.</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #c586c0;">if</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        (!</span><span
+                                                                                        style="color: #9cdcfe;">window</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #4ec9b0;">Promise</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">window</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #4ec9b0;">Promise</span><span
+                                                                                        style="color: #d4d4d4;"> = ...
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        custom implementation of the
+                                                                                        modern language feature</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                </li>
+                                        </ul>
                                 </details>
                         </li>
                         <li>
-                                <details>
+                                <details open>
                                         <summary>Function object, NFE</summary>
+                                        <ul>
+                                                <li>
+                                                        <h3>Function object, NFE</h3>
+                                                        <p>In JavaScript, functions are objects.</p>
+                                                        <p>A good way to imagine functions is as callable “action
+                                                                objects”. We can not only call them, but also treat them
+                                                                as objects: add/remove properties, pass by reference
+                                                                etc.</p>
+                                                </li>
+                                                <li>
+                                                        <h3>The “name” property</h3>
+                                                        <p>Function objects contain some useable properties.For
+                                                                instance, a function’s name is accessible as the “name”
+                                                                property:</p>
+
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">sayHi</span><span
+                                                                                        style="color: #d4d4d4;">()
+                                                                                        {</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">"Hi"</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #dcdcaa;">sayHi</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #4fc1ff;">name</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        sayHi </span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <p>What’s kind of funny, the name-assigning logic is smart. It
+                                                                also assigns the correct name to a function even if it’s
+                                                                created without one, and then immediately assigned:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">sayHi</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #d4d4d4;"> ()
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">"Hi"</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">};</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #dcdcaa;">sayHi</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #4fc1ff;">name</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        sayHi (there's a name!)</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <p>Object methods have names too:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">user</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                        {</span></div><br>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">sayHi</span><span
+                                                                                        style="color: #d4d4d4;">()
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #6a9955;">//
+                                                                                        ...</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        },</span></div><br>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">sayBye</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #d4d4d4;"> ()
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #6a9955;">//
+                                                                                        ...</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div><br>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">user</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">sayHi</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #4fc1ff;">name</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        sayHi</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">user</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">sayBye</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #4fc1ff;">name</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        sayBye</span></div>
+                                                                </div>
+                                                        </div>
+                                                        <p>There are cases when there’s no way to figure out the right
+                                                                name. In that case, the name property is empty, like
+                                                                here:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #6a9955;">// function
+                                                                                        created inside array</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">arr</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                        [</span><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #d4d4d4;"> () {
+                                                                                        }];</span></div><br>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">arr</span><span
+                                                                                        style="color: #d4d4d4;">[</span><span
+                                                                                        style="color: #b5cea8;">0</span><span
+                                                                                        style="color: #d4d4d4;">].</span><span
+                                                                                        style="color: #4fc1ff;">name</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        &lt;empty string&gt;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #6a9955;">// the engine
+                                                                                        has no way to set up the right
+                                                                                        name, so there is none</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                </li>
+                                                <li>
+                                                        <h3>The “length” property</h3>
+                                                        <p>There is another built-in property “length” that returns the
+                                                                number of function parameters, for instance:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">f1</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">a</span><span
+                                                                                        style="color: #d4d4d4;">) {
+                                                                                        }</span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">f2</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">a</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">b</span><span
+                                                                                        style="color: #d4d4d4;">) {
+                                                                                        }</span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">many</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">a</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">b</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                        ...</span><span
+                                                                                        style="color: #9cdcfe;">more</span><span
+                                                                                        style="color: #d4d4d4;">) {
+                                                                                        }</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #dcdcaa;">f1</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #4fc1ff;">length</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        1</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #dcdcaa;">f2</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #4fc1ff;">length</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        2</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #dcdcaa;">many</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #4fc1ff;">length</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        2</span></div>
+                                                                </div>
+                                                        </div>
+                                                        <p>we can use the length as follow</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">ask</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">question</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                        ...</span><span
+                                                                                        style="color: #9cdcfe;">handlers</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        Prompt the user with the
+                                                                                        specified question and store the
+                                                                                        result in a variable</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">isYes</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">confirm</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">question</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div><br>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        Iterate through each handler
+                                                                                        function in the "handlers"
+                                                                                        array</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">for</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        (</span><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">handler</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">of</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">handlers</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #6a9955;">// Check
+                                                                                        if the current handler function
+                                                                                        has a length of 0 (meaning it
+                                                                                        takes no arguments)</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #c586c0;">if</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        (</span><span
+                                                                                        style="color: #9cdcfe;">handler</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">length</span><span
+                                                                                        style="color: #d4d4d4;"> ==
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">0</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        If the handler function takes no
+                                                                                        arguments, call it if the user
+                                                                                        answered "yes" to the
+                                                                                        question</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">if</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        (</span><span
+                                                                                        style="color: #9cdcfe;">isYes</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">handler</span><span
+                                                                                        style="color: #d4d4d4;">();</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; } </span><span
+                                                                                        style="color: #c586c0;">else</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        If the handler function takes at
+                                                                                        least one argument, call it and
+                                                                                        pass in the value of "isYes" as
+                                                                                        an argument</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">handler</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">isYes</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; }</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div><br>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div>
+                                                                        <div><span style="color: #6a9955;">// Call the
+                                                                                        "ask" function with two handler
+                                                                                        functions as arguments</span>
+                                                                        </div>
+                                                                        <div><span style="color: #6a9955;">// For a
+                                                                                        positive answer, both handler
+                                                                                        functions will be called</span>
+                                                                        </div>
+                                                                        <div><span style="color: #6a9955;">// For a
+                                                                                        negative answer, only the second
+                                                                                        handler function will be
+                                                                                        called</span></div>
+                                                                        <div><span
+                                                                                        style="color: #dcdcaa;">ask</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">"Question?"</span><span
+                                                                                        style="color: #d4d4d4;">, ()
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">=&gt;</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">'You
+                                                                                        said yes'</span><span
+                                                                                        style="color: #d4d4d4;">),
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">result</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">=&gt;</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">result</span><span
+                                                                                        style="color: #d4d4d4;">));
+                                                                                        &nbsp;</span></div>
+                                                                </div>
+                                                        </div>
+                                                </li>
+                                                <li>
+                                                        <h3>Custom properties</h3>
+                                                        <p>We can also add properties of our own.</p>
+                                                        <p>Here we add the counter property to track the total calls
+                                                                count:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">sayHi</span><span
+                                                                                        style="color: #d4d4d4;">()
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">"Hi"</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div><br>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        let's count how many times we
+                                                                                        run</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">sayHi</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">counter</span><span
+                                                                                        style="color: #d4d4d4;">++;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #dcdcaa;">sayHi</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">counter</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">0</span><span
+                                                                                        style="color: #d4d4d4;">;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        initial value</span></div><br>
+                                                                        <div><span
+                                                                                        style="color: #dcdcaa;">sayHi</span><span
+                                                                                        style="color: #d4d4d4;">();
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        Hi</span></div>
+                                                                        <div><span
+                                                                                        style="color: #dcdcaa;">sayHi</span><span
+                                                                                        style="color: #d4d4d4;">();
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        Hi</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">`Called
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">${</span><span
+                                                                                        style="color: #dcdcaa;">sayHi</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">counter</span><span
+                                                                                        style="color: #569cd6;">}</span><span
+                                                                                        style="color: #ce9178;">
+                                                                                        times`</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        Called 2 times </span></div>
+                                                                </div>
+                                                        </div>
+                                                        <p>Function properties can replace closures sometimes. For
+                                                                instance, we can rewrite the counter function example
+                                                                from the chapter Variable scope, closure to use a
+                                                                function property:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">makeCounter</span><span
+                                                                                        style="color: #d4d4d4;">()
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        instead of:</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        let count = 0</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">counter</span><span
+                                                                                        style="color: #d4d4d4;">()
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #c586c0;">return</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">counter</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">count</span><span
+                                                                                        style="color: #d4d4d4;">++;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        };</span></div><br>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">counter</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">count</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">0</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div><br>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">return</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">counter</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">counter</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">makeCounter</span><span
+                                                                                        style="color: #d4d4d4;">();</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #dcdcaa;">counter</span><span
+                                                                                        style="color: #d4d4d4;">());
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        0</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #dcdcaa;">counter</span><span
+                                                                                        style="color: #d4d4d4;">());
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        1</span></div>
+                                                                </div>
+                                                        </div>
+
+
+
+
+
+
+
+
+                                                </li>
+                                                <li></li>
+                                        </ul>
                                 </details>
                         </li>
                         <li>
