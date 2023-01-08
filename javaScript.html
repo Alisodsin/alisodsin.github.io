@@ -19777,7 +19777,7 @@
                 </ul>
         </details>
 
-        <details open class="dad">
+        <details class="dad">
                 <summary>Prototypes, inheritance</summary>
                 <ul>
                         <li>
@@ -21829,7 +21829,7 @@
                                 </details>
                         </li>
                         <li>
-                                <details open>
+                                <details>
                                         <summary>Prototype methods, objects without __proto__</summary>
                                         <ul>
                                                 <li>
@@ -21900,6 +21900,295 @@
                                                                                         rabbit to {}</span></div>
                                                                 </div>
                                                         </div>
+                                                        <p>The Object.create method is a bit more powerful, as it has an
+                                                                optional second argument: property descriptors.</p>
+                                                        <p>We can provide additional properties to the new object there,
+                                                                like this:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #569cd6;">let</span>
+                                                                                <span
+                                                                                        style="color: #9cdcfe;">animal</span>
+                                                                                = {
+                                                                        </div>
+                                                                        <div>&nbsp; <span
+                                                                                        style="color: #9cdcfe;">eats</span><span
+                                                                                        style="color: #9cdcfe;">:</span>
+                                                                                <span
+                                                                                        style="color: #569cd6;">true</span>
+                                                                        </div>
+                                                                        <div>};</div><br>
+                                                                        <div><span style="color: #569cd6;">let</span>
+                                                                                <span
+                                                                                        style="color: #9cdcfe;">rabbit</span>
+                                                                                = <span
+                                                                                        style="color: #4ec9b0;">Object</span>.<span
+                                                                                        style="color: #dcdcaa;">create</span>(<span
+                                                                                        style="color: #9cdcfe;">animal</span>,
+                                                                                {
+                                                                        </div>
+                                                                        <div>&nbsp; <span
+                                                                                        style="color: #9cdcfe;">jumps</span><span
+                                                                                        style="color: #9cdcfe;">:</span>
+                                                                                {</div>
+                                                                        <div>&nbsp; &nbsp; <span
+                                                                                        style="color: #9cdcfe;">value</span><span
+                                                                                        style="color: #9cdcfe;">:</span>
+                                                                                <span
+                                                                                        style="color: #569cd6;">true</span>
+                                                                        </div>
+                                                                        <div>&nbsp; }</div>
+                                                                        <div>});</div><br>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span>.<span
+                                                                                        style="color: #dcdcaa;">log</span>(<span
+                                                                                        style="color: #9cdcfe;">rabbit</span>.<span
+                                                                                        style="color: #9cdcfe;">jumps</span>);
+                                                                                <span style="color: #6a9955;">//
+                                                                                        true</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <p>We can use Object.create to perform an object cloning more
+                                                                powerful than copying properties in for..in:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #569cd6;">let</span>
+                                                                                <span style="color: #9cdcfe;">obj</span>
+                                                                                = { <span
+                                                                                        style="color: #9cdcfe;">name</span><span
+                                                                                        style="color: #9cdcfe;">:</span>
+                                                                                <span
+                                                                                        style="color: #ce9178;">"ali"</span>,
+                                                                                <span
+                                                                                        style="color: #9cdcfe;">age</span><span
+                                                                                        style="color: #9cdcfe;">:</span>
+                                                                                <span style="color: #b5cea8;">41</span>,
+                                                                                <span
+                                                                                        style="color: #9cdcfe;">tall</span><span
+                                                                                        style="color: #9cdcfe;">:</span>
+                                                                                <span style="color: #b5cea8;">180</span>
+                                                                                }
+                                                                        </div>
+                                                                        <div><span style="color: #569cd6;">let</span>
+                                                                                <span
+                                                                                        style="color: #9cdcfe;">clone</span>
+                                                                                = <span
+                                                                                        style="color: #4ec9b0;">Object</span>.<span
+                                                                                        style="color: #dcdcaa;">create</span>(
+                                                                        </div>
+                                                                        <div>&nbsp; <span
+                                                                                        style="color: #4ec9b0;">Object</span>.<span
+                                                                                        style="color: #dcdcaa;">getPrototypeOf</span>(<span
+                                                                                        style="color: #9cdcfe;">obj</span>),
+                                                                                <span
+                                                                                        style="color: #4ec9b0;">Object</span>.<span
+                                                                                        style="color: #dcdcaa;">getOwnPropertyDescriptors</span>(<span
+                                                                                        style="color: #9cdcfe;">obj</span>)
+                                                                        </div>
+                                                                        <div>);</div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span>.<span
+                                                                                        style="color: #dcdcaa;">log</span>(<span
+                                                                                        style="color: #9cdcfe;">clone</span>);
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <p>This call makes a truly exact copy of obj, including all
+                                                                properties: enumerable and non-enumerable, data
+                                                                properties and setters/getters – everything, and with
+                                                                the right [[Prototype]].</p>
+                                                </li>
+                                                <li>
+                                                        <h3>"Very plain" objects</h3>
+                                                        <ol>
+                                                                <li>Assigning a value to the <code>__proto__</code>
+                                                                        property is ignored if the value is not an
+                                                                        object or <code>null</code>.</li>
+                                                                <li>This can lead to bugs if a key-value pair with a key
+                                                                        of <code>"__proto__"</code> is not properly
+                                                                        saved.</li>
+                                                                <li>This can also cause unexpected behavior if objects
+                                                                        are stored in the object and the prototype is
+                                                                        changed as a result.</li>
+                                                                <li>Such bugs can be difficult to notice and may even
+                                                                        turn into vulnerabilities, especially when using
+                                                                        JavaScript on the server-side.</li>
+                                                                <li>Unexpected things may also happen when assigning to
+                                                                        <code>obj.toString</code>, as it is a built-in
+                                                                        object method.
+                                                                </li>
+                                                                <li>One way to avoid these problems is to use the
+                                                                        <code>Map</code> object for storage instead of
+                                                                        plain objects.
+                                                                </li>
+                                                        </ol>
+                                                        <p>First, we can just switch to using Map for storage instead of
+                                                                plain objects, then everything’s fine:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #569cd6;">let</span>
+                                                                                <span style="color: #9cdcfe;">map</span>
+                                                                                = <span
+                                                                                        style="color: #569cd6;">new</span>
+                                                                                <span
+                                                                                        style="color: #4ec9b0;">Map</span>();
+                                                                        </div>
+                                                                        <div><span style="color: #569cd6;">let</span>
+                                                                                <span style="color: #9cdcfe;">key</span>
+                                                                                = <span
+                                                                                        style="color: #dcdcaa;">prompt</span>(<span
+                                                                                        style="color: #ce9178;">"What's
+                                                                                        the key?"</span>, <span
+                                                                                        style="color: #ce9178;">"__proto__"</span>);
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">map</span>.<span
+                                                                                        style="color: #dcdcaa;">set</span>(<span
+                                                                                        style="color: #9cdcfe;">key</span>,
+                                                                                <span style="color: #ce9178;">"some
+                                                                                        value"</span>);
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span>.<span
+                                                                                        style="color: #dcdcaa;">log</span>(<span
+                                                                                        style="color: #9cdcfe;">map</span>.<span
+                                                                                        style="color: #dcdcaa;">get</span>(<span
+                                                                                        style="color: #9cdcfe;">key</span>));
+                                                                                <span style="color: #6a9955;">// "some
+                                                                                        value" (as intended)</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <ol>
+                                                                <li>The <code>__proto__</code> property is an accessor
+                                                                        property of <code>Object.prototype</code>, not a
+                                                                        property of an object.</li>
+                                                                <li>When <code>obj.__proto__</code> is read or set, the
+                                                                        corresponding getter or setter function is
+                                                                        called from the object's prototype.</li>
+                                                                <li><code>__proto__</code> is a way to access the
+                                                                        prototype, but it is not the prototype itself.
+                                                                </li>
+                                                                <li>To use an object as an associative array and avoid
+                                                                        issues with the <code>__proto__</code> property,
+                                                                        a trick can be used.</li>
+                                                                <li>This trick involves using an object with a null
+                                                                        prototype.</li>
+                                                                <li>The null prototype can be set using
+                                                                        <code>Object.create(null)</code>.
+                                                                </li>
+                                                        </ol>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #569cd6;">let</span>
+                                                                                <span style="color: #9cdcfe;">obj</span>
+                                                                                = <span
+                                                                                        style="color: #4ec9b0;">Object</span>.<span
+                                                                                        style="color: #dcdcaa;">create</span>(<span
+                                                                                        style="color: #569cd6;">null</span>);
+                                                                        </div>
+                                                                        <div><span style="color: #6a9955;">// or: obj =
+                                                                                        { __proto__: null }</span></div>
+                                                                        <br>
+                                                                        <div><span style="color: #569cd6;">let</span>
+                                                                                <span style="color: #9cdcfe;">key</span>
+                                                                                = <span
+                                                                                        style="color: #dcdcaa;">prompt</span>(<span
+                                                                                        style="color: #ce9178;">"What's
+                                                                                        the key?"</span>, <span
+                                                                                        style="color: #ce9178;">"__proto__"</span>);
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">obj</span>[<span
+                                                                                        style="color: #9cdcfe;">key</span>]
+                                                                                = <span style="color: #ce9178;">"some
+                                                                                        value"</span>;</div><br>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span>.<span
+                                                                                        style="color: #dcdcaa;">log</span>(<span
+                                                                                        style="color: #9cdcfe;">obj</span>[<span
+                                                                                        style="color: #9cdcfe;">key</span>]);
+                                                                                <span style="color: #6a9955;">// "some
+                                                                                        value"</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <p>Object.create(null) creates an empty object without a
+                                                                prototype ([[Prototype]] is null):</p>
+                                                        <p>So, there is no inherited getter/setter for __proto__. Now it
+                                                                is processed as a regular data property, so the example
+                                                                above works right.
+                                                                We can call such objects “very plain” or “pure
+                                                                dictionary” objects, because they are even simpler than
+                                                                the regular plain object {...}.</p>
+                                                        <p>A downside is that such objects lack any built-in object
+                                                                methods, e.g. toString:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #569cd6;">let</span>
+                                                                                <span style="color: #9cdcfe;">obj</span>
+                                                                                = <span
+                                                                                        style="color: #4ec9b0;">Object</span>.<span
+                                                                                        style="color: #dcdcaa;">create</span>(<span
+                                                                                        style="color: #569cd6;">null</span>);
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span>.<span
+                                                                                        style="color: #dcdcaa;">log</span>(<span
+                                                                                        style="color: #ce9178;">`</span><span
+                                                                                        style="color: #569cd6;">${</span><span
+                                                                                        style="color: #9cdcfe;">obj</span><span
+                                                                                        style="color: #569cd6;">}</span><span
+                                                                                        style="color: #ce9178;">`</span>);
+                                                                                <span style="color: #6a9955;">// Error
+                                                                                        (no toString)</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <p>Note that most object-related methods are
+                                                                Object.something(...), like Object.keys(obj) – they are
+                                                                not in the prototype, so they will keep working on such
+                                                                objects:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #569cd6;">let</span>
+                                                                                <span
+                                                                                        style="color: #9cdcfe;">chineseDictionary</span>
+                                                                                = <span
+                                                                                        style="color: #4ec9b0;">Object</span>.<span
+                                                                                        style="color: #dcdcaa;">create</span>(<span
+                                                                                        style="color: #569cd6;">null</span>);
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">chineseDictionary</span>.<span
+                                                                                        style="color: #9cdcfe;">hello</span>
+                                                                                = <span
+                                                                                        style="color: #ce9178;">"你好"</span>;
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">chineseDictionary</span>.<span
+                                                                                        style="color: #9cdcfe;">bye</span>
+                                                                                = <span
+                                                                                        style="color: #ce9178;">"再见"</span>;
+                                                                        </div><br>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span>.<span
+                                                                                        style="color: #dcdcaa;">log</span>(<span
+                                                                                        style="color: #4ec9b0;">Object</span>.<span
+                                                                                        style="color: #dcdcaa;">keys</span>(<span
+                                                                                        style="color: #9cdcfe;">chineseDictionary</span>));
+                                                                                <span style="color: #6a9955;">//
+                                                                                        hello,bye</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+
+
+
+
+
+
 
 
 
@@ -21915,7 +22204,6 @@
 
 
                                                 </li>
-                                                <li></li>
                                                 <li></li>
                                         </ul>
                                 </details>
