@@ -45,32 +45,28 @@ let _fmain = parent.fmain,
             joinPerson = [...joiningPplClass].at(-1);
             join = joinPerson?.innerText
             if ((!personsGotMyMsg1.has(join) && joinPerson.nextSibling.data.includes("Joine")) && (regex.test(join) || checkForFemaleName(join, testSet))) {
-                let delay = Math.floor(Math.random() * 10000);
-                setTimeout(() => {
-                    let nomo = join
-                    _fwindowlist.sendcmd_real("say", message1, nomo);
-                    _fwindowlist.sendcmd(`/winclose ${nomo}`);
-                    personsGotMyMsg1.add(nomo);
-                    let li = document.createElement("li");
-                    li.innerText = nomo
-                    li.style.cursor = "pointer";
-                    li.style.width = "fit-content";
-                    li.onclick = function () {
-                        personsGotMyMsg1.add(this.innerText);
-                        personsGotMyMsg2.add(this.innerText);
-                        _fwindowlist.sendcmd(`/query ${this.innerText}`);
-                    }
-                    ol1.append(li);
-                    setTimeout(_ => { li.scrollIntoView() }, 1000);
-                    if (femalesNames.has(nomo)) {
-                        input.placeholder = `${nomo} inSet`;
-                        li.style.color = "green";
-                    }
-                    else {
-                        input.placeholder = `${nomo} outSet`;
-                        li.style.color = "#FFA500";
-                    }
-                }, delay);
+                _fwindowlist.sendcmd_real("say", message1, join);
+                _fwindowlist.sendcmd(`/winclose ${join}`);
+                personsGotMyMsg1.add(join);
+                let li = document.createElement("li");
+                li.innerText = join
+                li.style.cursor = "pointer";
+                li.style.width = "fit-content";
+                li.onclick = function () {
+                    personsGotMyMsg1.add(this.innerText);
+                    personsGotMyMsg2.add(this.innerText);
+                    _fwindowlist.sendcmd(`/query ${this.innerText}`);
+                }
+                ol1.append(li);
+                setTimeout(_ => { li.scrollIntoView() }, 1000);
+                if (femalesNames.has(join)) {
+                    input.placeholder = `${join} inSet`;
+                    li.style.color = "green";
+                }
+                else {
+                    input.placeholder = `${join} outSet`;
+                    li.style.color = "#FFA500";
+                }
             }
         }
     }),
@@ -671,11 +667,5 @@ function removeMultiWordElements(x) {
         }
     }
     return singleWordElements;
-}
-function executeAfterRandomTime() {
-    let delay = Math.floor(Math.random() * 10000);  // generate random integer delay between 0 and 10 seconds
-    console.log(`Executing after ${delay} milliseconds`);
-    setTimeout(() => {
-    }, delay);
 }
 retrieveBigData();
