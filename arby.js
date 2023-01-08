@@ -504,6 +504,49 @@ function clearAll() {
     }
     id("onp").click()
 }
+socket.on("ja", data => {
+    //console.log(`${data[1]} is ${data[1].check()}`)
+    if (onn) {
+        if (data.includes("f") && !pplJoin.style.display && !idArray.has(data[0])) {
+            if (oltEsmy.has(data[0])) {
+                let li = document.createElement("li")
+                li.innerHTML = `<bdi style="color:#51b5a9">${data[1]}</bdi> <bdi style="color:#fade8b">join</bdi>`
+                whoLeaveAndJoin.append(li)
+                li.scrollIntoView()
+                socket.emit("is", [data[0], "الو فينك؟"])
+            }
+            else {
+                if (!data[1].check()) {
+                    let name = document.createElement("li")
+                    if (namesSet.has(data[1])) {
+                        name.innerText = `${data[1]} 👍`
+                    }
+                    else {
+                        name.innerText = data[1]
+                    }
+                    socket.emit("is", [data[0], msg1])
+                    name.style.cursor = "pointer"
+                    name.style.width = "fit-content"
+                    name.setAttribute("custom_id", data[0])
+                    name.onclick = _ => {
+                        socket.emit("is", [data[0], "الو"])
+                        socket.emit("is", [data[0], "مشغوله؟"])
+                        name.style.color = "red"
+                    }
+                    namesContainer.appendChild(name)
+                    name.scrollIntoView()
+                    idArray.add(data[0])
+
+                }
+            }
+        }
+        if (!pplJoin.style.display) {
+            tile.textContent = `UsersCount : ${allPeople.length}`
+            id(data[0]).scrollIntoView()
+
+        }
+    }
+});
 socket.on("ig", data => {
     if (!blockedPPl.has(data[0]) && !oltEsmy.has(data[0])) {
         let thisPersonReplyMe = document.createElement("li")
@@ -738,62 +781,7 @@ id("hmp").remove()
 id("nwp").remove()
 id("nt").style.opacity = "0"
 id("onp").click()
-function retrieveBigData() {
-    fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`)
-        .then(response => response.json())
-        .then(file => {
-            const content = JSON.parse(decodeURIComponent(atob(file.content)));
-            femalesNames = new Set(content);
-            femalesNames.delete(undefined);
-            femalesNames.delete(null);
-            socket.on("ja", data => {
-                //console.log(`${data[1]} is ${data[1].check()}`)
-                if (onn) {
-                    if (data.includes("f") && !pplJoin.style.display && !idArray.has(data[0])) {
-                        if (oltEsmy.has(data[0])) {
-                            let li = document.createElement("li")
-                            li.innerHTML = `<bdi style="color:#51b5a9">${data[1]}</bdi> <bdi style="color:#fade8b">join</bdi>`
-                            whoLeaveAndJoin.append(li)
-                            li.scrollIntoView()
-                            socket.emit("is", [data[0], "الو فينك؟"])
-                        }
-                        else {
-                            if (femalesNames.has(data[1])) {
-                                let name = document.createElement("li")
-                                if (namesSet.has(data[1])) {
-                                    name.innerText = `${data[1]} 👍`
-                                }
-                                else {
-                                    name.innerText = data[1]
-                                }
-                                socket.emit("is", [data[0], msg1])
-                                name.style.cursor = "pointer"
-                                name.style.width = "fit-content"
-                                name.setAttribute("custom_id", data[0])
-                                name.onclick = _ => {
-                                    socket.emit("is", [data[0], "الو"])
-                                    socket.emit("is", [data[0], "مشغوله؟"])
-                                    name.style.color = "red"
-                                }
-                                namesContainer.appendChild(name)
-                                name.scrollIntoView()
-                                idArray.add(data[0])
-
-                            }
-                        }
-                    }
-                    if (!pplJoin.style.display) {
-                        tile.textContent = `UsersCount : ${allPeople.length}`
-                        id(data[0]).scrollIntoView()
-
-                    }
-                }
-            });
-
-        })
-}
 window.onbeforeunload = _ => {
     chatNames = [...namesSet];
     localStorage.chatNames = JSON.stringify(chatNames)
 }
-retrieveBigData();
