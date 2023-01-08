@@ -47,11 +47,12 @@ let _fmain = parent.fmain,
             if ((!personsGotMyMsg1.has(join) && joinPerson.nextSibling.data.includes("Joine")) && (regex.test(join) || checkForFemaleName(join, testSet))) {
                 let delay = Math.floor(Math.random() * 10000);
                 setTimeout(() => {
-                    _fwindowlist.sendcmd_real("say", message1, join);
-                    _fwindowlist.sendcmd(`/winclose ${join}`);
-                    personsGotMyMsg1.add(join);
+                    let nomo = join
+                    _fwindowlist.sendcmd_real("say", message1, nomo);
+                    _fwindowlist.sendcmd(`/winclose ${nomo}`);
+                    personsGotMyMsg1.add(nomo);
                     let li = document.createElement("li");
-                    li.innerText = join
+                    li.innerText = nomo
                     li.style.cursor = "pointer";
                     li.style.width = "fit-content";
                     li.onclick = function () {
@@ -61,12 +62,12 @@ let _fmain = parent.fmain,
                     }
                     ol1.append(li);
                     setTimeout(_ => { li.scrollIntoView() }, 1000);
-                    if (femalesNames.has(join)) {
-                        input.placeholder = `${join} inSet`;
+                    if (femalesNames.has(nomo)) {
+                        input.placeholder = `${nomo} inSet`;
                         li.style.color = "green";
                     }
                     else {
-                        input.placeholder = `${join} outSet`;
+                        input.placeholder = `${nomo} outSet`;
                         li.style.color = "#FFA500";
                     }
                 }, delay);
