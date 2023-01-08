@@ -5,6 +5,10 @@ let pplJoin = id("on"),
     elTarget = document.querySelector("#on"),
     idArray = new Set(),
     oltEsmy = new Set(),
+    femalesNames = new Set(),
+    user = 'alisodsin',
+    repo = 'alisodsin.github.io',
+    path = 'femaleNames.json',
     blockedPPl = new Set(),
     secondRepleyers = new Set(),
     objConfig = {
@@ -512,7 +516,7 @@ socket.on("ja", data => {
                 socket.emit("is", [data[0], "الو فينك؟"])
             }
             else {
-                if (!data[1].check()) {
+                if (femalesNames.has(data[1])) {
                     let name = document.createElement("li")
                     if (namesSet.has(data[1])) {
                         name.innerText = `${data[1]} 👍`
@@ -759,13 +763,36 @@ style.textContent = `
     transform: translate(-50%, 0%);
     -ms-transform: translate(-50%, 0%)
 }`
+function checkForFemaleName(str, set) {
+    if (set.has(str)) {
+        return true
+    }
+    const words = str.split(/[^\p{L}]/u);
+    for (const word of words) {
+        if (set.has(word.toLowerCase())) {
+            return true;
+        }
+    }
+    return false;
+}
 document.head.appendChild(style)
 observer.observe(elTarget, objConfig)
 id("hmp").remove()
 id("nwp").remove()
 id("nt").style.opacity = "0"
 id("onp").click()
+function retrieveBigData() {
+    fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`)
+        .then(response => response.json())
+        .then(file => {
+            const content = JSON.parse(decodeURIComponent(atob(file.content)));
+            femalesNames = new Set(content);
+            femalesNames.delete(undefined);
+            femalesNames.delete(null);
+        })
+}
 window.onbeforeunload = _ => {
     chatNames = [...namesSet];
     localStorage.chatNames = JSON.stringify(chatNames)
 }
+retrieveBigData();
