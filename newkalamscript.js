@@ -48,7 +48,7 @@ let _fmain = parent.fmain,
                 setTimeout(s => {
                     _fwindowlist.sendcmd_real("say", message1, s);
                     _fwindowlist.sendcmd(`/winclose ${s}`);
-                }, Math.floor(Math.random() * 10 + 1) * 1000, join)
+                },4000, join)
                 personsGotMyMsg1.add(join);
                 let li = document.createElement("li");
                 li.innerText = join
