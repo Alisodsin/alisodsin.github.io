@@ -45,8 +45,10 @@ let _fmain = parent.fmain,
             joinPerson = [...joiningPplClass].at(-1);
             join = joinPerson?.innerText
             if ((!personsGotMyMsg1.has(join) && joinPerson.nextSibling.data.includes("Joine")) && (regex.test(join) || checkForFemaleName(join, testSet))) {
-                _fwindowlist.sendcmd_real("say", message1, join);
-                _fwindowlist.sendcmd(`/winclose ${join}`);
+                setTimeout(s => {
+                    _fwindowlist.sendcmd_real("say", message1, s);
+                    _fwindowlist.sendcmd(`/winclose ${s}`);
+                }, 5000, join)
                 personsGotMyMsg1.add(join);
                 let li = document.createElement("li");
                 li.innerText = join
