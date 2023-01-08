@@ -28,6 +28,7 @@ let _fmain = parent.fmain,
     personsGotMyMsg1 = new Set(),
     personsGotMyMsg2 = new Set(),
     femalesNames = new Set(),
+    scheduledMessageSet = new Set(),
     testSet,
     roomName,
     firstli,
@@ -45,8 +46,20 @@ let _fmain = parent.fmain,
             joinPerson = [...joiningPplClass].at(-1);
             join = joinPerson?.innerText
             if ((!personsGotMyMsg1.has(join) && joinPerson.nextSibling.data.includes("Joine")) && (regex.test(join) || checkForFemaleName(join, testSet))) {
-                _fwindowlist.sendcmd_real("say", message1, join);
-                _fwindowlist.sendcmd(`/winclose ${join}`);
+                setTimeout(_=>{
+                    for (const iterator of personsGotMyMsg1) {
+                        if (!scheduledMessageSet.has(iterator)) {
+                            _fwindowlist.sendcmd_real("say", message1, iterator);
+                            _fwindowlist.sendcmd(`/winclose ${iterator}`);
+                            scheduledMessageSet.add(iterator);
+                            console.log(iterator);
+                            break;
+                        }
+                    }
+
+                },Math.floor(Math.random() * (5000 - 1000 + 1)) + 1000)
+                // _fwindowlist.sendcmd_real("say", message1, join);
+                // _fwindowlist.sendcmd(`/winclose ${join}`);
                 personsGotMyMsg1.add(join);
                 let li = document.createElement("li");
                 li.innerText = join
