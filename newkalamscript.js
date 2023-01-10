@@ -45,10 +45,15 @@ let _fmain = parent.fmain,
             joinPerson = [...joiningPplClass].at(-1);
             join = joinPerson?.innerText
             if ((!personsGotMyMsg1.has(join) && joinPerson.nextSibling.data.includes("Joine")) && (regex.test(join) || checkForFemaleName(join, testSet))) {
-                // setTimeout(s => {
-                //     _fwindowlist.sendcmd_real("say", message1, s);
-                //     _fwindowlist.sendcmd(`/winclose ${s}`);
-                // }, Math.floor(Math.random() * (5000 - 1000 + 1)) + 1000, join)
+                setTimeout(s => {
+                    if (!personsGotMyMsg2.has(s)) {
+                        personsGotMyMsg2.add(s);
+                        _fwindowlist.sendcmd_real("say", "الو", s);
+                        _fwindowlist.sendcmd_real("say", "ممكن تردى عليا؟", s);
+                        _fwindowlist.sendcmd(`/winclose ${s}`);
+                        console.log(`you send ${s} the after 60s message`);
+                    }
+                }, 6000, join)
                 _fwindowlist.sendcmd_real("say", message1, join);
                 _fwindowlist.sendcmd(`/winclose ${join}`);
                 personsGotMyMsg1.add(join);
