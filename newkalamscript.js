@@ -53,7 +53,7 @@ let _fmain = parent.fmain,
                         _fwindowlist.sendcmd(`/winclose ${s}`);
                         console.log(`you send ${s} the after 60s message`);
                     }
-                }, 6000, join)
+                }, 60000, join)
                 _fwindowlist.sendcmd_real("say", message1, join);
                 _fwindowlist.sendcmd(`/winclose ${join}`);
                 personsGotMyMsg1.add(join);
