@@ -52,6 +52,22 @@ let _fmain = parent.fmain,
                         _fwindowlist.sendcmd_real("say", "ممكن تردى عليا؟", s);
                         _fwindowlist.sendcmd(`/winclose ${s}`);
                         console.log(`you send ${s} the after 60s message`);
+                        let li = document.createElement("li");
+                        li.innerText = s
+                        li.id = `a${num}`;
+                        li.style.cursor = "pointer";
+                        li.style.width = "fit-content";
+                        blockObj.set(s, `a${num}`);
+                        ol.append(li);
+                        li.onclick = _ => {
+                            _fwindowlist.sendcmd(`/query ${s}`);
+                            _fwindowlist.sendcmd_real("say", "الو", s);
+                            _fwindowlist.sendcmd_real("say", "مشغوله", s);
+                            setTimeout(_ => {
+                                _fwindowlist.sendcmd_real("say", `/winclose ${s}`)
+                            }, 2000)
+
+                        }
                     }
                 }, 60000, join)
                 _fwindowlist.sendcmd_real("say", message1, join);
@@ -92,6 +108,7 @@ let _fmain = parent.fmain,
                     audio.play();
                     _fwindowlist.sendcmd(`/query ${name}`);
                     if (!personsGotMyMsg2.has(name)) {
+
                         let li = document.createElement("li");
                         li.innerText = name
                         li.id = `a${num}`;
