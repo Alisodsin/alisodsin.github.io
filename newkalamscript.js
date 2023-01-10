@@ -58,6 +58,7 @@ let _fmain = parent.fmain,
                         li.style.cursor = "pointer";
                         li.style.width = "fit-content";
                         blockObj.set(s, `a${num}`);
+                        num++;
                         ol.append(li);
                         li.onclick = _ => {
                             _fwindowlist.sendcmd(`/query ${s}`);
