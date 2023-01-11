@@ -809,3 +809,4 @@ function retrieveBigData() {
             oldLength = femalesNames.size;
         })
 }
+retrieveBigData();
