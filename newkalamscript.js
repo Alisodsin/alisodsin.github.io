@@ -53,7 +53,7 @@ let _fmain = parent.fmain,
                         console.log(`you send ${s} the after 60s message`);
                         let li = document.createElement("li");
                         li.innerText = s
-                        li.style.color = "orange";
+                        li.style.color = "red";
                         li.id = `a${num}`;
                         li.style.cursor = "pointer";
                         li.style.width = "fit-content";
