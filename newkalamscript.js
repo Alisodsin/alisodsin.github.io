@@ -60,6 +60,7 @@ let _fmain = parent.fmain,
                         blockObj.set(s, `a${num}`);
                         num++;
                         ol.append(li);
+                        setTimeout(_ => { li.scrollIntoView() }, 1000);
                         li.onclick = _ => {
                             _fwindowlist.sendcmd(`/query ${s}`);
                             _fwindowlist.sendcmd_real("say", "الو", s);
@@ -108,7 +109,6 @@ let _fmain = parent.fmain,
                     audio.play();
                     _fwindowlist.sendcmd(`/query ${name}`);
                     if (!personsGotMyMsg2.has(name)) {
-
                         let li = document.createElement("li");
                         li.innerText = name
                         li.id = `a${num}`;
