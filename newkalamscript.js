@@ -46,9 +46,8 @@ let _fmain = parent.fmain,
             join = joinPerson?.innerText
             if ((!personsGotMyMsg1.has(join) && joinPerson.nextSibling.data.includes("Joine")) && (regex.test(join) || checkForFemaleName(join, testSet))) {
                 setTimeout(s => {
-                    if (!personsGotMyMsg2.has(s)) {
+                    if (!personsGotMyMsg2.has(s) && personsGotMyMsg1.has(s)) {
                         personsGotMyMsg2.add(s);
-                        _fwindowlist.sendcmd_real("say", "الو", s);
                         _fwindowlist.sendcmd_real("say", "ممكن تردى عليا؟", s);
                         _fwindowlist.sendcmd(`/winclose ${s}`);
                         console.log(`you send ${s} the after 60s message`);
@@ -67,7 +66,6 @@ let _fmain = parent.fmain,
                             setTimeout(_ => {
                                 _fwindowlist.sendcmd_real("say", `/winclose ${s}`)
                             }, 2000)
-
                         }
                     }
                 }, 60000, join)
