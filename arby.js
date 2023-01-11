@@ -505,7 +505,6 @@ function clearAll() {
     id("onp").click()
 }
 socket.on("ja", data => {
-    //console.log(`${data[1]} is ${data[1].check()}`)
     if (onn) {
         if (data.includes("f") && !pplJoin.style.display && !idArray.has(data[0])) {
             if (oltEsmy.has(data[0])) {
@@ -516,7 +515,7 @@ socket.on("ja", data => {
                 socket.emit("is", [data[0], "الو فينك؟"])
             }
             else {
-                if (!data[1].check()) {
+                if (checkForFemaleName(data[1],femalesNames)) {
                     let name = document.createElement("li")
                     if (namesSet.has(data[1])) {
                         name.innerText = `${data[1]} 👍`
@@ -784,4 +783,29 @@ id("onp").click()
 window.onbeforeunload = _ => {
     chatNames = [...namesSet];
     localStorage.chatNames = JSON.stringify(chatNames)
+}
+function checkForFemaleName(str, set) {
+    if (set.has(str)) {
+        return true
+    }
+    const words = str.split(/[^\p{L}]/u);
+    for (const word of words) {
+        if (set.has(word.toLowerCase())) {
+            return true;
+        }
+    }
+    return false;
+}
+function retrieveBigData() {
+    fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`)
+        .then(response => response.json())
+        .then(file => {
+            shrr = file.sha
+            const content = JSON.parse(decodeURIComponent(atob(file.content)));
+            femalesNames = new Set(content);
+            femalesNames.delete(undefined);
+            femalesNames.delete(null);
+            testSet = femalesNames;
+            oldLength = femalesNames.size;
+        })
 }
