@@ -353,13 +353,13 @@ function efsl() {
 
 function togleMessage() {
     if (message1.includes("خير")) {
-        message1 = "تسمعى شخرتى وانا بفشخك نيك؟";
+        message1 = "متيجى انيكك صوت بعنف؟";
         message2 = "يالا؟";
         message3 = " ";
         input.placeholder = `the bad message`;
     }
 
-    else if (message1.includes("بفشخك")) {
+    else if (message1.includes("نيكك")) {
         message1 = "هاى";
         message2 = "ازيك";
         message3 = "؟";
