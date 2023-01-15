@@ -54,10 +54,10 @@ let _fmain = parent.fmain,
                         let li = document.createElement("li");
                         li.innerText = s
                         li.style.color = "red";
-                        li.id = `a${num}`;
+                        li.id = generateRandomString();
                         li.style.cursor = "pointer";
                         li.style.width = "fit-content";
-                        blockObj.set(s, `a${num}`);
+                        blockObj.set(s, li.id);
                         num++;
                         ol.append(li);
                         setTimeout(_ => { li.scrollIntoView() }, 1000);
@@ -111,10 +111,10 @@ let _fmain = parent.fmain,
                     if (!personsGotMyMsg2.has(name)) {
                         let li = document.createElement("li");
                         li.innerText = name
-                        li.id = `a${num}`;
+                        li.id = generateRandomString();
                         li.style.cursor = "pointer";
                         li.style.width = "fit-content";
-                        blockObj.set(name, `a${num}`);
+                        blockObj.set(name, li.id);
                         ol.append(li);
                         li.onclick = _ => {
                             _fwindowlist.sendcmd(`/query ${name}`);
@@ -693,5 +693,14 @@ function removeMultiWordElements(x) {
         }
     }
     return singleWordElements;
+}
+function generateRandomString() {
+    var chars = "abcdefghijklmnopqrstuvwxyz";
+    var randomString = "";
+    for (var i = 0; i < 8; i++) {
+        var randomIndex = Math.floor(Math.random() * chars.length);
+        randomString += chars[randomIndex];
+    }
+    return randomString;
 }
 retrieveBigData();
