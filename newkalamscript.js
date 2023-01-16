@@ -264,18 +264,35 @@ let _fmain = parent.fmain,
                 childList: true,
                 subtree: true
             });
-            femalesNames.addd = function (value) {
-                if (this.has(value)) {
-                    input.placeholder = `${value} is already in the set`;
-                    console.log(`${value} is already in the set`);
-                }
-                else {
-                    this.add(value)
-                    input.placeholder = `${value} added to the set`;
-                    console.log(`${value} added to the set`);
-                    _fmain.document.getElementById("kokos").innerText = this.size - oldLength;
-                }
-            }
+            // femalesNames.addd = function (value) {
+            //     if (this.has(value)) {
+            //         input.placeholder = `${value} is already in the set`;
+            //         console.log(`${value} is already in the set`);
+            //     }
+            //     else {
+            //         this.add(value)
+            //         input.placeholder = `${value} added to the set`;
+            //         console.log(`${value} added to the set`);
+            //         _fmain.document.getElementById("kokos").innerText = this.size - oldLength;
+            //     }
+            // }
+            Object.defineProperty(femalesNames, "addd", {
+                value: function (value) {
+                    if (this.has(value)) {
+                        input.placeholder = `${value} is already in the set`;
+                        console.log(`${value} is already in the set`);
+                    }
+                    else {
+                        this.add(value)
+                        input.placeholder = `${value} added to the set`;
+                        console.log(`${value} added to the set`);
+                        _fmain.document.getElementById("kokos").innerText = this.size - oldLength;
+                    }
+                },
+                writable: false,
+                configurable: false
+            });
+
             clearInterval(check);
             console.log("done");
         }
