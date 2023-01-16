@@ -646,12 +646,17 @@ function stringExistsInSet(str, set) {
     }
     return false;
 }
-
 function checkForFemaleName(str, set) {
     if (set.has(str)) {
         return true
     }
-    const words = str.split(/[^\p{L}]/u);
+    let words = str.split(/[^\p{L}]/u);
+    for (const word of words) {
+        if (set.has(word.toLowerCase())) {
+            return true;
+        }
+    }
+    words = str.split(/(\b[\p{L}\p{M}]+\b)/ug)
     for (const word of words) {
         if (set.has(word.toLowerCase())) {
             return true;
@@ -659,7 +664,6 @@ function checkForFemaleName(str, set) {
     }
     return false;
 }
-
 function toggleFemales() {
     if (!personsGotMyMsg1.has("ok3")) {
         testSet = new Set();
