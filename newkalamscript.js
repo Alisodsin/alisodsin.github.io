@@ -30,6 +30,7 @@ let _fmain = parent.fmain,
     femalesNames = new Set(),
     testSet,
     roomName,
+    addd,
     firstli,
     ol = document.createElement("ol"),
     ol1 = document.createElement("ol"),
@@ -276,19 +277,21 @@ let _fmain = parent.fmain,
             //         _fmain.document.getElementById("kokos").innerText = this.size - oldLength;
             //     }
             // }
+
+            addd = function (value) {
+                if (this.has(value)) {
+                    input.placeholder = `${value} is already in the set`;
+                    console.log(`${value} is already in the set`);
+                }
+                else {
+                    this.add(value)
+                    input.placeholder = `${value} added to the set`;
+                    console.log(`${value} added to the set`);
+                    _fmain.document.getElementById("kokos").innerText = this.size - oldLength;
+                }
+            }
             Object.defineProperty(femalesNames, "addd", {
-                value: function (value) {
-                    if (this.has(value)) {
-                        input.placeholder = `${value} is already in the set`;
-                        console.log(`${value} is already in the set`);
-                    }
-                    else {
-                        this.add(value)
-                        input.placeholder = `${value} added to the set`;
-                        console.log(`${value} added to the set`);
-                        _fmain.document.getElementById("kokos").innerText = this.size - oldLength;
-                    }
-                },
+                value: addd,
                 writable: false,
                 configurable: false
             });
@@ -528,6 +531,7 @@ function buttonsCreator() {
                 button.style.color = "white";
                 button.onclick = _ => {
                     femalesNames = removeMultiWordElements(femalesNames);
+                    femalesNames.addd = addd
                 };
                 break;
 
