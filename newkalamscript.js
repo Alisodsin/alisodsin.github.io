@@ -528,7 +528,7 @@ function buttonsCreator() {
                 button.innerText = "D";
                 button.onclick = function () {
                     num = num + 1000;
-                    if (num > 5) {
+                    if (num > 5000) {
                         num = 0;
                     }
                     this.innerText = `${num / 1000}S`
