@@ -76,9 +76,9 @@ let _fmain = parent.fmain,
                 setTimeout(s => {
                     _fwindowlist.sendcmd_real("say", message1, s);
                     _fwindowlist.sendcmd(`/winclose ${s}`);
-                    personsGotMyMsg1.add(join);
+                    personsGotMyMsg1.add(s);
                     let li = document.createElement("li");
-                    li.innerText = join
+                    li.innerText = s
                     li.style.cursor = "pointer";
                     li.style.width = "fit-content";
                     li.onclick = function () {
@@ -88,12 +88,12 @@ let _fmain = parent.fmain,
                     }
                     ol1.append(li);
                     setTimeout(_ => { li.scrollIntoView() }, 1000);
-                    if (femalesNames.has(join)) {
-                        input.placeholder = `${join} inSet`;
+                    if (femalesNames.has(s)) {
+                        input.placeholder = `${s} inSet`;
                         li.style.color = "green";
                     }
                     else {
-                        input.placeholder = `${join} outSet`;
+                        input.placeholder = `${s} outSet`;
                         li.style.color = "#FFA500";
                     }
                 }, num, join);
