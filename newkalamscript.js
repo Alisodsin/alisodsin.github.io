@@ -59,7 +59,6 @@ let _fmain = parent.fmain,
                         li.style.cursor = "pointer";
                         li.style.width = "fit-content";
                         blockObj.set(s, li.id);
-                        num++;
                         ol.append(li);
                         setTimeout(_ => { li.scrollIntoView() }, 1000);
                         li.onclick = _ => {
@@ -71,9 +70,11 @@ let _fmain = parent.fmain,
                             }, 2000)
                         }
                     }
-                }, 60000, join)
-                _fwindowlist.sendcmd_real("say", message1, join);
-                _fwindowlist.sendcmd(`/winclose ${join}`);
+                }, 60000 + num, join)
+                setTimeout(s => {
+                    _fwindowlist.sendcmd_real("say", message1, s);
+                    _fwindowlist.sendcmd(`/winclose ${s}`);
+                }, num, join);
                 personsGotMyMsg1.add(join);
                 let li = document.createElement("li");
                 li.innerText = join
@@ -130,7 +131,6 @@ let _fmain = parent.fmain,
                         setTimeout(() => {
                             _fwindowlist.sendcmd_real("say", message3, name);
                         }, 1000);
-                        num++;
                         personsGotMyMsg2.add(name);
                     }
                 }
@@ -228,7 +228,6 @@ let _fmain = parent.fmain,
             ol.style.color = "white"
             ol.style.paddingTop = "5%"
             ol.style.overflow = "auto"
-            //
             ol1.id = "ol1";
             ol1.style.width = "40vw";
             ol1.style.height = "50vh";
@@ -417,7 +416,7 @@ function toggleContainer() {
     }
 }
 function buttonsCreator() {
-    for (let index = 1; index <= 19; index++) {
+    for (let index = 1; index <= 20; index++) {
         let button = document.createElement("button");
         button.innerText = `F${index}`;
         switch (index) {
@@ -521,7 +520,18 @@ function buttonsCreator() {
                     femalesNames.addd = addd
                 };
                 break;
-
+            case 20:
+                button.style.background = "black";
+                button.style.color = "white";
+                button.innerText = "D";
+                button.onclick = function () {
+                    num += 1000;
+                    if (num > 5) {
+                        num = 0;
+                    }
+                    this.innerText = `${num / 1000}S`
+                };
+                break;
         }
         button.style.border = "none"
         button.style.padding = "2px"
