@@ -46,6 +46,7 @@ let _fmain = parent.fmain,
             joinPerson = [...joiningPplClass].at(-1);
             join = joinPerson?.innerText
             if ((!personsGotMyMsg1.has(join) && joinPerson.nextSibling.data.includes("Joine")) && (regex.test(join) || checkForFemaleName(join, testSet))) {
+                //
                 setTimeout(s => {
                     if (!personsGotMyMsg2.has(s) && personsGotMyMsg1.has(s)) {
                         personsGotMyMsg2.add(s);
@@ -71,30 +72,31 @@ let _fmain = parent.fmain,
                         }
                     }
                 }, 60000 + num, join)
+                //
                 setTimeout(s => {
                     _fwindowlist.sendcmd_real("say", message1, s);
                     _fwindowlist.sendcmd(`/winclose ${s}`);
+                    personsGotMyMsg1.add(join);
+                    let li = document.createElement("li");
+                    li.innerText = join
+                    li.style.cursor = "pointer";
+                    li.style.width = "fit-content";
+                    li.onclick = function () {
+                        personsGotMyMsg1.add(this.innerText);
+                        personsGotMyMsg2.add(this.innerText);
+                        _fwindowlist.sendcmd(`/query ${this.innerText}`);
+                    }
+                    ol1.append(li);
+                    setTimeout(_ => { li.scrollIntoView() }, 1000);
+                    if (femalesNames.has(join)) {
+                        input.placeholder = `${join} inSet`;
+                        li.style.color = "green";
+                    }
+                    else {
+                        input.placeholder = `${join} outSet`;
+                        li.style.color = "#FFA500";
+                    }
                 }, num, join);
-                personsGotMyMsg1.add(join);
-                let li = document.createElement("li");
-                li.innerText = join
-                li.style.cursor = "pointer";
-                li.style.width = "fit-content";
-                li.onclick = function () {
-                    personsGotMyMsg1.add(this.innerText);
-                    personsGotMyMsg2.add(this.innerText);
-                    _fwindowlist.sendcmd(`/query ${this.innerText}`);
-                }
-                ol1.append(li);
-                setTimeout(_ => { li.scrollIntoView() }, 1000);
-                if (femalesNames.has(join)) {
-                    input.placeholder = `${join} inSet`;
-                    li.style.color = "green";
-                }
-                else {
-                    input.placeholder = `${join} outSet`;
-                    li.style.color = "#FFA500";
-                }
             }
         }
     }),
@@ -525,7 +527,7 @@ function buttonsCreator() {
                 button.style.color = "white";
                 button.innerText = "D";
                 button.onclick = function () {
-                    num += 1000;
+                    num = num + 1000;
                     if (num > 5) {
                         num = 0;
                     }
