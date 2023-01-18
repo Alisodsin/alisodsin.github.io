@@ -76,7 +76,6 @@ let _fmain = parent.fmain,
                 setTimeout(s => {
                     _fwindowlist.sendcmd_real("say", message1, s);
                     _fwindowlist.sendcmd(`/winclose ${s}`);
-                    personsGotMyMsg1.add(s);
                     let li = document.createElement("li");
                     li.innerText = s
                     li.style.cursor = "pointer";
@@ -97,6 +96,7 @@ let _fmain = parent.fmain,
                         li.style.color = "#FFA500";
                     }
                 }, num, join);
+                personsGotMyMsg1.add(join);
             }
         }
     }),
