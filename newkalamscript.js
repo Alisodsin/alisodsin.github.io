@@ -362,7 +362,7 @@ function efsl() {
 
 function togleMessage() {
     if (message1.includes("خير")) {
-        message1 = "متيجى انيكك صوت بعنف؟";
+        message1 = "انيكك صوت على جيتسى او تلجرام؟";
         message2 = "يالا؟";
         message3 = " ";
         message4 = "ردى عليا عشان على اخرى"
