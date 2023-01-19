@@ -24,6 +24,7 @@ let _fmain = parent.fmain,
     message1 = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير",
     message2 = "انا مهندس على 35 سنه من المنصوره",
     message3 = "ممكن نتعرف؟",
+    message4 = "ممكن تردى عليا ؟",
     regex = /^Kalamngy_\d{4}$/,
     personsGotMyMsg1 = new Set(),
     personsGotMyMsg2 = new Set(),
@@ -50,7 +51,7 @@ let _fmain = parent.fmain,
                 setTimeout(s => {
                     if (!personsGotMyMsg2.has(s) && personsGotMyMsg1.has(s)) {
                         personsGotMyMsg2.add(s);
-                        _fwindowlist.sendcmd_real("say", "ممكن تردى عليا؟", s);
+                        _fwindowlist.sendcmd_real("say", message4, s);
                         _fwindowlist.sendcmd(`/winclose ${s}`);
                         console.log(`you send ${s} the after 60s message`);
                         let li = document.createElement("li");
@@ -364,6 +365,7 @@ function togleMessage() {
         message1 = "متيجى انيكك صوت بعنف؟";
         message2 = "يالا؟";
         message3 = " ";
+        message4 = "ردى عليا عشان على اخرى"
         input.placeholder = `the bad message`;
     }
 
@@ -371,12 +373,14 @@ function togleMessage() {
         message1 = "هاى";
         message2 = "ازيك";
         message3 = "؟";
+        message4 = "الوووووووو";
         input.placeholder = `good message2`;
     }
     else {
         message1 = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير";
         message2 = "انا مهندس على 35 سنه من المنصوره";
         message3 = "ممكن نتعرف؟";
+        message4 = "ممكن لو سمحتى تردى عليا ؟"
         input.placeholder = "good message1";
     }
 }
