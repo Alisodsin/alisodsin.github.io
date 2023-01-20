@@ -102,7 +102,26 @@ let _fmain = parent.fmain,
                             _fwindowlist.sendcmd_real("say", message1, zozo.at(-1));
                             _fwindowlist.sendcmd(`/winclose ${zozo.at(-1)}`);
                             personsGotMyMsg1.add(zozo.at(-1))
-                            console.log(`you send lister ${zozo.at(-1)} the message`)
+
+                            let li = document.createElement("li");
+                            li.innerText = zozo.at(-1)
+                            li.style.cursor = "pointer";
+                            li.style.width = "fit-content";
+                            li.onclick = function () {
+                                personsGotMyMsg1.add(this.innerText);
+                                personsGotMyMsg2.add(this.innerText);
+                                _fwindowlist.sendcmd(`/query ${this.innerText}`);
+                            }
+                            ol1.append(li);
+                            setTimeout(_ => { li.scrollIntoView() }, 1000);
+                            if (femalesNames.has(zozo.at(-1))) {
+                                input.placeholder = `${zozo.at(-1)} inSet`;
+                                li.style.color = "green";
+                            }
+                            else {
+                                input.placeholder = `${zozo.at(-1)} outSet`;
+                                li.style.color = "#FFA500";
+                            }
                             zozo.pop();
                         }
                     }, 5000);
