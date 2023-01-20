@@ -100,12 +100,12 @@ let _fmain = parent.fmain,
                     setTimeout(() => {
                         if (zozo.length > 0) {
                             _fwindowlist.sendcmd_real("say", message1, zozo.at(-1));
-                            _fwindowlist.sendcmd(`/winclose ${s}`);
+                            _fwindowlist.sendcmd(`/winclose ${zozo.at(-1)}`);
                             personsGotMyMsg1.add(zozo.at(-1))
                             console.log(`you send lister ${zozo.at(-1)} the message`)
                             zozo.pop();
                         }
-                    },5000);
+                    }, 5000);
                 }, num, join);
                 personsGotMyMsg1.add(join);
             }
