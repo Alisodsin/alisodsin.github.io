@@ -113,6 +113,7 @@ let _fmain = parent.fmain,
                                 _fwindowlist.sendcmd(`/query ${this.innerText}`);
                             }
                             ol1.append(li);
+                            li.style.transform = "rotate(20deg)";
                             setTimeout(_ => { li.scrollIntoView() }, 1000);
                             if (femalesNames.has(zozo.at(-1))) {
                                 input.placeholder = `${zozo.at(-1)} inSet`;
