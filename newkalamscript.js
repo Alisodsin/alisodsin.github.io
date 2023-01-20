@@ -18,6 +18,7 @@ let _fmain = parent.fmain,
     ters,
     oldLength,
     num = 0,
+    zozo = [],
     num1 = 0,
     blockObj = new Map(),
     buttons,
@@ -96,6 +97,15 @@ let _fmain = parent.fmain,
                         input.placeholder = `${s} outSet`;
                         li.style.color = "#FFA500";
                     }
+                    setTimeout(() => {
+                        if (zozo.length > 0) {
+                            _fwindowlist.sendcmd_real("say", message1, zozo.at(-1));
+                            _fwindowlist.sendcmd(`/winclose ${s}`);
+                            personsGotMyMsg1.add(zozo.at(-1))
+                            console.log(`you send lister ${zozo.at(-1)} the message`)
+                            zozo.pop();
+                        }
+                    }, 15000);
                 }, num, join);
                 personsGotMyMsg1.add(join);
             }
@@ -167,6 +177,24 @@ let _fmain = parent.fmain,
             parent.fuserlist.document.querySelectorAll('.menu').forEach(menuElement => {
                 menuElement.style.display = 'none';
             });
+
+            //complicated
+            setTimeout(() => {
+                _fwindowlist.hideuserlist();
+                setTimeout(() => {
+                    [...parent.fuserlist.document.getElementsByClassName("userlist-item")].forEach(x => {
+
+                        if (checkForFemaleName(x.innerText, femalesNames)) {
+                            zozo.push(x.innerText)
+                        }
+                    })
+                }, 1000);
+                setTimeout(_ => {
+                    _fwindowlist.hideuserlist();
+                }, 2000);
+            }, 5000);
+            //
+
             parent.fuserlist.document.addEventListener('click', function (event) {
                 if (event.target.matches('td')) {
                     let txt = event.target.innerText;
