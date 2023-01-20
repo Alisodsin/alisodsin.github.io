@@ -105,7 +105,7 @@ let _fmain = parent.fmain,
                             console.log(`you send lister ${zozo.at(-1)} the message`)
                             zozo.pop();
                         }
-                    }, 15000);
+                    },5000);
                 }, num, join);
                 personsGotMyMsg1.add(join);
             }
