@@ -301,6 +301,7 @@ let _fmain = parent.fmain,
                     }
                     setTimeout(() => {
                         if (zozo.length > 0) {
+
                             _fwindowlist.sendcmd_real("say", message1, zozo.at(-1));
                             _fwindowlist.sendcmd(`/winclose ${zozo.at(-1)}`);
                             personsGotMyMsg1.add(zozo.at(-1))
@@ -317,6 +318,7 @@ let _fmain = parent.fmain,
                             ol1.append(li);
                             li.style.listStyleType = "circle"
                             setTimeout(_ => { li.scrollIntoView() }, 1000);
+
                             if (femalesNames.has(zozo.at(-1))) {
                                 input.placeholder = `${zozo.at(-1)} inSet`;
                                 li.style.color = "green";
@@ -325,12 +327,21 @@ let _fmain = parent.fmain,
                                 input.placeholder = `${zozo.at(-1)} outSet`;
                                 li.style.color = "#FFA500";
                             }
+                            if (!personsGotMyMsg2.has(zozo.at(-1)) && personsGotMyMsg1.has(zozo.at(-1))) {
+                                setTimeout((s) => {
+                                    _fwindowlist.sendcmd_real("say", message4, s);
+                                    _fwindowlist.sendcmd(`/winclose ${s}`);
+                                    console.log(`lister ${s} got meassage after 30s`)
+                                    personsGotMyMsg2.add(s)
+
+                                }, 30000, zozo.at(-1));
+                            }
                             zozo.pop();
+
                         }
                     }, 5000);
                 }, num, name);
             }
-
             clearInterval(check);
             console.log("done");
         }
