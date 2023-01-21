@@ -15,6 +15,7 @@ let _fmain = parent.fmain,
     shrr,
     hrdspc = "\u00A0",
     nick,
+    messageThisPerson,
     ters,
     oldLength,
     num = 0,
@@ -48,86 +49,7 @@ let _fmain = parent.fmain,
             joinPerson = [...joiningPplClass].at(-1);
             join = joinPerson?.innerText
             if ((!personsGotMyMsg1.has(join) && joinPerson.nextSibling.data.includes("Joine")) && (regex.test(join) || checkForFemaleName(join, testSet))) {
-                //
-                setTimeout(s => {
-                    if (!personsGotMyMsg2.has(s) && personsGotMyMsg1.has(s)) {
-                        personsGotMyMsg2.add(s);
-                        _fwindowlist.sendcmd_real("say", message4, s);
-                        _fwindowlist.sendcmd(`/winclose ${s}`);
-                        console.log(`you send ${s} the after 60s message`);
-                        let li = document.createElement("li");
-                        li.innerText = s
-                        li.style.color = "red";
-                        li.id = generateRandomString();
-                        li.style.cursor = "pointer";
-                        li.style.width = "fit-content";
-                        blockObj.set(s, li.id);
-                        ol.append(li);
-                        setTimeout(_ => { li.scrollIntoView() }, 1000);
-                        li.onclick = _ => {
-                            _fwindowlist.sendcmd(`/query ${s}`);
-                            _fwindowlist.sendcmd_real("say", "الو", s);
-                            _fwindowlist.sendcmd_real("say", "مشغوله", s);
-                            setTimeout(_ => {
-                                _fwindowlist.sendcmd_real("say", `/winclose ${s}`)
-                            }, 2000)
-                        }
-                    }
-                }, 60000 + num, join)
-                //
-                setTimeout(s => {
-                    _fwindowlist.sendcmd_real("say", message1, s);
-                    _fwindowlist.sendcmd(`/winclose ${s}`);
-                    let li = document.createElement("li");
-                    li.innerText = s
-                    li.style.cursor = "pointer";
-                    li.style.width = "fit-content";
-                    li.onclick = function () {
-                        personsGotMyMsg1.add(this.innerText);
-                        personsGotMyMsg2.add(this.innerText);
-                        _fwindowlist.sendcmd(`/query ${this.innerText}`);
-                    }
-                    ol1.append(li);
-                    setTimeout(_ => { li.scrollIntoView() }, 1000);
-                    if (femalesNames.has(s)) {
-                        input.placeholder = `${s} inSet`;
-                        li.style.color = "green";
-                    }
-                    else {
-                        input.placeholder = `${s} outSet`;
-                        li.style.color = "#FFA500";
-                    }
-                    setTimeout(() => {
-                        if (zozo.length > 0) {
-                            _fwindowlist.sendcmd_real("say", message1, zozo.at(-1));
-                            _fwindowlist.sendcmd(`/winclose ${zozo.at(-1)}`);
-                            personsGotMyMsg1.add(zozo.at(-1))
-
-                            let li = document.createElement("li");
-                            li.innerText = zozo.at(-1)
-                            li.style.cursor = "pointer";
-                            li.style.width = "fit-content";
-                            li.onclick = function () {
-                                personsGotMyMsg1.add(this.innerText);
-                                personsGotMyMsg2.add(this.innerText);
-                                _fwindowlist.sendcmd(`/query ${this.innerText}`);
-                            }
-                            ol1.append(li);
-                            li.style.listStyleType = "circle"
-                            setTimeout(_ => { li.scrollIntoView() }, 1000);
-                            if (femalesNames.has(zozo.at(-1))) {
-                                input.placeholder = `${zozo.at(-1)} inSet`;
-                                li.style.color = "green";
-                            }
-                            else {
-                                input.placeholder = `${zozo.at(-1)} outSet`;
-                                li.style.color = "#FFA500";
-                            }
-                            zozo.pop();
-                        }
-                    }, 5000);
-                }, num, join);
-                personsGotMyMsg1.add(join);
+                messageThisPerson(join);
             }
         }
     }),
@@ -197,8 +119,6 @@ let _fmain = parent.fmain,
             parent.fuserlist.document.querySelectorAll('.menu').forEach(menuElement => {
                 menuElement.style.display = 'none';
             });
-
-            //complicated
             setTimeout(() => {
                 _fwindowlist.hideuserlist();
                 setTimeout(() => {
@@ -213,8 +133,6 @@ let _fmain = parent.fmain,
                     _fwindowlist.hideuserlist();
                 }, 2000);
             }, 5000);
-            //
-
             parent.fuserlist.document.addEventListener('click', function (event) {
                 if (event.target.matches('td')) {
                     let txt = event.target.innerText;
@@ -332,6 +250,85 @@ let _fmain = parent.fmain,
                 writable: false,
                 configurable: false
             });
+            messageThisPerson = function (name) {
+                setTimeout(s => {
+                    if (!personsGotMyMsg2.has(s) && personsGotMyMsg1.has(s)) {
+                        personsGotMyMsg2.add(s);
+                        _fwindowlist.sendcmd_real("say", message4, s);
+                        _fwindowlist.sendcmd(`/winclose ${s}`);
+                        console.log(`you send ${s} the after 60s message`);
+                        let li = document.createElement("li");
+                        li.innerText = s
+                        li.style.color = "red";
+                        li.id = generateRandomString();
+                        li.style.cursor = "pointer";
+                        li.style.width = "fit-content";
+                        blockObj.set(s, li.id);
+                        ol.append(li);
+                        setTimeout(_ => { li.scrollIntoView() }, 1000);
+                        li.onclick = _ => {
+                            _fwindowlist.sendcmd(`/query ${s}`);
+                            _fwindowlist.sendcmd_real("say", "الو", s);
+                            _fwindowlist.sendcmd_real("say", "مشغوله", s);
+                            setTimeout(_ => {
+                                _fwindowlist.sendcmd_real("say", `/winclose ${s}`)
+                            }, 2000)
+                        }
+                    }
+                }, 60000 + num, name)
+                setTimeout(s => {
+                    _fwindowlist.sendcmd_real("say", message1, s);
+                    _fwindowlist.sendcmd(`/winclose ${s}`);
+                    let li = document.createElement("li");
+                    li.innerText = s
+                    li.style.cursor = "pointer";
+                    li.style.width = "fit-content";
+                    li.onclick = function () {
+                        personsGotMyMsg1.add(this.innerText);
+                        personsGotMyMsg2.add(this.innerText);
+                        _fwindowlist.sendcmd(`/query ${this.innerText}`);
+                    }
+                    ol1.append(li);
+                    setTimeout(_ => { li.scrollIntoView() }, 1000);
+                    if (femalesNames.has(s)) {
+                        input.placeholder = `${s} inSet`;
+                        li.style.color = "green";
+                    }
+                    else {
+                        input.placeholder = `${s} outSet`;
+                        li.style.color = "#FFA500";
+                    }
+                    setTimeout(() => {
+                        if (zozo.length > 0) {
+                            _fwindowlist.sendcmd_real("say", message1, zozo.at(-1));
+                            _fwindowlist.sendcmd(`/winclose ${zozo.at(-1)}`);
+                            personsGotMyMsg1.add(zozo.at(-1))
+
+                            let li = document.createElement("li");
+                            li.innerText = zozo.at(-1)
+                            li.style.cursor = "pointer";
+                            li.style.width = "fit-content";
+                            li.onclick = function () {
+                                personsGotMyMsg1.add(this.innerText);
+                                personsGotMyMsg2.add(this.innerText);
+                                _fwindowlist.sendcmd(`/query ${this.innerText}`);
+                            }
+                            ol1.append(li);
+                            li.style.listStyleType = "circle"
+                            setTimeout(_ => { li.scrollIntoView() }, 1000);
+                            if (femalesNames.has(zozo.at(-1))) {
+                                input.placeholder = `${zozo.at(-1)} inSet`;
+                                li.style.color = "green";
+                            }
+                            else {
+                                input.placeholder = `${zozo.at(-1)} outSet`;
+                                li.style.color = "#FFA500";
+                            }
+                            zozo.pop();
+                        }
+                    }, 5000);
+                }, num, name);
+            }
 
             clearInterval(check);
             console.log("done");
@@ -657,11 +654,7 @@ _fmain.document.addEventListener('click', function (event) {
         else {
             femalesNames.addd(txt.toLowerCase())
         }
-        _fwindowlist.sendcmd_real("say", message1, txt);
-        setTimeout(() => {
-            _fwindowlist.sendcmd(`/winclose ${txt}`);
-
-        }, 1000);
+        messageThisPerson(txt);
     }
 });
 function sendBigData() {
