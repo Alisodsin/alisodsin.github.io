@@ -18,6 +18,7 @@ let _fmain = parent.fmain,
     messageThisPerson,
     ters,
     oldLength,
+    condition = false,
     num = 0,
     zozo = [],
     num1 = 0,
@@ -214,11 +215,8 @@ let _fmain = parent.fmain,
             _fmain.document.querySelector("#hidderbtn").style.display = "none";
             _fmain.document.querySelector("#mainplusbtn").remove();
             buttons = [...buttonContainers.children];
-            // Create a new mutation observer
             var observers = new MutationObserver(function () {
-                // Select all <font> elements that contain the word "Quit" in their inner text
                 var quitElements = selectFontElementsContainingQuit();
-                // Check the inner text of the last <font> element
                 if (quitElements.length > 0) {
                     var lastElement = quitElements[quitElements.length - 1];
                     for (let person of personsGotMyMsg1) {
@@ -229,7 +227,6 @@ let _fmain = parent.fmain,
                     }
                 }
             });
-            // Configure the observer to monitor the entire _fmain.document for changes
             observers.observe(_fmain.document, {
                 childList: true,
                 subtree: true
@@ -252,31 +249,33 @@ let _fmain = parent.fmain,
                 configurable: false
             });
             messageThisPerson = function (name) {
-                setTimeout(s => {
-                    if (!personsGotMyMsg2.has(s) && personsGotMyMsg1.has(s)) {
-                        personsGotMyMsg2.add(s);
-                        _fwindowlist.sendcmd_real("say", message4, s);
-                        _fwindowlist.sendcmd(`/winclose ${s}`);
-                        console.log(`you send ${s} the after 60s message`);
-                        let li = document.createElement("li");
-                        li.innerText = s
-                        li.style.color = "red";
-                        li.id = generateRandomString();
-                        li.style.cursor = "pointer";
-                        li.style.width = "fit-content";
-                        blockObj.set(s, li.id);
-                        ol.append(li);
-                        setTimeout(_ => { li.scrollIntoView() }, 1000);
-                        li.onclick = _ => {
-                            _fwindowlist.sendcmd(`/query ${s}`);
-                            _fwindowlist.sendcmd_real("say", "الو", s);
-                            _fwindowlist.sendcmd_real("say", "مشغوله", s);
-                            setTimeout(_ => {
-                                _fwindowlist.sendcmd_real("say", `/winclose ${s}`)
-                            }, 2000)
+                if (condition) {
+                    setTimeout(s => {
+                        if (!personsGotMyMsg2.has(s) && personsGotMyMsg1.has(s)) {
+                            personsGotMyMsg2.add(s);
+                            _fwindowlist.sendcmd_real("say", message4, s);
+                            _fwindowlist.sendcmd(`/winclose ${s}`);
+                            console.log(`you send ${s} the after 60s message`);
+                            let li = document.createElement("li");
+                            li.innerText = s
+                            li.style.color = "red";
+                            li.id = generateRandomString();
+                            li.style.cursor = "pointer";
+                            li.style.width = "fit-content";
+                            blockObj.set(s, li.id);
+                            ol.append(li);
+                            setTimeout(_ => { li.scrollIntoView() }, 1000);
+                            li.onclick = _ => {
+                                _fwindowlist.sendcmd(`/query ${s}`);
+                                _fwindowlist.sendcmd_real("say", "الو", s);
+                                _fwindowlist.sendcmd_real("say", "مشغوله", s);
+                                setTimeout(_ => {
+                                    _fwindowlist.sendcmd_real("say", `/winclose ${s}`)
+                                }, 2000)
+                            }
                         }
-                    }
-                }, 60000 + num, name)
+                    }, 60000 + num, name)
+                }
                 setTimeout(s => {
                     _fwindowlist.sendcmd_real("say", message1, s);
                     _fwindowlist.sendcmd(`/winclose ${s}`);
@@ -299,46 +298,50 @@ let _fmain = parent.fmain,
                         input.placeholder = `${s} outSet`;
                         li.style.color = "#FFA500";
                     }
-                    setTimeout(() => {
-                        if (zozo.length > 0) {
+                    if (condition) {
+                        setTimeout(() => {
+                            if (zozo.length > 0) {
 
-                            _fwindowlist.sendcmd_real("say", message1, zozo.at(-1));
-                            _fwindowlist.sendcmd(`/winclose ${zozo.at(-1)}`);
-                            personsGotMyMsg1.add(zozo.at(-1))
+                                _fwindowlist.sendcmd_real("say", message1, zozo.at(-1));
+                                _fwindowlist.sendcmd(`/winclose ${zozo.at(-1)}`);
+                                personsGotMyMsg1.add(zozo.at(-1))
 
-                            let li = document.createElement("li");
-                            li.innerText = zozo.at(-1)
-                            li.style.cursor = "pointer";
-                            li.style.width = "fit-content";
-                            li.onclick = function () {
-                                personsGotMyMsg1.add(this.innerText);
-                                personsGotMyMsg2.add(this.innerText);
-                                _fwindowlist.sendcmd(`/query ${this.innerText}`);
-                            }
-                            ol1.append(li);
-                            li.style.listStyleType = "circle"
-                            setTimeout(_ => { li.scrollIntoView() }, 1000);
-
-                            if (femalesNames.has(zozo.at(-1))) {
-                                input.placeholder = `${zozo.at(-1)} inSet`;
-                                li.style.color = "green";
-                            }
-                            else {
-                                input.placeholder = `${zozo.at(-1)} outSet`;
-                                li.style.color = "#FFA500";
-                            }
-                            setTimeout((s) => {
-                                if (!personsGotMyMsg2.has(s) && personsGotMyMsg1.has(s)) {
-                                    _fwindowlist.sendcmd_real("say", message4, s);
-                                    _fwindowlist.sendcmd(`/winclose ${s}`);
-                                    console.log(`lister ${s} got meassage after 30s`)
-                                    personsGotMyMsg2.add(s)
+                                let li = document.createElement("li");
+                                li.innerText = zozo.at(-1)
+                                li.style.cursor = "pointer";
+                                li.style.width = "fit-content";
+                                li.onclick = function () {
+                                    personsGotMyMsg1.add(this.innerText);
+                                    personsGotMyMsg2.add(this.innerText);
+                                    _fwindowlist.sendcmd(`/query ${this.innerText}`);
                                 }
-                            }, 30000, zozo.at(-1));
-                            zozo.pop();
-                        }
-                    }, 5000);
+                                ol1.append(li);
+                                li.style.listStyleType = "circle"
+                                setTimeout(_ => { li.scrollIntoView() }, 1000);
+
+                                if (femalesNames.has(zozo.at(-1))) {
+                                    input.placeholder = `${zozo.at(-1)} inSet`;
+                                    li.style.color = "green";
+                                }
+                                else {
+                                    input.placeholder = `${zozo.at(-1)} outSet`;
+                                    li.style.color = "#FFA500";
+                                }
+                                setTimeout((s) => {
+                                    if (!personsGotMyMsg2.has(s) && personsGotMyMsg1.has(s)) {
+                                        _fwindowlist.sendcmd_real("say", message4, s);
+                                        _fwindowlist.sendcmd(`/winclose ${s}`);
+                                        console.log(`lister ${s} got meassage after 30s`)
+                                        personsGotMyMsg2.add(s)
+                                    }
+                                }, 30000, zozo.at(-1));
+                                zozo.pop();
+                            }
+                        }, 5000);
+                    }
                 }, num, name);
+
+
             }
             clearInterval(check);
             console.log("done");
@@ -477,7 +480,7 @@ function toggleContainer() {
     }
 }
 function buttonsCreator() {
-    for (let index = 1; index <= 20; index++) {
+    for (let index = 1; index <= 21; index++) {
         let button = document.createElement("button");
         button.innerText = `F${index}`;
         switch (index) {
@@ -593,9 +596,25 @@ function buttonsCreator() {
                     this.innerText = `${num / 1000}S`
                 };
                 break;
+            case 21:
+                button.style.background = "black";
+                button.style.color = "white";
+                button.innerText = "true";
+                button.onclick = function () {
+                    if (condition) {
+                        condition = false;
+                        this.innerText = "false";
+                    }
+                    else {
+                        condition = true;
+                        this.innerText = "true";
+                    }
+
+                };
+                break;
+
         }
         button.style.border = "none"
-        button.style.padding = "2px"
         button.style.borderRadius = "40%"
         buttonContainers.append(button);
     }
