@@ -599,7 +599,7 @@ function buttonsCreator() {
             case 21:
                 button.style.background = "black";
                 button.style.color = "white";
-                button.innerText = "true";
+                button.innerText = "false";
                 button.onclick = function () {
                     if (condition) {
                         condition = false;
