@@ -50,6 +50,7 @@ let _fmain = parent.fmain,
             join = joinPerson?.innerText
             if ((!personsGotMyMsg1.has(join) && joinPerson.nextSibling.data.includes("Joine")) && (regex.test(join) || checkForFemaleName(join, testSet))) {
                 messageThisPerson(join);
+                personsGotMyMsg1.add(join);
             }
         }
     }),
