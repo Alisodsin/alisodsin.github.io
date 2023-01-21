@@ -264,7 +264,7 @@ let _fmain = parent.fmain,
                             li.style.width = "fit-content";
                             blockObj.set(s, li.id);
                             ol.append(li);
-                            setTimeout(_ => { li.scrollIntoView() }, 1000);
+                            li.scrollIntoView();
                             li.onclick = _ => {
                                 _fwindowlist.sendcmd(`/query ${s}`);
                                 _fwindowlist.sendcmd_real("say", "الو", s);
@@ -289,7 +289,7 @@ let _fmain = parent.fmain,
                         _fwindowlist.sendcmd(`/query ${this.innerText}`);
                     }
                     ol1.append(li);
-                    setTimeout(_ => { li.scrollIntoView() }, 1000);
+                    li.scrollIntoView();
                     if (femalesNames.has(s)) {
                         input.placeholder = `${s} inSet`;
                         li.style.color = "green";
@@ -317,8 +317,7 @@ let _fmain = parent.fmain,
                                 }
                                 ol1.append(li);
                                 li.style.listStyleType = "circle"
-                                setTimeout(_ => { li.scrollIntoView() }, 1000);
-
+                                li.scrollIntoView();
                                 if (femalesNames.has(zozo.at(-1))) {
                                     input.placeholder = `${zozo.at(-1)} inSet`;
                                     li.style.color = "green";
