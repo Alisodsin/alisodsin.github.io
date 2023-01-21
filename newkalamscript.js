@@ -327,17 +327,15 @@ let _fmain = parent.fmain,
                                 input.placeholder = `${zozo.at(-1)} outSet`;
                                 li.style.color = "#FFA500";
                             }
-                            if (!personsGotMyMsg2.has(zozo.at(-1)) && personsGotMyMsg1.has(zozo.at(-1))) {
-                                setTimeout((s) => {
+                            setTimeout((s) => {
+                                if (!personsGotMyMsg2.has(s) && personsGotMyMsg1.has(s)) {
                                     _fwindowlist.sendcmd_real("say", message4, s);
                                     _fwindowlist.sendcmd(`/winclose ${s}`);
                                     console.log(`lister ${s} got meassage after 30s`)
                                     personsGotMyMsg2.add(s)
-
-                                }, 30000, zozo.at(-1));
-                            }
+                                }
+                            }, 30000, zozo.at(-1));
                             zozo.pop();
-
                         }
                     }, 5000);
                 }, num, name);
