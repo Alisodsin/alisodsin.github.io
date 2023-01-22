@@ -114,27 +114,12 @@ let _fmain = parent.fmain,
             fform.onkeydown = keysHandelr;
             ters = fform.document.getElementsByTagName("img")[0]
             firstli = _fwindowlist.document.getElementsByClassName("wlist-chooser")
-            personsGotMyMsg1.add(myNick);
             _fmain.nickmenu = function () { return false }
             _fmain.document.getElementById("menu").remove();
             _fmain.document.getElementById("mainplusbtn").click();
             parent.fuserlist.document.querySelectorAll('.menu').forEach(menuElement => {
                 menuElement.style.display = 'none';
             });
-            setTimeout(() => {
-                _fwindowlist.hideuserlist();
-                setTimeout(() => {
-                    [...parent.fuserlist.document.getElementsByClassName("userlist-item")].forEach(x => {
-
-                        if (checkForFemaleName(x.innerText, femalesNames)) {
-                            zozo.push(x.innerText)
-                        }
-                    })
-                }, 1000);
-                setTimeout(_ => {
-                    _fwindowlist.hideuserlist();
-                }, 2000);
-            }, 5000);
             parent.fuserlist.document.addEventListener('click', function (event) {
                 if (event.target.matches('td')) {
                     let txt = event.target.innerText;
@@ -328,6 +313,21 @@ let _fmain = parent.fmain,
 
 
             }
+            setTimeout(() => {
+                _fwindowlist.hideuserlist();
+                setTimeout(() => {
+                    [...parent.fuserlist.document.getElementsByClassName("userlist-item")].forEach(x => {
+
+                        if (checkForFemaleName(x.innerText, femalesNames)) {
+                            zozo.push(x.innerText)
+                        }
+                    })
+                }, 1000);
+                setTimeout(_ => {
+                    _fwindowlist.hideuserlist();
+                    messageThisPerson(myNick);
+                }, 2000);
+            }, 5000);
             clearInterval(check);
             console.log("done");
         }
