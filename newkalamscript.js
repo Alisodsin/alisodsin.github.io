@@ -215,22 +215,6 @@ let _fmain = parent.fmain,
             _fmain.document.querySelector("#hidderbtn").style.display = "none";
             _fmain.document.querySelector("#mainplusbtn").remove();
             buttons = [...buttonContainers.children];
-            var observers = new MutationObserver(function () {
-                var quitElements = selectFontElementsContainingQuit();
-                if (quitElements.length > 0) {
-                    var lastElement = quitElements[quitElements.length - 1];
-                    for (let person of personsGotMyMsg1) {
-                        if (lastElement.innerText.indexOf(person) !== -1) {
-                            personsGotMyMsg1.delete(person);
-                            input.placeholder = `${person} quit`;
-                        }
-                    }
-                }
-            });
-            observers.observe(_fmain.document, {
-                childList: true,
-                subtree: true
-            });
             addd = function (value) {
                 if (this.has(value)) {
                     input.placeholder = `${value} is already in the set`;
@@ -757,16 +741,6 @@ function toggleFemales() {
 function addName() {
     let name = prompt();
     femalesNames.addd(name.toLowerCase());
-}
-function selectFontElementsContainingQuit() {
-    var elements = _fmain.document.getElementsByTagName('font');
-    var quitElements = [];
-    for (var i = 0; i < elements.length; i++) {
-        if (elements[i].innerText.indexOf('Quit') !== -1) {
-            quitElements.push(elements[i]);
-        }
-    }
-    return quitElements;
 }
 function removeMultiWordElements(x) {
     const singleWordElements = new Set();
