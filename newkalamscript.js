@@ -326,6 +326,7 @@ let _fmain = parent.fmain,
                 setTimeout(_ => {
                     _fwindowlist.hideuserlist();
                     messageThisPerson(myNick);
+                    personsGotMyMsg1.add(myNick);
                 }, 2000);
             }, 5000);
             clearInterval(check);
