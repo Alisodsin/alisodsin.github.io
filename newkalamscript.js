@@ -73,7 +73,7 @@ let _fmain = parent.fmain,
                         li.id = generateRandomString();
                         li.style.cursor = "pointer";
                         li.style.width = "fit-content";
-                        blockObj.set(name, li.id);
+                        blockObj.get(name).push(li.id);
                         ol.append(li);
                         li.onclick = _ => {
                             _fwindowlist.sendcmd(`/query ${name}`);
@@ -267,6 +267,8 @@ let _fmain = parent.fmain,
                     li.innerText = s
                     li.style.cursor = "pointer";
                     li.style.width = "fit-content";
+                    li.id = generateRandomString();
+                    blockObj.set(s, [li.id]);
                     li.onclick = function () {
                         personsGotMyMsg1.add(this.innerText);
                         personsGotMyMsg2.add(this.innerText);
@@ -378,7 +380,8 @@ function block() {
         _fwindowlist.sendcmd_real("say", `/winclose ${personName}`)
         personsGotMyMsg1.delete(personName);
         personsGotMyMsg2.delete(personName);
-        _fmain.document.getElementById(blockObj.get(personName)).remove();
+        _fmain.document.getElementById(blockObj.get(personName)[0]).remove();
+        _fmain.document.getElementById(blockObj.get(personName)[1]).remove();
         blockObj.delete(personName);
     }
 }
@@ -595,7 +598,6 @@ function buttonsCreator() {
 
                 };
                 break;
-
         }
         button.style.border = "none"
         button.style.borderRadius = "40%"
