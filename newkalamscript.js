@@ -346,7 +346,7 @@ let _fmain = parent.fmain,
                     setTimeout(() => {
                         _fwindowlist.sendcmd_real("say", `/winclose ${myNick}`)
                         mainObserver.observe(mainTarget, objConfig);
-                    }, 2000);
+                    }, 4000);
                 }, 2000);
             }, 5000);
             clearInterval(check);
