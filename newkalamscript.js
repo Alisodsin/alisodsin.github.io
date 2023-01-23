@@ -25,7 +25,7 @@ let _fmain = parent.fmain,
     blockObj = new Map(),
     buttons,
     message1 = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير",
-    message2 = "انا على 41 سنه من المنصوره",
+    message2 = "انا مهندس على 35 سنه من المنصوره",
     message3 = "ممكن نتعرف؟",
     message4 = "ممكن تردى عليا ؟",
     regex = /^Kalamngy_\d{4}$/,
@@ -218,7 +218,7 @@ let _fmain = parent.fmain,
                 configurable: false
             });
             messageThisPerson = function (name) {
-                if (condition) {
+                if (!condition) {
                     setTimeout(s => {
                         if (!personsGotMyMsg2.has(s) && personsGotMyMsg1.has(s)) {
                             personsGotMyMsg2.add(s);
