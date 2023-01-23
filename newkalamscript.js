@@ -329,8 +329,6 @@ let _fmain = parent.fmain,
                         }, 5000);
                     }
                 }, num, name);
-
-
             }
             setTimeout(() => {
                 _fwindowlist.hideuserlist();
