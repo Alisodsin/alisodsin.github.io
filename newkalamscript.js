@@ -21,6 +21,7 @@ let _fmain = parent.fmain,
     condition = false,
     num = 0,
     zozo = [],
+    togC,
     num1 = 0,
     blockObj = new Map(),
     buttons,
@@ -346,6 +347,7 @@ let _fmain = parent.fmain,
                     setTimeout(() => {
                         _fwindowlist.sendcmd_real("say", `/winclose ${myNick}`)
                         mainObserver.observe(mainTarget, objConfig);
+                        togC.click();
                     }, 4000);
                 }, 2000);
             }, 5000);
@@ -548,6 +550,7 @@ function buttonsCreator() {
                 button.style.background = "#009B77";
                 button.style.color = "white";
                 button.onclick = toggleContainer;
+                togC = button;
                 break;
             case 13:
                 button.style.background = "#B565A7";
