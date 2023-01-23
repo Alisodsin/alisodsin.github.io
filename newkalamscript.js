@@ -28,7 +28,7 @@ let _fmain = parent.fmain,
     message2 = "انا مهندس على 35 سنه من المنصوره",
     message3 = "ممكن نتعرف؟",
     message4 = "ممكن لو سمحتى تردى عليا ؟",
-    regex = /^Kalamngy_\d{4}$/,
+    regex = /onedaymothersaidgetupearlytogotoschool/,
     personsGotMyMsg1 = new Set(),
     personsGotMyMsg2 = new Set(),
     femalesNames = new Set(),
@@ -110,7 +110,6 @@ let _fmain = parent.fmain,
             listTarget = _fwindowlist.document.getElementById("windowlist");
             input = parent.fform.document.querySelector("#say");
             listObserver.observe(listTarget, objConfig);
-            mainObserver.observe(mainTarget, objConfig);
             fform.onkeydown = keysHandelr;
             ters = fform.document.getElementsByTagName("img")[0]
             firstli = _fwindowlist.document.getElementsByClassName("wlist-chooser")
@@ -344,6 +343,10 @@ let _fmain = parent.fmain,
                     _fwindowlist.hideuserlist();
                     messageThisPerson(myNick);
                     personsGotMyMsg1.add(myNick);
+                    setTimeout(() => {
+                        _fwindowlist.sendcmd_real("say", `/winclose ${myNick}`)
+                        mainObserver.observe(mainTarget, objConfig);
+                    }, 2000);
                 }, 2000);
             }, 5000);
             clearInterval(check);
@@ -756,13 +759,11 @@ function checkForFemaleName(str, set) {
 function toggleFemales() {
     if (!personsGotMyMsg1.has("ok3")) {
         testSet = new Set();
-        regex = /onedaymothersaidgetupearlytogotoschool/;
         personsGotMyMsg1.add("ok3");
         _fmain.document.getElementById("togf").innerText = "off"
     }
     else {
         testSet = femalesNames;
-        regex = /onedaymothersaidgetupearlytogotoschool/
         personsGotMyMsg1.delete("ok3")
         _fmain.document.getElementById("togf").innerText = "on"
     }
