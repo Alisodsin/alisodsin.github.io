@@ -231,7 +231,7 @@ let _fmain = parent.fmain,
                             li.id = generateRandomString();
                             li.style.cursor = "pointer";
                             li.style.width = "fit-content";
-                            blockObj.set(s, li.id);
+                            blockObj.get(s).push(li.id);
                             ol.append(li);
                             li.scrollIntoView();
                             li.onclick = _ => {
@@ -784,4 +784,3 @@ function generateRandomString() {
     return randomString;
 }
 retrieveBigData();
-// test test
