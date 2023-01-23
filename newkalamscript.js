@@ -272,7 +272,6 @@ let _fmain = parent.fmain,
                     if (condition) {
                         setTimeout(() => {
                             if (zozo.length > 0) {
-
                                 _fwindowlist.sendcmd_real("say", message1, zozo.at(-1));
                                 _fwindowlist.sendcmd(`/winclose ${zozo.at(-1)}`);
                                 personsGotMyMsg1.add(zozo.at(-1))
@@ -286,7 +285,9 @@ let _fmain = parent.fmain,
                                     personsGotMyMsg2.add(this.innerText);
                                     _fwindowlist.sendcmd(`/query ${this.innerText}`);
                                 }
+                                li.id = generateRandomString();
                                 ol1.append(li);
+                                blockObj.set(zozo.at(-1), [li.id]);
                                 li.style.listStyleType = "circle"
                                 li.scrollIntoView();
                                 if (femalesNames.has(zozo.at(-1))) {
@@ -301,6 +302,24 @@ let _fmain = parent.fmain,
                                     if (!personsGotMyMsg2.has(s) && personsGotMyMsg1.has(s)) {
                                         _fwindowlist.sendcmd_real("say", message4, s);
                                         _fwindowlist.sendcmd(`/winclose ${s}`);
+                                        let li = document.createElement("li");
+                                        li.innerText = s;
+                                        li.style.cursor = "pointer";
+                                        li.style.width = "fit-content";
+                                        li.style.listStyleType = "circle";
+                                        li.style.color = "red";
+                                        li.id = generateRandomString();
+                                        blockObj.get(s).push(li.id);
+                                        ol.append(li);
+                                        li.scrollIntoView();
+                                        li.onclick = _ => {
+                                            _fwindowlist.sendcmd(`/query ${s}`);
+                                            _fwindowlist.sendcmd_real("say", "الو", s);
+                                            _fwindowlist.sendcmd_real("say", "مشغوله", s);
+                                            setTimeout(_ => {
+                                                _fwindowlist.sendcmd_real("say", `/winclose ${s}`)
+                                            }, 2000)
+                                        }
                                         console.log(`lister ${s} got meassage after 30s`)
                                         personsGotMyMsg2.add(s)
                                     }
