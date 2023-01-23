@@ -725,6 +725,12 @@ function checkForFemaleName(str, set) {
             return true;
         }
     }
+    words = str.split(/(?=[A-Z])/);
+    for (const word of words) {
+        if (set.has(word.toLowerCase())) {
+            return true;
+        }
+    }
     return false;
 }
 function toggleFemales() {
