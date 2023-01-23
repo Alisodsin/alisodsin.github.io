@@ -742,6 +742,9 @@ function checkForFemaleName(str, set) {
             return true;
         }
     }
+    if (/^[A-Z\W]+$/.test(str)) {
+        return false
+    }
     words = str.split(/(?=[A-Z])/);
     for (const word of words) {
         if (set.has(word.toLowerCase())) {
