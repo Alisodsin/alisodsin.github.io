@@ -44,7 +44,7 @@ let _fmain = parent.fmain,
     joinPerson,
     join,
     listTarget,
-    patterns = [["*[<=5]", /^.{1,6}$/], ["ar<=5", /^[\u0621-\u064A\xA0\x5F\0-9]{1,7}$/], ["*digts", /\d+$/], ["ar*", /^[\u0621-\u064A\xA0\x5F\0-9]+$/], ["*", /^.+$/], ["k|short", /(^.{1,5}$|^Kalamngy_)/i], ["^k$", /^Kalamngy_\d{4}$/]],
+    patterns = [["^k$", /^Kalamngy_\d{4}$/],["noPtrn",/onedaymothersaidgetupearlytogotoschool/],["*[<=5]", /^.{1,6}$/], ["ar<=5", /^[\u0621-\u064A\xA0\x5F\0-9]{1,7}$/], ["*digts", /\d+$/], ["ar*", /^[\u0621-\u064A\xA0\x5F\0-9]+$/], ["*", /^.+$/], ["k|short", /(^.{1,5}$|^Kalamngy_)/i]],
     mainTarget = _fmain.document.querySelector(".main-span"),
     mainObserver = new MutationObserver(_ => {
         if (joiningPplClass.length >= 1) {
@@ -675,7 +675,7 @@ function keysHandelr(e) {
     }
 }
 function changePattern() {
-    if (num1 >= 7) {
+    if (num1 >= 8) {
         num1 = 0;
     }
     regex = patterns[num1][1];
