@@ -44,7 +44,7 @@ let _fmain = parent.fmain,
     joinPerson,
     join,
     listTarget,
-    patterns = [["^k$", /^Kalamngy_\d{4}$/], ["noPtrn", /onedaymothersaidgetupearlytogotoschool/], ["*[<=5]", /^.{1,6}$/], ["ar<=5", /^[\u0621-\u064A\xA0\x5F\0-9]{1,7}$/], ["*digts", /\d+$/], ["ar*", /^[\u0621-\u064A\xA0\x5F\0-9]+$/], ["*", /^.+$/], ["k|short", /(^.{1,5}$|^Kalamngy_)/i]],
+    patterns = [["^k$", /^Kalamngy_\d{4}$/],["noPtrn",/onedaymothersaidgetupearlytogotoschool/],["*[<=5]", /^.{1,6}$/], ["ar<=5", /^[\u0621-\u064A\xA0\x5F\0-9]{1,7}$/], ["*digts", /\d+$/], ["ar*", /^[\u0621-\u064A\xA0\x5F\0-9]+$/], ["*", /^.+$/], ["k|short", /(^.{1,5}$|^Kalamngy_)/i]],
     mainTarget = _fmain.document.querySelector(".main-span"),
     mainObserver = new MutationObserver(_ => {
         if (joiningPplClass.length >= 1) {
@@ -69,9 +69,13 @@ let _fmain = parent.fmain,
                     audio.play();
                     _fwindowlist.sendcmd(`/query ${name}`);
                     if (!personsGotMyMsg2.has(name)) {
-                        let li = _fmain.document.getElementById(blockObj.get(name))
+                        let li = document.createElement("li");
+                        li.innerText = name
+                        li.id = generateRandomString();
+                        li.style.cursor = "pointer";
+                        li.style.width = "fit-content";
+                        blockObj.get(name).push(li.id);
                         ol.append(li);
-                        li.scrollIntoView();
                         li.onclick = _ => {
                             _fwindowlist.sendcmd(`/query ${name}`);
                             _fwindowlist.sendcmd_real("say", "الو", name);
@@ -79,6 +83,7 @@ let _fmain = parent.fmain,
                             setTimeout(_ => {
                                 _fwindowlist.sendcmd_real("say", `/winclose ${name}`)
                             }, 2000)
+
                         }
                         _fwindowlist.sendcmd_real("say", message2, name);
                         setTimeout(() => {
@@ -220,8 +225,13 @@ let _fmain = parent.fmain,
                             _fwindowlist.sendcmd_real("say", message4, s);
                             _fwindowlist.sendcmd(`/winclose ${s}`);
                             console.log(`you send ${s} the after 60s message`);
-                            let li = _fmain.document.getElementById(blockObj.get(s))
+                            let li = document.createElement("li");
+                            li.innerText = s
                             li.style.color = "red";
+                            li.id = generateRandomString();
+                            li.style.cursor = "pointer";
+                            li.style.width = "fit-content";
+                            blockObj.get(s).push(li.id);
                             ol.append(li);
                             li.scrollIntoView();
                             li.onclick = _ => {
@@ -243,7 +253,7 @@ let _fmain = parent.fmain,
                     li.style.cursor = "pointer";
                     li.style.width = "fit-content";
                     li.id = generateRandomString();
-                    blockObj.set(s, li.id);
+                    blockObj.set(s, [li.id]);
                     li.onclick = function () {
                         personsGotMyMsg1.add(this.innerText);
                         personsGotMyMsg2.add(this.innerText);
@@ -393,7 +403,8 @@ function block() {
         _fwindowlist.sendcmd_real("say", `/winclose ${personName}`)
         personsGotMyMsg1.delete(personName);
         personsGotMyMsg2.delete(personName);
-        _fmain.document.getElementById(blockObj.get(personName)).remove();
+        _fmain.document.getElementById(blockObj.get(personName)[0]).remove();
+        _fmain.document.getElementById(blockObj.get(personName)[1]).remove();
         blockObj.delete(personName);
     }
 }
