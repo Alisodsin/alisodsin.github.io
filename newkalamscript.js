@@ -51,11 +51,12 @@ let _fmain = parent.fmain,
         let lastPerson = lastQuitPerson();
         if (personsGotMyMsg1.has(lastPerson)) {
             console.log(lastPerson)
+            personsGotMyMsg1.delete(lastPerson)
         };
         if (joiningPplClass.length >= 1) {
             joinPerson = [...joiningPplClass].at(-1);
             join = joinPerson?.innerText
-            if ((!personsGotMyMsg1.has(join) && joinPerson.nextSibling.data.includes("Joine")) && (regex.test(join) || checkForFemaleName(join, testSet))) {
+            if ((!personsGotMyMsg1.has(join) && joinPerson.nextSibling.data.includes("Joine")) && (join != lastPerson) && (regex.test(join) || checkForFemaleName(join, testSet))) {
                 messageThisPerson(join);
                 personsGotMyMsg1.add(join);
             }
