@@ -52,7 +52,7 @@ let _fmain = parent.fmain,
         if (personsGotMyMsg1.has(lastPerson)) {
             console.log(lastPerson)
             personsGotMyMsg1.delete(lastPerson)
-        }
+        };
         if (joiningPplClass.length >= 1) {
             joinPerson = [...joiningPplClass].at(-1);
             join = joinPerson?.innerText
