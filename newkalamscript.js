@@ -51,7 +51,6 @@ let _fmain = parent.fmain,
         let lastPerson = lastQuitPerson();
         if (personsGotMyMsg1.has(lastPerson)) {
             console.log(lastPerson)
-            personsGotMyMsg1.delete(lastPerson)
         };
         if (joiningPplClass.length >= 1) {
             joinPerson = [...joiningPplClass].at(-1);
