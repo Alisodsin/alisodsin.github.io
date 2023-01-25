@@ -59,7 +59,7 @@ let _fmain = parent.fmain,
         }
         if (personsGotMyMsg1.has(lastPerson)) {
             console.log(lastPerson)
-            personsGotMyMsg1.delete(lastPerson)
+            block(lastPerson)
         };
     }),
     listObserver = new MutationObserver((e) => {
@@ -419,8 +419,8 @@ function goToRoom() {
     _fwindowlist.sendcmd(`/query ${roomName}`);
 }
 
-function block() {
-    let personName = _fwindowlist.currentwindow
+function block(x) {
+    let personName = x || _fwindowlist.currentwindow
     if (personName != roomName && personName != myNick) {
         _fwindowlist.sendcmd_real("say", `/winclose ${personName}`)
         personsGotMyMsg1.delete(personName);
