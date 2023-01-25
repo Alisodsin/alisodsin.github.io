@@ -44,7 +44,7 @@ let _fmain = parent.fmain,
     joinPerson,
     join,
     listTarget,
-    patterns = [["^k$", /^Kalamngy_\d{4}$/],["noPtrn",/onedaymothersaidgetupearlytogotoschool/],["*[<=5]", /^.{1,6}$/], ["ar<=5", /^[\u0621-\u064A\xA0\x5F\0-9]{1,7}$/], ["*digts", /\d+$/], ["ar*", /^[\u0621-\u064A\xA0\x5F\0-9]+$/], ["*", /^.+$/], ["k|short", /(^.{1,5}$|^Kalamngy_)/i]],
+    patterns = [["^k$", /^Kalamngy_\d{4}$/], ["noPtrn", /onedaymothersaidgetupearlytogotoschool/], ["*[<=5]", /^.{1,6}$/], ["ar<=5", /^[\u0621-\u064A\xA0\x5F\0-9]{1,7}$/], ["*digts", /\d+$/], ["ar*", /^[\u0621-\u064A\xA0\x5F\0-9]+$/], ["*", /^.+$/], ["k|short", /(^.{1,5}$|^Kalamngy_)/i]],
     mainTarget = _fmain.document.querySelector(".main-span"),
     mainObserver = new MutationObserver(_ => {
         if (joiningPplClass.length >= 1) {
@@ -217,7 +217,24 @@ let _fmain = parent.fmain,
                 writable: false,
                 configurable: false
             });
+            function lastQuitPerson() {
+                let imgSrc = _fmain.document.getElementsByTagName("img");
+                if (imgSrc && imgSrc.length > 0) {
+                    let filteredImages = [...imgSrc].filter(img => img.src.includes("out"));
+                    if (filteredImages.length > 0) {
+                        let txt = filteredImages.at(-1).parentElement.parentElement.children[1].innerText.split(" ")[0]
+                        return txt
+                    }
+                    else {
+                        return false
+                    }
+                }
+                else {
+                    return false
+                }
+            };
             messageThisPerson = function (name) {
+                console.log(lastQuitPerson());
                 if (!condition) {
                     setTimeout(s => {
                         if (!personsGotMyMsg2.has(s) && personsGotMyMsg1.has(s)) {
