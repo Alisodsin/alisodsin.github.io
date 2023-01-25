@@ -104,7 +104,7 @@ let _fmain = parent.fmain,
     audio = new Audio("https://alisodsin.github.io/Short.mp3"),
     bll = new Audio("https://www.soundjay.com/phone/cell-phone-1-nr0.mp3"),
     check = setInterval(_ => {
-        if (Boolean(Object.keys(_fwindowlist.Witems)[1])) {
+        if (Boolean(Object.keys(_fwindowlist?.Witems)?.[1])) {
             roomName = Object.keys(_fwindowlist.Witems)[1];
             myNick = _fwindowlist.mynickname;
             joiningPplClass = _fmain.document.getElementsByClassName("main-nickg");
