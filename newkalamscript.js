@@ -49,10 +49,6 @@ let _fmain = parent.fmain,
     mainTarget = _fmain.document.querySelector(".main-span"),
     mainObserver = new MutationObserver(_ => {
         let lastPerson = lastQuitPerson();
-        if (personsGotMyMsg1.has(lastPerson)) {
-            console.log(lastPerson)
-            personsGotMyMsg1.delete(lastPerson)
-        };
         if (joiningPplClass.length >= 1) {
             joinPerson = [...joiningPplClass].at(-1);
             join = joinPerson?.innerText
@@ -61,6 +57,10 @@ let _fmain = parent.fmain,
                 personsGotMyMsg1.add(join);
             }
         }
+        if (personsGotMyMsg1.has(lastPerson)) {
+            console.log(lastPerson)
+            personsGotMyMsg1.delete(lastPerson)
+        };
     }),
     listObserver = new MutationObserver((e) => {
         let addedNodes = e[0].addedNodes;
