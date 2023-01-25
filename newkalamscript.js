@@ -13,6 +13,7 @@ let _fmain = parent.fmain,
     repo = 'alisodsin.github.io',
     path = 'femaleNames.json',
     shrr,
+    lastQuitPerson,
     hrdspc = "\u00A0",
     nick,
     messageThisPerson,
@@ -218,7 +219,7 @@ let _fmain = parent.fmain,
                 writable: false,
                 configurable: false
             });
-            function lastQuitPerson() {
+            lastQuitPerson = function () {
                 let imgSrc = _fmain.document.getElementsByTagName("img");
                 if (imgSrc && imgSrc.length > 0) {
                     let filteredImages = [...imgSrc].filter(img => img.src.includes("out"));
