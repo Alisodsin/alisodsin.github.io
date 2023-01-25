@@ -59,7 +59,7 @@ let _fmain = parent.fmain,
         }
         if (personsGotMyMsg1.has(lastPerson)) {
             console.log(lastPerson)
-            block(lastPerson)
+            block(lastPerson);
         };
     }),
     listObserver = new MutationObserver((e) => {
@@ -420,13 +420,15 @@ function goToRoom() {
 }
 
 function block(x) {
-    let personName = x || _fwindowlist.currentwindow
+    let personName = x
     if (personName != roomName && personName != myNick) {
         _fwindowlist.sendcmd_real("say", `/winclose ${personName}`)
         personsGotMyMsg1.delete(personName);
         personsGotMyMsg2.delete(personName);
         _fmain.document.getElementById(blockObj.get(personName)[0]).remove();
-        _fmain.document.getElementById(blockObj.get(personName)[1]).remove();
+        if (Boolean(blockObj.get(personName)[1])) {
+            _fmain.document.getElementById(blockObj.get(personName)[1]).remove();
+        }
         blockObj.delete(personName);
     }
 }
@@ -551,7 +553,10 @@ function buttonsCreator() {
             case 8:
                 button.style.background = "red";
                 button.style.color = "white";
-                button.onclick = block;
+                button.onclick = _ => {
+                    let str = _fwindowlist.currentwindow;
+                    block(str);
+                };
                 break;
             case 9:
                 button.style.background = "#6592cf";
