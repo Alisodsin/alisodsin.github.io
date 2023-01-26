@@ -34,6 +34,7 @@ let _fmain = parent.fmain,
     personsGotMyMsg1 = new Set(),
     personsGotMyMsg2 = new Set(),
     femalesNames = new Set(),
+    likeMe = new Set(),
     testSet,
     roomName,
     addd,
@@ -72,7 +73,13 @@ let _fmain = parent.fmain,
             personsGotMyMsg1.forEach(name => {
                 let regex = new RegExp(name + "\n!", "g")
                 if (listTarget.innerText.match(regex)) {
-                    audio.play();
+                    if (likeMe.has(name)) {
+                        bll.play();
+                        likeMe.delete(name)
+                    }
+                    else {
+                        audio.play();
+                    }
                     _fwindowlist.sendcmd(`/query ${name}`);
                     if (!personsGotMyMsg2.has(name)) {
                         let li = document.createElement("li");
@@ -87,13 +94,17 @@ let _fmain = parent.fmain,
                             _fwindowlist.sendcmd_real("say", "الو", name);
                             _fwindowlist.sendcmd_real("say", "مشغوله", name);
                             setTimeout(_ => {
-                                _fwindowlist.sendcmd_real("say", `/winclose ${name}`)
+
                             }, 2000)
 
                         }
                         _fwindowlist.sendcmd_real("say", message2, name);
                         setTimeout(() => {
                             _fwindowlist.sendcmd_real("say", message3, name);
+                            setTimeout(() => {
+                                likeMe.add(name);
+                                _fwindowlist.sendcmd_real("say", `/winclose ${name}`)
+                            }, 1000);
                         }, 1000);
                         personsGotMyMsg2.add(name);
                     }
