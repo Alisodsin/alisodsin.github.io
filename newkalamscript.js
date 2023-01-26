@@ -35,6 +35,7 @@ let _fmain = parent.fmain,
     personsGotMyMsg2 = new Set(),
     femalesNames = new Set(),
     likeMe = new Set(),
+    likeMe1 = new Set(),
     testSet,
     roomName,
     addd,
@@ -77,6 +78,19 @@ let _fmain = parent.fmain,
                         bll.play();
                         likeMe.delete(name)
                     }
+                    else if (likeMe1.has(name)) {
+                        audio.play();
+                        _fwindowlist.sendcmd_real("say", message2, name);
+                        setTimeout(() => {
+                            _fwindowlist.sendcmd_real("say", message3, name);
+                            setTimeout(() => {
+                                likeMe.add(name);
+                                likeMe1.delete(name)
+                                _fwindowlist.sendcmd(`/winclose ${name}`);
+                                _fwindowlist.sendcmd(`/query ${roomName}`);
+                            }, 1000);
+                        }, 1000);
+                    }
                     else {
                         audio.play();
                     }
@@ -103,8 +117,8 @@ let _fmain = parent.fmain,
                             _fwindowlist.sendcmd_real("say", message3, name);
                             setTimeout(() => {
                                 likeMe.add(name);
-                                closAll();
-                                goToRoom();
+                                _fwindowlist.sendcmd(`/winclose ${name}`);
+                                _fwindowlist.sendcmd(`/query ${roomName}`);
                             }, 1000);
                         }, 1000);
                         personsGotMyMsg2.add(name);
@@ -256,6 +270,7 @@ let _fmain = parent.fmain,
                     setTimeout(s => {
                         if (!personsGotMyMsg2.has(s) && personsGotMyMsg1.has(s)) {
                             personsGotMyMsg2.add(s);
+                            likeMe1.add(s);
                             _fwindowlist.sendcmd_real("say", message4, s);
                             _fwindowlist.sendcmd(`/winclose ${s}`);
                             console.log(`you send ${s} the after 60s message`);
