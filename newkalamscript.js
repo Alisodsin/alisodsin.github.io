@@ -103,7 +103,8 @@ let _fmain = parent.fmain,
                             _fwindowlist.sendcmd_real("say", message3, name);
                             setTimeout(() => {
                                 likeMe.add(name);
-                                _fwindowlist.sendcmd_real("say", `/winclose ${name}`)
+                                closAll();
+                                goToRoom();
                             }, 1000);
                         }, 1000);
                         personsGotMyMsg2.add(name);
