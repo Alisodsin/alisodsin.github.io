@@ -340,19 +340,24 @@ let _fmain = parent.fmain,
                 if (!condition) {
                     setTimeout(s => {
                         if (!personsGotMyMsg2.has(s) && personsGotMyMsg1.has(s)) {
-                            createLi(s, false);
-                            personsGotMyMsg2.add(s);
-                            likeMe1.add(s);
-                            kalamngySend(s, message4).then(_ => { kalamngySend(s, `/winclose ${s}`).then(_ => { console.log(`you send ${s} the after 60s message`) }) });
+                            kalamngySend(s, message4).then(_ => {
+                                createLi(s, false);
+                                kalamngySend(s, `/winclose ${s}`).then(_ => {
+                                    personsGotMyMsg2.add(s);
+                                    likeMe1.add(s);
+                                    console.log(`you send ${s} the after 60s message`)
+                                }
+                                )
+                            });
                         }
                     }, 60000 + num, name)
                 }
                 setTimeout(s => {
-                    kalamngySend(s, message1).then(_ => { kalamngySend(s, `/winclose ${s}`) })
-                    createLi(s, true);
-
+                    kalamngySend(s, message1).then(_ => {
+                        createLi(s, true);
+                        kalamngySend(s, `/winclose ${s}`)
+                    })
                     // if (condition) {
-
                     // }
                 }, num, name);
             }
