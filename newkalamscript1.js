@@ -100,13 +100,13 @@ let _fmain = parent.fmain,
                                     }
                                     ol1.append(li);
                                     li.scrollIntoView();
-                                    setTimeout(() => {
-                                        kalamngySend(name, `/winclose ${name}`).then(
-                                            _ => {
-                                                kalamngySend(roomName, `/query ${roomName}`);
-                                            }
-                                        )
-                                    },2000);
+                                    // setTimeout(() => {
+                                    //     kalamngySend(name, `/winclose ${name}`).then(
+                                    //         _ => {
+                                    //             kalamngySend(roomName, `/query ${roomName}`);
+                                    //         }
+                                    //     )
+                                    // },2000);
 
                                 }
                             )
