@@ -474,20 +474,22 @@ function efsl() {
 }
 
 function togleMessage() {
-    if (message1.includes("خير")) {
+    if (!personsGotMyMsg1.has("dodend1")) {
         message1 = "انيكك فويس بعنف؟";
-        message2 = "يالا؟";
-        message3 = " ";
+        message2 = "نتكلم جيتسى ولا تلجرام";
+        message3 = "؟";
         message4 = "ما تردى عليا يا لبوتى"
         input.placeholder = `the bad message`;
+        personsGotMyMsg1.add("dodend1");
     }
 
-    else if (message1.includes("نيكك")) {
-        message1 = "هاى";
-        message2 = "ازيك";
-        message3 = "؟";
-        message4 = "ممكن لو سمحتى تردى عليا ؟";
+    else if (!personsGotMyMsg1.has("dodend2")) {
+        message1 = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير";
+        message2 = "تحبى نتعرف ";
+        message3 = "بشكل محترم؟";
+        message4 = "ارجو انك تردى عليا";
         input.placeholder = `good message2`;
+        personsGotMyMsg1.add("dodend2");
     }
     else {
         message1 = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير";
@@ -495,6 +497,8 @@ function togleMessage() {
         message3 = "ممكن نتعرف؟";
         message4 = "ممكن لو سمحتى تردى عليا ؟"
         input.placeholder = "good message1";
+        personsGotMyMsg1.delete("dodend1");
+        personsGotMyMsg1.delete("dodend2");
     }
 }
 
