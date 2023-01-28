@@ -385,6 +385,7 @@ let _fmain = parent.fmain,
                     kalamngySend(myNick, `/winclose ${myNick}`).then(_ => {
                         mainObserver.observe(mainTarget, objConfig);
                         _fwindowlist.hideuserlist();
+                        togC.click();
                     })
                 });
             }
