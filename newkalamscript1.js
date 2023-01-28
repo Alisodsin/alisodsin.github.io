@@ -78,8 +78,11 @@ let _fmain = parent.fmain,
                 let regex = new RegExp(name + "\n!", "g")
                 if (listTarget.innerText.match(regex)) {
                     if (likeMe.has(name)) {
-                        bll.play();
-                        likeMe.delete(name)
+                        kalamngySend(name, `/query ${name}`).then(_ => {
+                            bll.play();
+                            likeMe.delete(name)
+                        })
+
                     }
                     else if (likeMe1.has(name)) {
                         audio.play();
@@ -98,9 +101,10 @@ let _fmain = parent.fmain,
                         })
                     }
                     else {
-                        audio.play();
+                        kalamngySend(name, `/query ${name}`).then(_ => {
+                            audio.play();
+                        })
                     }
-                    kalamngySend(name, `/query ${name}`)
                     if (!personsGotMyMsg2.has(name)) {
                         personsGotMyMsg2.add(name);
                         createLi(name, false);
@@ -316,6 +320,7 @@ let _fmain = parent.fmain,
                 setTimeout(s => {
                     kalamngySend(s, message1).then(_ => { kalamngySend(s, `/winclose ${s}`) })
                     createLi(s, true);
+
                     // if (condition) {
 
                     // }
