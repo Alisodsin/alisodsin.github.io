@@ -130,7 +130,7 @@ let _fmain = parent.fmain,
                                 kalamngySend(name, message3).then(
                                     _ => {
                                         likeMe.add(name);
-                                        let str = _fmain.document.querySelector("#text")?.childNodes[0]?.childNodes[4]?.innerText;
+                                        let str = _fmain.document.querySelector("#text")?.childNodes[0]?.childNodes[4]?.innerText || message1;
                                         let li = _fmain.document.getElementById(blockObj.get(name)[0]);
                                         li.innerText = "";
                                         li.innerHTML = `<bdi>${name}</bdi>${hrdspc} ➡ ${hrdspc}<bdi style="color:white">${str}</bdi>`;
