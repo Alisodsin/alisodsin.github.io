@@ -99,6 +99,7 @@ let _fmain = parent.fmain,
                                         kalamngySend(name, `/query ${name}`)
                                     }
                                     ol1.append(li);
+                                    li.scrollIntoView();
                                     setTimeout(() => {
                                         kalamngySend(name, `/winclose ${name}`).then(
                                             _ => {
@@ -132,6 +133,7 @@ let _fmain = parent.fmain,
                                             kalamngySend(name, `/query ${name}`)
                                         }
                                         ol1.append(li);
+                                        li.scrollIntoView();
                                         setTimeout(() => {
                                             kalamngySend(name, `/winclose ${name}`).then(
                                                 _ => {
@@ -156,7 +158,7 @@ let _fmain = parent.fmain,
         characterData: false
     },
     audio = new Audio("https://alisodsin.github.io/Short.mp3"),
-    bll = new Audio("https://www.soundjay.com/phone/cell-phone-1-nr0.mp3"),
+    bll = new Audio("https://soundbible.com/mp3/A-Tone-His_Self-1266414414.mp3"),
     check = setInterval(_ => {
         if (Boolean(Object.keys(_fwindowlist.Witems)[1])) {
             roomName = Object.keys(_fwindowlist.Witems)[1];
