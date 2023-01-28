@@ -361,27 +361,37 @@ let _fmain = parent.fmain,
                     // }
                 }, num, name);
             }
-            setTimeout(() => {
-                _fwindowlist.hideuserlist();
-                setTimeout(() => {
+            function fillZozo() {
+                return new Promise((resolve) => {
                     [...parent.fuserlist.document.getElementsByClassName("userlist-item")].forEach(x => {
-
                         if (checkForFemaleName(x.innerText, femalesNames)) {
                             zozo.push(x.innerText)
                         }
-                    })
-                }, 1000);
-                setTimeout(_ => {
-                    _fwindowlist.hideuserlist();
-                    messageThisPerson(myNick);
+                    });
+                    setTimeout(resolve, 1000);
+                });
+            }
+            function messageAndClose() {
+                return new Promise((resolve) => {
                     personsGotMyMsg1.add(myNick);
-                    setTimeout(() => {
-                        kalamngySend(myNick, `/winclose ${myNick}`);
+                    personsGotMyMsg2.add(myNick);
+                    kalamngySend(myNick, message1).then(_ => {
+                        setTimeout(() => {
+                            resolve();
+                        }, 1000);
+
+                    })
+                }).then(_ => {
+                    kalamngySend(myNick, `/winclose ${myNick}`).then(_ => {
                         mainObserver.observe(mainTarget, objConfig);
-                        togC.click();
-                    }, 4000);
-                }, 2000);
-            }, 5000);
+                        _fwindowlist.hideuserlist();
+                    })
+                });
+            }
+            new Promise(resolve => {
+                _fwindowlist.hideuserlist();
+                setTimeout(resolve, 1000);
+            }).then(_ => fillZozo()).then(_ => messageAndClose())
             clearInterval(check);
             console.log("done");
         }
