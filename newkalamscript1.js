@@ -105,7 +105,7 @@ let _fmain = parent.fmain,
                                                 kalamngySend(roomName, `/query ${roomName}`);
                                             }
                                         )
-                                    }, 1500);
+                                    },2000);
 
                                 }
                             )
@@ -138,7 +138,7 @@ let _fmain = parent.fmain,
                                                     kalamngySend(roomName, `/query ${roomName}`);
                                                 }
                                             )
-                                        }, 1500);
+                                        }, 2000);
 
                                     }
                                 )
