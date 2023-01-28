@@ -91,15 +91,13 @@ let _fmain = parent.fmain,
                                 _ => {
                                     likeMe.add(name);
                                     likeMe1.delete(name);
-                                    let str = _fmain.document.querySelector("#text")?.childNodes[0]?.childNodes[4]?.innerText
-                                    let bdi = document.createElement("bdi")
+                                    let str = _fmain.document.querySelector("#text")?.childNodes[0]?.childNodes[4]?.innerText;
                                     let li = _fmain.document.getElementById(blockObj.get(name)[0]);
-                                    bdi.innerText = hrdspc.repeat(2) + str;
-                                    li.append(bdi);
+                                    li.innerText = "";
+                                    li.innerHtml = `<bdi>${name}</bdi>${hrdspc}==>${hrdspc}<bdi style="color:white">${str}</bdi>`;
                                     li.onclick = function () {
                                         kalamngySend(name, `/query ${name}`)
                                     }
-                                    // input.placeholder = `${name} => ${str}`
                                     setTimeout(() => {
                                         kalamngySend(name, `/winclose ${name}`).then(
                                             _ => {
@@ -125,16 +123,13 @@ let _fmain = parent.fmain,
                                 kalamngySend(name, message3).then(
                                     _ => {
                                         likeMe.add(name);
-                                        let str = _fmain.document.querySelector("#text")?.childNodes[0]?.childNodes[4]?.innerText
-                                        //</bdi> <bdi style="color:#fade8b">leave</bdi>
-                                        let bdi = document.createElement("bdi")
+                                        let str = _fmain.document.querySelector("#text")?.childNodes[0]?.childNodes[4]?.innerText;
                                         let li = _fmain.document.getElementById(blockObj.get(name)[0]);
-                                        bdi.innerText = hrdspc.repeat(2) + str + hrdspc.repeat(2);
-                                        li.append(bdi);
+                                        li.innerText = "";
+                                        li.innerHtml = `<bdi>${name}</bdi>${hrdspc}==>${hrdspc}<bdi style="color:white">${str}</bdi>`;
                                         li.onclick = function () {
                                             kalamngySend(name, `/query ${name}`)
                                         }
-                                        // input.placeholder = `${name} => ${str}`
                                         setTimeout(() => {
                                             kalamngySend(name, `/winclose ${name}`).then(
                                                 _ => {
