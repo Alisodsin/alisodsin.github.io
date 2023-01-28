@@ -129,7 +129,7 @@ let _fmain = parent.fmain,
                                         //</bdi> <bdi style="color:#fade8b">leave</bdi>
                                         let bdi = document.createElement("bdi")
                                         let li = _fmain.document.getElementById(blockObj.get(name)[0]);
-                                        bdi.innerText = hrdspc.repeat(2) + str;
+                                        bdi.innerText = hrdspc.repeat(2) + str + hrdspc.repeat(2);
                                         li.append(bdi);
                                         li.onclick = function () {
                                             kalamngySend(name, `/query ${name}`)
