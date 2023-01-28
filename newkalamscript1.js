@@ -391,7 +391,12 @@ function restart() {
 }
 
 function sendMsgToMyself() {
-    kalamngySend(myNick, message1).then(_ => { kalamngySend(myNick, `/winclose ${myNick}`) })
+    kalamngySend(myNick, message1).then(_ => {
+        setTimeout(() => {
+            kalamngySend(myNick, `/winclose ${myNick}`)
+
+        }, 500);
+    })
 }
 
 function goToRoom() {
