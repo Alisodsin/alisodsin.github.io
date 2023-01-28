@@ -96,6 +96,7 @@ let _fmain = parent.fmain,
                                         let li = _fmain.document.getElementById(blockObj.get(name)[0]);
                                         li.innerText = "";
                                         li.innerHTML = `<bdi>${name}</bdi>${hrdspc} ➡ ${hrdspc}<bdi style="color:white">${str}</bdi>`;
+                                        li.style.whiteSpace = "pre";
                                         li.onclick = function () {
                                             kalamngySend(name, `/query ${name}`)
                                         }
@@ -134,6 +135,7 @@ let _fmain = parent.fmain,
                                         let li = _fmain.document.getElementById(blockObj.get(name)[0]);
                                         li.innerText = "";
                                         li.innerHTML = `<bdi>${name}</bdi>${hrdspc} ➡ ${hrdspc}<bdi style="color:white">${str}</bdi>`;
+                                        li.style.whiteSpace = "pre";
                                         li.onclick = function () {
                                             kalamngySend(name, `/query ${name}`)
                                         }
