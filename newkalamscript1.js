@@ -91,11 +91,16 @@ let _fmain = parent.fmain,
                                 _ => {
                                     likeMe.add(name);
                                     likeMe1.delete(name);
-                                    kalamngySend(name, `/winclose ${name}`).then(
-                                        _ => {
-                                            kalamngySend(roomName, `/query ${roomName}`)
-                                        }
-                                    )
+                                    let str = _fmain.document.querySelector("#text")?.childNodes[0]?.childNodes[4]?.innerText
+                                    input.placeholder = `${name} => ${str}`
+                                    setTimeout(() => {
+                                        kalamngySend(name, `/winclose ${name}`).then(
+                                            _ => {
+                                                kalamngySend(roomName, `/query ${roomName}`);
+                                            }
+                                        )
+                                    }, 500);
+
                                 }
                             )
                         })
@@ -113,11 +118,16 @@ let _fmain = parent.fmain,
                                 kalamngySend(name, message3).then(
                                     _ => {
                                         likeMe.add(name);
-                                        kalamngySend(name, `/winclose ${name}`).then(
-                                            _ => {
-                                                kalamngySend(roomName, `/query ${roomName}`);
-                                            }
-                                        )
+                                        let str = _fmain.document.querySelector("#text")?.childNodes[0]?.childNodes[4]?.innerText
+                                        input.placeholder = `${name} => ${str}`
+                                        setTimeout(() => {
+                                            kalamngySend(name, `/winclose ${name}`).then(
+                                                _ => {
+                                                    kalamngySend(roomName, `/query ${roomName}`);
+                                                }
+                                            )
+                                        }, 500);
+
                                     }
                                 )
                             }
