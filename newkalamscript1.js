@@ -85,32 +85,37 @@ let _fmain = parent.fmain,
 
                     }
                     else if (likeMe1.has(name)) {
-                        audio.play();
-                        kalamngySend(name, message2).then(_ => {
-                            kalamngySend(name, message3).then(
-                                _ => {
-                                    likeMe.add(name);
-                                    likeMe1.delete(name);
-                                    let str = _fmain.document.querySelector("#text")?.childNodes[0]?.childNodes[4]?.innerText;
-                                    let li = _fmain.document.getElementById(blockObj.get(name)[0]);
-                                    li.innerText = "";
-                                    li.innerHTML = `<bdi>${name}</bdi>${hrdspc} ➡ ${hrdspc}<bdi style="color:white">${str}</bdi>`;
-                                    li.onclick = function () {
-                                        kalamngySend(name, `/query ${name}`)
-                                    }
-                                    ol1.append(li);
-                                    li.scrollIntoView();
-                                    // setTimeout(() => {
-                                    //     kalamngySend(name, `/winclose ${name}`).then(
-                                    //         _ => {
-                                    //             kalamngySend(roomName, `/query ${roomName}`);
-                                    //         }
-                                    //     )
-                                    // },2000);
+                        kalamngySend(name, `/query ${name}`).then(_ => {
+                            kalamngySend(name, message2).then(_ => {
+                                audio.play();
+                                kalamngySend(name, message3).then(
+                                    _ => {
+                                        likeMe.add(name);
+                                        likeMe1.delete(name);
+                                        let str = _fmain.document.querySelector("#text")?.childNodes[0]?.childNodes[4]?.innerText;
+                                        let li = _fmain.document.getElementById(blockObj.get(name)[0]);
+                                        li.innerText = "";
+                                        li.innerHTML = `<bdi>${name}</bdi>${hrdspc} ➡ ${hrdspc}<bdi style="color:white">${str}</bdi>`;
+                                        li.onclick = function () {
+                                            kalamngySend(name, `/query ${name}`)
+                                        }
+                                        ol1.append(li);
+                                        li.scrollIntoView();
 
-                                }
-                            )
+                                        setTimeout(() => {
+                                            kalamngySend(name, `/winclose ${name}`).then(
+                                                _ => {
+                                                    kalamngySend(roomName, `/query ${roomName}`);
+                                                }
+                                            )
+                                        }, 2000);
+
+                                    }
+                                )
+                            })
+
                         })
+
                     }
                     else {
                         kalamngySend(name, `/query ${name}`).then(_ => {
