@@ -416,25 +416,22 @@ function sentTwoMsgs() {
 function defineMySelf() {
     if (_fwindowlist.currentwindow != roomName) {
         let personName = _fwindowlist.currentwindow;
-        kalamngySend(personName, message2).then(_ => { kalamngySend(personName, message3) })
+        kalamngySend(personName, "انا مهندس على 35 سنه من المنصوره").then(_ => { kalamngySend(personName, "ممكن نتعرف؟") })
     }
 }
 function restart() {
-    _fwindowlist.reconnect();
-    setTimeout(_ => {
-        firstli[0].click();
-    }, 3000)
-}
-
-function sendMsgToMyself() {
-    kalamngySend(myNick, message1).then(_ => {
-        setTimeout(() => {
-            kalamngySend(myNick, `/winclose ${myNick}`)
-
-        }, 500);
+    kalamngySend("Status", `/query Status`).then(_ => {
+        _fwindowlist.reconnect();
     })
 }
-
+function sendMsgToMyself() {
+    kalamngySend(myNick, `/query ${myNick}`).then(_ => {
+        kalamngySend(myNick, message1).then(_ => {
+            kalamngySend(myNick, `/winclose ${myNick}`)
+        })
+    }
+    )
+}
 function goToRoom() {
     kalamngySend(roomName, `/query ${roomName}`);
 }
@@ -861,3 +858,10 @@ function generateRandomString() {
     return randomString;
 }
 retrieveBigData();
+
+// fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`)
+//     .then(response => response.json())
+//     .then(file => {
+//         const content = decodeURIComponent(atob(file.content));
+//         console.log(content)
+//     })
