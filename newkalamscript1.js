@@ -426,6 +426,7 @@ function restart() {
 }
 function sendMsgToMyself() {
     kalamngySend(myNick, `/query ${myNick}`).then(_ => {
+        audio.play();
         kalamngySend(myNick, message1).then(_ => {
             kalamngySend(myNick, `/winclose ${myNick}`)
         })
