@@ -13,7 +13,6 @@ let _fmain = parent.fmain,
     repo = 'alisodsin.github.io',
     path = 'femaleNames.json',
     shrr,
-    lastQuitPerson,
     hrdspc = "\u00A0",
     nick,
     messageThisPerson,
@@ -284,22 +283,6 @@ let _fmain = parent.fmain,
                 writable: false,
                 configurable: false
             });
-            lastQuitPerson = function () {
-                let imgSrc = _fmain.document.getElementsByTagName("img");
-                if (imgSrc && imgSrc.length > 0) {
-                    let filteredImages = [...imgSrc].filter(img => img.src.includes("out"));
-                    if (filteredImages.length > 0) {
-                        let txt = filteredImages.at(-1).parentElement.parentElement.children[1].innerText.split(" ")[0]
-                        return txt
-                    }
-                    else {
-                        return false
-                    }
-                }
-                else {
-                    return false
-                }
-            };
             kalamngySend = function (target, msg) {
                 return fetch("https://www.kalamngychat.com/chat/client-perl.cgi", {
                     method: "POST",
@@ -371,45 +354,24 @@ let _fmain = parent.fmain,
                     // }
                 }, num, name);
             }
-            function fillZozo() {
-                return new Promise((resolve) => {
-                    [...parent.fuserlist.document.getElementsByClassName("userlist-item")].forEach(x => {
-                        if (checkForFemaleName(x.innerText, femalesNames)) {
-                            zozo.push(x.innerText)
-                        }
-                    });
-                    setTimeout(resolve, 1000);
+            new Promise((resolve) => {
+                Object.keys(_fwindowlist.Witems[roomName].users).forEach(x => {
+                    if (checkForFemaleName(x, femalesNames)) {
+                        zozo.push(x)
+                    }
                 });
-            }
-            function messageAndClose() {
-                return new Promise((resolve) => {
-                    personsGotMyMsg1.add(myNick);
-                    personsGotMyMsg2.add(myNick);
-                    kalamngySend(myNick, message1).then(_ => {
-                        setTimeout(() => {
-                            resolve();
-                        }, 1000);
-
-                    })
-                }).then(_ => {
-                    kalamngySend(myNick, `/winclose ${myNick}`).then(_ => {
-                        mainObserver.observe(mainTarget, objConfig);
-                        _fwindowlist.hideuserlist();
-                        togC.click();
-                    })
-                });
-            }
-            new Promise(resolve => {
-                _fwindowlist.hideuserlist();
-                setTimeout(resolve, 1000);
-            }).then(_ => fillZozo()).then(_ => messageAndClose()).then(_=>{
+                setTimeout(resolve, 500);
+            }).then(_ => {
+                personsGotMyMsg1.add(myNick);
+                personsGotMyMsg2.add(myNick);
+                sendMsgToMyself();
                 setInterval(() => {
                     personsGotMyMsg1.forEach(name => {
                         if (!(name in _fwindowlist.Witems[roomName].users)) {
                             block(name);
                         }
                     })
-                },500);
+                }, 500);
             })
             clearInterval(check);
             console.log("done");
