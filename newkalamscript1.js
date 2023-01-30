@@ -534,19 +534,16 @@ function toggleButtons() {
     }
 }
 function toggleContainer() {
-    if (!personsGotMyMsg1.has("ok1")) {
+
+    if (ol.style.display == "block") {
         ol.style.display = "none";
         ol1.style.display = "block";
-        personsGotMyMsg1.add("ok1")
     }
-    else if (!personsGotMyMsg1.has("ok5")) {
+    else if (ol1.style.display == "block") {
         ol1.style.display = "none";
-        personsGotMyMsg1.add("ok5")
     }
     else {
-        ol.style.display = "block";
-        personsGotMyMsg1.delete("ok1")
-        personsGotMyMsg1.delete("ok5")
+        ol.style.display = "block"
     }
 }
 function buttonsCreator() {
