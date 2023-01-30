@@ -372,7 +372,7 @@ let _fmain = parent.fmain,
                         }
                     })
                 }, 500);
-            })
+            });
             clearInterval(check);
             console.log("done");
         }
