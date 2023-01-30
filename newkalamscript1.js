@@ -314,10 +314,10 @@ let _fmain = parent.fmain,
                     body: `item=say&cmd=say&say=${msg}&target=${target}&R=${_fwindowlist.document.getElementsByName("R")[0].value}&xmlhttp=1`
                 });
             };
-            function func1() {
-                personsGotMyMsg1.add(this.innerText);
-                personsGotMyMsg2.add(this.innerText);
-                kalamngySend(this.innerText, `/query ${this.innerText}`)
+            function func1(s) {
+                personsGotMyMsg1.add(s);
+                personsGotMyMsg2.add(s);
+                kalamngySend(this.innerText, `/query ${s}`)
             };
             function func2(s) {
                 {
@@ -334,7 +334,7 @@ let _fmain = parent.fmain,
                 (Array.isArray(blockObj.get(txt))) ? blockObj.get(txt).push(li.id) : blockObj.set(txt, [li.id])
                 if (firstM) {
                     li.onclick = function (event) {
-                        func1();
+                        func1(txt);
                         event.stopPropagation();
 
                     }
