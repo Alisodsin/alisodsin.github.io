@@ -747,12 +747,6 @@ _fmain.document.addEventListener('click', function (event) {
     if (event.target.matches('.main-nickg')) {
         let txt = event.target.innerText;
         personsGotMyMsg1.add(txt);
-        if (femalesNames.has(txt)) {
-            input.placeholder = `${txt} exists in the femalesNames set`;
-        }
-        else {
-            femalesNames.addd(txt.toLowerCase())
-        }
         messageThisPerson(txt);
     }
 });
