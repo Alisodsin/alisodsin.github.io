@@ -779,14 +779,6 @@ function retrieveBigData() {
             oldLength = femalesNames.size;
         })
 }
-function stringExistsInSet(str, set) {
-    for (const element of set) {
-        if (str.includes(element) || str === element) {
-            return true;
-        }
-    }
-    return false;
-}
 function checkForFemaleName(str, set) {
     if (set.has(str)) {
         return true
