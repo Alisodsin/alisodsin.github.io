@@ -872,10 +872,3 @@ function generateRandomString() {
     return randomString;
 }
 retrieveBigData();
-
-// fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`)
-//     .then(response => response.json())
-//     .then(file => {
-//         const content = decodeURIComponent(atob(file.content));
-//         console.log(content)
-//     })
