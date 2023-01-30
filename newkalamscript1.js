@@ -52,19 +52,14 @@ let _fmain = parent.fmain,
     patterns = [["^k$", /^Kalamngy_\d{4}$/], ["noPtrn", /onedaymothersaidgetupearlytogotoschool/], ["*[<=5]", /^.{1,6}$/], ["ar<=5", /^[\u0621-\u064A\xA0\x5F\0-9]{1,7}$/], ["*digts", /\d+$/], ["ar*", /^[\u0621-\u064A\xA0\x5F\0-9]+$/], ["*", /^.+$/], ["k|short", /(^.{1,5}$|^Kalamngy_)/i]],
     mainTarget = _fmain.document.querySelector(".main-span"),
     mainObserver = new MutationObserver(_ => {
-        let lastPerson = lastQuitPerson();
         if (joiningPplClass.length >= 1) {
             joinPerson = [...joiningPplClass].at(-1);
             join = joinPerson?.innerText
-            if ((!personsGotMyMsg1.has(join) && joinPerson.nextSibling.data.includes("Joine")) && (join != lastPerson) && (regex.test(join) || checkForFemaleName(join, testSet))) {
+            if ((!personsGotMyMsg1.has(join) && joinPerson.nextSibling.data.includes("Joine")) && (regex.test(join) || checkForFemaleName(join, testSet))) {
                 messageThisPerson(join);
                 personsGotMyMsg1.add(join);
             }
         }
-        if (personsGotMyMsg1.has(lastPerson)) {
-            console.log(lastPerson)
-            block(lastPerson);
-        };
     }),
     listObserver = new MutationObserver((e) => {
         let addedNodes = e[0].addedNodes;
@@ -407,7 +402,15 @@ let _fmain = parent.fmain,
             new Promise(resolve => {
                 _fwindowlist.hideuserlist();
                 setTimeout(resolve, 1000);
-            }).then(_ => fillZozo()).then(_ => messageAndClose())
+            }).then(_ => fillZozo()).then(_ => messageAndClose()).then(_=>{
+                setInterval(() => {
+                    personsGotMyMsg1.forEach(name => {
+                        if (!(name in _fwindowlist.Witems[roomName].users)) {
+                            block(name);
+                        }
+                    })
+                },500);
+            })
             clearInterval(check);
             console.log("done");
         }
