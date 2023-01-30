@@ -97,8 +97,9 @@ let _fmain = parent.fmain,
                                         li.innerText = "";
                                         li.innerHTML = `<bdi>${name}</bdi>${hrdspc} ➡ ${hrdspc}<bdi style="color:white">${str}</bdi>`;
                                         li.style.whiteSpace = "pre";
-                                        li.onclick = function () {
+                                        li.onclick = function (event) {
                                             kalamngySend(name, `/query ${name}`)
+                                            event.stopPropagation();
                                         }
                                         ol1.append(li);
                                         li.scrollIntoView();
@@ -135,8 +136,9 @@ let _fmain = parent.fmain,
                                         li.innerText = "";
                                         li.innerHTML = `<bdi>${name}</bdi>${hrdspc} ➡ ${hrdspc}<bdi style="color:white">${str}</bdi>`;
                                         li.style.whiteSpace = "pre";
-                                        li.onclick = function () {
-                                            kalamngySend(name, `/query ${name}`)
+                                        li.onclick = function (event) {
+                                            kalamngySend(name, `/query ${name}`);
+                                            event.stopPropagation();
                                         }
                                         ol1.append(li);
                                         li.scrollIntoView();
@@ -246,6 +248,10 @@ let _fmain = parent.fmain,
             ol.style.color = "white"
             ol.style.paddingTop = "5%"
             ol.style.overflow = "auto"
+            ol.onclick = function name() {
+                ol.style.display = "none";
+                ol1.style.display = "block";
+            }
             ol1.id = "ol1";
             ol1.style.width = "40vw";
             ol1.style.height = "50vh";
@@ -255,6 +261,10 @@ let _fmain = parent.fmain,
             ol1.style.paddingTop = "5%"
             ol1.style.overflow = "auto"
             ol1.style.display = "none";
+            ol1.onclick = function name() {
+                ol1.style.display = "none";
+                ol.style.display = "block";
+            }
             _fmain.document.body.append(buttonContainers, ol, ol1);
             _fmain.document.head.append(style)
             _fmain.document.querySelector(".main-closepic").remove();
@@ -323,12 +333,17 @@ let _fmain = parent.fmain,
                 (firstM) ? li.style.color = (femalesNames.has(txt)) ? "green" : "#FFA500" : li.style.color = (!personsGotMyMsg2.has(txt) && personsGotMyMsg1.has(txt)) ? "red" : "white";
                 (Array.isArray(blockObj.get(txt))) ? blockObj.get(txt).push(li.id) : blockObj.set(txt, [li.id])
                 if (firstM) {
-                    li.onclick = func1
+                    li.onclick = function (event) {
+                        func1();
+                        event.stopPropagation();
+
+                    }
                     ol1.append(li)
                 }
                 else {
-                    li.onclick = _ => {
+                    li.onclick = function (event) {
                         func2(txt);
+                        event.stopPropagation();
                     }
                     ol.append(li)
                 }
@@ -443,10 +458,8 @@ function block(x) {
         kalamngySend(personName, `/winclose ${personName}`)
         personsGotMyMsg1.delete(personName);
         personsGotMyMsg2.delete(personName);
-        _fmain.document.getElementById(blockObj.get(personName)[0]).remove();
-        if (Boolean(blockObj.get(personName)[1])) {
-            _fmain.document.getElementById(blockObj.get(personName)[1]).remove();
-        }
+        _fmain.document.getElementById(blockObj.get(personName)?.[0])?.remove();
+        _fmain.document.getElementById(blockObj.get(personName)?.[1])?.remove();
         blockObj.delete(personName);
         likeMe.delete(personName);
         likeMe1.delete(personName);
@@ -456,7 +469,7 @@ function block(x) {
 function closAll() {
     let sentme = Object.keys(parent.fwindowlist.Witems);
     for (let i = 0; i < sentme.length; i++) {
-        if (sentme[i] == Object.keys(parent.fwindowlist.Witems)[1] || sentme[i] == Object.keys(parent.fwindowlist.Witems)[0]) {
+        if (sentme[i] == "Status" || sentme[i] == roomName) {
             continue
         }
         kalamngySend(sentme[i], `/winclose ${sentme[i]}`)
