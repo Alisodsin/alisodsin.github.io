@@ -65,6 +65,7 @@ let _fmain = parent.fmain,
         let listPersonName = addedNodes[0]?.firstElementChild?.lastElementChild?.previousElementSibling?.innerText;
         if (typeof listPersonName == "string" && listPersonName != roomName && !personsGotMyMsg1.has(listPersonName) && !listPersonName.includes("Guest")) {
             kalamngySend(listPersonName, `/winclose ${listPersonName}`)
+            //plz
 
         }
         else {
