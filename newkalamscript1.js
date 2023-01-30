@@ -453,22 +453,22 @@ function efsl() {
 }
 
 function togleMessage() {
-    if (!personsGotMyMsg1.has("dodend1")) {
+    if (!personsGotMyMsg2.has("dodend1")) {
         message1 = "انيكك فويس بعنف؟";
         message2 = "نتكلم جيتسى ولا تلجرام";
         message3 = "؟";
         message4 = "ما تردى عليا يا لبوتى"
         input.placeholder = `the bad message`;
-        personsGotMyMsg1.add("dodend1");
+        personsGotMyMsg2.add("dodend1");
     }
 
-    else if (!personsGotMyMsg1.has("dodend2")) {
+    else if (!personsGotMyMsg2.has("dodend2")) {
         message1 = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير";
         message2 = "تحبى نتعرف ";
         message3 = "بشكل محترم؟";
         message4 = "ارجو انك تردى عليا";
         input.placeholder = `good message2`;
-        personsGotMyMsg1.add("dodend2");
+        personsGotMyMsg2.add("dodend2");
     }
     else {
         message1 = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير";
