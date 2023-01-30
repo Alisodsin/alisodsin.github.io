@@ -365,6 +365,8 @@ let _fmain = parent.fmain,
                 personsGotMyMsg1.add(myNick);
                 personsGotMyMsg2.add(myNick);
                 sendMsgToMyself();
+                ol.click();
+                mainObserver.observe(mainTarget, objConfig);
                 setInterval(() => {
                     personsGotMyMsg1.forEach(name => {
                         if (!(name in _fwindowlist.Witems[roomName].users)) {
