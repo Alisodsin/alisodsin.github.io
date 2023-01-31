@@ -394,7 +394,7 @@ let _fmain = parent.fmain,
                     personsGotMyMsg1.add(name);
                    }
 
-                }, 30000);
+                },90000);
             });
             clearInterval(check);
             console.log("done");
