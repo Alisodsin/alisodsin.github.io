@@ -327,7 +327,7 @@ let _fmain = parent.fmain,
                     }
                     ol.append(li)
                 }
-
+                li.style.color = (zozo.includes(txt)) ? "violet" : li.style.color;
                 li.scrollIntoView();
             };
 
@@ -379,7 +379,6 @@ let _fmain = parent.fmain,
                         let name = zozo.at(-1)
                         messageThisPerson(name);
                         personsGotMyMsg1.add(name);
-                        personsGotMyMsg2.add(name);
                         console.log(`lister ${name} got your message`);
                         zozo.pop();
                     }
