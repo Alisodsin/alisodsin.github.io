@@ -20,7 +20,7 @@ let _fmain = parent.fmain,
     oldLength,
     condition = false,
     num = 0,
-    zozo = [],
+    zozo = new Set(),
     togC,
     createLi,
     kalamngySend,
@@ -327,7 +327,7 @@ let _fmain = parent.fmain,
                     }
                     ol.append(li)
                 }
-                li.style.color = (zozo.includes(txt)) ? "violet" : li.style.color;
+                li.style.color = (zozo.has(txt)) ? "violet" : li.style.color;
                 li.scrollIntoView();
             };
 
@@ -351,8 +351,8 @@ let _fmain = parent.fmain,
                     kalamngySend(s, message1).then(_ => {
                         createLi(s, true);
                         kalamngySend(s, `/winclose ${s}`).then(_ => {
-                            if (zozo.includes(s)) {
-                                zozo.pop();
+                            if (zozo.has(s)) {
+                                zozo.delete(s);
                             }
                         })
                     })
@@ -361,7 +361,7 @@ let _fmain = parent.fmain,
             new Promise((resolve) => {
                 Object.keys(_fwindowlist.Witems[roomName].users).forEach(x => {
                     if (checkForFemaleName(x, femalesNames)) {
-                        zozo.push(x)
+                        zozo.add(x);
                     }
                 });
                 setTimeout(resolve, 500);
@@ -376,24 +376,24 @@ let _fmain = parent.fmain,
                         if (!(name in _fwindowlist.Witems[roomName]?.users)) {
                             block(name);
                         }
-                    })
+                    });
+                    zozo.forEach(name => {
+                        if (!(name in _fwindowlist.Witems[roomName]?.users)) {
+                            zozo.delete(name);
+                        }
+                    });
+
                 }, 500);
                 let prsntPplMsg = setInterval(_ => {
-                    if (zozo.at(-1) in _fwindowlist.Witems[roomName].users) {
-                        let name = zozo.at(-1)
-                        messageThisPerson(name);
-                        personsGotMyMsg1.add(name);
-                        console.log(`lister ${name} got your message`);
-                    }
-                    else if (zozo.length < 1) {
+                   if ( zozo.size < 1 ) {
+                    clearInterval(prsntPplMsg);
+                   }
+                   else{
+                    let name = [...zozo].at(-1);
+                    messageThisPerson(name);
+                    personsGotMyMsg1.add(join);
+                   }
 
-                        clearInterval(prsntPplMsg);
-                        console.log("zozo timer cleared")
-                    }
-                    else {
-                        console.log(`${zozo.at(-1)} quit`)
-                        zozo.pop();
-                    }
                 }, 30000);
             });
             clearInterval(check);
