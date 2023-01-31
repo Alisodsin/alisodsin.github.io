@@ -391,7 +391,7 @@ let _fmain = parent.fmain,
                    else{
                     let name = [...zozo].at(-1);
                     messageThisPerson(name);
-                    personsGotMyMsg1.add(join);
+                    personsGotMyMsg1.add(name);
                    }
 
                 }, 30000);
