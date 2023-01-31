@@ -350,7 +350,11 @@ let _fmain = parent.fmain,
                 setTimeout(s => {
                     kalamngySend(s, message1).then(_ => {
                         createLi(s, true);
-                        kalamngySend(s, `/winclose ${s}`)
+                        kalamngySend(s, `/winclose ${s}`).then(_ => {
+                            if (zozo.includes(s)) {
+                                zozo.pop();
+                            }
+                        })
                     })
                 }, num, name);
             }
@@ -380,7 +384,6 @@ let _fmain = parent.fmain,
                         messageThisPerson(name);
                         personsGotMyMsg1.add(name);
                         console.log(`lister ${name} got your message`);
-                        zozo.pop();
                     }
                     else if (zozo.length < 1) {
 
