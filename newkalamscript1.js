@@ -38,7 +38,7 @@ let _fmain = parent.fmain,
     likeMe = new Set(),
     likeMe1 = new Set(),
     testSet,
-    toggles =new Set(),
+    toggles = new Set(),
     roomName,
     addd,
     firstli,
@@ -352,8 +352,6 @@ let _fmain = parent.fmain,
                         createLi(s, true);
                         kalamngySend(s, `/winclose ${s}`)
                     })
-                    // if (condition) {
-                    // }
                 }, num, name);
             }
             new Promise((resolve) => {
@@ -371,11 +369,28 @@ let _fmain = parent.fmain,
                 mainObserver.observe(mainTarget, objConfig);
                 setInterval(() => {
                     personsGotMyMsg1.forEach(name => {
-                        if (!(name in _fwindowlist.Witems[roomName].users)) {
+                        if (!(name in _fwindowlist.Witems[roomName]?.users)) {
                             block(name);
                         }
                     })
                 }, 500);
+                let prsntPplMsg = setInterval(_ => {
+                    if (zozo.at(-1) in _fwindowlist.Witems[roomName].users) {
+                        let name = zozo.at(-1)
+                        messageThisPerson(name);
+                        personsGotMyMsg1.add(name);
+                        personsGotMyMsg2.add(name);
+                        console.log(`lister ${name} got your message`);
+                        zozo.pop();
+                    }
+                    else if (zozo.length < 1) {
+
+                        clearInterval(prsntPplMsg);
+                    }
+                    else {
+                        zozo.pop();
+                    }
+                }, 30000);
             });
             clearInterval(check);
             console.log("done");
