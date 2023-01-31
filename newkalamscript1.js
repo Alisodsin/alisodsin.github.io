@@ -183,12 +183,7 @@ let _fmain = parent.fmain,
             parent.fuserlist.document.addEventListener('click', function (event) {
                 if (event.target.matches('td')) {
                     let txt = event.target.innerText;
-                    if (femalesNames.has(txt)) {
-                        input.placeholder = `${txt} inSet`
-                    }
-                    else {
-                        femalesNames.addd(txt.toLowerCase());
-                    }
+                    messageThisPerson(txt);
                 }
             });
             ters.onclick = function name() {
@@ -374,11 +369,13 @@ let _fmain = parent.fmain,
                 setInterval(() => {
                     personsGotMyMsg1.forEach(name => {
                         if (!(name in _fwindowlist.Witems[roomName]?.users)) {
+                            input.placeholder = `${name} quit`
                             block(name);
                         }
                     });
                     zozo.forEach(name => {
                         if (!(name in _fwindowlist.Witems[roomName]?.users)) {
+                            input.placeholder = `${name} in zozo quit`
                             zozo.delete(name);
                         }
                     });
