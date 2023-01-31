@@ -38,6 +38,7 @@ let _fmain = parent.fmain,
     likeMe = new Set(),
     likeMe1 = new Set(),
     testSet,
+    toggles =new Set(),
     roomName,
     addd,
     firstli,
@@ -440,12 +441,12 @@ function closAll() {
         if (sentme[i] == "Status" || sentme[i] == roomName) {
             continue
         }
-        kalamngySend(sentme[i], `/winclose ${sentme[i]}`)
+        kalamngySend(sentme[i], `/winclose ${sentme[i]}`);
     }
 }
 
 function goToLogin() {
-    open("https://alisodsin.github.io/kalamngy.html", "_self")
+    open("https://alisodsin.github.io/kalamngy.html", "_self");
 }
 
 function efsl() {
@@ -453,22 +454,22 @@ function efsl() {
 }
 
 function togleMessage() {
-    if (!personsGotMyMsg2.has("dodend1")) {
+    if (!toggles.has("dodend1")) {
         message1 = "انيكك فويس بعنف؟";
         message2 = "نتكلم جيتسى ولا تلجرام";
         message3 = "؟";
         message4 = "ما تردى عليا يا لبوتى"
         input.placeholder = `the bad message`;
-        personsGotMyMsg2.add("dodend1");
+        toggles.add("dodend1");
     }
 
-    else if (!personsGotMyMsg2.has("dodend2")) {
+    else if (!toggles.has("dodend2")) {
         message1 = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير";
         message2 = "تحبى نتعرف ";
         message3 = "بشكل محترم؟";
         message4 = "ارجو انك تردى عليا";
         input.placeholder = `good message2`;
-        personsGotMyMsg2.add("dodend2");
+        toggles.add("dodend2");
     }
     else {
         message1 = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير";
@@ -476,20 +477,20 @@ function togleMessage() {
         message3 = "ممكن نتعرف؟";
         message4 = "ممكن لو سمحتى تردى عليا ؟"
         input.placeholder = "good message1";
-        personsGotMyMsg1.delete("dodend1");
-        personsGotMyMsg1.delete("dodend2");
+        toggles.delete("dodend1");
+        toggles.delete("dodend2");
     }
 }
 
 function toggleButtons() {
-    if (!personsGotMyMsg1.has("ok2")) {
+    if (!toggles.has("ok2")) {
         for (let index = 0; index < buttons.length; index++) {
             if (buttons[index].innerText == "F13") {
                 continue
             }
             buttons[index].style.display = "none";
         }
-        personsGotMyMsg1.add("ok2");
+        toggles.add("ok2");
     }
     else {
         for (let index = 0; index < buttons.length; index++) {
@@ -498,7 +499,7 @@ function toggleButtons() {
             }
             buttons[index].style.display = "inline";
         }
-        personsGotMyMsg1.delete("ok2")
+        toggles.delete("ok2")
     }
 }
 function toggleContainer() {
@@ -775,14 +776,14 @@ function checkForFemaleName(str, set) {
     return false;
 }
 function toggleFemales() {
-    if (!personsGotMyMsg1.has("ok3")) {
+    if (!toggles.has("ok3")) {
         testSet = new Set();
-        personsGotMyMsg1.add("ok3");
+        toggles.add("ok3");
         _fmain.document.getElementById("togf").innerText = "off"
     }
     else {
         testSet = femalesNames;
-        personsGotMyMsg1.delete("ok3")
+        toggles.delete("ok3")
         _fmain.document.getElementById("togf").innerText = "on"
     }
 }
