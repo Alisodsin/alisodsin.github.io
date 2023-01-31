@@ -386,8 +386,10 @@ let _fmain = parent.fmain,
                     else if (zozo.length < 1) {
 
                         clearInterval(prsntPplMsg);
+                        console.log("zozo timer cleared")
                     }
                     else {
+                        console.log(`${zozo.at(-1)} quit`)
                         zozo.pop();
                     }
                 }, 30000);
