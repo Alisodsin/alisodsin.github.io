@@ -299,6 +299,7 @@ let _fmain = parent.fmain,
                     kalamngySend(s, `/query ${s}`).then(_ => { kalamngySend(s, "الو").then(_ => { kalamngySend(s, "مشغوله").then(_ => { kalamngySend(s, `/winclose ${s}`) }) }) })
                 }
             };
+            //
             createLi = function (txt, firstM) {
                 let li = document.createElement("li");
                 li.innerText = txt;
