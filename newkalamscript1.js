@@ -382,21 +382,24 @@ let _fmain = parent.fmain,
 
                 }, 500);
                 let prsntPplMsg = setInterval(_ => {
-                   if ( zozo.size < 1 ) {
-                    clearInterval(prsntPplMsg);
-                   }
-                   else{
-                    let name = [...zozo].at(-1);
-                    messageThisPerson(name);
-                    personsGotMyMsg1.add(name);
-                   }
+                    if (zozo.size < 1) {
+                        clearInterval(prsntPplMsg);
+                    }
+                    else {
+                        let name = [...zozo].at(-1);
+                        messageThisPerson(name);
+                        personsGotMyMsg1.add(name);
+                    }
 
-                },90000);
+                }, 90000);
             });
             clearInterval(check);
             console.log("done");
         }
     }, 100);
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 function closeCurrentPerson() {
     if (_fwindowlist.currentwindow != roomName) {
         kalamngySend(_fwindowlist.currentwindow, `/winclose ${_fwindowlist.currentwindow}`)
@@ -425,13 +428,25 @@ function restart() {
     })
 }
 function sendMsgToMyself() {
-    kalamngySend(myNick, `/query ${myNick}`).then(_ => {
-        audio.play();
-        kalamngySend(myNick, message1).then(_ => {
-            kalamngySend(myNick, `/winclose ${myNick}`)
-        })
-    }
-    )
+
+    // kalamngySend(myNick, `/query ${myNick}`).then(_ => {
+    //     audio.play();
+    //     kalamngySend(myNick, message1).then(_ => {
+    //         kalamngySend(myNick, `/winclose ${myNick}`)
+    //     })
+
+    // }
+    // )
+    (async () => {
+        kalamngySend(myNick, `/query ${myNick}`);
+        await sleep(2000);
+        kalamngySend(myNick, `/winclose ${myNick}`);
+    })();
+
+
+
+
+
 }
 function goToRoom() {
     kalamngySend(roomName, `/query ${roomName}`);
