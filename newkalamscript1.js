@@ -9,6 +9,7 @@ let _fmain = parent.fmain,
     style = document.createElement("style"),
     input,
     myNick,
+    R,
     user = 'alisodsin',
     repo = 'alisodsin.github.io',
     path = 'femaleNames.json',
@@ -27,6 +28,7 @@ let _fmain = parent.fmain,
     num1 = 0,
     blockObj = new Map(),
     buttons,
+    rooms = ["#مصر", "#رومانسية"],
     message1 = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير",
     message2 = "انا مهندس على 35 سنه من المنصوره",
     message3 = "ممكن نتعرف؟",
@@ -64,9 +66,8 @@ let _fmain = parent.fmain,
     listObserver = new MutationObserver((e) => {
         let addedNodes = e[0].addedNodes;
         let listPersonName = addedNodes[0]?.firstElementChild?.lastElementChild?.previousElementSibling?.innerText;
-        if (typeof listPersonName == "string" && listPersonName != roomName && !personsGotMyMsg1.has(listPersonName) && !listPersonName.includes("Guest")) {
+        if (typeof listPersonName == "string" && listPersonName != roomName && !personsGotMyMsg1.has(listPersonName) && !/Guest|#/.test(listPersonName)) {
             kalamngySend(listPersonName, `/winclose ${listPersonName}`)
-            //plz
 
         }
         else {
@@ -74,82 +75,62 @@ let _fmain = parent.fmain,
                 let regex = new RegExp(name + "\n!", "g")
                 if (listTarget.innerText.match(regex)) {
                     if (likeMe.has(name)) {
-                        kalamngySend(name, `/query ${name}`).then(_ => {
+                        (async () => {
+                            await kalamngySend(name, `/query ${name}`);
                             bll.play();
-                            likeMe.delete(name)
-                        })
-
+                            likeMe.delete(name);
+                        })();
                     }
                     else if (likeMe1.has(name)) {
-                        kalamngySend(name, `/query ${name}`).then(_ => {
-                            kalamngySend(name, message2).then(_ => {
-                                audio.play();
-                                kalamngySend(name, message3).then(
-                                    _ => {
-                                        likeMe.add(name);
-                                        likeMe1.delete(name);
-                                        let str = _fmain.document.querySelector("#text")?.childNodes[0]?.childNodes[4]?.innerText;
-                                        let li = _fmain.document.getElementById(blockObj.get(name)[0]);
-                                        li.innerText = "";
-                                        li.innerHTML = `<bdi>${name}</bdi>${hrdspc} ➡ ${hrdspc}<bdi style="color:white">${str}</bdi>`;
-                                        li.style.whiteSpace = "pre";
-                                        li.onclick = function (event) {
-                                            kalamngySend(name, `/query ${name}`)
-                                            event.stopPropagation();
-                                        }
-                                        ol1.append(li);
-                                        li.scrollIntoView();
-                                        setTimeout(() => {
-                                            kalamngySend(name, `/winclose ${name}`).then(
-                                                _ => {
-                                                    kalamngySend(roomName, `/query ${roomName}`);
-                                                }
-                                            )
-                                        }, 1000);
-
-                                    }
-                                )
-                            })
-
-                        })
-
+                        (async () => {
+                            await kalamngySend(name, `/query ${name}`);
+                            audio.play();
+                            await kalamngySend(name, message2);
+                            await kalamngySend(name, message3);
+                            likeMe.add(name);
+                            likeMe1.delete(name);
+                            let str = _fmain.document.querySelector("#text")?.childNodes[0]?.childNodes[4]?.innerText;
+                            let li = _fmain.document.getElementById(blockObj.get(name)[0]);
+                            li.innerText = "";
+                            li.innerHTML = `<bdi>${name}</bdi>${hrdspc} ➡ ${hrdspc}<bdi style="color:white">${str}</bdi>`;
+                            li.style.whiteSpace = "pre";
+                            li.onclick = function (event) {
+                                kalamngySend(name, `/query ${name}`)
+                                event.stopPropagation();
+                            }
+                            ol1.append(li);
+                            li.scrollIntoView();
+                            await sleep(500);
+                            await kalamngySend(name, `/winclose ${name}`);
+                        })();
                     }
                     else {
-                        kalamngySend(name, `/query ${name}`).then(_ => {
+                        (async () => {
+                            await kalamngySend(name, `/query ${name}`);
                             audio.play();
-                        })
+                        })();
                     }
                     if (!personsGotMyMsg2.has(name)) {
-                        personsGotMyMsg2.add(name);
-                        createLi(name, false);
-                        kalamngySend(name, message2).then(
-                            _ => {
-                                kalamngySend(name, message3).then(
-                                    _ => {
-                                        likeMe.add(name);
-                                        let str = _fmain.document.querySelector("#text")?.childNodes[0]?.childNodes[4]?.innerText;
-                                        let li = _fmain.document.getElementById(blockObj.get(name)[0]);
-                                        li.innerText = "";
-                                        li.innerHTML = `<bdi>${name}</bdi>${hrdspc} ➡ ${hrdspc}<bdi style="color:white">${str}</bdi>`;
-                                        li.style.whiteSpace = "pre";
-                                        li.onclick = function (event) {
-                                            kalamngySend(name, `/query ${name}`);
-                                            event.stopPropagation();
-                                        }
-                                        ol1.append(li);
-                                        li.scrollIntoView();
-                                        setTimeout(() => {
-                                            kalamngySend(name, `/winclose ${name}`).then(
-                                                _ => {
-                                                    kalamngySend(roomName, `/query ${roomName}`);
-                                                }
-                                            )
-                                        }, 1000);
-
-                                    }
-                                )
+                        (async () => {
+                            personsGotMyMsg2.add(name);
+                            createLi(name, false);
+                            await kalamngySend(name, message2);
+                            await kalamngySend(name, message3);
+                            likeMe.add(name);
+                            let str = _fmain.document.querySelector("#text")?.childNodes[0]?.childNodes[4]?.innerText;
+                            let li = _fmain.document.getElementById(blockObj.get(name)[0]);
+                            li.innerText = "";
+                            li.innerHTML = `<bdi>${name}</bdi>${hrdspc} ➡ ${hrdspc}<bdi style="color:white">${str}</bdi>`;
+                            li.style.whiteSpace = "pre";
+                            li.onclick = function (event) {
+                                kalamngySend(name, `/query ${name}`);
+                                event.stopPropagation();
                             }
-                        )
+                            ol1.append(li);
+                            li.scrollIntoView();
+                            await sleep(500);
+                            kalamngySend(name, `/winclose ${name}`);
+                        })();
                     }
                 }
             })
@@ -280,13 +261,14 @@ let _fmain = parent.fmain,
                 writable: false,
                 configurable: false
             });
+            R = _fwindowlist.document.getElementsByName("R")[0].value;
             kalamngySend = function (target, msg) {
                 return fetch("https://www.kalamngychat.com/chat/client-perl.cgi", {
                     method: "POST",
                     headers: {
                         "Content-type": "application/x-www-form-urlencoded"
                     },
-                    body: `item=say&cmd=say&say=${msg}&target=${target}&R=${_fwindowlist.document.getElementsByName("R")[0].value}&xmlhttp=1`
+                    body: `item=say&cmd=say&say=${msg}&target=${target}&R=${R}&xmlhttp=1`
                 });
             };
             function func1(s) {
@@ -294,12 +276,12 @@ let _fmain = parent.fmain,
                 personsGotMyMsg2.add(s);
                 kalamngySend(this.innerText, `/query ${s}`)
             };
-            function func2(s) {
-                {
-                    kalamngySend(s, `/query ${s}`).then(_ => { kalamngySend(s, "الو").then(_ => { kalamngySend(s, "مشغوله").then(_ => { kalamngySend(s, `/winclose ${s}`) }) }) })
-                }
+            async function func2(s) {
+                await kalamngySend(s, `/query ${s}`);
+                await kalamngySend(s, "الو");
+                await kalamngySend(s, "مشغوله")
+                kalamngySend(s, `/winclose ${s}`)
             };
-            //
             createLi = function (txt, firstM) {
                 let li = document.createElement("li");
                 li.innerText = txt;
@@ -331,37 +313,35 @@ let _fmain = parent.fmain,
                 if (!condition) {
                     setTimeout(s => {
                         if (!personsGotMyMsg2.has(s) && personsGotMyMsg1.has(s)) {
-                            kalamngySend(s, message4).then(_ => {
+                            (async () => {
+                                await kalamngySend(s, message4);
                                 createLi(s, false);
-                                kalamngySend(s, `/winclose ${s}`).then(_ => {
-                                    personsGotMyMsg2.add(s);
-                                    likeMe1.add(s);
-                                    console.log(`you send ${s} the after 60s message`)
-                                }
-                                )
-                            });
+                                await kalamngySend(s, `/winclose ${s}`);
+                                personsGotMyMsg2.add(s);
+                                likeMe1.add(s);
+                                console.log(`you send ${s} the after 60s message`);
+                            })();
                         }
                     }, 60000 + num, name)
                 }
                 setTimeout(s => {
-                    kalamngySend(s, message1).then(_ => {
+                    (async () => {
+                        await kalamngySend(s, message1);
                         createLi(s, true);
-                        kalamngySend(s, `/winclose ${s}`).then(_ => {
-                            if (zozo.has(s)) {
-                                zozo.delete(s);
-                            }
-                        })
-                    })
+                        await kalamngySend(s, `/winclose ${s}`)
+                        if (zozo.has(s)) {
+                            zozo.delete(s);
+                        }
+                    })();
                 }, num, name);
-            }
-            new Promise((resolve) => {
+            };
+            (async () => {
                 Object.keys(_fwindowlist.Witems[roomName].users).forEach(x => {
                     if (checkForFemaleName(x, femalesNames)) {
                         zozo.add(x);
                     }
                 });
-                setTimeout(resolve, 500);
-            }).then(_ => {
+                await sleep(100);
                 personsGotMyMsg1.add(myNick);
                 personsGotMyMsg2.add(myNick);
                 sendMsgToMyself();
@@ -392,7 +372,7 @@ let _fmain = parent.fmain,
                     }
 
                 }, 90000);
-            });
+            })();
             clearInterval(check);
             console.log("done");
         }
@@ -432,7 +412,7 @@ async function restart() {
 }
 async function sendMsgToMyself() {
     await kalamngySend(myNick, message1);
-    await sleep(1500)
+    await sleep(700)
     kalamngySend(myNick, `/winclose ${myNick}`);
 }
 function goToRoom() {
@@ -456,7 +436,7 @@ function block(x) {
 function closAll() {
     let sentme = Object.keys(parent.fwindowlist.Witems);
     for (let i = 0; i < sentme.length; i++) {
-        if (sentme[i] == "Status" || sentme[i] == roomName) {
+        if (/#|Status/i.test(sentme[i])) {
             continue
         }
         kalamngySend(sentme[i], `/winclose ${sentme[i]}`);
