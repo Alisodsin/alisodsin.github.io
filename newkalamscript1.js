@@ -428,26 +428,11 @@ function restart() {
         _fwindowlist.reconnect();
     })
 }
-function sendMsgToMyself() {
-
-    // kalamngySend(myNick, `/query ${myNick}`).then(_ => {
-    //     audio.play();
-    //     kalamngySend(myNick, message1).then(_ => {
-    //         kalamngySend(myNick, `/winclose ${myNick}`)
-    //     })
-
-    // }
-    // )
-    (async () => {
-        kalamngySend(myNick, `/query ${myNick}`);
-        await sleep(2000);
-        kalamngySend(myNick, `/winclose ${myNick}`);
-    })();
-
-
-
-
-
+async function sendMsgToMyself() {
+    await kalamngySend(myNick, `/query ${myNick}`);
+    await kalamngySend(myNick, message1);
+    await audio.play();
+    kalamngySend(myNick, `/winclose ${myNick}`);
 }
 function goToRoom() {
     kalamngySend(roomName, `/query ${roomName}`);
