@@ -411,22 +411,25 @@ function changeMessage1() {
     message2 = prompt("Enter new message2", message2);
     message3 = prompt("Enter new message3", message3);
 }
-function sentTwoMsgs() {
+async function sentTwoMsgs() {
     if (_fwindowlist.currentwindow != roomName) {
         let personName = _fwindowlist.currentwindow;
-        kalamngySend(personName, "الو").then(_ => { kalamngySend(personName, "معايا؟") })
+        await kalamngySend(personName, "الو");
+        kalamngySend(personName, "معايا؟");
+
     }
 }
-function defineMySelf() {
+async function defineMySelf() {
     if (_fwindowlist.currentwindow != roomName) {
         let personName = _fwindowlist.currentwindow;
-        kalamngySend(personName, "انا مهندس على 35 سنه من المنصوره").then(_ => { kalamngySend(personName, "ممكن نتعرف؟") })
+        await kalamngySend(personName, "انا مهندس على 35 سنه من المنصوره");
+        kalamngySend(personName, "ممكن نتعرف؟");
     }
 }
-function restart() {
-    kalamngySend("Status", `/query Status`).then(_ => {
-        _fwindowlist.reconnect();
-    })
+async function restart() {
+    await kalamngySend("Status", `/query Status`);
+    await sleep(1000);
+    _fwindowlist.reconnect();
 }
 async function sendMsgToMyself() {
     await kalamngySend(myNick, message1);
