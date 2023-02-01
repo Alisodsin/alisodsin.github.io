@@ -376,7 +376,6 @@ let _fmain = parent.fmain,
                     });
                     zozo.forEach(name => {
                         if (!(name in _fwindowlist.Witems[roomName]?.users)) {
-                            input.placeholder = `${name} in zozo quit`
                             zozo.delete(name);
                         }
                     });
