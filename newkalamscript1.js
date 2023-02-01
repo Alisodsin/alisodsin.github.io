@@ -429,9 +429,8 @@ function restart() {
     })
 }
 async function sendMsgToMyself() {
-    await kalamngySend(myNick, `/query ${myNick}`);
     await kalamngySend(myNick, message1);
-    await audio.play();
+    await sleep(1500)
     kalamngySend(myNick, `/winclose ${myNick}`);
 }
 function goToRoom() {
