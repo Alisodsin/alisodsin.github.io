@@ -405,7 +405,7 @@ async function defineMySelf() {
     if (_fwindowlist.currentwindow != roomName) {
         let personName = _fwindowlist.currentwindow;
         await kalamngySend(personName, "انا مهندس على 35 سنه من المنصوره");
-        kalamngySend(personName, "ممكن نتعرف؟");
+        kalamngySend(personName, "وانتى؟");
     }
 }
 async function restart() {
