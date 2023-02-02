@@ -750,6 +750,9 @@ function retrieveBigData() {
         })
 }
 function checkForFemaleName(str, set) {
+    if (str.includes("|")) {
+        return false
+    }
     if (set.has(str)) {
         return true
     }
