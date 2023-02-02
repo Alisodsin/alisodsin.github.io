@@ -348,7 +348,8 @@ let _fmain = parent.fmain,
                 ol.click();
                 mainObserver.observe(mainTarget, objConfig);
                 setInterval(() => {
-                    let users = _fwindowlist?.Witems?.[roomName]?.users
+                    let users = _fwindowlist?.Witems?.[roomName]?.users;
+                    let behinedJoiner = _fwindowlist.Witems[rooms[0]]?.text?.filter(x => x?.includes("Joined"))?.at(-1)?.match(/<a.*>(.*)<\/a>/i)?.[1];
                     if (Boolean(users)) {
                         personsGotMyMsg1.forEach(name => {
                             if (!(name in users)) {
@@ -361,6 +362,9 @@ let _fmain = parent.fmain,
                                 zozo.delete(name);
                             }
                         });
+                        if (_fwindowlist.currentwindow !== roomName && behinedJoiner && checkForFemaleName(behinedJoiner)) {
+                            console.log(behinedJoiner)
+                        }
                     }
                 }, 500);
                 let prsntPplMsg = setInterval(_ => {
