@@ -6,15 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>كلامنجى شات</title>
-    <link rel="shortcut icon" href="./imgs/Hopstarter-Soft-Scraps-User-Chat.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Changa:wght@500&amp;family=Lalezar&amp;family=Scheherazade&amp;display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="w3.css">
     <style>
         * {
             text-shadow: 20px 0px 19px black;
             font-family: 'Scheherazade', serif;
+            filter:invert(100%);
         }
 
         div {
@@ -41,15 +42,19 @@
             align-items: center;
             justify-content: space-around;
             font-family: cursive;
+            background-image: linear-gradient(#fa6f6f, rgb(255, 255, 255));
             border-radius: 50px;
         }
+
         label {
             font-size: 5vw;
         }
+
         input:focus {
             outline: none;
             background-color: aqua;
         }
+
         @media screen and (max-width:565px) {
 
             #cgiirclogin {
@@ -59,20 +64,26 @@
         }
     </style>
 </head>
-<body class="w3-black">
+
+<body>
     <form class="w3-content" id="cgiirclogin" action="https://www.kalamngychat.com/chat-rooms/dardesh/" method="post"
-        autocomplete="off" name="cgiirclogin">
+        id="cgiirclogin" autocomplete="off">
         <div><label for="NickName">الاسم المستعار</label></div>
-        <div><input id="NickName" dir="ltr" id="NickName" name="Nickname" size="20" type="text">
+        <div><input id="Nickname" dir="ltr" id="NickName" name="Nickname" size="20" type="text">
         </div>
         </div>
         <div><label for="room">الغرفه</label></div>
         <div> <input name="Channel" value="#مصر" id="room"></div>
         <div style="visibility: hidden;">dcfcs</div>
         <div><input type="submit" value="ادخل" id="Submit"></div>
+
     </form>
+
+
+
+
     <script>
-        let inpu = document.querySelector("[name=Channel]"), inpu1 = document.getElementById("NickName"),
+        let inpu = document.querySelector("[name=Channel]"), inpu1 = document.getElementById("Nickname"),
             randoms = () => {
                 for (let f = 0; f < 100000000000; f++) {
                     let ran = (Math.random() * 10000).toFixed();
