@@ -348,18 +348,20 @@ let _fmain = parent.fmain,
                 ol.click();
                 mainObserver.observe(mainTarget, objConfig);
                 setInterval(() => {
-                    personsGotMyMsg1.forEach(name => {
-                        if (!(name in _fwindowlist.Witems[roomName]?.users)) {
-                            input.placeholder = `${name} quit`
-                            block(name);
-                        }
-                    });
-                    zozo.forEach(name => {
-                        if (!(name in _fwindowlist.Witems[roomName]?.users)) {
-                            zozo.delete(name);
-                        }
-                    });
-
+                    let users = _fwindowlist?.Witems?.[roomName]?.users
+                    if (Boolean(users)) {
+                        personsGotMyMsg1.forEach(name => {
+                            if (!(name in users)) {
+                                input.placeholder = `${name} quit`
+                                block(name);
+                            }
+                        });
+                        zozo.forEach(name => {
+                            if (!(name in users)) {
+                                zozo.delete(name);
+                            }
+                        });
+                    }
                 }, 500);
                 let prsntPplMsg = setInterval(_ => {
                     if (zozo.size < 1) {
@@ -381,6 +383,7 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 function closeCurrentPerson() {
+
     if (_fwindowlist.currentwindow != roomName) {
         kalamngySend(_fwindowlist.currentwindow, `/winclose ${_fwindowlist.currentwindow}`)
     }
