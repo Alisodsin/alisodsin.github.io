@@ -20,7 +20,7 @@ let _fmain = parent.fmain,
     ters,
     oldLength,
     condition = false,
-    num = 0,
+    num = false,
     zozo = new Set(),
     togC,
     createLi,
@@ -322,18 +322,16 @@ let _fmain = parent.fmain,
                                 console.log(`you send ${s} the after 60s message`);
                             })();
                         }
-                    }, 60000 + num, name)
+                    }, 60000, name)
                 }
-                setTimeout(s => {
-                    (async () => {
-                        await kalamngySend(s, message1);
-                        createLi(s, true);
-                        await kalamngySend(s, `/winclose ${s}`)
-                        if (zozo.has(s)) {
-                            zozo.delete(s);
-                        }
-                    })();
-                }, num, name);
+                (async () => {
+                    await kalamngySend(name, message1);
+                    createLi(name, true);
+                    await kalamngySend(name, `/winclose ${name}`)
+                    if (zozo.has(name)) {
+                        zozo.delete(name);
+                    }
+                })();
             };
             (async () => {
                 Object.keys(_fwindowlist.Witems[roomName].users).forEach(x => {
@@ -362,10 +360,10 @@ let _fmain = parent.fmain,
                                 zozo.delete(name);
                             }
                         });
-                        if (_fwindowlist.currentwindow != roomName && behinedJoiner && !personsGotMyMsg1.has(behinedJoiner) && behinedJoiner in users && checkForFemaleName(behinedJoiner, femalesNames)) {
-                            console.log(behinedJoiner)
+                        if (num && _fwindowlist.currentwindow != roomName && behinedJoiner && !personsGotMyMsg1.has(behinedJoiner) && behinedJoiner in users && checkForFemaleName(behinedJoiner, testSet)) {
+                            console.log(behinedJoiner);
                             messageThisPerson(behinedJoiner);
-                            personsGotMyMsg1.add(behinedJoiner)
+                            personsGotMyMsg1.add(behinedJoiner);
                         }
                     }
                 }, 100);
@@ -602,11 +600,13 @@ function buttonsCreator() {
             case 15:
                 button.style.background = "#CD4124";
                 button.style.color = "white";
+                button.innerText = "Save";
                 button.onclick = sendBigData;
                 break;
             case 16:
                 button.style.background = "black";
                 button.style.color = "white";
+                button.innerText = "chngPtrn"
                 button.onclick = changePattern;
                 break;
             case 17:
@@ -626,6 +626,7 @@ function buttonsCreator() {
             case 19:
                 button.style.background = "black";
                 button.style.color = "white";
+                button.innerText = "cleanSet"
                 button.onclick = _ => {
                     femalesNames = removeMultiWordElements(femalesNames);
                     femalesNames.addd = addd
@@ -634,13 +635,16 @@ function buttonsCreator() {
             case 20:
                 button.style.background = "black";
                 button.style.color = "white";
-                button.innerText = "D";
+                button.innerText = "SingleS";
                 button.onclick = function () {
-                    num = num + 1000;
-                    if (num > 5000) {
-                        num = 0;
+                    if (!num) {
+                        num = true;
+                        this.innerText = "DoubleS"
                     }
-                    this.innerText = `${num / 1000}S`
+                    else {
+                        num = false;
+                        this.innerText = "SingleS"
+                    }
                 };
                 break;
             case 21:
