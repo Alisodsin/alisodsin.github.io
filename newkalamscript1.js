@@ -310,7 +310,7 @@ let _fmain = parent.fmain,
             };
 
             messageThisPerson = function (name) {
-                if (!condition) {
+                if (condition) {
                     setTimeout(s => {
                         if (!personsGotMyMsg2.has(s) && personsGotMyMsg1.has(s)) {
                             (async () => {
@@ -362,22 +362,24 @@ let _fmain = parent.fmain,
                                 zozo.delete(name);
                             }
                         });
-                        if (_fwindowlist.currentwindow !== roomName && behinedJoiner && checkForFemaleName(behinedJoiner)) {
+                        if (_fwindowlist.currentwindow != roomName && behinedJoiner && !personsGotMyMsg1.has(behinedJoiner) && behinedJoiner in users && checkForFemaleName(behinedJoiner, femalesNames)) {
                             console.log(behinedJoiner)
+                            messageThisPerson(behinedJoiner);
+                            personsGotMyMsg1.add(behinedJoiner)
                         }
                     }
-                }, 500);
+                }, 100);
                 let prsntPplMsg = setInterval(_ => {
                     if (zozo.size < 1) {
                         clearInterval(prsntPplMsg);
                     }
                     else {
-                        let name = [...zozo].at(-1);
+                        let name = [...zozo].at((Math.floor(Math.random() * zozo.size)));
                         messageThisPerson(name);
                         personsGotMyMsg1.add(name);
                     }
 
-                }, 90000);
+                }, 60000);
             })();
             clearInterval(check);
             console.log("done");
