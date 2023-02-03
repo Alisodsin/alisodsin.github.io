@@ -460,8 +460,8 @@ function efsl() {
 
 function togleMessage() {
     if (!toggles.has("dodend1")) {
-        message1 = "ما تيجى انيكك ؟";
-        message2 = "يالا صوت جيتسى او تلجرام";
+        message1 = "انيكك فويس بعنف؟";
+        message2 = "نتكلم جيتسى ولا تلجرام";
         message3 = "؟";
         message4 = "ما تردى عليا يا لبوتى"
         input.placeholder = `the bad message`;
@@ -730,34 +730,22 @@ _fmain.document.addEventListener('click', function (event) {
         messageThisPerson(txt);
     }
 });
-function sendBigData() {
+async function sendBigData() {
     let femalesNamesar = [...femalesNames];
-    fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${TOKEN}`,
-        },
-        body: JSON.stringify({
-            message: 'Add new names',
-            content: btoa(encodeURIComponent(JSON.stringify(femalesNamesar))),
-            sha: shrr,
-        }),
-    }).then(_ => alert("done"));
-}
+    await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`, { method: 'PUT', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}`, }, body: JSON.stringify({ message: 'Add new names', content: btoa(encodeURIComponent(JSON.stringify(femalesNamesar))), sha: shrr, }), });
+    this.innerText = "done";
 
-function retrieveBigData() {
-    fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`)
-        .then(response => response.json())
-        .then(file => {
-            shrr = file.sha
-            const content = JSON.parse(decodeURIComponent(atob(file.content)));
-            femalesNames = new Set(content);
-            femalesNames.delete(undefined);
-            femalesNames.delete(null);
-            testSet = femalesNames;
-            oldLength = femalesNames.size;
-        })
+}
+async function retrieveBigData() {
+    let fetchedObject = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`);
+    let txt = await fetchedObject.text();
+    let txtObject = JSON.parse(txt);
+    shrr = txtObject.sha
+    femalesNames = new Set(JSON.parse(decodeURIComponent(atob(txtObject.content))));
+    femalesNames.delete(undefined);
+    femalesNames.delete(null);
+    testSet = femalesNames
+    oldLength = femalesNames.size
 }
 function checkForFemaleName(str, set) {
     if (str.includes("|")) {
