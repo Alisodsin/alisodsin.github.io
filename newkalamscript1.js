@@ -360,7 +360,7 @@ let _fmain = parent.fmain,
                                 zozo.delete(name);
                             }
                         });
-                        if (num && _fwindowlist.currentwindow != roomName && behinedJoiner && !personsGotMyMsg1.has(behinedJoiner) && behinedJoiner in users && checkForFemaleName(behinedJoiner, testSet)) {
+                        if (num && _fwindowlist.currentwindow != roomName && behinedJoiner && !personsGotMyMsg1.has(behinedJoiner) && behinedJoiner in users && (regex.test(behinedJoiner) || checkForFemaleName(behinedJoiner, testSet))) {
                             console.log(behinedJoiner);
                             messageThisPerson(behinedJoiner);
                             personsGotMyMsg1.add(behinedJoiner);
