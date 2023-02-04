@@ -22210,7 +22210,7 @@
                         </li>
                 </ul>
         </details>
-        <details class="dad">
+        <details class="dad" open>
                 <summary>Classes</summary>
                 <ul>
                         <li>
@@ -24539,24 +24539,624 @@
                                                                                         animal</span></div>
                                                                 </div>
                                                         </div>
+                                                        <p>Here, class Rabbit extends Animal and overrides the name
+                                                                field with its own value.</p>
+                                                        <p>There’s no own constructor in Rabbit, so Animal constructor
+                                                                is called.</p>
+                                                        <p>What’s interesting is that in both cases: new Animal() and
+                                                                new Rabbit(), the alert in the line (*) shows animal.
+                                                        </p>
+                                                        <p>In other words, the parent constructor always uses its own
+                                                                field value, not the overridden one.</p>
+                                                        <p>Here’s the same code, but instead of this.name field we call
+                                                                this.showName() method:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">class</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">Animal</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">showName</span><span
+                                                                                        style="color: #d4d4d4;">() {
+                                                                                        &nbsp;</span><span
+                                                                                        style="color: #6a9955;">//
+                                                                                        instead of this.name =
+                                                                                        'animal'</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">'animal'</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div><br>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">constructor</span><span
+                                                                                        style="color: #d4d4d4;">()
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #569cd6;">this</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">showName</span><span
+                                                                                        style="color: #d4d4d4;">();
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        instead of
+                                                                                        alert(this.name);</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div><br>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">class</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">Rabbit</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">extends</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">Animal</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">showName</span><span
+                                                                                        style="color: #d4d4d4;">()
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">'rabbit'</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div><br>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">new</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">Animal</span><span
+                                                                                        style="color: #d4d4d4;">();
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        animal</span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">new</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">Rabbit</span><span
+                                                                                        style="color: #d4d4d4;">();
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        rabbit</span></div>
+                                                                </div>
+                                                        </div>
+                                                        <p>Please note: now the output is different.</p>
+                                                        <p>And that’s what we naturally expect. When the parent
+                                                                constructor is called in the derived class, it uses the
+                                                                overridden method.</p>
+                                                        <p>Why is there a difference?</p>
+                                                        <p>Well, the reason is the field initialization order. The class
+                                                                field is initialized:</p>
+                                                        <ol>
+                                                                <li>Before constructor for the base class (that doesn’t
+                                                                        extend anything),</li>
+                                                                <li>Immediately after super() for the derived class.
+                                                                </li>
+                                                        </ol>
+                                                        <p>we can use getters and setters to reslove this problem</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">class</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">Animal</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">get</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">name</span><span
+                                                                                        style="color: #d4d4d4;">()
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #c586c0;">return</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"animal"</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">constructor</span><span
+                                                                                        style="color: #d4d4d4;">()
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #569cd6;">this</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">name</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        (*)</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div><br>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">class</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">Rabbit</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">extends</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">Animal</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">get</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">name</span><span
+                                                                                        style="color: #d4d4d4;">()
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #c586c0;">return</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"rabbit"</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">new</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">Animal</span><span
+                                                                                        style="color: #d4d4d4;">();
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        animal</span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">new</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">Rabbit</span><span
+                                                                                        style="color: #d4d4d4;">();
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        rabbit </span></div>
+                                                                </div>
+                                                        </div>
+                                                </li>
+                                                <li>
+                                                        <h3>Super: internals, [[HomeObject]]</h3>
+                                                        <p>The code is explaining a problem with using the
+                                                                this.__proto__.method.call(this) approach to accessing
+                                                                parent object methods. This approach is not robust
+                                                                because it can lead to an infinite loop when there is
+                                                                more than one level of inheritance.</p>
+                                                        <p>Here is an example that demonstrates the problem:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">animal</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">name</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"Animal"</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">eat</span><span
+                                                                                        style="color: #d4d4d4;">()
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #b5cea8;">1</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">`</span><span
+                                                                                        style="color: #569cd6;">${this</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">name</span><span
+                                                                                        style="color: #569cd6;">}</span><span
+                                                                                        style="color: #ce9178;">
+                                                                                        eats.`</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div>
+                                                                        <div><span style="color: #d4d4d4;">};</span>
+                                                                        </div><br>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">rabbit</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">__proto__</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">animal</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">get</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">name</span><span
+                                                                                        style="color: #d4d4d4;">(){</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #c586c0;">return</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"rabbit"</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        },</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">eat</span><span
+                                                                                        style="color: #d4d4d4;">()
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #569cd6;">this</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">name</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #569cd6;">this</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">__proto__</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">eat</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">call</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #569cd6;">this</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        (*)</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div>
+                                                                        <div><span style="color: #d4d4d4;">};</span>
+                                                                        </div><br>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">longEar</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">__proto__</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">rabbit</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">get</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">name</span><span
+                                                                                        style="color: #d4d4d4;">(){</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #c586c0;">return</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"longEar"</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        },</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">eat</span><span
+                                                                                        style="color: #d4d4d4;">()
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #569cd6;">this</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">name</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #569cd6;">this</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">__proto__</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">eat</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">call</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #569cd6;">this</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        (**)</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div>
+                                                                        <div><span style="color: #d4d4d4;">};</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">longEar</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">eat</span><span
+                                                                                        style="color: #d4d4d4;">();</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <p>The code demonstrates an implementation of prototypical
+                                                                inheritance in JavaScript using plain objects. The
+                                                                animal object has an eat method, which logs the name of
+                                                                the animal and the message "eats." The rabbit object is
+                                                                created with animal as its prototype and overrides the
+                                                                name property to return the string "rabbit." The rabbit
+                                                                object also has an eat method, which first logs its own
+                                                                name, then calls the eat method of its prototype
+                                                                (animal) by using this.__proto__.eat.call(this); at line
+                                                                (*). The longEar object is created with rabbit as its
+                                                                prototype and overrides the name property to return the
+                                                                string "longEar." The longEar object also has an eat
+                                                                method, which first logs its own name, then calls the
+                                                                eat method of its prototype (rabbit) by using
+                                                                this.__proto__.eat.call(this); at line (**). Finally,
+                                                                longEar.eat() is called, triggering the chain of method
+                                                                calls, leading to an error "Maximum call stack size
+                                                                exceeded."
 
+                                                                The issue arises from the recursive nature of the code.
+                                                                The eat method of the longEar object calls the eat
+                                                                method of its prototype (rabbit), which in turn calls
+                                                                the eat method of its prototype (animal). However, there
+                                                                is no stop condition to break the recursion, causing an
+                                                                infinite loop and ultimately leading to the "Maximum
+                                                                call stack size exceeded" error.</p>
+                                                        <p>In the recursion that occurs when calling longEar.eat(), the
+                                                                value of this will always be the longEar object. Each
+                                                                call of this.__proto__.eat.call(this) will keep passing
+                                                                the same this value, which is the longEar object,
+                                                                leading to an endless loop and a maximum call stack size
+                                                                exceeded error.</p>
+                                                </li>
+                                                <li>
+                                                        <h3>[[HomeObject]]</h3>
+                                                        <p>To provide the solution, JavaScript adds one more special
+                                                                internal property for functions: [[HomeObject]].
 
+                                                                When a function is specified as a class or object
+                                                                method, its [[HomeObject]] property becomes that object.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                                                                Then super uses it to resolve the parent prototype and
+                                                                its methods.</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">animal</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">name</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"Animal"</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">eat</span><span
+                                                                                        style="color: #d4d4d4;">() {
+                                                                                        &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        animal.eat.[[HomeObject]] ==
+                                                                                        animal</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">`</span><span
+                                                                                        style="color: #569cd6;">${this</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">name</span><span
+                                                                                        style="color: #569cd6;">}</span><span
+                                                                                        style="color: #ce9178;">
+                                                                                        eats.`</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                        };</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                </span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">rabbit</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">__proto__</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">animal</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">name</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"Rabbit"</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">eat</span><span
+                                                                                        style="color: #d4d4d4;">() {
+                                                                                        &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        rabbit.eat.[[HomeObject]] ==
+                                                                                        rabbit</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; </span><span
+                                                                                        style="color: #569cd6;">super</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">eat</span><span
+                                                                                        style="color: #d4d4d4;">();</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                        };</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                </span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">longEar</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">__proto__</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">rabbit</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">name</span><span
+                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"Long
+                                                                                        Ear"</span><span
+                                                                                        style="color: #d4d4d4;">,</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">eat</span><span
+                                                                                        style="color: #d4d4d4;">() {
+                                                                                        &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        longEar.eat.[[HomeObject]] ==
+                                                                                        longEar</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; </span><span
+                                                                                        style="color: #569cd6;">super</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">eat</span><span
+                                                                                        style="color: #d4d4d4;">();</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                        };</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                </span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        works correctly</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">longEar</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">eat</span><span
+                                                                                        style="color: #d4d4d4;">();
+                                                                                        &nbsp;</span><span
+                                                                                        style="color: #6a9955;">// Long
+                                                                                        Ear eats.</span></div>
+                                                                </div>
+                                                        </div>
                                                 </li>
                                         </ul>
                                 </details>
@@ -24564,16 +25164,936 @@
                         <li>
                                 <details>
                                         <summary>Static properties and methods</summary>
+                                        <ul>
+                                                <li>
+                                                        <h3>Static properties and methods</h3>
+                                                        <p>Static properties and methods in JavaScript are class-level
+                                                                properties and methods that can be accessed without
+                                                                creating an instance of the class. They are defined
+                                                                directly on the class and can be invoked using the class
+                                                                name, not the instance of the class.
+
+                                                                Here's an example to illustrate static properties and
+                                                                methods in JavaScript:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">class</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">Circle</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">static</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">pi</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">3.14</span><span
+                                                                                        style="color: #d4d4d4;">;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        static property</span></div><br>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">static</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">circumference</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">radius</span><span
+                                                                                        style="color: #d4d4d4;">) {
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        static method</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #c586c0;">return</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">2</span><span
+                                                                                        style="color: #d4d4d4;"> *
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">Circle</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">pi</span><span
+                                                                                        style="color: #d4d4d4;"> *
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">radius</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div><br>
+                                                                        <div><span style="color: #6a9955;">// accessing
+                                                                                        the static property</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #4ec9b0;">Circle</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">pi</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        3.14</span></div><br>
+                                                                        <div><span style="color: #6a9955;">// invoking
+                                                                                        the static method</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #4ec9b0;">Circle</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">circumference</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #b5cea8;">10</span><span
+                                                                                        style="color: #d4d4d4;">));
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        62.8</span></div>
+                                                                </div>
+                                                        </div>
+                                                        <p>Static properties and methods are useful when you want to
+                                                                share values or functionality across all instances of a
+                                                                class without having to create an instance. They are
+                                                                also useful in cases where you don't want to pollute the
+                                                                instances with unnecessary properties or methods.</p>
+                                                </li>
+                                                <li>
+                                                        <h3>Inheritance of static properties and methods</h3>
+                                                        <p>Static properties and methods in JavaScript are shared among
+                                                                all instances of a class and are not directly associated
+                                                                with instances of a class. They are defined on the class
+                                                                itself and can be accessed using the class name followed
+                                                                by the dot operator.</p>
+                                                        <p>Inheritance of static properties and methods works similarly
+                                                                to inheritance of instance properties and methods. When
+                                                                a class extends another class, it inherits all of its
+                                                                static properties and methods as well.</p>
+                                                        <p>Here's an example of how inheritance works with static
+                                                                properties and methods in JavaScript:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">class</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">Animal</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">static</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">count</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">0</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div><br>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">static</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">incrementCount</span><span
+                                                                                        style="color: #d4d4d4;">()
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #569cd6;">this</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">count</span><span
+                                                                                        style="color: #d4d4d4;">++;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div><br>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">class</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">Dog</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">extends</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">Animal</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">static</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">breed</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">"Labrador"</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div><br>
+                                                                        <div><span style="color: #6a9955;">// Accessing
+                                                                                        the inherited static
+                                                                                        property</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #4ec9b0;">Dog</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">count</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        0</span></div><br>
+                                                                        <div><span style="color: #6a9955;">// Calling
+                                                                                        the inherited static
+                                                                                        method</span></div>
+                                                                        <div><span
+                                                                                        style="color: #4ec9b0;">Dog</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">incrementCount</span><span
+                                                                                        style="color: #d4d4d4;">();</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #4ec9b0;">Dog</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">count</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        1</span></div>
+                                                                </div>
+                                                        </div>
+                                                </li>
+                                        </ul>
+
                                 </details>
                         </li>
                         <li>
                                 <details>
-                                        <summary>Private and protected properties and methods</summary>
+                                        <summary>protected ,readOnly and Private properties and methods</summary>
+                                        <ul>
+                                                <li>
+                                                        <h3>protected property</h3>
+                                                        <p>JavaScript doesn't have a direct way to create protected
+                                                                properties. However, you can achieve similar
+                                                                functionality</p>
+                                                        <p>for example:</p>
+
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">class</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">CoffeeMachine</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">_waterAmount</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">0</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div><br>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">set</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">waterAmount</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">value</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #c586c0;">if</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        (</span><span
+                                                                                        style="color: #9cdcfe;">value</span><span
+                                                                                        style="color: #d4d4d4;"> &lt;
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">0</span><span
+                                                                                        style="color: #d4d4d4;">) {
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        protect the watermount property
+                                                                                        from going negative</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; &nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">value</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">0</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; }</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #569cd6;">this</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">_waterAmount</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">value</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div><br>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">get</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">waterAmount</span><span
+                                                                                        style="color: #d4d4d4;">()
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #c586c0;">return</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">this</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">_waterAmount</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div><br>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">constructor</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">power</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #569cd6;">this</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">_power</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">power</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div><br>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">coffeeMachine</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">new</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">CoffeeMachine</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #b5cea8;">100</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">coffeeMachine</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">waterAmount</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                        -</span><span
+                                                                                        style="color: #b5cea8;">20</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        will not succeed</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">coffeeMachine</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">waterAmount</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        0 </span></div>
+                                                                </div>
+                                                        </div>
+                                                </li>
+                                                <li>
+                                                        <h3>ReadOnly property</h3>
+                                                        <p>we can make a read only property</p>
+                                                        <p>To do so, we only need to make getter, but not the setter:
+                                                        </p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">class</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">CoffeeMachine</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        ...</span></div><br>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">constructor</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">power</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #569cd6;">this</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">_power</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">power</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div><br>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">get</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">power</span><span
+                                                                                        style="color: #d4d4d4;">()
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #c586c0;">return</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">this</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">_power</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div><br>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div><br>
+                                                                        <div><span style="color: #6a9955;">// create the
+                                                                                        coffee machine</span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">coffeeMachine</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">new</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">CoffeeMachine</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #b5cea8;">100</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">coffeeMachine</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">power</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">25</span><span
+                                                                                        style="color: #d4d4d4;">;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        Error (no setter)</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">`Power
+                                                                                        is: </span><span
+                                                                                        style="color: #569cd6;">${</span><span
+                                                                                        style="color: #9cdcfe;">coffeeMachine</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">power</span><span
+                                                                                        style="color: #569cd6;">}</span><span
+                                                                                        style="color: #ce9178;">W`</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        Power is: 100W</span></div>
+                                                                </div>
+                                                        </div>
+                                                </li>
+
+                                                <li>
+                                                        <h3>Private property</h3>
+                                                        <p>Privates should start with #. They are only accessible from
+                                                                inside the class.</p>
+                                                        <p>For instance, here’s a private #waterLimit property and the
+                                                                water-checking private method #fixWaterAmount:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">class</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">CoffeeMachine</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">#waterLimit</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">200</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                </span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        #</span><span
+                                                                                        style="color: #dcdcaa;">fixWaterAmount</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">value</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; </span><span
+                                                                                        style="color: #c586c0;">if</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        (</span><span
+                                                                                        style="color: #9cdcfe;">value</span><span
+                                                                                        style="color: #d4d4d4;"> &lt;
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">0</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">return</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">0</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; </span><span
+                                                                                        style="color: #c586c0;">if</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        (</span><span
+                                                                                        style="color: #9cdcfe;">value</span><span
+                                                                                        style="color: #d4d4d4;"> &gt;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">this</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">#waterLimit</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">return</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">this</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">#waterLimit</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                </span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">setWaterAmount</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">value</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; </span><span
+                                                                                        style="color: #569cd6;">this</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">#waterLimit</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">this</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">#fixWaterAmount</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">value</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                </span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                        }</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                </span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">coffeeMachine</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">new</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">CoffeeMachine</span><span
+                                                                                        style="color: #d4d4d4;">();</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                </span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        can't access privates from
+                                                                                        outside of the class</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">coffeeMachine</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">#fixWaterAmount</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #b5cea8;">123</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        Error</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">coffeeMachine</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">#waterLimit</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">1000</span><span
+                                                                                        style="color: #d4d4d4;">;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        Error</span></div>
+                                                                </div>
+                                                        </div>
+                                                        <p>On the language level, # is a special sign that the field is
+                                                                private. We can’t access it from outside or from
+                                                                inheriting classes.</p>
+                                                        <p>Private fields do not conflict with public ones. We can have
+                                                                both private #waterAmount and public waterAmount fields
+                                                                at the same time.</p>
+                                                        <p>Unlike protected ones, private fields are enforced by the
+                                                                language itself. That’s a good thing.</p>
+                                                        <p>But if we inherit from CoffeeMachine, then we’ll have no
+                                                                direct access to #waterAmount. We’ll need to rely on
+                                                                waterAmount getter/setter:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div> <br>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">class</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">CoffeeMachine</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">#waterLimit</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">200</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div><br>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        #</span><span
+                                                                                        style="color: #dcdcaa;">fixWaterAmount</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">value</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #c586c0;">if</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        (</span><span
+                                                                                        style="color: #9cdcfe;">value</span><span
+                                                                                        style="color: #d4d4d4;"> &lt;
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">0</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">return</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">0</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #c586c0;">if</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        (</span><span
+                                                                                        style="color: #9cdcfe;">value</span><span
+                                                                                        style="color: #d4d4d4;"> &gt;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">this</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">#waterLimit</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">return</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">this</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">#waterLimit</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div><br>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">setWaterAmount</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">value</span><span
+                                                                                        style="color: #d4d4d4;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #569cd6;">this</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">#waterLimit</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">this</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">#fixWaterAmount</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">value</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div><br>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">class</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">MegaCoffeeMachine</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">extends</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">CoffeeMachine</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">method</span><span
+                                                                                        style="color: #d4d4d4;">()
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #569cd6;">this</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">#waterAmount</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        Error: can only access from
+                                                                                        CoffeeMachine</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                </li>
+                                        </ul>
+
                                 </details>
                         </li>
                         <li>
-                                <details>
+                                <details open>
                                         <summary>Extending built-in classes</summary>
+                                        <ul>
+                                                <li>
+                                                        <h3>Extending built-in classes
+                                                                <p>Built-in classes like Array, Map and others are
+                                                                        extendable also.</p>
+                                                                <p>For instance, here PowerArray inherits from the
+                                                                        native Array:</p>
+                                                                <div class="cods" contenteditable="" spellcheck="false">
+                                                                        <div>
+                                                                                <div><span style="color: #6a9955;">//
+                                                                                                add one more method to
+                                                                                                it (can do more)</span>
+                                                                                </div>
+                                                                                <div><span
+                                                                                                style="color: #569cd6;">class</span><span
+                                                                                                style="color: #d4d4d4;">
+                                                                                        </span><span
+                                                                                                style="color: #4ec9b0;">PowerArray</span><span
+                                                                                                style="color: #d4d4d4;">
+                                                                                        </span><span
+                                                                                                style="color: #569cd6;">extends</span><span
+                                                                                                style="color: #d4d4d4;">
+                                                                                        </span><span
+                                                                                                style="color: #4ec9b0;">Array</span><span
+                                                                                                style="color: #d4d4d4;">
+                                                                                                {</span></div>
+                                                                                <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                                &nbsp; </span><span
+                                                                                                style="color: #dcdcaa;">isEmpty</span><span
+                                                                                                style="color: #d4d4d4;">()
+                                                                                                {</span></div>
+                                                                                <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                                &nbsp; &nbsp; &nbsp;
+                                                                                        </span><span
+                                                                                                style="color: #c586c0;">return</span><span
+                                                                                                style="color: #d4d4d4;">
+                                                                                        </span><span
+                                                                                                style="color: #569cd6;">this</span><span
+                                                                                                style="color: #d4d4d4;">.</span><span
+                                                                                                style="color: #9cdcfe;">length</span><span
+                                                                                                style="color: #d4d4d4;">
+                                                                                                === </span><span
+                                                                                                style="color: #b5cea8;">0</span><span
+                                                                                                style="color: #d4d4d4;">;</span>
+                                                                                </div>
+                                                                                <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                                &nbsp; }</span></div>
+                                                                                <div><span
+                                                                                                style="color: #d4d4d4;">}</span>
+                                                                                </div><br>
+                                                                                <div><span
+                                                                                                style="color: #569cd6;">let</span><span
+                                                                                                style="color: #d4d4d4;">
+                                                                                        </span><span
+                                                                                                style="color: #9cdcfe;">arr</span><span
+                                                                                                style="color: #d4d4d4;">
+                                                                                                = </span><span
+                                                                                                style="color: #569cd6;">new</span><span
+                                                                                                style="color: #d4d4d4;">
+                                                                                        </span><span
+                                                                                                style="color: #4ec9b0;">PowerArray</span><span
+                                                                                                style="color: #d4d4d4;">(</span><span
+                                                                                                style="color: #b5cea8;">1</span><span
+                                                                                                style="color: #d4d4d4;">,
+                                                                                        </span><span
+                                                                                                style="color: #b5cea8;">2</span><span
+                                                                                                style="color: #d4d4d4;">,
+                                                                                        </span><span
+                                                                                                style="color: #b5cea8;">5</span><span
+                                                                                                style="color: #d4d4d4;">,
+                                                                                        </span><span
+                                                                                                style="color: #b5cea8;">10</span><span
+                                                                                                style="color: #d4d4d4;">,
+                                                                                        </span><span
+                                                                                                style="color: #b5cea8;">50</span><span
+                                                                                                style="color: #d4d4d4;">);</span>
+                                                                                </div>
+                                                                                <div><span
+                                                                                                style="color: #9cdcfe;">console</span><span
+                                                                                                style="color: #d4d4d4;">.</span><span
+                                                                                                style="color: #dcdcaa;">log</span><span
+                                                                                                style="color: #d4d4d4;">(</span><span
+                                                                                                style="color: #9cdcfe;">arr</span><span
+                                                                                                style="color: #d4d4d4;">.</span><span
+                                                                                                style="color: #dcdcaa;">isEmpty</span><span
+                                                                                                style="color: #d4d4d4;">());
+                                                                                        </span><span
+                                                                                                style="color: #6a9955;">//
+                                                                                                false</span></div><br>
+                                                                                <div><span
+                                                                                                style="color: #569cd6;">let</span><span
+                                                                                                style="color: #d4d4d4;">
+                                                                                        </span><span
+                                                                                                style="color: #9cdcfe;">filteredArr</span><span
+                                                                                                style="color: #d4d4d4;">
+                                                                                                = </span><span
+                                                                                                style="color: #9cdcfe;">arr</span><span
+                                                                                                style="color: #d4d4d4;">.</span><span
+                                                                                                style="color: #dcdcaa;">filter</span><span
+                                                                                                style="color: #d4d4d4;">(</span><span
+                                                                                                style="color: #9cdcfe;">item</span><span
+                                                                                                style="color: #d4d4d4;">
+                                                                                        </span><span
+                                                                                                style="color: #569cd6;">=&gt;</span><span
+                                                                                                style="color: #d4d4d4;">
+                                                                                        </span><span
+                                                                                                style="color: #9cdcfe;">item</span><span
+                                                                                                style="color: #d4d4d4;">
+                                                                                                &gt;= </span><span
+                                                                                                style="color: #b5cea8;">10</span><span
+                                                                                                style="color: #d4d4d4;">);</span>
+                                                                                </div>
+                                                                                <div><span
+                                                                                                style="color: #9cdcfe;">console</span><span
+                                                                                                style="color: #d4d4d4;">.</span><span
+                                                                                                style="color: #dcdcaa;">log</span><span
+                                                                                                style="color: #d4d4d4;">(</span><span
+                                                                                                style="color: #9cdcfe;">filteredArr</span><span
+                                                                                                style="color: #d4d4d4;">);
+                                                                                        </span><span
+                                                                                                style="color: #6a9955;">//
+                                                                                                10, 50</span></div>
+                                                                                <div><span
+                                                                                                style="color: #9cdcfe;">console</span><span
+                                                                                                style="color: #d4d4d4;">.</span><span
+                                                                                                style="color: #dcdcaa;">log</span><span
+                                                                                                style="color: #d4d4d4;">(</span><span
+                                                                                                style="color: #9cdcfe;">filteredArr</span><span
+                                                                                                style="color: #d4d4d4;">.</span><span
+                                                                                                style="color: #dcdcaa;">isEmpty</span><span
+                                                                                                style="color: #d4d4d4;">());
+                                                                                        </span><span
+                                                                                                style="color: #6a9955;">//
+                                                                                                false </span></div>
+                                                                                <div><span
+                                                                                                style="color: #9cdcfe;">console</span><span
+                                                                                                style="color: #d4d4d4;">.</span><span
+                                                                                                style="color: #dcdcaa;">log</span><span
+                                                                                                style="color: #d4d4d4;">(</span><span
+                                                                                                style="color: #9cdcfe;">filteredArr</span><span
+                                                                                                style="color: #d4d4d4;">.</span><span
+                                                                                                style="color: #9cdcfe;">constructor</span><span
+                                                                                                style="color: #d4d4d4;">);
+                                                                                                &nbsp;</span><span
+                                                                                                style="color: #6a9955;">//
+                                                                                                PowerArray</span></div>
+                                                                        </div>
+                                                                </div>
+
+
+
+
+
+
+
+
+
+
+                                                        </h3>
+                                                </li>
+                                        </ul>
                                 </details>
                         </li>
                         <li>
