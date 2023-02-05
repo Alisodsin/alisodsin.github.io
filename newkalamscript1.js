@@ -460,8 +460,8 @@ function efsl() {
 
 function togleMessage() {
     if (!toggles.has("dodend1")) {
-        message1 = "ماتيجى انيكك فيه؟";
-        message2 = "نتكلم صوت جيتسى";
+        message1 = "انيكك صوت؟";
+        message2 = "نتكلم جيتسى";
         message3 = "او تلجرام؟";
         message4 = "ما تردى عليا يا لبوتى"
         input.placeholder = `the bad message`;

@@ -22210,7 +22210,7 @@
                         </li>
                 </ul>
         </details>
-        <details class="dad" open>
+        <details class="dad">
                 <summary>Classes</summary>
                 <ul>
                         <li>
@@ -25931,179 +25931,664 @@
                                 </details>
                         </li>
                         <li>
-                                <details open>
+                                <details>
                                         <summary>Extending built-in classes</summary>
                                         <ul>
                                                 <li>
-                                                        <h3>Extending built-in classes
-                                                                <p>Built-in classes like Array, Map and others are
-                                                                        extendable also.</p>
-                                                                <p>For instance, here PowerArray inherits from the
-                                                                        native Array:</p>
-                                                                <div class="cods" contenteditable="" spellcheck="false">
-                                                                        <div>
-                                                                                <div><span style="color: #6a9955;">//
-                                                                                                add one more method to
-                                                                                                it (can do more)</span>
-                                                                                </div>
-                                                                                <div><span
-                                                                                                style="color: #569cd6;">class</span><span
-                                                                                                style="color: #d4d4d4;">
-                                                                                        </span><span
-                                                                                                style="color: #4ec9b0;">PowerArray</span><span
-                                                                                                style="color: #d4d4d4;">
-                                                                                        </span><span
-                                                                                                style="color: #569cd6;">extends</span><span
-                                                                                                style="color: #d4d4d4;">
-                                                                                        </span><span
-                                                                                                style="color: #4ec9b0;">Array</span><span
-                                                                                                style="color: #d4d4d4;">
-                                                                                                {</span></div>
-                                                                                <div><span style="color: #d4d4d4;">&nbsp;
-                                                                                                &nbsp; </span><span
-                                                                                                style="color: #dcdcaa;">isEmpty</span><span
-                                                                                                style="color: #d4d4d4;">()
-                                                                                                {</span></div>
-                                                                                <div><span style="color: #d4d4d4;">&nbsp;
-                                                                                                &nbsp; &nbsp; &nbsp;
-                                                                                        </span><span
-                                                                                                style="color: #c586c0;">return</span><span
-                                                                                                style="color: #d4d4d4;">
-                                                                                        </span><span
-                                                                                                style="color: #569cd6;">this</span><span
-                                                                                                style="color: #d4d4d4;">.</span><span
-                                                                                                style="color: #9cdcfe;">length</span><span
-                                                                                                style="color: #d4d4d4;">
-                                                                                                === </span><span
-                                                                                                style="color: #b5cea8;">0</span><span
-                                                                                                style="color: #d4d4d4;">;</span>
-                                                                                </div>
-                                                                                <div><span style="color: #d4d4d4;">&nbsp;
-                                                                                                &nbsp; }</span></div>
-                                                                                <div><span
-                                                                                                style="color: #d4d4d4;">}</span>
-                                                                                </div><br>
-                                                                                <div><span
-                                                                                                style="color: #569cd6;">let</span><span
-                                                                                                style="color: #d4d4d4;">
-                                                                                        </span><span
-                                                                                                style="color: #9cdcfe;">arr</span><span
-                                                                                                style="color: #d4d4d4;">
-                                                                                                = </span><span
-                                                                                                style="color: #569cd6;">new</span><span
-                                                                                                style="color: #d4d4d4;">
-                                                                                        </span><span
-                                                                                                style="color: #4ec9b0;">PowerArray</span><span
-                                                                                                style="color: #d4d4d4;">(</span><span
-                                                                                                style="color: #b5cea8;">1</span><span
-                                                                                                style="color: #d4d4d4;">,
-                                                                                        </span><span
-                                                                                                style="color: #b5cea8;">2</span><span
-                                                                                                style="color: #d4d4d4;">,
-                                                                                        </span><span
-                                                                                                style="color: #b5cea8;">5</span><span
-                                                                                                style="color: #d4d4d4;">,
-                                                                                        </span><span
-                                                                                                style="color: #b5cea8;">10</span><span
-                                                                                                style="color: #d4d4d4;">,
-                                                                                        </span><span
-                                                                                                style="color: #b5cea8;">50</span><span
-                                                                                                style="color: #d4d4d4;">);</span>
-                                                                                </div>
-                                                                                <div><span
-                                                                                                style="color: #9cdcfe;">console</span><span
-                                                                                                style="color: #d4d4d4;">.</span><span
-                                                                                                style="color: #dcdcaa;">log</span><span
-                                                                                                style="color: #d4d4d4;">(</span><span
-                                                                                                style="color: #9cdcfe;">arr</span><span
-                                                                                                style="color: #d4d4d4;">.</span><span
-                                                                                                style="color: #dcdcaa;">isEmpty</span><span
-                                                                                                style="color: #d4d4d4;">());
-                                                                                        </span><span
-                                                                                                style="color: #6a9955;">//
-                                                                                                false</span></div><br>
-                                                                                <div><span
-                                                                                                style="color: #569cd6;">let</span><span
-                                                                                                style="color: #d4d4d4;">
-                                                                                        </span><span
-                                                                                                style="color: #9cdcfe;">filteredArr</span><span
-                                                                                                style="color: #d4d4d4;">
-                                                                                                = </span><span
-                                                                                                style="color: #9cdcfe;">arr</span><span
-                                                                                                style="color: #d4d4d4;">.</span><span
-                                                                                                style="color: #dcdcaa;">filter</span><span
-                                                                                                style="color: #d4d4d4;">(</span><span
-                                                                                                style="color: #9cdcfe;">item</span><span
-                                                                                                style="color: #d4d4d4;">
-                                                                                        </span><span
-                                                                                                style="color: #569cd6;">=&gt;</span><span
-                                                                                                style="color: #d4d4d4;">
-                                                                                        </span><span
-                                                                                                style="color: #9cdcfe;">item</span><span
-                                                                                                style="color: #d4d4d4;">
-                                                                                                &gt;= </span><span
-                                                                                                style="color: #b5cea8;">10</span><span
-                                                                                                style="color: #d4d4d4;">);</span>
-                                                                                </div>
-                                                                                <div><span
-                                                                                                style="color: #9cdcfe;">console</span><span
-                                                                                                style="color: #d4d4d4;">.</span><span
-                                                                                                style="color: #dcdcaa;">log</span><span
-                                                                                                style="color: #d4d4d4;">(</span><span
-                                                                                                style="color: #9cdcfe;">filteredArr</span><span
-                                                                                                style="color: #d4d4d4;">);
-                                                                                        </span><span
-                                                                                                style="color: #6a9955;">//
-                                                                                                10, 50</span></div>
-                                                                                <div><span
-                                                                                                style="color: #9cdcfe;">console</span><span
-                                                                                                style="color: #d4d4d4;">.</span><span
-                                                                                                style="color: #dcdcaa;">log</span><span
-                                                                                                style="color: #d4d4d4;">(</span><span
-                                                                                                style="color: #9cdcfe;">filteredArr</span><span
-                                                                                                style="color: #d4d4d4;">.</span><span
-                                                                                                style="color: #dcdcaa;">isEmpty</span><span
-                                                                                                style="color: #d4d4d4;">());
-                                                                                        </span><span
-                                                                                                style="color: #6a9955;">//
-                                                                                                false </span></div>
-                                                                                <div><span
-                                                                                                style="color: #9cdcfe;">console</span><span
-                                                                                                style="color: #d4d4d4;">.</span><span
-                                                                                                style="color: #dcdcaa;">log</span><span
-                                                                                                style="color: #d4d4d4;">(</span><span
-                                                                                                style="color: #9cdcfe;">filteredArr</span><span
-                                                                                                style="color: #d4d4d4;">.</span><span
-                                                                                                style="color: #9cdcfe;">constructor</span><span
-                                                                                                style="color: #d4d4d4;">);
-                                                                                                &nbsp;</span><span
-                                                                                                style="color: #6a9955;">//
-                                                                                                PowerArray</span></div>
+                                                        <h3>Extending built-in classes</h3>
+                                                        <p>Built-in classes like Array, Map and others are
+                                                                extendable also.</p>
+                                                        <p>For instance, here PowerArray inherits from the
+                                                                native Array:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #6a9955;">//
+                                                                                        add one more method to
+                                                                                        it (can do more)</span>
                                                                         </div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">class</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">PowerArray</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">extends</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">Array</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                        &nbsp; </span><span
+                                                                                        style="color: #dcdcaa;">isEmpty</span><span
+                                                                                        style="color: #d4d4d4;">()
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                        &nbsp; &nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">return</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">this</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">length</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        === </span><span
+                                                                                        style="color: #b5cea8;">0</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp;
+                                                                                        &nbsp; }</span></div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div><br>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">arr</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        = </span><span
+                                                                                        style="color: #569cd6;">new</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">PowerArray</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #b5cea8;">1</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">2</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">5</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">10</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">50</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">arr</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">isEmpty</span><span
+                                                                                        style="color: #d4d4d4;">());
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        false</span></div><br>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">filteredArr</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        = </span><span
+                                                                                        style="color: #9cdcfe;">arr</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">filter</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">item</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">=&gt;</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">item</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        &gt;= </span><span
+                                                                                        style="color: #b5cea8;">10</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">filteredArr</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        10, 50</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">filteredArr</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">isEmpty</span><span
+                                                                                        style="color: #d4d4d4;">());
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        false </span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">filteredArr</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">constructor</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                        &nbsp;</span><span
+                                                                                        style="color: #6a9955;">//
+                                                                                        PowerArray</span></div>
                                                                 </div>
-
-
-
-
-
-
-
-
-
-
-                                                        </h3>
+                                                        </div>
+                                                        <p>Please note a very interesting thing. Built-in methods like
+                                                                filter, map and others – return new objects of exactly
+                                                                the inherited type PowerArray. Their internal
+                                                                implementation uses the object’s constructor property
+                                                                for that.</p>
+                                                        <p>In the example above,</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                arr.constructor === PowerArray // true
+                                                        </div>
+                                                        <p>When arr.filter() is called, it internally creates the new
+                                                                array of results using exactly arr.constructor, not
+                                                                basic Array. That’s actually very cool, because we can
+                                                                keep using PowerArray methods further on the result.</p>
+                                                        <p>Even more, we can customize that behavior.</p>
+                                                        <p>We can add a special static getter Symbol.species to the
+                                                                class. If it exists, it should return the constructor
+                                                                that JavaScript will use internally to create new
+                                                                entities in map, filter and so on.</p>
+                                                        <p>If we’d like built-in methods like map or filter to return
+                                                                regular arrays, we can return Array in Symbol.species,
+                                                                like here:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">class</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">PowerArray</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">extends</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">Array</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">isEmpty</span><span
+                                                                                        style="color: #d4d4d4;">()
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #c586c0;">return</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">this</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">length</span><span
+                                                                                        style="color: #d4d4d4;"> ===
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">0</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div><br>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        built-in methods will use this
+                                                                                        as the constructor</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">static</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">get</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                        [</span><span
+                                                                                        style="color: #9cdcfe;">Symbol</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #4fc1ff;">species</span><span
+                                                                                        style="color: #d4d4d4;">]()
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #c586c0;">return</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">Array</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                        }</span></div>
+                                                                        <div><span style="color: #d4d4d4;">}</span>
+                                                                        </div><br>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">arr</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">new</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">PowerArray</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #b5cea8;">1</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">2</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">5</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">10</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">50</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">arr</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">isEmpty</span><span
+                                                                                        style="color: #d4d4d4;">());
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        false</span></div><br>
+                                                                        <div><span style="color: #6a9955;">// filter
+                                                                                        creates new array using
+                                                                                        arr.constructor[Symbol.species]
+                                                                                        as constructor</span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">filteredArr</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">arr</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">filter</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">item</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">=&gt;</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">item</span><span
+                                                                                        style="color: #d4d4d4;"> &gt;=
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">10</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div><br>
+                                                                        <div><span style="color: #6a9955;">//
+                                                                                        filteredArr is not PowerArray,
+                                                                                        but Array</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">filteredArr</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">isEmpty</span><span
+                                                                                        style="color: #d4d4d4;">());
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        Error: filteredArr.isEmpty is
+                                                                                        not a function</span></div>
+                                                                </div>
+                                                        </div>
+                                                        <p>As you can see, now .filter returns Array. So the extended
+                                                                functionality is not passed any further.</p>
                                                 </li>
+                                                <li>
+                                                        <h3>No static inheritance in built-ins</h3>
+                                                        <p>Built-in objects in JavaScript have their own static methods,
+                                                                which are methods that are invoked directly on the
+                                                                object and not on its instances. For example, the static
+                                                                methods of the Object class are Object.keys,
+                                                                Object.values, Object.entries, etc.</p>
+                                                        <p>In JavaScript, objects extend each other. This means that an
+                                                                object can inherit properties and methods from another
+                                                                object. When an object extends another object, it
+                                                                usually inherits both static and non-static methods.</p>
+                                                        <p>However, built-in classes are an exception to this rule.
+                                                                Built-in classes do not inherit static methods from each
+                                                                other. This means that if you have two built-in classes,
+                                                                such as Array and Date, and you want to access the
+                                                                static methods of the Object class from them, you cannot
+                                                                do so directly.</p>
+                                                        <p>For example, Array and Date both inherit from the Object
+                                                                class, which means that their instances (i.e. objects
+                                                                created from these classes) have access to the methods
+                                                                of the Object.prototype object. But the Array class
+                                                                itself does not reference the Object class, so there is
+                                                                no static method available on the Array class, such as
+                                                                Array.keys(). The same applies to the Date class.</p>
+                                                        <p>This is why you can access the static methods of the Object
+                                                                class only directly on the Object class and not on its
+                                                                descendants, such as Array or Date.</p>
+                                                </li>
+
                                         </ul>
                                 </details>
                         </li>
                         <li>
                                 <details>
                                         <summary>Class checking: "instanceof"</summary>
+                                        <ul>
+                                                <li>
+                                                        <h3>The instanceof operator</h3>
+                                                        <p>The syntax is:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                obj instanceof Class
+                                                        </div>
+                                                        <p>It returns true if obj belongs to the Class or a class
+                                                                inheriting from it.</p>
+                                                        <p>It also works with constructor functions:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #6a9955;">// instead of
+                                                                                        class</span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">Rabbit</span><span
+                                                                                        style="color: #d4d4d4;">() {
+                                                                                        }</span></div><br>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #569cd6;">new</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">Rabbit</span><span
+                                                                                        style="color: #d4d4d4;">()
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">instanceof</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">Rabbit</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        true</span></div>
+                                                                </div>
+                                                        </div>
+                                                        <p>…And with built-in classes like Array:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">arr</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                        [</span><span
+                                                                                        style="color: #b5cea8;">1</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">2</span><span
+                                                                                        style="color: #d4d4d4;">,
+                                                                                </span><span
+                                                                                        style="color: #b5cea8;">3</span><span
+                                                                                        style="color: #d4d4d4;">];</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">arr</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">instanceof</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">Array</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        true</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #9cdcfe;">arr</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">instanceof</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">Object</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        true</span></div>
+                                                                </div>
+                                                        </div>
+                                                        <p>Normally, instanceof examines the prototype chain for the
+                                                                check. We can also set a custom logic in the static
+                                                                method Symbol.hasInstance.</p>
+                                                        <p>The algorithm of obj instanceof Class works roughly as
+                                                                follows:</p>
+                                                        <ol>
+                                                                <li>If there’s a static method Symbol.hasInstance, then
+                                                                        just call it: Class[Symbol.hasInstance](obj). It
+                                                                        should return either true or false, and we’re
+                                                                        done. That’s how we can customize the behavior
+                                                                        of instanceof. For example:
+                                                                        <div class="cods" contenteditable=""
+                                                                                spellcheck="false">
+                                                                                <div>
+                                                                                        <div><span
+                                                                                                        style="color: #6a9955;">//
+                                                                                                        setup instanceOf
+                                                                                                        check that
+                                                                                                        assumes
+                                                                                                        that</span>
+                                                                                        </div>
+                                                                                        <div><span
+                                                                                                        style="color: #6a9955;">//
+                                                                                                        anything with
+                                                                                                        canEat property
+                                                                                                        is an
+                                                                                                        animal</span>
+                                                                                        </div>
+                                                                                        <div><span
+                                                                                                        style="color: #569cd6;">class</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                </span><span
+                                                                                                        style="color: #4ec9b0;">Animal</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                        {</span></div>
+                                                                                        <div><span
+                                                                                                        style="color: #d4d4d4;">&nbsp;
+                                                                                                        &nbsp;
+                                                                                                </span><span
+                                                                                                        style="color: #569cd6;">static</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                        [</span><span
+                                                                                                        style="color: #9cdcfe;">Symbol</span><span
+                                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                                        style="color: #4fc1ff;">hasInstance</span><span
+                                                                                                        style="color: #d4d4d4;">](</span><span
+                                                                                                        style="color: #9cdcfe;">obj</span><span
+                                                                                                        style="color: #d4d4d4;">)
+                                                                                                        {</span></div>
+                                                                                        <div><span
+                                                                                                        style="color: #d4d4d4;">&nbsp;
+                                                                                                        &nbsp; &nbsp;
+                                                                                                        &nbsp;
+                                                                                                </span><span
+                                                                                                        style="color: #c586c0;">if</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                        (</span><span
+                                                                                                        style="color: #9cdcfe;">obj</span><span
+                                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                                        style="color: #9cdcfe;">canEat</span><span
+                                                                                                        style="color: #d4d4d4;">)
+                                                                                                </span><span
+                                                                                                        style="color: #c586c0;">return</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                </span><span
+                                                                                                        style="color: #569cd6;">true</span><span
+                                                                                                        style="color: #d4d4d4;">;</span>
+                                                                                        </div>
+                                                                                        <div><span
+                                                                                                        style="color: #d4d4d4;">&nbsp;
+                                                                                                        &nbsp; }</span>
+                                                                                        </div>
+                                                                                        <div><span
+                                                                                                        style="color: #d4d4d4;">}</span>
+                                                                                        </div>
+                                                                                        <div><span
+                                                                                                        style="color: #569cd6;">let</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                </span><span
+                                                                                                        style="color: #9cdcfe;">obj</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                        = { </span><span
+                                                                                                        style="color: #9cdcfe;">canEat</span><span
+                                                                                                        style="color: #9cdcfe;">:</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                </span><span
+                                                                                                        style="color: #569cd6;">true</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                        };</span></div>
+                                                                                        <div><span
+                                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                                        style="color: #9cdcfe;">obj</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                </span><span
+                                                                                                        style="color: #569cd6;">instanceof</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                </span><span
+                                                                                                        style="color: #4ec9b0;">Animal</span><span
+                                                                                                        style="color: #d4d4d4;">);
+                                                                                                </span><span
+                                                                                                        style="color: #6a9955;">//
+                                                                                                        true:
+                                                                                                        Animal[Symbol.hasInstance](obj)
+                                                                                                        is called</span>
+                                                                                        </div>
+                                                                                </div>
+                                                                        </div>
+
+
+
+
+                                                                </li>
+                                                                <li>Most classes do not have Symbol.hasInstance. In that
+                                                                        case, the standard logic is used: obj instanceOf
+                                                                        Class checks whether Class.prototype is equal to
+                                                                        one of the prototypes in the obj prototype
+                                                                        chain.
+                                                                        <p>In other words, compare one after another:
+                                                                        </p>
+                                                                        <div class="cods" contenteditable=""
+                                                                                spellcheck="false">
+                                                                                <div>
+                                                                                        <div><span
+                                                                                                        style="color: #9cdcfe;">obj</span><span
+                                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                                        style="color: #9cdcfe;">__proto__</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                        === </span><span
+                                                                                                        style="color: #4ec9b0;">Class</span><span
+                                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                                        style="color: #9cdcfe;">prototype</span><span
+                                                                                                        style="color: #d4d4d4;">?</span>
+                                                                                        </div>
+                                                                                        <div><span
+                                                                                                        style="color: #9cdcfe;">obj</span><span
+                                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                                        style="color: #9cdcfe;">__proto__</span><span
+                                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                                        style="color: #9cdcfe;">__proto__</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                        === </span><span
+                                                                                                        style="color: #4ec9b0;">Class</span><span
+                                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                                        style="color: #9cdcfe;">prototype</span><span
+                                                                                                        style="color: #d4d4d4;">?</span>
+                                                                                        </div>
+                                                                                        <div><span
+                                                                                                        style="color: #9cdcfe;">obj</span><span
+                                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                                        style="color: #9cdcfe;">__proto__</span><span
+                                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                                        style="color: #9cdcfe;">__proto__</span><span
+                                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                                        style="color: #9cdcfe;">__proto__</span><span
+                                                                                                        style="color: #d4d4d4;">
+                                                                                                        === </span><span
+                                                                                                        style="color: #4ec9b0;">Class</span><span
+                                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                                        style="color: #9cdcfe;">prototype</span><span
+                                                                                                        style="color: #d4d4d4;">?</span>
+                                                                                        </div>
+                                                                                        <div><span
+                                                                                                        style="color: #d4d4d4;">...</span>
+                                                                                        </div>
+                                                                                        <div><span
+                                                                                                        style="color: #6a9955;">//
+                                                                                                        if any answer is
+                                                                                                        true, return
+                                                                                                        true</span>
+                                                                                        </div>
+                                                                                        <div><span
+                                                                                                        style="color: #6a9955;">//
+                                                                                                        otherwise, if we
+                                                                                                        reached the end
+                                                                                                        of the chain,
+                                                                                                        return
+                                                                                                        false</span>
+                                                                                        </div>
+                                                                                </div>
+                                                                        </div>
+
+
+
+
+
+
+
+                                                                </li>
+
+                                                        </ol>
+
+                                                </li>
+                                                <li><h3>Bonus: Object.prototype.toString for the type</h3>
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                </li>
+                                        </ul>
+
+
                                 </details>
                         </li>
                         <li>
                                 <details>
                                         <summary>Mixins</summary>
+
                                 </details>
                         </li>
                 </ul>
