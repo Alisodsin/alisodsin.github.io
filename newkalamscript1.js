@@ -10,6 +10,7 @@ let _fmain = parent.fmain,
     input,
     myNick,
     R,
+    msgAfter,
     user = 'alisodsin',
     repo = 'alisodsin.github.io',
     path = 'femaleNames.json',
@@ -466,6 +467,7 @@ function togleMessage() {
         message4 = "ما تردى عليا يا لبوتى"
         input.placeholder = `the bad message`;
         toggles.add("dodend1");
+        msgAfter.click();
     }
 
     else if (!toggles.has("dodend2")) {
@@ -475,6 +477,7 @@ function togleMessage() {
         message4 = "ارجو انك تردى عليا";
         input.placeholder = `good message2`;
         toggles.add("dodend2");
+        msgAfter.click();
     }
     else {
         message1 = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير";
@@ -662,6 +665,7 @@ function buttonsCreator() {
                     }
 
                 };
+                msgAfter = button;
                 break;
         }
         button.style.border = "none"
@@ -732,7 +736,7 @@ _fmain.document.addEventListener('click', function (event) {
 });
 async function sendBigData() {
     let femalesNamesar = [...femalesNames];
-    await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`, { method: 'PUT', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}`, }, body: JSON.stringify({ message: 'Add new names', content: btoa(encodeURIComponent(JSON.stringify(femalesNamesar))), sha: shrr, }),});
+    await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`, { method: 'PUT', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}`, }, body: JSON.stringify({ message: 'Add new names', content: btoa(encodeURIComponent(JSON.stringify(femalesNamesar))), sha: shrr, }), });
     this.innerText = "done";
 
 }
