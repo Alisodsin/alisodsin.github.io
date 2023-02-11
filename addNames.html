@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add/Delete Female Names</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h2>Add/Delete Female Names</h2>
+    <form id="form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="qury" required>
+        <br>
+        <button type="submit" id="add-btn">Add Name</button>
+        <button type="submit" id="delete-btn">Delete Name</button>
+    </form>
+    <div id="response"></div>
+    <script>
+        const form = document.getElementById('form');
+        const addBtn = document.getElementById('add-btn');
+        const deleteBtn = document.getElementById('delete-btn');
+        const responseDiv = document.getElementById('response');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const input = document.getElementById('name').value;
+            const xhttp = new XMLHttpRequest();
+
+            if (addBtn.clicked) {
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState === 4 && this.status === 200) {
+                        responseDiv.innerHTML = `Added name: ${input}`;
+                    } else if (this.readyState === 4 && this.status === 400) {
+                        responseDiv.innerHTML = this.responseText;
+                    }
+                };
+                xhttp.open('POST', 'https://php.alisaber1.repl.co/index.php', true);
+                xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhttp.send(`qury=${input}`);
+            }
+
+            if (deleteBtn.clicked) {
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState === 4 && this.status === 200) {
+                        responseDiv.innerHTML = `Deleted name: ${input}`;
+                    } else if (this.readyState === 4 && this.status === 400) {
+                        responseDiv.innerHTML = this.responseText;
+                    }
+                };
+                xhttp.open('DELETE', 'https://php.alisaber1.repl.co/index.php', true);
+                xhttp.send(`qury=${input}`);
+            }
+        });
+
+        addBtn.addEventListener('click', function () {
+            addBtn.clicked = true;
+            deleteBtn.clicked = false;
+        });
+
+        deleteBtn.addEventListener('click', function () {
+            addBtn.clicked = false;
+            deleteBtn.clicked = true;
+        });
+    </script>
+</body>
+
+</html>

@@ -264,13 +264,7 @@ let _fmain = parent.fmain,
             });
             R = _fwindowlist.document.getElementsByName("R")[0].value;
             kalamngySend = function (target, msg) {
-                return fetch("https://www.kalamngychat.com/chat/client-perl.cgi", {
-                    method: "POST",
-                    headers: {
-                        "Content-type": "application/x-www-form-urlencoded"
-                    },
-                    body: `item=say&cmd=say&say=${msg}&target=${target}&R=${R}&xmlhttp=1`
-                });
+                return fetch("https://www.kalamngychat.com/chat/client-perl.cgi", { method: "POST", headers: { "Content-type": "application/x-www-form-urlencoded" }, body: `item=say&cmd=say&say=${msg}&target=${target}&R=${R}&xmlhttp=1` });
             };
             function func1(s) {
                 personsGotMyMsg1.add(s);
