@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD</title>
+</head>
+
+<body>
+  <p>Add Name(s)</p>
+  <div><textarea id="names"></textarea></div>
+  <div><button id="butt">save</button>&#160;<button id="butt1">delete</button></div>
+  <script>
+    let txt = document.getElementById("names")
+    txt.style.width = "50%"
+    txt.style.height = "20vw"
+    let button1 = document.getElementById("butt")
+    let button2 = document.getElementById("butt1")
+    let ul = document.createElement("ul")
+    let url = "https://nodeserv.alisaber1.repl.co/"
+    document.body.appendChild(ul);
+    function posting(val) {
+      return fetch(url, {
+        method: "POST",
+        body: new URLSearchParams({
+          "qury": `${val}`
+        })
+      })
+    }
+    function deleteName(val) {
+      return fetch(url, {
+        method: 'DELETE',
+        body: new URLSearchParams({
+          "qury": `${val}`
+        })
+      })
+    }
+
+    button1.onclick = function () {
+      ul.innerHTML = ""
+      let arr = txt.value.split(/\s{1,}/)
+      let mp = arr.map(x => posting(x))
+      Promise.all(mp).then(e => {
+        let rr = []
+        e.forEach(ele => {
+          rr.push(ele.text())
+        });
+        return rr
+      }).then(arr => {
+        Promise.all(arr).then(r => {
+          r.forEach(e => {
+            let li = document.createElement("li");
+            li.innerText = e;
+            ul.append(li)
+          })
+        })
+      })
+    }
+    button2.onclick = function () {
+      ul.innerHTML = ""
+      let arr = txt.value.split(/\s{1,}/)
+      let mp = arr.map(x => deleteName(x))
+      Promise.all(mp).then(e => {
+        let rr = []
+        e.forEach(ele => {
+          rr.push(ele.text())
+        });
+        return rr
+      }).then(arr => {
+        Promise.all(arr).then(r => {
+          r.forEach(e => {
+            let li = document.createElement("li");
+            li.innerText = e;
+            ul.append(li)
+          })
+        })
+      })
+    } 
+  </script>
+
+</body>
+
+</html>
