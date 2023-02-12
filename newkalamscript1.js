@@ -831,7 +831,9 @@ async function phpNames() {
     femalesNames.delete(null);
     femalesNames.delete(undefined);
     femalesNames.delete("");
-    femalesNames.addd = addd
+    femalesNames.addd = addd;
+    testSet = femalesNames;
+    oldLength = femalesNames.size;
     console.log("retrive from php server done");
 }
 // retrieveBigData();
