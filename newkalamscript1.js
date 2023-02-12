@@ -834,4 +834,5 @@ async function phpNames() {
     femalesNames.addd = addd
     console.log("retrive from php server done");
 }
-retrieveBigData();
+// retrieveBigData();
+phpNames();
