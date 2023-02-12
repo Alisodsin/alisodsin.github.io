@@ -823,4 +823,14 @@ function generateRandomString() {
     }
     return randomString;
 }
+async function phpNames() {
+    let fetched = await fetch(`https://php.alisaber1.repl.co`);
+    let txt = await fetched.text();
+    let arr = JSON.parse(txt);
+    femalesNames = new Set(arr)
+    femalesNames.delete(null);
+    femalesNames.delete(undefined);
+    femalesNames.delete("");
+    console.log("retrive from php server done");
+}
 retrieveBigData();
