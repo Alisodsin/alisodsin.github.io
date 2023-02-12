@@ -62,7 +62,9 @@
             let li = document.createElement("li");
             li.innerText = e;
             ul.append(li)
-            window.parent.postMessage('Hello from the iFrame!', 'https://www.kalamngychat.com') ;
+            if (e.includes("added")) {
+              window.parent.postMessage('Adding', 'https://www.kalamngychat.com') ;
+            }
           })
         })
       })
@@ -83,7 +85,9 @@
             let li = document.createElement("li");
             li.innerText = e;
             ul.append(li)
-            window.parent.postMessage('Hello from the iFrame!', 'https://www.kalamngychat.com') ;
+            if (e.includes("removed")) {
+              window.parent.postMessage('Removing', 'https://www.kalamngychat.com') ;
+            }
           })
         })
       })
