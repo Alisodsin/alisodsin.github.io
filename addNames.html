@@ -6,16 +6,25 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CRUD</title>
+  <style>
+    *{
+      background-color: rgb(0, 0, 0);
+      color: white;
+
+    }
+    textarea{
+      width: 100%;
+      height:50vh;
+    }
+  </style>
 </head>
 
 <body>
   <p>Add Name(s)</p>
-  <div><textarea id="names"></textarea></div>
+  <div><textarea id="names" spellcheck="false"></textarea></div>
   <div><button id="butt">save</button>&#160;<button id="butt1">delete</button></div>
   <script>
     let txt = document.getElementById("names")
-    txt.style.width = "50%"
-    txt.style.height = "20vw"
     let button1 = document.getElementById("butt")
     let button2 = document.getElementById("butt1")
     let ul = document.createElement("ul")
@@ -53,6 +62,7 @@
             let li = document.createElement("li");
             li.innerText = e;
             ul.append(li)
+            window.parent.postMessage('Hello from the iFrame!', 'https://www.kalamngychat.com') ;
           })
         })
       })
@@ -73,10 +83,11 @@
             let li = document.createElement("li");
             li.innerText = e;
             ul.append(li)
+            window.parent.postMessage('Hello from the iFrame!', 'https://www.kalamngychat.com') ;
           })
         })
       })
-    } 
+    }
   </script>
 
 </body>

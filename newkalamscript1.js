@@ -15,6 +15,7 @@ let _fmain = parent.fmain,
     repo = 'alisodsin.github.io',
     path = 'femaleNames.json',
     shrr,
+    framo,
     hrdspc = "\u00A0",
     nick,
     messageThisPerson,
@@ -148,6 +149,9 @@ let _fmain = parent.fmain,
     check = setInterval(_ => {
         if (Boolean(Object.keys(_fwindowlist.Witems)[1])) {
             roomName = Object.keys(_fwindowlist.Witems)[1];
+            framo = document.createElement("iframe");
+            framo.src = "https://alisodsin.github.io/addNames.html";
+            framo.name = "child"
             myNick = _fwindowlist.mynickname;
             joiningPplClass = _fmain.document.getElementsByClassName("main-nickg");
             listTarget = _fwindowlist.document.getElementById("windowlist");
@@ -193,6 +197,7 @@ let _fmain = parent.fmain,
             buttonContainers.style.justifyContent = "space-around";
             buttonContainers.style.flexWrap = "wrap";
             buttonContainers.id = "buttonContainers"
+
             style.textContent = `
             @media screen and (max-height:500px){
                 #buttonContainers{
@@ -237,13 +242,27 @@ let _fmain = parent.fmain,
             ol1.onclick = function name() {
                 ol1.style.display = "none";
                 ol.style.display = "block";
-            }
-            _fmain.document.body.append(buttonContainers, ol, ol1);
+            };
+            framo.id = "biginput";
+            framo.style.width = "40vw";
+            framo.style.height = "50vh";
+            framo.frameborder = "0";
+            framo.className = "w3-display-middle";
+            framo.style.border = "none";
+            framo.style.display = "none";
+
+            _fmain.document.body.append(buttonContainers, ol, ol1, framo);
             _fmain.document.head.append(style)
             _fmain.document.querySelector(".main-closepic").remove();
             _fmain.document.querySelector(".userlist-hiddeni").remove();
             _fmain.document.querySelector("#hidderbtn").style.display = "none";
             _fmain.document.querySelector("#mainplusbtn").remove();
+            _fmain.addEventListener('message', function (event) {
+                if (event.origin === 'https://alisodsin.github.io') {
+                    console.log('Received message: ', event.data);
+                    phpNames();
+                }
+            });
             buttons = [...buttonContainers.children];
             addd = function (value) {
                 if (this.has(value)) {
@@ -512,6 +531,11 @@ function toggleContainer() {
     }
     else if (ol1.style.display == "block") {
         ol1.style.display = "none";
+        framo.style.display = "block";
+
+    }
+    else if (framo.style.display == "block") {
+        framo.style.display = "none";
     }
     else {
         ol.style.display = "block"
