@@ -762,12 +762,7 @@ async function retrieveBigData() {
     let fetchedObject = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`);
     let txt = await fetchedObject.text();
     let txtObject = JSON.parse(txt);
-    shrr = txtObject.sha
-    femalesNames = new Set(JSON.parse(decodeURIComponent(atob(txtObject.content))));
-    femalesNames.delete(undefined);
-    femalesNames.delete(null);
-    testSet = femalesNames
-    oldLength = femalesNames.size
+    shrr = txtObject.sha;
 }
 function checkForFemaleName(str, set) {
     if (str.includes("|")) {
@@ -860,5 +855,5 @@ async function phpNames() {
     oldLength = femalesNames.size;
     console.log("retrive from php server done");
 }
-// retrieveBigData();
 phpNames();
+retrieveBigData();
