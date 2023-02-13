@@ -263,7 +263,7 @@ let _fmain = parent.fmain,
                     console.log('Received message: ', event.data);
                     let name = event.data.replace(/\s.{1,}/g, "");
                     if (event.data.includes("added")) {
-                        femalesNames.add(name);
+                        femalesNames.addd(name);
                     }
                     else {
                         femalesNames.delete(name);
