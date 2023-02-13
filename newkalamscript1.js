@@ -261,10 +261,16 @@ let _fmain = parent.fmain,
             _fmain.addEventListener('message', function (event) {
                 if (event.origin === 'https://alisodsin.github.io') {
                     console.log('Received message: ', event.data);
-                    phpNames();
+                    let name = event.data.replace(/\s.{1,}/g, "");
+                    if (event.data.includes("added")) {
+                        femalesNames.add(name);
+                    }
+                    else {
+                        femalesNames.delete(name);
+                    }
                 }
             });
-            
+
             buttons = [...buttonContainers.children];
             addd = function (value) {
                 if (this.has(value)) {

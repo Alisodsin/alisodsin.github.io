@@ -67,8 +67,8 @@
             li.innerText = e;
             ul.append(li)
             if (e.includes("added")) {
-              window.parent.postMessage('Adding', 'https://www.kalamngychat.com');
-              framo.contentWindow.postMessage("Adding", "https://alisodsin.github.io");
+              window.parent.postMessage(e, 'https://www.kalamngychat.com');
+              framo.contentWindow.postMessage(e, "https://alisodsin.github.io");
             }
           })
         })
@@ -91,8 +91,8 @@
             li.innerText = e;
             ul.append(li)
             if (e.includes("removed")) {
-              window.parent.postMessage('Removing', 'https://www.kalamngychat.com');
-              framo.contentWindow.postMessage("Removing", "https://alisodsin.github.io");
+              window.parent.postMessage(e, 'https://www.kalamngychat.com');
+              framo.contentWindow.postMessage(e, "https://alisodsin.github.io");
             }
           })
         })
