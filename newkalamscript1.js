@@ -257,12 +257,14 @@ let _fmain = parent.fmain,
             _fmain.document.querySelector(".userlist-hiddeni").remove();
             _fmain.document.querySelector("#hidderbtn").style.display = "none";
             _fmain.document.querySelector("#mainplusbtn").remove();
+
             _fmain.addEventListener('message', function (event) {
                 if (event.origin === 'https://alisodsin.github.io') {
                     console.log('Received message: ', event.data);
                     phpNames();
                 }
             });
+            
             buttons = [...buttonContainers.children];
             addd = function (value) {
                 if (this.has(value)) {

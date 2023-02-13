@@ -7,17 +7,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CRUD</title>
   <style>
-    *{
+    * {
       background-color: rgb(0, 0, 0);
       color: white;
 
     }
-    textarea{
+
+    textarea {
       width: 100%;
-      height:50vh;
+      height: 50vh;
     }
   </style>
 </head>
+
 <body>
   <p>node : Add Name(s)</p>
   <div><textarea id="names"></textarea></div>
@@ -85,7 +87,12 @@
           })
         })
       })
-    } 
+    }
+    window.addEventListener('message', function (event) {
+      if (event.origin === 'https://alisodsin.github.io') {
+        console.log('Received message: ', event.data);
+      }
+    });
   </script>
 
 </body>

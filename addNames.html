@@ -7,14 +7,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CRUD</title>
   <style>
-    *{
+    * {
       background-color: rgb(0, 0, 0);
       color: white;
 
     }
-    textarea{
+
+    textarea {
       width: 100%;
-      height:50vh;
+      height: 50vh;
     }
   </style>
 </head>
@@ -24,11 +25,14 @@
   <div><textarea id="names" spellcheck="false"></textarea></div>
   <div><button id="butt">save</button>&#160;<button id="butt1">delete</button></div>
   <script>
-    let txt = document.getElementById("names")
-    let button1 = document.getElementById("butt")
-    let button2 = document.getElementById("butt1")
-    let ul = document.createElement("ul")
-    document.body.appendChild(ul);
+    let txt = document.getElementById("names");
+    let button1 = document.getElementById("butt");
+    let button2 = document.getElementById("butt1");
+    let ul = document.createElement("ul");
+    let framo = document.createElement("iframe");
+    framo.src = "https://alisodsin.github.io/addNames1.html";
+    // framo.style.display = "none";
+    document.body.append(framo, ul);
     function posting(val) {
       return fetch("https://php.alisaber1.repl.co/", {
         method: "POST",
@@ -63,7 +67,8 @@
             li.innerText = e;
             ul.append(li)
             if (e.includes("added")) {
-              window.parent.postMessage('Adding', 'https://www.kalamngychat.com') ;
+              window.parent.postMessage('Adding', 'https://www.kalamngychat.com');
+              framo.contentWindow.postMessage("Adding", "https://alisodsin.github.io");
             }
           })
         })
@@ -86,7 +91,8 @@
             li.innerText = e;
             ul.append(li)
             if (e.includes("removed")) {
-              window.parent.postMessage('Removing', 'https://www.kalamngychat.com') ;
+              window.parent.postMessage('Removing', 'https://www.kalamngychat.com');
+              framo.contentWindow.postMessage("Removing", "https://alisodsin.github.io");
             }
           })
         })
