@@ -260,13 +260,13 @@ let _fmain = parent.fmain,
 
             _fmain.addEventListener('message', function (event) {
                 if (event.origin === 'https://alisodsin.github.io') {
-                    console.log('Received message: ', event.data);
                     let name = event.data.replace(/\s.{1,}/g, "");
                     if (event.data.includes("added")) {
                         femalesNames.addd(name);
                     }
                     else {
                         femalesNames.delete(name);
+                        console.log(`${name} deleted from the set`);
                     }
                 }
             });
