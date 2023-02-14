@@ -852,8 +852,7 @@ function generateRandomString() {
 }
 async function phpNames() {
     let fetched = await fetch(`https://php.alisaber1.repl.co`);
-    let txt = await fetched.text();
-    let arr = JSON.parse(txt);
+    let arr = await fetched.json();
     femalesNames = new Set(arr)
     femalesNames.delete(null);
     femalesNames.delete(undefined);
@@ -861,7 +860,7 @@ async function phpNames() {
     femalesNames.addd = addd;
     testSet = femalesNames;
     oldLength = femalesNames.size;
-    console.log("retrive from php server done");
+    console.log("female names fetched from server");
 }
 phpNames();
 retrieveBigData();
