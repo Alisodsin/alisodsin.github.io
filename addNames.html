@@ -29,10 +29,7 @@
     let button1 = document.getElementById("butt");
     let button2 = document.getElementById("butt1");
     let ul = document.createElement("ul");
-    let framo = document.createElement("iframe");
-    framo.src = "https://alisodsin.github.io/addNames1.html";
-    framo.style.display = "none";
-    document.body.append(framo, ul);
+    document.body.append(ul);
     function posting(val) {
       return fetch("https://php.alisaber1.repl.co/", {
         method: "POST",
@@ -68,7 +65,6 @@
             ul.append(li)
             if (e.includes("added")) {
               window.parent.postMessage(e, 'https://www.kalamngychat.com');
-              framo.contentWindow.postMessage(e, "https://alisodsin.github.io");
             }
           })
         })
@@ -92,7 +88,6 @@
             ul.append(li)
             if (e.includes("removed")) {
               window.parent.postMessage(e, 'https://www.kalamngychat.com');
-              framo.contentWindow.postMessage(e, "https://alisodsin.github.io");
             }
           })
         })
