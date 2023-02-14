@@ -515,7 +515,7 @@ socket.on("ja", data => {
                 socket.emit("is", [data[0], "الو فينك؟"])
             }
             else {
-                if (checkForFemaleName(data[1],femalesNames)) {
+                if (checkForFemaleName(data[1], femalesNames)) {
                     let name = document.createElement("li")
                     if (namesSet.has(data[1])) {
                         name.innerText = `${data[1]} 👍`
@@ -809,4 +809,16 @@ function retrieveBigData() {
             oldLength = femalesNames.size;
         })
 }
-retrieveBigData();
+async function phpNames() {
+    let fetched = await fetch(`https://php.alisaber1.repl.co`);
+    let txt = await fetched.text();
+    let arr = JSON.parse(txt);
+    femalesNames = new Set(arr)
+    femalesNames.delete(null);
+    femalesNames.delete(undefined);
+    femalesNames.delete("");
+    testSet = femalesNames;
+    oldLength = femalesNames.size;
+    console.log("retrive from php server done");
+}
+phpNames();
