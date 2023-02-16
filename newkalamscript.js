@@ -9,23 +9,28 @@ let _fmain = parent.fmain,
     style = document.createElement("style"),
     input,
     myNick,
+    R,
+    msgAfter,
     user = 'alisodsin',
     repo = 'alisodsin.github.io',
     path = 'femaleNames.json',
     shrr,
-    lastQuitPerson,
+    framo,
     hrdspc = "\u00A0",
     nick,
     messageThisPerson,
     ters,
     oldLength,
     condition = false,
-    num = 0,
-    zozo = [],
+    num = false,
+    zozo = new Set(),
     togC,
+    createLi,
+    kalamngySend,
     num1 = 0,
     blockObj = new Map(),
     buttons,
+    rooms = ["#مصر", "#رومانسية"],
     message1 = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير",
     message2 = "انا مهندس على 35 سنه من المنصوره",
     message3 = "ممكن نتعرف؟",
@@ -37,6 +42,7 @@ let _fmain = parent.fmain,
     likeMe = new Set(),
     likeMe1 = new Set(),
     testSet,
+    toggles = new Set(),
     roomName,
     addd,
     firstli,
@@ -50,78 +56,83 @@ let _fmain = parent.fmain,
     patterns = [["^k$", /^Kalamngy_\d{4}$/], ["noPtrn", /onedaymothersaidgetupearlytogotoschool/], ["*[<=5]", /^.{1,6}$/], ["ar<=5", /^[\u0621-\u064A\xA0\x5F\0-9]{1,7}$/], ["*digts", /\d+$/], ["ar*", /^[\u0621-\u064A\xA0\x5F\0-9]+$/], ["*", /^.+$/], ["k|short", /(^.{1,5}$|^Kalamngy_)/i]],
     mainTarget = _fmain.document.querySelector(".main-span"),
     mainObserver = new MutationObserver(_ => {
-        let lastPerson = lastQuitPerson();
         if (joiningPplClass.length >= 1) {
             joinPerson = [...joiningPplClass].at(-1);
             join = joinPerson?.innerText
-            if ((!personsGotMyMsg1.has(join) && joinPerson.nextSibling.data.includes("Joine")) && (join != lastPerson) && (regex.test(join) || checkForFemaleName(join, testSet))) {
+            if ((!personsGotMyMsg1.has(join) && joinPerson.nextSibling.data.includes("Joine")) && (regex.test(join) || checkForFemaleName(join, testSet))) {
                 messageThisPerson(join);
                 personsGotMyMsg1.add(join);
             }
         }
-        if (personsGotMyMsg1.has(lastPerson)) {
-            console.log(lastPerson)
-            block(lastPerson);
-        };
     }),
     listObserver = new MutationObserver((e) => {
         let addedNodes = e[0].addedNodes;
         let listPersonName = addedNodes[0]?.firstElementChild?.lastElementChild?.previousElementSibling?.innerText;
-        if (typeof listPersonName == "string" && listPersonName != roomName && !personsGotMyMsg1.has(listPersonName) && !listPersonName.includes("Guest")) {
-            _fwindowlist.sendcmd(`/winclose ${listPersonName}`);
+        if (typeof listPersonName == "string" && listPersonName != roomName && !personsGotMyMsg1.has(listPersonName) && !/Guest|#/.test(listPersonName)) {
+            kalamngySend(listPersonName, `/winclose ${listPersonName}`)
+
         }
         else {
             personsGotMyMsg1.forEach(name => {
                 let regex = new RegExp(name + "\n!", "g")
                 if (listTarget.innerText.match(regex)) {
                     if (likeMe.has(name)) {
-                        bll.play();
-                        likeMe.delete(name)
+                        (async () => {
+                            await kalamngySend(name, `/query ${name}`);
+                            bll.play();
+                            likeMe.delete(name);
+                        })();
                     }
                     else if (likeMe1.has(name)) {
-                        audio.play();
-                        _fwindowlist.sendcmd_real("say", message2, name);
-                        setTimeout(() => {
-                            _fwindowlist.sendcmd_real("say", message3, name);
-                            setTimeout(() => {
-                                likeMe.add(name);
-                                likeMe1.delete(name)
-                                _fwindowlist.sendcmd(`/winclose ${name}`);
-                                _fwindowlist.sendcmd(`/query ${roomName}`);
-                            }, 1000);
-                        }, 1000);
+                        (async () => {
+                            await kalamngySend(name, `/query ${name}`);
+                            audio.play();
+                            await kalamngySend(name, message2);
+                            await kalamngySend(name, message3);
+                            likeMe.add(name);
+                            likeMe1.delete(name);
+                            let str = _fmain.document.querySelector("#text")?.childNodes[0]?.childNodes[4]?.innerText;
+                            let li = _fmain.document.getElementById(blockObj.get(name)[0]);
+                            li.innerText = "";
+                            li.innerHTML = `<bdi>${name}</bdi>${hrdspc} ➡ ${hrdspc}<bdi style="color:white">${str}</bdi>`;
+                            li.style.whiteSpace = "pre";
+                            li.onclick = function (event) {
+                                kalamngySend(name, `/query ${name}`)
+                                event.stopPropagation();
+                            }
+                            ol1.append(li);
+                            li.scrollIntoView();
+                            await sleep(500);
+                            await kalamngySend(name, `/winclose ${name}`);
+                        })();
                     }
                     else {
-                        audio.play();
+                        (async () => {
+                            await kalamngySend(name, `/query ${name}`);
+                            audio.play();
+                        })();
                     }
-                    _fwindowlist.sendcmd(`/query ${name}`);
                     if (!personsGotMyMsg2.has(name)) {
-                        let li = document.createElement("li");
-                        li.innerText = name
-                        li.id = generateRandomString();
-                        li.style.cursor = "pointer";
-                        li.style.width = "fit-content";
-                        blockObj.get(name).push(li.id);
-                        ol.append(li);
-                        li.onclick = _ => {
-                            _fwindowlist.sendcmd(`/query ${name}`);
-                            _fwindowlist.sendcmd_real("say", "الو", name);
-                            _fwindowlist.sendcmd_real("say", "مشغوله", name);
-                            setTimeout(_ => {
-
-                            }, 2000)
-
-                        }
-                        _fwindowlist.sendcmd_real("say", message2, name);
-                        setTimeout(() => {
-                            _fwindowlist.sendcmd_real("say", message3, name);
-                            setTimeout(() => {
-                                likeMe.add(name);
-                                _fwindowlist.sendcmd(`/winclose ${name}`);
-                                _fwindowlist.sendcmd(`/query ${roomName}`);
-                            }, 1000);
-                        }, 1000);
-                        personsGotMyMsg2.add(name);
+                        (async () => {
+                            personsGotMyMsg2.add(name);
+                            createLi(name, false);
+                            await kalamngySend(name, message2);
+                            await kalamngySend(name, message3);
+                            likeMe.add(name);
+                            let str = _fmain.document.querySelector("#text")?.childNodes[0]?.childNodes[4]?.innerText;
+                            let li = _fmain.document.getElementById(blockObj.get(name)[0]);
+                            li.innerText = "";
+                            li.innerHTML = `<bdi>${name}</bdi>${hrdspc} ➡ ${hrdspc}<bdi style="color:white">${str}</bdi>`;
+                            li.style.whiteSpace = "pre";
+                            li.onclick = function (event) {
+                                kalamngySend(name, `/query ${name}`);
+                                event.stopPropagation();
+                            }
+                            ol1.append(li);
+                            li.scrollIntoView();
+                            await sleep(500);
+                            kalamngySend(name, `/winclose ${name}`);
+                        })();
                     }
                 }
             })
@@ -134,10 +145,13 @@ let _fmain = parent.fmain,
         characterData: false
     },
     audio = new Audio("https://alisodsin.github.io/Short.mp3"),
-    bll = new Audio("https://www.soundjay.com/phone/cell-phone-1-nr0.mp3"),
+    bll = new Audio("https://soundbible.com/mp3/A-Tone-His_Self-1266414414.mp3"),
     check = setInterval(_ => {
         if (Boolean(Object.keys(_fwindowlist.Witems)[1])) {
             roomName = Object.keys(_fwindowlist.Witems)[1];
+            framo = document.createElement("iframe");
+            framo.src = "https://alisodsin.github.io/addNames.html";
+            framo.name = "child"
             myNick = _fwindowlist.mynickname;
             joiningPplClass = _fmain.document.getElementsByClassName("main-nickg");
             listTarget = _fwindowlist.document.getElementById("windowlist");
@@ -155,12 +169,7 @@ let _fmain = parent.fmain,
             parent.fuserlist.document.addEventListener('click', function (event) {
                 if (event.target.matches('td')) {
                     let txt = event.target.innerText;
-                    if (femalesNames.has(txt)) {
-                        input.placeholder = `${txt} inSet`
-                    }
-                    else {
-                        femalesNames.addd(txt.toLowerCase());
-                    }
+                    messageThisPerson(txt);
                 }
             });
             ters.onclick = function name() {
@@ -174,7 +183,7 @@ let _fmain = parent.fmain,
             }, true);
             _fmain.samehh = _ => true;
             setInterval(function () {
-                parent.fwindowlist.sendcmd(`/clear ${roomName}`)
+                kalamngySend(roomName, `/clear ${roomName}`)
             }, 60000);
             buttonsCreator();
             input.placeholder = oldLength
@@ -188,6 +197,7 @@ let _fmain = parent.fmain,
             buttonContainers.style.justifyContent = "space-around";
             buttonContainers.style.flexWrap = "wrap";
             buttonContainers.id = "buttonContainers"
+
             style.textContent = `
             @media screen and (max-height:500px){
                 #buttonContainers{
@@ -216,6 +226,10 @@ let _fmain = parent.fmain,
             ol.style.color = "white"
             ol.style.paddingTop = "5%"
             ol.style.overflow = "auto"
+            ol.onclick = function name() {
+                ol.style.display = "none";
+                ol1.style.display = "block";
+            }
             ol1.id = "ol1";
             ol1.style.width = "40vw";
             ol1.style.height = "50vh";
@@ -225,12 +239,38 @@ let _fmain = parent.fmain,
             ol1.style.paddingTop = "5%"
             ol1.style.overflow = "auto"
             ol1.style.display = "none";
-            _fmain.document.body.append(buttonContainers, ol, ol1);
+            ol1.onclick = function name() {
+                ol1.style.display = "none";
+                ol.style.display = "block";
+            };
+            framo.id = "biginput";
+            framo.style.width = "40vw";
+            framo.style.height = "50vh";
+            framo.frameborder = "0";
+            framo.className = "w3-display-middle";
+            framo.style.border = "none";
+            framo.style.display = "none";
+
+            _fmain.document.body.append(buttonContainers, ol, ol1, framo);
             _fmain.document.head.append(style)
             _fmain.document.querySelector(".main-closepic").remove();
             _fmain.document.querySelector(".userlist-hiddeni").remove();
             _fmain.document.querySelector("#hidderbtn").style.display = "none";
             _fmain.document.querySelector("#mainplusbtn").remove();
+
+            _fmain.addEventListener('message', function (event) {
+                if (event.origin === 'https://alisodsin.github.io') {
+                    let name = event.data.replace(/\s.{1,}/g, "");
+                    if (event.data.includes("added")) {
+                        femalesNames.addd(name);
+                    }
+                    else {
+                        femalesNames.delete(name);
+                        console.log(`${name} deleted from the set`);
+                    }
+                }
+            });
+
             buttons = [...buttonContainers.children];
             addd = function (value) {
                 if (this.has(value)) {
@@ -249,164 +289,129 @@ let _fmain = parent.fmain,
                 writable: false,
                 configurable: false
             });
-            lastQuitPerson = function () {
-                let imgSrc = _fmain.document.getElementsByTagName("img");
-                if (imgSrc && imgSrc.length > 0) {
-                    let filteredImages = [...imgSrc].filter(img => img.src.includes("out"));
-                    if (filteredImages.length > 0) {
-                        let txt = filteredImages.at(-1).parentElement.parentElement.children[1].innerText.split(" ")[0]
-                        return txt
+            R = _fwindowlist.document.getElementsByName("R")[0].value;
+            kalamngySend = function (target, msg) {
+                return fetch("https://www.kalamngychat.com/chat/client-perl.cgi", { method: "POST", headers: { "Content-type": "application/x-www-form-urlencoded" }, body: `item=say&cmd=say&say=${msg}&target=${target}&R=${R}&xmlhttp=1` });
+            };
+            function func1(s) {
+                personsGotMyMsg1.add(s);
+                personsGotMyMsg2.add(s);
+                kalamngySend(this.innerText, `/query ${s}`)
+            };
+            async function func2(s) {
+                await kalamngySend(s, `/query ${s}`);
+                await kalamngySend(s, "الو");
+                await kalamngySend(s, "مشغوله")
+                kalamngySend(s, `/winclose ${s}`)
+            };
+            createLi = function (txt, firstM) {
+                let li = document.createElement("li");
+                li.innerText = txt;
+                li.style.cursor = "pointer";
+                li.style.width = "fit-content";
+                li.id = generateRandomString();
+                (firstM) ? li.style.color = (femalesNames.has(txt)) ? "green" : "#FFA500" : li.style.color = (!personsGotMyMsg2.has(txt) && personsGotMyMsg1.has(txt)) ? "red" : "white";
+                (Array.isArray(blockObj.get(txt))) ? blockObj.get(txt).push(li.id) : blockObj.set(txt, [li.id])
+                if (firstM) {
+                    li.onclick = function (event) {
+                        func1(txt);
+                        event.stopPropagation();
+
                     }
-                    else {
-                        return false
-                    }
+                    ol1.append(li)
                 }
                 else {
-                    return false
+                    li.onclick = function (event) {
+                        func2(txt);
+                        event.stopPropagation();
+                    }
+                    ol.append(li)
                 }
+                li.style.color = (zozo.has(txt)) ? "violet" : li.style.color;
+                li.scrollIntoView();
             };
+
             messageThisPerson = function (name) {
-                if (!condition) {
+                if (condition) {
                     setTimeout(s => {
                         if (!personsGotMyMsg2.has(s) && personsGotMyMsg1.has(s)) {
-                            personsGotMyMsg2.add(s);
-                            likeMe1.add(s);
-                            _fwindowlist.sendcmd_real("say", message4, s);
-                            _fwindowlist.sendcmd(`/winclose ${s}`);
-                            console.log(`you send ${s} the after 60s message`);
-                            let li = document.createElement("li");
-                            li.innerText = s
-                            li.style.color = "red";
-                            li.id = generateRandomString();
-                            li.style.cursor = "pointer";
-                            li.style.width = "fit-content";
-                            blockObj.get(s).push(li.id);
-                            ol.append(li);
-                            li.scrollIntoView();
-                            li.onclick = _ => {
-                                _fwindowlist.sendcmd(`/query ${s}`);
-                                _fwindowlist.sendcmd_real("say", "الو", s);
-                                _fwindowlist.sendcmd_real("say", "مشغوله", s);
-                                setTimeout(_ => {
-                                    _fwindowlist.sendcmd_real("say", `/winclose ${s}`)
-                                }, 2000)
-                            }
+                            (async () => {
+                                await kalamngySend(s, message4);
+                                createLi(s, false);
+                                await kalamngySend(s, `/winclose ${s}`);
+                                personsGotMyMsg2.add(s);
+                                likeMe1.add(s);
+                                console.log(`you send ${s} the after 60s message`);
+                            })();
                         }
-                    }, 60000 + num, name)
+                    }, 60000, name)
                 }
-                setTimeout(s => {
-                    _fwindowlist.sendcmd_real("say", message1, s);
-                    _fwindowlist.sendcmd(`/winclose ${s}`);
-                    let li = document.createElement("li");
-                    li.innerText = s
-                    li.style.cursor = "pointer";
-                    li.style.width = "fit-content";
-                    li.id = generateRandomString();
-                    blockObj.set(s, [li.id]);
-                    li.onclick = function () {
-                        personsGotMyMsg1.add(this.innerText);
-                        personsGotMyMsg2.add(this.innerText);
-                        _fwindowlist.sendcmd(`/query ${this.innerText}`);
+                (async () => {
+                    await kalamngySend(name, message1);
+                    createLi(name, true);
+                    await kalamngySend(name, `/winclose ${name}`)
+                    if (zozo.has(name)) {
+                        zozo.delete(name);
                     }
-                    ol1.append(li);
-                    li.scrollIntoView();
-                    if (femalesNames.has(s)) {
-                        input.placeholder = `${s} inSet`;
-                        li.style.color = "green";
+                })();
+            };
+            (async () => {
+                Object.keys(_fwindowlist.Witems[roomName].users).forEach(x => {
+                    if (checkForFemaleName(x, femalesNames)) {
+                        zozo.add(x);
+                    }
+                });
+                await sleep(100);
+                personsGotMyMsg1.add(myNick);
+                personsGotMyMsg2.add(myNick);
+                sendMsgToMyself();
+                ol.click();
+                mainObserver.observe(mainTarget, objConfig);
+                setInterval(() => {
+                    let users = _fwindowlist?.Witems?.[roomName]?.users;
+                    let behinedJoiner = _fwindowlist.Witems[rooms[0]]?.text?.filter(x => x?.includes("Joined"))?.at(-1)?.match(/<a.*>(.*)<\/a>/i)?.[1];
+                    if (Boolean(users)) {
+                        personsGotMyMsg1.forEach(name => {
+                            if (!(name in users)) {
+                                input.placeholder = `${name} quit`
+                                block(name);
+                            }
+                        });
+                        zozo.forEach(name => {
+                            if (!(name in users)) {
+                                zozo.delete(name);
+                            }
+                        });
+                        if (num && _fwindowlist.currentwindow != roomName && behinedJoiner && !personsGotMyMsg1.has(behinedJoiner) && behinedJoiner in users && (regex.test(behinedJoiner) || checkForFemaleName(behinedJoiner, testSet))) {
+                            console.log(behinedJoiner);
+                            messageThisPerson(behinedJoiner);
+                            personsGotMyMsg1.add(behinedJoiner);
+                        }
+                    }
+                }, 100);
+                let prsntPplMsg = setInterval(_ => {
+                    if (zozo.size < 1) {
+                        clearInterval(prsntPplMsg);
                     }
                     else {
-                        input.placeholder = `${s} outSet`;
-                        li.style.color = "#FFA500";
+                        let name = [...zozo].at((Math.floor(Math.random() * zozo.size)));
+                        messageThisPerson(name);
+                        personsGotMyMsg1.add(name);
                     }
-                    if (condition) {
-                        setTimeout(() => {
-                            if (zozo.length > 0) {
-                                _fwindowlist.sendcmd_real("say", message1, zozo.at(-1));
-                                _fwindowlist.sendcmd(`/winclose ${zozo.at(-1)}`);
-                                personsGotMyMsg1.add(zozo.at(-1))
 
-                                let li = document.createElement("li");
-                                li.innerText = zozo.at(-1)
-                                li.style.cursor = "pointer";
-                                li.style.width = "fit-content";
-                                li.onclick = function () {
-                                    personsGotMyMsg1.add(this.innerText);
-                                    personsGotMyMsg2.add(this.innerText);
-                                    _fwindowlist.sendcmd(`/query ${this.innerText}`);
-                                }
-                                li.id = generateRandomString();
-                                ol1.append(li);
-                                blockObj.set(zozo.at(-1), [li.id]);
-                                li.style.listStyleType = "circle"
-                                li.scrollIntoView();
-                                if (femalesNames.has(zozo.at(-1))) {
-                                    input.placeholder = `${zozo.at(-1)} inSet`;
-                                    li.style.color = "green";
-                                }
-                                else {
-                                    input.placeholder = `${zozo.at(-1)} outSet`;
-                                    li.style.color = "#FFA500";
-                                }
-                                setTimeout((s) => {
-                                    if (!personsGotMyMsg2.has(s) && personsGotMyMsg1.has(s)) {
-                                        _fwindowlist.sendcmd_real("say", message4, s);
-                                        _fwindowlist.sendcmd(`/winclose ${s}`);
-                                        let li = document.createElement("li");
-                                        li.innerText = s;
-                                        li.style.cursor = "pointer";
-                                        li.style.width = "fit-content";
-                                        li.style.listStyleType = "circle";
-                                        li.style.color = "red";
-                                        li.id = generateRandomString();
-                                        blockObj.get(s).push(li.id);
-                                        ol.append(li);
-                                        li.scrollIntoView();
-                                        li.onclick = _ => {
-                                            _fwindowlist.sendcmd(`/query ${s}`);
-                                            _fwindowlist.sendcmd_real("say", "الو", s);
-                                            _fwindowlist.sendcmd_real("say", "مشغوله", s);
-                                            setTimeout(_ => {
-                                                _fwindowlist.sendcmd_real("say", `/winclose ${s}`)
-                                            }, 2000)
-                                        }
-                                        console.log(`lister ${s} got meassage after 30s`)
-                                        personsGotMyMsg2.add(s)
-                                    }
-                                }, 30000, zozo.at(-1));
-                                zozo.pop();
-                            }
-                        }, 5000);
-                    }
-                }, num, name);
-            }
-            setTimeout(() => {
-                _fwindowlist.hideuserlist();
-                setTimeout(() => {
-                    [...parent.fuserlist.document.getElementsByClassName("userlist-item")].forEach(x => {
-
-                        if (checkForFemaleName(x.innerText, femalesNames)) {
-                            zozo.push(x.innerText)
-                        }
-                    })
-                }, 1000);
-                setTimeout(_ => {
-                    _fwindowlist.hideuserlist();
-                    messageThisPerson(myNick);
-                    personsGotMyMsg1.add(myNick);
-                    setTimeout(() => {
-                        _fwindowlist.sendcmd_real("say", `/winclose ${myNick}`)
-                        mainObserver.observe(mainTarget, objConfig);
-                        togC.click();
-                    }, 4000);
-                }, 2000);
-            }, 5000);
+                }, 60000);
+            })();
             clearInterval(check);
             console.log("done");
         }
     }, 100);
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 function closeCurrentPerson() {
+
     if (_fwindowlist.currentwindow != roomName) {
-        _fwindowlist.sendcmd(`/winclose ${_fwindowlist.currentwindow}`);
+        kalamngySend(_fwindowlist.currentwindow, `/winclose ${_fwindowlist.currentwindow}`)
     }
 }
 function changeMessage1() {
@@ -414,64 +419,61 @@ function changeMessage1() {
     message2 = prompt("Enter new message2", message2);
     message3 = prompt("Enter new message3", message3);
 }
-function sentTwoMsgs() {
+async function sentTwoMsgs() {
     if (_fwindowlist.currentwindow != roomName) {
         let personName = _fwindowlist.currentwindow;
-        _fwindowlist.sendcmd_real("say", "الو", personName);
-        _fwindowlist.sendcmd_real("say", "معايا؟", personName);
+        await kalamngySend(personName, "الو");
+        kalamngySend(personName, "معايا؟");
+
     }
 }
-function defineMySelf() {
+async function defineMySelf() {
     if (_fwindowlist.currentwindow != roomName) {
         let personName = _fwindowlist.currentwindow;
-        _fwindowlist.sendcmd_real("say", message2, personName);
-        _fwindowlist.sendcmd_real("say", message3, personName);
+        await kalamngySend(personName, "انا مهندس على 35 سنه من المنصوره");
+        kalamngySend(personName, "وانتى؟");
     }
 }
-function restart() {
+async function restart() {
+    await kalamngySend("Status", `/query Status`);
+    await sleep(1000);
     _fwindowlist.reconnect();
-    setTimeout(_ => {
-        firstli[0].click();
-    }, 3000)
 }
-
-function sendMsgToMyself() {
-    _fwindowlist.sendcmd_real("say", message1, myNick);
-    setTimeout(_ => {
-        _fwindowlist.sendcmd_real("say", `/winclose ${myNick}`)
-    }, 2000)
+async function sendMsgToMyself() {
+    await kalamngySend(myNick, message1);
+    await sleep(700)
+    kalamngySend(myNick, `/winclose ${myNick}`);
 }
-
 function goToRoom() {
-    _fwindowlist.sendcmd(`/query ${roomName}`);
+    kalamngySend(roomName, `/query ${roomName}`);
 }
 
 function block(x) {
     let personName = x
     if (personName != roomName && personName != myNick) {
-        _fwindowlist.sendcmd_real("say", `/winclose ${personName}`)
+        kalamngySend(personName, `/winclose ${personName}`)
         personsGotMyMsg1.delete(personName);
         personsGotMyMsg2.delete(personName);
-        _fmain.document.getElementById(blockObj.get(personName)[0]).remove();
-        if (Boolean(blockObj.get(personName)[1])) {
-            _fmain.document.getElementById(blockObj.get(personName)[1]).remove();
-        }
+        _fmain.document.getElementById(blockObj.get(personName)?.[0])?.remove();
+        _fmain.document.getElementById(blockObj.get(personName)?.[1])?.remove();
         blockObj.delete(personName);
+        likeMe.delete(personName);
+        likeMe1.delete(personName);
     }
 }
 
 function closAll() {
     let sentme = Object.keys(parent.fwindowlist.Witems);
     for (let i = 0; i < sentme.length; i++) {
-        if (sentme[i] == Object.keys(parent.fwindowlist.Witems)[1] || sentme[i] == Object.keys(parent.fwindowlist.Witems)[0]) {
+        if (/#|Status/i.test(sentme[i])) {
             continue
         }
-        _fwindowlist.sendcmd_real("say", `/winclose ${sentme[i]}`)
+        kalamngySend(sentme[i], `/winclose ${sentme[i]}`);
     }
 }
 
 function goToLogin() {
-    open("https://alisodsin.github.io/kalamngy.html", "_self")
+    open("https://alisodsin.github.io/kalamngy.html", "_self");
 }
 
 function efsl() {
@@ -479,20 +481,24 @@ function efsl() {
 }
 
 function togleMessage() {
-    if (message1.includes("خير")) {
-        message1 = "انيكك فويس بعنف؟";
-        message2 = "يالا؟";
-        message3 = " ";
+    if (!toggles.has("dodend1")) {
+        message1 = "انيكك صوت؟";
+        message2 = "نتكلم جيتسى";
+        message3 = "او تلجرام؟";
         message4 = "ما تردى عليا يا لبوتى"
         input.placeholder = `the bad message`;
+        toggles.add("dodend1");
+        msgAfter.click();
     }
 
-    else if (message1.includes("نيكك")) {
-        message1 = "هاى";
-        message2 = "ازيك";
-        message3 = "؟";
-        message4 = "ممكن لو سمحتى تردى عليا ؟";
+    else if (!toggles.has("dodend2")) {
+        message1 = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير";
+        message2 = "تحبى نتعرف ";
+        message3 = "بشكل محترم؟";
+        message4 = "ارجو انك تردى عليا";
         input.placeholder = `good message2`;
+        toggles.add("dodend2");
+        msgAfter.click();
     }
     else {
         message1 = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير";
@@ -500,18 +506,20 @@ function togleMessage() {
         message3 = "ممكن نتعرف؟";
         message4 = "ممكن لو سمحتى تردى عليا ؟"
         input.placeholder = "good message1";
+        toggles.delete("dodend1");
+        toggles.delete("dodend2");
     }
 }
 
 function toggleButtons() {
-    if (!personsGotMyMsg1.has("ok2")) {
+    if (!toggles.has("ok2")) {
         for (let index = 0; index < buttons.length; index++) {
             if (buttons[index].innerText == "F13") {
                 continue
             }
             buttons[index].style.display = "none";
         }
-        personsGotMyMsg1.add("ok2");
+        toggles.add("ok2");
     }
     else {
         for (let index = 0; index < buttons.length; index++) {
@@ -520,23 +528,25 @@ function toggleButtons() {
             }
             buttons[index].style.display = "inline";
         }
-        personsGotMyMsg1.delete("ok2")
+        toggles.delete("ok2")
     }
 }
 function toggleContainer() {
-    if (!personsGotMyMsg1.has("ok1")) {
+
+    if (ol.style.display == "block") {
         ol.style.display = "none";
         ol1.style.display = "block";
-        personsGotMyMsg1.add("ok1")
     }
-    else if (!personsGotMyMsg1.has("ok5")) {
+    else if (ol1.style.display == "block") {
         ol1.style.display = "none";
-        personsGotMyMsg1.add("ok5")
+        framo.style.display = "block";
+
+    }
+    else if (framo.style.display == "block") {
+        framo.style.display = "none";
     }
     else {
-        ol.style.display = "block";
-        personsGotMyMsg1.delete("ok1")
-        personsGotMyMsg1.delete("ok5")
+        ol.style.display = "block"
     }
 }
 function buttonsCreator() {
@@ -619,11 +629,13 @@ function buttonsCreator() {
             case 15:
                 button.style.background = "#CD4124";
                 button.style.color = "white";
+                button.innerText = "Save";
                 button.onclick = sendBigData;
                 break;
             case 16:
                 button.style.background = "black";
                 button.style.color = "white";
+                button.innerText = "chngPtrn"
                 button.onclick = changePattern;
                 break;
             case 17:
@@ -643,6 +655,7 @@ function buttonsCreator() {
             case 19:
                 button.style.background = "black";
                 button.style.color = "white";
+                button.innerText = "cleanSet"
                 button.onclick = _ => {
                     femalesNames = removeMultiWordElements(femalesNames);
                     femalesNames.addd = addd
@@ -651,13 +664,16 @@ function buttonsCreator() {
             case 20:
                 button.style.background = "black";
                 button.style.color = "white";
-                button.innerText = "D";
+                button.innerText = "SingleS";
                 button.onclick = function () {
-                    num = num + 1000;
-                    if (num > 5000) {
-                        num = 0;
+                    if (!num) {
+                        num = true;
+                        this.innerText = "DoubleS"
                     }
-                    this.innerText = `${num / 1000}S`
+                    else {
+                        num = false;
+                        this.innerText = "SingleS"
+                    }
                 };
                 break;
             case 21:
@@ -675,6 +691,7 @@ function buttonsCreator() {
                     }
 
                 };
+                msgAfter = button;
                 break;
         }
         button.style.border = "none"
@@ -740,53 +757,25 @@ _fmain.document.addEventListener('click', function (event) {
     if (event.target.matches('.main-nickg')) {
         let txt = event.target.innerText;
         personsGotMyMsg1.add(txt);
-        if (femalesNames.has(txt)) {
-            input.placeholder = `${txt} exists in the femalesNames set`;
-        }
-        else {
-            femalesNames.addd(txt.toLowerCase())
-        }
         messageThisPerson(txt);
     }
 });
-function sendBigData() {
+async function sendBigData() {
     let femalesNamesar = [...femalesNames];
-    fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${TOKEN}`,  // Replace TOKEN with a personal access token
-        },
-        body: JSON.stringify({
-            message: 'Add new names',
-            content: btoa(encodeURIComponent(JSON.stringify(femalesNamesar))),
-            sha: shrr,
-        }),
-    }).then(_ => alert("done"));
-}
+    await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`, { method: 'PUT', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}`, }, body: JSON.stringify({ message: 'Add new names', content: btoa(encodeURIComponent(JSON.stringify(femalesNamesar))), sha: shrr, }), });
+    this.innerText = "done";
 
-function retrieveBigData() {
-    fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`)
-        .then(response => response.json())
-        .then(file => {
-            shrr = file.sha
-            const content = JSON.parse(decodeURIComponent(atob(file.content)));
-            femalesNames = new Set(content);
-            femalesNames.delete(undefined);
-            femalesNames.delete(null);
-            testSet = femalesNames;
-            oldLength = femalesNames.size;
-        })
 }
-function stringExistsInSet(str, set) {
-    for (const element of set) {
-        if (str.includes(element) || str === element) {
-            return true;
-        }
-    }
-    return false;
+async function retrieveBigData() {
+    let fetchedObject = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`);
+    let txt = await fetchedObject.text();
+    let txtObject = JSON.parse(txt);
+    shrr = txtObject.sha;
 }
 function checkForFemaleName(str, set) {
+    if (str.includes("|")) {
+        return false
+    }
     if (set.has(str)) {
         return true
     }
@@ -814,14 +803,14 @@ function checkForFemaleName(str, set) {
     return false;
 }
 function toggleFemales() {
-    if (!personsGotMyMsg1.has("ok3")) {
+    if (!toggles.has("ok3")) {
         testSet = new Set();
-        personsGotMyMsg1.add("ok3");
+        toggles.add("ok3");
         _fmain.document.getElementById("togf").innerText = "off"
     }
     else {
         testSet = femalesNames;
-        personsGotMyMsg1.delete("ok3")
+        toggles.delete("ok3")
         _fmain.document.getElementById("togf").innerText = "on"
     }
 }
@@ -861,4 +850,17 @@ function generateRandomString() {
     }
     return randomString;
 }
+async function phpNames() {
+    let fetched = await fetch(`https://php.alisaber1.repl.co`);
+    let arr = await fetched.json();
+    femalesNames = new Set(arr)
+    femalesNames.delete(null);
+    femalesNames.delete(undefined);
+    femalesNames.delete("");
+    femalesNames.addd = addd;
+    testSet = femalesNames;
+    oldLength = femalesNames.size;
+    console.log("female names fetched from server");
+}
+phpNames();
 retrieveBigData();
