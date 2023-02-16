@@ -187,6 +187,10 @@ function runCode() {
             framo.className = "w3-display-middle";
             framo.style.border = "none";
             framo.style.display = "none";
+            framo.style.top = "25%"
+            framo.style.width = "45vw"
+            framo.style.height = "60vw";
+            framo.style.transform = "translate(-58%, -24%)";
 
             _fmain.document.body.append(buttonContainers, ol, ol1, framo);
             _fmain.document.head.append(style)
