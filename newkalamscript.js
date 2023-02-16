@@ -15,20 +15,18 @@ let _fmain = parent.fmain,
     repo = 'alisodsin.github.io',
     path = 'femaleNames.json',
     shrr,
+    users,
+    stream = {},
     framo,
     hrdspc = "\u00A0",
-    nick,
-    messageThisPerson,
     ters,
     oldLength,
     condition = false,
     num = false,
     zozo = new Set(),
     togC,
-    createLi,
     kalamngySend,
     num1 = 0,
-    blockObj = new Map(),
     buttons,
     rooms = ["#مصر", "#رومانسية"],
     message1 = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير",
@@ -37,10 +35,7 @@ let _fmain = parent.fmain,
     message4 = "ممكن لو سمحتى تردى عليا ؟",
     regex = /onedaymothersaidgetupearlytogotoschool/,
     personsGotMyMsg1 = new Set(),
-    personsGotMyMsg2 = new Set(),
     femalesNames = new Set(),
-    likeMe = new Set(),
-    likeMe1 = new Set(),
     testSet,
     toggles = new Set(),
     roomName,
@@ -49,23 +44,22 @@ let _fmain = parent.fmain,
     ol = document.createElement("ol"),
     ol1 = document.createElement("ol"),
     joiningPplClass,
-    userList,
     joinPerson,
     join,
     listTarget,
     patterns = [["^k$", /^Kalamngy_\d{4}$/], ["noPtrn", /onedaymothersaidgetupearlytogotoschool/], ["*[<=5]", /^.{1,6}$/], ["ar<=5", /^[\u0621-\u064A\xA0\x5F\0-9]{1,7}$/], ["*digts", /\d+$/], ["ar*", /^[\u0621-\u064A\xA0\x5F\0-9]+$/], ["*", /^.+$/], ["k|short", /(^.{1,5}$|^Kalamngy_)/i]],
-    mainTarget = _fmain.document.querySelector(".main-span"),
+    mainTarget,
     mainObserver = new MutationObserver(_ => {
         if (joiningPplClass.length >= 1) {
             joinPerson = [...joiningPplClass].at(-1);
             join = joinPerson?.innerText
-            if ((!personsGotMyMsg1.has(join) && joinPerson.nextSibling.data.includes("Joine")) && (regex.test(join) || checkForFemaleName(join, testSet))) {
-                messageThisPerson(join);
-                personsGotMyMsg1.add(join);
+            if ((!stream[join] && joinPerson.nextSibling.data.includes("Joine")) && (join in users) && (regex.test(join) || checkForFemaleName(join, testSet))) {
+                doIt(join);
             }
         }
     }),
     listObserver = new MutationObserver((e) => {
+
         let addedNodes = e[0].addedNodes;
         let listPersonName = addedNodes[0]?.firstElementChild?.lastElementChild?.previousElementSibling?.innerText;
         if (typeof listPersonName == "string" && listPersonName != roomName && !personsGotMyMsg1.has(listPersonName) && !/Guest|#/.test(listPersonName)) {
@@ -76,64 +70,7 @@ let _fmain = parent.fmain,
             personsGotMyMsg1.forEach(name => {
                 let regex = new RegExp(name + "\n!", "g")
                 if (listTarget.innerText.match(regex)) {
-                    if (likeMe.has(name)) {
-                        (async () => {
-                            await kalamngySend(name, `/query ${name}`);
-                            bll.play();
-                            likeMe.delete(name);
-                        })();
-                    }
-                    else if (likeMe1.has(name)) {
-                        (async () => {
-                            await kalamngySend(name, `/query ${name}`);
-                            audio.play();
-                            await kalamngySend(name, message2);
-                            await kalamngySend(name, message3);
-                            likeMe.add(name);
-                            likeMe1.delete(name);
-                            let str = _fmain.document.querySelector("#text")?.childNodes[0]?.childNodes[4]?.innerText;
-                            let li = _fmain.document.getElementById(blockObj.get(name)[0]);
-                            li.innerText = "";
-                            li.innerHTML = `<bdi>${name}</bdi>${hrdspc} ➡ ${hrdspc}<bdi style="color:white">${str}</bdi>`;
-                            li.style.whiteSpace = "pre";
-                            li.onclick = function (event) {
-                                kalamngySend(name, `/query ${name}`)
-                                event.stopPropagation();
-                            }
-                            ol1.append(li);
-                            li.scrollIntoView();
-                            await sleep(500);
-                            await kalamngySend(name, `/winclose ${name}`);
-                        })();
-                    }
-                    else {
-                        (async () => {
-                            await kalamngySend(name, `/query ${name}`);
-                            audio.play();
-                        })();
-                    }
-                    if (!personsGotMyMsg2.has(name)) {
-                        (async () => {
-                            personsGotMyMsg2.add(name);
-                            createLi(name, false);
-                            await kalamngySend(name, message2);
-                            await kalamngySend(name, message3);
-                            likeMe.add(name);
-                            let str = _fmain.document.querySelector("#text")?.childNodes[0]?.childNodes[4]?.innerText;
-                            let li = _fmain.document.getElementById(blockObj.get(name)[0]);
-                            li.innerText = "";
-                            li.innerHTML = `<bdi>${name}</bdi>${hrdspc} ➡ ${hrdspc}<bdi style="color:white">${str}</bdi>`;
-                            li.style.whiteSpace = "pre";
-                            li.onclick = function (event) {
-                                kalamngySend(name, `/query ${name}`);
-                                event.stopPropagation();
-                            }
-                            ol1.append(li);
-                            li.scrollIntoView();
-                            await sleep(500);
-                            kalamngySend(name, `/winclose ${name}`);
-                        })();
-                    }
+                    stream[name].excuterObj.next();
                 }
             })
         }
@@ -145,13 +82,16 @@ let _fmain = parent.fmain,
         characterData: false
     },
     audio = new Audio("https://alisodsin.github.io/Short.mp3"),
-    bll = new Audio("https://soundbible.com/mp3/A-Tone-His_Self-1266414414.mp3"),
+    bll = new Audio("https://soundbible.com/mp3/A-Tone-His_Self-1266414414.mp3");
+//functions
+function runCode() {
     check = setInterval(_ => {
-        if (Boolean(Object.keys(_fwindowlist.Witems)[1])) {
+        if (Boolean(Object?.keys?.(_fwindowlist?.Witems)?.[1])) {
             roomName = Object.keys(_fwindowlist.Witems)[1];
             framo = document.createElement("iframe");
             framo.src = "https://alisodsin.github.io/addNames.html";
             framo.name = "child"
+            mainTarget = _fmain.document.querySelector(".main-span");
             myNick = _fwindowlist.mynickname;
             joiningPplClass = _fmain.document.getElementsByClassName("main-nickg");
             listTarget = _fwindowlist.document.getElementById("windowlist");
@@ -169,7 +109,9 @@ let _fmain = parent.fmain,
             parent.fuserlist.document.addEventListener('click', function (event) {
                 if (event.target.matches('td')) {
                     let txt = event.target.innerText;
-                    messageThisPerson(txt);
+                    if (!personsGotMyMsg1.has(txt)) {
+                        doIt(txt);
+                    }
                 }
             });
             ters.onclick = function name() {
@@ -191,8 +133,7 @@ let _fmain = parent.fmain,
             buttonContainers.style.display = "flex";
             buttonContainers.style.flexDirection = "column";
             buttonContainers.style.top = "0%";
-            buttonContainers.style.right = "0%";
-            buttonContainers.style.width = "10vh";
+            buttonContainers.style.width = "fit-content";
             buttonContainers.style.height = "100%";
             buttonContainers.style.justifyContent = "space-around";
             buttonContainers.style.flexWrap = "wrap";
@@ -212,14 +153,14 @@ let _fmain = parent.fmain,
             }
             .w3-display-middle{
                 position:absolute;
-                top:50%;
-                left:50%;
+                top:10%;
+                left:80%;
                 transform:translate(-50%,-50%);
+                width:30vw;
+                height:20vh;
             }
                `;
             ol.id = "ol";
-            ol.style.width = "40vw";
-            ol.style.height = "50vh";
             ol.style.background = "black";
             ol.className = "w3-display-middle";
             ol.style.borderRadius = "20%";
@@ -231,8 +172,6 @@ let _fmain = parent.fmain,
                 ol1.style.display = "block";
             }
             ol1.id = "ol1";
-            ol1.style.width = "40vw";
-            ol1.style.height = "50vh";
             ol1.style.background = "black";
             ol1.className = "w3-display-middle";
             ol1.style.color = "white"
@@ -244,8 +183,6 @@ let _fmain = parent.fmain,
                 ol.style.display = "block";
             };
             framo.id = "biginput";
-            framo.style.width = "40vw";
-            framo.style.height = "50vh";
             framo.frameborder = "0";
             framo.className = "w3-display-middle";
             framo.style.border = "none";
@@ -293,68 +230,7 @@ let _fmain = parent.fmain,
             kalamngySend = function (target, msg) {
                 return fetch("https://www.kalamngychat.com/chat/client-perl.cgi", { method: "POST", headers: { "Content-type": "application/x-www-form-urlencoded" }, body: `item=say&cmd=say&say=${msg}&target=${target}&R=${R}&xmlhttp=1` });
             };
-            function func1(s) {
-                personsGotMyMsg1.add(s);
-                personsGotMyMsg2.add(s);
-                kalamngySend(this.innerText, `/query ${s}`)
-            };
-            async function func2(s) {
-                await kalamngySend(s, `/query ${s}`);
-                await kalamngySend(s, "الو");
-                await kalamngySend(s, "مشغوله")
-                kalamngySend(s, `/winclose ${s}`)
-            };
-            createLi = function (txt, firstM) {
-                let li = document.createElement("li");
-                li.innerText = txt;
-                li.style.cursor = "pointer";
-                li.style.width = "fit-content";
-                li.id = generateRandomString();
-                (firstM) ? li.style.color = (femalesNames.has(txt)) ? "green" : "#FFA500" : li.style.color = (!personsGotMyMsg2.has(txt) && personsGotMyMsg1.has(txt)) ? "red" : "white";
-                (Array.isArray(blockObj.get(txt))) ? blockObj.get(txt).push(li.id) : blockObj.set(txt, [li.id])
-                if (firstM) {
-                    li.onclick = function (event) {
-                        func1(txt);
-                        event.stopPropagation();
 
-                    }
-                    ol1.append(li)
-                }
-                else {
-                    li.onclick = function (event) {
-                        func2(txt);
-                        event.stopPropagation();
-                    }
-                    ol.append(li)
-                }
-                li.style.color = (zozo.has(txt)) ? "violet" : li.style.color;
-                li.scrollIntoView();
-            };
-
-            messageThisPerson = function (name) {
-                if (condition) {
-                    setTimeout(s => {
-                        if (!personsGotMyMsg2.has(s) && personsGotMyMsg1.has(s)) {
-                            (async () => {
-                                await kalamngySend(s, message4);
-                                createLi(s, false);
-                                await kalamngySend(s, `/winclose ${s}`);
-                                personsGotMyMsg2.add(s);
-                                likeMe1.add(s);
-                                console.log(`you send ${s} the after 60s message`);
-                            })();
-                        }
-                    }, 60000, name)
-                }
-                (async () => {
-                    await kalamngySend(name, message1);
-                    createLi(name, true);
-                    await kalamngySend(name, `/winclose ${name}`)
-                    if (zozo.has(name)) {
-                        zozo.delete(name);
-                    }
-                })();
-            };
             (async () => {
                 Object.keys(_fwindowlist.Witems[roomName].users).forEach(x => {
                     if (checkForFemaleName(x, femalesNames)) {
@@ -362,13 +238,11 @@ let _fmain = parent.fmain,
                     }
                 });
                 await sleep(100);
-                personsGotMyMsg1.add(myNick);
-                personsGotMyMsg2.add(myNick);
-                sendMsgToMyself();
+                doIt(myNick);
                 ol.click();
                 mainObserver.observe(mainTarget, objConfig);
                 setInterval(() => {
-                    let users = _fwindowlist?.Witems?.[roomName]?.users;
+                    users = _fwindowlist?.Witems?.[roomName]?.users;
                     let behinedJoiner = _fwindowlist.Witems[rooms[0]]?.text?.filter(x => x?.includes("Joined"))?.at(-1)?.match(/<a.*>(.*)<\/a>/i)?.[1];
                     if (Boolean(users)) {
                         personsGotMyMsg1.forEach(name => {
@@ -384,19 +258,17 @@ let _fmain = parent.fmain,
                         });
                         if (num && _fwindowlist.currentwindow != roomName && behinedJoiner && !personsGotMyMsg1.has(behinedJoiner) && behinedJoiner in users && (regex.test(behinedJoiner) || checkForFemaleName(behinedJoiner, testSet))) {
                             console.log(behinedJoiner);
-                            messageThisPerson(behinedJoiner);
-                            personsGotMyMsg1.add(behinedJoiner);
+                            doIt(behinedJoiner);
                         }
                     }
-                }, 100);
+                }, 50);
                 let prsntPplMsg = setInterval(_ => {
                     if (zozo.size < 1) {
                         clearInterval(prsntPplMsg);
                     }
                     else {
                         let name = [...zozo].at((Math.floor(Math.random() * zozo.size)));
-                        messageThisPerson(name);
-                        personsGotMyMsg1.add(name);
+                        doIt(name);
                     }
 
                 }, 60000);
@@ -405,6 +277,7 @@ let _fmain = parent.fmain,
             console.log("done");
         }
     }, 100);
+}
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -453,12 +326,10 @@ function block(x) {
     if (personName != roomName && personName != myNick) {
         kalamngySend(personName, `/winclose ${personName}`)
         personsGotMyMsg1.delete(personName);
-        personsGotMyMsg2.delete(personName);
-        _fmain.document.getElementById(blockObj.get(personName)?.[0])?.remove();
-        _fmain.document.getElementById(blockObj.get(personName)?.[1])?.remove();
-        blockObj.delete(personName);
-        likeMe.delete(personName);
-        likeMe1.delete(personName);
+        _fmain.document.getElementById(stream?.[personName]?.id1)?.remove();
+        _fmain.document.getElementById(stream?.[personName]?.id2)?.remove();
+        clearTimeout(stream?.[personName]?.timeout);
+        delete stream[personName]
     }
 }
 
@@ -553,6 +424,7 @@ function buttonsCreator() {
     for (let index = 1; index <= 21; index++) {
         let button = document.createElement("button");
         button.innerText = `F${index}`;
+        // button.style.width = "10%";
         switch (index) {
             case 1:
                 button.style.background = "#4CAF50";
@@ -629,13 +501,13 @@ function buttonsCreator() {
             case 15:
                 button.style.background = "#CD4124";
                 button.style.color = "white";
-                button.innerText = "Save";
+                button.innerText = "Sv";
                 button.onclick = sendBigData;
                 break;
             case 16:
                 button.style.background = "black";
                 button.style.color = "white";
-                button.innerText = "chngPtrn"
+                button.innerText = "ptrn"
                 button.onclick = changePattern;
                 break;
             case 17:
@@ -649,13 +521,13 @@ function buttonsCreator() {
                 button.style.background = "black";
                 button.style.color = "white";
                 button.id = "kokos"
-                button.innerText = "addName";
+                button.innerText = "ad";
                 button.onclick = addName;
                 break;
             case 19:
                 button.style.background = "black";
                 button.style.color = "white";
-                button.innerText = "cleanSet"
+                button.innerText = "cln"
                 button.onclick = _ => {
                     femalesNames = removeMultiWordElements(femalesNames);
                     femalesNames.addd = addd
@@ -664,30 +536,30 @@ function buttonsCreator() {
             case 20:
                 button.style.background = "black";
                 button.style.color = "white";
-                button.innerText = "SingleS";
+                button.innerText = "sngl";
                 button.onclick = function () {
                     if (!num) {
                         num = true;
-                        this.innerText = "DoubleS"
+                        this.innerText = "dbl"
                     }
                     else {
                         num = false;
-                        this.innerText = "SingleS"
+                        this.innerText = "sngl"
                     }
                 };
                 break;
             case 21:
                 button.style.background = "black";
                 button.style.color = "white";
-                button.innerText = "false";
+                button.innerText = "f";
                 button.onclick = function () {
                     if (condition) {
                         condition = false;
-                        this.innerText = "false";
+                        this.innerText = "f";
                     }
                     else {
                         condition = true;
-                        this.innerText = "true";
+                        this.innerText = "t";
                     }
 
                 };
@@ -756,8 +628,10 @@ function changePattern() {
 _fmain.document.addEventListener('click', function (event) {
     if (event.target.matches('.main-nickg')) {
         let txt = event.target.innerText;
-        personsGotMyMsg1.add(txt);
-        messageThisPerson(txt);
+        if (!personsGotMyMsg1.has(txt)) {
+            doIt(txt);
+        }
+
     }
 });
 async function sendBigData() {
@@ -850,6 +724,7 @@ function generateRandomString() {
     }
     return randomString;
 }
+
 async function phpNames() {
     let fetched = await fetch(`https://php.alisaber1.repl.co`);
     let arr = await fetched.json();
@@ -861,6 +736,126 @@ async function phpNames() {
     testSet = femalesNames;
     oldLength = femalesNames.size;
     console.log("female names fetched from server");
+    runCode();
+}
+async function* stramMsg(name) {
+    await kalamngySend(name, message1);
+    let li1 = document.createElement("li");
+    li1.innerText = name;
+    li1.style.cursor = "pointer";
+    li1.style.width = "fit-content";
+    try {
+        li1.id = stream[name].id1
+    } catch (error) {
+        console.log(`error in id of  name ${name} and will be fixed instantely`);
+        stream[name].id1 = generateRandomString();
+        li1.id = stream[name].id1
+    }
+    li1.style.color = (femalesNames.has(name)) ? "green" : "#FFA500";
+    li1.onclick = function (event) {
+        kalamngySend(name, `/query ${name}`)
+        event.stopPropagation();
+
+    }
+    if (zozo.has(name)) {
+        li1.style.color = "violet";
+        zozo.delete(name)
+    }
+    ol1.append(li1)
+    li1.scrollIntoView();
+    await kalamngySend(name, `/winclose ${name}`)
+    let noreply = yield 1
+    if (noreply) {
+        await kalamngySend(name, message4);
+        let li = document.createElement("li");
+        li.innerText = name;
+        li.style.cursor = "pointer";
+        li.style.width = "fit-content";
+        li.id = stream[name].id2
+        li.style.color = "red";
+        li.onclick = function (event) {
+            (async () => {
+                await kalamngySend(name, `/query ${name}`);
+                await kalamngySend(name, "الو");
+                await kalamngySend(name, "مشغوله");
+                kalamngySend(name, `/winclose ${name}`)
+            })();
+            event.stopPropagation();
+        }
+        ol.append(li);
+        li.scrollIntoView();
+        await sleep(200);
+        kalamngySend(name, `/winclose ${name}`)
+    }
+    else {
+        clearTimeout(stream[name].timeout);
+        await kalamngySend(name, `/query ${name}`);
+        audio.play();
+        await kalamngySend(name, message2);
+        await kalamngySend(name, message3);
+        let str = _fmain.document.querySelector("#text")?.childNodes[0]?.childNodes[4]?.innerText;
+        let li = _fmain.document.getElementById(stream[name].id1);
+        li.innerText = "";
+        li.innerHTML = `<bdi>${name}</bdi>${hrdspc} ➡ ${hrdspc}<bdi style="color:white">${str}</bdi>`;
+        li.style.whiteSpace = "pre";
+        li.onclick = function (event) {
+            kalamngySend(name, `/query ${name}`);
+            event.stopPropagation();
+        }
+        ol1.append(li);
+        li.scrollIntoView();
+        let li1 = document.createElement("li");
+        li1.innerText = name;
+        li1.style.cursor = "pointer";
+        li1.style.width = "fit-content";
+        li1.id = stream[name].id2
+        li1.style.color = "white";
+        li1.onclick = function (event) {
+            (async () => {
+                await kalamngySend(name, `/query ${name}`);
+                await kalamngySend(name, "الو")
+                await kalamngySend(name, "مشغوله")
+                kalamngySend(name, `/winclose ${name}`)
+            })();
+            event.stopPropagation();
+        }
+        ol.append(li1);
+        li1.scrollIntoView();
+        await sleep(200);
+        kalamngySend(name, `/winclose ${name}`)
+    }
+    yield 2
+    if (noreply) {
+        await kalamngySend(name, `/query ${name}`);
+        await kalamngySend(name, message2);
+        await kalamngySend(name, message3);
+        audio.play();
+        let str = _fmain.document.querySelector("#text")?.childNodes[0]?.childNodes[4]?.innerText;
+        let li = _fmain.document.getElementById(stream[name].id1);
+        li.innerText = "";
+        li.innerHTML = `<bdi>${name}</bdi>${hrdspc} ➡ ${hrdspc}<bdi style="color:white">${str}</bdi>`;
+        li.style.whiteSpace = "pre";
+        li.onclick = function (event) {
+            kalamngySend(name, `/query ${name}`);
+            event.stopPropagation();
+        }
+        ol1.append(li);
+        li.scrollIntoView();
+        await sleep(200);
+        kalamngySend(name, `/winclose ${name}`)
+        noreply = false
+        yield 3
+    }
+    while (true) {
+        bll.play();
+        kalamngySend(name, `/query ${name}`);
+        yield 4
+    }
+}
+function doIt(name) {
+    stream[name] = { timeout: (condition) ? setTimeout(() => { stream[name].excuterObj.next(true); }, 60000) : "", id1: generateRandomString(), id2: generateRandomString(), excuterObj: stramMsg(name) }
+    stream[name].excuterObj.next();
+    personsGotMyMsg1.add(name);
 }
 phpNames();
 retrieveBigData();
