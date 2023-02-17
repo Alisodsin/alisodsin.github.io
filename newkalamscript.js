@@ -59,16 +59,14 @@ let _fmain = parent.fmain,
         }
     }),
     listObserver = new MutationObserver((e) => {
-
         let addedNodes = e[0].addedNodes;
         let listPersonName = addedNodes[0]?.firstElementChild?.lastElementChild?.previousElementSibling?.innerText;
-        if (typeof listPersonName == "string" && listPersonName != roomName && !personsGotMyMsg1.has(listPersonName) && !/Guest|#/.test(listPersonName)) {
-            kalamngySend(listPersonName, `/winclose ${listPersonName}`)
-
+        if (typeof listPersonName == "string" && listPersonName != roomName && !personsGotMyMsg1.has(listPersonName) && !(/Guest|#/.test(listPersonName) || checkForFemaleName(listPersonName, femalesNames))) {
+            kalamngySend(listPersonName, `/winclose ${listPersonName}`);
         }
         else {
             personsGotMyMsg1.forEach(name => {
-                let regex = new RegExp(name + "\n!", "g")
+                let regex = new RegExp(name + "\n!", "g");
                 if (listTarget.innerText.match(regex)) {
                     stream[name].excuterObj.next();
                 }
@@ -326,14 +324,18 @@ function goToRoom() {
 }
 
 function block(x) {
-    let personName = x
-    if (personName != roomName && personName != myNick) {
-        kalamngySend(personName, `/winclose ${personName}`)
-        personsGotMyMsg1.delete(personName);
-        _fmain.document.getElementById(stream?.[personName]?.id1)?.remove();
-        _fmain.document.getElementById(stream?.[personName]?.id2)?.remove();
-        clearTimeout(stream?.[personName]?.timeout);
-        delete stream[personName]
+    if (x != roomName && x != myNick && personsGotMyMsg1.has(x)) {
+        kalamngySend(x, `/winclose ${x}`)
+        personsGotMyMsg1.delete(x);
+        _fmain.document.getElementById(stream?.[x]?.id1)?.remove();
+        _fmain.document.getElementById(stream?.[x]?.id2)?.remove();
+        clearTimeout(stream?.[x]?.timeout);
+        delete stream[x]
+    }
+    else if ((x != roomName && x != myNick && !personsGotMyMsg1.has(x))) {
+        kalamngySend(x, `/ignore ${x}`).then(_ => {
+            kalamngySend(x, `/winclose ${x}`);
+        })
     }
 }
 
