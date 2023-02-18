@@ -184,11 +184,11 @@ function runCode() {
             framo.frameborder = "0";
             framo.className = "w3-display-middle";
             framo.style.border = "none";
-            framo.style.display = "none";
+            framo.style.display = "block";
             framo.style.top = "25%"
-            framo.style.width = "45vw"
-            framo.style.height = "60vw";
-            framo.style.transform = "translate(-58%, -24%)";
+            framo.style.width = "44vh"
+            framo.style.height = "60vh";
+            framo.style.transform = "translate(-46%, -40%)";
 
             _fmain.document.body.append(buttonContainers, ol, ol1, framo);
             _fmain.document.head.append(style)
