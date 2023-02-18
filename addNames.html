@@ -49,13 +49,8 @@
 
     button1.onclick = function () {
       ul.innerHTML = ""
-      let arr = txt.value.split(/\s{1,}/)
-      let mp = arr.map(x => {
-        if (x != "" || x != " ") {
-          console.log(x);
-          return posting(x)
-        }
-      })
+      let arr = txt.value.trim().split(/\s+/);
+      let mp = arr.map(x => posting(x))
       Promise.all(mp).then(e => {
         let rr = []
         e.forEach(ele => {
@@ -77,7 +72,7 @@
     }
     button2.onclick = function () {
       ul.innerHTML = ""
-      let arr = txt.value.split(/\s{1,}/)
+      let arr = txt.value.trim().split(/\s+/);
       let mp = arr.map(x => deleteName(x))
       Promise.all(mp).then(e => {
         let rr = []
