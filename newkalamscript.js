@@ -61,7 +61,7 @@ let _fmain = parent.fmain,
     listObserver = new MutationObserver((e) => {
         let addedNodes = e[0].addedNodes;
         let listPersonName = addedNodes[0]?.firstElementChild?.lastElementChild?.previousElementSibling?.innerText;
-        if (typeof listPersonName == "string" && listPersonName != roomName && !personsGotMyMsg1.has(listPersonName) && !(/Guest|#/.test(listPersonName) || checkForFemaleName(listPersonName, femalesNames))) {
+        if (typeof listPersonName == "string" && listPersonName != "x" && listPersonName != roomName && !personsGotMyMsg1.has(listPersonName) && !(/Guest/.test(listPersonName) || checkForFemaleName(listPersonName, femalesNames))) {
             kalamngySend(listPersonName, `/winclose ${listPersonName}`);
         }
         else {
@@ -259,7 +259,6 @@ function runCode() {
                             }
                         });
                         if (num && _fwindowlist.currentwindow != roomName && behinedJoiner && !personsGotMyMsg1.has(behinedJoiner) && behinedJoiner in users && (regex.test(behinedJoiner) || checkForFemaleName(behinedJoiner, testSet))) {
-                            console.log(behinedJoiner);
                             doIt(behinedJoiner);
                         }
                     }
@@ -276,7 +275,6 @@ function runCode() {
                 }, 60000);
             })();
             clearInterval(check);
-            console.log("done");
         }
     }, 100);
 }
@@ -325,7 +323,9 @@ function goToRoom() {
 
 function block(x) {
     if (x != roomName && x != myNick && personsGotMyMsg1.has(x)) {
-        kalamngySend(x, `/winclose ${x}`)
+        if (x == _fwindowlist.currentwindow) {
+            kalamngySend(x, `/winclose ${x}`)
+        }
         personsGotMyMsg1.delete(x);
         _fmain.document.getElementById(stream?.[x]?.id1)?.remove();
         _fmain.document.getElementById(stream?.[x]?.id2)?.remove();
@@ -741,7 +741,6 @@ async function phpNames() {
     femalesNames.addd = addd;
     testSet = femalesNames;
     oldLength = femalesNames.size;
-    console.log("female names fetched from server");
     runCode();
 }
 async function* stramMsg(name) {
@@ -754,7 +753,7 @@ async function* stramMsg(name) {
         li1.id = stream[name].id1
     } catch (error) {
         console.log(`error in id of  name ${name} and will be fixed instantely`);
-        stream[name].id1 = generateRandomString();
+        stream[name] = { timeout: (condition) ? setTimeout(() => { stream[name].excuterObj.next(true); }, 60000) : "", id1: generateRandomString(), id2: generateRandomString(), excuterObj: stramMsg(name) }
         li1.id = stream[name].id1
     }
     li1.style.color = (femalesNames.has(name)) ? "green" : "#FFA500";
