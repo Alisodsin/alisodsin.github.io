@@ -60,9 +60,9 @@ let _fmain = parent.fmain,
     }),
     listObserver = new MutationObserver((e) => {
         let addedNodes = e[0].addedNodes;
-        let listPersonName = addedNodes[0]?.firstElementChild?.lastElementChild?.previousElementSibling?.innerText;
-        if (typeof listPersonName == "string" && listPersonName != "x" && listPersonName != roomName && !personsGotMyMsg1.has(listPersonName) && !(/Guest/.test(listPersonName) || checkForFemaleName(listPersonName, femalesNames))) {
-            kalamngySend(listPersonName, `/winclose ${listPersonName}`);
+        let listName = addedNodes[0]?.firstElementChild?.lastElementChild?.previousElementSibling?.innerText;
+        if (typeof listName == "string" && listName != "x" && listName != roomName && !personsGotMyMsg1.has(listName) && !(/Guest/.test(listName) || checkForFemaleName(listName, femalesNames))) {
+            kalamngySend(listName, `/winclose ${listName}`);
         }
         else {
             personsGotMyMsg1.forEach(name => {
