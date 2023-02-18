@@ -184,7 +184,7 @@ function runCode() {
             framo.frameborder = "0";
             framo.className = "w3-display-middle";
             framo.style.border = "none";
-            framo.style.display = "block";
+            framo.style.display = "none";
             framo.style.top = "25%"
             framo.style.width = "44vh"
             framo.style.height = "60vh";
