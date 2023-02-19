@@ -172,7 +172,7 @@ function runCode() {
             ol.style.background = "black";
             ol.className = "w3-display-middle";
             ol.style.color = "white"
-            ol.style.paddingTop = "2%"
+            ol.style.padding = "24px"
             ol.style.overflow = "auto"
             ol.onclick = function name() {
                 ol.style.display = "none";
@@ -182,7 +182,7 @@ function runCode() {
             ol1.style.background = "black";
             ol1.className = "w3-display-middle";
             ol1.style.color = "white"
-            ol1.style.paddingTop = "2%"
+            ol1.style.padding = "24px"
             ol1.style.overflow = "auto"
             ol1.style.display = "none";
             ol1.onclick = function name() {
@@ -272,7 +272,10 @@ function runCode() {
                     }
                     else {
                         let name = [...zozo].at((Math.floor(Math.random() * zozo.size)));
-                        doIt(name);
+                        if (_fmain.document.getElementById("togf").innerText == "on") {
+                            doIt(name);
+                        }
+
                     }
 
                 }, 60000);
