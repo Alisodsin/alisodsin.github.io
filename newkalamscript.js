@@ -760,6 +760,8 @@ async function* stramMsg(name) {
     } catch (error) {
         console.log(error.message);
         console.log(`error in id of  name ${name} and will be fixed instantely`);
+        doIt(name);
+        return "done"
     }
     li1.style.color = (femalesNames.has(name)) ? "green" : "#FFA500";
     li1.onclick = function (event) {
