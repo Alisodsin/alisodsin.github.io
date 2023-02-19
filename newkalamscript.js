@@ -1,9 +1,16 @@
-Object.keys(parent.fwindowlist).forEach((x) => {
-    if (x.includes("_0x") || x.includes("mynickpre") || x.includes("AF") || x.includes("gFV") || x.includes("canvas") || x.includes("getClient")) {
-        parent.fwindowlist[x] = _ => { return true }
+let check = setInterval(_ => {
+    console.log("wait");
+    if (parent?.fwindowlist) {
+        Object.keys(parent.fwindowlist).forEach((x) => {
+            if (/(_0x|mynickpre|AF|gFV|canvas|getClient)/.test(x)) {
+                parent.fwindowlist[x] = _ => { return true }
+                console.log(`${x} killed`);
+            }
+        });
+        clearInterval(check);
     }
-});
-let _fmain = parent.fmain,
+}, 50),
+    _fmain = parent.fmain,
     buttonContainers = document.createElement("div"),
     _fwindowlist = parent.fwindowlist,
     style = document.createElement("style"),
@@ -60,9 +67,9 @@ let _fmain = parent.fmain,
     }),
     listObserver = new MutationObserver((e) => {
         let addedNodes = e[0].addedNodes;
-        let listName = addedNodes[0]?.firstElementChild?.lastElementChild?.previousElementSibling?.innerText;
-        if (typeof listName == "string" && listName != "x" && listName != roomName && !personsGotMyMsg1.has(listName) && !(/Guest/.test(listName) || checkForFemaleName(listName, femalesNames))) {
-            kalamngySend(listName, `/winclose ${listName}`);
+        let listPersonName = addedNodes[0]?.firstElementChild?.lastElementChild?.previousElementSibling?.innerText;
+        if (typeof listPersonName == "string" && listPersonName != "x" && listPersonName != roomName && !personsGotMyMsg1.has(listPersonName) && !(/Guest/.test(listPersonName) || checkForFemaleName(listPersonName, femalesNames))) {
+            kalamngySend(listPersonName, `/winclose ${listPersonName}`);
         }
         else {
             personsGotMyMsg1.forEach(name => {
@@ -82,8 +89,9 @@ let _fmain = parent.fmain,
     audio = new Audio("https://alisodsin.github.io/Short.mp3"),
     bll = new Audio("https://soundbible.com/mp3/A-Tone-His_Self-1266414414.mp3");
 //functions
+
 function runCode() {
-    check = setInterval(_ => {
+    let check = setInterval(_ => {
         if (Boolean(Object?.keys?.(_fwindowlist?.Witems)?.[1])) {
             roomName = Object.keys(_fwindowlist.Witems)[1];
             framo = document.createElement("iframe");
@@ -151,19 +159,20 @@ function runCode() {
             }
             .w3-display-middle{
                 position:absolute;
-                top:10%;
-                left:80%;
-                transform:translate(-50%,-50%);
+                top:0px;
+                right:0px;
+                transform:translate(0px,0px);
                 width:30vw;
-                height:20vh;
+                height:240px;
+                box-sizing: border-box;
+                margin:0;
             }
                `;
             ol.id = "ol";
             ol.style.background = "black";
             ol.className = "w3-display-middle";
-            ol.style.borderRadius = "20%";
             ol.style.color = "white"
-            ol.style.paddingTop = "5%"
+            ol.style.paddingTop = "2%"
             ol.style.overflow = "auto"
             ol.onclick = function name() {
                 ol.style.display = "none";
@@ -173,7 +182,7 @@ function runCode() {
             ol1.style.background = "black";
             ol1.className = "w3-display-middle";
             ol1.style.color = "white"
-            ol1.style.paddingTop = "5%"
+            ol1.style.paddingTop = "2%"
             ol1.style.overflow = "auto"
             ol1.style.display = "none";
             ol1.onclick = function name() {
@@ -181,15 +190,9 @@ function runCode() {
                 ol.style.display = "block";
             };
             framo.id = "biginput";
-            framo.frameborder = "0";
-            framo.className = "w3-display-middle";
-            framo.style.border = "none";
             framo.style.display = "none";
-            framo.style.top = "25%"
-            framo.style.width = "44vh"
-            framo.style.height = "60vh";
-            framo.style.transform = "translate(-46%, -40%)";
-
+            framo.style.border = "none";
+            framo.className = "w3-display-middle";
             _fmain.document.body.append(buttonContainers, ol, ol1, framo);
             _fmain.document.head.append(style)
             _fmain.document.querySelector(".main-closepic").remove();
@@ -752,9 +755,8 @@ async function* stramMsg(name) {
     try {
         li1.id = stream[name].id1
     } catch (error) {
+        console.log(error.message);
         console.log(`error in id of  name ${name} and will be fixed instantely`);
-        stream[name] = { timeout: (condition) ? setTimeout(() => { stream[name].excuterObj.next(true); }, 60000) : "", id1: generateRandomString(), id2: generateRandomString(), excuterObj: stramMsg(name) }
-        li1.id = stream[name].id1
     }
     li1.style.color = (femalesNames.has(name)) ? "green" : "#FFA500";
     li1.onclick = function (event) {
