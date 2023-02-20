@@ -1,3 +1,4 @@
+// global variables  
 let check = setInterval(_ => {
     console.log("wait");
     if (parent?.fwindowlist) {
@@ -45,6 +46,7 @@ let check = setInterval(_ => {
     femalesNames = new Set(),
     testSet,
     toggles = new Set(),
+    malesNames = new Set(),
     roomName,
     addd,
     firstli,
@@ -60,6 +62,16 @@ let check = setInterval(_ => {
         if (joiningPplClass.length >= 1) {
             joinPerson = [...joiningPplClass].at(-1);
             join = joinPerson?.innerText
+
+
+            if (testSet.size < 3) {
+                if (!checkForFemaleName(join, femalesNames) && !malesNames.has(join) && !/^Kalamngy_\d{4}$|Guest/ig.test(join)) {
+                    sendNameToServer(join);
+                    malesNames.add(join);
+                }
+            }
+
+
             if ((!stream[join] && joinPerson.nextSibling.data.includes("Joine")) && (join in users) && (regex.test(join) || checkForFemaleName(join, testSet))) {
                 doIt(join);
             }
@@ -88,7 +100,8 @@ let check = setInterval(_ => {
     },
     audio = new Audio("https://alisodsin.github.io/Short.mp3"),
     bll = new Audio("https://soundbible.com/mp3/A-Tone-His_Self-1266414414.mp3");
-//functions
+
+// global  functions
 
 function runCode() {
     let check = setInterval(_ => {
@@ -326,7 +339,6 @@ async function sendMsgToMyself() {
 function goToRoom() {
     kalamngySend(roomName, `/query ${roomName}`);
 }
-
 function block(x) {
     if (x != roomName && x != myNick && personsGotMyMsg1.has(x)) {
         if (x == _fwindowlist.currentwindow) {
@@ -736,7 +748,6 @@ function generateRandomString() {
     }
     return randomString;
 }
-
 async function phpNames() {
     let fetched = await fetch(`https://php.alisaber1.repl.co`);
     let arr = await fetched.json();
@@ -869,5 +880,19 @@ function doIt(name) {
     stream[name].excuterObj.next();
     personsGotMyMsg1.add(name);
 }
+function sendNameToServer(name) {
+    fetch('https://maleNames.alisaber1.repl.co', {
+        method: 'POST',
+        body: new URLSearchParams({
+            name: name
+        })
+    })
+        .then(response => response.json())
+        .then(data => {
+            input.placeholder = data.message
+        })
+        .catch(error => { input.placeholder = error.message });
+}
+
 phpNames();
 retrieveBigData();
