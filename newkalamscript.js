@@ -46,12 +46,13 @@ let check = setInterval(_ => {
     femalesNames = new Set(),
     testSet,
     toggles = new Set(),
-    malesNames = new Set(),
+    malesNames,
     roomName,
     addd,
     firstli,
     ol = document.createElement("ol"),
     ol1 = document.createElement("ol"),
+    ol2 = document.createElement("ol"),
     joiningPplClass,
     joinPerson,
     join,
@@ -206,7 +207,16 @@ function runCode() {
             framo.style.display = "none";
             framo.style.border = "none";
             framo.className = "w3-display-middle";
-            _fmain.document.body.append(buttonContainers, ol, ol1, framo);
+
+            ol2.id = "ol2";
+            ol2.style.background = "black";
+            ol2.className = "w3-display-middle";
+            ol2.style.color = "white"
+            ol2.style.padding = "24px"
+            ol2.style.overflow = "auto"
+            ol2.style.display = "none";
+            ol2.style.width = "50%"
+            _fmain.document.body.append(buttonContainers, ol, ol1, framo, ol2);
             _fmain.document.head.append(style)
             _fmain.document.querySelector(".main-closepic").remove();
             _fmain.document.querySelector(".userlist-hiddeni").remove();
@@ -439,6 +449,10 @@ function toggleContainer() {
     }
     else if (framo.style.display == "block") {
         framo.style.display = "none";
+        ol2.style.display = "block";
+    }
+    else if (ol2.style.display == "block") {
+        ol2.style.display = "none"
     }
     else {
         ol.style.display = "block"
@@ -888,11 +902,22 @@ function sendNameToServer(name) {
         })
     })
         .then(response => response.json())
-        .then(data => {
-            input.placeholder = data.message
+        .then(_ => {
+            let li = document.createElement("li");
+            li.innerText = name
+            ol2.append(li);
+            li.scrollIntoView();
         })
         .catch(error => { input.placeholder = error.message });
 }
-
+async function getMalesNames() {
+    let fetched = await fetch(`https://maleNames.alisaber1.repl.co`);
+    let arr = await fetched.json();
+    malesNames = new Set(arr)
+    malesNames.delete(null);
+    malesNames.delete(undefined);
+    malesNames.delete("");
+}
+getMalesNames();
 phpNames();
 retrieveBigData();
