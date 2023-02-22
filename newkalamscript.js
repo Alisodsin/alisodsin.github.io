@@ -46,7 +46,7 @@ let check = setInterval(_ => {
     femalesNames = new Set(),
     testSet,
     toggles = new Set(),
-    malesNames,
+    malesNames = new Set(),
     roomName,
     addd,
     firstli,
@@ -59,6 +59,7 @@ let check = setInterval(_ => {
     listTarget,
     patterns = [["^k$", /^Kalamngy_\d{4}$/], ["noPtrn", /onedaymothersaidgetupearlytogotoschool/], ["*[<=5]", /^.{1,6}$/], ["ar<=5", /^[\u0621-\u064A\xA0\x5F\0-9]{1,7}$/], ["*digts", /\d+$/], ["ar*", /^[\u0621-\u064A\xA0\x5F\0-9]+$/], ["*", /^.+$/], ["k|short", /(^.{1,5}$|^Kalamngy_)/i]],
     mainTarget,
+    
     mainObserver = new MutationObserver(_ => {
         if (joiningPplClass.length >= 1) {
             joinPerson = [...joiningPplClass].at(-1);
@@ -66,9 +67,21 @@ let check = setInterval(_ => {
 
 
             if (testSet.size < 3) {
-                if (!checkForFemaleName(join, femalesNames) && !malesNames.has(join) && !/^Kalamngy_\d{4}$|Guest/ig.test(join)) {
-                    sendNameToServer(join);
+                if (!checkForFemaleName(join, femalesNames) && !malesNames.has(join) && !/^Kalamngy_\d{0,}$|Guest/ig.test(join)) {
                     malesNames.add(join);
+                    let li = document.createElement("li");
+                    li.innerText = join
+                    ol2.append(li);
+                    li.scrollIntoView();
+                }
+
+                else if (checkForFemaleName(join, femalesNames) && !malesNames.has(join) && !/^Kalamngy_\d{4}$|Guest/ig.test(join)) {
+                    malesNames.add(join);
+                    let li = document.createElement("li");
+                    li.innerText = join
+                    li.style.color = "yellow"
+                    ol2.append(li);
+                    li.scrollIntoView();
                 }
             }
 
@@ -212,10 +225,10 @@ function runCode() {
             ol2.style.background = "black";
             ol2.className = "w3-display-middle";
             ol2.style.color = "white"
-            ol2.style.padding = "24px"
             ol2.style.overflow = "auto"
             ol2.style.display = "none";
-            ol2.style.width = "50%"
+            ol2.style.width = "40%"
+            ol2.style.top = "60%";
             _fmain.document.body.append(buttonContainers, ol, ol1, framo, ol2);
             _fmain.document.head.append(style)
             _fmain.document.querySelector(".main-closepic").remove();
@@ -449,10 +462,6 @@ function toggleContainer() {
     }
     else if (framo.style.display == "block") {
         framo.style.display = "none";
-        ol2.style.display = "block";
-    }
-    else if (ol2.style.display == "block") {
-        ol2.style.display = "none"
     }
     else {
         ol.style.display = "block"
@@ -717,11 +726,14 @@ function checkForFemaleName(str, set) {
 function toggleFemales() {
     if (!toggles.has("ok3")) {
         testSet = new Set();
+        ol2.style.display = "block"
         toggles.add("ok3");
         _fmain.document.getElementById("togf").innerText = "off"
+
     }
     else {
         testSet = femalesNames;
+        ol2.style.display = "none"
         toggles.delete("ok3")
         _fmain.document.getElementById("togf").innerText = "on"
     }
@@ -918,6 +930,6 @@ async function getMalesNames() {
     malesNames.delete(undefined);
     malesNames.delete("");
 }
-getMalesNames();
+// getMalesNames();
 phpNames();
 retrieveBigData();
