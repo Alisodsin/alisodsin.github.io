@@ -183,6 +183,9 @@ function runCode() {
                 #ol1{
                     display:none !important;
                 }
+                #ol2{
+                    display:none !important;
+                }
             }
             .w3-display-middle{
                 position:absolute;
