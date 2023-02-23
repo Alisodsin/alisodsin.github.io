@@ -645,6 +645,7 @@ async function retrieveBigData() {
     let fetchedObject = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`);
     let txt = await fetchedObject.text();
     let txtObject = JSON.parse(txt);
+    console.log(txtObject);
     shrr = txtObject.sha;
 }
 function checkForFemaleName(str, set) {
