@@ -1,3 +1,4 @@
+// global variables  
 let check = setInterval(_ => {
     console.log("wait");
     if (parent?.fwindowlist) {
@@ -10,117 +11,124 @@ let check = setInterval(_ => {
         clearInterval(check);
     }
 }, 50),
-    kalamngySend,
-    R,
-    hrdspc = "\u00A0",
-    femalesNames = new Set(),
-    condition = false,
-    stream = {},
-    containersDiv = document.createElement("div"),
-    audio = new Audio("https://alisodsin.github.io/Short.mp3"),
-    bll = new Audio("https://soundbible.com/mp3/A-Tone-His_Self-1266414414.mp3"),
-    message1 = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير",
-    message2 = "انا على 35 سنه من المنصوره",
-    message3 = "تحبى نتكلم ؟",
-    message4 = "ممكن تردى عليا؟",
+    _fmain = parent.fmain,
     buttonContainers = document.createElement("div"),
-    buttons,
-    roomName,
-    testSet = new Set(),
+    _fwindowlist = parent.fwindowlist,
+    style = document.createElement("style"),
+    input,
     myNick,
-    zozo = new Set(),
-    users,
-    toggles = new Set(),
+    R,
+    msgAfter,
     user = 'alisodsin',
     repo = 'alisodsin.github.io',
     path = 'femaleNames.json',
     shrr,
-    addd,
-    input,
+    users,
+    stream = {},
+    framo,
+    hrdspc = "\u00A0",
+    ters,
     oldLength,
-    style = document.createElement("style"),
-    ol = document.createElement("ol"),
+    condition = false,
+    num = false,
+    zozo = new Set(),
+    togC,
+    kalamngySend,
+    num1 = 0,
+    buttons,
+    rooms = ["#مصر", "#رومانسية"],
+    message1 = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير",
+    message2 = "انا مهندس على 35 سنه من المنصوره",
+    message3 = "ممكن نتعرف؟",
+    message4 = "ممكن لو سمحتى تردى عليا ؟",
+    regex = /onedaymothersaidgetupearlytogotoschool/,
+    personsGotMyMsg1 = new Set(),
+    femalesNames = new Set(),
+    testSet,
+    toggles = new Set(),
+    malesNames = new Set(),
+    roomName,
+    addd,
+    containersDiv = document.createElement("div"),
+    firstli,
+    ol1 = document.createElement("ol"),
     ol2 = document.createElement("ol"),
-    framo = document.createElement("iframe"),
-    msgAfter
-    ;
+    joiningPplClass,
+    joinPerson,
+    join,
+    listTarget,
+    patterns = [["^k$", /^Kalamngy_\d{4}$/], ["noPtrn", /onedaymothersaidgetupearlytogotoschool/], ["*[<=5]", /^.{1,6}$/], ["ar<=5", /^[\u0621-\u064A\xA0\x5F\0-9]{1,7}$/], ["*digts", /\d+$/], ["ar*", /^[\u0621-\u064A\xA0\x5F\0-9]+$/], ["*", /^.+$/], ["k|short", /(^.{1,5}$|^Kalamngy_)/i]],
+    mainTarget,
+    mainObserver = new MutationObserver(_ => {
+        if (joiningPplClass.length >= 1) {
+            joinPerson = [...joiningPplClass].at(-1);
+            join = joinPerson?.innerText
+            if ((!stream[join] && joinPerson.nextSibling.data.includes("Joine")) && (join in users) && (regex.test(join) || checkForFemaleName(join, testSet))) {
+                doIt(join);
+            }
+            else if (!malesNames.has(join) && !personsGotMyMsg1.has(join) && !/^Kalamngy_\d{0,}$|Guest/ig.test(join) && (join in users) && _fwindowlist.currentwindow == roomName) {
+                let li = document.createElement("li");
+                li.innerText = join
+                ol2.append(li);
+                li.scrollIntoView();
+                malesNames.add(join);
+            }
+        }
+    }),
+    listObserver = new MutationObserver((e) => {
+        let addedNodes = e[0].addedNodes;
+        let listPersonName = addedNodes[0]?.firstElementChild?.lastElementChild?.previousElementSibling?.innerText;
+        if (typeof listPersonName == "string" && listPersonName != "x" && listPersonName != roomName && !personsGotMyMsg1.has(listPersonName) && !(/Guest/.test(listPersonName) || checkForFemaleName(listPersonName, femalesNames))) {
+            kalamngySend(listPersonName, `/winclose ${listPersonName}`);
+        }
+        else {
+            personsGotMyMsg1.forEach(name => {
+                let regex = new RegExp(name + "\n!", "g");
+                if (listTarget.innerText.match(regex)) {
+                    stream[name].excuterObj.next();
+                }
+            })
+        }
+    }),
+    objConfig = {
+        childList: true,
+        subtree: true,
+        attributes: false,
+        characterData: false
+    },
+    audio = new Audio("https://alisodsin.github.io/Short.mp3"),
+    bll = new Audio("https://soundbible.com/mp3/A-Tone-His_Self-1266414414.mp3");
+
+// global  functions
 
 function runCode() {
     let check = setInterval(_ => {
-        if (Boolean(Object?.keys?.(fwindowlist?.Witems)?.[1])) {
+        if (Boolean(Object?.keys?.(_fwindowlist?.Witems)?.[1])) {
+            roomName = Object.keys(_fwindowlist.Witems)[1];
+            framo = document.createElement("iframe");
             framo.src = "https://alisodsin.github.io/addNames.html";
-            framo.name = "child";
-            ol.id = "ol";
-            ol.style.background = "black";
-            ol.style.color = "green";
-            ol.style.overflow = "auto"
-            framo.id = "biginput";
-            // framo.className = "w3-display-middle";
-
-            ol2.id = "ol2";
-            ol2.style.background = "black";
-            // ol2.className = "w3-display-middle";
-            ol2.style.color = "white"
-            ol2.style.overflow = "auto"
-            ol2.style.display = "block";
-            ol2.style.color = "white";
-            buttonContainers.style.position = "fixed";
-            buttonContainers.style.display = "flex";
-            buttonContainers.style.flexDirection = "column";
-            buttonContainers.style.top = "0%";
-            buttonContainers.style.width = "fit-content";
-            buttonContainers.style.height = "100%";
-            buttonContainers.style.justifyContent = "space-around";
-            buttonContainers.style.flexWrap = "wrap";
-            buttonContainers.id = "buttonContainers";
-            style.textContent = `
-            @media screen and (max-height:500px){
-                #buttonContainers{
-                    display:none !important;
-                }
-                #ol{
-                    display:none !important;
-                } 
-                #ol2{
-                    display:none !important;
-                }
-            }
-            .w3-display-middle{
-                position:absolute;
-                right:0px;
-                transform:translate(0px,0px);
-                width:30vw;
-                height:100vh
-                box-sizing: border-box;
-            }
-
-            #father * {
-                flex: 1;
-                margin:0;
-              }
-              #father ol li {
-                white-space: nowrap;
-              }
-            `
-            fmain.document?.querySelector?.("#mainplusbtn")?.remove();
-            fmain.document?.querySelector?.("#mainclose")?.remove();
-            fmain.document?.querySelector?.("#mainwhois")?.remove();
-            fmain.document?.querySelector?.("#mainignore")?.remove();
-            fmain.document?.querySelector?.(".main-closepic")?.remove();
-            fmain.document?.querySelector?.(".userlist-hiddeni")?.remove();
-            fmain.document.querySelector("#hidderbtn").style.display = "none";
-            fwindowlist.hidemainwhois = _ => true;
-            ters = fform.document.getElementsByTagName("img")[0];
-            fmain.nickmenu = function () { return false }
-            fmain.document.getElementById("menu").remove();
+            framo.name = "child"
+            mainTarget = _fmain.document.querySelector(".main-span");
+            myNick = _fwindowlist.mynickname;
+            joiningPplClass = _fmain.document.getElementsByClassName("main-nickg");
+            listTarget = _fwindowlist.document.getElementById("windowlist");
+            input = parent.fform.document.querySelector("#say");
+            listObserver.observe(listTarget, objConfig);
+            fform.onkeydown = keysHandelr;
+            ters = fform.document.getElementsByTagName("img")[0]
+            firstli = _fwindowlist.document.getElementsByClassName("wlist-chooser")
+            _fmain.nickmenu = function () { return false }
+            _fmain.document.getElementById("menu").remove();
+            _fmain.document.getElementById("mainplusbtn").click();
+            users = _fwindowlist?.Witems?.[roomName]?.users;
             parent.fuserlist.document.querySelectorAll('.menu').forEach(menuElement => {
                 menuElement.style.display = 'none';
             });
             parent.fuserlist.document.addEventListener('click', function (event) {
                 if (event.target.matches('td')) {
                     let txt = event.target.innerText;
-                    if (!stream[txt]) {
-                        stream[txt] = messsage(txt, msg1, msg1, msg3);
+                    if (!personsGotMyMsg1.has(txt)) {
+                        doIt(txt);
                     }
                 }
             });
@@ -130,148 +138,14 @@ function runCode() {
             parent.fform.addEventListener("contextmenu", function (e) {
                 e.stopPropagation()
             }, true);
-            fmain.addEventListener("contextmenu", function (e) {
+            _fmain.addEventListener("contextmenu", function (e) {
                 e.stopPropagation()
             }, true);
-            fmain.samehh = _ => true;
-            fmain.addEventListener('message', function (event) {
-                if (event.origin === 'https://alisodsin.github.io') {
-                    let name = event.data.replace(/\s.{1,}/g, "");
-                    if (event.data.includes("added")) {
-                        femalesNames.addd(name);
-                    }
-                    else {
-                        femalesNames.delete(myNick)
-                        femalesNames.delete(name);
-                        console.log(`${name} deleted from the set`);
-                        fmain.document.getElementById("kokos").innerText = femalesNames.size - oldLength;
-                        femalesNames.add(myNick)
-                    }
-                }
-            });
-            //
-            input = parent.fform.document.querySelector("#say");
-            roomName = Object.keys(fwindowlist.Witems)[1];
-            myNick = fwindowlist.mynickname;
-            femalesNames.add(myNick);
-            R = fwindowlist.document.getElementsByName("R")[0].value;
-            //
-            kalamngySend = function (target, msg) {
-                return fetch("https://www.kalamngychat.com/chat/client-perl.cgi", { method: "POST", headers: { "Content-type": "application/x-www-form-urlencoded" }, body: `item=say&cmd=say&say=${msg}&target=${target}&R=${R}&xmlhttp=1` });
-            };
-            //
-
-            fwindowlist.reconnect = async function () {
-                if (fwindowlist.currentwindow != "Status") {
-                    await kalamngySend(roomName, `/clear ${roomName}`);
-                    await kalamngySend("Status", `/query Status`);
-                    await kalamngySend("Status", `/clear Status`);
-                    await sleep(1500);
-                    fwindowlist.document.getElementById('iframe').src += '';
-                }
-                else {
-                    await kalamngySend("Status", `/clear Status`);
-                    fwindowlist.document.getElementById('iframe').src += '';
-
-                }
-
-            }
-            fwindowlist.witemadd = function (name, channel) {
-                try {
-
-                    if (fwindowlist.Witems[name] || fwindowlist.findwin(name)) return;
-                    name = name.replace(/\"/g, '&quot;');
-                    fwindowlist.Witems[name] = { activity: 0, text: new Array, channel: channel, speak: 1, info: 0 };
-                    if (channel) {
-                        fwindowlist.Witems[name].users = {};
-                        fwindowlist.Witems[name].topic = '';
-                    }
-                    if (!fwindowlist.currentwindow) fwindowlist.currentwindow = name;
-                    fwindowlist.wlistredraw();
-
-                } catch (_) {
-                }
-            }
-            // 
-            fwindowlist["Witems"][roomName]["users"] = new Proxy(fwindowlist["Witems"][roomName]["users"], {
-                set(target, prop, value, receiver) {
-
-                    if (checkForFemaleName(prop, testSet) && fwindowlist.currentwindow == roomName && !(prop in target)) {
-                        let keys = new Set(Object.keys(value))
-                        if (!(keys.has("halfop") || keys.has("op") || keys.has("voice"))) {
-                            let id = generateRandomString();
-                            stream[prop] = {};
-                            stream[prop].id = id;
-                            stream[prop].excute = messsage(prop, message1, message2, message3, id);
-                            stream[prop].excute.next();
-                        }
-                    }
-                    else if (testSet.size > 0 && !checkForFemaleName(prop, femalesNames) && !(prop in target) && !/^Kalamngy_\d{0,}$|Guest/ig.test(prop)) {
-                        let li = document.createElement("li");
-                        li.innerText = prop;
-                        ol2.append(li)
-                        li.scrollIntoView();
-                    }
-
-                    return Reflect.set(target, prop, value, receiver)
-                },
-                deleteProperty(target, prop) {
-                    if (stream[prop]) {
-                        block(prop);
-                        delete stream[prop]
-                        console.log(`%c${prop}`, "color: red");
-                        input.placeholder = `${prop} quit`;
-
-                    }
-                    return Reflect.deleteProperty(target, prop)
-                }
-            });
-
-            //
-
-            fwindowlist["Witems"] = new Proxy(fwindowlist["Witems"], {
-
-                set(target, prop, value) {
-                    if (checkForFemaleName(prop, femalesNames)) {
-                        target[prop] = new Proxy(value, {
-                            set: function (t, p, v) {
-                                t[p] = v
-                                if (Object.values(t).includes("3") && fwindowlist.currentwindow != prop && stream[prop]) {
-                                    stream[prop].excute.next();
-                                }
-                                return true;
-                            }
-
-                        });
-                        if (!stream[prop]) {
-                            if (prop === myNick) {
-                                (async _ => {
-                                    await kalamngySend(prop, `/query ${prop}`);
-                                    await sleep(500);
-                                    speakText("yourself!");
-                                    kalamngySend(prop, `/winclose ${prop}`);
-                                })();
-                            }
-                            else {
-                                (async _ => {
-                                    await kalamngySend(prop, `/query ${prop}`);
-                                    speakText("Stranger!");
-                                })();
-                            }
-                        }
-                        return true
-                    }
-                    else {
-                        return false
-
-
-                    }
-                }
-
-            });
+            _fmain.samehh = _ => true;
             setInterval(function () {
                 kalamngySend(roomName, `/clear ${roomName}`)
             }, 60000);
+            buttonsCreator();
             containersDiv.style.position = "fixed";
             containersDiv.style.display = "flex";
             containersDiv.id = "father"
@@ -283,13 +157,93 @@ function runCode() {
             containersDiv.style.margin = "0"
             containersDiv.style.padding = "0"
 
-            containersDiv.append(ol, framo, ol2);
-            fmain.document.body.append(buttonContainers, containersDiv);
-            fmain.document.head.append(style)
-            buttonsCreator();
+            input.placeholder = oldLength
+            buttonContainers.style.position = "fixed";
+            buttonContainers.style.display = "flex";
+            buttonContainers.style.flexDirection = "column";
+            buttonContainers.style.top = "0%";
+            buttonContainers.style.width = "fit-content";
+            buttonContainers.style.height = "100%";
+            buttonContainers.style.justifyContent = "space-around";
+            buttonContainers.style.flexWrap = "wrap";
+            buttonContainers.id = "buttonContainers"
+
+            style.textContent = `
+            
+            @media screen and (max-height:500px){
+                #buttonContainers{
+                    display:none !important;
+                }
+                #ol{
+                    display:none !important;
+                } 
+                #ol2{
+                    display:none !important;
+                }
+            }
+           
+
+            #father * {
+                flex: 1;
+                margin:0;
+              }
+              #father ol li {
+                white-space: nowrap;
+              }
+            `
+
+
+
+
+
+
+
+            ol1.id = "ol";
+            ol1.style.background = "black";
+            ol1.style.color = "green";
+            ol1.style.overflow = "auto"
+
+
+
+
+
+
+
+
+
+
+
+
+            framo.id = "biginput";
+
+            ol2.id = "ol2";
+            ol2.style.background = "black";
+            ol2.style.color = "white"
+            ol2.style.overflow = "auto"
+            ol2.style.display = "block";
+            containersDiv.append(ol1, framo, ol2)
+            _fmain.document.body.append(buttonContainers, containersDiv);
+            _fmain.document.head.append(style)
+            _fmain.document.querySelector(".main-closepic").remove();
+            _fmain.document.querySelector(".userlist-hiddeni").remove();
+            _fmain.document.querySelector("#hidderbtn").style.display = "none";
+            _fmain.document.querySelector("#mainplusbtn").remove();
+
+            _fmain.addEventListener('message', function (event) {
+                if (event.origin === 'https://alisodsin.github.io') {
+                    let name = event.data.replace(/\s.{1,}/g, "");
+                    if (event.data.includes("added")) {
+                        femalesNames.addd(name);
+                    }
+                    else {
+                        femalesNames.delete(name);
+                        console.log(`${name} deleted from the set`);
+                    }
+                }
+            });
+
             buttons = [...buttonContainers.children];
             addd = function (value) {
-                femalesNames.delete(myNick)
                 if (this.has(value)) {
                     input.placeholder = `${value} is already in the set`;
                     console.log(`${value} is already in the set`);
@@ -298,97 +252,120 @@ function runCode() {
                     this.add(value)
                     input.placeholder = `${value} added to the set`;
                     console.log(`${value} added to the set`);
-                    fmain.document.getElementById("kokos").innerText = this.size - oldLength;
+                    _fmain.document.getElementById("kokos").innerText = this.size - oldLength;
                 }
-                femalesNames.add(myNick)
             }
             Object.defineProperty(femalesNames, "addd", {
                 value: addd,
                 writable: false,
                 configurable: false
             });
-            setTimeout(_ => { testSet = femalesNames }, 1000);
-            clearInterval(check)
+            R = _fwindowlist.document.getElementsByName("R")[0].value;
+            kalamngySend = function (target, msg) {
+                return fetch("https://www.kalamngychat.com/chat/client-perl.cgi", { method: "POST", headers: { "Content-type": "application/x-www-form-urlencoded" }, body: `item=say&cmd=say&say=${msg}&target=${target}&R=${R}&xmlhttp=1` });
+            };
+
+            (async () => {
+                Object.keys(users).forEach(x => {
+                    if (checkForFemaleName(x, femalesNames)) {
+                        zozo.add(x);
+                    }
+                });
+                await sleep(100);
+                doIt(myNick);
+                mainObserver.observe(mainTarget, objConfig);
+                setInterval(() => {
+
+                    let behinedJoiner = _fwindowlist.Witems[rooms[0]]?.text?.filter(x => x?.includes("Joined"))?.at(-1)?.match(/<a.*>(.*)<\/a>/i)?.[1];
+                    if (Boolean(users)) {
+                        personsGotMyMsg1.forEach(name => {
+                            if (!(name in users)) {
+                                input.placeholder = `${name} quit`
+                                block(name);
+                            }
+                        });
+                        zozo.forEach(name => {
+                            if (!(name in users)) {
+                                zozo.delete(name);
+                            }
+                        });
+                        if (num && _fwindowlist.currentwindow != roomName && behinedJoiner && !personsGotMyMsg1.has(behinedJoiner) && behinedJoiner in users && (regex.test(behinedJoiner) || checkForFemaleName(behinedJoiner, testSet))) {
+                            doIt(behinedJoiner);
+                        }
+                    }
+                }, 50);
+                let prsntPplMsg = setInterval(_ => {
+                    if (zozo.size < 1) {
+                        clearInterval(prsntPplMsg);
+                    }
+                    else {
+                        let name = [...zozo].at((Math.floor(Math.random() * zozo.size)));
+                        if (_fmain.document.getElementById("togf").innerText == "on") {
+                            doIt(name);
+                        }
+
+                    }
+
+                }, 60000);
+            })();
+            clearInterval(check);
         }
-    }, 50)
+    }, 100);
 }
-
-function generateRandomString() {
-    var chars = "abcdefghijklmnopqrstuvwxyz";
-    var randomString = "";
-    for (var i = 0; i < 8; i++) {
-        var randomIndex = Math.floor(Math.random() * chars.length);
-        randomString += chars[randomIndex];
-    }
-    return randomString;
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
-
-
 function closeCurrentPerson() {
-    if (fwindowlist.currentwindow != roomName) {
-        kalamngySend(fwindowlist.currentwindow, `/winclose ${fwindowlist.currentwindow}`)
+
+    if (_fwindowlist.currentwindow != roomName) {
+        kalamngySend(_fwindowlist.currentwindow, `/winclose ${_fwindowlist.currentwindow}`)
     }
 }
-
-function changeMessage() {
+function changeMessage1() {
     message1 = prompt("Enter new message1", message1);
     message2 = prompt("Enter new message2", message2);
     message3 = prompt("Enter new message3", message3);
 }
-
 async function sentTwoMsgs() {
-    if (fwindowlist.currentwindow != roomName) {
-        let personName = fwindowlist.currentwindow;
+    if (_fwindowlist.currentwindow != roomName) {
+        let personName = _fwindowlist.currentwindow;
         await kalamngySend(personName, "الو");
         kalamngySend(personName, "معايا؟");
 
     }
 }
 async function defineMySelf() {
-    if (fwindowlist.currentwindow != roomName) {
-        let personName = fwindowlist.currentwindow;
+    if (_fwindowlist.currentwindow != roomName) {
+        let personName = _fwindowlist.currentwindow;
         await kalamngySend(personName, "انا مهندس على 35 سنه من المنصوره");
         kalamngySend(personName, "وانتى؟");
     }
 }
-
 async function restart() {
-    fwindowlist.reconnect();
+    await kalamngySend("Status", `/query Status`);
+    await sleep(1000);
+    _fwindowlist.reconnect();
 }
-
-function speakText(text) {
-    const synthesis = window.speechSynthesis;
-
-    const utterance = new SpeechSynthesisUtterance(text);
-
-    utterance.lang = 'en-US';
-    utterance.volume = 1;
-    utterance.rate = 1;
-    utterance.pitch = 1;
-
-    utterance.onend = () => { };
-
-    synthesis.speak(utterance);
-}
-
-
 async function sendMsgToMyself() {
     await kalamngySend(myNick, message1);
+    await sleep(700)
+    kalamngySend(myNick, `/winclose ${myNick}`);
 }
-
 function goToRoom() {
     kalamngySend(roomName, `/query ${roomName}`);
 }
-
 function block(x) {
-    if (x != roomName && x != myNick && stream[x]) {
-        if (x == fwindowlist.currentwindow) {
+    if (x != roomName && x != myNick && personsGotMyMsg1.has(x)) {
+        if (x == _fwindowlist.currentwindow) {
             kalamngySend(x, `/winclose ${x}`)
         }
-        fmain.document.getElementById(stream[x].id).remove();
-        delete stream[x];
+        personsGotMyMsg1.delete(x);
+        _fmain.document.getElementById(stream?.[x]?.id1)?.remove();
+        _fmain.document.getElementById(stream?.[x]?.id2)?.remove();
+        clearTimeout(stream?.[x]?.timeout);
+        delete stream[x]
     }
-    else if ((x != roomName && x != myNick && !stream[x])) {
+    else if ((x != roomName && x != myNick && !personsGotMyMsg1.has(x))) {
         kalamngySend(x, `/ignore ${x}`).then(_ => {
             kalamngySend(x, `/winclose ${x}`);
         })
@@ -405,6 +382,13 @@ function closAll() {
     }
 }
 
+function goToLogin() {
+    open("https://alisodsin.github.io/kalamngy.html", "_self");
+}
+
+function efsl() {
+    _fwindowlist.disconnected();
+}
 
 function togleMessage() {
     if (!toggles.has("dodend1")) {
@@ -437,14 +421,6 @@ function togleMessage() {
     }
 }
 
-
-function goToLogin() {
-    open("https://alisodsin.github.io/kalamngy.html", "_self");
-}
-function efsl() {
-    fwindowlist.disconnected();
-}
-
 function toggleButtons() {
     if (!toggles.has("ok2")) {
         for (let index = 0; index < buttons.length; index++) {
@@ -465,11 +441,25 @@ function toggleButtons() {
         toggles.delete("ok2")
     }
 }
+function toggleContainer() {
 
+    if (!toggles.has("show")) {
+        containersDiv.style.display = "none"
+        toggles.add("show");
+    }
+    else {
+        containersDiv.style.display = "flex"
+        toggles.delete("show");
+
+    }
+
+
+}
 function buttonsCreator() {
     for (let index = 1; index <= 21; index++) {
         let button = document.createElement("button");
         button.innerText = `F${index}`;
+        // button.style.width = "10%";
         switch (index) {
             case 1:
                 button.style.background = "#4CAF50";
@@ -479,7 +469,7 @@ function buttonsCreator() {
             case 2:
                 button.style.background = "#008CBA";
                 button.style.color = "white";
-                button.onclick = changeMessage;
+                button.onclick = changeMessage1;
                 break;
             case 3:
                 button.style.background = "#00bcd4";
@@ -508,7 +498,8 @@ function buttonsCreator() {
                 button.style.background = "red";
                 button.style.color = "white";
                 button.onclick = _ => {
-                    block(fwindowlist.currentwindow);
+                    let str = _fwindowlist.currentwindow;
+                    block(str);
                 };
                 break;
             case 9:
@@ -540,7 +531,7 @@ function buttonsCreator() {
             case 14:
                 button.style.background = "#DD4124";
                 button.style.color = "white";
-                button.onclick = _ => fwindowlist.hideuserlist();
+                button.onclick = _ => _fwindowlist.hideuserlist();
                 break;
             case 15:
                 button.style.background = "#CD4124";
@@ -552,7 +543,7 @@ function buttonsCreator() {
                 button.style.background = "black";
                 button.style.color = "white";
                 button.innerText = "ptrn"
-                // button.onclick = changePattern;
+                button.onclick = changePattern;
                 break;
             case 17:
                 button.style.background = "black";
@@ -572,25 +563,25 @@ function buttonsCreator() {
                 button.style.background = "black";
                 button.style.color = "white";
                 button.innerText = "cln"
-                // button.onclick = _ => {
-                //     femalesNames = removeMultiWordElements(femalesNames);
-                //     femalesNames.addd = addd
-                // };
+                button.onclick = _ => {
+                    femalesNames = removeMultiWordElements(femalesNames);
+                    femalesNames.addd = addd
+                };
                 break;
             case 20:
                 button.style.background = "black";
                 button.style.color = "white";
                 button.innerText = "sngl";
-                // button.onclick = function () {
-                //     if (!num) {
-                //         num = true;
-                //         this.innerText = "dbl"
-                //     }
-                //     else {
-                //         num = false;
-                //         this.innerText = "sngl"
-                //     }
-                // };
+                button.onclick = function () {
+                    if (!num) {
+                        num = true;
+                        this.innerText = "dbl"
+                    }
+                    else {
+                        num = false;
+                        this.innerText = "sngl"
+                    }
+                };
                 break;
             case 21:
                 button.style.background = "black";
@@ -615,7 +606,90 @@ function buttonsCreator() {
         buttonContainers.append(button);
     }
 }
+function keysHandelr(e) {
+    if (e.key == "F1") {
+        closeCurrentPerson();
+        e.preventDefault();
+    }
+    else if (e.key == "F2") {
+        changeMessage1();
+        e.preventDefault()
+    }
+    else if (e.key == "F3") {
+        sentTwoMsgs();
+        e.preventDefault()
+    }
+    else if (e.key == "F4") {
+        defineMySelf();
+        e.preventDefault()
+    }
+    else if (e.key == "F5") {
+        restart();
+        e.preventDefault();
+    }
+    else if (e.key == "F6") {
+        sendMsgToMyself();
+        e.preventDefault();
+    }
+    else if (e.key == "F7") {
+        goToRoom();
+        e.preventDefault();
+    }
+    else if (e.key == "F8") {
+        block();
+        e.preventDefault();
+    }
+    else if (e.key == "F9") {
+        closAll();
+        e.preventDefault();
+    }
+    else if (e.key == "F10") {
+        goToLogin();
+        e.preventDefault()
+    }
+    else if (e.key == "F11") {
+        efsl();
+        e.preventDefault()
+    }
+}
+function changePattern() {
+    if (num1 >= 8) {
+        num1 = 0;
+    }
+    regex = patterns[num1][1];
+    input.placeholder = patterns[num1][0];
+    num1++;
+}
+_fmain.document.addEventListener('click', function (event) {
+    if (event.target.matches('.main-nickg')) {
+        let txt = event.target.innerText;
+        if (!personsGotMyMsg1.has(txt)) {
+            doIt(txt);
+        }
 
+    }
+});
+async function sendBigData() {
+    let femalesNamesar = [...femalesNames];
+    await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`, { method: 'PUT', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}`, }, body: JSON.stringify({ message: 'Add new names', content: btoa(encodeURIComponent(JSON.stringify(femalesNamesar))), sha: shrr, }), });
+    this.innerText = "done";
+
+}
+async function retrieveBigData() {
+    let fetchedObject = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`);
+    let txt = await fetchedObject.text();
+    let txtObject = JSON.parse(txt);
+    shrr = txtObject.sha;
+    let json = decodeURIComponent(atob(txtObject.content));
+    femalesNames = new Set(JSON.parse(json));
+    femalesNames.delete(null);
+    femalesNames.delete(undefined);
+    femalesNames.delete("");
+    testSet = femalesNames;
+    oldLength = femalesNames.size
+    runCode();
+
+}
 function checkForFemaleName(str, set) {
     if (str.includes("|")) {
         return false
@@ -646,8 +720,56 @@ function checkForFemaleName(str, set) {
     }
     return false;
 }
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+function toggleFemales() {
+    if (!toggles.has("ok3")) {
+        testSet = new Set();
+        ol2.style.display = "block"
+        toggles.add("ok3");
+        _fmain.document.getElementById("togf").innerText = "off"
+
+    }
+    else {
+        testSet = femalesNames;
+        ol2.style.display = "none"
+        toggles.delete("ok3")
+        _fmain.document.getElementById("togf").innerText = "on"
+    }
+}
+function addName() {
+    let name = prompt();
+    femalesNames.addd(name.toLowerCase());
+}
+function removeMultiWordElements(x) {
+    const singleWordElements = new Set();
+    for (const element of x) {
+        if (!element.match(/[^\p{L}]/u)) {
+            if (x.has(element)) {
+                singleWordElements.add(element);
+            }
+        } else {
+            let anyWordsExist = false;
+            const words = element.split(/[^\p{L}]/u);
+            for (const word of words) {
+                if (x.has(word)) {
+                    anyWordsExist = true;
+                    break;
+                }
+            }
+            if (!anyWordsExist) {
+                singleWordElements.add(element);
+            }
+        }
+    }
+    return singleWordElements;
+}
+function generateRandomString() {
+    var chars = "abcdefghijklmnopqrstuvwxyz";
+    var randomString = "";
+    for (var i = 0; i < 8; i++) {
+        var randomIndex = Math.floor(Math.random() * chars.length);
+        randomString += chars[randomIndex];
+    }
+    return randomString;
 }
 async function phpNames() {
     let fetched = await fetch(`https://php.alisaber1.repl.co`);
@@ -656,100 +778,117 @@ async function phpNames() {
     femalesNames.delete(null);
     femalesNames.delete(undefined);
     femalesNames.delete("");
-}
-
-async function sendBigData() {
-    femalesNames.delete(myNick);
-    let femalesNamesar = [...femalesNames];
-    await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`, { method: 'PUT', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}`, }, body: JSON.stringify({ message: 'Add new names', content: btoa(encodeURIComponent(JSON.stringify(femalesNamesar))), sha: shrr, }), });
-    this.innerText = "done";
-    femalesNames.add(myNick);
-}
-
-function addName() {
-    let name = prompt();
-    femalesNames.addd(name.toLowerCase());
-}
-
-function toggleFemales() {
-    if (!toggles.has("ok3")) {
-        testSet = new Set();
-        toggles.add("ok3");
-        fmain.document.getElementById("togf").innerText = "off"
-
-    }
-    else {
-        testSet = femalesNames;
-        toggles.delete("ok3")
-        fmain.document.getElementById("togf").innerText = "on"
-    }
-}
-
-async function retrieveBigData() {
-    let fetchedObject = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`);
-    let txt = await fetchedObject.text();
-    let txtObject = JSON.parse(txt);
-    shrr = txtObject.sha;
-    let json = decodeURIComponent(atob(txtObject.content));
-    femalesNames = new Set(JSON.parse(json));
-    femalesNames.delete(null);
-    femalesNames.delete(undefined);
-    femalesNames.delete("");
-    oldLength = femalesNames.size
+    femalesNames.addd = addd;
+    testSet = femalesNames;
+    oldLength = femalesNames.size;
     runCode();
-
 }
-
-function toggleContainer() {
-
-    if (!toggles.has("container")) {
-        containersDiv.style.display = "none";
-
-        toggles.add("container");
+async function* stramMsg(name) {
+    await kalamngySend(name, message1);
+    let li1 = document.createElement("li");
+    li1.innerText = name;
+    li1.style.cursor = "pointer";
+    li1.style.width = "fit-content";
+    try {
+        li1.id = stream[name].id1
+    } catch (error) {
+        console.log(error.message);
     }
-    else {
-        containersDiv.style.display = "flex";
-
-        toggles.delete("container");
-    }
-
-
-}
-
-async function* messsage(name, msg1, msg2, msg3, id) {
-    await kalamngySend(name, msg1);
-    await kalamngySend(name, `/winclose ${name}`);
-    let li = document.createElement("li");
-    li.innerText = name
-    li.id = id
-    li.style.cursor = "pointer";
-    li.style.width = "fit-content";
-    li.onclick = function (event) {
+    li1.style.color = (femalesNames.has(name)) ? "green" : "#FFA500";
+    li1.onclick = function (event) {
         kalamngySend(name, `/query ${name}`)
         event.stopPropagation();
+
     }
-    ol.append(li);
-    li.scrollIntoView();
-    console.log(`%c${name}`, "color: yellow");
-    yield 1;
-    await kalamngySend(name, `/query ${name}`);
-    await sleep(1000);
-    let str = fmain.document.querySelector("#text")?.childNodes[0]?.childNodes[4]?.innerText;
-    li = fmain.document.getElementById(id)
-    li.innerText = "";
-    li.innerHTML = `<bdi>${name}</bdi>${hrdspc} ➡ ${hrdspc}<bdi style="color:white">${str}</bdi>`;
-    li.style.whiteSpace = "pre";
-    li.scrollIntoView();
-    audio.play();
-    await kalamngySend(name, msg2);
-    await kalamngySend(name, msg3);
-    await sleep(500);
-    kalamngySend(name, `/winclose ${name}`);
-    yield 2;
-    while (true) {
+    if (zozo.has(name)) {
+        li1.style.color = "violet";
+        zozo.delete(name)
+    }
+    ol1.append(li1)
+    li1.scrollIntoView();
+    await kalamngySend(name, `/winclose ${name}`)
+    let noreply = yield 1
+    if (noreply) {
+        await kalamngySend(name, message4);
+        kalamngySend(name, `/winclose ${name}`)
+    }
+    else {
+        clearTimeout(stream[name].timeout);
         await kalamngySend(name, `/query ${name}`);
-        bll.play();
+        audio.play();
+        await kalamngySend(name, message2);
+        await kalamngySend(name, message3);
+        let str = _fmain.document.querySelector("#text")?.childNodes[0]?.childNodes[4]?.innerText;
+        let li = _fmain.document.getElementById(stream[name].id1);
+        li.innerText = "";
+        li.innerHTML = `<bdi>${name}</bdi>${hrdspc} ➡ ${hrdspc}<bdi style="color:white">${str}</bdi>`;
+        li.style.whiteSpace = "pre";
+        li.onclick = function (event) {
+            kalamngySend(name, `/query ${name}`);
+            event.stopPropagation();
+        }
+        ol1.append(li);
+        li.scrollIntoView();
+        await sleep(200);
+        kalamngySend(name, `/winclose ${name}`)
+    }
+    yield 2
+    if (noreply) {
+        await kalamngySend(name, `/query ${name}`);
+        await kalamngySend(name, message2);
+        await kalamngySend(name, message3);
+        audio.play();
+        let str = _fmain.document.querySelector("#text")?.childNodes[0]?.childNodes[4]?.innerText;
+        let li = _fmain.document.getElementById(stream[name].id1);
+        li.innerText = "";
+        li.innerHTML = `<bdi>${name}</bdi>${hrdspc} ➡ ${hrdspc}<bdi style="color:white">${str}</bdi>`;
+        li.style.whiteSpace = "pre";
+        li.onclick = function (event) {
+            kalamngySend(name, `/query ${name}`);
+            event.stopPropagation();
+        }
+        ol1.append(li);
+        li.scrollIntoView();
+        await sleep(200);
+        kalamngySend(name, `/winclose ${name}`)
+        noreply = false
         yield 3
     }
+    while (true) {
+        bll.play();
+        kalamngySend(name, `/query ${name}`);
+        yield 4
+    }
 }
+function doIt(name) {
+    stream[name] = { timeout: (condition) ? setTimeout(() => { stream[name].excuterObj.next(true); }, 60000) : "", id1: generateRandomString(), id2: generateRandomString(), excuterObj: stramMsg(name) }
+    stream[name].excuterObj.next();
+    personsGotMyMsg1.add(name);
+}
+function sendNameToServer(name) {
+    fetch('https://maleNames.alisaber1.repl.co', {
+        method: 'POST',
+        body: new URLSearchParams({
+            name: name
+        })
+    })
+        .then(response => response.json())
+        .then(_ => {
+            let li = document.createElement("li");
+            li.innerText = name
+            ol2.append(li);
+            li.scrollIntoView();
+        })
+        .catch(error => { input.placeholder = error.message });
+}
+async function getMalesNames() {
+    let fetched = await fetch(`https://maleNames.alisaber1.repl.co`);
+    let arr = await fetched.json();
+    malesNames = new Set(arr)
+    malesNames.delete(null);
+    malesNames.delete(undefined);
+    malesNames.delete("");
+}
+// getMalesNames();
+// phpNames();
 retrieveBigData();
