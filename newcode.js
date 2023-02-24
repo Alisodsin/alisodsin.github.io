@@ -98,6 +98,9 @@ function runCode() {
                 flex: 1;
                 margin:0;
               }
+              #father ol li {
+                white-space: nowrap;
+              }
             `
             fmain.document?.querySelector?.("#mainplusbtn")?.remove();
             fmain.document?.querySelector?.("#mainclose")?.remove();
