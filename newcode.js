@@ -191,31 +191,11 @@ function runCode() {
                 white-space: nowrap;
               }
             `
-
-
-
-
-
-
-
             ol1.id = "ol";
             ol1.style.background = "black";
             ol1.style.color = "green";
             ol1.style.overflow = "auto"
-
-
-
-
-
-
-
-
-
-
-
-
             framo.id = "biginput";
-
             ol2.id = "ol2";
             ol2.style.background = "black";
             ol2.style.color = "white"
@@ -305,16 +285,6 @@ function runCode() {
                 }
 
             }, 60000);
-
-
-
-
-
-
-
-
-
-
             clearInterval(check);
         }
     }, 100);
@@ -595,10 +565,9 @@ function buttonsCreator() {
             case 19:
                 button.style.background = "black";
                 button.style.color = "white";
-                button.innerText = "cln"
+                button.innerText = "updt"
                 button.onclick = _ => {
-                    femalesNames = removeMultiWordElements(femalesNames);
-                    femalesNames.addd = addd
+                    phpNames();
                 };
                 break;
             case 20:
