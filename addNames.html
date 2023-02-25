@@ -12,7 +12,8 @@
       color: white;
 
     }
-    ul li{
+
+    ul li {
       white-space: nowrap;
     }
 
@@ -32,6 +33,8 @@
     let button1 = document.getElementById("butt");
     let button2 = document.getElementById("butt1");
     let ul = document.createElement("ul");
+    let namesGit = new Set();
+    let namesPhp = new Set();
     document.body.append(ul);
     function posting(val) {
       return fetch("https://php.alisaber1.repl.co/", {
@@ -96,6 +99,35 @@
         })
       })
     }
+    async function comparing() {
+      let fetchedObject = await fetch(`https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/femaleNames.json`);
+      let txtt = await fetchedObject.text();
+      let txtObject = JSON.parse(txtt);
+      shrr = txtObject.sha;
+      let json = decodeURIComponent(atob(txtObject.content));
+      namesGit = new Set(JSON.parse(json));
+      namesGit.delete(null);
+      namesGit.delete(undefined);
+      namesGit.delete("");
+      let fetched = await fetch(`https://php.alisaber1.repl.co`);
+      let arr = await fetched.json();
+      namesPhp = new Set(arr)
+      namesPhp.delete(null);
+      namesPhp.delete(undefined);
+      namesPhp.delete("");
+      if (namesGit.size > namesPhp.size) {
+
+        txt.value = `gitF > PhpF`
+
+      } else if (namesGit.size < namesPhp.size) {
+        txt.value = `gitF < PhpF`
+      }
+      else {
+        txt.value = `gitF = PhpF`
+      }
+
+    }
+    comparing();
   </script>
 
 </body>
