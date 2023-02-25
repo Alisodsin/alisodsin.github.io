@@ -265,49 +265,56 @@ function runCode() {
                 return fetch("https://www.kalamngychat.com/chat/client-perl.cgi", { method: "POST", headers: { "Content-type": "application/x-www-form-urlencoded" }, body: `item=say&cmd=say&say=${msg}&target=${target}&R=${R}&xmlhttp=1` });
             };
 
-            (async () => {
-                Object.keys(users).forEach(x => {
-                    if (checkForFemaleName(x, femalesNames)) {
-                        zozo.add(x);
+            Object.keys(users).forEach(x => {
+                if (checkForFemaleName(x, femalesNames)) {
+                    zozo.add(x);
+                }
+            });
+            doIt(myNick);
+            mainObserver.observe(mainTarget, objConfig);
+            _fwindowlist["Witems"][roomName]["users"] = new Proxy(_fwindowlist["Witems"][roomName]["users"], {
+                deleteProperty(target, prop) {
+                    if (zozo.has(prop)) {
+                        zozo.delete(prop)
                     }
-                });
-                await sleep(100);
-                doIt(myNick);
-                mainObserver.observe(mainTarget, objConfig);
-                setInterval(() => {
-
-                    let behinedJoiner = _fwindowlist.Witems[rooms[0]]?.text?.filter(x => x?.includes("Joined"))?.at(-1)?.match(/<a.*>(.*)<\/a>/i)?.[1];
-                    if (Boolean(users)) {
-                        personsGotMyMsg1.forEach(name => {
-                            if (!(name in users)) {
-                                input.placeholder = `${name} quit`
-                                block(name);
-                            }
-                        });
-                        zozo.forEach(name => {
-                            if (!(name in users)) {
-                                zozo.delete(name);
-                            }
-                        });
-                        if (num && _fwindowlist.currentwindow != roomName && behinedJoiner && !personsGotMyMsg1.has(behinedJoiner) && behinedJoiner in users && (regex.test(behinedJoiner) || checkForFemaleName(behinedJoiner, testSet))) {
-                            doIt(behinedJoiner);
-                        }
+                    if (personsGotMyMsg1.has(prop)) {
+                        block(prop)
+                        input.placeholder = `${prop} quit`;
                     }
-                }, 50);
-                let prsntPplMsg = setInterval(_ => {
-                    if (zozo.size < 1) {
-                        clearInterval(prsntPplMsg);
+                    return Reflect.deleteProperty(target, prop)
+                }
+            });
+            setInterval(() => {
+                let behinedJoiner = _fwindowlist.Witems[rooms[0]]?.text?.filter(x => x?.includes("Joined"))?.at(-1)?.match(/<a.*>(.*)<\/a>/i)?.[1];
+                if (Boolean(users)) {
+                    if (num && _fwindowlist.currentwindow != roomName && behinedJoiner && !personsGotMyMsg1.has(behinedJoiner) && behinedJoiner in users && (regex.test(behinedJoiner) || checkForFemaleName(behinedJoiner, testSet))) {
+                        doIt(behinedJoiner);
                     }
-                    else {
-                        let name = [...zozo].at((Math.floor(Math.random() * zozo.size)));
-                        if (_fmain.document.getElementById("togf").innerText == "on") {
-                            doIt(name);
-                        }
-
+                }
+            }, 50);
+            let prsntPplMsg = setInterval(_ => {
+                if (zozo.size < 1) {
+                    clearInterval(prsntPplMsg);
+                }
+                else {
+                    let name = [...zozo].at((Math.floor(Math.random() * zozo.size)));
+                    if (_fmain.document.getElementById("togf").innerText == "on") {
+                        doIt(name);
                     }
 
-                }, 60000);
-            })();
+                }
+
+            }, 60000);
+
+
+
+
+
+
+
+
+
+
             clearInterval(check);
         }
     }, 100);
@@ -342,9 +349,35 @@ async function defineMySelf() {
     }
 }
 async function restart() {
-    await kalamngySend("Status", `/query Status`);
-    await sleep(1000);
-    _fwindowlist.reconnect();
+    if (_fwindowlist.currentwindow != "Status") {
+        await kalamngySend("Status", `/query Status`);
+        await sleep(1000);
+        _fwindowlist.reconnect();
+        await sleep(1000);
+        let check = setInterval(_ => {
+            console.log("ali");
+            if (_fwindowlist.currentwindow == roomName) {
+                users = _fwindowlist?.Witems?.[roomName]?.users;
+                _fwindowlist["Witems"][roomName]["users"] = new Proxy(_fwindowlist["Witems"][roomName]["users"], {
+                    deleteProperty(target, prop) {
+                        if (zozo.has(prop)) {
+                            zozo.delete(prop)
+                        }
+                        if (personsGotMyMsg1.has(prop)) {
+                            block(prop)
+                            input.placeholder = `${prop} quit`;
+                        }
+                        return Reflect.deleteProperty(target, prop)
+                    }
+                });
+                clearInterval(check);
+            }
+        }, 100);
+
+    }
+    else {
+        _fwindowlist.reconnect();
+    }
 }
 async function sendMsgToMyself() {
     await kalamngySend(myNick, message1);
@@ -779,9 +812,6 @@ async function phpNames() {
     femalesNames.delete(undefined);
     femalesNames.delete("");
     femalesNames.addd = addd;
-    testSet = femalesNames;
-    oldLength = femalesNames.size;
-    runCode();
 }
 async function* stramMsg(name) {
     await kalamngySend(name, message1);
@@ -791,8 +821,9 @@ async function* stramMsg(name) {
     li1.style.width = "fit-content";
     try {
         li1.id = stream[name].id1
+
     } catch (error) {
-        console.log(error.message);
+        console.log(`stream[${name}] is undefined`);
     }
     li1.style.color = (femalesNames.has(name)) ? "green" : "#FFA500";
     li1.onclick = function (event) {
