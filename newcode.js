@@ -50,7 +50,6 @@ let check = setInterval(_ => {
     roomName,
     addd,
     containersDiv = document.createElement("div"),
-    firstli,
     ol1 = document.createElement("ol"),
     ol2 = document.createElement("ol"),
     joiningPplClass,
@@ -116,7 +115,6 @@ function runCode() {
             listObserver.observe(listTarget, objConfig);
             fform.onkeydown = keysHandelr;
             ters = fform.document.getElementsByTagName("img")[0]
-            firstli = _fwindowlist.document.getElementsByClassName("wlist-chooser")
             _fmain.nickmenu = function () { return false }
             _fmain.document.getElementById("menu").remove();
             _fmain.document.getElementById("mainplusbtn").click();
@@ -784,29 +782,29 @@ async function phpNames() {
 }
 async function* stramMsg(name) {
     await kalamngySend(name, message1);
-    let li1 = document.createElement("li");
-    li1.innerText = name;
-    li1.style.cursor = "pointer";
-    li1.style.width = "fit-content";
-    try {
+    if (stream[name]) {
+        let li1 = document.createElement("li");
+        li1.innerText = name;
+        li1.style.cursor = "pointer";
+        li1.style.width = "fit-content";
         li1.id = stream[name].id1
+        li1.style.color = (femalesNames.has(name)) ? "green" : "#FFA500";
+        li1.onclick = function (event) {
+            kalamngySend(name, `/query ${name}`)
+            event.stopPropagation();
+        }
+        if (zozo.has(name)) {
+            li1.style.color = "violet";
+            zozo.delete(name)
+        }
+        ol1.append(li1)
+        li1.scrollIntoView();
+        await kalamngySend(name, `/winclose ${name}`)
 
-    } catch (error) {
-        console.log(`stream[${name}] is undefined`);
     }
-    li1.style.color = (femalesNames.has(name)) ? "green" : "#FFA500";
-    li1.onclick = function (event) {
-        kalamngySend(name, `/query ${name}`)
-        event.stopPropagation();
-
+    else {
+        return false
     }
-    if (zozo.has(name)) {
-        li1.style.color = "violet";
-        zozo.delete(name)
-    }
-    ol1.append(li1)
-    li1.scrollIntoView();
-    await kalamngySend(name, `/winclose ${name}`)
     let noreply = yield 1
     if (noreply) {
         await kalamngySend(name, message4);
@@ -889,6 +887,4 @@ async function getMalesNames() {
     malesNames.delete(undefined);
     malesNames.delete("");
 }
-// getMalesNames();
-// phpNames();
 retrieveBigData();
