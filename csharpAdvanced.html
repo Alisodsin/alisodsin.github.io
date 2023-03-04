@@ -2594,6 +2594,411 @@
 
                 </li>
         </ol>
+        <br>
+        <hr><br>
+        <h3>make a read-only field inside clas</h3>
+        <p>In C#, there are several ways to create a read-only field inside a class. Here are a few examples: </p>
+        <ol>
+                <li>Using the "readonly" keyword: This keyword can be used to create a field that can only be assigned a
+                        value in the constructor of the class.
+                        <div class="cods" contenteditable="" spellcheck="false">
+                                <div>
+                                        <div><span style="color: #569cd6;">public</span> <span
+                                                        style="color: #569cd6;">class</span> <span
+                                                        style="color: #4ec9b0;">MyClass</span></div>
+                                        <div>{</div>
+                                        <div>&nbsp; &nbsp; <span style="color: #569cd6;">readonly</span> <span
+                                                        style="color: #569cd6;">int</span> <span
+                                                        style="color: #9cdcfe;">myReadOnlyField</span>;</div><br>
+                                        <div>&nbsp; &nbsp; <span style="color: #569cd6;">public</span> <span
+                                                        style="color: #4ec9b0;">MyClass</span>(<span
+                                                        style="color: #569cd6;">int</span> <span
+                                                        style="color: #9cdcfe;">value</span>)</div>
+                                        <div>&nbsp; &nbsp; {</div>
+                                        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span
+                                                        style="color: #9cdcfe;">myReadOnlyField</span> = <span
+                                                        style="color: #9cdcfe;">value</span>;</div>
+                                        <div>&nbsp; &nbsp; }</div><br>
+                                        <div>&nbsp; &nbsp; <span style="color: #569cd6;">public</span> <span
+                                                        style="color: #569cd6;">int</span> <span
+                                                        style="color: #dcdcaa;">GetMyReadOnlyField</span>()</div>
+                                        <div>&nbsp; &nbsp; {</div>
+                                        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #c586c0;">return</span>
+                                                <span style="color: #9cdcfe;">myReadOnlyField</span>;
+                                        </div>
+                                        <div>&nbsp; &nbsp; }</div>
+                                        <div>}</div>
+                                </div>
+                        </div>
+                </li>
+                <li>Using a private setter: This approach involves creating a property with a private setter, which can
+                        only be called within the class itself.
+                        <div class="cods" contenteditable="" spellcheck="false">
+                                <div>
+                                        <div><span style="color: #569cd6;">public</span> <span
+                                                        style="color: #569cd6;">class</span> <span
+                                                        style="color: #4ec9b0;">MyClass</span></div>
+                                        <div>{</div>
+                                        <div>&nbsp; &nbsp; <span style="color: #569cd6;">public</span> <span
+                                                        style="color: #569cd6;">int</span> <span
+                                                        style="color: #9cdcfe;">MyReadOnlyField</span> { <span
+                                                        style="color: #569cd6;">get</span>; <span
+                                                        style="color: #569cd6;">private</span> <span
+                                                        style="color: #569cd6;">set</span>; }</div><br>
+                                        <div>&nbsp; &nbsp; <span style="color: #569cd6;">public</span> <span
+                                                        style="color: #4ec9b0;">MyClass</span>(<span
+                                                        style="color: #569cd6;">int</span> <span
+                                                        style="color: #9cdcfe;">value</span>)</div>
+                                        <div>&nbsp; &nbsp; {</div>
+                                        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span
+                                                        style="color: #9cdcfe;">MyReadOnlyField</span> = <span
+                                                        style="color: #9cdcfe;">value</span>;</div>
+                                        <div>&nbsp; &nbsp; }</div><br>
+                                        <div>&nbsp; &nbsp; <span style="color: #569cd6;">public</span> <span
+                                                        style="color: #569cd6;">int</span> <span
+                                                        style="color: #dcdcaa;">GetMyReadOnlyField</span>()</div>
+                                        <div>&nbsp; &nbsp; {</div>
+                                        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #c586c0;">return</span>
+                                                <span style="color: #9cdcfe;">MyReadOnlyField</span>;
+                                        </div>
+                                        <div>&nbsp; &nbsp; }</div>
+                                        <div>}</div>
+                                </div>
+                        </div>
+
+                </li>
+                <li>Using a constant: Constants are automatically read-only and can be defined at the class level.
+                        <div class="cods" contenteditable="" spellcheck="false">
+                                <div>
+                                        <div><span style="color: #569cd6;">public</span> <span
+                                                        style="color: #569cd6;">class</span> <span
+                                                        style="color: #4ec9b0;">MyClass</span></div>
+                                        <div>{</div>
+                                        <div>&nbsp; &nbsp; <span style="color: #569cd6;">public</span> <span
+                                                        style="color: #569cd6;">const</span> <span
+                                                        style="color: #569cd6;">int</span> <span
+                                                        style="color: #4fc1ff;">MyReadOnlyField</span> = <span
+                                                        style="color: #b5cea8;">10</span>;</div><br>
+                                        <div>&nbsp; &nbsp; <span style="color: #569cd6;">public</span> <span
+                                                        style="color: #569cd6;">int</span> <span
+                                                        style="color: #dcdcaa;">GetMyReadOnlyField</span>()</div>
+                                        <div>&nbsp; &nbsp; {</div>
+                                        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #c586c0;">return</span>
+                                                <span style="color: #4fc1ff;">MyReadOnlyField</span>;
+                                        </div>
+                                        <div>&nbsp; &nbsp; }</div>
+                                        <div>}</div>
+                                </div>
+                        </div>
+
+                </li>
+
+
+        </ol>
+        <br>
+        <hr><br>
+        <h3>overloaded constructo</h3>
+        <p>In C#, an overloaded constructor is a constructor that has the same name as the class and accepts different
+                parameters. Overloading constructors allow you to create objects with different initializations. </p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">public</span> <span style="color: #569cd6;">class</span>
+                                <span style="color: #4ec9b0;">Person</span>
+                        </div>
+                        <div>{</div>
+                        <div>&nbsp; &nbsp; <span style="color: #569cd6;">public</span> <span
+                                        style="color: #569cd6;">string</span> <span style="color: #9cdcfe;">Name</span>
+                                { <span style="color: #569cd6;">get</span>; <span style="color: #569cd6;">set</span>; }
+                        </div>
+                        <div>&nbsp; &nbsp; <span style="color: #569cd6;">public</span> <span
+                                        style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">Age</span> {
+                                <span style="color: #569cd6;">get</span>; <span style="color: #569cd6;">set</span>; }
+                        </div><br>
+                        <div>&nbsp; &nbsp; <span style="color: #569cd6;">public</span> <span
+                                        style="color: #4ec9b0;">Person</span>()</div>
+                        <div>&nbsp; &nbsp; {</div>
+                        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #6a9955;">// default constructor</span>
+                        </div>
+                        <div>&nbsp; &nbsp; }</div><br>
+                        <div>&nbsp; &nbsp; <span style="color: #569cd6;">public</span> <span
+                                        style="color: #4ec9b0;">Person</span>(<span
+                                        style="color: #569cd6;">string</span> <span style="color: #9cdcfe;">name</span>)
+                        </div>
+                        <div>&nbsp; &nbsp; {</div>
+                        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #6a9955;">// constructor with one
+                                        parameter</span></div>
+                        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #9cdcfe;">Name</span> = <span
+                                        style="color: #9cdcfe;">name</span>;</div>
+                        <div>&nbsp; &nbsp; }</div><br>
+                        <div>&nbsp; &nbsp; <span style="color: #569cd6;">public</span> <span
+                                        style="color: #4ec9b0;">Person</span>(<span
+                                        style="color: #569cd6;">string</span> <span style="color: #9cdcfe;">name</span>,
+                                <span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">age</span>)
+                        </div>
+                        <div>&nbsp; &nbsp; {</div>
+                        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #6a9955;">// constructor with two
+                                        parameters</span></div>
+                        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #9cdcfe;">Name</span> = <span
+                                        style="color: #9cdcfe;">name</span>;</div>
+                        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #9cdcfe;">Age</span> = <span
+                                        style="color: #9cdcfe;">age</span>;</div>
+                        <div>&nbsp; &nbsp; }</div>
+                        <div>}</div>
+                        <div><span style="color: #4ec9b0;">Person</span> <span style="color: #9cdcfe;">person1</span> =
+                                <span style="color: #569cd6;">new</span> <span style="color: #4ec9b0;">Person</span>();
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #6a9955;">// creates a
+                                        Person with default values</span>
+                        </div>
+                        <div><span style="color: #4ec9b0;">Person</span> <span style="color: #9cdcfe;">person2</span> =
+                                <span style="color: #569cd6;">new</span> <span
+                                        style="color: #4ec9b0;">Person</span>(<span
+                                        style="color: #ce9178;">"John"</span>); &nbsp; &nbsp; &nbsp;<span
+                                        style="color: #6a9955;">// creates a Person with Name="John"</span>
+                        </div>
+                        <div><span style="color: #4ec9b0;">Person</span> <span style="color: #9cdcfe;">person3</span> =
+                                <span style="color: #569cd6;">new</span> <span
+                                        style="color: #4ec9b0;">Person</span>(<span
+                                        style="color: #ce9178;">"Jane"</span>, <span style="color: #b5cea8;">25</span>);
+                                &nbsp;<span style="color: #6a9955;">// creates a Person with Name="Jane" and
+                                        Age=25</span>
+                        </div>
+                </div>
+        </div>
+
+        <p>we have a Person class with three constructors:</p>
+        <ul>
+                <li>A default constructor with no parameters, which does nothing.</li>
+                <li>A constructor with one parameter, <code>name</code>, which sets the <code>Name</code> property of
+                        the object.</li>
+                <li>A constructor with two parameters, <code>name</code> and <code>age</code>, which sets both the
+                        <code>Name</code> and <code>Age</code> properties of the object.
+                </li>
+        </ul>
+        <p>By using overloaded constructors, we can make our code more flexible and reusable, since different objects
+                can be created with different initializations depending on the needs of the program.</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">public</span> <span style="color: #569cd6;">class</span>
+                                <span style="color: #4ec9b0;">Person</span>
+                        </div>
+                        <div>{</div>
+                        <div>&nbsp; &nbsp; <span style="color: #569cd6;">public</span> <span
+                                        style="color: #569cd6;">string</span>? <span style="color: #9cdcfe;">Name</span>
+                                { <span style="color: #569cd6;">get</span>; <span style="color: #569cd6;">set</span>; }
+                        </div>
+                        <div>&nbsp; &nbsp; <span style="color: #569cd6;">public</span> <span
+                                        style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">Age</span> {
+                                <span style="color: #569cd6;">get</span>; <span style="color: #569cd6;">set</span>; }
+                        </div>
+                        <div>&nbsp; &nbsp; <span style="color: #569cd6;">public</span> <span
+                                        style="color: #4ec9b0;">Person</span>(<span
+                                        style="color: #569cd6;">string</span> <span style="color: #9cdcfe;">name</span>,
+                                <span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">age</span>)
+                        </div>
+                        <div>&nbsp; &nbsp; {</div>
+                        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #9cdcfe;">Name</span> = <span
+                                        style="color: #9cdcfe;">name</span>;</div>
+                        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #9cdcfe;">Age</span> = <span
+                                        style="color: #9cdcfe;">age</span>;</div><br>
+                        <div>&nbsp; &nbsp; }</div>
+                        <div>&nbsp; &nbsp; <span style="color: #569cd6;">public</span> <span
+                                        style="color: #4ec9b0;">Person</span>(<span
+                                        style="color: #569cd6;">string</span> <span style="color: #9cdcfe;">name</span>)
+                                : <span style="color: #569cd6;">this</span>(<span style="color: #9cdcfe;">name</span>,
+                                <span style="color: #b5cea8;">44</span>) { }
+                        </div>
+                        <div>&nbsp; &nbsp; <span style="color: #569cd6;">public</span> <span
+                                        style="color: #4ec9b0;">Person</span>(<span style="color: #569cd6;">int</span>
+                                <span style="color: #9cdcfe;">age</span>) : <span
+                                        style="color: #569cd6;">this</span>(<span style="color: #ce9178;">"dodo"</span>,
+                                <span style="color: #b5cea8;">44</span>) { }
+                        </div>
+                        <div>&nbsp; &nbsp; <span style="color: #569cd6;">public</span> <span
+                                        style="color: #4ec9b0;">Person</span>() : <span
+                                        style="color: #569cd6;">this</span>(<span style="color: #ce9178;">"soso"</span>,
+                                <span style="color: #b5cea8;">12</span>) { }
+                        </div>
+                        <div>}</div>
+                </div>
+        </div>
+
+
+        <div class="markdown prose w-full break-words dark:prose-invert light">
+                <p>The given code defines a C# class named <code>Person</code> with four constructors.</p>
+                <p>The first constructor takes two arguments - <code>name</code> of type string and <code>age</code> of
+                        type integer. It initializes the public properties <code>Name</code> and <code>Age</code> with
+                        the values passed to the constructor.</p>
+                <p>The other three constructors are overloaded constructors, which means they provide alternative ways
+                        to create an instance of the <code>Person</code> class with different input parameters.</p>
+                <p>The second constructor takes a single argument - <code>name</code> of type string. It calls the first
+                        constructor using the <code>this</code> keyword and passing <code>name</code> and a default
+                        value of <code>44</code> for <code>age</code>.</p>
+                <p>The third constructor takes a single argument - <code>age</code> of type integer. It also calls the
+                        first constructor using the <code>this</code> keyword and passing a default value of
+                        <code>"dodo"</code> for <code>name</code> and the value of <code>age</code>.
+                </p>
+                <p>The fourth constructor takes no arguments. It calls the first constructor using the <code>this</code>
+                        keyword and passing default values of <code>"soso"</code> for <code>name</code> and
+                        <code>12</code> for <code>age</code>.
+                </p>
+                <p>In this way, the class <code>Person</code> can be instantiated in multiple ways, with different
+                        combinations of input parameters, based on the needs of the program.</p>
+        </div>
+        <br>
+        <hr><br>
+        <h3>Object initializer</h3>
+        <p>Object initializer is a syntax in C# that allows you to set the initial values of an object's properties in a
+                more concise way. Instead of setting the values one by one using property setters, you can set them all
+                at once using a set of braces {}.</p>
+        <p>lizer syntax:</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">class</span> <span style="color: #4ec9b0;">Person</span>
+                        </div>
+                        <div>{</div>
+                        <div>&nbsp; &nbsp; <span style="color: #569cd6;">public</span> <span
+                                        style="color: #569cd6;">string</span>? <span
+                                        style="color: #9cdcfe;">Name</span>;</div>
+                        <div>&nbsp; &nbsp; <span style="color: #569cd6;">public</span> <span
+                                        style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">Age</span>;
+                        </div>
+                        <div>&nbsp; &nbsp; <span style="color: #569cd6;">public</span> <span
+                                        style="color: #569cd6;">string</span> <span
+                                        style="color: #9cdcfe;">Address</span>;</div>
+                        <div>}</div><br>
+                        <div><span style="color: #6a9955;">// Creating a Person object with object initializer</span>
+                        </div>
+                        <div><span style="color: #4ec9b0;">Person</span> <span style="color: #9cdcfe;">person</span> =
+                                <span style="color: #569cd6;">new</span> <span style="color: #4ec9b0;">Person</span>
+                        </div>
+                        <div>{</div>
+                        <div>&nbsp; &nbsp; <span style="color: #9cdcfe;">Name</span> = <span
+                                        style="color: #ce9178;">"John Doe"</span>,</div>
+                        <div>&nbsp; &nbsp; <span style="color: #9cdcfe;">Age</span> = <span
+                                        style="color: #b5cea8;">30</span>,</div>
+                        <div>&nbsp; &nbsp; <span style="color: #9cdcfe;">Address</span> = <span
+                                        style="color: #ce9178;">"123 Main St"</span></div>
+                        <div>};</div>
+                </div>
+        </div>
+        <p>In the above example, we create a new instance of the <code>Person</code> class and set its
+                <code>Name</code>, <code>Age</code>, and <code>Address</code> properties using object initializer
+                syntax. This is equivalent to the following code:
+        </p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">// Creating a Person object without object initializer</span>
+                        </div>
+                        <div><span style="color: #4ec9b0;">Person</span> <span style="color: #9cdcfe;">person</span> =
+                                <span style="color: #569cd6;">new</span> <span style="color: #4ec9b0;">Person</span>();
+                        </div>
+                        <div><span style="color: #9cdcfe;">person</span>.<span style="color: #9cdcfe;">Name</span> =
+                                <span style="color: #ce9178;">"John Doe"</span>;
+                        </div>
+                        <div><span style="color: #9cdcfe;">person</span>.<span style="color: #9cdcfe;">Age</span> =
+                                <span style="color: #b5cea8;">30</span>;
+                        </div>
+                        <div><span style="color: #9cdcfe;">person</span>.<span style="color: #9cdcfe;">Address</span> =
+                                <span style="color: #ce9178;">"123 Main St"</span>;
+                        </div>
+                </div>
+        </div>
+        <br>
+        <hr><br>
+        <h3>non-public constructor</h3>
+        <p>In C#, a non-public constructor is a constructor that has access modifiers such as private, protected, or
+                internal. It means that the constructor can only be called from within the same class or from derived
+                classes or from the same assembly.</p>
+        <p>Here is an example of a non-public constructor: </p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">public</span> <span style="color: #569cd6;">class</span>
+                                <span style="color: #4ec9b0;">MyClass</span>
+                        </div>
+                        <div>{</div>
+                        <div>&nbsp; &nbsp; <span style="color: #569cd6;">private</span> <span
+                                        style="color: #4ec9b0;">MyClass</span>() { }</div><br>
+                        <div>&nbsp; &nbsp; <span style="color: #569cd6;">public</span> <span
+                                        style="color: #569cd6;">static</span> <span
+                                        style="color: #4ec9b0;">MyClass</span> <span
+                                        style="color: #dcdcaa;">Create</span>()</div>
+                        <div>&nbsp; &nbsp; {</div>
+                        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span
+                                        style="color: #569cd6;">new</span> <span
+                                        style="color: #4ec9b0;">MyClass</span>();</div>
+                        <div>&nbsp; &nbsp; }</div>
+                        <div>}</div>
+                </div>
+        </div>
+        <p>In this example, the <code>MyClass</code> constructor is declared as private, which means that it can only be
+                accessed within the same class. However, the <code>Create</code> method is declared as public and can be
+                used to create an instance of the <code>MyClass</code> class.</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div> <span style="color: #4ec9b0;">MyClass</span> <span style="color: #9cdcfe;">myObj</span> = <span
+                                style="color: #4ec9b0;">MyClass</span>.<span style="color: #dcdcaa;">Create</span>();
+                </div>
+        </div>
+        <p>This creates an instance of <code>MyClass</code> using the private constructor and returns it through the
+                public <code>Create</code> method.</p>
+        <p>Another example of non-public constructor is a constructor with <code>protected</code> access modifier. This
+                type of constructor can be accessed only from within the same class or from its derived classes:</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">public</span> <span style="color: #569cd6;">class</span>
+                                <span style="color: #4ec9b0;">MyBaseClass</span>
+                        </div>
+                        <div>{</div>
+                        <div>&nbsp; &nbsp; <span style="color: #569cd6;">string</span> <span
+                                        style="color: #9cdcfe;">Prop</span>;</div>
+                        <div>&nbsp; &nbsp; <span style="color: #569cd6;">protected</span> <span
+                                        style="color: #4ec9b0;">MyBaseClass</span>(<span
+                                        style="color: #569cd6;">string</span> <span style="color: #9cdcfe;">prop</span>)
+                        </div>
+                        <div>&nbsp; &nbsp; {</div>
+                        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #9cdcfe;">Prop</span> = <span
+                                        style="color: #9cdcfe;">prop</span>;</div>
+                        <div>&nbsp; &nbsp; }</div>
+                        <div>}</div><br>
+                        <div><span style="color: #569cd6;">public</span> <span style="color: #569cd6;">class</span>
+                                <span style="color: #4ec9b0;">MyDerivedClass</span> : <span
+                                        style="color: #4ec9b0;">MyBaseClass</span>
+                        </div>
+                        <div>{</div>
+                        <div>&nbsp; &nbsp; <span style="color: #569cd6;">public</span> <span
+                                        style="color: #4ec9b0;">MyDerivedClass</span>(<span
+                                        style="color: #569cd6;">string</span> <span style="color: #9cdcfe;">prop</span>)
+                                : <span style="color: #569cd6;">base</span>(<span style="color: #9cdcfe;">prop</span>) {
+                                }</div>
+                        <div>}</div>
+                </div>
+        </div>
+
+        <p>In this example, the <code>MyBaseClass</code> constructor is declared as <code>protected</code> and can only
+                be accessed from within the same class or from a derived class. The <code>MyDerivedClass</code>
+                constructor is declared as public and calls the constructor of the base class using the
+                <code>base</code> keyword.
+        </p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div> <span style="color: #4ec9b0;">MyDerivedClass</span> <span style="color: #9cdcfe;">myObj</span> =
+                        <span style="color: #569cd6;">new</span> <span
+                                style="color: #4ec9b0;">MyDerivedClass</span>(<span
+                                style="color: #ce9178;">"ali"</span>);
+                </div>
+        </div>
+        <p>This creates an instance of <code>MyDerivedClass</code> which also initializes the <code>MyBaseClass</code> constructor as well.</p>
+        <p>In summary, non-public constructors provide a way to restrict access to the constructor of a class, which can be useful in scenarios where you want to control the creation of instances of a class or enforce specific rules for initializing objects.</p>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
