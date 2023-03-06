@@ -24,6 +24,7 @@ let check = setInterval(_ => {
     repo = 'alisodsin.github.io',
     path = 'femaleNames.json',
     shrr,
+    normalize_text,
     users,
     stream = {},
     framo,
@@ -74,23 +75,20 @@ let check = setInterval(_ => {
                 li.scrollIntoView();
                 malesNames.add(join);
             }
-
         }
-        if (_fwindowlist.currentwindow != roomName) {
+        if (_fwindowlist.currentwindow != roomName && !toggles.has("ok3")) {
             try {
                 let rst = [...[..._fmain.document?.querySelector?.("#text")?.childNodes]?.at?.(-1)?.children]?.at?.(-2)?.innerText;
                 if (rst && ![...[..._fmain.document?.querySelector?.("#text")?.childNodes]].at(-1).innerText.includes(myNick) && !malesNames.has(rst)) {
                     console.log(rst);
                     malesNames.add(rst)
-                    sendToOpenAI(rst, _fwindowlist.currentwindow);
+                    let text = normalize_text(rst)
+                    sendToOpenAI(text, _fwindowlist.currentwindow);
                 }
             } catch (_) {
                 return
             }
-
         }
-
-
     }),
     listObserver = new MutationObserver((e) => {
         let addedNodes = e[0].addedNodes;
@@ -905,32 +903,48 @@ async function getMalesNames() {
     malesNames.delete(undefined);
     malesNames.delete("");
 }
+
+
+
 async function sendToOpenAI(txt, nick) {
-  let myobj = { role: "user", "content": txt };
-  arr.push(myobj);
-  const url = 'https://api.openai.com/v1/chat/completions';
-  try {
-    let obj = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${mxin}`
-      },
-      body: JSON.stringify({
-        model: "gpt-3.5-turbo",
-        messages: arr
-      })
-    });
-    if (!obj.ok) {
-      throw new Error(`HTTP error! status: ${obj.status}`);
+    let myobj = { role: "user", "content": txt };
+    arr.push(myobj);
+    const url = 'https://api.openai.com/v1/chat/completions';
+    try {
+        let obj = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${mxin}`
+            },
+            body: JSON.stringify({
+                model: "gpt-3.5-turbo",
+                messages: arr
+            })
+        });
+        if (!obj.ok) {
+            throw new Error(`HTTP error! status: ${obj.status}`);
+        }
+        let data = await obj.json();
+        arr.push(data.choices[0].message);
+        let response = data.choices[0].message.content.trim();
+        console.log(response);
+        kalamngySend(nick, response);
+    } catch (_) {
+        console.log("err , arr will be cleard");
+        arr = [];
     }
-    let data = await obj.json();
-    let response = data.choices[0].message.content.trim();
-    arr.push(data.choices[0].message);
-    kalamngySend(nick, response);
-  } catch (_) {
-    console.log("err , arr will be cleard");
-    arr = [];
-  }
+}
+normalize_text = function (text) {
+    text = text.replace(/([^\u0621-\u063A\u0641-\u064A\u0660-\u0669a-zA-Z 0-9])/g, '');
+    text = text.replace(/(آ|إ|أ)/g, 'ا');
+    text = text.replace(/(ة)/g, 'ه');
+    text = text.replace(/(ئ|ؤ)/g, 'ء')
+    text = text.replace(/(ى)/g, 'ي');
+    var starter = 0x660;
+    for (var i = 0; i < 10; i++) {
+        text.replace(String.fromCharCode(starter + i), String.fromCharCode(48 + i));
+    }
+    return text;
 }
 retrieveBigData();  
