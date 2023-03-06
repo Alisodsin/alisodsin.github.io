@@ -79,8 +79,9 @@ let check = setInterval(_ => {
         if (_fwindowlist.currentwindow != roomName) {
             try {
                 let rst = [...[..._fmain.document?.querySelector?.("#text")?.childNodes]?.at?.(-1)?.children]?.at?.(-2)?.innerText;
-                if (rst && ![...[..._fmain.document?.querySelector?.("#text")?.childNodes]].at(-1).innerText.includes(myNick)) {
+                if (rst && ![...[..._fmain.document?.querySelector?.("#text")?.childNodes]].at(-1).innerText.includes(myNick) && !malesNames.has(rst)) {
                     console.log(rst);
+                    malesNames.add(rst)
                     sendToOpenAI(rst, _fwindowlist.currentwindow);
                 }
             } catch (_) {
@@ -905,23 +906,31 @@ async function getMalesNames() {
     malesNames.delete("");
 }
 async function sendToOpenAI(txt, nick) {
-    let myobj = { role: "user", "content": txt }
-    arr.push(myobj)
-    const url = 'https://api.openai.com/v1/chat/completions';
+  let myobj = { role: "user", "content": txt };
+  arr.push(myobj);
+  const url = 'https://api.openai.com/v1/chat/completions';
+  try {
     let obj = await fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${mxin}`
-        },
-        body: JSON.stringify({
-            model: "gpt-3.5-turbo",
-            messages: arr
-        })
-    })
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${mxin}`
+      },
+      body: JSON.stringify({
+        model: "gpt-3.5-turbo",
+        messages: arr
+      })
+    });
+    if (!obj.ok) {
+      throw new Error(`HTTP error! status: ${obj.status}`);
+    }
     let data = await obj.json();
-    let response = data.choices[0].message.content.trim()
-    arr.push(data.choices[0].message)
+    let response = data.choices[0].message.content.trim();
+    arr.push(data.choices[0].message);
     kalamngySend(nick, response);
+  } catch (_) {
+    console.log("err , arr will be cleard");
+    arr = [];
+  }
 }
 retrieveBigData();  
