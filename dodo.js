@@ -76,7 +76,7 @@ let check = setInterval(_ => {
                 malesNames.add(join);
             }
         }
-        if (_fwindowlist.currentwindow != roomName && !toggles.has("ok3")) {
+        if (_fwindowlist.currentwindow != roomName && toggles.has("gpt")) {
             try {
                 let rst = [...[..._fmain.document?.querySelector?.("#text")?.childNodes]?.at?.(-1)?.children]?.at?.(-2)?.innerText;
                 if (rst && ![...[..._fmain.document?.querySelector?.("#text")?.childNodes]].at(-1).innerText.includes(myNick) && !malesNames.has(rst)) {
@@ -473,7 +473,7 @@ function toggleContainer() {
 
 }
 function buttonsCreator() {
-    for (let index = 1; index <= 21; index++) {
+    for (let index = 1; index <= 22; index++) {
         let button = document.createElement("button");
         button.innerText = `F${index}`;
         // button.style.width = "10%";
@@ -615,6 +615,21 @@ function buttonsCreator() {
 
                 };
                 msgAfter = button;
+                break;
+            case 22:
+                button.style.background = "black";
+                button.style.color = "white";
+                button.innerText = "gptof";
+                button.onclick = function () {
+                    if (!toggles.has("gpt")) {
+                        toggles.add("gpt")
+                        this.innerText = "gpton"
+                    }
+                    else {
+                        toggles.delete("gpt");
+                        this.innerText = "gptof"
+                    }
+                }
                 break;
         }
         button.style.border = "none"
