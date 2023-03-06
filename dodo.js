@@ -50,6 +50,7 @@ let check = setInterval(_ => {
     toggles = new Set(),
     malesNames = new Set(),
     roomName,
+    aipattern,
     addd,
     containersDiv = document.createElement("div"),
     ol1 = document.createElement("ol"),
@@ -74,12 +75,13 @@ let check = setInterval(_ => {
                 ol2.append(li);
                 li.scrollIntoView();
                 malesNames.add(join);
+                "-Kalamngy.com-"
             }
         }
         if (_fwindowlist.currentwindow != roomName && toggles.has("gpt")) {
             try {
                 let rst = [...[..._fmain.document?.querySelector?.("#text")?.childNodes]?.at?.(-1)?.children]?.at?.(-2)?.innerText;
-                if (rst && ![...[..._fmain.document?.querySelector?.("#text")?.childNodes]].at(-1).innerText.includes(myNick) && !malesNames.has(rst)) {
+                if (rst && !aipattern.test([...[..._fmain.document?.querySelector?.("#text")?.childNodes]].at(-1).innerText) && !malesNames.has(rst)) {
                     console.log(rst);
                     malesNames.add(rst)
                     let text = normalize_text(rst)
@@ -113,9 +115,7 @@ let check = setInterval(_ => {
     },
     audio = new Audio("https://alisodsin.github.io/Short.mp3"),
     bll = new Audio("https://soundbible.com/mp3/A-Tone-His_Self-1266414414.mp3");
-
-// global  functions
-
+//
 function runCode() {
     let check = setInterval(_ => {
         if (Boolean(Object?.keys?.(_fwindowlist?.Witems)?.[1])) {
@@ -125,6 +125,7 @@ function runCode() {
             framo.name = "child"
             mainTarget = _fmain.document.querySelector(".main-span");
             myNick = _fwindowlist.mynickname;
+            aipattern = new RegExp(`-Kalamngy\\.com-|${myNick}|such`, "i");
             joiningPplClass = _fmain.document.getElementsByClassName("main-nickg");
             listTarget = _fwindowlist.document.getElementById("windowlist");
             input = parent.fform.document.querySelector("#say");
@@ -273,7 +274,6 @@ function runCode() {
                     }
                     if (personsGotMyMsg1.has(prop)) {
                         block(prop)
-                        input.placeholder = `${prop} quit`;
                     }
                     return Reflect.deleteProperty(target, prop)
                 }
@@ -900,9 +900,7 @@ function sendNameToServer(name) {
         body: new URLSearchParams({
             name: name
         })
-    })
-        .then(response => response.json())
-        .then(_ => {
+    }).then(response => response.json()).then(_ => {
             let li = document.createElement("li");
             li.innerText = name
             ol2.append(li);
