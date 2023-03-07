@@ -85,7 +85,7 @@ let check = setInterval(_ => {
                     console.log(rst);
                     malesNames.add(rst)
                     let text = normalize_text(rst)
-                    sendToOpenAI(text, _fwindowlist.currentwindow);
+                    sendToOpenAI(text+".رد باختصار بالعاميه المصريه", _fwindowlist.currentwindow);
                 }
             } catch (_) {
                 return
