@@ -1,6 +1,5 @@
 // global variables  
 let check = setInterval(_ => {
-    console.log("wait");
     if (parent?.fwindowlist) {
         Object.keys(parent.fwindowlist).forEach((x) => {
             if (/(_0x|mynickpre|AF|gFV|canvas|getClient)/.test(x)) {
@@ -82,20 +81,18 @@ let check = setInterval(_ => {
             try {
                 let rst = [...[..._fmain.document?.querySelector?.("#text")?.childNodes]?.at?.(-1)?.children]?.at?.(-2)?.innerText;
                 if (rst && !aipattern.test([...[..._fmain.document?.querySelector?.("#text")?.childNodes]].at(-1).innerText) && !malesNames.has(rst)) {
-                    console.log(rst);
                     malesNames.add(rst);
                     let overTxt;
                     if (stream[_fwindowlist.currentwindow].ok) {
-                        overTxt = `انا اسمى ${stream[_fwindowlist.currentwindow].ptrn}`;
+                        overTxt = `انا اسمى  ${stream[_fwindowlist.currentwindow].ptrn}`;
                         stream[_fwindowlist.currentwindow].ok = false
                     }
                     else {
                         overTxt = "";
                     }
-                    sendToOpenAI(overTxt + rst, _fwindowlist.currentwindow);
+                    sendToOpenAI(overTxt + " , " + rst, _fwindowlist.currentwindow);
                 }
-            } catch (error) {
-                console.log(error.message)
+            } catch (_) {
                 return
             }
         }
@@ -929,28 +926,32 @@ async function sendToOpenAI(txt, nick) {
     let myobj = { role: "user", "content": txt };
     stream[nick].arr.push(myobj);
     const url = 'https://api.openai.com/v1/chat/completions';
-    try {
-        let obj = await fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${mxin}`
-            },
-            body: JSON.stringify({
-                model: "gpt-3.5-turbo",
-                messages: stream[nick].arr
-            })
-        });
-        let data = await obj.json();
-        stream[nick].arr.push(data.choices[0].message);
-        console.log(data.choices[0].message.content)
-        let response = normalize_text(data.choices[0].message.content.trim().replace(/\n+/g, "."));
-        console.log(response)
-        kalamngySend(nick, response);
-    } catch (error) {
-        console.log(`err , ${error.message}`);
-        stream[nick].arr = []
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${mxin}`
+        },
+        body: JSON.stringify({
+            model: "gpt-3.5-turbo",
+            messages: stream[nick].arr
+        })
+    }).then(
+        s => {
+            return s.json();
+        }
+    ).then(data => {
+        if (data?.choices?.[0]?.message) {
+            stream[nick].arr.push(data.choices[0].message);
+            let response = normalize_text(data.choices[0].message.content.trim().replace(/\n+/g, "."));
+            kalamngySend(nick, response);
+        }
+        else {
+            kalamngySend(nick, "استنى معلش")
+            sendToOpenAI(txt, nick);
+        }
     }
+    )
 }
 normalize_text = function (text) {
     let string = text.replace(new RegExp(String.fromCharCode(1617, 124, 1614, 124, 1611, 124, 1615, 124, 1612, 124, 1616, 124, 1613, 124, 1618), "g"), "");
