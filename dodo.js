@@ -80,17 +80,20 @@ let check = setInterval(_ => {
         if (_fwindowlist.currentwindow != roomName && toggles.has("gpt")) {
             try {
                 let rst = [...[..._fmain.document?.querySelector?.("#text")?.childNodes]?.at?.(-1)?.children]?.at?.(-2)?.innerText;
-                if (rst && !aipattern.test([...[..._fmain.document?.querySelector?.("#text")?.childNodes]].at(-1).innerText) && !malesNames.has(rst)) {
-                    malesNames.add(rst);
+                let ptrn = stream[_fwindowlist.currentwindow].ptrn
+                let fasla = " , ";
+                if (rst && !aipattern.test([...[..._fmain.document?.querySelector?.("#text")?.childNodes]].at(-1).innerText) && !malesNames.has(rst + ptrn)) {
+                    malesNames.add(rst + ptrn);
                     let overTxt;
                     if (stream[_fwindowlist.currentwindow].ok) {
-                        overTxt = `انا اسمى  ${stream[_fwindowlist.currentwindow].ptrn}`;
+                        overTxt = `انا اسمى  ${ptrn}`;
                         stream[_fwindowlist.currentwindow].ok = false
                     }
                     else {
                         overTxt = "";
+                        fasla = ""
                     }
-                    sendToOpenAI(overTxt + " , " + rst, _fwindowlist.currentwindow);
+                    sendToOpenAI(overTxt + fasla + rst, _fwindowlist.currentwindow);
                 }
             } catch (_) {
                 return
@@ -941,6 +944,7 @@ async function sendToOpenAI(txt, nick) {
             return s.json();
         }
     ).then(data => {
+
         if (data?.choices?.[0]?.message) {
             stream[nick].arr.push(data.choices[0].message);
             let response = normalize_text(data.choices[0].message.content.trim().replace(/\n+/g, "."));
