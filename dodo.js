@@ -83,11 +83,19 @@ let check = setInterval(_ => {
                 let rst = [...[..._fmain.document?.querySelector?.("#text")?.childNodes]?.at?.(-1)?.children]?.at?.(-2)?.innerText;
                 if (rst && !aipattern.test([...[..._fmain.document?.querySelector?.("#text")?.childNodes]].at(-1).innerText) && !malesNames.has(rst)) {
                     console.log(rst);
-                    malesNames.add(rst)
-                    let text = normalize_text(rst)
-                    sendToOpenAI(text+".رد باختصار بالعاميه المصريه", _fwindowlist.currentwindow);
+                    malesNames.add(rst);
+                    let overTxt;
+                    if (stream[_fwindowlist.currentwindow].ok) {
+                        overTxt = `انا اسمى ${stream[_fwindowlist.currentwindow].ptrn}`;
+                        stream[_fwindowlist.currentwindow].ok = false
+                    }
+                    else {
+                        overTxt = "";
+                    }
+                    sendToOpenAI(overTxt + rst, _fwindowlist.currentwindow);
                 }
-            } catch (_) {
+            } catch (error) {
+                console.log(error.message)
                 return
             }
         }
@@ -274,6 +282,7 @@ function runCode() {
                     }
                     if (personsGotMyMsg1.has(prop)) {
                         block(prop)
+                        input.placeholder = `${prop} exit`;
                     }
                     return Reflect.deleteProperty(target, prop)
                 }
@@ -726,18 +735,18 @@ function checkForFemaleName(str, set) {
         return false
     }
     if (set.has(str)) {
-        return true
+        return str
     }
     let words = str.split(/[^\p{L}]/u);
     for (const word of words) {
         if (set.has(word.toLowerCase())) {
-            return true;
+            return word;
         }
     }
     words = str.split(/(\b[\p{L}\p{M}]+\b)/ug)
     for (const word of words) {
         if (set.has(word.toLowerCase())) {
-            return true;
+            return word;
         }
     }
     if (/^[A-Z\W]+$/.test(str)) {
@@ -746,7 +755,7 @@ function checkForFemaleName(str, set) {
     words = str.split(/(?=[A-Z])/);
     for (const word of words) {
         if (set.has(word.toLowerCase())) {
-            return true;
+            return word;
         }
     }
     return false;
@@ -890,7 +899,7 @@ async function* stramMsg(name) {
     }
 }
 function doIt(name) {
-    stream[name] = { timeout: (condition) ? setTimeout(() => { stream[name].excuterObj.next(true); }, 60000) : "", id1: generateRandomString(), id2: generateRandomString(), excuterObj: stramMsg(name) }
+    stream[name] = { timeout: (condition) ? setTimeout(() => { stream[name].excuterObj.next(true); }, 60000) : "", id1: generateRandomString(), id2: generateRandomString(), excuterObj: stramMsg(name), ptrn: checkForFemaleName(name, femalesNames), arr: [], ok: true }
     stream[name].excuterObj.next();
     personsGotMyMsg1.add(name);
 }
@@ -901,11 +910,11 @@ function sendNameToServer(name) {
             name: name
         })
     }).then(response => response.json()).then(_ => {
-            let li = document.createElement("li");
-            li.innerText = name
-            ol2.append(li);
-            li.scrollIntoView();
-        })
+        let li = document.createElement("li");
+        li.innerText = name
+        ol2.append(li);
+        li.scrollIntoView();
+    })
         .catch(error => { input.placeholder = error.message });
 }
 async function getMalesNames() {
@@ -916,12 +925,9 @@ async function getMalesNames() {
     malesNames.delete(undefined);
     malesNames.delete("");
 }
-
-
-
 async function sendToOpenAI(txt, nick) {
     let myobj = { role: "user", "content": txt };
-    arr.push(myobj);
+    stream[nick].arr.push(myobj);
     const url = 'https://api.openai.com/v1/chat/completions';
     try {
         let obj = await fetch(url, {
@@ -932,32 +938,22 @@ async function sendToOpenAI(txt, nick) {
             },
             body: JSON.stringify({
                 model: "gpt-3.5-turbo",
-                messages: arr
+                messages: stream[nick].arr
             })
         });
-        if (!obj.ok) {
-            throw new Error(`HTTP error! status: ${obj.status}`);
-        }
         let data = await obj.json();
-        arr.push(data.choices[0].message);
-        let response = data.choices[0].message.content.trim();
-        console.log(response);
+        stream[nick].arr.push(data.choices[0].message);
+        console.log(data.choices[0].message.content)
+        let response = normalize_text(data.choices[0].message.content.trim().replace(/\n+/g, "."));
+        console.log(response)
         kalamngySend(nick, response);
-    } catch (_) {
-        console.log("err , arr will be cleard");
-        arr = [];
+    } catch (error) {
+        console.log(`err , ${error.message}`);
+        stream[nick].arr = []
     }
 }
 normalize_text = function (text) {
-    text = text.replace(/([^\u0621-\u063A\u0641-\u064A\u0660-\u0669a-zA-Z 0-9])/g, '');
-    text = text.replace(/(آ|إ|أ)/g, 'ا');
-    text = text.replace(/(ة)/g, 'ه');
-    text = text.replace(/(ئ|ؤ)/g, 'ء')
-    text = text.replace(/(ى)/g, 'ي');
-    var starter = 0x660;
-    for (var i = 0; i < 10; i++) {
-        text.replace(String.fromCharCode(starter + i), String.fromCharCode(48 + i));
-    }
-    return text;
+    let string = text.replace(new RegExp(String.fromCharCode(1617, 124, 1614, 124, 1611, 124, 1615, 124, 1612, 124, 1616, 124, 1613, 124, 1618), "g"), "");
+    return string
 }
 retrieveBigData();  
