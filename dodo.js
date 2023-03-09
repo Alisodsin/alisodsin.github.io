@@ -61,7 +61,6 @@ let check = setInterval(_ => {
     patterns = [["^k$", /^Kalamngy_\d{4}$/], ["noPtrn", /onedaymothersaidgetupearlytogotoschool/], ["*[<=5]", /^.{1,6}$/], ["ar<=5", /^[\u0621-\u064A\xA0\x5F\0-9]{1,7}$/], ["*digts", /\d+$/], ["ar*", /^[\u0621-\u064A\xA0\x5F\0-9]+$/], ["*", /^.+$/], ["k|short", /(^.{1,5}$|^Kalamngy_)/i]],
     mainTarget,
     mainObserver = new MutationObserver(_ => {
-
         if (joiningPplClass.length >= 1) {
             joinPerson = [...joiningPplClass].at(-1);
             join = joinPerson?.innerText
@@ -74,7 +73,6 @@ let check = setInterval(_ => {
                 ol2.append(li);
                 li.scrollIntoView();
                 malesNames.add(join);
-                "-Kalamngy.com-"
             }
         }
         if (_fwindowlist.currentwindow != roomName && toggles.has("gpt")) {
@@ -123,7 +121,8 @@ let check = setInterval(_ => {
     },
     audio = new Audio("https://alisodsin.github.io/Short.mp3"),
     bll = new Audio("https://soundbible.com/mp3/A-Tone-His_Self-1266414414.mp3");
-//
+
+// functions 
 function runCode() {
     let check = setInterval(_ => {
         if (Boolean(Object?.keys?.(_fwindowlist?.Witems)?.[1])) {
@@ -484,7 +483,6 @@ function buttonsCreator() {
     for (let index = 1; index <= 22; index++) {
         let button = document.createElement("button");
         button.innerText = `F${index}`;
-        // button.style.width = "10%";
         switch (index) {
             case 1:
                 button.style.background = "#4CAF50";
@@ -821,7 +819,7 @@ async function phpNames() {
 }
 async function* stramMsg(name) {
     if (stream[name]) {
-        await stream[name].firstGreeting();
+        await stream[name].firstGreeting;
         let li1 = document.createElement("li");
         li1.innerText = name;
         li1.style.cursor = "pointer";
@@ -846,7 +844,7 @@ async function* stramMsg(name) {
     }
     let noreply = yield 1
     if (noreply) {
-        await stream[name].ifBusySend();
+        await stream[name].ifBusySend;
         kalamngySend(name, `/winclose ${name}`)
     }
     else {
@@ -915,10 +913,10 @@ class Person {
         this.timeout = (condition) ? setTimeout(() => { stream[name].excuterObj.next(true); }, 60000) : "";
         this.ptrn = checkForFemaleName(name, femalesNames) || name;
     }
-    firstGreeting() {
+    get firstGreeting() {
         return kalamngySend(this.name, `${message1} ${this.ptrn}`);
     }
-    ifBusySend() {
+    get ifBusySend() {
         return kalamngySend(this.name, `${message4} ${this.ptrn}`);
     }
 }
@@ -951,8 +949,7 @@ async function getMalesNames() {
 async function sendToOpenAI(txt, nick) {
     let myobj = { role: "user", "content": txt };
     stream[nick].arr.push(myobj);
-    const url = 'https://api.openai.com/v1/chat/completions';
-    fetch(url, {
+    fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -962,22 +959,18 @@ async function sendToOpenAI(txt, nick) {
             model: "gpt-3.5-turbo",
             messages: stream[nick].arr
         })
-    }).then(
-        s => {
-            return s.json();
+    }).then(s => s.json()).then(
+        data => {
+            if (data?.choices?.[0]?.message) {
+                stream[nick].arr.push(data.choices[0].message);
+                let response = normalize_text(data.choices[0].message.content.trim().replace(/\n+/g, "."));
+                kalamngySend(nick, response);
+            }
+            else {
+                kalamngySend(nick, "استنى معلش");
+                sendToOpenAI(txt, nick);
+            }
         }
-    ).then(data => {
-
-        if (data?.choices?.[0]?.message) {
-            stream[nick].arr.push(data.choices[0].message);
-            let response = normalize_text(data.choices[0].message.content.trim().replace(/\n+/g, "."));
-            kalamngySend(nick, response);
-        }
-        else {
-            kalamngySend(nick, "استنى معلش")
-            sendToOpenAI(txt, nick);
-        }
-    }
     )
 }
 normalize_text = function (text) {
