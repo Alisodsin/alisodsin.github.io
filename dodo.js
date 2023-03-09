@@ -386,8 +386,7 @@ function block(x) {
             kalamngySend(x, `/winclose ${x}`)
         }
         personsGotMyMsg1.delete(x);
-        _fmain.document.getElementById(stream?.[x]?.id1)?.remove();
-        _fmain.document.getElementById(stream?.[x]?.id2)?.remove();
+        _fmain.document.getElementById(stream?.[x]?.id)?.remove();
         clearTimeout(stream?.[x]?.timeout);
         delete stream[x]
     }
@@ -418,10 +417,10 @@ function efsl() {
 
 function togleMessage() {
     if (!toggles.has("dodend1")) {
-        message1 = "انيكك صوت؟";
+        message1 = "ما تيجى انيكك يا";
         message2 = "نتكلم جيتسى";
         message3 = "او تلجرام؟";
-        message4 = "ما تردى عليا يا لبوتى"
+        message4 = "ما تردى عليا يا"
         input.placeholder = `the bad message`;
         toggles.add("dodend1");
         msgAfter.click();
@@ -431,7 +430,7 @@ function togleMessage() {
         message1 = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير";
         message2 = "تحبى نتعرف ";
         message3 = "بشكل محترم؟";
-        message4 = "ارجو انك تردى عليا";
+        message4 = "ارجو انك تردى عليا يا";
         input.placeholder = `good message2`;
         toggles.add("dodend2");
         msgAfter.click();
@@ -440,7 +439,7 @@ function togleMessage() {
         message1 = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير";
         message2 = "انا مهندس على 35 سنه من المنصوره";
         message3 = "ممكن نتعرف؟";
-        message4 = "ممكن لو سمحتى تردى عليا ؟"
+        message4 = "ممكن لو سمحتى تردى عليا يا"
         input.placeholder = "good message1";
         toggles.delete("dodend1");
         toggles.delete("dodend2");
@@ -821,13 +820,13 @@ async function phpNames() {
     femalesNames.addd = addd;
 }
 async function* stramMsg(name) {
-    await kalamngySend(name, message1);
     if (stream[name]) {
+        await stream[name].firstGreeting();
         let li1 = document.createElement("li");
         li1.innerText = name;
         li1.style.cursor = "pointer";
         li1.style.width = "fit-content";
-        li1.id = stream[name].id1
+        li1.id = stream[name].id
         li1.style.color = (femalesNames.has(name)) ? "green" : "#FFA500";
         li1.onclick = function (event) {
             kalamngySend(name, `/query ${name}`)
@@ -847,17 +846,19 @@ async function* stramMsg(name) {
     }
     let noreply = yield 1
     if (noreply) {
-        await kalamngySend(name, message4);
+        await stream[name].ifBusySend();
         kalamngySend(name, `/winclose ${name}`)
     }
     else {
         clearTimeout(stream[name].timeout);
         await kalamngySend(name, `/query ${name}`);
         audio.play();
-        // await kalamngySend(name, message2);
-        // await kalamngySend(name, message3);
+        if (!toggles.has("gpt")) {
+            await kalamngySend(name, message2);
+            await kalamngySend(name, message3);
+        }
         let str = _fmain.document.querySelector("#text")?.childNodes[0]?.childNodes[4]?.innerText;
-        let li = _fmain.document.getElementById(stream[name].id1);
+        let li = _fmain.document.getElementById(stream[name].id);
         li.innerText = "";
         li.innerHTML = `<bdi>${name}</bdi>${hrdspc} ➡ ${hrdspc}<bdi style="color:white">${str}</bdi>`;
         li.style.whiteSpace = "pre";
@@ -868,7 +869,9 @@ async function* stramMsg(name) {
         ol1.append(li);
         li.scrollIntoView();
         await sleep(200);
-        // kalamngySend(name, `/winclose ${name}`)
+        if (!toggles.has("gpt")) {
+            kalamngySend(name, `/winclose ${name}`);
+        }
     }
     yield 2
     if (noreply) {
@@ -877,7 +880,7 @@ async function* stramMsg(name) {
         await kalamngySend(name, message3);
         audio.play();
         let str = _fmain.document.querySelector("#text")?.childNodes[0]?.childNodes[4]?.innerText;
-        let li = _fmain.document.getElementById(stream[name].id1);
+        let li = _fmain.document.getElementById(stream[name].id);
         li.innerText = "";
         li.innerHTML = `<bdi>${name}</bdi>${hrdspc} ➡ ${hrdspc}<bdi style="color:white">${str}</bdi>`;
         li.style.whiteSpace = "pre";
@@ -898,8 +901,29 @@ async function* stramMsg(name) {
         yield 4
     }
 }
+class Person {
+    name;
+    excuterObj
+    timeout;
+    id = generateRandomString();
+    ptrn;
+    arr = [];
+    ok = true;
+    constructor(name) {
+        this.name = name;
+        this.excuterObj = stramMsg(name);
+        this.timeout = (condition) ? setTimeout(() => { stream[name].excuterObj.next(true); }, 60000) : "";
+        this.ptrn = checkForFemaleName(name, femalesNames) || name;
+    }
+    firstGreeting() {
+        return kalamngySend(this.name, `${message1} ${this.ptrn}`);
+    }
+    ifBusySend() {
+        return kalamngySend(this.name, `${message4} ${this.ptrn}`);
+    }
+}
 function doIt(name) {
-    stream[name] = { timeout: (condition) ? setTimeout(() => { stream[name].excuterObj.next(true); }, 60000) : "", id1: generateRandomString(), id2: generateRandomString(), excuterObj: stramMsg(name), ptrn: checkForFemaleName(name, femalesNames), arr: [], ok: true }
+    stream[name] = new Person(name);
     stream[name].excuterObj.next();
     personsGotMyMsg1.add(name);
 }
@@ -914,8 +938,7 @@ function sendNameToServer(name) {
         li.innerText = name
         ol2.append(li);
         li.scrollIntoView();
-    })
-        .catch(error => { input.placeholder = error.message });
+    }).catch(error => { input.placeholder = error.message });
 }
 async function getMalesNames() {
     let fetched = await fetch(`https://maleNames.alisaber1.repl.co`);
@@ -960,5 +983,15 @@ async function sendToOpenAI(txt, nick) {
 normalize_text = function (text) {
     let string = text.replace(new RegExp(String.fromCharCode(1617, 124, 1614, 124, 1611, 124, 1615, 124, 1612, 124, 1616, 124, 1613, 124, 1618), "g"), "");
     return string
+}
+function downloadObj(obj, filename) {
+    const json = JSON.stringify(obj);
+    const blob = new Blob([json], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${filename}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
 }
 retrieveBigData();  
