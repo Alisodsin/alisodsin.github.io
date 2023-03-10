@@ -41,7 +41,7 @@ let check = setInterval(_ => {
     message1 = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير",
     message2 = "انا مهندس على 35 سنه من المنصوره",
     message3 = "ممكن نتعرف؟",
-    message4 = "ممكن لو سمحتى تردى عليا ؟",
+    message4 = "ممكن لو سمحتى تردى يا",
     regex = /onedaymothersaidgetupearlytogotoschool/,
     personsGotMyMsg1 = new Set(),
     femalesNames = new Set(),
@@ -844,7 +844,7 @@ async function* stramMsg(name) {
     }
     let noreply = yield 1
     if (noreply) {
-        await stream[name].ifBusySend;
+        await stream[name].sendIfBusy;
         kalamngySend(name, `/winclose ${name}`)
     }
     else {
@@ -899,12 +899,22 @@ async function* stramMsg(name) {
         yield 4
     }
 }
+function isArabicMore(str) {
+    let arabicCount = 0;
+    let englishCount = 0;
+
+    for (let i = 0; i < str.length; i++) {
+        if (/[\u0600-\u06FF]/.test(str[i])) {
+            arabicCount++;
+        }
+        else if (/[\u0000-\u007F]/.test(str[i])) {
+            englishCount++;
+        }
+    }
+    return arabicCount > englishCount;
+}
 class Person {
-    name;
-    excuterObj
-    timeout;
     id = generateRandomString();
-    ptrn;
     arr = [];
     ok = true;
     constructor(name) {
@@ -914,10 +924,20 @@ class Person {
         this.ptrn = checkForFemaleName(name, femalesNames) || name;
     }
     get firstGreeting() {
-        return kalamngySend(this.name, `${message1} ${this.ptrn}`);
+        if (isArabicMore(this.ptrn)) {
+            return kalamngySend(this.name, `${message1} ${this.ptrn}`);
+        }
+        else {
+            return kalamngySend(this.name, `hi ${this.ptrn}`);
+        }
     }
-    get ifBusySend() {
-        return kalamngySend(this.name, `${message4} ${this.ptrn}`);
+    get sendIfBusy() {
+        if (isArabicMore(this.ptrn)) {
+            return kalamngySend(this.name, `${message4} ${this.ptrn}`);
+        }
+        else {
+            return kalamngySend(this.name, `momken trody ya ${this.ptrn}`);
+        }
     }
 }
 function doIt(name) {

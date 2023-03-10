@@ -2985,8 +2985,328 @@
                                 style="color: #ce9178;">"ali"</span>);
                 </div>
         </div>
-        <p>This creates an instance of <code>MyDerivedClass</code> which also initializes the <code>MyBaseClass</code> constructor as well.</p>
-        <p>In summary, non-public constructors provide a way to restrict access to the constructor of a class, which can be useful in scenarios where you want to control the creation of instances of a class or enforce specific rules for initializing objects.</p>
+        <p>This creates an instance of <code>MyDerivedClass</code> which also initializes the <code>MyBaseClass</code>
+                constructor as well.</p>
+        <p>In summary, non-public constructors provide a way to restrict access to the constructor of a class, which can
+                be useful in scenarios where you want to control the creation of instances of a class or enforce
+                specific rules for initializing objects.</p>
+        <br>
+        <hr><br>
+        <h3>property and encapsulation</h3>
+        <p>In C#, a property is a member of a class that provides a way to get or set the value of a private field. It
+                encapsulates the internal state of an object and allows access to it through a well-defined interface.
+                Encapsulation is a fundamental principle of object-oriented programming that ensures data integrity and
+                improves code maintainability.</p>
+        <p>Here is an example of a class with a private field and a public property that encapsulates it:</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">public</span> <span style="color: #569cd6;">class</span>
+                                <span style="color: #4ec9b0;">Person</span>
+                        </div>
+                        <div>{</div>
+                        <div>&nbsp; &nbsp; <span style="color: #569cd6;">private</span> <span
+                                        style="color: #569cd6;">string</span> <span
+                                        style="color: #9cdcfe;">_name</span>;</div><br>
+                        <div>&nbsp; &nbsp; <span style="color: #569cd6;">public</span> <span
+                                        style="color: #569cd6;">string</span> <span style="color: #9cdcfe;">Name</span>
+                        </div>
+                        <div>&nbsp; &nbsp; {</div>
+                        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #569cd6;">get</span> { <span
+                                        style="color: #c586c0;">return</span> <span
+                                        style="color: #9cdcfe;">_name</span>; }</div>
+                        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #569cd6;">set</span> { <span
+                                        style="color: #9cdcfe;">_name</span> = <span
+                                        style="color: #569cd6;">value</span>; }</div>
+                        <div>&nbsp; &nbsp; }</div><br>
+                        <div>&nbsp; &nbsp; <span style="color: #569cd6;">public</span> <span
+                                        style="color: #569cd6;">void</span> <span
+                                        style="color: #dcdcaa;">SayHello</span>()</div>
+                        <div>&nbsp; &nbsp; {</div>
+                        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #4ec9b0;">Console</span>.<span
+                                        style="color: #dcdcaa;">WriteLine</span>(<span
+                                        style="color: #ce9178;">$"</span><span style="color: #ce9178;">Hello, my name is
+                                </span><span style="color: #ce9178;">{</span><span
+                                        style="color: #9cdcfe;">Name</span><span style="color: #ce9178;">}</span><span
+                                        style="color: #ce9178;">.</span><span style="color: #ce9178;">"</span>);</div>
+                        <div>&nbsp; &nbsp; }</div>
+                        <div>}</div>
+                </div>
+        </div>
+        <p>In this example, the private field <code>_name</code> is encapsulated by the public property
+                <code>Name</code>. The <code>get</code> accessor returns the value of the field, and the
+                <code>set</code> accessor sets the value of the field. The <code>SayHello</code> method uses the
+                <code>Name</code> property to greet the person by name.
+        </p>
+        <p>Here is an example of how to use the <code>Person</code> class:</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #4ec9b0;">Person</span> <span style="color: #9cdcfe;">person</span> =
+                                <span style="color: #569cd6;">new</span> <span style="color: #4ec9b0;">Person</span>();
+                        </div>
+                        <div><span style="color: #9cdcfe;">person</span>.<span style="color: #9cdcfe;">Name</span> =
+                                <span style="color: #ce9178;">"John"</span>;
+                        </div>
+                        <div><span style="color: #9cdcfe;">person</span>.<span
+                                        style="color: #dcdcaa;">SayHello</span>(); <span style="color: #6a9955;">//
+                                        Output: Hello, my name is John.</span></div>
+                </div>
+        </div>
+        <p>In this example, we create a new instance of the <code>Person</code> class and set the <code>Name</code>
+                property to "John". We then call the <code>SayHello</code> method, which uses the <code>Name</code>
+                property to output a greeting.</p>
+        <p>Encapsulation is important because it allows us to hide the implementation details of a class and provide a
+                well-defined interface for interacting with its internal state. This makes our code easier to
+                understand, maintain, and extend. By using properties to encapsulate our private fields, we can control
+                access to the internal state of our objects and ensure that it is used in a safe and consistent manner.
+        </p>
+        <br>
+        <hr><br>
+        <h3>indexer</h3>
+        <p>In C#, an indexer is a special type of property that allows an instance of a class or struct to be indexed
+                like an array. It allows you to access elements of a collection or a class instance by using a syntax
+                similar to that of an array.</p>
+        <p>An indexer can be used to get or set values of a collection or an object. It's similar to a property but with
+                an additional parameter to specify the index.</p>
+        <p>Here's an example of how to define an indexer in C#:</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">MyClass</span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">private</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #569cd6;">int</span><span style="color: #d4d4d4;">[]
+                                </span><span style="color: #9cdcfe;">_numbers</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">new</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">int</span><span style="color: #d4d4d4;">[</span><span
+                                        style="color: #b5cea8;">3</span><span style="color: #d4d4d4;">];</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">//indexer</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">int</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">this</span><span style="color: #d4d4d4;">[</span><span
+                                        style="color: #569cd6;">int</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">index</span><span style="color: #d4d4d4;">]</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">get</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=&gt;</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">_numbers</span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #9cdcfe;">index</span><span
+                                        style="color: #d4d4d4;">];</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">set</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=&gt;</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">_numbers</span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #9cdcfe;">index</span><span
+                                        style="color: #d4d4d4;">] </span><span style="color: #d4d4d4;">=</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #569cd6;">value</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+
+        <p>In this example, we define a class MyClass with an indexer. The indexer takes an integer parameter and
+                returns an integer value from the _numbers array. The get accessor retrieves the value at the specified
+                index, and the set accessor sets the value at the specified index.</p>
+        <p>Here's an example of how to use the MyClass indexer:</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #4ec9b0;">MyClass</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">myObject</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">new</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">MyClass</span><span style="color: #d4d4d4;">();</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">myObject</span><span style="color: #d4d4d4;">[</span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">] </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">42</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #569cd6;">int</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">value</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">myObject</span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #b5cea8;">0</span><span
+                                        style="color: #d4d4d4;">];</span></div>
+                </div>
+        </div>
+        <p><b style="color: inherit;">Sudoku Class with Indexer.</b></p>
+        <p> here is an example implementation of a Sudoku class in C# with an indexer:</p>
+
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Sudoku</span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">private</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #569cd6;">int</span><span style="color: #d4d4d4;">[,]
+                                </span><span style="color: #9cdcfe;">grid</span><span style="color: #d4d4d4;">;</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Sudoku</span><span style="color: #d4d4d4;">()</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">grid</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">new</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">int</span><span style="color: #d4d4d4;">[</span><span
+                                        style="color: #b5cea8;">9</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">9</span><span style="color: #d4d4d4;">];</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">int</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">this</span><span style="color: #d4d4d4;">[</span><span
+                                        style="color: #569cd6;">int</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">row</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #569cd6;">int</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">col</span><span style="color: #d4d4d4;">]</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">get</span><span style="color: #d4d4d4;"> { </span><span
+                                        style="color: #c586c0;">return</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">grid</span><span style="color: #d4d4d4;">[</span><span
+                                        style="color: #9cdcfe;">row</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">col</span><span style="color: #d4d4d4;">]; }</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">set</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">if</span><span style="color: #d4d4d4;"> (</span><span
+                                        style="color: #569cd6;">value</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">&lt;</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">1</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">||</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">value</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">&gt;</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">9</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                </span><span style="color: #c586c0;">throw</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #569cd6;">new</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #4ec9b0;">ArgumentOutOfRangeException</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"Value must be
+                                        between 1 and 9."</span><span style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">grid</span><span style="color: #d4d4d4;">[</span><span
+                                        style="color: #9cdcfe;">row</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">col</span><span style="color: #d4d4d4;">] </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">value</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        <p>In this implementation, the Sudoku class has a private 2D array grid to store the puzzle's values. The
+                constructor initializes the grid to be empty (filled with zeros).</p>
+        <p>The class also has an indexer, which allows you to get or set the value of a particular cell in the grid
+                using the syntax sudoku[row, col]. The getter simply returns the value in the corresponding cell of the
+                grid, while the setter checks that the value being assigned is valid (between 1 and 9) and then sets the
+                value in the grid.</p>
+        <p>Here's an example of how you might use this class to create a new Sudoku puzzle:</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">puzzle</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">new</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Sudoku</span><span style="color: #d4d4d4;">();</span>
+                        </div>
+                        <div><span style="color: #6a9955;">// Set some initial values</span></div>
+                        <div><span style="color: #9cdcfe;">puzzle</span><span style="color: #d4d4d4;">[</span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">] </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">5</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #9cdcfe;">puzzle</span><span style="color: #d4d4d4;">[</span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">3</span><span style="color: #d4d4d4;">] </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">2</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #9cdcfe;">puzzle</span><span style="color: #d4d4d4;">[</span><span
+                                        style="color: #b5cea8;">1</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">20</span><span style="color: #d4d4d4;">] </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">8</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #9cdcfe;">puzzle</span><span style="color: #d4d4d4;">[</span><span
+                                        style="color: #b5cea8;">1</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">4</span><span style="color: #d4d4d4;">] </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">7</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #6a9955;">//etc </span></div>
+                        <div><span style="color: #c586c0;">for</span><span style="color: #d4d4d4;"> (</span><span
+                                        style="color: #569cd6;">int</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">row</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">; </span><span
+                                        style="color: #9cdcfe;">row</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">&lt;</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">9</span><span style="color: #d4d4d4;">; </span><span
+                                        style="color: #9cdcfe;">row</span><span style="color: #d4d4d4;">++</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">for</span><span style="color: #d4d4d4;"> (</span><span
+                                        style="color: #569cd6;">int</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">col</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">; </span><span
+                                        style="color: #9cdcfe;">col</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">&lt;</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">9</span><span style="color: #d4d4d4;">; </span><span
+                                        style="color: #9cdcfe;">col</span><span style="color: #d4d4d4;">++</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">Write</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">puzzle</span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #9cdcfe;">row</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">col</span><span
+                                        style="color: #d4d4d4;">] </span><span style="color: #d4d4d4;">+</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #ce9178;">" "</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">WriteLine</span><span style="color: #d4d4d4;">();</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                        <div><span style="color: #6a9955;">// output</span></div>
+                        <div><span style="color: #6a9955;">// 5 0 0 2 0 0 0 0 0</span></div>
+                        <div><span style="color: #6a9955;">// 0 0 8 0 7 0 0 0 0</span></div>
+                        <div><span style="color: #6a9955;">// 0 0 0 0 0 0 0 0 0</span></div>
+                        <div><span style="color: #6a9955;">// 0 0 0 0 0 0 0 0 0</span></div>
+                        <div><span style="color: #6a9955;">// 0 0 0 0 0 0 0 0 0</span></div>
+                        <div><span style="color: #6a9955;">// 0 0 0 0 0 0 0 0 0</span></div>
+                        <div><span style="color: #6a9955;">// 0 0 0 0 0 0 0 0 0</span></div>
+                        <div><span style="color: #6a9955;">// 0 0 0 0 0 0 0 0 0</span></div>
+                        <div><span style="color: #6a9955;">// 0 0 0 0 0 0 0 0 0</span></div>
+                </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
