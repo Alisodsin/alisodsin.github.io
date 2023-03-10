@@ -84,7 +84,13 @@ let check = setInterval(_ => {
                     malesNames.add(rst + ptrn);
                     let overTxt;
                     if (stream[_fwindowlist.currentwindow].ok) {
-                        overTxt = `انا اسمى  ${ptrn}`;
+                        if (isArabicMore(rst)) {
+                            overTxt = `انا اسمى  ${ptrn}`;
+                        }
+                        else {
+                            overTxt = `my name is ${ptrn}`
+
+                        }
                         stream[_fwindowlist.currentwindow].ok = false
                     }
                     else {
