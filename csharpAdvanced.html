@@ -3296,6 +3296,143 @@
                         <div><span style="color: #6a9955;">// 0 0 0 0 0 0 0 0 0</span></div>
                 </div>
         </div>
+        <br>
+        <hr><br>
+        <h3>Delegates</h3>
+        <p>Delegates in C# are essentially pointers to functions, allowing you to pass a method as an argument to
+                another method. In simpler terms, a delegate is a type that represents references to methods with a
+                particular parameter list and return type.</p>
+        <p>Delegates are commonly used for implementing event handlers and callbacks, as they provide a way to
+                encapsulate and pass around a method as a first-class object. They are also used extensively in the .NET
+                Framework to enable decoupled and extensible application architectures.</p>
+        <p>Here is an example of how to define and use a delegate in C#:</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">// Define a delegate type that takes two integers as input
+                                        and returns an integer</span></div>
+                        <div><span style="color: #569cd6;">delegate</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">int</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Operation</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #569cd6;">int</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">a</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #569cd6;">int</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">b</span><span
+                                        style="color: #d4d4d4;">);</span></div><br>
+                        <div><span style="color: #6a9955;">// Define some methods that match the signature of the
+                                        delegate</span></div>
+                        <div><span style="color: #569cd6;">int</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">Add</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">int</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">a</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #569cd6;">int</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">b</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">return</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">a</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">+</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">b</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div><br>
+                        <div><span style="color: #569cd6;">int</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">Subtract</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #569cd6;">int</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">a</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #569cd6;">int</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">b</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">return</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">a</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">-</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">b</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div><br>
+                        <div><span style="color: #6a9955;">// Instantiate the delegate and assign it to a method</span>
+                        </div>
+                        <div><span style="color: #4ec9b0;">Operation</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">op</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">Add</span><span style="color: #d4d4d4;">;</span></div>
+                        <br>
+                        <div><span style="color: #6a9955;">// Call the delegate, which will invoke the assigned
+                                        method</span></div>
+                        <div><span style="color: #569cd6;">int</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">result</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">op</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #b5cea8;">5</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">3</span><span style="color: #d4d4d4;">); </span><span
+                                        style="color: #6a9955;">// result = 8</span></div><br>
+                        <div><span style="color: #6a9955;">// Reassign the delegate to another method</span></div>
+                        <div><span style="color: #9cdcfe;">op</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">Subtract</span><span style="color: #d4d4d4;">;</span>
+                        </div><br>
+                        <div><span style="color: #6a9955;">// Call the delegate again, which will invoke the new
+                                        assigned method</span></div>
+                        <div><span style="color: #9cdcfe;">result</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">op</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #b5cea8;">5</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">3</span><span style="color: #d4d4d4;">); </span><span
+                                        style="color: #6a9955;">// result = 2</span></div>
+                </div>
+        </div>
+        <p>In this example, we define a delegate type named Operation that takes two integers as input and returns an
+                integer. We then define two methods named Add and Subtract that match the signature of the delegate.</p>
+        <p>We then instantiate the delegate by assigning it to the Add method. We can then call the delegate, passing in
+                two integers, which will invoke the Add method and return the result.</p>
+        <p>We then reassign the delegate to the Subtract method and call it again, which will invoke the Subtract method
+                and return the new result.</p>
+        <p>Delegates can also be used to implement callbacks, which are methods that are called by another method upon
+                completion of a task. Here is an example of how to use a delegate to implement a callback:</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div> <span style="color: #569cd6;">delegate</span><span style="color: #d4d4d4;"> </span><span
+                                style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span
+                                style="color: #4ec9b0;">Callback</span><span style="color: #d4d4d4;">();</span><br>
+                        <div><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">DoSomething</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #4ec9b0;">Callback</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #9cdcfe;">callback</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span style="color: #6a9955;">// Perform
+                                        some task...</span></div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span style="color: #6a9955;">// Invoke
+                                        the callback delegate to signal completion</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">callback</span><span style="color: #d4d4d4;">();</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                        <div><span style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">MyCallback</span><span style="color: #d4d4d4;">()</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"Callback
+                                        invoked!"</span><span style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div><br>
+                        <div><span style="color: #6a9955;">// Call the DoSomething method and pass in the MyCallback
+                                        method as the callback delegate</span></div>
+                        <div><span style="color: #dcdcaa;">DoSomething</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #dcdcaa;">MyCallback</span><span style="color: #d4d4d4;">);
+                                        &nbsp;</span><span style="color: #6a9955;">// Output: "Callback invoked!"</span>
+                        </div>
+                </div>
+        </div>
+
+
+
+
+
+
+
+
+
 
 
 
