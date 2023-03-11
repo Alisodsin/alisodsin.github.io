@@ -103,6 +103,21 @@ let check = setInterval(_ => {
                 return
             }
         }
+        else if (_fwindowlist.currentwindow != roomName) {
+            try {
+                let rst = [...[..._fmain.document?.querySelector?.("#text")?.childNodes]?.at?.(-1)?.children]?.at?.(-2)?.innerText;
+                if ([...[..._fmain.document?.querySelector?.("#text")?.childNodes]].at(-1).innerText.includes(myNick)) {
+                    stream[_fwindowlist.currentwindow].conversation.push(`me:${rst}`);
+                }
+                else {
+                    stream[_fwindowlist.currentwindow].conversation.push(`${_fwindowlist.currentwindow}:${rst}`);
+                }
+
+            } catch (e) {
+                console.log(e)
+            }
+
+        }
     }),
     listObserver = new MutationObserver((e) => {
         let addedNodes = e[0].addedNodes;
@@ -923,6 +938,7 @@ class Person {
     id = generateRandomString();
     arr = [];
     ok = true;
+    conversation = [];
     constructor(name) {
         this.name = name;
         this.excuterObj = stramMsg(name);
@@ -931,10 +947,13 @@ class Person {
     }
     get firstGreeting() {
         if (isArabicMore(this.ptrn)) {
+            this.conversation.push(`me:${message1} ${this.ptrn}`)
             return kalamngySend(this.name, `${message1} ${this.ptrn}`);
         }
         else {
-            return kalamngySend(this.name, `hi ${this.ptrn}`);
+            this.conversation.push(`me:${message1}`);
+            this.conversation.push(`me:${this.ptrn}`);
+            return kalamngySend(this.name, `${message1}`).then(_ => kalamngySend(this.name, this.ptrn));
         }
     }
     get sendIfBusy() {
