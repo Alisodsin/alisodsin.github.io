@@ -3424,6 +3424,158 @@
                         </div>
                 </div>
         </div>
+        <br>
+        <hr><br>
+        <h3>ENUMERATIONS</h3>
+        <p>Enums, short for "enumerations", are a special data type in C# that allow you to define a set of named
+                constants. They are useful for representing a fixed set of values, like the days of the week, the months
+                of the year, or the possible states of an object. </p>
+        <p>Here is an example of how to define an enum in C#:</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">enum</span> <span style="color: #4ec9b0;">WeekDays</span>
+                        </div>
+                        <div>{</div>
+                        <div>&nbsp; &nbsp; <span style="color: #4fc1ff;">Saturday</span>,</div>
+                        <div>&nbsp; &nbsp; <span style="color: #4fc1ff;">Sunday</span>,</div>
+                        <div>&nbsp; &nbsp; <span style="color: #4fc1ff;">Monday</span>,</div>
+                        <div>&nbsp; &nbsp; <span style="color: #4fc1ff;">Tuesday</span>,</div>
+                        <div>&nbsp; &nbsp; <span style="color: #4fc1ff;">Wednesday</span>,</div>
+                        <div>&nbsp; &nbsp; <span style="color: #4fc1ff;">Thursday</span>,</div>
+                        <div>&nbsp; &nbsp; <span style="color: #4fc1ff;">Friday</span></div>
+                        <div>}</div>
+                </div>
+        </div>
+
+
+        <p>In this example, we've defined an enum called WeekDays that has seven possible values: Saturday, Sunday,
+                Monday, Tuesday,
+                Wednesday, Thursday, and Friday. Each of these values is implicitly assigned an
+                integer value starting from 0, so Saturday has a value of 0, Sunday has a value of 1, and so on.</p>
+        <p>You can use an enum like any other data type in C#. For example, you could define a variable of type
+                WeekDays:</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div> <span style="color: #4ec9b0;">WeekDays</span> <span style="color: #9cdcfe;">today</span> =
+                        <span style="color: #4ec9b0;">WeekDays</span>.<span style="color: #4fc1ff;">Wednesday</span>;
+                </div>
+        </div><br>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div> <span style="color: #4ec9b0;">Console</span>.<span style="color: #dcdcaa;">WriteLine</span>((<span
+                                style="color: #4ec9b0;">WeekDays</span>)<span style="color: #b5cea8;">0</span>); <span
+                                style="color: #6a9955;">// cast 0 to WeekDay Saturday</span></div>
+        </div>
+        <p>You can also use enums in switch statements, like this:</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #4ec9b0;">WeekDays</span> <span style="color: #9cdcfe;">today</span> =
+                                <span style="color: #4ec9b0;">WeekDays</span>.<span
+                                        style="color: #4fc1ff;">Wednesday</span>;
+                        </div>
+                        <div><span style="color: #c586c0;">switch</span> (<span style="color: #9cdcfe;">today</span>)
+                        </div>
+                        <div>{</div>
+                        <div>&nbsp; &nbsp; <span style="color: #c586c0;">case</span> <span
+                                        style="color: #4ec9b0;">WeekDays</span>.<span
+                                        style="color: #4fc1ff;">Saturday</span>:</div>
+                        <div>&nbsp; &nbsp; <span style="color: #c586c0;">case</span> <span
+                                        style="color: #4ec9b0;">WeekDays</span>.<span
+                                        style="color: #4fc1ff;">Sunday</span>:</div>
+                        <div>&nbsp; &nbsp; <span style="color: #c586c0;">case</span> <span
+                                        style="color: #4ec9b0;">WeekDays</span>.<span
+                                        style="color: #4fc1ff;">Monday</span>:</div>
+                        <div>&nbsp; &nbsp; <span style="color: #c586c0;">case</span> <span
+                                        style="color: #4ec9b0;">WeekDays</span>.<span
+                                        style="color: #4fc1ff;">Tuesday</span>:</div>
+                        <div>&nbsp; &nbsp; <span style="color: #c586c0;">case</span> <span
+                                        style="color: #4ec9b0;">WeekDays</span>.<span
+                                        style="color: #4fc1ff;">Wednesday</span>:</div>
+                        <div>&nbsp; &nbsp; <span style="color: #c586c0;">case</span> <span
+                                        style="color: #4ec9b0;">WeekDays</span>.<span
+                                        style="color: #4fc1ff;">Thursday</span>:</div>
+                        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #4ec9b0;">Console</span>.<span
+                                        style="color: #dcdcaa;">WriteLine</span>(<span style="color: #ce9178;">"It's a
+                                        weekday!"</span>);</div>
+                        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #c586c0;">break</span>;</div>
+                        <div>&nbsp; &nbsp; <span style="color: #c586c0;">case</span> <span
+                                        style="color: #4ec9b0;">WeekDays</span>.<span
+                                        style="color: #4fc1ff;">Friday</span>:</div>
+                        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #4ec9b0;">Console</span>.<span
+                                        style="color: #dcdcaa;">WriteLine</span>(<span style="color: #ce9178;">"It's the
+                                        weekend!"</span>);</div>
+                        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #c586c0;">break</span>;</div>
+                        <div>}</div>
+                </div>
+        </div>
+
+        <p>In this example, we're using a switch statement to check the value of the today variable. If the value is one
+                of the first five days of the week, we print "It's a weekday!". If the value is Saturday or Sunday, we
+                print "It's the weekend!".</p>
+        <p>Enums can also be used with bitwise operators to represent combinations of values. For example, if you wanted
+                to represent the possible permissions that a user could have in a system, you could define an enum like
+                this:</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div>[<span style="color: #4ec9b0;">Flags</span>]</div>
+                        <div><span style="color: #569cd6;">enum</span> <span style="color: #4ec9b0;">Permissions</span>
+                                :<span style="color: #569cd6;">byte</span> {</div>
+                        <div>&nbsp; &nbsp; <span style="color: #4fc1ff;">None</span> = <span
+                                        style="color: #b5cea8;">0</span>,</div>
+                        <div>&nbsp; &nbsp; <span style="color: #4fc1ff;">Read</span> = <span
+                                        style="color: #b5cea8;">1</span>,</div>
+                        <div>&nbsp; &nbsp; <span style="color: #4fc1ff;">Write</span> = <span
+                                        style="color: #b5cea8;">2</span>,</div>
+                        <div>&nbsp; &nbsp; <span style="color: #4fc1ff;">Delete</span> = <span
+                                        style="color: #b5cea8;">4</span>,</div>
+                        <div>&nbsp; &nbsp; <span style="color: #4fc1ff;">Execute</span> = <span
+                                        style="color: #b5cea8;">8</span></div>
+                        <div>}</div>
+                </div>
+        </div>
+
+        <p>In this example, we've defined an enum called Permissions and marked it with the [Flags] attribute. We've
+                also assigned each value a bit flag, so Read has a value of 1, Write has a value of 2, Delete has a
+                value of 4, and Execute has a value of 8. By using bitwise operators, we can combine these values to
+                represent different sets of permissions. For example:
+        </p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #4ec9b0;">Permissions</span> <span
+                                        style="color: #9cdcfe;">userPermissions</span> = <span
+                                        style="color: #4ec9b0;">Permissions</span>.<span
+                                        style="color: #4fc1ff;">Read</span> | <span
+                                        style="color: #4ec9b0;">Permissions</span>.<span
+                                        style="color: #4fc1ff;">Write</span>;</div>
+                        <div><span style="color: #4ec9b0;">Console</span>.<span
+                                        style="color: #dcdcaa;">WriteLine</span>(<span
+                                        style="color: #9cdcfe;">userPermissions</span>); <span
+                                        style="color: #6a9955;">// Read, Write</span></div>
+                        <div><span style="color: #4ec9b0;">Console</span>.<span
+                                        style="color: #dcdcaa;">WriteLine</span>((<span
+                                        style="color: #569cd6;">byte</span>)<span
+                                        style="color: #9cdcfe;">userPermissions</span>); <span
+                                        style="color: #6a9955;">// 3</span></div>
+                        <div><span style="color: #4ec9b0;">Console</span>.<span
+                                        style="color: #dcdcaa;">WriteLine</span>((<span
+                                        style="color: #4ec9b0;">Permissions</span>)<span
+                                        style="color: #b5cea8;">3</span>); <span style="color: #6a9955;">// casting 3 to
+                                        Read, Write</span></div>
+                </div>
+        </div>
+
+        <p>In this example, we've defined a variable called userPermissions of type Permissions and assigned it the
+                value Read | Write. This represents a user who has both read and write permissions.</p>
+                <br><hr><br>
+                <h3>TUPLES</h3>
+                
+
+
+
+
+
+
+
+
+
 
 
 
