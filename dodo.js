@@ -113,8 +113,8 @@ let check = setInterval(_ => {
                     stream[_fwindowlist.currentwindow].conversation.push(`${_fwindowlist.currentwindow}:${rst}`);
                 }
 
-            } catch (e) {
-                console.log(e)
+            } catch (_) {
+                return
             }
 
         }
