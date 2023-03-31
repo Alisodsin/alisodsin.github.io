@@ -100,32 +100,28 @@
       })
     }
     async function comparing() {
-      let fetchedObject = await fetch(`https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/femaleNames.json`);
-      let txtt = await fetchedObject.text();
-      let txtObject = JSON.parse(txtt);
-      shrr = txtObject.sha;
-      let json = decodeURIComponent(atob(txtObject.content));
-      namesGit = new Set(JSON.parse(json));
-      namesGit.delete(null);
-      namesGit.delete(undefined);
-      namesGit.delete("");
-      let fetched = await fetch(`https://php.alisaber1.repl.co`);
-      let arr = await fetched.json();
-      namesPhp = new Set(arr)
-      namesPhp.delete(null);
-      namesPhp.delete(undefined);
-      namesPhp.delete("");
-      if (namesGit.size > namesPhp.size) {
-
-        txt.value = `gitF > PhpF`
-
-      } else if (namesGit.size < namesPhp.size) {
-        txt.value = `gitF < PhpF`
+      const [gitResponse, phpResponse] = await Promise.all([
+        fetch('https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/femaleNames.json'),
+        fetch('https://php.alisaber1.repl.co')
+      ]);
+      const gitText = await gitResponse.text();
+      const gitObject = JSON.parse(gitText);
+      const gitSet = new Set(Array.from(atob(gitObject.content), name => decodeURIComponent(name)));
+      gitSet.delete(null);
+      gitSet.delete(undefined);
+      gitSet.delete('');
+      const phpArray = await phpResponse.json();
+      const phpSet = new Set(phpArray);
+      phpSet.delete(null);
+      phpSet.delete(undefined);
+      phpSet.delete('');
+      if (gitSet.size > phpSet.size) {
+        txt.value = 'gitF > PhpF';
+      } else if (gitSet.size < phpSet.size) {
+        txt.value = 'gitF < PhpF';
+      } else {
+        txt.value = 'gitF = PhpF';
       }
-      else {
-        txt.value = `gitF = PhpF`
-      }
-
     }
     comparing();
   </script>
