@@ -10,7 +10,7 @@ let check = setInterval(_ => {
         clearInterval(check);
     }
 }, 50),
-    _fmain = parent.fmain,
+    _fmain = parent.fmain ,
     buttonContainers = document.createElement("div"),
     _fwindowlist = parent.fwindowlist,
     style = document.createElement("style"),
