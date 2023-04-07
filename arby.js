@@ -809,6 +809,7 @@ function retrieveBigData() {
             oldLength = femalesNames.size;
         })
 }
+
 async function phpNames() {
     let fetched = await fetch(`https://php.alisaber1.repl.co`);
     let txt = await fetched.text();
@@ -821,4 +822,4 @@ async function phpNames() {
     oldLength = femalesNames.size;
     console.log("retrive from php server done");
 }
-phpNames();
+retrieveBigData();
