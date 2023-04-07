@@ -393,7 +393,7 @@ function efsl() {
 
 function togleMessage() {
     if (!toggles.has("dodend1")) {
-        message1 = "انيكك صوت؟";
+        message1 = "تسمعى شخرتى وانا بفشخك نيك يا لبوه؟";
         message2 = "نتكلم جيتسى";
         message3 = "او تلجرام؟";
         message4 = "ما تردى عليا يا لبوتى"
