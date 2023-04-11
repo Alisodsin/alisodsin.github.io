@@ -117,13 +117,13 @@
       namesPhp.delete("");
       if (namesGit.size > namesPhp.size) {
 
-        txt.value = `gitF > PhpF`
+        txt.value = `gitF > PhpF by ${namesGit.size - namesPhp.size}`
 
       } else if (namesGit.size < namesPhp.size) {
-        txt.value = `gitF < PhpF`
+        txt.value = `gitF < PhpF by ${namesPhp.size - namesGit.size}`
       }
       else {
-        txt.value = `gitF = PhpF`
+        txt.value = `gitF = PhpF = ${namesGit.size}`
       }
 
     }
