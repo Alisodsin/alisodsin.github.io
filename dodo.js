@@ -10,7 +10,7 @@ let check = setInterval(_ => {
         clearInterval(check);
     }
 }, 50),
-    _fmain = parent.fmain ,
+    _fmain = parent.fmain,
     buttonContainers = document.createElement("div"),
     _fwindowlist = parent.fwindowlist,
     style = document.createElement("style"),
@@ -749,7 +749,7 @@ async function retrieveBigData() {
 
 }
 function checkForFemaleName(str, set) {
-    if (str.includes("|") || /gamal/i.test(str) ) {
+    if (/nancy\u00A0gamal|\|/i.test(str)) {
         return false
     }
     if (set.has(str)) {
