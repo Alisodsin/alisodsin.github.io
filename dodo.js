@@ -749,7 +749,7 @@ async function retrieveBigData() {
 
 }
 function checkForFemaleName(str, set) {
-    if (str.includes("|")) {
+    if (str.includes("|") || /gamal/i.test(str) ) {
         return false
     }
     if (set.has(str)) {
