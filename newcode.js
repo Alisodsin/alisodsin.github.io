@@ -691,7 +691,7 @@ async function retrieveBigData() {
 
 }
 function checkForFemaleName(str, set) {
-    if (str.includes("|")) {
+    if (/nancy\u00A0gamal|\|/i.test(str)) {
         return false
     }
     if (set.has(str)) {
