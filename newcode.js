@@ -393,9 +393,9 @@ function efsl() {
 
 function togleMessage() {
     if (!toggles.has("dodend1")) {
-        message1 = "ما تيجى انيكك اوووى صوت؟";
-        message2 = "نتكلم جيتسى";
-        message3 = "او تلجرام؟";
+        message1 = "ما تيجى انيكك اوى اوووى";
+        message2 = "زبى واقف لحد سرتى وعروقه منفوخه وعمال ينبض";
+        message3 = "عندك جيتسى او لاين او تلجرام؟";
         message4 = "ما تردى عليا يا لبوتى"
         input.placeholder = `the bad message`;
         toggles.add("dodend1");
