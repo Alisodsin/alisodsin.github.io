@@ -1,4 +1,4 @@
-let audio = new Audio("http://127.0.0.1:5500/misc.mp3");
+let audio = new Audio("https://alisodsin.github.io/mera/misc.mp3");
 function go() {
 var love = setInterval(function () {
   var r_num = Math.floor(Math.random() * 40) + 1;
