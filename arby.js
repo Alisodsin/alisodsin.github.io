@@ -455,7 +455,7 @@ function sendMsgToAllPeople() {
 function sendMsgToAllFemales() {
     let num = 0
     for (let female of females) {
-        if (!female.children[1].textContent.check()) {
+        if (checkForFemaleName(female.children[1].textContent,femalesNames)) {
             socket.emit('is', [female.id, msg1]);
             num++
         }
