@@ -393,7 +393,7 @@ function efsl() {
 
 function togleMessage() {
     if (!toggles.has("dodend1")) {
-        message1 = "ما تيجى انيكك اوى اوى اوى اووووووووى";
+        message1 = "ما تيجى انيكك ؟";
         message2 = "عندك جيتسى او تلجرام او لاين";
         message3 = "؟";
         message4 = "ما تردى عليا يا لبوتى"
