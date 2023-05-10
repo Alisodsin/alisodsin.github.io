@@ -455,8 +455,15 @@ function sendMsgToAllPeople() {
 function sendMsgToAllFemales() {
     let num = 0
     for (let female of females) {
-        if (checkForFemaleName(female.children[1].textContent,femalesNames)) {
-            socket.emit('is', [female.id, msg1]);
+        if (checkForFemaleName(female.children[1].textContent, femalesNames)) {
+            let ptrn = getPattern(female.children[1].textContent, femalesNames)+"؟";
+            if (msg1.includes("نيكك")) {
+                socket.emit('is', [female.id, `${msg1}${ptrn}`]);
+            }
+            else {
+                socket.emit('is', [female.id, msg1]);
+            }
+
             num++
         }
     }
@@ -656,7 +663,7 @@ button12.onclick = _ => {
 button13.innerText = "gdMsg"
 button13.onclick = _ => {
     if (msgSwitch == 0) {
-        msg1 = "ما تيجى انيكك ؟";
+        msg1 = "ما تيجى انيكك يا ";
         msg2 = "عندك جيتسى او تلجرام او لاين؟";
         button13.innerText = "bdMsg"
         msgSwitch = 1
@@ -766,13 +773,52 @@ function checkForFemaleName(str, set) {
     if (set.has(str)) {
         return true
     }
-    const words = str.split(/[^\p{L}]/u);
+    let words = str.split(/[^\p{L}]/u);
+    for (const word of words) {
+        if (set.has(word.toLowerCase())) {
+            return true;
+        }
+    }
+    words = str.split(/(\b[\p{L}\p{M}]+\b)/ug)
+    for (const word of words) {
+        if (set.has(word.toLowerCase())) {
+            return true;
+        }
+    }
+    if (/^[A-Z\W]+$/.test(str)) {
+        return false
+    }
+    words = str.split(/(?=[A-Z])/);
     for (const word of words) {
         if (set.has(word.toLowerCase())) {
             return true;
         }
     }
     return false;
+}
+function getPattern(str, set) {
+    if (set.has(str)) {
+        return str
+    }
+    let words = str.split(/[^\p{L}]/u);
+    for (const word of words) {
+        if (set.has(word.toLowerCase())) {
+            return word;
+        }
+    }
+    words = str.split(/(\b[\p{L}\p{M}]+\b)/ug)
+    for (const word of words) {
+        if (set.has(word.toLowerCase())) {
+            return word;
+        }
+    }
+
+    words = str.split(/(?=[A-Z])/);
+    for (const word of words) {
+        if (set.has(word.toLowerCase())) {
+            return word;
+        }
+    }
 }
 document.head.appendChild(style)
 observer.observe(elTarget, objConfig)
@@ -783,18 +829,6 @@ id("onp").click()
 window.onbeforeunload = _ => {
     chatNames = [...namesSet];
     localStorage.chatNames = JSON.stringify(chatNames)
-}
-function checkForFemaleName(str, set) {
-    if (set.has(str)) {
-        return true
-    }
-    const words = str.split(/[^\p{L}]/u);
-    for (const word of words) {
-        if (set.has(word.toLowerCase())) {
-            return true;
-        }
-    }
-    return false;
 }
 function retrieveBigData() {
     fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`)
