@@ -456,7 +456,7 @@ function sendMsgToAllFemales() {
     let num = 0
     for (let female of females) {
         if (checkForFemaleName(female.children[1].textContent, femalesNames)) {
-            let ptrn = getPattern(female.children[1].textContent, femalesNames)+"؟";
+            let ptrn = getPattern(female.children[1].textContent, femalesNames) + "؟";
             if (msg1.includes("نيكك")) {
                 socket.emit('is', [female.id, `${msg1}${ptrn}`]);
             }
@@ -522,7 +522,10 @@ socket.on("ja", data => {
                 socket.emit("is", [data[0], "الو فينك؟"])
             }
             else {
+                
+
                 if (checkForFemaleName(data[1], femalesNames)) {
+                    let ptrn = getPattern(data[1], femalesNames) + "؟";
                     let name = document.createElement("li")
                     if (namesSet.has(data[1])) {
                         name.innerText = `${data[1]} 👍`
@@ -530,7 +533,12 @@ socket.on("ja", data => {
                     else {
                         name.innerText = data[1]
                     }
-                    socket.emit("is", [data[0], msg1])
+                    if (msg1.includes("نيكك")) {
+                        socket.emit('is', [data[0], `${msg1}${ptrn}`]);
+                    }
+                    else {
+                        socket.emit('is', [data[0], msg1]);
+                    }
                     name.style.cursor = "pointer"
                     name.style.width = "fit-content"
                     name.setAttribute("custom_id", data[0])
