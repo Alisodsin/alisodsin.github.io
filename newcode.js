@@ -772,7 +772,7 @@ function generateRandomString() {
     return randomString;
 }
 async function phpNames() {
-    let fetched = await fetch(`https://php.alisaber1.repl.co`);
+    let fetched = await fetch(`https://dodend.000webhostapp.com`);
     let arr = await fetched.json();
     femalesNames = new Set(arr)
     femalesNames.delete(null);
