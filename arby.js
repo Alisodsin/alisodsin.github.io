@@ -456,14 +456,7 @@ function sendMsgToAllFemales() {
     let num = 0
     for (let female of females) {
         if (checkForFemaleName(female.children[1].textContent, femalesNames)) {
-            let ptrn = getPattern(female.children[1].textContent, femalesNames) + "؟";
-            if (msg1.includes("نيكك")) {
-                socket.emit('is', [female.id, `${msg1}${ptrn}`]);
-            }
-            else {
-                socket.emit('is', [female.id, msg1]);
-            }
-
+            socket.emit('is', [female.id, msg1]);
             num++
         }
     }
@@ -522,34 +515,21 @@ socket.on("ja", data => {
                 socket.emit("is", [data[0], "الو فينك؟"])
             }
             else {
-                
-
                 if (checkForFemaleName(data[1], femalesNames)) {
-                    let ptrn = getPattern(data[1], femalesNames) + "؟";
                     let name = document.createElement("li")
-                    if (namesSet.has(data[1])) {
-                        name.innerText = `${data[1]} 👍`
-                    }
-                    else {
-                        name.innerText = data[1]
-                    }
-                    if (msg1.includes("نيكك")) {
-                        socket.emit('is', [data[0], `${msg1}${ptrn}`]);
-                    }
-                    else {
-                        socket.emit('is', [data[0], msg1]);
-                    }
-                    name.style.cursor = "pointer"
-                    name.style.width = "fit-content"
-                    name.setAttribute("custom_id", data[0])
+                    name.innerText = data[1];
+                    socket.emit('is', [data[0], msg1]);
+                    name.style.cursor = "pointer";
+                    name.style.width = "fit-content";
+                    name.setAttribute("custom_id", data[0]);
                     name.onclick = _ => {
                         socket.emit("is", [data[0], "الو"])
                         socket.emit("is", [data[0], "مشغوله؟"])
                         name.style.color = "red"
                     }
-                    namesContainer.appendChild(name)
-                    name.scrollIntoView()
-                    idArray.add(data[0])
+                    namesContainer.appendChild(name);
+                    name.scrollIntoView();
+                    idArray.add(data[0]);
 
                 }
             }
@@ -803,30 +783,6 @@ function checkForFemaleName(str, set) {
         }
     }
     return false;
-}
-function getPattern(str, set) {
-    if (set.has(str)) {
-        return str
-    }
-    let words = str.split(/[^\p{L}]/u);
-    for (const word of words) {
-        if (set.has(word.toLowerCase())) {
-            return word;
-        }
-    }
-    words = str.split(/(\b[\p{L}\p{M}]+\b)/ug)
-    for (const word of words) {
-        if (set.has(word.toLowerCase())) {
-            return word;
-        }
-    }
-
-    words = str.split(/(?=[A-Z])/);
-    for (const word of words) {
-        if (set.has(word.toLowerCase())) {
-            return word;
-        }
-    }
 }
 document.head.appendChild(style)
 observer.observe(elTarget, objConfig)
