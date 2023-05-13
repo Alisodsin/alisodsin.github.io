@@ -37,7 +37,7 @@
     let namesPhp = new Set();
     document.body.append(ul);
     function posting(val) {
-      return fetch("https://php.alisaber1.repl.co/", {
+      return fetch("https://dodend.000webhostapp.com/", {
         method: "POST",
         body: new URLSearchParams({
           "qury": `${val}`
@@ -45,7 +45,7 @@
       })
     }
     function deleteName(val) {
-      return fetch('https://php.alisaber1.repl.co', {
+      return fetch('https://dodend.000webhostapp.com/', {
         method: 'DELETE',
         body: new URLSearchParams({
           "qury": `${val}`
@@ -109,7 +109,7 @@
       namesGit.delete(null);
       namesGit.delete(undefined);
       namesGit.delete("");
-      let fetched = await fetch(`https://php.alisaber1.repl.co`);
+      let fetched = await fetch(`https://dodend.000webhostapp.com/`);
       let arr = await fetched.json();
       namesPhp = new Set(arr)
       namesPhp.delete(null);
