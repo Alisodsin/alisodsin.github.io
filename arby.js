@@ -29,7 +29,6 @@ let pplJoin = id("on"),
     onn = false,
     myNick,
     namesSet = new Set(),
-    chatNames = [],
     myId,
     msgSwitch = 0,
     names = [
@@ -310,12 +309,6 @@ if (new Date().getHours() >= 2 && new Date().getHours() <= 14) {
 } else {
     msg1 = "مساء الخير"
 }
-if (localStorage.chatNames) {
-
-    namesSet = new Set(JSON.parse(localStorage.chatNames));
-    console.log(namesSet)
-
-};
 setTimeout(_ => {
     myNick = pplJoin.firstElementChild.childNodes[1].innerText
     myId = pplJoin.children[0].id
@@ -790,10 +783,6 @@ id("hmp").remove()
 id("nwp").remove()
 id("nt").style.opacity = "0"
 id("onp").click()
-window.onbeforeunload = _ => {
-    chatNames = [...namesSet];
-    localStorage.chatNames = JSON.stringify(chatNames)
-}
 function retrieveBigData() {
     fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`)
         .then(response => response.json())
