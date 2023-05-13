@@ -37,18 +37,20 @@
     let namesPhp = new Set();
     document.body.append(ul);
     function posting(val) {
-      return fetch("https://dodend.000webhostapp.com/", {
+      return fetch("https://dodend.000webhostapp.com", {
         method: "POST",
         body: new URLSearchParams({
-          "qury": `${val}`
+          "qury": `${val}`,
+          "action" : "add"
         })
       })
     }
     function deleteName(val) {
-      return fetch('https://dodend.000webhostapp.com/', {
-        method: 'DELETE',
+      return fetch('https://dodend.000webhostapp.com', {
+        method: 'POST',
         body: new URLSearchParams({
-          "qury": `${val}`
+          "qury": `${val}`,
+          "action": "delete"
         })
       })
     }
@@ -109,7 +111,7 @@
       namesGit.delete(null);
       namesGit.delete(undefined);
       namesGit.delete("");
-      let fetched = await fetch(`https://dodend.000webhostapp.com/`);
+      let fetched = await fetch(`https://dodend.000webhostapp.com`);
       let arr = await fetched.json();
       namesPhp = new Set(arr)
       namesPhp.delete(null);
