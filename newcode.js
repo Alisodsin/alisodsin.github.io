@@ -18,7 +18,7 @@ let check = setInterval(_ => {
     input,
     myNick,
     R,
-    notWanted = new Set(["عايز", "ابحث", "أبحث", "محتاج", "ممكن", "عاشق", "دكر", "دكرين", "كارت", "فلوس", "نكت", "بدور", "كاش","اتعرف","أتعرف","عاوز","فين","فينك","اريد","أريد","أبو","ابو","يبحث"]),
+    notWanted = new Set(["عايز", "ابحث", "أبحث", "محتاج", "ممكن", "عاشق", "دكر", "دكرين", "كارت", "فلوس", "نكت", "بدور", "كاش", "اتعرف", "أتعرف", "عاوز", "فين", "فينك", "اريد", "أريد", "أبو", "ابو", "يبحث", "m"]),
     msgAfter,
     user = 'alisodsin',
     repo = 'alisodsin.github.io',
@@ -700,7 +700,7 @@ function checkForFemaleName(str, set) {
     }
     let words = str.split(/[^\p{L}]/u);
     for (const word of words) {
-        if (notWanted.has(word)) {
+        if (notWanted.has(word.toLowerCase())) {
             return false;
         }
     }
