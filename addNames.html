@@ -27,11 +27,15 @@
 <body>
   <p>php : Add Name(s)</p>
   <div><textarea id="names" spellcheck="false"></textarea></div>
-  <div><button id="butt">save</button>&#160;<button id="butt1">delete</button></div>
+  <div><button id="butt">save</button>&#160;&#160;&#160;<button id="butt1">delete</button></div><br>
+  <div><button id="saven">saven</button>&#160;<button id="deleten">deleten</button></div>
+
   <script>
     let txt = document.getElementById("names");
     let button1 = document.getElementById("butt");
     let button2 = document.getElementById("butt1");
+    let button3 = document.getElementById("saven");
+    let button4 = document.getElementById("deleten");
     let ul = document.createElement("ul");
     let namesGit = new Set();
     let namesPhp = new Set();
@@ -41,7 +45,7 @@
         method: "POST",
         body: new URLSearchParams({
           "qury": `${val}`,
-          "action" : "add"
+          "action": "add"
         })
       })
     }

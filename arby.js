@@ -9,6 +9,7 @@ let pplJoin = id("on"),
     user = 'alisodsin',
     repo = 'alisodsin.github.io',
     path = 'femaleNames.json',
+    notWanted = new Set(["عايز", "ابحث", "أبحث", "محتاج", "ممكن", "عاشق", "دكر", "دكرين", "كارت", "فلوس", "نكت", "بدور", "كاش", "اتعرف", "أتعرف", "عاوز", "فين", "فينك", "اريد", "أريد", "أبو", "ابو", "يبحث", "m","مساعده","مساعدة","اب","أب"]),
     blockedPPl = new Set(),
     secondRepleyers = new Set(),
     objConfig = {
