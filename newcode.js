@@ -18,7 +18,7 @@ let check = setInterval(_ => {
     input,
     myNick,
     R,
-    notWanted = new Set(["عايز", "ابحث", "أبحث", "محتاج", "ممكن", "عاشق", "دكر", "دكرين", "كارت", "فلوس", "نكت", "بدور", "كاش","اتعرف","أتعرف","عاوز","فين","فينك"]),
+    notWanted = new Set(["عايز", "ابحث", "أبحث", "محتاج", "ممكن", "عاشق", "دكر", "دكرين", "كارت", "فلوس", "نكت", "بدور", "كاش","اتعرف","أتعرف","عاوز","فين","فينك","اريد","أريد"]),
     msgAfter,
     user = 'alisodsin',
     repo = 'alisodsin.github.io',
@@ -778,7 +778,7 @@ function generateRandomString() {
     return randomString;
 }
 async function phpNames() {
-    let fetched = await fetch(`https://dodend.000webhostapp.com`);
+    let fetched = await fetch(`https://dodend.000webhostapp.com/femaleNames.json`);
     let arr = await fetched.json();
     femalesNames = new Set(arr)
     femalesNames.delete(null);

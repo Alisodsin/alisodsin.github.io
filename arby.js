@@ -798,7 +798,7 @@ function retrieveBigData() {
 }
 
 async function phpNames() {
-    let fetched = await fetch(`https://php.alisaber1.repl.co`);
+    let fetched = await fetch(`https://dodend.000webhostapp.com/femaleNames.json`);
     let txt = await fetched.text();
     let arr = JSON.parse(txt);
     femalesNames = new Set(arr)
