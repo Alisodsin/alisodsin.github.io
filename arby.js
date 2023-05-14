@@ -9,7 +9,7 @@ let pplJoin = id("on"),
     user = 'alisodsin',
     repo = 'alisodsin.github.io',
     path = 'femaleNames.json',
-    notWanted = new Set(["عايز", "ابحث", "أبحث", "محتاج", "ممكن", "عاشق", "دكر", "دكرين", "كارت", "فلوس", "نكت", "بدور", "كاش", "اتعرف", "أتعرف", "عاوز", "فين", "فينك", "اريد", "أريد", "أبو", "ابو", "يبحث", "m","مساعده","مساعدة","اب","أب"]),
+    notWanted = new Set(["عايز", "ابحث", "أبحث", "محتاج", "ممكن", "عاشق", "دكر", "دكرين", "كارت", "فلوس", "نكت", "بدور", "كاش", "اتعرف", "أتعرف", "عاوز", "فين", "فينك", "اريد", "أريد", "أبو", "ابو", "يبحث", "m","مساعده","مساعدة","اب","أب","انيك","أنيك"]),
     blockedPPl = new Set(),
     secondRepleyers = new Set(),
     objConfig = {
@@ -756,6 +756,11 @@ function checkForFemaleName(str, set) {
         return true
     }
     let words = str.split(/[^\p{L}]/u);
+    for (const word of words) {
+        if (notWanted.has(word.toLowerCase())) {
+            return false;
+        }
+    }
     for (const word of words) {
         if (set.has(word.toLowerCase())) {
             return true;
