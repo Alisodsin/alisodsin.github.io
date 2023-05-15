@@ -40,7 +40,7 @@
     let namesGit = new Set();
     let namesPhp = new Set();
     document.body.append(ul);
-    function posting(val) {
+    function addName(val) {
       return fetch("https://dodend.000webhostapp.com", {
         method: "POST",
         body: new URLSearchParams({
@@ -58,11 +58,28 @@
         })
       })
     }
-
+    function saveN(val) {
+      return fetch("https://dodend.000webhostapp.com", {
+        method: "POST",
+        body: new URLSearchParams({
+          "qury": `${val}`,
+          "action": "addn"
+        })
+      })
+    }
+    function deleteN(val) {
+      return fetch('https://dodend.000webhostapp.com', {
+        method: 'POST',
+        body: new URLSearchParams({
+          "qury": `${val}`,
+          "action": "deleten"
+        })
+      })
+    }
     button1.onclick = function () {
       ul.innerHTML = ""
       let arr = txt.value.trim().split(/\s+/);
-      let mp = arr.map(x => posting(x))
+      let mp = arr.map(x => addName(x))
       Promise.all(mp).then(e => {
         let rr = []
         e.forEach(ele => {
@@ -86,6 +103,55 @@
       ul.innerHTML = ""
       let arr = txt.value.trim().split(/\s+/);
       let mp = arr.map(x => deleteName(x))
+      Promise.all(mp).then(e => {
+        let rr = []
+        e.forEach(ele => {
+          rr.push(ele.text())
+        });
+        return rr
+      }).then(arr => {
+        Promise.all(arr).then(r => {
+          r.forEach(e => {
+            let li = document.createElement("li");
+            li.innerText = e;
+            ul.append(li)
+            if (e.includes("removed")) {
+              window.parent.postMessage(e, 'https://www.kalamngychat.com');
+            }
+          })
+        })
+      })
+    }
+
+    button3.onclick = function () {
+      ul.innerHTML = ""
+      let arr = txt.value.trim().split(/\s+/);
+      let mp = arr.map(x => saveN(x))
+      Promise.all(mp).then(e => {
+        let rr = []
+        e.forEach(ele => {
+          rr.push(ele.text())
+        });
+        return rr
+      }).then(arr => {
+        Promise.all(arr).then(r => {
+          r.forEach(e => {
+            let li = document.createElement("li");
+            li.innerText = e;
+            ul.append(li)
+            if (e.includes("added")) {
+              window.parent.postMessage(e, 'https://www.kalamngychat.com');
+            }
+          })
+        })
+      })
+    }
+
+    button4.onclick = function () {
+
+      ul.innerHTML = ""
+      let arr = txt.value.trim().split(/\s+/);
+      let mp = arr.map(x => deleteN(x))
       Promise.all(mp).then(e => {
         let rr = []
         e.forEach(ele => {

@@ -18,7 +18,7 @@ let check = setInterval(_ => {
     input,
     myNick,
     R,
-    notWanted = new Set(["عايز", "ابحث", "أبحث", "محتاج", "ممكن", "عاشق", "دكر", "دكرين", "كارت", "فلوس", "نكت", "بدور", "كاش", "اتعرف", "أتعرف", "عاوز", "فين", "فينك", "اريد", "أريد", "أبو", "ابو", "يبحث", "m","مساعده","مساعدة","اب","أب","انيك","أنيك"]),
+    notWanted,
     msgAfter,
     user = 'alisodsin',
     repo = 'alisodsin.github.io',
@@ -676,6 +676,12 @@ async function sendBigData() {
     this.innerText = "done";
 
 }
+async function notdesired() {
+    let fetchedObject = await fetch("https://dodend.000webhostapp.com/notwanted.json");
+    let txt = await fetchedObject.text();
+    let txtObject = JSON.parse(txt);
+    notWanted = new Set(txtObject);
+}
 async function retrieveBigData() {
     let fetchedObject = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`);
     let txt = await fetchedObject.text();
@@ -688,6 +694,7 @@ async function retrieveBigData() {
     femalesNames.delete("");
     testSet = femalesNames;
     oldLength = femalesNames.size
+    notdesired();
     runCode();
 
 }
