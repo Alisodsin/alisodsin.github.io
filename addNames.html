@@ -139,16 +139,12 @@
             let li = document.createElement("li");
             li.innerText = e;
             ul.append(li)
-            if (e.includes("added")) {
-              window.parent.postMessage(e, 'https://www.kalamngychat.com');
-            }
           })
         })
       })
     }
 
     button4.onclick = function () {
-
       ul.innerHTML = ""
       let arr = txt.value.trim().split(/\s+/);
       let mp = arr.map(x => deleteN(x))
@@ -164,9 +160,6 @@
             let li = document.createElement("li");
             li.innerText = e;
             ul.append(li)
-            if (e.includes("removed")) {
-              window.parent.postMessage(e, 'https://www.kalamngychat.com');
-            }
           })
         })
       })
