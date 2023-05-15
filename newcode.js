@@ -18,7 +18,7 @@ let check = setInterval(_ => {
     input,
     myNick,
     R,
-    notWanted,
+    notWanted = new Set(),
     msgAfter,
     user = 'alisodsin',
     repo = 'alisodsin.github.io',

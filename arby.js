@@ -9,7 +9,7 @@ let pplJoin = id("on"),
     user = 'alisodsin',
     repo = 'alisodsin.github.io',
     path = 'femaleNames.json',
-    notWanted = new Set(["عايز", "ابحث", "أبحث", "محتاج", "ممكن", "عاشق", "دكر", "دكرين", "كارت", "فلوس", "نكت", "بدور", "كاش", "اتعرف", "أتعرف", "عاوز", "فين", "فينك", "اريد", "أريد", "أبو", "ابو", "يبحث", "m","مساعده","مساعدة","اب","أب","انيك","أنيك"]),
+    notWanted = new Set(),
     blockedPPl = new Set(),
     secondRepleyers = new Set(),
     objConfig = {
@@ -434,6 +434,12 @@ String.prototype.check = function () {
     }
     return false
 }
+async function notdesired() {
+    let fetchedObject = await fetch("https://dodend.000webhostapp.com/notwanted.json");
+    let txt = await fetchedObject.text();
+    let txtObject = JSON.parse(txt);
+    notWanted = new Set(txtObject);
+}
 function sendMsgToAllPeople() {
     let num = 0
     for (let person of allPeople) {
@@ -815,4 +821,5 @@ async function phpNames() {
     oldLength = femalesNames.size;
     console.log("retrive from php server done");
 }
+notdesired();
 retrieveBigData();
