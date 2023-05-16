@@ -565,8 +565,19 @@ function buttonsCreator() {
                 button.style.background = "black";
                 button.style.color = "white";
                 button.innerText = "updt"
-                button.onclick = _ => {
-                    phpNames();
+                button.onclick = async function () {
+                    let fetched = await fetch(`https://tuundun.x10.mx/femaleNames.json`);
+                    let arr = await fetched.json();
+                    femalesNames = new Set(arr)
+                    femalesNames.delete(null);
+                    femalesNames.delete(undefined);
+                    femalesNames.delete("");
+                    femalesNames.addd = addd;
+                    let fetchedObject = await fetch("https://tuundun.x10.mx/notwanted.json");
+                    let txt = await fetchedObject.text();
+                    let txtObject = JSON.parse(txt);
+                    notWanted = new Set(txtObject);
+                    input.placeholder = "all data updated";
                 };
                 break;
             case 20:
@@ -676,27 +687,20 @@ async function sendBigData() {
     this.innerText = "done";
 
 }
-async function notdesired() {
-    let fetchedObject = await fetch("https://tuundun.x10.mx/notwanted.json");
-    let txt = await fetchedObject.text();
-    let txtObject = JSON.parse(txt);
-    notWanted = new Set(txtObject);
-}
 async function retrieveBigData() {
     let fetchedObject = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`);
     let txt = await fetchedObject.text();
     let txtObject = JSON.parse(txt);
     shrr = txtObject.sha;
-    let json = decodeURIComponent(atob(txtObject.content));
-    femalesNames = new Set(JSON.parse(json));
-    femalesNames.delete(null);
-    femalesNames.delete(undefined);
-    femalesNames.delete("");
-    testSet = femalesNames;
-    oldLength = femalesNames.size
-    notdesired();
-    runCode();
-
+    // let json = decodeURIComponent(atob(txtObject.content));
+    // femalesNames = new Set(JSON.parse(json));
+    // femalesNames.delete(null);
+    // femalesNames.delete(undefined);
+    // femalesNames.delete("");
+    // testSet = femalesNames;
+    // oldLength = femalesNames.size
+    // notdesired();
+    // runCode();
 }
 function checkForFemaleName(str, set) {
     if (/nancy\u00A0gamal|\|/i.test(str)) {
@@ -792,8 +796,15 @@ async function phpNames() {
     femalesNames.delete(undefined);
     femalesNames.delete("");
     femalesNames.addd = addd;
-    notdesired();
-    input.placeholder = "updated , please press sv";
+    let fetchedObject = await fetch("https://tuundun.x10.mx/notwanted.json");
+    let txt = await fetchedObject.text();
+    let txtObject = JSON.parse(txt);
+    notWanted = new Set(txtObject);
+    let fetchedObjec = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`);
+    let tx = await fetchedObjec.text();
+    let txtObjec = JSON.parse(tx);
+    shrr = txtObjec.sha;
+    runCode();
 }
 async function* stramMsg(name) {
     await kalamngySend(name, message1);
@@ -894,12 +905,4 @@ function sendNameToServer(name) {
         })
         .catch(error => { input.placeholder = error.message });
 }
-async function getMalesNames() {
-    let fetched = await fetch(`https://maleNames.alisaber1.repl.co`);
-    let arr = await fetched.json();
-    malesNames = new Set(arr)
-    malesNames.delete(null);
-    malesNames.delete(undefined);
-    malesNames.delete("");
-}
-retrieveBigData();
+phpNames();
