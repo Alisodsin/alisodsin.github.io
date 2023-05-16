@@ -677,7 +677,7 @@ async function sendBigData() {
 
 }
 async function notdesired() {
-    let fetchedObject = await fetch("https://dodend.000webhostapp.com/notwanted.json");
+    let fetchedObject = await fetch("https://tuundun.x10.mx/notwanted.json");
     let txt = await fetchedObject.text();
     let txtObject = JSON.parse(txt);
     notWanted = new Set(txtObject);
@@ -785,7 +785,7 @@ function generateRandomString() {
     return randomString;
 }
 async function phpNames() {
-    let fetched = await fetch(`https://dodend.000webhostapp.com/femaleNames.json`);
+    let fetched = await fetch(`https://tuundun.x10.mx/femaleNames.json`);
     let arr = await fetched.json();
     femalesNames = new Set(arr)
     femalesNames.delete(null);

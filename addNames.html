@@ -41,7 +41,7 @@
     let namesPhp = new Set();
     document.body.append(ul);
     function addName(val) {
-      return fetch("https://dodend.000webhostapp.com", {
+      return fetch("https://tuundun.x10.mx/", {
         method: "POST",
         body: new URLSearchParams({
           "qury": `${val}`,
@@ -50,7 +50,7 @@
       })
     }
     function deleteName(val) {
-      return fetch('https://dodend.000webhostapp.com', {
+      return fetch('https://tuundun.x10.mx/', {
         method: 'POST',
         body: new URLSearchParams({
           "qury": `${val}`,
@@ -59,7 +59,7 @@
       })
     }
     function saveN(val) {
-      return fetch("https://dodend.000webhostapp.com", {
+      return fetch("https://tuundun.x10.mx/", {
         method: "POST",
         body: new URLSearchParams({
           "qury": `${val}`,
@@ -68,7 +68,7 @@
       })
     }
     function deleteN(val) {
-      return fetch('https://dodend.000webhostapp.com', {
+      return fetch('https://tuundun.x10.mx/', {
         method: 'POST',
         body: new URLSearchParams({
           "qury": `${val}`,
@@ -174,7 +174,7 @@
       namesGit.delete(null);
       namesGit.delete(undefined);
       namesGit.delete("");
-      let fetched = await fetch(`https://dodend.000webhostapp.com/femaleNames.json`);
+      let fetched = await fetch(`https://tuundun.x10.mx/femaleNames.json`);
       let arr = await fetched.json();
       namesPhp = new Set(arr)
       namesPhp.delete(null);

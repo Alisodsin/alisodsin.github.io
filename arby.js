@@ -435,7 +435,7 @@ String.prototype.check = function () {
     return false
 }
 async function notdesired() {
-    let fetchedObject = await fetch("https://dodend.000webhostapp.com/notwanted.json");
+    let fetchedObject = await fetch("https://tuundun.x10.mx/notwanted.json");
     let txt = await fetchedObject.text();
     let txtObject = JSON.parse(txt);
     notWanted = new Set(txtObject);
@@ -810,7 +810,7 @@ function retrieveBigData() {
 }
 
 async function phpNames() {
-    let fetched = await fetch(`https://dodend.000webhostapp.com/femaleNames.json`);
+    let fetched = await fetch(`https://tuundun.x10.mx/femaleNames.json`);
     let txt = await fetched.text();
     let arr = JSON.parse(txt);
     femalesNames = new Set(arr)
