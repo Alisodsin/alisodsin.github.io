@@ -796,7 +796,6 @@ async function retrieveBigData() {
     femalesNames.delete(null);
     femalesNames.delete(undefined);
     femalesNames.delete("");
-    femalesNames.addd = addd;
     let fetchedObject = await fetch("https://tuundun.x10.mx/notwanted.json");
     let txt = await fetchedObject.text();
     let txtObject = JSON.parse(txt);
