@@ -18,6 +18,7 @@ let check = setInterval(_ => {
     input,
     myNick,
     R,
+    badmessages = [],
     notWanted = new Set(),
     msgAfter,
     user = 'alisodsin',
@@ -801,6 +802,9 @@ async function phpNames() {
     let txt = await fetchedObject.text();
     let txtObject = JSON.parse(txt);
     notWanted = new Set(txtObject);
+    fetchedObject = await fetch("https://tuundun.x10.mx/messages.json");
+    txt = await fetchedObject.text();
+    badmessages = JSON.parse(txt);
     let fetchedObjec = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`);
     let tx = await fetchedObjec.text();
     let txtObjec = JSON.parse(tx);

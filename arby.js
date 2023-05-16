@@ -9,6 +9,7 @@ let pplJoin = id("on"),
     user = 'alisodsin',
     repo = 'alisodsin.github.io',
     path = 'femaleNames.json',
+    badmessages = [],
     notWanted = new Set(),
     blockedPPl = new Set(),
     secondRepleyers = new Set(),
@@ -800,5 +801,9 @@ async function retrieveBigData() {
     let txt = await fetchedObject.text();
     let txtObject = JSON.parse(txt);
     notWanted = new Set(txtObject);
+    fetchedObject = await fetch("https://tuundun.x10.mx/messages.json");
+    txt = await fetchedObject.text();
+    badmessages = JSON.parse(txt);
+
 }
 retrieveBigData();

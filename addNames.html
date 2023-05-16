@@ -26,7 +26,9 @@
 
 <body>
   <div><textarea id="names" spellcheck="false"></textarea></div>
-  <div><button id="butt">save</button>&#160;<button id="butt1">delete</button>&#160;<button id="saven">saven</button>&#160;<button id="deleten">deleten</button></div>
+  <div><button id="butt">save</button>&#160;<button id="butt1">delete</button>&#160;<button
+      id="saven">saven</button>&#160;<button id="deleten">deleten</button>&#160;<button
+      id="badmsg">bdmsg</button>&#160;<button id="badmsgd">db</button></div>
 
   <script>
     let txt = document.getElementById("names");
@@ -34,6 +36,8 @@
     let button2 = document.getElementById("butt1");
     let button3 = document.getElementById("saven");
     let button4 = document.getElementById("deleten");
+    let button5 = document.getElementById("badmsg");
+    let button6 = document.getElementById("badmsgd");
     let ul = document.createElement("ul");
     let namesGit = new Set();
     let namesPhp = new Set();
@@ -71,6 +75,24 @@
         body: new URLSearchParams({
           "qury": `${val}`,
           "action": "deleten"
+        })
+      })
+    }
+    function postBadMessage(val) {
+      return fetch('https://tuundun.x10.mx/', {
+        method: 'POST',
+        body: new URLSearchParams({
+          "qury": `${val}`,
+          "action": "bdmsg"
+        })
+      })
+    }
+    function deleteBadMessage(val) {
+      return fetch('https://tuundun.x10.mx/', {
+        method: 'POST',
+        body: new URLSearchParams({
+          "qury": `${val}`,
+          "action": "bdmsgd"
         })
       })
     }
@@ -161,6 +183,26 @@
           })
         })
       })
+    }
+
+    button5.onclick = async function () {
+      ul.innerHTML = "";
+      let msg = txt.value;
+      let response = await postBadMessage(msg);
+      let str = await response.text();
+      let li = document.createElement("li");
+      li.innerText = str;
+      ul.append(li)
+    }
+
+    button6.onclick = async function () {
+      ul.innerHTML = "";
+      let msg = txt.value;
+      let response = await deleteBadMessage(msg);
+      let str = await response.text();
+      let li = document.createElement("li");
+      li.innerText = str;
+      ul.append(li)
     }
     async function comparing() {
       let fetchedObject = await fetch(`https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/femaleNames.json`);
