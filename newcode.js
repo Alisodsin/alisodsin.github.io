@@ -45,7 +45,7 @@ let check = setInterval(_ => {
     regex = /onedaymothersaidgetupearlytogotoschool/,
     personsGotMyMsg1 = new Set(),
     femalesNames = new Set(),
-    testSet,
+    testSet = new Set(),
     toggles = new Set(),
     malesNames = new Set(),
     roomName,
@@ -796,6 +796,7 @@ async function phpNames() {
     femalesNames.delete(undefined);
     femalesNames.delete("");
     femalesNames.addd = addd;
+    testSet = femalesNames;
     let fetchedObject = await fetch("https://tuundun.x10.mx/notwanted.json");
     let txt = await fetchedObject.text();
     let txtObject = JSON.parse(txt);
