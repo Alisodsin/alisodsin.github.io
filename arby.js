@@ -434,12 +434,6 @@ String.prototype.check = function () {
     }
     return false
 }
-async function notdesired() {
-    let fetchedObject = await fetch("https://tuundun.x10.mx/notwanted.json");
-    let txt = await fetchedObject.text();
-    let txtObject = JSON.parse(txt);
-    notWanted = new Set(txtObject);
-}
 function sendMsgToAllPeople() {
     let num = 0
     for (let person of allPeople) {
@@ -795,31 +789,17 @@ id("hmp").remove()
 id("nwp").remove()
 id("nt").style.opacity = "0"
 id("onp").click()
-function retrieveBigData() {
-    fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`)
-        .then(response => response.json())
-        .then(file => {
-            shrr = file.sha
-            const content = JSON.parse(decodeURIComponent(atob(file.content)));
-            femalesNames = new Set(content);
-            femalesNames.delete(undefined);
-            femalesNames.delete(null);
-            testSet = femalesNames;
-            oldLength = femalesNames.size;
-        })
-}
-
-async function phpNames() {
+async function retrieveBigData() {
     let fetched = await fetch(`https://tuundun.x10.mx/femaleNames.json`);
-    let txt = await fetched.text();
-    let arr = JSON.parse(txt);
+    let arr = await fetched.json();
     femalesNames = new Set(arr)
     femalesNames.delete(null);
     femalesNames.delete(undefined);
     femalesNames.delete("");
-    testSet = femalesNames;
-    oldLength = femalesNames.size;
-    console.log("retrive from php server done");
+    femalesNames.addd = addd;
+    let fetchedObject = await fetch("https://tuundun.x10.mx/notwanted.json");
+    let txt = await fetchedObject.text();
+    let txtObject = JSON.parse(txt);
+    notWanted = new Set(txtObject);
 }
-notdesired();
 retrieveBigData();
