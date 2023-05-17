@@ -468,7 +468,7 @@ function toggleContainer() {
 
 }
 function buttonsCreator() {
-    for (let index = 1; index <= 21; index++) {
+    for (let index = 1; index <= 22; index++) {
         let button = document.createElement("button");
         button.innerText = `F${index}`;
         // button.style.width = "10%";
@@ -621,6 +621,14 @@ function buttonsCreator() {
 
                 };
                 msgAfter = button;
+                break;
+            case 22:
+                button.style.background = "black";
+                button.style.color = "white";
+                button.innerText = "thisMsg";
+                button.onclick = function () {
+                    input.placeholder = stream[_fwindowlist.currentwindow]?.msg
+                }
                 break;
         }
         button.style.border = "none"
@@ -821,9 +829,6 @@ async function phpNames() {
     runCode();
 }
 async function* stramMsg(name) {
-    if (randomizeMessage) {
-        message1 = badmessages.at((Math.floor(Math.random() * badmessages.length)));
-    }
     await kalamngySend(name, message1);
     if (stream[name]) {
         let li1 = document.createElement("li");
@@ -902,24 +907,11 @@ async function* stramMsg(name) {
     }
 }
 function doIt(name) {
-    stream[name] = { timeout: (condition) ? setTimeout(() => { stream[name].excuterObj.next(true); }, 60000) : "", id1: generateRandomString(), id2: generateRandomString(), excuterObj: stramMsg(name) }
+    if (randomizeMessage) {
+        message1 = badmessages.at((Math.floor(Math.random() * badmessages.length)));
+    }
+    stream[name] = { msg: message1, timeout: (condition) ? setTimeout(() => { stream[name].excuterObj.next(true); }, 60000) : "", id1: generateRandomString(), id2: generateRandomString(), excuterObj: stramMsg(name) }
     stream[name].excuterObj.next();
     personsGotMyMsg1.add(name);
-}
-function sendNameToServer(name) {
-    fetch('https://maleNames.alisaber1.repl.co', {
-        method: 'POST',
-        body: new URLSearchParams({
-            name: name
-        })
-    })
-        .then(response => response.json())
-        .then(_ => {
-            let li = document.createElement("li");
-            li.innerText = name
-            ol2.append(li);
-            li.scrollIntoView();
-        })
-        .catch(error => { input.placeholder = error.message });
 }
 phpNames();
