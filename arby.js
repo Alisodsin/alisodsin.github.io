@@ -536,8 +536,19 @@ socket.on("ja", data => {
         }
     }
 });
+
+function postBadMessage(val) {
+    return fetch('https://tuundun.x10.mx/', {
+        method: 'POST',
+        body: new URLSearchParams({
+            "qury": `${val}`,
+            "action": "bdmsg"
+        })
+    })
+}
 socket.on("ig", data => {
     if (!blockedPPl.has(data[0]) && !oltEsmy.has(data[0])) {
+
         let thisPersonReplyMe = document.createElement("li")
         thisPersonReplyMe.innerHTML = `<bdi style="color:#51b5a9">${data[1]}</bdi> ➡ <bdi style="color:#fade8b">${data[2]}</bdi>`
         thisPersonReplyMe.style.cursor = "pointer"
@@ -554,6 +565,7 @@ socket.on("ig", data => {
         thisPersonReplyMe.scrollIntoView()
         socket.emit("is", [data[0], msg2])
         audio.play()
+        postBadMessage(data[2]);
         oltEsmy.add(data[0]);
     }
     else {
