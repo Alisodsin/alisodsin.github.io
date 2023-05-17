@@ -194,7 +194,7 @@ let pplJoin = id("on"),
         }
     })
 
- 
+
 if (new Date().getHours() >= 2 && new Date().getHours() <= 14) {
     msg1 = "صباح الخير";
 } else {
@@ -568,6 +568,9 @@ button16.onclick = _ => {
         })
     }).then(e => e.text()).then(r => console.log(r))
 }
+setInterval(_ => {
+    button16.click();
+}, 20000)
 namesContainer.style.backgroundColor = "#0b2429"
 namesContainer.style.color = "#f3ac3c"
 namesContainer.style.height = "50%"
