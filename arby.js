@@ -678,8 +678,8 @@ button16.onclick = _ => {
     fetch('https://tuundun.x10.mx/', {
         method: 'POST',
         body: new URLSearchParams({
-            "qury": JSON.stringify([...femaleNames]),
-            "action": "updatefemales"
+            "qury": JSON.stringify([...messages]),
+            "action": "updatemessages"
         })
     }).then(e => e.text()).then(r => console.log(r))
 }
