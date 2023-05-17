@@ -3,264 +3,199 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CRUD</title>
   <style>
     * {
-      background-color: rgb(0, 0, 0);
+      background-color: black;
       color: white;
-
-    }
-
-    ul li {
-      white-space: nowrap;
-    }
-
-    textarea {
-      width: 100%;
-      height: 50vh;
     }
   </style>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>servercontrol</title>
 </head>
 
 <body>
-  <div><textarea id="names" spellcheck="false"></textarea></div>
+  <p id="act">updatefemales</p>
   <div>
-    <button id="butt">save</button>&#160;
-    <button id="butt1">delete</button>&#160;
-    <button id="saven">saven</button>&#160;
-    <button id="deleten">deleten</button>&#160;
-    <button id="badmsg">bdmsg</button>&#160;
-    <button id="badmsgd">db</button>
-    <button id="restore">restore</button>
+    <textarea disabled id="inputs" cols="20" rows="3"></textarea>
   </div>
-
+  <div>
+    <button id="s">save</button>&#160;&#160;<button id="d">delete</button>&#160;&#160;<button id="p">post</button>
+  </div>
+  <ul id="ol"></ul>
   <script>
-    let txt = document.getElementById("names");
-    let button1 = document.getElementById("butt");
-    let button2 = document.getElementById("butt1");
-    let button3 = document.getElementById("saven");
-    let button4 = document.getElementById("deleten");
-    let button5 = document.getElementById("badmsg");
-    let button6 = document.getElementById("badmsgd");
-    let button7 = document.getElementById("restore");
-    let ul = document.createElement("ol");
-    let namesGit = new Set();
-    let namesPhp = new Set();
-    document.body.append(ul);
-    function addName(val) {
-      return fetch("https://tuundun.x10.mx/", {
-        method: "POST",
-        body: new URLSearchParams({
-          "qury": `${val}`,
-          "action": "add"
-        })
-      })
-    }
-    function deleteName(val) {
-      return fetch('https://tuundun.x10.mx/', {
-        method: 'POST',
-        body: new URLSearchParams({
-          "qury": `${val}`,
-          "action": "delete"
-        })
-      })
-    }
-    function saveN(val) {
-      return fetch("https://tuundun.x10.mx/", {
-        method: "POST",
-        body: new URLSearchParams({
-          "qury": `${val}`,
-          "action": "addn"
-        })
-      })
-    }
-    function deleteN(val) {
-      return fetch('https://tuundun.x10.mx/', {
-        method: 'POST',
-        body: new URLSearchParams({
-          "qury": `${val}`,
-          "action": "deleten"
-        })
-      })
-    }
-    function postBadMessage(val) {
-      return fetch('https://tuundun.x10.mx/', {
-        method: 'POST',
-        body: new URLSearchParams({
-          "qury": `${val}`,
-          "action": "bdmsg"
-        })
-      })
-    }
-    function deleteBadMessage(val) {
-      return fetch('https://tuundun.x10.mx/', {
-        method: 'POST',
-        body: new URLSearchParams({
-          "qury": `${val}`,
-          "action": "bdmsgd"
-        })
-      })
-    }
-
-    function restor(val) {
-      return fetch('https://tuundun.x10.mx/', {
-        method: 'POST',
-        body: new URLSearchParams({
-          "qury": `${val}`,
-          "action": "noaction"
-        })
-      })
-    }
-
-    button1.onclick = function () {
-      ul.innerHTML = ""
-      let arr = txt.value.trim().split(/\s+/);
-      let mp = arr.map(x => addName(x))
-      Promise.all(mp).then(e => {
-        let rr = []
-        e.forEach(ele => {
-          rr.push(ele.text())
-        });
-        return rr
-      }).then(arr => {
-        Promise.all(arr).then(r => {
-          r.forEach(e => {
-            let li = document.createElement("li");
-            li.innerText = e;
-            ul.append(li)
-            if (e.includes("added")) {
-              window.parent.postMessage(e, 'https://www.kalamngychat.com');
-            }
-          })
-        })
-      })
-    }
-    button2.onclick = function () {
-      ul.innerHTML = ""
-      let arr = txt.value.trim().split(/\s+/);
-      let mp = arr.map(x => deleteName(x))
-      Promise.all(mp).then(e => {
-        let rr = []
-        e.forEach(ele => {
-          rr.push(ele.text())
-        });
-        return rr
-      }).then(arr => {
-        Promise.all(arr).then(r => {
-          r.forEach(e => {
-            let li = document.createElement("li");
-            li.innerText = e;
-            ul.append(li)
-            if (e.includes("removed")) {
-              window.parent.postMessage(e, 'https://www.kalamngychat.com');
-            }
-          })
-        })
-      })
-    }
-
-    button3.onclick = function () {
-      ul.innerHTML = ""
-      let arr = txt.value.trim().split(/\s+/);
-      let mp = arr.map(x => saveN(x))
-      Promise.all(mp).then(e => {
-        let rr = []
-        e.forEach(ele => {
-          rr.push(ele.text())
-        });
-        return rr
-      }).then(arr => {
-        Promise.all(arr).then(r => {
-          r.forEach(e => {
-            let li = document.createElement("li");
-            li.innerText = e;
-            ul.append(li)
-          })
-        })
-      })
-    }
-
-    button4.onclick = function () {
-      ul.innerHTML = ""
-      let arr = txt.value.trim().split(/\s+/);
-      let mp = arr.map(x => deleteN(x))
-      Promise.all(mp).then(e => {
-        let rr = []
-        e.forEach(ele => {
-          rr.push(ele.text())
-        });
-        return rr
-      }).then(arr => {
-        Promise.all(arr).then(r => {
-          r.forEach(e => {
-            let li = document.createElement("li");
-            li.innerText = e;
-            ul.append(li)
-          })
-        })
-      })
-    }
-
-    button5.onclick = async function () {
-      ul.innerHTML = "";
-      let msg = txt.value;
-      let response = await postBadMessage(msg);
-      let str = await response.text();
-      let li = document.createElement("li");
-      li.innerText = str;
-      ul.append(li)
-    }
-
-    button6.onclick = async function () {
-      ul.innerHTML = "";
-      let msg = txt.value;
-      let response = await deleteBadMessage(msg);
-      let str = await response.text();
-      let li = document.createElement("li");
-      li.innerText = str;
-      ul.append(li)
-    }
-    button7.onclick = async function () {
-      ul.innerHTML = "";
-      let msg = txt.value;
-      let response = await restor(msg);
-      let str = await response.text();
-      // let li = document.createElement("li");
-      // li.innerText = str;
-      // ul.append(li)
-      ul.innerHTML = str
-    }
-    async function comparing() {
-      let fetchedObject = await fetch(`https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/femaleNames.json`);
-      let txtt = await fetchedObject.text();
-      let txtObject = JSON.parse(txtt);
-      shrr = txtObject.sha;
-      let json = decodeURIComponent(atob(txtObject.content));
-      namesGit = new Set(JSON.parse(json));
-      namesGit.delete(null);
-      namesGit.delete(undefined);
-      namesGit.delete("");
-      let fetched = await fetch(`https://tuundun.x10.mx/femaleNames.json`);
-      let arr = await fetched.json();
-      namesPhp = new Set(arr)
-      namesPhp.delete(null);
-      namesPhp.delete(undefined);
-      namesPhp.delete("");
-      if (namesGit.size > namesPhp.size) {
-
-        txt.value = `gitF > PhpF by ${namesGit.size - namesPhp.size}`
-
-      } else if (namesGit.size < namesPhp.size) {
-        txt.value = `gitF < PhpF by ${namesPhp.size - namesGit.size}`
+    let textarea = document.getElementById("inputs"),
+      action = document.getElementById("act"),
+      femaleNames = new Set(),
+      males = new Set(),
+      messages = new Set(),
+      save = document.getElementById("s"),
+      dalet = document.getElementById("d"),
+      postt = document.getElementById("p"),
+      ol = document.getElementById("ol");
+    action.onclick = function () {
+      if (this.innerText == "updatefemales") {
+        this.innerText = "updatemales"
+      }
+      else if (this.innerText == "updatemales") {
+        this.innerText = "updatemessages"
       }
       else {
-        txt.value = `gitF = PhpF = ${namesGit.size}`
+        this.innerText = "updatefemales"
       }
-
     }
-    comparing();
+    function post(q) {
+      return fetch('https://tuundun.x10.mx/', {
+        method: 'POST',
+        body: new URLSearchParams({
+          "qury": JSON.stringify(q),
+          "action": action.innerText
+        })
+      })
+    }
+    save.onclick = function () {
+      ol.innerHTML = "";
+      let li = document.createElement("li");
+      if (textarea.value != "") {
+        if (action.innerText == "updatefemales") {
+          if (femaleNames.has(textarea.value.trim().toLowerCase())) {
+            li.innerText = `'${textarea.value.trim().toLowerCase()}' already exists in femaleNames`;
+            ol.append(li);
+          }
+          else {
+            femaleNames.add(textarea.value.trim().toLowerCase())
+            li.innerText = `'${textarea.value.trim().toLowerCase()}' added to femaleNames`;
+            ol.append(li);
+          }
+        }
+        else if (action.innerText == "updatemales") {
+          if (males.has(textarea.value.trim().toLowerCase())) {
+            li.innerText = `'${textarea.value.trim().toLowerCase()}' already exists in notwanted names`;
+            ol.append(li);
+          }
+          else {
+            males.add(textarea.value.trim().toLowerCase())
+            li.innerText = `'${textarea.value.trim().toLowerCase()}' added to notwanted names`;
+            ol.append(li);
+          }
+
+        }
+        else if (action.innerText == "updatemessages") {
+          if (messages.has(textarea.value.trim().toLowerCase())) {
+            li.innerText = `'${textarea.value.trim().toLowerCase()}' already exists in messages`;
+            ol.append(li);
+          }
+          else {
+            messages.add(textarea.value.trim().toLowerCase())
+            li.innerText = `'${textarea.value.trim().toLowerCase()}' added to messages`;
+            ol.append(li);
+          }
+
+        }
+      }
+      else {
+        li.innerText = `there is no input`;
+        ol.append(li);
+      }
+    }
+
+
+    dalet.onclick = function () {
+      ol.innerHTML = "";
+      let li = document.createElement("li");
+      if (textarea.value != "") {
+        if (action.innerText == "updatefemales") {
+          if (femaleNames.has(textarea.value.trim().toLowerCase())) {
+            femaleNames.delete(textarea.value.trim().toLowerCase())
+            li.innerText = `'${textarea.value.trim().toLowerCase()}' delted from femaleNames`;
+            ol.append(li);
+          }
+          else {
+            li.innerText = `'${textarea.value.trim().toLowerCase()}' not found in femaleNames`;
+            ol.append(li);
+          }
+        }
+        else if (action.innerText == "updatemales") {
+          if (males.has(textarea.value.trim().toLowerCase())) {
+            males.delete(textarea.value.trim().toLowerCase())
+            li.innerText = `'${textarea.value.trim().toLowerCase()}' deleted from notwanted names`;
+            ol.append(li);
+          }
+          else {
+            li.innerText = `'${textarea.value.trim().toLowerCase()}' not found in notwanted names`;
+            ol.append(li);
+          }
+
+        }
+        else if (action.innerText == "updatemessages") {
+          if (messages.has(textarea.value.trim().toLowerCase())) {
+            messages.delete(textarea.value.trim().toLowerCase())
+            li.innerText = `'${textarea.value.trim().toLowerCase()}' deleted from  messages`;
+            ol.append(li);
+          }
+          else {
+            li.innerText = `'${textarea.value.trim().toLowerCase()}' not found in messages`;
+            ol.append(li);
+          }
+
+        }
+      }
+      else {
+        li.innerText = `there is no input`;
+        ol.append(li);
+      }
+    }
+    postt.onclick = function name() {
+      ol.innerHTML = "";
+      let li = document.createElement("li");
+      if (action.innerText == "updatefemales") {
+        post([...femaleNames]).then(e => e.text()).then(
+          r => {
+            li.innerText = r;
+            ol.append(li);
+          }
+        )
+      } else if (action.innerText == "updatemales") {
+        post([...males]).then(e => e.text()).then(
+          r => {
+            li.innerText = r;
+            ol.append(li);
+          }
+        )
+      }
+      else {
+        post([...messages]).then(e => e.text()).then(
+          r => {
+            li.innerText = r;
+            ol.append(li);
+          }
+        )
+      }
+    }
+    async function fetchAll() {
+      let fetched = await fetch(`https://tuundun.x10.mx/femaleNames.json`);
+      let arr = await fetched.json();
+      femaleNames = new Set(arr)
+      femaleNames.delete(null);
+      femaleNames.delete(undefined);
+      femaleNames.delete("");
+      fetched = await fetch(`https://tuundun.x10.mx/notwanted.json`);
+      arr = await fetched.json();
+      males = new Set(arr)
+      males.delete(null);
+      males.delete(undefined);
+      males.delete("");
+      fetched = await fetch(`https://tuundun.x10.mx/messages.json`);
+      arr = await fetched.json();
+      messages = new Set(arr)
+      messages.delete(null);
+      messages.delete(undefined);
+      messages.delete("");
+      textarea.disabled = false
+    }
+
+    fetchAll();
+
   </script>
 
 </body>

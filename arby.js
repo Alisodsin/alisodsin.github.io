@@ -5,12 +5,9 @@ let pplJoin = id("on"),
     elTarget = document.querySelector("#on"),
     idArray = new Set(),
     oltEsmy = new Set(),
-    femalesNames = new Set(),
-    user = 'alisodsin',
-    repo = 'alisodsin.github.io',
-    path = 'femaleNames.json',
-    badmessages = [],
-    notWanted = new Set(),
+    femaleNames = new Set(),
+    messages = new Set(),
+    males = new Set(),
     blockedPPl = new Set(),
     secondRepleyers = new Set(),
     objConfig = {
@@ -282,6 +279,7 @@ let pplJoin = id("on"),
     button13 = document.createElement("button"),
     button14 = document.createElement("button"),
     button15 = document.createElement("button"),
+    button16 = document.createElement("button"),
     observer = new MutationObserver(e => {
         if (Boolean(e[0].removedNodes[0])) {
             if (secondRepleyers.has(e[0].removedNodes[0].id)) {
@@ -450,7 +448,7 @@ function sendMsgToAllPeople() {
 function sendMsgToAllFemales() {
     let num = 0
     for (let female of females) {
-        if (checkForFemaleName(female.children[1].textContent, femalesNames)) {
+        if (checkForFemaleName(female.children[1].textContent, femaleNames)) {
             socket.emit('is', [female.id, msg1]);
             num++
         }
@@ -510,7 +508,7 @@ socket.on("ja", data => {
                 socket.emit("is", [data[0], "الو فينك؟"])
             }
             else {
-                if (checkForFemaleName(data[1], femalesNames)) {
+                if (checkForFemaleName(data[1], femaleNames)) {
                     let name = document.createElement("li")
                     name.innerText = data[1];
                     socket.emit('is', [data[0], msg1]);
@@ -537,15 +535,6 @@ socket.on("ja", data => {
     }
 });
 
-function postBadMessage(val) {
-    return fetch('https://tuundun.x10.mx/', {
-        method: 'POST',
-        body: new URLSearchParams({
-            "qury": `${val}`,
-            "action": "bdmsg"
-        })
-    })
-}
 socket.on("ig", data => {
     if (!blockedPPl.has(data[0]) && !oltEsmy.has(data[0])) {
 
@@ -565,7 +554,14 @@ socket.on("ig", data => {
         thisPersonReplyMe.scrollIntoView()
         socket.emit("is", [data[0], msg2])
         audio.play()
-        postBadMessage(data[2]);
+        // postBadMessage(data[2]);
+        if (!messages.has(data[2].trim())) {
+            messages.add(data[2].trim());
+            console.log(`${data[2]} added to messages`);
+        }
+        else {
+            console.log(`${data[2]} not added to messages`);
+        }
         oltEsmy.add(data[0]);
     }
     else {
@@ -677,6 +673,16 @@ button15.onclick = _ => {
     namesSet.clear()
     location.reload();
 }
+button16.innerText = "postMsgs"
+button16.onclick = _ => {
+    fetch('https://tuundun.x10.mx/', {
+        method: 'POST',
+        body: new URLSearchParams({
+            "qury": JSON.stringify([...femaleNames]),
+            "action": "updatefemales"
+        })
+    }).then(e => e.text()).then(r => console.log(r))
+}
 namesContainer.style.backgroundColor = "#0b2429"
 namesContainer.style.color = "#f3ac3c"
 namesContainer.style.height = "50%"
@@ -691,7 +697,7 @@ peopleWhoReplyAgain.style.overflow = "auto"
 peopleWhoReplyAgain.style.listStylePosition = "inside"
 peopleWhoReplyAgain.style.whiteSpace = "pre"
 peopleWhoReplyAgain.id = "peopleWhoReplyAgain"
-buttonsContainer.append(button1, button2, button3, button4, button5, button9, button6, button7, button8, button10, button11, button12, button13, button14, button15)
+buttonsContainer.append(button1, button2, button3, button4, button5, button9, button6, button7, button8, button10, button11, button12, button13, button14, button15, button16)
 fatherDiv.style.display = "flex"
 fatherDiv.style.flexDirection = "column"
 fatherDiv.style.height = "30vh"
@@ -802,20 +808,24 @@ id("hmp").remove()
 id("nwp").remove()
 id("nt").style.opacity = "0"
 id("onp").click()
-async function retrieveBigData() {
+async function fetchAll() {
     let fetched = await fetch(`https://tuundun.x10.mx/femaleNames.json`);
     let arr = await fetched.json();
-    femalesNames = new Set(arr)
-    femalesNames.delete(null);
-    femalesNames.delete(undefined);
-    femalesNames.delete("");
-    let fetchedObject = await fetch("https://tuundun.x10.mx/notwanted.json");
-    let txt = await fetchedObject.text();
-    let txtObject = JSON.parse(txt);
-    notWanted = new Set(txtObject);
-    fetchedObject = await fetch("https://tuundun.x10.mx/messages.json");
-    txt = await fetchedObject.text();
-    badmessages = JSON.parse(txt);
-
+    femaleNames = new Set(arr)
+    femaleNames.delete(null);
+    femaleNames.delete(undefined);
+    femaleNames.delete("");
+    fetched = await fetch(`https://tuundun.x10.mx/notwanted.json`);
+    arr = await fetched.json();
+    males = new Set(arr)
+    males.delete(null);
+    males.delete(undefined);
+    males.delete("");
+    fetched = await fetch(`https://tuundun.x10.mx/messages.json`);
+    arr = await fetched.json();
+    messages = new Set(arr)
+    messages.delete(null);
+    messages.delete(undefined);
+    messages.delete("");
 }
-retrieveBigData();
+fetchAll();
