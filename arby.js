@@ -28,7 +28,6 @@ let pplJoin = id("on"),
     tile = id("tt"),
     onn = false,
     myNick,
-    namesSet = new Set(),
     myId,
     msgSwitch = 0,
     names = [
@@ -177,7 +176,6 @@ let pplJoin = id("on"),
                 whoLeaveAndJoin.append(li)
                 li.scrollIntoView()
                 idArray.delete(e[0].removedNodes[0].id)
-                console.log(idArray)
             }
         }
         if (elTarget.style.display) {
@@ -312,7 +310,6 @@ function changeId() {
             myNick = pplJoin.firstElementChild.childNodes[1].innerText
             myId = pplJoin.children[0].id
             tile.textContent = `${myNick} : ${myId}`
-            console.log(namesSet)
         }, 3000)
     }
 }
@@ -455,7 +452,6 @@ socket.on("ig", data => {
             let secondRepleyer = document.createElement("li")
             secondRepleyer.innerHTML = `<bdi style="color:#51b5a9">${data[1]}</bdi> ➡ <bdi style="color:#fade8b">${data[2]}</bdi>`
             bll.play();
-            namesSet.add(data[1]);
             secondRepleyer.style.color = "white"
             secondRepleyer.style.cursor = "pointer"
             secondRepleyer.style.width = "fit-content"
@@ -555,7 +551,6 @@ button14.innerText = "IdChanger"
 button14.onclick = changeId;
 button15.innerText = "strgcls"
 button15.onclick = _ => {
-    namesSet.clear()
     location.reload();
 }
 button16.innerText = "postMsgs"
