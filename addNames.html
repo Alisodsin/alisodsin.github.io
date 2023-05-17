@@ -26,9 +26,15 @@
 
 <body>
   <div><textarea id="names" spellcheck="false"></textarea></div>
-  <div><button id="butt">save</button>&#160;<button id="butt1">delete</button>&#160;<button
-      id="saven">saven</button>&#160;<button id="deleten">deleten</button>&#160;<button
-      id="badmsg">bdmsg</button>&#160;<button id="badmsgd">db</button></div>
+  <div>
+    <button id="butt">save</button>&#160;
+    <button id="butt1">delete</button>&#160;
+    <button id="saven">saven</button>&#160;
+    <button id="deleten">deleten</button>&#160;
+    <button id="badmsg">bdmsg</button>&#160;
+    <button id="badmsgd">db</button>
+    <button id="restore">restore</button>
+  </div>
 
   <script>
     let txt = document.getElementById("names");
@@ -38,7 +44,8 @@
     let button4 = document.getElementById("deleten");
     let button5 = document.getElementById("badmsg");
     let button6 = document.getElementById("badmsgd");
-    let ul = document.createElement("ul");
+    let button7 = document.getElementById("restore");
+    let ul = document.createElement("ol");
     let namesGit = new Set();
     let namesPhp = new Set();
     document.body.append(ul);
@@ -96,6 +103,17 @@
         })
       })
     }
+
+    function restor(val) {
+      return fetch('https://tuundun.x10.mx/', {
+        method: 'POST',
+        body: new URLSearchParams({
+          "qury": `${val}`,
+          "action": "noaction"
+        })
+      })
+    }
+
     button1.onclick = function () {
       ul.innerHTML = ""
       let arr = txt.value.trim().split(/\s+/);
@@ -203,6 +221,16 @@
       let li = document.createElement("li");
       li.innerText = str;
       ul.append(li)
+    }
+    button7.onclick = async function () {
+      ul.innerHTML = "";
+      let msg = txt.value;
+      let response = await restor(msg);
+      let str = await response.text();
+      // let li = document.createElement("li");
+      // li.innerText = str;
+      // ul.append(li)
+      ul.innerHTML = str
     }
     async function comparing() {
       let fetchedObject = await fetch(`https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/femaleNames.json`);

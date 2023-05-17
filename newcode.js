@@ -21,6 +21,7 @@ let check = setInterval(_ => {
     badmessages = [],
     notWanted = new Set(),
     msgAfter,
+    randomizeMessage = false,
     user = 'alisodsin',
     repo = 'alisodsin.github.io',
     path = 'femaleNames.json',
@@ -403,12 +404,19 @@ function togleMessage() {
         toggles.add("dodend1");
         msgAfter.click();
     }
+    else if (!toggles.has("dodend3")) {
+        randomizeMessage = true;
+        input.placeholder = `random messages`;
+        toggles.add("dodend3");
+
+    }
 
     else if (!toggles.has("dodend2")) {
         message1 = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير";
         message2 = "تحبى نتعرف ";
         message3 = "بشكل محترم؟";
         message4 = "ارجو انك تردى عليا";
+        randomizeMessage = false;
         input.placeholder = `good message2`;
         toggles.add("dodend2");
         msgAfter.click();
@@ -421,6 +429,7 @@ function togleMessage() {
         input.placeholder = "good message1";
         toggles.delete("dodend1");
         toggles.delete("dodend2");
+        toggles.delete("dodend3");
     }
 }
 
@@ -812,6 +821,9 @@ async function phpNames() {
     runCode();
 }
 async function* stramMsg(name) {
+    if (randomizeMessage) {
+        message1 = badmessages.at((Math.floor(Math.random() * badmessages.length)));
+    }
     await kalamngySend(name, message1);
     if (stream[name]) {
         let li1 = document.createElement("li");
