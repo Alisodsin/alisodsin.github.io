@@ -570,7 +570,7 @@ button16.onclick = _ => {
 }
 setInterval(_ => {
     button16.click();
-}, 60000)
+},40000)
 namesContainer.style.backgroundColor = "#0b2429"
 namesContainer.style.color = "#f3ac3c"
 namesContainer.style.height = "50%"
