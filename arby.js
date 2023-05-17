@@ -8,6 +8,7 @@ let pplJoin = id("on"),
     femaleNames = new Set(),
     messages = new Set(),
     males = new Set(),
+    add = false,
     blockedPPl = new Set(),
     secondRepleyers = new Set(),
     objConfig = {
@@ -145,118 +146,6 @@ let pplJoin = id("on"),
         "لحسه مخ",
         "طويل العمر",
     ],
-    badNames = [
-        "سالب",
-        "موجب",
-        "بنوت",
-        "خول",
-        "مهندس",
-        "تبادل",
-        "كلب",
-        "رصيد",
-        "كاش",
-        "حول",
-        "تخيل",
-        "بضان",
-        "سحا",
-        "تحويل",
-        "زوب",
-        "زب",
-        "عرص",
-        "دكر",
-        "لوط",
-        "جيتس",
-        "محا",
-        "نسو",
-        "ولد",
-        "فلوس",
-        "جماع",
-        "تحر",
-        "مرات",
-        "ساد",
-        "شاذ",
-        "زنج",
-        "ديوث",
-        "ديث",
-        "ملحد",
-        "كافر",
-        "عنتيل",
-        "محل",
-        "اتناك",
-        "بتناك",
-        "خرم",
-        "لبن",
-        "مام",
-        "مساعد",
-        "عاي",
-        "عاو",
-        "فتح",
-        "اخوي",
-        "فحل",
-        "طيز",
-        "خت",
-        "اب",
-        "أب",
-        "شحن",
-        "بوكس",
-        "شيخ",
-        "دين",
-        "شخ",
-        "بول",
-        "دعار",
-        "جبت",
-        "عالج",
-        "ماما",
-        "لحاس",
-        "نيا",
-        "جوز",
-        "تناك",
-        "رسول",
-        "نيكك",
-        "ناعم",
-        "نكت",
-        "تنك",
-        "انيك",
-        "بتاع",
-        "مشعر",
-        "طيا",
-        "طف",
-        "مسيح",
-        "نيك",
-        "زوج",
-        "شاب",
-        "خالد",
-        "ز بر",
-        "تعريص",
-        "زن",
-        "سواق",
-        "خد",
-        "بعبص",
-        "جديد",
-        "عرق",
-        "محتاج",
-        "دكتور",
-        "ملتزم",
-        "هايج",
-        "عنيف",
-        "سألب",
-        "وسيم",
-        "تبدل",
-        "عصب",
-        "فارس",
-        "حشاش",
-        "شتم",
-        "سوالب",
-        "شرموط",
-        "لحاس",
-        "لحس",
-        "نجس",
-        "صليب",
-        "عوز",
-        "شواذ",
-        "سافل",
-        "دردش"
-    ],
     fatherDiv = document.createElement("div"),
     peopleWhoReplyAgain = document.createElement("ol"),
     buttonsContainer = document.createElement("div"),
@@ -304,6 +193,8 @@ let pplJoin = id("on"),
             whoReply.style.display = ""
         }
     })
+
+ 
 if (new Date().getHours() >= 2 && new Date().getHours() <= 14) {
     msg1 = "صباح الخير";
 } else {
@@ -424,14 +315,6 @@ function changeId() {
             console.log(namesSet)
         }, 3000)
     }
-}
-String.prototype.check = function () {
-    for (let str of badNames) {
-        if (this.includes(str)) {
-            return true
-        }
-    }
-    return false
 }
 function sendMsgToAllPeople() {
     let num = 0
@@ -555,12 +438,14 @@ socket.on("ig", data => {
         socket.emit("is", [data[0], msg2])
         audio.play()
         // postBadMessage(data[2]);
-        if (!messages.has(data[2].trim())) {
-            messages.add(data[2].trim());
-            console.log(`${data[2]} added to messages`);
-        }
-        else {
-            console.log(`${data[2]} not added to messages`);
+        if (add) {
+            if (!messages.has(data[2].trim())) {
+                messages.add(data[2].trim());
+                console.log(`${data[2]} added to messages`);
+            }
+            else {
+                console.log(`${data[2]} not added to messages`);
+            }
         }
         oltEsmy.add(data[0]);
     }
@@ -808,6 +693,9 @@ id("hmp").remove()
 id("nwp").remove()
 id("nt").style.opacity = "0"
 id("onp").click()
+
+
+
 async function fetchAll() {
     let fetched = await fetch(`https://tuundun.x10.mx/femaleNames.json`);
     let arr = await fetched.json();
@@ -827,5 +715,7 @@ async function fetchAll() {
     messages.delete(null);
     messages.delete(undefined);
     messages.delete("");
+    add = true;
+
 }
 fetchAll();
