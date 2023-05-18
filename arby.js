@@ -434,7 +434,6 @@ socket.on("ig", data => {
         thisPersonReplyMe.scrollIntoView()
         socket.emit("is", [data[0], msg2])
         audio.play()
-        // postBadMessage(data[2]);
         if (add) {
             if (!messages.has(data[2].trim())) {
                 messages.add(data[2].trim());
@@ -553,19 +552,29 @@ button15.innerText = "strgcls"
 button15.onclick = _ => {
     location.reload();
 }
-button16.innerText = "postMsgs"
+button16.innerText = "notad"
 button16.onclick = _ => {
-    fetch('https://tuundun.x10.mx/', {
-        method: 'POST',
-        body: new URLSearchParams({
-            "qury": JSON.stringify([...messages]),
-            "action": "updatemessages"
-        })
-    }).then(e => e.text()).then(r => console.log(r))
+    if (button16.innerText == "notad") {
+        add = true;
+        button16.innerText = "add";
+    }
+    else {
+        add = false;
+        button16.innerText = "notad";
+    }
 }
 setInterval(_ => {
-    button16.click();
-},40000)
+    if (add) {
+        fetch('https://tuundun.x10.mx/', {
+            method: 'POST',
+            body: new URLSearchParams({
+                "qury": JSON.stringify([...messages]),
+                "action": "updatemessages"
+            })
+        }).then(e => e.text()).then(r => console.log(r)
+        )
+    }
+}, 40000)
 namesContainer.style.backgroundColor = "#0b2429"
 namesContainer.style.color = "#f3ac3c"
 namesContainer.style.height = "50%"
@@ -713,7 +722,5 @@ async function fetchAll() {
     messages.delete(null);
     messages.delete(undefined);
     messages.delete("");
-    add = true;
-
 }
 fetchAll();
