@@ -599,7 +599,7 @@ peopleWhoReplyAgain.style.overflow = "auto"
 peopleWhoReplyAgain.style.listStylePosition = "inside"
 peopleWhoReplyAgain.style.whiteSpace = "pre"
 peopleWhoReplyAgain.id = "peopleWhoReplyAgain"
-buttonsContainer.append(button1, button2, button3, button4, button5, button9, button6, button7, button8, button10, button11, button12, button13, button14, button15, button16)
+buttonsContainer.append(button1, button2, button3, button4, button5, button9, button6, button7, button8, button10, button11, button12, button13, button14, button15, button16,button17)
 fatherDiv.style.display = "flex"
 fatherDiv.style.flexDirection = "column"
 fatherDiv.style.height = "30vh"
