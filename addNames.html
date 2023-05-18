@@ -59,35 +59,35 @@
       if (textarea.value != "") {
         if (action.innerText == "updatefemales") {
           if (femaleNames.has(textarea.value.trim().toLowerCase())) {
-            li.innerText = `'${textarea.value.trim().toLowerCase()}' already exists in femaleNames`;
+            li.innerText = `${textarea.value.trim().toLowerCase()} : already exists in femaleNames`;
             ol.append(li);
           }
           else {
             femaleNames.add(textarea.value.trim().toLowerCase())
-            li.innerText = `'${textarea.value.trim().toLowerCase()}' added to femaleNames`;
+            li.innerText = `${textarea.value.trim().toLowerCase()} : added to femaleNames`;
             ol.append(li);
           }
         }
         else if (action.innerText == "updatemales") {
           if (males.has(textarea.value.trim().toLowerCase())) {
-            li.innerText = `'${textarea.value.trim().toLowerCase()}' already exists in notwanted names`;
+            li.innerText = `${textarea.value.trim().toLowerCase()} : already exists in notwanted names`;
             ol.append(li);
           }
           else {
             males.add(textarea.value.trim().toLowerCase())
-            li.innerText = `'${textarea.value.trim().toLowerCase()}' added to notwanted names`;
+            li.innerText = `${textarea.value.trim().toLowerCase()} : added to notwanted names`;
             ol.append(li);
           }
 
         }
         else if (action.innerText == "updatemessages") {
           if (messages.has(textarea.value.trim().toLowerCase())) {
-            li.innerText = `'${textarea.value.trim().toLowerCase()}' already exists in messages`;
+            li.innerText = `${textarea.value.trim().toLowerCase()} : already exists in messages`;
             ol.append(li);
           }
           else {
             messages.add(textarea.value.trim().toLowerCase())
-            li.innerText = `'${textarea.value.trim().toLowerCase()}' added to messages`;
+            li.innerText = `${textarea.value.trim().toLowerCase()} : added to messages`;
             ol.append(li);
           }
 
@@ -107,22 +107,22 @@
         if (action.innerText == "updatefemales") {
           if (femaleNames.has(textarea.value.trim().toLowerCase())) {
             femaleNames.delete(textarea.value.trim().toLowerCase())
-            li.innerText = `'${textarea.value.trim().toLowerCase()}' delted from femaleNames`;
+            li.innerText = `${textarea.value.trim().toLowerCase()} : delted from femaleNames`;
             ol.append(li);
           }
           else {
-            li.innerText = `'${textarea.value.trim().toLowerCase()}' not found in femaleNames`;
+            li.innerText = `${textarea.value.trim().toLowerCase()} : not found in femaleNames`;
             ol.append(li);
           }
         }
         else if (action.innerText == "updatemales") {
           if (males.has(textarea.value.trim().toLowerCase())) {
             males.delete(textarea.value.trim().toLowerCase())
-            li.innerText = `'${textarea.value.trim().toLowerCase()}' deleted from notwanted names`;
+            li.innerText = `${textarea.value.trim().toLowerCase()} : deleted from notwanted names`;
             ol.append(li);
           }
           else {
-            li.innerText = `'${textarea.value.trim().toLowerCase()}' not found in notwanted names`;
+            li.innerText = `${textarea.value.trim().toLowerCase()} : not found in notwanted names`;
             ol.append(li);
           }
 
@@ -130,11 +130,11 @@
         else if (action.innerText == "updatemessages") {
           if (messages.has(textarea.value.trim().toLowerCase())) {
             messages.delete(textarea.value.trim().toLowerCase())
-            li.innerText = `'${textarea.value.trim().toLowerCase()}' deleted from  messages`;
+            li.innerText = `${textarea.value.trim().toLowerCase()} : deleted from  messages`;
             ol.append(li);
           }
           else {
-            li.innerText = `'${textarea.value.trim().toLowerCase()}' not found in messages`;
+            li.innerText = `${textarea.value.trim().toLowerCase()} : not found in messages`;
             ol.append(li);
           }
 
