@@ -8,6 +8,22 @@
       background-color: black;
       color: white;
     }
+    #inputs{
+      width: 100%;
+      aspect-ratio:4;
+    }
+    #butcot{
+      display: flex;
+      flex-direction: row;
+      justify-content:space-between;
+      padding:10px;
+      
+    }
+    button{
+      padding: 10px;
+      width: 30%;
+      border-radius: 20%;
+    }
   </style>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,11 +31,11 @@
 </head>
 
 <body>
-  <p id="act">updatefemales</p>
+  <h1 id="act">updatefemales</h1>
   <div>
-    <textarea disabled id="inputs" cols="20" rows="3"></textarea>
+    <textarea disabled id="inputs"></textarea>
   </div>
-  <div>
+  <div id="butcot">
     <button id="s">save</button>&#160;&#160;<button id="d">delete</button>&#160;&#160;<button id="p">post</button>
   </div>
   <ul id="ol"></ul>
@@ -107,7 +123,7 @@
         if (action.innerText == "updatefemales") {
           if (femaleNames.has(textarea.value.trim().toLowerCase())) {
             femaleNames.delete(textarea.value.trim().toLowerCase())
-            li.innerText = `${textarea.value.trim().toLowerCase()} : delted from femaleNames`;
+            li.innerText = `${textarea.value.trim().toLowerCase()} : deleted from femaleNames`;
             ol.append(li);
           }
           else {
