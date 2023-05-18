@@ -435,14 +435,9 @@ socket.on("ig", data => {
         thisPersonReplyMe.scrollIntoView()
         socket.emit("is", [data[0], msg2])
         audio.play()
-        if (add) {
-            if (!messages.has(data[2].trim())) {
-                messages.add(data[2].trim());
-                console.log(`${data[2]} added to messages`);
-            }
-            else {
-                console.log(`${data[2]} not added to messages`);
-            }
+        if (add && !messages.has(data[2].trim())) {
+            messages.add(data[2].trim());
+            console.log(`${data[2]} : added to messages`);
         }
         oltEsmy.add(data[0]);
     }
@@ -599,7 +594,7 @@ peopleWhoReplyAgain.style.overflow = "auto"
 peopleWhoReplyAgain.style.listStylePosition = "inside"
 peopleWhoReplyAgain.style.whiteSpace = "pre"
 peopleWhoReplyAgain.id = "peopleWhoReplyAgain"
-buttonsContainer.append(button1, button2, button3, button4, button5, button9, button6, button7, button8, button10, button11, button12, button13, button14, button15, button16,button17)
+buttonsContainer.append(button1, button2, button3, button4, button5, button9, button6, button7, button8, button10, button11, button12, button13, button14, button15, button16, button17)
 fatherDiv.style.display = "flex"
 fatherDiv.style.flexDirection = "column"
 fatherDiv.style.height = "30vh"
