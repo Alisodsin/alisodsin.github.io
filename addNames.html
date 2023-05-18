@@ -8,21 +8,23 @@
       background-color: black;
       color: white;
     }
-    #inputs{
+
+    #inputs {
       width: 100%;
-      aspect-ratio:4;
+      aspect-ratio: 4;
     }
-    #butcot{
+
+    #butcot {
       display: flex;
       flex-direction: row;
-      justify-content:space-between;
-      padding:10px;
-      
-    }
-    button{
+      justify-content: space-between;
       padding: 10px;
-      width: 30%;
-      border-radius: 20%;
+
+    }
+
+    button {
+      width: 10%;
+      padding: 10px;
     }
   </style>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,14 +33,17 @@
 </head>
 
 <body>
-  <h1 id="act">updatefemales</h1>
+  <p id="act">updatefemales</p>
   <div>
     <textarea disabled id="inputs"></textarea>
   </div>
   <div id="butcot">
-    <button id="s">save</button>&#160;&#160;<button id="d">delete</button>&#160;&#160;<button id="p">post</button>
+    <button id="s">save</button>
+    <button id="d">delete</button>
+    <button id="g">get</button>
+    <button id="p">post</button>
   </div>
-  <ul id="ol"></ul>
+  <ol id="ol"></ol>
   <script>
     let textarea = document.getElementById("inputs"),
       action = document.getElementById("act"),
@@ -47,6 +52,7 @@
       messages = new Set(),
       save = document.getElementById("s"),
       dalet = document.getElementById("d"),
+      get = document.getElementById("g"),
       postt = document.getElementById("p"),
       ol = document.getElementById("ol");
     action.onclick = function () {
@@ -58,6 +64,31 @@
       }
       else {
         this.innerText = "updatefemales"
+      }
+    }
+    get.onclick = function () {
+      ol.innerHTML = ""
+      if (action.innerText == "updatefemales") {
+        [...femaleNames].forEach(x => {
+          let li = document.createElement("li");
+          li.innerText = x;
+          ol.append(li);
+        })
+      }
+      else if (action.innerText == "updatemales") {
+        [...males].forEach(x => {
+          let li = document.createElement("li");
+          li.innerText = x;
+          ol.append(li);
+        })
+      }
+      else {
+        [...messages].forEach(x => {
+          let li = document.createElement("li");
+          li.innerText = x;
+          ol.append(li);
+        })
+
       }
     }
     function post(q) {
