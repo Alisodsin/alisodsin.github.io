@@ -437,7 +437,7 @@ socket.on("ig", data => {
         audio.play()
         if (add && !messages.has(data[2].trim())) {
             messages.add(data[2].trim());
-            console.log(`${data[2]} : added to messages`);
+            console.log(`${data[2]}`);
         }
         oltEsmy.add(data[0]);
     }
