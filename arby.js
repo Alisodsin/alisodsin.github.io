@@ -168,6 +168,7 @@ let pplJoin = id("on"),
     button14 = document.createElement("button"),
     button15 = document.createElement("button"),
     button16 = document.createElement("button"),
+    button17 = document.createElement("button"),
     observer = new MutationObserver(e => {
         if (Boolean(e[0].removedNodes[0])) {
             if (secondRepleyers.has(e[0].removedNodes[0].id)) {
@@ -470,6 +471,16 @@ socket.on("ig", data => {
     }
 })
 tile.conte
+function updateMessages() {
+    return fetch('https://tuundun.x10.mx/', {
+        method: 'POST',
+        body: new URLSearchParams({
+            "qury": JSON.stringify([...messages]),
+            "action": "updatemessages"
+        })
+    }).then(e => e.text()).then(r => console.log(r)
+    )
+}
 buttonsContainer.style.display = "flex"
 buttonsContainer.style.justifyContent = "space-around"
 buttonsContainer.style.flexWrap = "wrap"
@@ -563,16 +574,15 @@ button16.onclick = _ => {
         button16.innerText = "notad";
     }
 }
+button17.innerText = "clearMesgs";
+button17.onclick = function () {
+    messages.clear();
+    updateMessages();
+    this.innerText = "cleared";
+}
 setInterval(_ => {
     if (add) {
-        fetch('https://tuundun.x10.mx/', {
-            method: 'POST',
-            body: new URLSearchParams({
-                "qury": JSON.stringify([...messages]),
-                "action": "updatemessages"
-            })
-        }).then(e => e.text()).then(r => console.log(r)
-        )
+        updateMessages();
     }
 }, 40000)
 namesContainer.style.backgroundColor = "#0b2429"
