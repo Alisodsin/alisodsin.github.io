@@ -832,7 +832,7 @@ async function* stramMsg(name) {
     await kalamngySend(name, message1);
     if (stream[name]) {
         let li1 = document.createElement("li");
-        li1.innerText = name;
+        li1.innerText = `<bdi>${name}</bdi>${hrdspc} ⬅ ${hrdspc}<bdi style="color:white">${stream[name].msg}</bdi>`;
         li1.style.cursor = "pointer";
         li1.style.width = "fit-content";
         li1.id = stream[name].id1
