@@ -843,6 +843,7 @@ async function* stramMsg(name) {
     if (stream[name]) {
         let li1 = document.createElement("li");
         li1.innerText = name;
+        input.placeholder = `${name} ⬅ ${stream[name].msg}`
         li1.style.cursor = "pointer";
         li1.style.width = "fit-content";
         li1.id = stream[name].id1
