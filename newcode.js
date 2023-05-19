@@ -211,8 +211,8 @@ function runCode() {
             _fmain.document.querySelector("#mainplusbtn").remove();
 
             _fmain.addEventListener('message', function (event) {
-                if (event.origin === 'https://alisodsin.github.io') {
-                    let name = event.data.replace(/\s.{1,}/g, "");
+                if (event.origin === 'https://tuundun.x10.mx') {
+                    let name = event.data.replace(/\s:.{1,}/g, "");
                     if (event.data.includes("added")) {
                         femalesNames.addd(name);
                     }
@@ -832,7 +832,7 @@ async function* stramMsg(name) {
     await kalamngySend(name, message1);
     if (stream[name]) {
         let li1 = document.createElement("li");
-        li1.innerHTML = `<bdi>${name}</bdi>${hrdspc} ⬅ ${hrdspc}<bdi style="color:white">${stream[name].msg}</bdi>`;
+        li1.innerText = name;
         li1.style.cursor = "pointer";
         li1.style.width = "fit-content";
         li1.id = stream[name].id1
@@ -867,7 +867,7 @@ async function* stramMsg(name) {
         let str = _fmain.document.querySelector("#text")?.childNodes[0]?.childNodes[4]?.innerText;
         let li = _fmain.document.getElementById(stream[name].id1);
         li.innerText = "";
-        li.innerHTML = `<bdi>${name}</bdi>${hrdspc} ➡ ${hrdspc}<bdi style="color:white">${str}</bdi>`;
+        li.innerHTML = `<bdi>${name}</bdi> ➡ <bdi style="color:white">${str}</bdi> ⬅ <bdi style="color:white">${stream[name].msg}</bdi>`;
         li.style.whiteSpace = "pre";
         li.onclick = function (event) {
             kalamngySend(name, `/query ${name}`);
