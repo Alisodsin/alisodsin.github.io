@@ -213,12 +213,22 @@ function runCode() {
             _fmain.addEventListener('message', function (event) {
                 if (event.origin === 'https://tuundun.x10.mx') {
                     let name = event.data.replace(/\s:.{1,}/g, "");
-                    if (event.data.includes("added")) {
+                    if (event.data.includes("added to femaleNames")) {
                         femalesNames.addd(name);
+                        input.placeholder = `${name} added to females`
+                    }
+                    else if (event.data.includes("deleted from femaleNames")) {
+                        femalesNames.delete(name);
+                        input.placeholder = `${name} deleted from the females`;
+                    }
+                    else if (event.data.includes("added to notwanted names")) {
+                        notWanted.add(name)
+                        input.placeholder = `${name} added from the males`;
                     }
                     else {
-                        femalesNames.delete(name);
-                        console.log(`${name} deleted from the set`);
+                        notWanted.delete(name);
+                        input.placeholder = `${name} deleted from the males`;
+
                     }
                 }
             });
