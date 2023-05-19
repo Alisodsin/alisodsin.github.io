@@ -108,7 +108,7 @@ function runCode() {
         if (Boolean(Object?.keys?.(_fwindowlist?.Witems)?.[1])) {
             roomName = Object.keys(_fwindowlist.Witems)[1];
             framo = document.createElement("iframe");
-            framo.src = "https://alisodsin.github.io/addNames.html";
+            framo.src = "https://tuundun.x10.mx/add.html";
             framo.name = "child"
             mainTarget = _fmain.document.querySelector(".main-span");
             myNick = _fwindowlist.mynickname;
