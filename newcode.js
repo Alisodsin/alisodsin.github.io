@@ -314,6 +314,10 @@ function changeMessage1() {
     message2 = prompt("Enter new message2", message2);
     message3 = prompt("Enter new message3", message3);
 }
+function getRandomMessage() {
+    const randomIndex = Math.floor(crypto.getRandomValues(new Uint32Array(1))[0] / (Math.pow(2, 32) - 1) * badmessages.length);
+    return badmessages[randomIndex];
+}
 async function sentTwoMsgs() {
     if (_fwindowlist.currentwindow != roomName) {
         let personName = _fwindowlist.currentwindow;
@@ -919,7 +923,7 @@ async function* stramMsg(name) {
 }
 function doIt(name) {
     if (randomizeMessage) {
-        message1 = badmessages.at((Math.floor(Math.random() * badmessages.length)));
+        message1 = getRandomMessage();
     }
     stream[name] = { msg: message1, timeout: (condition) ? setTimeout(() => { stream[name].excuterObj.next(true); }, 60000) : "", id1: generateRandomString(), id2: generateRandomString(), excuterObj: stramMsg(name) }
     stream[name].excuterObj.next();
