@@ -829,6 +829,7 @@ async function phpNames() {
     femalesNames.delete("");
     femalesNames.addd = addd;
     testSet = femalesNames;
+    oldLength = femalesNames.size;
     let fetchedObject = await fetch("https://tuundun.x10.mx/notwanted.json");
     let txt = await fetchedObject.text();
     let txtObject = JSON.parse(txt);
