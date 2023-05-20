@@ -108,7 +108,7 @@ function runCode() {
         if (Boolean(Object?.keys?.(_fwindowlist?.Witems)?.[1])) {
             roomName = Object.keys(_fwindowlist.Witems)[1];
             framo = document.createElement("iframe");
-            framo.src = "https://tuundun.x10.mx/add.html";
+            framo.src = "https://dodend.000webhostapp.com/add.html";
             framo.name = "child"
             mainTarget = _fmain.document.querySelector(".main-span");
             myNick = _fwindowlist.mynickname;
@@ -590,14 +590,14 @@ function buttonsCreator() {
                 button.style.color = "white";
                 button.innerText = "updt"
                 button.onclick = async function () {
-                    let fetched = await fetch(`https://tuundun.x10.mx/femaleNames.json`);
+                    let fetched = await fetch(`https://dodend.000webhostapp.com/femaleNames.json`);
                     let arr = await fetched.json();
                     femalesNames = new Set(arr)
                     femalesNames.delete(null);
                     femalesNames.delete(undefined);
                     femalesNames.delete("");
                     femalesNames.addd = addd;
-                    let fetchedObject = await fetch("https://tuundun.x10.mx/notwanted.json");
+                    let fetchedObject = await fetch("https://dodend.000webhostapp.com/notwanted.json");
                     let txt = await fetchedObject.text();
                     let txtObject = JSON.parse(txt);
                     notWanted = new Set(txtObject);
@@ -821,7 +821,7 @@ function generateRandomString() {
     return randomString;
 }
 async function phpNames() {
-    let fetched = await fetch(`https://tuundun.x10.mx/femaleNames.json`);
+    let fetched = await fetch(`https://dodend.000webhostapp.com/femaleNames.json`);
     let arr = await fetched.json();
     femalesNames = new Set(arr)
     femalesNames.delete(null);
@@ -830,11 +830,11 @@ async function phpNames() {
     femalesNames.addd = addd;
     testSet = femalesNames;
     oldLength = femalesNames.size;
-    let fetchedObject = await fetch("https://tuundun.x10.mx/notwanted.json");
+    let fetchedObject = await fetch("https://dodend.000webhostapp.com/notwanted.json");
     let txt = await fetchedObject.text();
     let txtObject = JSON.parse(txt);
     notWanted = new Set(txtObject);
-    fetchedObject = await fetch("https://tuundun.x10.mx/messages.json");
+    fetchedObject = await fetch("https://dodend.000webhostapp.com/messages.json");
     txt = await fetchedObject.text();
     badmessages = JSON.parse(txt);
     let fetchedObjec = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`);
