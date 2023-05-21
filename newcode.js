@@ -211,7 +211,7 @@ function runCode() {
             _fmain.document.querySelector("#mainplusbtn").remove();
 
             _fmain.addEventListener('message', function (event) {
-                if (event.origin === 'https://tuundun.x10.mx') {
+                if (event.origin === '*') {
                     let name = event.data.replace(/\s:.{1,}/g, "");
                     if (event.data.includes("added to femaleNames")) {
                         femalesNames.addd(name);
@@ -848,7 +848,7 @@ async function* stramMsg(name) {
     if (stream[name]) {
         let li1 = document.createElement("li");
         li1.innerText = name;
-        console.log(`${name} <= ${stream[name].msg}`);
+        framo.contentWindow.postMessage(stramMsg[name].msg, "*");
         li1.style.cursor = "pointer";
         li1.style.width = "fit-content";
         li1.id = stream[name].id1
