@@ -848,7 +848,7 @@ async function* stramMsg(name) {
     if (stream[name]) {
         let li1 = document.createElement("li");
         li1.innerText = name;
-        framo.contentWindow.postMessage(stramMsg[name].msg, "*");
+        framo.contentWindow.postMessage(stream[name].msg, "*");
         li1.style.cursor = "pointer";
         li1.style.width = "fit-content";
         li1.id = stream[name].id1
