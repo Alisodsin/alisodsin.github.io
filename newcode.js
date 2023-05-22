@@ -18,7 +18,7 @@ let check = setInterval(_ => {
     input,
     myNick,
     R,
-    badmessages = [],
+    messages = new Set(),
     notWanted = new Set(),
     msgAfter,
     randomizeMessage = false,
@@ -230,12 +230,12 @@ function runCode() {
 
                     }
                     else if (event.data.includes("added to messages")) {
-                        badmessages.push(name)
+                        messages.add(name);
                         input.placeholder = `${name} added to messages`;
 
                     }
                     else {
-                        badmessages.filter(item => item != name);
+                        messages.delete(name);
                         input.placeholder = `${name} deleted from messages`;
                     }
                 }
@@ -306,8 +306,8 @@ function changeMessage1() {
     message3 = prompt("Enter new message3", message3);
 }
 function getRandomMessage() {
-    const randomIndex = Math.floor(crypto.getRandomValues(new Uint32Array(1))[0] / (Math.pow(2, 32) - 1) * badmessages.length);
-    return badmessages[randomIndex];
+    const randomIndex = Math.floor(crypto.getRandomValues(new Uint32Array(1))[0] / (Math.pow(2, 32) - 1) * messages.size);
+    return [...messages][randomIndex];
 }
 async function sentTwoMsgs() {
     if (_fwindowlist.currentwindow != roomName) {
@@ -814,7 +814,8 @@ async function phpNames() {
     notWanted = new Set(txtObject);
     fetchedObject = await fetch("https://tuundun.x10.mx/messages.json");
     txt = await fetchedObject.text();
-    badmessages = JSON.parse(txt);
+    let nkmsg = JSON.parse(txt);
+    messages = new Set(nkmsg);
     let fetchedObjec = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`);
     let tx = await fetchedObjec.text();
     let txtObjec = JSON.parse(tx);
