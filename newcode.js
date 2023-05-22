@@ -51,7 +51,6 @@ let check = setInterval(_ => {
     toggles = new Set(),
     malesNames = new Set(),
     roomName,
-    addd,
     containersDiv = document.createElement("div"),
     ol1 = document.createElement("ol"),
     ol2 = document.createElement("ol"),
@@ -214,7 +213,7 @@ function runCode() {
                 if (event.origin === 'https://tuundun.x10.mx') {
                     let name = event.data.replace(/\s:.{1,}/g, "");
                     if (event.data.includes("added to femaleNames")) {
-                        femalesNames.addd(name);
+                        femalesNames.ad(name);
                         input.placeholder = `${name} added to females`
                     }
                     else if (event.data.includes("deleted from femaleNames")) {
@@ -225,32 +224,24 @@ function runCode() {
                         notWanted.add(name)
                         input.placeholder = `${name} added from the males`;
                     }
-                    else {
+                    else if (event.data.includes("deleted from notwanted names")) {
                         notWanted.delete(name);
                         input.placeholder = `${name} deleted from the males`;
 
+                    }
+                    else if (event.data.includes("added to messages")) {
+                        badmessages.push(name)
+                        input.placeholder = `${name} added to messages`;
+
+                    }
+                    else {
+                        badmessages.filter(item => item != name);
+                        input.placeholder = `${name} deleted from messages`;
                     }
                 }
             });
 
             buttons = [...buttonContainers.children];
-            addd = function (value) {
-                if (this.has(value)) {
-                    input.placeholder = `${value} is already in the set`;
-                    console.log(`${value} is already in the set`);
-                }
-                else {
-                    this.add(value)
-                    input.placeholder = `${value} added to the set`;
-                    console.log(`${value} added to the set`);
-                    _fmain.document.getElementById("kokos").innerText = this.size - oldLength;
-                }
-            }
-            Object.defineProperty(femalesNames, "addd", {
-                value: addd,
-                writable: false,
-                configurable: false
-            });
             R = _fwindowlist.document.getElementsByName("R")[0].value;
             kalamngySend = function (target, msg) {
                 return fetch("https://www.kalamngychat.com/chat/client-perl.cgi", { method: "POST", headers: { "Content-type": "application/x-www-form-urlencoded" }, body: `item=say&cmd=say&say=${msg}&target=${target}&R=${R}&xmlhttp=1` });
@@ -578,13 +569,6 @@ function buttonsCreator() {
                 button.innerText = "on";
                 button.onclick = toggleFemales;
                 break;
-            case 18:
-                button.style.background = "black";
-                button.style.color = "white";
-                button.id = "kokos"
-                button.innerText = "ad";
-                button.onclick = addName;
-                break;
             case 19:
                 button.style.background = "black";
                 button.style.color = "white";
@@ -596,7 +580,6 @@ function buttonsCreator() {
                     femalesNames.delete(null);
                     femalesNames.delete(undefined);
                     femalesNames.delete("");
-                    femalesNames.addd = addd;
                     let fetchedObject = await fetch("https://tuundun.x10.mx/notwanted.json");
                     let txt = await fetchedObject.text();
                     let txtObject = JSON.parse(txt);
@@ -784,10 +767,6 @@ function toggleFemales() {
         _fmain.document.getElementById("togf").innerText = "on"
     }
 }
-function addName() {
-    let name = prompt();
-    femalesNames.addd(name.toLowerCase());
-}
 function removeMultiWordElements(x) {
     const singleWordElements = new Set();
     for (const element of x) {
@@ -827,7 +806,6 @@ async function phpNames() {
     femalesNames.delete(null);
     femalesNames.delete(undefined);
     femalesNames.delete("");
-    femalesNames.addd = addd;
     testSet = femalesNames;
     oldLength = femalesNames.size;
     let fetchedObject = await fetch("https://tuundun.x10.mx/notwanted.json");
