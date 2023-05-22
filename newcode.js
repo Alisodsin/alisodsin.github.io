@@ -213,7 +213,7 @@ function runCode() {
                 if (event.origin === 'https://tuundun.x10.mx') {
                     let name = event.data.replace(/\s:.{1,}/g, "");
                     if (event.data.includes("added to femaleNames")) {
-                        femalesNames.ad(name);
+                        femalesNames.add(name);
                         input.placeholder = `${name} added to females`
                     }
                     else if (event.data.includes("deleted from femaleNames")) {
