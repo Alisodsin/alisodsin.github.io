@@ -1,20 +1,35 @@
-Object.keys(parent.fwindowlist).forEach((x) => {
-    if (x.includes("_0x") || x.includes("mynickpre") || x.includes("AF") || x.includes("gFV") || x.includes("canvas") || x.includes("getClient")) {
-        parent.fwindowlist[x] = _ => { return true }
+// global variables  
+let check = setInterval(_ => {
+    console.log("wait");
+    if (parent?.fwindowlist) {
+        Object.keys(parent.fwindowlist).forEach((x) => {
+            if (/(_0x|mynickpre|AF|gFV|canvas|getClient)/.test(x)) {
+                parent.fwindowlist[x] = _ => { return true }
+                console.log(`${x} killed`);
+            }
+        });
+        clearInterval(check);
     }
-});
-let _fmain = parent.fmain,
+}, 50),
+    _fmain = parent.fmain,
     buttonContainers = document.createElement("div"),
     _fwindowlist = parent.fwindowlist,
     style = document.createElement("style"),
     input,
     myNick,
     R,
+    messages = new Set(),
+    notWanted = new Set(),
     msgAfter,
+    randomizeMessage = false,
     user = 'alisodsin',
     repo = 'alisodsin.github.io',
-    path = 'femaleNames.json',
-    shrr,
+    path1 = 'femaleNames.json',
+    path2 = `males.json`,
+    path3 = `messages.json`,
+    shrr1,
+    shrr2,
+    shrr3,
     users,
     stream = {},
     framo,
@@ -30,19 +45,19 @@ let _fmain = parent.fmain,
     buttons,
     rooms = ["#مصر", "#رومانسية"],
     message1 = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير",
-    message2 = "انا مهندس على 35 سنه من المنصوره",
-    message3 = "ممكن نتعرف؟",
+    message2 = "جاسر 33 من المنصوره",
+    message3 = "ممكن اتعرف لو مفيش مانع؟",
     message4 = "ممكن لو سمحتى تردى عليا ؟",
     regex = /onedaymothersaidgetupearlytogotoschool/,
     personsGotMyMsg1 = new Set(),
     femalesNames = new Set(),
-    testSet,
+    testSet = new Set(),
     toggles = new Set(),
+    malesNames = new Set(),
     roomName,
-    addd,
-    firstli,
-    ol = document.createElement("ol"),
+    containersDiv = document.createElement("div"),
     ol1 = document.createElement("ol"),
+    ol2 = document.createElement("ol"),
     joiningPplClass,
     joinPerson,
     join,
@@ -56,19 +71,24 @@ let _fmain = parent.fmain,
             if ((!stream[join] && joinPerson.nextSibling.data.includes("Joine")) && (join in users) && (regex.test(join) || checkForFemaleName(join, testSet))) {
                 doIt(join);
             }
+            else if (!malesNames.has(join) && !personsGotMyMsg1.has(join) && !/^Kalamngy_\d{0,}$|Guest/ig.test(join) && (join in users) && _fwindowlist.currentwindow == roomName) {
+                let li = document.createElement("li");
+                li.innerText = join
+                ol2.append(li);
+                li.scrollIntoView();
+                malesNames.add(join);
+            }
         }
     }),
     listObserver = new MutationObserver((e) => {
-
         let addedNodes = e[0].addedNodes;
         let listPersonName = addedNodes[0]?.firstElementChild?.lastElementChild?.previousElementSibling?.innerText;
-        if (typeof listPersonName == "string" && listPersonName != roomName && !personsGotMyMsg1.has(listPersonName) && !/Guest|#/.test(listPersonName)) {
-            kalamngySend(listPersonName, `/winclose ${listPersonName}`)
-
+        if (typeof listPersonName == "string" && listPersonName != "x" && listPersonName != roomName && !personsGotMyMsg1.has(listPersonName) && !(/Guest/.test(listPersonName) || checkForFemaleName(listPersonName, femalesNames))) {
+            kalamngySend(listPersonName, `/winclose ${listPersonName}`);
         }
         else {
             personsGotMyMsg1.forEach(name => {
-                let regex = new RegExp(name + "\n!", "g")
+                let regex = new RegExp(name + "\n!", "g");
                 if (listTarget.innerText.match(regex)) {
                     stream[name].excuterObj.next();
                 }
@@ -82,12 +102,16 @@ let _fmain = parent.fmain,
         characterData: false
     },
     audio = new Audio("https://alisodsin.github.io/Short.mp3"),
-    bll = new Audio("https://soundbible.com/mp3/A-Tone-His_Self-1266414414.mp3"),
-    check = setInterval(_ => {
+    bll = new Audio("https://soundbible.com/mp3/A-Tone-His_Self-1266414414.mp3");
+
+// global  functions
+
+function runCode() {
+    let check = setInterval(_ => {
         if (Boolean(Object?.keys?.(_fwindowlist?.Witems)?.[1])) {
             roomName = Object.keys(_fwindowlist.Witems)[1];
             framo = document.createElement("iframe");
-            framo.src = "https://alisodsin.github.io/addNames.html";
+            framo.src = "https://php.alisaber1.repl.co/add.html";
             framo.name = "child"
             mainTarget = _fmain.document.querySelector(".main-span");
             myNick = _fwindowlist.mynickname;
@@ -97,10 +121,10 @@ let _fmain = parent.fmain,
             listObserver.observe(listTarget, objConfig);
             fform.onkeydown = keysHandelr;
             ters = fform.document.getElementsByTagName("img")[0]
-            firstli = _fwindowlist.document.getElementsByClassName("wlist-chooser")
             _fmain.nickmenu = function () { return false }
             _fmain.document.getElementById("menu").remove();
             _fmain.document.getElementById("mainplusbtn").click();
+            users = _fwindowlist?.Witems?.[roomName]?.users;
             parent.fuserlist.document.querySelectorAll('.menu').forEach(menuElement => {
                 menuElement.style.display = 'none';
             });
@@ -126,72 +150,63 @@ let _fmain = parent.fmain,
                 kalamngySend(roomName, `/clear ${roomName}`)
             }, 60000);
             buttonsCreator();
+            containersDiv.style.position = "fixed";
+            containersDiv.style.display = "flex";
+            containersDiv.id = "father"
+            containersDiv.style.flexDirection = "column";
+            containersDiv.style.top = "0%";
+            containersDiv.style.width = "30vw";
+            containersDiv.style.height = "100%";
+            containersDiv.style.right = "0"
+            containersDiv.style.margin = "0"
+            containersDiv.style.padding = "0"
+
             input.placeholder = oldLength
             buttonContainers.style.position = "fixed";
             buttonContainers.style.display = "flex";
             buttonContainers.style.flexDirection = "column";
             buttonContainers.style.top = "0%";
-            buttonContainers.style.right = "0%";
-            buttonContainers.style.width = "10vh";
+            buttonContainers.style.width = "fit-content";
             buttonContainers.style.height = "100%";
             buttonContainers.style.justifyContent = "space-around";
             buttonContainers.style.flexWrap = "wrap";
             buttonContainers.id = "buttonContainers"
 
             style.textContent = `
+            
             @media screen and (max-height:500px){
                 #buttonContainers{
                     display:none !important;
                 }
                 #ol{
                     display:none !important;
-                }
-                #ol1{
+                } 
+                #ol2{
                     display:none !important;
                 }
             }
-            .w3-display-middle{
-                position:absolute;
-                top:50%;
-                left:50%;
-                transform:translate(-50%,-50%);
-            }
-               `;
-            ol.id = "ol";
-            ol.style.width = "40vw";
-            ol.style.height = "50vh";
-            ol.style.background = "black";
-            ol.className = "w3-display-middle";
-            ol.style.borderRadius = "20%";
-            ol.style.color = "white"
-            ol.style.paddingTop = "5%"
-            ol.style.overflow = "auto"
-            ol.onclick = function name() {
-                ol.style.display = "none";
-                ol1.style.display = "block";
-            }
-            ol1.id = "ol1";
-            ol1.style.width = "40vw";
-            ol1.style.height = "50vh";
-            ol1.style.background = "black";
-            ol1.className = "w3-display-middle";
-            ol1.style.color = "white"
-            ol1.style.paddingTop = "5%"
-            ol1.style.overflow = "auto"
-            ol1.style.display = "none";
-            ol1.onclick = function name() {
-                ol1.style.display = "none";
-                ol.style.display = "block";
-            };
-            framo.id = "biginput";
-            framo.style.width = "40vw";
-            framo.style.height = "50vh";
-            framo.frameborder = "0";
-            framo.className = "w3-display-middle";
-            framo.style.border = "none";
-            framo.style.display = "none";
+           
 
-            _fmain.document.body.append(buttonContainers, ol, ol1, framo);
+            #father * {
+                flex: 1;
+                margin:0;
+              }
+              #father ol li {
+                white-space: nowrap;
+              }
+            `
+            ol1.id = "ol";
+            ol1.style.background = "black";
+            ol1.style.color = "green";
+            ol1.style.overflow = "auto"
+            framo.id = "biginput";
+            ol2.id = "ol2";
+            ol2.style.background = "black";
+            ol2.style.color = "white"
+            ol2.style.overflow = "auto"
+            ol2.style.display = "block";
+            containersDiv.append(ol1, framo, ol2)
+            _fmain.document.body.append(buttonContainers, containersDiv);
             _fmain.document.head.append(style)
             _fmain.document.querySelector(".main-closepic").remove();
             _fmain.document.querySelector(".userlist-hiddeni").remove();
@@ -199,87 +214,87 @@ let _fmain = parent.fmain,
             _fmain.document.querySelector("#mainplusbtn").remove();
 
             _fmain.addEventListener('message', function (event) {
-                if (event.origin === 'https://alisodsin.github.io') {
-                    let name = event.data.replace(/\s.{1,}/g, "");
-                    if (event.data.includes("added")) {
-                        femalesNames.addd(name);
+                if (event.origin === 'https://php.alisaber1.repl.co') {
+                    let name = event.data.replace(/\s:.{1,}/g, "");
+                    if (event.data.includes("added to femaleNames")) {
+                        femalesNames.add(name);
+                        input.placeholder = `${name} added to females`
+                    }
+                    else if (event.data.includes("deleted from femaleNames")) {
+                        femalesNames.delete(name);
+                        input.placeholder = `${name} deleted from the females`;
+                    }
+                    else if (event.data.includes("added to notwanted names")) {
+                        notWanted.add(name)
+                        input.placeholder = `${name} added from the males`;
+                    }
+                    else if (event.data.includes("deleted from notwanted names")) {
+                        notWanted.delete(name);
+                        input.placeholder = `${name} deleted from the males`;
+
+                    }
+                    else if (event.data.includes("added to messages")) {
+                        messages.add(name);
+                        input.placeholder = `${name} added to messages`;
+
                     }
                     else {
-                        femalesNames.delete(name);
-                        console.log(`${name} deleted from the set`);
+                        messages.delete(name);
+                        input.placeholder = `${name} deleted from messages`;
                     }
                 }
             });
 
             buttons = [...buttonContainers.children];
-            addd = function (value) {
-                if (this.has(value)) {
-                    input.placeholder = `${value} is already in the set`;
-                    console.log(`${value} is already in the set`);
-                }
-                else {
-                    this.add(value)
-                    input.placeholder = `${value} added to the set`;
-                    console.log(`${value} added to the set`);
-                    _fmain.document.getElementById("kokos").innerText = this.size - oldLength;
-                }
-            }
-            Object.defineProperty(femalesNames, "addd", {
-                value: addd,
-                writable: false,
-                configurable: false
-            });
             R = _fwindowlist.document.getElementsByName("R")[0].value;
             kalamngySend = function (target, msg) {
                 return fetch("https://www.kalamngychat.com/chat/client-perl.cgi", { method: "POST", headers: { "Content-type": "application/x-www-form-urlencoded" }, body: `item=say&cmd=say&say=${msg}&target=${target}&R=${R}&xmlhttp=1` });
             };
 
-            (async () => {
-                Object.keys(_fwindowlist.Witems[roomName].users).forEach(x => {
-                    if (checkForFemaleName(x, femalesNames)) {
-                        zozo.add(x);
+            Object.keys(users).forEach(x => {
+                if (checkForFemaleName(x, femalesNames)) {
+                    zozo.add(x);
+                }
+            });
+            doIt(myNick);
+            mainObserver.observe(mainTarget, objConfig);
+            _fwindowlist["Witems"][roomName]["users"] = new Proxy(_fwindowlist["Witems"][roomName]["users"], {
+                deleteProperty(target, prop) {
+                    if (zozo.has(prop)) {
+                        zozo.delete(prop)
                     }
-                });
-                await sleep(100);
-                doIt(myNick);
-                ol.click();
-                mainObserver.observe(mainTarget, objConfig);
-                setInterval(() => {
-                    users = _fwindowlist?.Witems?.[roomName]?.users;
-                    let behinedJoiner = _fwindowlist.Witems[rooms[0]]?.text?.filter(x => x?.includes("Joined"))?.at(-1)?.match(/<a.*>(.*)<\/a>/i)?.[1];
-                    if (Boolean(users)) {
-                        personsGotMyMsg1.forEach(name => {
-                            if (!(name in users)) {
-                                input.placeholder = `${name} quit`
-                                block(name);
-                            }
-                        });
-                        zozo.forEach(name => {
-                            if (!(name in users)) {
-                                zozo.delete(name);
-                            }
-                        });
-                        if (num && _fwindowlist.currentwindow != roomName && behinedJoiner && !personsGotMyMsg1.has(behinedJoiner) && behinedJoiner in users && (regex.test(behinedJoiner) || checkForFemaleName(behinedJoiner, testSet))) {
-                            console.log(behinedJoiner);
-                            doIt(behinedJoiner);
-                        }
+                    if (personsGotMyMsg1.has(prop)) {
+                        block(prop)
+                        input.placeholder = `${prop} quit`;
                     }
-                }, 50);
-                let prsntPplMsg = setInterval(_ => {
-                    if (zozo.size < 1) {
-                        clearInterval(prsntPplMsg);
+                    return Reflect.deleteProperty(target, prop)
+                }
+            });
+            setInterval(() => {
+                let behinedJoiner = _fwindowlist.Witems[rooms[0]]?.text?.filter(x => x?.includes("Joined"))?.at(-1)?.match(/<a.*>(.*)<\/a>/i)?.[1];
+                if (Boolean(users)) {
+                    if (num && _fwindowlist.currentwindow != roomName && behinedJoiner && !personsGotMyMsg1.has(behinedJoiner) && behinedJoiner in users && (regex.test(behinedJoiner) || checkForFemaleName(behinedJoiner, testSet))) {
+                        doIt(behinedJoiner);
                     }
-                    else {
-                        let name = [...zozo].at((Math.floor(Math.random() * zozo.size)));
+                }
+            }, 50);
+            let prsntPplMsg = setInterval(_ => {
+                if (zozo.size < 1) {
+                    clearInterval(prsntPplMsg);
+                }
+                else {
+                    let name = [...zozo].at((Math.floor(Math.random() * zozo.size)));
+                    if (_fmain.document.getElementById("togf").innerText == "on") {
                         doIt(name);
                     }
 
-                }, 60000);
-            })();
+                }
+
+            }, 60000);
             clearInterval(check);
-            console.log("done");
         }
     }, 100);
+}
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -293,6 +308,10 @@ function changeMessage1() {
     message1 = prompt("Enter new message1", message1);
     message2 = prompt("Enter new message2", message2);
     message3 = prompt("Enter new message3", message3);
+}
+function getRandomMessage() {
+    const randomIndex = Math.floor(crypto.getRandomValues(new Uint32Array(1))[0] / (Math.pow(2, 32) - 1) * messages.size);
+    return [...messages][randomIndex];
 }
 async function sentTwoMsgs() {
     if (_fwindowlist.currentwindow != roomName) {
@@ -310,9 +329,35 @@ async function defineMySelf() {
     }
 }
 async function restart() {
-    await kalamngySend("Status", `/query Status`);
-    await sleep(1000);
-    _fwindowlist.reconnect();
+    if (_fwindowlist.currentwindow != "Status") {
+        await kalamngySend("Status", `/query Status`);
+        await sleep(1000);
+        _fwindowlist.reconnect();
+        await sleep(1000);
+        let check = setInterval(_ => {
+            console.log("ali");
+            if (_fwindowlist.currentwindow == roomName) {
+                users = _fwindowlist?.Witems?.[roomName]?.users;
+                _fwindowlist["Witems"][roomName]["users"] = new Proxy(_fwindowlist["Witems"][roomName]["users"], {
+                    deleteProperty(target, prop) {
+                        if (zozo.has(prop)) {
+                            zozo.delete(prop)
+                        }
+                        if (personsGotMyMsg1.has(prop)) {
+                            block(prop)
+                            input.placeholder = `${prop} quit`;
+                        }
+                        return Reflect.deleteProperty(target, prop)
+                    }
+                });
+                clearInterval(check);
+            }
+        }, 100);
+
+    }
+    else {
+        _fwindowlist.reconnect();
+    }
 }
 async function sendMsgToMyself() {
     await kalamngySend(myNick, message1);
@@ -322,16 +367,21 @@ async function sendMsgToMyself() {
 function goToRoom() {
     kalamngySend(roomName, `/query ${roomName}`);
 }
-
 function block(x) {
-    let personName = x
-    if (personName != roomName && personName != myNick) {
-        kalamngySend(personName, `/winclose ${personName}`)
-        personsGotMyMsg1.delete(personName);
-        _fmain.document.getElementById(stream?.[personName]?.id1)?.remove();
-        _fmain.document.getElementById(stream?.[personName]?.id2)?.remove();
-        clearTimeout(stream?.[personName]?.timeout);
-        delete stream[personName]
+    if (x != roomName && x != myNick && personsGotMyMsg1.has(x)) {
+        if (x == _fwindowlist.currentwindow) {
+            kalamngySend(x, `/winclose ${x}`)
+        }
+        personsGotMyMsg1.delete(x);
+        _fmain.document.getElementById(stream?.[x]?.id1)?.remove();
+        _fmain.document.getElementById(stream?.[x]?.id2)?.remove();
+        clearTimeout(stream?.[x]?.timeout);
+        delete stream[x]
+    }
+    else if ((x != roomName && x != myNick && !personsGotMyMsg1.has(x))) {
+        kalamngySend(x, `/ignore ${x}`).then(_ => {
+            kalamngySend(x, `/winclose ${x}`);
+        })
     }
 }
 
@@ -355,13 +405,19 @@ function efsl() {
 
 function togleMessage() {
     if (!toggles.has("dodend1")) {
-        message1 = "انيكك صوت؟";
-        message2 = "نتكلم جيتسى";
-        message3 = "او تلجرام؟";
+        message1 = "ما تيجى انيكك ؟";
+        message2 = "عندك جيتسى او تلجرام او لاين";
+        message3 = "؟";
         message4 = "ما تردى عليا يا لبوتى"
         input.placeholder = `the bad message`;
         toggles.add("dodend1");
         msgAfter.click();
+    }
+    else if (!toggles.has("dodend3")) {
+        randomizeMessage = true;
+        input.placeholder = `random messages`;
+        toggles.add("dodend3");
+
     }
 
     else if (!toggles.has("dodend2")) {
@@ -369,6 +425,7 @@ function togleMessage() {
         message2 = "تحبى نتعرف ";
         message3 = "بشكل محترم؟";
         message4 = "ارجو انك تردى عليا";
+        randomizeMessage = false;
         input.placeholder = `good message2`;
         toggles.add("dodend2");
         msgAfter.click();
@@ -381,6 +438,7 @@ function togleMessage() {
         input.placeholder = "good message1";
         toggles.delete("dodend1");
         toggles.delete("dodend2");
+        toggles.delete("dodend3");
     }
 }
 
@@ -406,26 +464,23 @@ function toggleButtons() {
 }
 function toggleContainer() {
 
-    if (ol.style.display == "block") {
-        ol.style.display = "none";
-        ol1.style.display = "block";
-    }
-    else if (ol1.style.display == "block") {
-        ol1.style.display = "none";
-        framo.style.display = "block";
-
-    }
-    else if (framo.style.display == "block") {
-        framo.style.display = "none";
+    if (!toggles.has("show")) {
+        containersDiv.style.display = "none"
+        toggles.add("show");
     }
     else {
-        ol.style.display = "block"
+        containersDiv.style.display = "flex"
+        toggles.delete("show");
+
     }
+
+
 }
 function buttonsCreator() {
-    for (let index = 1; index <= 21; index++) {
+    for (let index = 1; index <= 22; index++) {
         let button = document.createElement("button");
         button.innerText = `F${index}`;
+        // button.style.width = "10%";
         switch (index) {
             case 1:
                 button.style.background = "#4CAF50";
@@ -502,13 +557,13 @@ function buttonsCreator() {
             case 15:
                 button.style.background = "#CD4124";
                 button.style.color = "white";
-                button.innerText = "Save";
+                button.innerText = "Sv";
                 button.onclick = sendBigData;
                 break;
             case 16:
                 button.style.background = "black";
                 button.style.color = "white";
-                button.innerText = "chngPtrn"
+                button.innerText = "ptrn"
                 button.onclick = changePattern;
                 break;
             case 17:
@@ -518,53 +573,47 @@ function buttonsCreator() {
                 button.innerText = "on";
                 button.onclick = toggleFemales;
                 break;
-            case 18:
-                button.style.background = "black";
-                button.style.color = "white";
-                button.id = "kokos"
-                button.innerText = "addName";
-                button.onclick = addName;
-                break;
-            case 19:
-                button.style.background = "black";
-                button.style.color = "white";
-                button.innerText = "cleanSet"
-                button.onclick = _ => {
-                    femalesNames = removeMultiWordElements(femalesNames);
-                    femalesNames.addd = addd
-                };
-                break;
             case 20:
                 button.style.background = "black";
                 button.style.color = "white";
-                button.innerText = "SingleS";
+                button.innerText = "sngl";
                 button.onclick = function () {
                     if (!num) {
                         num = true;
-                        this.innerText = "DoubleS"
+                        this.innerText = "dbl"
                     }
                     else {
                         num = false;
-                        this.innerText = "SingleS"
+                        this.innerText = "sngl"
                     }
                 };
                 break;
             case 21:
                 button.style.background = "black";
                 button.style.color = "white";
-                button.innerText = "false";
+                button.innerText = "f";
                 button.onclick = function () {
                     if (condition) {
                         condition = false;
-                        this.innerText = "false";
+                        this.innerText = "f";
                     }
                     else {
                         condition = true;
-                        this.innerText = "true";
+                        this.innerText = "t";
                     }
 
                 };
                 msgAfter = button;
+                break;
+            case 22:
+                button.style.background = "black";
+                button.style.color = "white";
+                button.innerText = "thisMsg";
+                button.onclick = function () {
+                    input.placeholder = stream[_fwindowlist.currentwindow]?.msg
+                    framo.contentWindow.postMessage(stream[_fwindowlist.currentwindow]?.msg, "*");
+
+                }
                 break;
         }
         button.style.border = "none"
@@ -636,26 +685,66 @@ _fmain.document.addEventListener('click', function (event) {
     }
 });
 async function sendBigData() {
-    let femalesNamesar = [...femalesNames];
-    await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`, { method: 'PUT', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}`, }, body: JSON.stringify({ message: 'Add new names', content: btoa(encodeURIComponent(JSON.stringify(femalesNamesar))), sha: shrr, }), });
-    this.innerText = "done";
-
+    try {
+        await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path1}`, { method: 'PUT', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}`, }, body: JSON.stringify({ message: 'Add new names', content: btoa(encodeURIComponent(JSON.stringify([...femalesNames]))), sha: shrr1, }), });
+        await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path2}`, { method: 'PUT', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}`, }, body: JSON.stringify({ message: 'Add new names', content: btoa(encodeURIComponent(JSON.stringify([...notWanted]))), sha: shrr2, }), });
+        await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path3}`, { method: 'PUT', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}`, }, body: JSON.stringify({ message: 'Add new names', content: btoa(encodeURIComponent(JSON.stringify([...messages]))), sha: shrr3, }), });
+        this.innerText = "done";
+    } catch (error) {
+        console.log(error.message);
+        this.innerText = "err happend"
+    }
 }
 async function retrieveBigData() {
-    let fetchedObject = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`);
-    let txt = await fetchedObject.text();
-    let txtObject = JSON.parse(txt);
-    console.log(txtObject);
-    shrr = txtObject.sha;
+    try {
+        let fetchedObject = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path1}`);
+        let txt = await fetchedObject.text();
+        let txtObject = JSON.parse(txt);
+        shrr1 = txtObject.sha;
+        let json = decodeURIComponent(atob(txtObject.content));
+        femalesNames = new Set(JSON.parse(json));
+        femalesNames.delete(null);
+        femalesNames.delete(undefined);
+        femalesNames.delete("");
+        testSet = femalesNames;
+        oldLength = femalesNames.size
+        fetchedObject = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path2}`);
+        txt = await fetchedObject.text();
+        txtObject = JSON.parse(txt);
+        shrr2 = txtObject.sha;
+        json = decodeURIComponent(atob(txtObject.content));
+        notWanted = new Set(JSON.parse(json));
+        notWanted.delete(null);
+        notWanted.delete(undefined);
+        notWanted.delete("");
+        fetchedObject = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path3}`);
+        txt = await fetchedObject.text();
+        txtObject = JSON.parse(txt);
+        shrr3 = txtObject.sha;
+        json = decodeURIComponent(atob(txtObject.content));
+        messages = new Set(JSON.parse(json));
+        messages.delete(null);
+        messages.delete(undefined);
+        messages.delete("");
+        runCode();
+    } catch {
+        alert("ERROR!")
+        goToLogin();
+    }
 }
 function checkForFemaleName(str, set) {
+    let words = str.split(/[^\p{L}]/u);
     if (str.includes("|")) {
         return false
     }
     if (set.has(str)) {
         return true
     }
-    let words = str.split(/[^\p{L}]/u);
+    for (const word of words) {
+        if (notWanted.has(word.toLowerCase())) {
+            return false;
+        }
+    }
     for (const word of words) {
         if (set.has(word.toLowerCase())) {
             return true;
@@ -681,18 +770,17 @@ function checkForFemaleName(str, set) {
 function toggleFemales() {
     if (!toggles.has("ok3")) {
         testSet = new Set();
+        ol2.style.display = "block"
         toggles.add("ok3");
         _fmain.document.getElementById("togf").innerText = "off"
+
     }
     else {
         testSet = femalesNames;
+        ol2.style.display = "none"
         toggles.delete("ok3")
         _fmain.document.getElementById("togf").innerText = "on"
     }
-}
-function addName() {
-    let name = prompt();
-    femalesNames.addd(name.toLowerCase());
 }
 function removeMultiWordElements(x) {
     const singleWordElements = new Set();
@@ -727,64 +815,72 @@ function generateRandomString() {
     return randomString;
 }
 async function phpNames() {
-    let fetched = await fetch(`https://php.alisaber1.repl.co`);
-    let arr = await fetched.json();
-    femalesNames = new Set(arr)
-    femalesNames.delete(null);
-    femalesNames.delete(undefined);
-    femalesNames.delete("");
-    femalesNames.addd = addd;
-    testSet = femalesNames;
-    oldLength = femalesNames.size;
-    console.log("female names fetched from server");
+    try {
+        let fetched = await fetch(`https://php.alisaber1.repl.co/femaleNames.json`);
+        let arr = await fetched.json();
+        femalesNames = new Set(arr)
+        femalesNames.delete(null);
+        femalesNames.delete(undefined);
+        femalesNames.delete("");
+        testSet = femalesNames;
+        oldLength = femalesNames.size;
+        let fetchedObject = await fetch("https://php.alisaber1.repl.co/notwanted.json");
+        let txt = await fetchedObject.text();
+        let txtObject = JSON.parse(txt);
+        notWanted = new Set(txtObject);
+        fetchedObject = await fetch("https://php.alisaber1.repl.co/messages.json");
+        txt = await fetchedObject.text();
+        let nkmsg = JSON.parse(txt);
+        messages = new Set(nkmsg);
+        let fetchedObjec = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path1}`);
+        let tx = await fetchedObjec.text();
+        let txtObjec = JSON.parse(tx);
+        shrr1 = txtObjec.sha;
+        fetchedObjec = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path2}`);
+        tx = await fetchedObjec.text();
+        txtObjec = JSON.parse(tx);
+        shrr2 = txtObjec.sha;
+        fetchedObjec = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path3}`);
+        tx = await fetchedObjec.text();
+        txtObjec = JSON.parse(tx);
+        shrr3 = txtObjec.sha;
+        console.log("your server work");
+        runCode();
+    } catch (error) {
+
+        console.log(`your server doesn't work : ${error.message}`);
+        retrieveBigData();
+    }
 }
 async function* stramMsg(name) {
     await kalamngySend(name, message1);
-    let li1 = document.createElement("li");
-    li1.innerText = name;
-    li1.style.cursor = "pointer";
-    li1.style.width = "fit-content";
-    try {
+    if (stream[name]) {
+        let li1 = document.createElement("li");
+        li1.innerText = name;
+        framo.contentWindow.postMessage(stream[name].msg, "*");
+        li1.style.cursor = "pointer";
+        li1.style.width = "fit-content";
         li1.id = stream[name].id1
-    } catch (error) {
-        console.log(`error in id of  name ${name} and will be fixed instantely`);
-        stream[name].id1 = generateRandomString();
-        li1.id = stream[name].id1
-    }
-    li1.style.color = (femalesNames.has(name)) ? "green" : "#FFA500";
-    li1.onclick = function (event) {
-        kalamngySend(name, `/query ${name}`)
-        event.stopPropagation();
+        li1.style.color = (femalesNames.has(name)) ? "green" : "#FFA500";
+        li1.onclick = function (event) {
+            kalamngySend(name, `/query ${name}`)
+            event.stopPropagation();
+        }
+        if (zozo.has(name)) {
+            li1.style.color = "violet";
+            zozo.delete(name)
+        }
+        ol1.append(li1)
+        li1.scrollIntoView();
+        await kalamngySend(name, `/winclose ${name}`)
 
     }
-    if (zozo.has(name)) {
-        li1.style.color = "violet";
-        zozo.delete(name)
+    else {
+        return false
     }
-    ol1.append(li1)
-    li1.scrollIntoView();
-    await kalamngySend(name, `/winclose ${name}`)
     let noreply = yield 1
     if (noreply) {
         await kalamngySend(name, message4);
-        let li = document.createElement("li");
-        li.innerText = name;
-        li.style.cursor = "pointer";
-        li.style.width = "fit-content";
-        li.id = stream[name].id2
-        li.style.color = "red";
-        li.onclick = function (event) {
-            (async () => {
-                await kalamngySend(name, `/query ${name}`);
-                await kalamngySend(name, "الو");
-                await kalamngySend(name, "مشغوله");
-                kalamngySend(name, `/winclose ${name}`)
-            })();
-            event.stopPropagation();
-        }
-        ol.append(li);
-        li.scrollIntoView();
-        await sleep(200);
         kalamngySend(name, `/winclose ${name}`)
     }
     else {
@@ -796,7 +892,7 @@ async function* stramMsg(name) {
         let str = _fmain.document.querySelector("#text")?.childNodes[0]?.childNodes[4]?.innerText;
         let li = _fmain.document.getElementById(stream[name].id1);
         li.innerText = "";
-        li.innerHTML = `<bdi>${name}</bdi>${hrdspc} ➡ ${hrdspc}<bdi style="color:white">${str}</bdi>`;
+        li.innerHTML = `<bdi>${name}</bdi> ➡ <bdi style="color:white">${str}</bdi> ⬅ <bdi style="color:white">${stream[name].msg}</bdi>`;
         li.style.whiteSpace = "pre";
         li.onclick = function (event) {
             kalamngySend(name, `/query ${name}`);
@@ -804,23 +900,6 @@ async function* stramMsg(name) {
         }
         ol1.append(li);
         li.scrollIntoView();
-        let li1 = document.createElement("li");
-        li1.innerText = name;
-        li1.style.cursor = "pointer";
-        li1.style.width = "fit-content";
-        li1.id = stream[name].id2
-        li1.style.color = "white";
-        li1.onclick = function (event) {
-            (async () => {
-                await kalamngySend(name, `/query ${name}`);
-                await kalamngySend(name, "الو")
-                await kalamngySend(name, "مشغوله")
-                kalamngySend(name, `/winclose ${name}`)
-            })();
-            event.stopPropagation();
-        }
-        ol.append(li1);
-        li1.scrollIntoView();
         await sleep(200);
         kalamngySend(name, `/winclose ${name}`)
     }
@@ -853,9 +932,21 @@ async function* stramMsg(name) {
     }
 }
 function doIt(name) {
-    stream[name] = { timeout: (condition) ? setTimeout(() => { stream[name].excuterObj.next(true); }, 60000) : "", id1: generateRandomString(), id2: generateRandomString(), excuterObj: stramMsg(name) }
+    if (randomizeMessage) {
+        message1 = getRandomMessage();
+    }
+    stream[name] = { msg: message1, timeout: (condition) ? setTimeout(() => { stream[name].excuterObj.next(true); }, 60000) : "", id1: generateRandomString(), id2: generateRandomString(), excuterObj: stramMsg(name) }
     stream[name].excuterObj.next();
     personsGotMyMsg1.add(name);
 }
+function downloadObj(obj, filename) {
+    const json = JSON.stringify(obj);
+    const blob = new Blob([json], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${filename}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+}
 phpNames();
-retrieveBigData();
