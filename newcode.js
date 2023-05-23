@@ -707,15 +707,14 @@ async function retrieveBigData() {
     let txt = await fetchedObject.text();
     let txtObject = JSON.parse(txt);
     shrr = txtObject.sha;
-    // let json = decodeURIComponent(atob(txtObject.content));
-    // femalesNames = new Set(JSON.parse(json));
-    // femalesNames.delete(null);
-    // femalesNames.delete(undefined);
-    // femalesNames.delete("");
-    // testSet = femalesNames;
-    // oldLength = femalesNames.size
-    // notdesired();
-    // runCode();
+    let json = decodeURIComponent(atob(txtObject.content));
+    femalesNames = new Set(JSON.parse(json));
+    femalesNames.delete(null);
+    femalesNames.delete(undefined);
+    femalesNames.delete("");
+    testSet = femalesNames;
+    oldLength = femalesNames.size
+    runCode();
 }
 function checkForFemaleName(str, set) {
     if (/nancy\u00A0gamal|\|/i.test(str)) {
@@ -800,27 +799,31 @@ function generateRandomString() {
     return randomString;
 }
 async function phpNames() {
-    let fetched = await fetch(`https://tuundun.x10.mx/femaleNames.json`);
-    let arr = await fetched.json();
-    femalesNames = new Set(arr)
-    femalesNames.delete(null);
-    femalesNames.delete(undefined);
-    femalesNames.delete("");
-    testSet = femalesNames;
-    oldLength = femalesNames.size;
-    let fetchedObject = await fetch("https://tuundun.x10.mx/notwanted.json");
-    let txt = await fetchedObject.text();
-    let txtObject = JSON.parse(txt);
-    notWanted = new Set(txtObject);
-    fetchedObject = await fetch("https://tuundun.x10.mx/messages.json");
-    txt = await fetchedObject.text();
-    let nkmsg = JSON.parse(txt);
-    messages = new Set(nkmsg);
-    let fetchedObjec = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`);
-    let tx = await fetchedObjec.text();
-    let txtObjec = JSON.parse(tx);
-    shrr = txtObjec.sha;
-    runCode();
+    try {
+        let fetched = await fetch(`https://tuundun.x10.mx/femaleNames.json`);
+        let arr = await fetched.json();
+        femalesNames = new Set(arr)
+        femalesNames.delete(null);
+        femalesNames.delete(undefined);
+        femalesNames.delete("");
+        testSet = femalesNames;
+        oldLength = femalesNames.size;
+        let fetchedObject = await fetch("https://tuundun.x10.mx/notwanted.json");
+        let txt = await fetchedObject.text();
+        let txtObject = JSON.parse(txt);
+        notWanted = new Set(txtObject);
+        fetchedObject = await fetch("https://tuundun.x10.mx/messages.json");
+        txt = await fetchedObject.text();
+        let nkmsg = JSON.parse(txt);
+        messages = new Set(nkmsg);
+        let fetchedObjec = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`);
+        let tx = await fetchedObjec.text();
+        let txtObjec = JSON.parse(tx);
+        shrr = txtObjec.sha;
+        runCode();
+    } catch {
+        retrieveBigData();
+    }
 }
 async function* stramMsg(name) {
     await kalamngySend(name, message1);
