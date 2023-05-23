@@ -629,6 +629,8 @@ function buttonsCreator() {
                 button.innerText = "thisMsg";
                 button.onclick = function () {
                     input.placeholder = stream[_fwindowlist.currentwindow]?.msg
+                    framo.contentWindow.postMessage(stream[_fwindowlist.currentwindow]?.msg, "*");
+
                 }
                 break;
         }
