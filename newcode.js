@@ -24,8 +24,12 @@ let check = setInterval(_ => {
     randomizeMessage = false,
     user = 'alisodsin',
     repo = 'alisodsin.github.io',
-    path = 'femaleNames.json',
-    shrr,
+    path1 = 'femaleNames.json',
+    path2 = `males.json`,
+    path3 = `messages.json`,
+    shrr1,
+    shrr2,
+    shrr3,
     users,
     stream = {},
     framo,
@@ -697,33 +701,61 @@ _fmain.document.addEventListener('click', function (event) {
     }
 });
 async function sendBigData() {
-    let femalesNamesar = [...femalesNames];
-    await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`, { method: 'PUT', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}`, }, body: JSON.stringify({ message: 'Add new names', content: btoa(encodeURIComponent(JSON.stringify(femalesNamesar))), sha: shrr, }), });
-    this.innerText = "done";
-
+    try {
+        await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path1}`, { method: 'PUT', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}`, }, body: JSON.stringify({ message: 'Add new names', content: btoa(encodeURIComponent(JSON.stringify([...femalesNames]))), sha: shrr1, }), });
+        await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path2}`, { method: 'PUT', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}`, }, body: JSON.stringify({ message: 'Add new names', content: btoa(encodeURIComponent(JSON.stringify([...notWanted]))), sha: shrr2, }), });
+        await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path3}`, { method: 'PUT', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}`, }, body: JSON.stringify({ message: 'Add new names', content: btoa(encodeURIComponent(JSON.stringify([...messages]))), sha: shrr3, }), });
+        this.innerText = "done";
+    } catch (error) {
+        console.log(error.message);
+        this.innerText = "err happend"
+    }
 }
 async function retrieveBigData() {
-    let fetchedObject = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`);
-    let txt = await fetchedObject.text();
-    let txtObject = JSON.parse(txt);
-    shrr = txtObject.sha;
-    let json = decodeURIComponent(atob(txtObject.content));
-    femalesNames = new Set(JSON.parse(json));
-    femalesNames.delete(null);
-    femalesNames.delete(undefined);
-    femalesNames.delete("");
-    testSet = femalesNames;
-    oldLength = femalesNames.size
-    runCode();
+    try {
+        let fetchedObject = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path1}`);
+        let txt = await fetchedObject.text();
+        let txtObject = JSON.parse(txt);
+        shrr1 = txtObject.sha;
+        let json = decodeURIComponent(atob(txtObject.content));
+        femalesNames = new Set(JSON.parse(json));
+        femalesNames.delete(null);
+        femalesNames.delete(undefined);
+        femalesNames.delete("");
+        testSet = femalesNames;
+        oldLength = femalesNames.size
+        fetchedObject = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path2}`);
+        txt = await fetchedObject.text();
+        txtObject = JSON.parse(txt);
+        shrr2 = txtObject.sha;
+        json = decodeURIComponent(atob(txtObject.content));
+        notWanted = new Set(JSON.parse(json));
+        notWanted.delete(null);
+        notWanted.delete(undefined);
+        notWanted.delete("");
+        fetchedObject = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path3}`);
+        txt = await fetchedObject.text();
+        txtObject = JSON.parse(txt);
+        shrr3 = txtObject.sha;
+        json = decodeURIComponent(atob(txtObject.content));
+        messages = new Set(JSON.parse(json));
+        messages.delete(null);
+        messages.delete(undefined);
+        messages.delete("");
+        runCode();
+    } catch {
+        alert("ERROR!")
+        goToLogin();
+    }
 }
 function checkForFemaleName(str, set) {
-    if (/nancy\u00A0gamal|\|/i.test(str)) {
+    let words = str.split(/[^\p{L}]/u);
+    if (str.includes("|")) {
         return false
     }
     if (set.has(str)) {
         return true
     }
-    let words = str.split(/[^\p{L}]/u);
     for (const word of words) {
         if (notWanted.has(word.toLowerCase())) {
             return false;
@@ -816,12 +848,23 @@ async function phpNames() {
         txt = await fetchedObject.text();
         let nkmsg = JSON.parse(txt);
         messages = new Set(nkmsg);
-        let fetchedObjec = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`);
+        let fetchedObjec = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path1}`);
         let tx = await fetchedObjec.text();
         let txtObjec = JSON.parse(tx);
-        shrr = txtObjec.sha;
+        shrr1 = txtObjec.sha;
+        fetchedObjec = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path2}`);
+        tx = await fetchedObjec.text();
+        txtObjec = JSON.parse(tx);
+        shrr2 = txtObjec.sha;
+        fetchedObjec = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path3}`);
+        tx = await fetchedObjec.text();
+        txtObjec = JSON.parse(tx);
+        shrr3 = txtObjec.sha;
+        console.log("your server work");
         runCode();
-    } catch {
+    } catch (error) {
+
+        console.log(`your server doesn't work : ${error.message}`);
         retrieveBigData();
     }
 }
