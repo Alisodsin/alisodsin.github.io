@@ -1,11 +1,9 @@
 // global variables  
 let check = setInterval(_ => {
-    console.log("wait");
     if (parent?.fwindowlist) {
         Object.keys(parent.fwindowlist).forEach((x) => {
             if (/(_0x|mynickpre|AF|gFV|canvas|getClient)/.test(x)) {
                 parent.fwindowlist[x] = _ => { return true }
-                console.log(`${x} killed`);
             }
         });
         clearInterval(check);
