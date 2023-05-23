@@ -477,7 +477,7 @@ function toggleContainer() {
 
 }
 function buttonsCreator() {
-    for (let index = 1; index <= 22; index++) {
+    for (let index = 1; index <= 20; index++) {
         let button = document.createElement("button");
         button.innerText = `F${index}`;
         // button.style.width = "10%";
@@ -573,7 +573,7 @@ function buttonsCreator() {
                 button.innerText = "on";
                 button.onclick = toggleFemales;
                 break;
-            case 20:
+            case 18:
                 button.style.background = "black";
                 button.style.color = "white";
                 button.innerText = "sngl";
@@ -588,7 +588,7 @@ function buttonsCreator() {
                     }
                 };
                 break;
-            case 21:
+            case 19:
                 button.style.background = "black";
                 button.style.color = "white";
                 button.innerText = "f";
@@ -605,7 +605,7 @@ function buttonsCreator() {
                 };
                 msgAfter = button;
                 break;
-            case 22:
+            case 20:
                 button.style.background = "black";
                 button.style.color = "white";
                 button.innerText = "thisMsg";
