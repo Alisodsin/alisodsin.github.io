@@ -477,7 +477,7 @@ function toggleContainer() {
 
 }
 function buttonsCreator() {
-    for (let index = 1; index <= 20; index++) {
+    for (let index = 1; index <= 21; index++) {
         let button = document.createElement("button");
         button.innerText = `F${index}`;
         // button.style.width = "10%";
@@ -613,6 +613,21 @@ function buttonsCreator() {
                     input.placeholder = stream[_fwindowlist.currentwindow]?.msg
                     framo.contentWindow.postMessage(stream[_fwindowlist.currentwindow]?.msg, "*");
 
+                }
+                break;
+            case 21:
+                button.style.background = "black";
+                button.style.color = "white";
+                button.innerText = "S";
+                button.onclick = function () {
+                    if (this.innerText == "S") {
+                        containersDiv.style.width = "100%";
+                        this.innerText = "L"
+                    }
+                    else {
+                        containersDiv.style.width = "30vw";
+                        this.innerText = "S"
+                    }
                 }
                 break;
         }
