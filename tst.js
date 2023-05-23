@@ -111,7 +111,7 @@ function runCode() {
         if (Boolean(Object?.keys?.(_fwindowlist?.Witems)?.[1])) {
             roomName = Object.keys(_fwindowlist.Witems)[1];
             framo = document.createElement("iframe");
-            framo.src = "https://php.alisaber1.repl.co/add.html";
+            framo.src = "https://php.alisaber1.repl.co/add.php";
             framo.name = "child"
             mainTarget = _fmain.document.querySelector(".main-span");
             myNick = _fwindowlist.mynickname;
@@ -816,7 +816,7 @@ function generateRandomString() {
 }
 async function phpNames() {
     try {
-        let fetched = await fetch(`https://php.alisaber1.repl.co/femaleNames.json`);
+        let fetched = await fetch(`https://php.alisaber1.repl.co/femaleNames.php`);
         let arr = await fetched.json();
         femalesNames = new Set(arr)
         femalesNames.delete(null);
@@ -824,11 +824,11 @@ async function phpNames() {
         femalesNames.delete("");
         testSet = femalesNames;
         oldLength = femalesNames.size;
-        let fetchedObject = await fetch("https://php.alisaber1.repl.co/notwanted.json");
+        let fetchedObject = await fetch("https://php.alisaber1.repl.co/notwanted.php");
         let txt = await fetchedObject.text();
         let txtObject = JSON.parse(txt);
         notWanted = new Set(txtObject);
-        fetchedObject = await fetch("https://php.alisaber1.repl.co/messages.json");
+        fetchedObject = await fetch("https://php.alisaber1.repl.co/messages.php");
         txt = await fetchedObject.text();
         let nkmsg = JSON.parse(txt);
         messages = new Set(nkmsg);
@@ -847,7 +847,6 @@ async function phpNames() {
         console.log("your server work");
         runCode();
     } catch (error) {
-
         console.log(`your server doesn't work : ${error.message}`);
         retrieveBigData();
     }
