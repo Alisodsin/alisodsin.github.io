@@ -621,7 +621,7 @@ function buttonsCreator() {
                 button.innerText = "S";
                 button.onclick = function () {
                     if (this.innerText == "S") {
-                        containersDiv.style.width = "100%";
+                        containersDiv.style.width = "90%";
                         this.innerText = "L"
                     }
                     else {
