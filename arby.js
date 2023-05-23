@@ -255,7 +255,7 @@ window.onkeydown = e => {
         clearAll();
         e.preventDefault()
     } else if (e.key == "F10") {
-        open("https://arabylogin.herokuapp.com/", "_self")
+        open("https://alisodsin.github.io/ArabyChat.htm", "_self")
         e.preventDefault()
     }
     else if (e.key == "F11") {
