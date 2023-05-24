@@ -1,6 +1,6 @@
 let sweetAlert = document.createElement("script")
 sweetAlert.src = "https://sweetalert.js.org/assets/sweetalert/sweetalert.min.js",
-    srvr = "https://php.alisaber1.repl.co/",
+    srvr = "https://tuundun.x10.mx/",
     document.head.appendChild(sweetAlert)
 let pplJoin = id("on"),
     elTarget = document.querySelector("#on"),
@@ -707,12 +707,8 @@ function runCode() {
     id("nt").style.opacity = "0"
     id("onp").click()
 }
-
-
-
-
 function fetchAll() {
-    Promise.all([fetch(`${srvr}femaleNames.php`), fetch(`${srvr}notwanted.php`), fetch(`${srvr}messages.php`)])
+    Promise.all([fetch(`${srvr}femaleNames.json`), fetch(`${srvr}notwanted.json`), fetch(`${srvr}messages.json`)])
         .then(
             e => Promise.all(e.map(x => x.json())))
         .then(arr => {

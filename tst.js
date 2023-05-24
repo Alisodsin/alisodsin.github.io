@@ -22,15 +22,10 @@ let check = setInterval(_ => {
     notWanted = new Set(),
     msgAfter,
     randomizeMessage = false,
-    user = 'alisodsin',
-    repo = 'alisodsin.github.io',
-    path1 = 'femaleNames.json',
-    path2 = `males.json`,
-    path3 = `messages.json`,
     shrr1,
-    fmlurl = "https://php.alisaber1.repl.co/femaleNames.php",
-    notwantedurl = "https://php.alisaber1.repl.co/notwanted.php",
-    messagesurl = "https://php.alisaber1.repl.co/messages.php",
+    fmlurl = "https://tuundun.x10.mx/femaleNames.json",
+    notwantedurl = "https://tuundun.x10.mx/notwanted.json",
+    messagesurl = "https://tuundun.x10.mx/messages.json",
     fmlgiturl = `https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/femaleNames.json`,
     notwantedgiturl = `https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/males.json`,
     msgsgiturl = `https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/messages.json`,
@@ -117,7 +112,7 @@ function runCode() {
         if (Boolean(Object?.keys?.(_fwindowlist?.Witems)?.[1])) {
             roomName = Object.keys(_fwindowlist.Witems)[1];
             framo = document.createElement("iframe");
-            framo.src = "https://php.alisaber1.repl.co/add.php";
+            framo.src = "https://tuundun.x10.mx/add.html";
             framo.name = "child"
             mainTarget = _fmain.document.querySelector(".main-span");
             myNick = _fwindowlist.mynickname;
@@ -716,6 +711,16 @@ async function sendBigData() {
         this.innerText = "err happend"
     }
 }
+async function fetchJsons(url) {
+    if (url.includes("github")) {
+        let x = await fetch(url)
+        x = await x.json()
+        return [new Set(JSON.parse(decodeURIComponent(atob(x.content)))), x.sha]
+    }
+    let x = await fetch(url)
+    x = await x.json()
+    return new Set(x)
+}
 function checkForFemaleName(str, set) {
     let words = str.split(/[^\p{L}]/u);
     if (str.includes("|")) {
@@ -798,44 +803,48 @@ function generateRandomString() {
     }
     return randomString;
 }
-function retrieveBigData() {
-    Promise.all([fetch(fmlgiturl), fetch(notwantedgiturl), fetch(msgsgiturl)])
-        .then(e => Promise.all(e.map(s => s.json()))).then(s => {
-            femalesNames = new Set(JSON.parse(decodeURIComponent(atob(s[0].content))));
-            notWanted = new Set(JSON.parse(decodeURIComponent(atob(s[1].content))));
-            messages = new Set(JSON.parse(decodeURIComponent(atob(s[2].content))));
-            oldLength = femalesNames.size;
-            testSet = femalesNames;
-            shrr1 = s[0].sha;
-            shrr2 = s[1].sha;
-            shrr3 = s[2].sha;
-        }).then(_ => {
-            runCode();
-        }).catch(err => {
-            alert(`${err.name} : ${err.message}`)
-            goToLogin();
-        });
+async function retrieveBigData() {
+    try {
+        let med = await fetchJsons(fmlgiturl);
+        femalesNames = med[0];
+        shrr1 = med[1];
+        med = await fetchJsons(notwantedgiturl);
+        notWanted = med[0];
+        shrr2 = med[1];
+        med = await fetchJsons(msgsgiturl);
+        messages = med[0];
+        shrr3 = med[1];
+        oldLength = femalesNames.size;
+        testSet = femalesNames;
+        runCode();
+
+    } catch (err) {
+        alert(`${err.name} : ${err.message}`)
+        goToLogin();
+    }
 }
-function phpNames() {
-    Promise.all([fetch(fmlurl), fetch(notwantedurl), fetch(messagesurl), fetch(fmlgiturl), fetch(notwantedgiturl), fetch(msgsgiturl)])
-        .then(e => Promise.all(e.map(s => s.json()))).then(s => {
-            femalesNames = new Set(s[0]);
-            notWanted = new Set(s[1]);
-            messages = new Set(s[2]);
-            oldLength = femalesNames.size;
-            testSet = femalesNames;
-            shrr1 = s[3].sha;
-            shrr2 = s[4].sha;
-            shrr3 = s[5].sha;
-        }).then(_ => {
-            console.log("your server work");
-            runCode();
-
-        }).catch(err => {
-            console.log(`your server doesn't work : ${err.message}`);
-            retrieveBigData();
-
-        });
+async function phpNames() {
+    try {
+        let med = await fetchJsons(fmlurl);
+        femalesNames = med;
+        med = await fetchJsons(notwantedurl);
+        notWanted = med;
+        med = await fetchJsons(messagesurl);
+        messages = med;
+        oldLength = femalesNames.size;
+        testSet = femalesNames;
+        med = await fetchJsons(fmlgiturl);
+        shrr1 = med[1];
+        med = await fetchJsons(notwantedgiturl);
+        shrr2 = med[1];
+        med = await fetchJsons(msgsgiturl);
+        shrr3 = med[1];
+        console.log("server works");
+        runCode();
+    } catch (err) {
+        console.log(`your server doesn't work : ${err.message}`);
+        retrieveBigData();
+    }
 }
 async function* stramMsg(name) {
     await kalamngySend(name, message1);
