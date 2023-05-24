@@ -192,7 +192,7 @@ let pplJoin = id("on"),
             peopleWhoReplyAgain.style.height = "50%"
             whoReply.style.display = ""
         }
-    })
+    });
 
 
 if (new Date().getHours() >= 2 && new Date().getHours() <= 14) {
@@ -707,13 +707,15 @@ id("nwp").remove()
 id("nt").style.opacity = "0"
 id("onp").click()
 
-
-
-async function fetchAll() {
-    Promise.all([`${srvr}femaleNames.php`, `${srvr}notwanted.php`, `${srvr}messages.php`]).then(e => e.map(x => x.json())).then(arr => {
-        femaleNames = new Set(arr[0]);
-        males = new Set(arr[1]);
-        messages = new Set(arr[2]);
-    }).then(_ => console.log("fetching done")).catch(err => console.log(`${err} : ${err.message}`))
+function fetchAll() {
+    Promise.all([fetch(`${srvr}femaleNames.php`), fetch(`${srvr}notwanted.php`), fetch(`${srvr}messages.php`)])
+        .then(
+            e => Promise.all(e.map(x => x.json())))
+        .then(arr => {
+            femaleNames = new Set(arr[0]);
+            males = new Set(arr[1]);
+            messages = new Set(arr[2]);
+        })
+        .then(_ => console.log("fetching done")).catch(err => console.log(`${err}`))
 }
 fetchAll();
