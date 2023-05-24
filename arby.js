@@ -1,6 +1,7 @@
 let sweetAlert = document.createElement("script")
-sweetAlert.src = "https://sweetalert.js.org/assets/sweetalert/sweetalert.min.js"
-document.head.appendChild(sweetAlert)
+sweetAlert.src = "https://sweetalert.js.org/assets/sweetalert/sweetalert.min.js",
+    srvr = "https://php.alisaber1.repl.co/",
+    document.head.appendChild(sweetAlert)
 let pplJoin = id("on"),
     elTarget = document.querySelector("#on"),
     idArray = new Set(),
@@ -467,7 +468,7 @@ socket.on("ig", data => {
 })
 tile.conte
 function updateMessages() {
-    return fetch('https://tuundun.x10.mx/', {
+    return fetch(srvr, {
         method: 'POST',
         body: new URLSearchParams({
             "qury": JSON.stringify([...messages]),
@@ -709,23 +710,10 @@ id("onp").click()
 
 
 async function fetchAll() {
-    let fetched = await fetch(`https://tuundun.x10.mx/femaleNames.json`);
-    let arr = await fetched.json();
-    femaleNames = new Set(arr)
-    femaleNames.delete(null);
-    femaleNames.delete(undefined);
-    femaleNames.delete("");
-    fetched = await fetch(`https://tuundun.x10.mx/notwanted.json`);
-    arr = await fetched.json();
-    males = new Set(arr)
-    males.delete(null);
-    males.delete(undefined);
-    males.delete("");
-    fetched = await fetch(`https://tuundun.x10.mx/messages.json`);
-    arr = await fetched.json();
-    messages = new Set(arr)
-    messages.delete(null);
-    messages.delete(undefined);
-    messages.delete("");
+    Promise.all([`${srvr}femaleNames.php`, `${srvr}notwanted.php`, `${srvr}messages.php`]).then(e => e.map(x => x.json())).then(arr => {
+        femaleNames = new Set(arr[0]);
+        males = new Set(arr[1]);
+        messages = new Set(arr[2]);
+    }).then(_ => console.log("fetching done")).catch(err => console.log(`${err} : ${err.message}`))
 }
 fetchAll();
