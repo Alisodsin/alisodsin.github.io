@@ -215,7 +215,7 @@ function runCode() {
             _fmain.document.querySelector("#mainplusbtn").remove();
 
             _fmain.addEventListener('message', function (event) {
-                if (event.origin === 'https://php.alisaber1.repl.co') {
+                if (event.origin === 'https://tuundun.x10.mx') {
                     let name = event.data.replace(/\s:.{1,}/g, "");
                     if (event.data.includes("added to femaleNames")) {
                         femalesNames.add(name);
