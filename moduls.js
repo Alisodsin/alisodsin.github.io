@@ -45,4 +45,15 @@ function generateRandomString() {
     return randomString;
 }
 
-export { fmlurl as fmls, fmlgiturl as fmlsGit, messagesurl as msgs, msgsgiturl as msgsGit, notwantedurl as mls, notwantedgiturl as mlsGit, fetchJSONAndConvertToSet, calculateSetSHA, generateRandomString, downloadObj }   
+module.exports = {
+    fmls: fmlurl,
+    fmlsGit: fmlgiturl,
+    msgs: messagesurl,
+    msgsGit: msgsgiturl,
+    mls: notwantedurl,
+    mlsGit: notwantedgiturl,
+    fetchJSONAndConvertToSet,
+    calculateSetSHA,
+    generateRandomString,
+    downloadObj
+}; 
