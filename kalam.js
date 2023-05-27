@@ -268,7 +268,7 @@ function runCode() {
                         block(prop)
                         input.placeholder = `${prop} quit`;
                     }
-                    return Reflect.deleteProperty(target, prop)
+                    Reflect.deleteProperty(target, prop)
                 }
             });
             setInterval(() => {
@@ -883,7 +883,10 @@ async function* stramMsg(name) {
         audio.play();
         await kalamngySend(name, message2);
         await kalamngySend(name, message3);
-        let str = _fmain.document.querySelector("#text")?.childNodes[0]?.childNodes[4]?.innerText;
+        let txt = _fwindowlist["Witems"][_fwindowlist.currentwindow].text[0];
+        let tmpoDiv = document.createElement("div");
+        tmpoDiv.innerHTML = txt
+        let str = tmpoDiv.childNodes[0].childNodes[4].innerText
         let li = _fmain.document.getElementById(stream[name].id1);
         li.innerText = "";
         li.innerHTML = `<bdi>${name}</bdi> ➡ <bdi style="color:white">${str}</bdi> ⬅ <bdi style="color:white">${stream[name].msg}</bdi>`;
@@ -894,7 +897,7 @@ async function* stramMsg(name) {
         }
         ol1.append(li);
         li.scrollIntoView();
-        await sleep(200);
+        await sleep(600);
         kalamngySend(name, `/winclose ${name}`)
     }
     yield 2
