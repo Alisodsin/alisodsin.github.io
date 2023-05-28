@@ -906,7 +906,10 @@ async function* stramMsg(name) {
         await kalamngySend(name, message2);
         await kalamngySend(name, message3);
         audio.play();
-        let str = _fmain.document.querySelector("#text")?.childNodes[0]?.childNodes[4]?.innerText;
+        let txt = _fwindowlist["Witems"][_fwindowlist.currentwindow].text[0];
+        let tmpoDiv = document.createElement("div");
+        tmpoDiv.innerHTML = txt
+        let str = tmpoDiv.childNodes[0].childNodes[4].innerText
         let li = _fmain.document.getElementById(stream[name].id1);
         li.innerText = "";
         li.innerHTML = `<bdi>${name}</bdi>${hrdspc} ➡ ${hrdspc}<bdi style="color:white">${str}</bdi>`;
