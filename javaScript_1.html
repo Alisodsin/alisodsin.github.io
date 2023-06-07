@@ -34012,20 +34012,6 @@
                                                                 </div>
                                                         </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                                 </li>
                                         </ul>
 
@@ -34035,9 +34021,1454 @@
         </details>
         <details class="dad">
                 <summary>Modules</summary>
+                <ul>
+                        <li>
+                                <details>
+                                        <summary>Modules, introduction</summary>
+                                        <ul>
+                                                <li>
+                                                        <h3>Introduction to Modules</h3>
+                                                        <p>JavaScript initially did not have a language-level module
+                                                                syntax because scripts were small and simple. However,
+                                                                as applications grew in size and complexity, the need
+                                                                for organizing code into modules arose. To address this,
+                                                                various module systems were created by the community.
+                                                        </p>
+                                                        <p>Some of these module systems include:</p>
+                                                        <ol>
+                                                                <li>AMD: This module system, implemented by the library
+                                                                        require.js, is one of the earliest module
+                                                                        systems.</li>
+                                                                <li>CommonJS: Created specifically for Node.js servers,
+                                                                        CommonJS is another module system that gained
+                                                                        popularity.</li>
+                                                                <li>UMD: This module system was proposed as a universal
+                                                                        solution compatible with both AMD and CommonJS.
+                                                                </li>
+                                                        </ol>
+                                                        <p>While these module systems have become part of history, they
+                                                                can still be found in older scripts. In 2015, the
+                                                                language-level module system was introduced in the
+                                                                JavaScript standard. Since then, it has evolved and
+                                                                gained support from major browsers and Node.js.
+                                                                Therefore, modern JavaScript modules are now widely used
+                                                                and will be the focus of further study.</p>
+                                                </li>
+                                                <li>
+                                                        <h3>What is a module?</h3>
+                                                        <p>A module is a file that contains code. It can be a script or
+                                                                a set of functions and variables that can be reused in
+                                                                other files. Modules use special keywords like export
+                                                                and import to share functionality between them.</p>
+                                                        <p>When a function or variable is labeled with the export
+                                                                keyword in a module, it means that it can be accessed
+                                                                from outside the module. Other modules can then use the
+                                                                import directive to bring in and use the exported
+                                                                functionality.</p>
+                                                        <p>For example, let's say we have a module called sayHi.js that
+                                                                exports a function sayHi:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #6a9955;">// 📁
+                                                                                        sayHi.js</span></div>
+                                                                        <div><span
+                                                                                        style="color: #c586c0;">export</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">sayHi</span><span
+                                                                                        style="color: #cccccc;">(</span><span
+                                                                                        style="color: #9cdcfe;">user</span><span
+                                                                                        style="color: #cccccc;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #cccccc;">&nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #cccccc;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #cccccc;">(</span><span
+                                                                                        style="color: #ce9178;">`Hello,
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">${</span><span
+                                                                                        style="color: #9cdcfe;">user</span><span
+                                                                                        style="color: #569cd6;">}</span><span
+                                                                                        style="color: #ce9178;">!`</span><span
+                                                                                        style="color: #cccccc;">);</span>
+                                                                        </div>
+                                                                        <div><span style="color: #cccccc;">}</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <p>In another file called main.js, we can import and use the
+                                                                sayHi function:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #6a9955;">// 📁
+                                                                                        main.js</span></div>
+                                                                        <div><span
+                                                                                        style="color: #c586c0;">import</span><span
+                                                                                        style="color: #cccccc;"> {
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">sayHi</span><span
+                                                                                        style="color: #cccccc;"> }
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">from</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">'./sayHi.js'</span><span
+                                                                                        style="color: #cccccc;">;</span>
+                                                                        </div><br>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #cccccc;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #cccccc;">(</span><span
+                                                                                        style="color: #9cdcfe;">sayHi</span><span
+                                                                                        style="color: #cccccc;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        Output: function...</span></div>
+                                                                        <div><span
+                                                                                        style="color: #dcdcaa;">sayHi</span><span
+                                                                                        style="color: #cccccc;">(</span><span
+                                                                                        style="color: #ce9178;">'John'</span><span
+                                                                                        style="color: #cccccc;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        Output: Hello, John!</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <p>The import directive loads the module (sayHi.js) using the
+                                                                provided path ('./sayHi.js') relative to the current
+                                                                file. It assigns the exported function (sayHi) to the
+                                                                corresponding variable (sayHi) in the importing module.
+                                                        </p>
+                                                        <p>To use modules in a web browser, we need to indicate that a
+                                                                script should be treated as a module by adding the
+                                                                attribute type="module" to the script tag:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #808080;">&lt;!</span><span
+                                                                                        style="color: #569cd6;">doctype</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">html</span><span
+                                                                                        style="color: #808080;">&gt;</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #808080;">&lt;</span><span
+                                                                                        style="color: #569cd6;">script</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">type</span><span
+                                                                                        style="color: #d4d4d4;">=</span><span
+                                                                                        style="color: #ce9178;">"module"</span><span
+                                                                                        style="color: #808080;">&gt;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">import</span><span
+                                                                                        style="color: #d4d4d4;"> {
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">sayHi</span><span
+                                                                                        style="color: #d4d4d4;"> }
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">from</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">'./say.js'</span><span
+                                                                                        style="color: #d4d4d4;">;</span>
+                                                                        </div><br>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">document</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">body</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">innerHTML</span><span
+                                                                                        style="color: #d4d4d4;"> =
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">sayHi</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #ce9178;">'John'</span><span
+                                                                                        style="color: #d4d4d4;">);</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #808080;">&lt;/</span><span
+                                                                                        style="color: #569cd6;">script</span><span
+                                                                                        style="color: #808080;">&gt;</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <p>The browser will automatically fetch and evaluate the
+                                                                imported module and its dependencies, and then execute
+                                                                the script.</p>
+                                                        <p>It's important to note that when working with modules, they
+                                                                can only be used via HTTP(s) and not locally. If you try
+                                                                to open a web page with module imports using the file://
+                                                                protocol, it won't work. You can use a local web server
+                                                                or tools like static-server or VS Code Live Server
+                                                                Extension to test modules locally.</p>
+
+                                                </li>
+                                                <li>
+                                                        <h3>key points about core module features</h3>
+                                                        <p>Here are the key points about core module features:</p>
+                                                        <ol>
+                                                                <li>
+                                                                        <p>Modules always work in strict mode, which
+                                                                                means assigning to an undeclared
+                                                                                variable will give an error.</p>
+                                                                </li>
+                                                                <li>
+                                                                        <p>Each module has its own top-level scope, and
+                                                                                variables and functions defined in one
+                                                                                module are not visible in other scripts
+                                                                                unless explicitly exported and imported.
+                                                                        </p>
+                                                                </li>
+                                                                <li>
+                                                                        <p>Modules should export what they want to be
+                                                                                accessible from outside and import what
+                                                                                they need, using the import/export
+                                                                                directives instead of relying on global
+                                                                                variables.</p>
+                                                                </li>
+                                                                <li>
+                                                                        <p>In the browser, each
+                                                                                <code>&lt;script type="module"&gt;</code>
+                                                                                tag represents a separate module with
+                                                                                its own top-level scope.
+                                                                        </p>
+                                                                </li>
+                                                                <li>
+                                                                        <p>Module code is evaluated only once when
+                                                                                imported. If the same module is imported
+                                                                                multiple times, its code is executed
+                                                                                only once, and its exports are shared
+                                                                                among all further importers.</p>
+                                                                </li>
+                                                                <li>
+                                                                        <p>The one-time evaluation of modules has
+                                                                                consequences. For example, if a module
+                                                                                has side effects like showing a message,
+                                                                                importing it multiple times will trigger
+                                                                                those effects only once, the first time
+                                                                                it is imported.</p>
+                                                                </li>
+                                                                <li>
+                                                                        <p>Modules can export objects, and changes made
+                                                                                to the exported objects are visible
+                                                                                across all importers. This allows for
+                                                                                convenient configuration of modules,
+                                                                                where a module provides a generic
+                                                                                functionality that requires setup.</p>
+                                                                </li>
+                                                                <li>
+                                                                        <p>Modules can export configuration objects,
+                                                                                which can be initialized by the
+                                                                                top-level application script and then
+                                                                                used by other modules.</p>
+                                                                </li>
+                                                        </ol>
+
+
+                                                </li>
+                                                <li>
+                                                        <h3>import.meta</h3>
+                                                        <p>The import.meta object provides information about the current
+                                                                module. In a browser environment, it contains the URL of
+                                                                the script or the URL of the current webpage if the
+                                                                script is inline within HTML.</p>
+                                                        <p>Here's an example code snippet:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #808080;">&lt;</span><span
+                                                                                        style="color: #569cd6;">script</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">type</span><span
+                                                                                        style="color: #d4d4d4;">=</span><span
+                                                                                        style="color: #ce9178;">"module"</span><span
+                                                                                        style="color: #808080;">&gt;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #c586c0;">import</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">meta</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #9cdcfe;">url</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        Outputs the URL of the script or
+                                                                                        the current webpage URL</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #808080;">&lt;/</span><span
+                                                                                        style="color: #569cd6;">script</span><span
+                                                                                        style="color: #808080;">&gt;</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+
+
+
+                                                </li>
+                                                <li>
+                                                        <h3>Browser-Specific Features and Build Tools</h3>
+                                                        <p>Explanation: This part discusses browser-specific features of
+                                                                module scripts, including the deferred execution of
+                                                                module scripts and the use of the async attribute. It
+                                                                also mentions the compatibility issues with older
+                                                                browsers and the use of build tools like Webpack to
+                                                                bundle and optimize modules.</p>
+                                                        <p>Example:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #808080;">&lt;</span><span
+                                                                                        style="color: #569cd6;">script</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">type</span><span
+                                                                                        style="color: #d4d4d4;">=</span><span
+                                                                                        style="color: #ce9178;">"module"</span><span
+                                                                                        style="color: #808080;">&gt;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #569cd6;">typeof</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">button</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        object: the script can 'see' the
+                                                                                        button below</span></div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        as modules are deferred, the
+                                                                                        script runs after the whole page
+                                                                                        is loaded</span></div>
+                                                                        <div><span
+                                                                                        style="color: #808080;">&lt;/</span><span
+                                                                                        style="color: #569cd6;">script</span><span
+                                                                                        style="color: #808080;">&gt;</span>
+                                                                        </div><br>
+                                                                        <div><span
+                                                                                        style="color: #808080;">&lt;</span><span
+                                                                                        style="color: #569cd6;">script</span><span
+                                                                                        style="color: #808080;">&gt;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #d4d4d4;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #d4d4d4;">(</span><span
+                                                                                        style="color: #569cd6;">typeof</span><span
+                                                                                        style="color: #d4d4d4;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">button</span><span
+                                                                                        style="color: #d4d4d4;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        button is undefined, the script
+                                                                                        can't see elements below</span>
+                                                                        </div>
+                                                                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        regular scripts run immediately,
+                                                                                        before the rest of the page is
+                                                                                        processed</span></div>
+                                                                        <div><span
+                                                                                        style="color: #808080;">&lt;/</span><span
+                                                                                        style="color: #569cd6;">script</span><span
+                                                                                        style="color: #808080;">&gt;</span>
+                                                                        </div><br>
+                                                                        <div><span
+                                                                                        style="color: #808080;">&lt;</span><span
+                                                                                        style="color: #569cd6;">button</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">id</span><span
+                                                                                        style="color: #cccccc;">=</span><span
+                                                                                        style="color: #ce9178;">"button"</span><span
+                                                                                        style="color: #808080;">&gt;</span><span
+                                                                                        style="color: #cccccc;">Button</span><span
+                                                                                        style="color: #808080;">&lt;/</span><span
+                                                                                        style="color: #569cd6;">button</span><span
+                                                                                        style="color: #808080;">&gt;</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+
+                                                </li>
+                                        </ul>
+
+                                </details>
+                        </li>
+                        <li>
+                                <details>
+                                        <summary>Export and Import</summary>
+                                        <ul>
+                                                <li>
+                                                        <h3>Export before declarations</h3>
+                                                        <p>Export before declarations allows us to mark any declaration
+                                                                (variable, function, or class) as exported using the
+                                                                "export" keyword. Here are some examples:</p>
+                                                        <ol>
+                                                                <li>
+                                                                        <p>Exporting an array:</p>
+                                                                        <div class="cods" contenteditable=""
+                                                                                spellcheck="false">
+                                                                                <div>
+                                                                                        <div><span
+                                                                                                        style="color: #c586c0;">export</span><span
+                                                                                                        style="color: #cccccc;">
+                                                                                                </span><span
+                                                                                                        style="color: #569cd6;">let</span><span
+                                                                                                        style="color: #cccccc;">
+                                                                                                </span><span
+                                                                                                        style="color: #9cdcfe;">months</span><span
+                                                                                                        style="color: #cccccc;">
+                                                                                                </span><span
+                                                                                                        style="color: #d4d4d4;">=</span><span
+                                                                                                        style="color: #cccccc;">
+                                                                                                        [</span><span
+                                                                                                        style="color: #ce9178;">'Jan'</span><span
+                                                                                                        style="color: #cccccc;">,
+                                                                                                </span><span
+                                                                                                        style="color: #ce9178;">'Feb'</span><span
+                                                                                                        style="color: #cccccc;">,
+                                                                                                </span><span
+                                                                                                        style="color: #ce9178;">'Mar'</span><span
+                                                                                                        style="color: #cccccc;">,
+                                                                                                </span><span
+                                                                                                        style="color: #ce9178;">'Apr'</span><span
+                                                                                                        style="color: #cccccc;">,
+                                                                                                </span><span
+                                                                                                        style="color: #ce9178;">'Aug'</span><span
+                                                                                                        style="color: #cccccc;">,
+                                                                                                </span><span
+                                                                                                        style="color: #ce9178;">'Sep'</span><span
+                                                                                                        style="color: #cccccc;">,
+                                                                                                </span><span
+                                                                                                        style="color: #ce9178;">'Oct'</span><span
+                                                                                                        style="color: #cccccc;">,
+                                                                                                </span><span
+                                                                                                        style="color: #ce9178;">'Nov'</span><span
+                                                                                                        style="color: #cccccc;">,
+                                                                                                </span><span
+                                                                                                        style="color: #ce9178;">'Dec'</span><span
+                                                                                                        style="color: #cccccc;">];</span>
+                                                                                        </div>
+                                                                                </div>
+                                                                        </div>
+
+                                                                </li>
+                                                                <li>
+                                                                        <p>Exporting a constant:</p>
+                                                                        <div class="cods" contenteditable=""
+                                                                                spellcheck="false">
+                                                                                <div>
+                                                                                        <div><span
+                                                                                                        style="color: #c586c0;">export</span><span
+                                                                                                        style="color: #cccccc;">
+                                                                                                </span><span
+                                                                                                        style="color: #569cd6;">const</span><span
+                                                                                                        style="color: #cccccc;">
+                                                                                                </span><span
+                                                                                                        style="color: #4fc1ff;">MODULES_BECAME_STANDARD_YEAR</span><span
+                                                                                                        style="color: #cccccc;">
+                                                                                                </span><span
+                                                                                                        style="color: #d4d4d4;">=</span><span
+                                                                                                        style="color: #cccccc;">
+                                                                                                </span><span
+                                                                                                        style="color: #b5cea8;">2015</span><span
+                                                                                                        style="color: #cccccc;">;</span>
+                                                                                        </div>
+                                                                                </div>
+                                                                        </div>
+
+
+                                                                </li>
+                                                                <li>
+                                                                        <p>Exporting a class:</p>
+                                                                        <div class="cods" contenteditable=""
+                                                                                spellcheck="false">
+                                                                                <div>
+                                                                                        <div><span
+                                                                                                        style="color: #c586c0;">export</span><span
+                                                                                                        style="color: #cccccc;">
+                                                                                                </span><span
+                                                                                                        style="color: #569cd6;">class</span><span
+                                                                                                        style="color: #cccccc;">
+                                                                                                </span><span
+                                                                                                        style="color: #4ec9b0;">User</span><span
+                                                                                                        style="color: #cccccc;">
+                                                                                                        {</span></div>
+                                                                                        <div><span
+                                                                                                        style="color: #cccccc;">&nbsp;
+                                                                                                        &nbsp;
+                                                                                                </span><span
+                                                                                                        style="color: #569cd6;">constructor</span><span
+                                                                                                        style="color: #cccccc;">(</span><span
+                                                                                                        style="color: #9cdcfe;">name</span><span
+                                                                                                        style="color: #cccccc;">)
+                                                                                                        {</span></div>
+                                                                                        <div><span
+                                                                                                        style="color: #cccccc;">&nbsp;
+                                                                                                        &nbsp; &nbsp;
+                                                                                                        &nbsp;
+                                                                                                </span><span
+                                                                                                        style="color: #569cd6;">this</span><span
+                                                                                                        style="color: #cccccc;">.</span><span
+                                                                                                        style="color: #9cdcfe;">name</span><span
+                                                                                                        style="color: #cccccc;">
+                                                                                                </span><span
+                                                                                                        style="color: #d4d4d4;">=</span><span
+                                                                                                        style="color: #cccccc;">
+                                                                                                </span><span
+                                                                                                        style="color: #9cdcfe;">name</span><span
+                                                                                                        style="color: #cccccc;">;</span>
+                                                                                        </div>
+                                                                                        <div><span
+                                                                                                        style="color: #cccccc;">&nbsp;
+                                                                                                        &nbsp; }</span>
+                                                                                        </div>
+                                                                                        <div><span
+                                                                                                        style="color: #cccccc;">}</span>
+                                                                                        </div>
+                                                                                </div>
+                                                                        </div>
+
+                                                                </li>
+                                                        </ol>
+                                                        <p>It's important to note that using "export" before a class or
+                                                                function declaration does not change it into a function
+                                                                expression. It remains a function declaration.
+                                                                Therefore, there is no need to add a semicolon at the
+                                                                end of export class or export function. For example:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #c586c0;">export</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">sayHi</span><span
+                                                                                        style="color: #cccccc;">(</span><span
+                                                                                        style="color: #9cdcfe;">user</span><span
+                                                                                        style="color: #cccccc;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #cccccc;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #cccccc;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #cccccc;">(</span><span
+                                                                                        style="color: #ce9178;">`Hello,
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">${</span><span
+                                                                                        style="color: #9cdcfe;">user</span><span
+                                                                                        style="color: #569cd6;">}</span><span
+                                                                                        style="color: #ce9178;">!`</span><span
+                                                                                        style="color: #cccccc;">);</span>
+                                                                        </div>
+                                                                        <div><span style="color: #cccccc;">}
+                                                                                        &nbsp;</span><span
+                                                                                        style="color: #6a9955;">// no ;
+                                                                                        at the end</span></div>
+                                                                </div>
+                                                        </div>
+                                                        <p>Additionally, we can use "export" separately from the
+                                                                declarations. We can first declare the functions or
+                                                                variables, and then export them using a list:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #6a9955;">// 📁
+                                                                                        say.js</span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">sayHi</span><span
+                                                                                        style="color: #cccccc;">(</span><span
+                                                                                        style="color: #9cdcfe;">user</span><span
+                                                                                        style="color: #cccccc;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #cccccc;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #cccccc;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #cccccc;">(</span><span
+                                                                                        style="color: #ce9178;">`Hello,
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">${</span><span
+                                                                                        style="color: #9cdcfe;">user</span><span
+                                                                                        style="color: #569cd6;">}</span><span
+                                                                                        style="color: #ce9178;">!`</span><span
+                                                                                        style="color: #cccccc;">);</span>
+                                                                        </div>
+                                                                        <div><span style="color: #cccccc;">}</span>
+                                                                        </div><br>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">sayBye</span><span
+                                                                                        style="color: #cccccc;">(</span><span
+                                                                                        style="color: #9cdcfe;">user</span><span
+                                                                                        style="color: #cccccc;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #cccccc;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #cccccc;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #cccccc;">(</span><span
+                                                                                        style="color: #ce9178;">`Bye,
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">${</span><span
+                                                                                        style="color: #9cdcfe;">user</span><span
+                                                                                        style="color: #569cd6;">}</span><span
+                                                                                        style="color: #ce9178;">!`</span><span
+                                                                                        style="color: #cccccc;">);</span>
+                                                                        </div>
+                                                                        <div><span style="color: #cccccc;">}</span>
+                                                                        </div><br>
+                                                                        <div><span
+                                                                                        style="color: #c586c0;">export</span><span
+                                                                                        style="color: #cccccc;"> {
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">sayHi</span><span
+                                                                                        style="color: #cccccc;">,
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">sayBye</span><span
+                                                                                        style="color: #cccccc;"> };
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        a list of exported
+                                                                                        variables</span></div>
+                                                                </div>
+                                                        </div>
+                                                        <p>Technically, we could also place the "export" keyword above
+                                                                the functions as well.</p>
+                                                </li>
+                                                <li>
+                                                        <h3>Import *</h3>
+                                                        <p>When importing modules in JavaScript, we typically specify
+                                                                the specific items we want to import using curly braces
+                                                                {...}. For example:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #6a9955;">// 📁
+                                                                                        main.js</span></div>
+                                                                        <div><span
+                                                                                        style="color: #c586c0;">import</span><span
+                                                                                        style="color: #cccccc;"> {
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">sayHi</span><span
+                                                                                        style="color: #cccccc;">,
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">sayBye</span><span
+                                                                                        style="color: #cccccc;"> }
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">from</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">'./say.js'</span><span
+                                                                                        style="color: #cccccc;">;</span>
+                                                                        </div><br>
+                                                                        <div><span
+                                                                                        style="color: #dcdcaa;">sayHi</span><span
+                                                                                        style="color: #cccccc;">(</span><span
+                                                                                        style="color: #ce9178;">'John'</span><span
+                                                                                        style="color: #cccccc;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        Hello, John!</span></div>
+                                                                        <div><span
+                                                                                        style="color: #dcdcaa;">sayBye</span><span
+                                                                                        style="color: #cccccc;">(</span><span
+                                                                                        style="color: #ce9178;">'John'</span><span
+                                                                                        style="color: #cccccc;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        Bye, John!</span></div>
+                                                                </div>
+                                                        </div>
+                                                        <p>However, if there are many items to import, we can use the
+                                                                import * as <obj> syntax to import everything as an
+                                                                        object. For instance:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #6a9955;">// 📁
+                                                                                        main.js</span></div>
+                                                                        <div><span
+                                                                                        style="color: #c586c0;">import</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">*</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">as</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">say</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">from</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">'./say.js'</span><span
+                                                                                        style="color: #cccccc;">;</span>
+                                                                        </div><br>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">say</span><span
+                                                                                        style="color: #cccccc;">.</span><span
+                                                                                        style="color: #dcdcaa;">sayHi</span><span
+                                                                                        style="color: #cccccc;">(</span><span
+                                                                                        style="color: #ce9178;">'John'</span><span
+                                                                                        style="color: #cccccc;">);</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">say</span><span
+                                                                                        style="color: #cccccc;">.</span><span
+                                                                                        style="color: #dcdcaa;">sayBye</span><span
+                                                                                        style="color: #cccccc;">(</span><span
+                                                                                        style="color: #ce9178;">'John'</span><span
+                                                                                        style="color: #cccccc;">);</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <p>Although importing everything may seem convenient and
+                                                                concise, there are a few reasons why explicitly listing
+                                                                imports is beneficial:</p>
+                                                        <ol>
+                                                                <li>
+                                                                        <p>Explicitly listing imports provides shorter
+                                                                                names when using the imported items. For
+                                                                                example, <code>sayHi()</code> instead of
+                                                                                <code>say.sayHi()</code>.
+                                                                        </p>
+                                                                </li>
+                                                                <li>
+                                                                        <p>An explicit list of imports offers a clearer
+                                                                                overview of the code structure,
+                                                                                highlighting what is used and where.
+                                                                                This makes code support and refactoring
+                                                                                easier.</p>
+                                                                </li>
+                                                        </ol>
+                                                </li>
+                                                <li>
+                                                        <h3>Export “as”</h3>
+                                                        <p>The similar syntax exists for export.</p>
+                                                        <p>Let’s export functions as hi and bye:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #6a9955;">// 📁
+                                                                                        say.js</span></div>
+                                                                        <div><span style="color: #d4d4d4;">...</span>
+                                                                        </div>
+                                                                        <div><span
+                                                                                        style="color: #c586c0;">export</span><span
+                                                                                        style="color: #cccccc;"> {
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">sayHi</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">as</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">hi</span><span
+                                                                                        style="color: #cccccc;">,
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">sayBye</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">as</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">bye</span><span
+                                                                                        style="color: #cccccc;"> };
+                                                                                </span></div>
+                                                                </div>
+                                                        </div>
+                                                        <p>Now hi and bye are official names for outsiders, to be used
+                                                                in </p>
+                                                        <p>imports</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #6a9955;">// 📁
+                                                                                        main.js</span></div>
+                                                                        <div><span
+                                                                                        style="color: #c586c0;">import</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">*</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">as</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">say</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">from</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">'./say.js'</span><span
+                                                                                        style="color: #cccccc;">;</span>
+                                                                        </div><br>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">say</span><span
+                                                                                        style="color: #cccccc;">.</span><span
+                                                                                        style="color: #dcdcaa;">hi</span><span
+                                                                                        style="color: #cccccc;">(</span><span
+                                                                                        style="color: #ce9178;">'John'</span><span
+                                                                                        style="color: #cccccc;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        Hello, John!</span></div>
+                                                                        <div><span
+                                                                                        style="color: #9cdcfe;">say</span><span
+                                                                                        style="color: #cccccc;">.</span><span
+                                                                                        style="color: #dcdcaa;">bye</span><span
+                                                                                        style="color: #cccccc;">(</span><span
+                                                                                        style="color: #ce9178;">'John'</span><span
+                                                                                        style="color: #cccccc;">);
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        Bye, John!</span></div>
+                                                                </div>
+                                                        </div>
+                                                </li>
+                                                <li>
+                                                        <h3>Export default</h3>
+                                                        <p>In JavaScript modules, there are typically two types: modules
+                                                                that contain a library or a pack of functions, and
+                                                                modules that declare a single entity, such as a class.
+                                                                The latter approach is commonly preferred, where each
+                                                                "thing" resides in its own module.</p>
+                                                        <p>To facilitate this approach, modules provide a special syntax
+                                                                called "export default" for the default export. By using
+                                                                "export default," we can export a single entity from a
+                                                                module without specifying its name explicitly.</p>
+                                                        <p>Here's an example of using export default to export a class:
+                                                        </p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #6a9955;">// 📁
+                                                                                        user.js</span></div>
+                                                                        <div><span
+                                                                                        style="color: #c586c0;">export</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">default</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">class</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">User</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #cccccc;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">constructor</span><span
+                                                                                        style="color: #cccccc;">(</span><span
+                                                                                        style="color: #9cdcfe;">name</span><span
+                                                                                        style="color: #cccccc;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #cccccc;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #569cd6;">this</span><span
+                                                                                        style="color: #cccccc;">.</span><span
+                                                                                        style="color: #9cdcfe;">name</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #d4d4d4;">=</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">name</span><span
+                                                                                        style="color: #cccccc;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #cccccc;">&nbsp; &nbsp;
+                                                                                        }</span></div>
+                                                                        <div><span style="color: #cccccc;">}
+                                                                                        &nbsp;</span></div>
+                                                                </div>
+                                                        </div>
+                                                        <p>In this case, there can only be one export default per file.
+                                                                To import the default export, we don't need to use curly
+                                                                braces:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #6a9955;">// 📁
+                                                                                        main.js</span></div>
+                                                                        <div><span
+                                                                                        style="color: #c586c0;">import</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">User</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">from</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">'./user.js'</span><span
+                                                                                        style="color: #cccccc;">;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        not {User}, just User</span>
+                                                                        </div><br>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">new</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">User</span><span
+                                                                                        style="color: #cccccc;">(</span><span
+                                                                                        style="color: #ce9178;">'John'</span><span
+                                                                                        style="color: #cccccc;">);</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <p>Importing without curly braces provides a cleaner syntax.
+                                                                It's important to remember that when using modules,
+                                                                named exports require curly braces, while the default
+                                                                export does not.</p>
+                                                        <p>To summarize the differences between named exports and
+                                                                default exports:</p>
+                                                        <table>
+                                                                <thead>
+                                                                        <tr>
+                                                                                <th>Named export</th>
+                                                                                <th>Default export</th>
+                                                                        </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                        <tr>
+                                                                                <td><code>export class User {...}</code>
+                                                                                </td>
+                                                                                <td><code>export default class User {...}</code>
+                                                                                </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                                <td><code>import {User} from ...</code>
+                                                                                </td>
+                                                                                <td><code>import User from ...</code>
+                                                                                </td>
+                                                                        </tr>
+                                                                </tbody>
+                                                        </table>
+                                                        <p>Technically, a module can have both named exports and a
+                                                                default export, but in practice, it's common to use
+                                                                either named exports or a default export.</p>
+                                                        <p>When using export default, the exported entity can have no
+                                                                name because there can only be one default export per
+                                                                file. For example:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #c586c0;">export</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">default</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">class</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #cccccc;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">constructor</span><span
+                                                                                        style="color: #cccccc;">() {
+                                                                                </span><span
+                                                                                        style="color: #d4d4d4;">...</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                        }</span></div>
+                                                                        <div><span style="color: #cccccc;">}</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div><br>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #c586c0;">export</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">default</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                        (</span><span
+                                                                                        style="color: #9cdcfe;">user</span><span
+                                                                                        style="color: #cccccc;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #cccccc;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #cccccc;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #cccccc;">(</span><span
+                                                                                        style="color: #ce9178;">`Hello,
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">${</span><span
+                                                                                        style="color: #9cdcfe;">user</span><span
+                                                                                        style="color: #569cd6;">}</span><span
+                                                                                        style="color: #ce9178;">!`</span><span
+                                                                                        style="color: #cccccc;">);</span>
+                                                                        </div>
+                                                                        <div><span style="color: #cccccc;">}</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div><br>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #c586c0;">export</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">default</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                        [</span><span
+                                                                                        style="color: #ce9178;">'Jan'</span><span
+                                                                                        style="color: #cccccc;">,
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">'Feb'</span><span
+                                                                                        style="color: #cccccc;">,
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">'Mar'</span><span
+                                                                                        style="color: #cccccc;">,
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">'Apr'</span><span
+                                                                                        style="color: #cccccc;">,
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">'Aug'</span><span
+                                                                                        style="color: #cccccc;">,
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">'Sep'</span><span
+                                                                                        style="color: #cccccc;">,
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">'Oct'</span><span
+                                                                                        style="color: #cccccc;">,
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">'Nov'</span><span
+                                                                                        style="color: #cccccc;">,
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">'Dec'</span><span
+                                                                                        style="color: #cccccc;">];</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <p>In these cases, the exported entities don't have explicit
+                                                                names, but they can still be imported without curly
+                                                                braces. It's worth noting that if a non-default export
+                                                                doesn't have a name, it would result in an error.</p>
+                                                </li>
+                                                <li>
+                                                        <h3>The “default” name</h3>
+                                                        <p>In certain situations, the "default" keyword is used to
+                                                                reference the default export.</p>
+                                                        <p>For example, if we want to export a function separately from
+                                                                its definition, we can use the "default" keyword:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">sayHi</span><span
+                                                                                        style="color: #cccccc;">(</span><span
+                                                                                        style="color: #9cdcfe;">user</span><span
+                                                                                        style="color: #cccccc;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #cccccc;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #cccccc;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #cccccc;">(</span><span
+                                                                                        style="color: #ce9178;">`Hello,
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">${</span><span
+                                                                                        style="color: #9cdcfe;">user</span><span
+                                                                                        style="color: #569cd6;">}</span><span
+                                                                                        style="color: #ce9178;">!`</span><span
+                                                                                        style="color: #cccccc;">);</span>
+                                                                        </div>
+                                                                        <div><span style="color: #cccccc;">}</span>
+                                                                        </div><br>
+                                                                        <div><span style="color: #6a9955;">// Same as if
+                                                                                        we added "export default" before
+                                                                                        the function</span></div>
+                                                                        <div><span
+                                                                                        style="color: #c586c0;">export</span><span
+                                                                                        style="color: #cccccc;"> {
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">sayHi</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">as</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">default</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                        };</span></div>
+                                                                </div>
+                                                        </div>
+                                                        <p>Another scenario is when a module exports one main "default"
+                                                                thing along with a few named exports (although this is
+                                                                less common):</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #6a9955;">// 📁
+                                                                                        user.js</span></div>
+                                                                        <div><span
+                                                                                        style="color: #c586c0;">export</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">default</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">class</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #4ec9b0;">User</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #cccccc;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">constructor</span><span
+                                                                                        style="color: #cccccc;">(</span><span
+                                                                                        style="color: #9cdcfe;">name</span><span
+                                                                                        style="color: #cccccc;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #cccccc;">&nbsp; &nbsp;
+                                                                                        &nbsp; &nbsp; </span><span
+                                                                                        style="color: #569cd6;">this</span><span
+                                                                                        style="color: #cccccc;">.</span><span
+                                                                                        style="color: #9cdcfe;">name</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #d4d4d4;">=</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">name</span><span
+                                                                                        style="color: #cccccc;">;</span>
+                                                                        </div>
+                                                                        <div><span style="color: #cccccc;">&nbsp; &nbsp;
+                                                                                        }</span></div>
+                                                                        <div><span style="color: #cccccc;">}</span>
+                                                                        </div><br>
+                                                                        <div><span
+                                                                                        style="color: #c586c0;">export</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">function</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">sayHi</span><span
+                                                                                        style="color: #cccccc;">(</span><span
+                                                                                        style="color: #9cdcfe;">user</span><span
+                                                                                        style="color: #cccccc;">)
+                                                                                        {</span></div>
+                                                                        <div><span style="color: #cccccc;">&nbsp; &nbsp;
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">console</span><span
+                                                                                        style="color: #cccccc;">.</span><span
+                                                                                        style="color: #dcdcaa;">log</span><span
+                                                                                        style="color: #cccccc;">(</span><span
+                                                                                        style="color: #ce9178;">`Hello,
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">${</span><span
+                                                                                        style="color: #9cdcfe;">user</span><span
+                                                                                        style="color: #569cd6;">}</span><span
+                                                                                        style="color: #ce9178;">!`</span><span
+                                                                                        style="color: #cccccc;">);</span>
+                                                                        </div>
+                                                                        <div><span style="color: #cccccc;">}
+                                                                                        &nbsp;</span></div>
+                                                                </div>
+                                                        </div>
+                                                        <p>To import the default export along with a named export, we
+                                                                can use the "default" keyword:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #6a9955;">// 📁
+                                                                                        main.js</span></div>
+                                                                        <div><span
+                                                                                        style="color: #c586c0;">import</span><span
+                                                                                        style="color: #cccccc;"> {
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">default</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">as</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">User</span><span
+                                                                                        style="color: #cccccc;">,
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">sayHi</span><span
+                                                                                        style="color: #cccccc;"> }
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">from</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">'./user.js'</span><span
+                                                                                        style="color: #cccccc;">;</span>
+                                                                        </div><br>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">new</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #dcdcaa;">User</span><span
+                                                                                        style="color: #cccccc;">(</span><span
+                                                                                        style="color: #ce9178;">'John'</span><span
+                                                                                        style="color: #cccccc;">);</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <p>Lastly, when importing everything using the * as syntax to
+                                                                create an object, the "default" property of the imported
+                                                                object represents the default export:</p>
+                                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                                <div>
+                                                                        <div><span style="color: #6a9955;">// 📁
+                                                                                        main.js</span></div>
+                                                                        <div><span
+                                                                                        style="color: #c586c0;">import</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #569cd6;">*</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">as</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">user</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #c586c0;">from</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #ce9178;">'./user.js'</span><span
+                                                                                        style="color: #cccccc;">;</span>
+                                                                        </div><br>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">let</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">User</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #d4d4d4;">=</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">user</span><span
+                                                                                        style="color: #cccccc;">.</span><span
+                                                                                        style="color: #9cdcfe;">default</span><span
+                                                                                        style="color: #cccccc;">;
+                                                                                </span><span style="color: #6a9955;">//
+                                                                                        the default export</span></div>
+                                                                        <div><span
+                                                                                        style="color: #569cd6;">new</span><span
+                                                                                        style="color: #cccccc;">
+                                                                                </span><span
+                                                                                        style="color: #9cdcfe;">User</span><span
+                                                                                        style="color: #cccccc;">(</span><span
+                                                                                        style="color: #ce9178;">'John'</span><span
+                                                                                        style="color: #cccccc;">);</span>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+
+                                                        <p>In this case, we can access the default export using the
+                                                                "default" property of the imported object (user.default
+                                                                in this example).</p>
+
+                                                </li>
+                                        </ul>
+
+                                </details>
+                        </li>
+                        <li>
+                                <details>
+                                        <summary>Dynamic imports</summary>
+                                        <p>When working with JavaScript modules, the import and export statements are
+                                                considered "static" because their syntax is fixed and doesn't allow
+                                                dynamic behavior. However, there is a way to dynamically import modules
+                                                at runtime using the import() expression.</p>
+                                        <p>The import(module) expression loads the specified module and returns a
+                                                promise that resolves into a module object containing all its exports.
+                                                This expression can be used from anywhere in the code. Here's an example
+                                                of how to use it:</p>
+                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                <div>
+                                                        <div><span style="color: #569cd6;">let</span><span
+                                                                        style="color: #cccccc;"> </span><span
+                                                                        style="color: #9cdcfe;">modulePath</span><span
+                                                                        style="color: #cccccc;"> </span><span
+                                                                        style="color: #d4d4d4;">=</span><span
+                                                                        style="color: #cccccc;"> </span><span
+                                                                        style="color: #dcdcaa;">prompt</span><span
+                                                                        style="color: #cccccc;">(</span><span
+                                                                        style="color: #ce9178;">"Which module to
+                                                                        load?"</span><span
+                                                                        style="color: #cccccc;">);</span></div><br>
+                                                        <div><span style="color: #dcdcaa;">import</span><span
+                                                                        style="color: #cccccc;">(</span><span
+                                                                        style="color: #9cdcfe;">modulePath</span><span
+                                                                        style="color: #cccccc;">)</span></div>
+                                                        <div><span style="color: #cccccc;">&nbsp; &nbsp; .</span><span
+                                                                        style="color: #dcdcaa;">then</span><span
+                                                                        style="color: #cccccc;">(</span><span
+                                                                        style="color: #9cdcfe;">obj</span><span
+                                                                        style="color: #cccccc;"> </span><span
+                                                                        style="color: #569cd6;">=&gt;</span><span
+                                                                        style="color: #cccccc;"> {</span></div>
+                                                        <div><span style="color: #cccccc;">&nbsp; &nbsp; &nbsp; &nbsp;
+                                                                </span><span style="color: #6a9955;">// Module loaded
+                                                                        successfully, use the module object</span></div>
+                                                        <div><span style="color: #cccccc;">&nbsp; &nbsp; })</span></div>
+                                                        <div><span style="color: #cccccc;">&nbsp; &nbsp; .</span><span
+                                                                        style="color: #dcdcaa;">catch</span><span
+                                                                        style="color: #cccccc;">(</span><span
+                                                                        style="color: #9cdcfe;">err</span><span
+                                                                        style="color: #cccccc;"> </span><span
+                                                                        style="color: #569cd6;">=&gt;</span><span
+                                                                        style="color: #cccccc;"> {</span></div>
+                                                        <div><span style="color: #cccccc;">&nbsp; &nbsp; &nbsp; &nbsp;
+                                                                </span><span style="color: #6a9955;">// Error occurred
+                                                                        while loading the module</span></div>
+                                                        <div><span style="color: #cccccc;">&nbsp; &nbsp; });</span>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <p>Alternatively, if you are inside an async function, you can use the await
+                                                keyword to make the code more concise:</p>
+                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                <div>
+                                                        <div><span style="color: #569cd6;">let</span><span
+                                                                        style="color: #cccccc;"> </span><span
+                                                                        style="color: #9cdcfe;">modulePath</span><span
+                                                                        style="color: #cccccc;"> </span><span
+                                                                        style="color: #d4d4d4;">=</span><span
+                                                                        style="color: #cccccc;"> </span><span
+                                                                        style="color: #dcdcaa;">prompt</span><span
+                                                                        style="color: #cccccc;">(</span><span
+                                                                        style="color: #ce9178;">"Which module to
+                                                                        load?"</span><span
+                                                                        style="color: #cccccc;">);</span></div><br>
+                                                        <div><span style="color: #c586c0;">try</span><span
+                                                                        style="color: #cccccc;"> {</span></div>
+                                                        <div><span style="color: #cccccc;">&nbsp; &nbsp; </span><span
+                                                                        style="color: #569cd6;">let</span><span
+                                                                        style="color: #cccccc;"> </span><span
+                                                                        style="color: #9cdcfe;">obj</span><span
+                                                                        style="color: #cccccc;"> </span><span
+                                                                        style="color: #d4d4d4;">=</span><span
+                                                                        style="color: #cccccc;"> </span><span
+                                                                        style="color: #c586c0;">await</span><span
+                                                                        style="color: #cccccc;"> </span><span
+                                                                        style="color: #dcdcaa;">import</span><span
+                                                                        style="color: #cccccc;">(</span><span
+                                                                        style="color: #9cdcfe;">modulePath</span><span
+                                                                        style="color: #cccccc;">);</span></div>
+                                                        <div><span style="color: #cccccc;">&nbsp; &nbsp; </span><span
+                                                                        style="color: #6a9955;">// Module loaded
+                                                                        successfully, use the module object</span></div>
+                                                        <div><span style="color: #cccccc;">} </span><span
+                                                                        style="color: #c586c0;">catch</span><span
+                                                                        style="color: #cccccc;"> (</span><span
+                                                                        style="color: #9cdcfe;">err</span><span
+                                                                        style="color: #cccccc;">) {</span></div>
+                                                        <div><span style="color: #cccccc;">&nbsp; &nbsp; </span><span
+                                                                        style="color: #6a9955;">// Error occurred while
+                                                                        loading the module</span></div>
+                                                        <div><span style="color: #cccccc;">}</span></div>
+                                                </div>
+                                        </div>
+                                        <p>In both cases, you can access the exported values from the loaded module
+                                                object. If the module exports multiple named values, you can destructure
+                                                them directly:</p>
+                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                <div>
+                                                        <div><span style="color: #569cd6;">let</span><span
+                                                                        style="color: #cccccc;"> { </span><span
+                                                                        style="color: #9cdcfe;">hi</span><span
+                                                                        style="color: #cccccc;">, </span><span
+                                                                        style="color: #9cdcfe;">bye</span><span
+                                                                        style="color: #cccccc;"> } </span><span
+                                                                        style="color: #d4d4d4;">=</span><span
+                                                                        style="color: #cccccc;"> </span><span
+                                                                        style="color: #c586c0;">await</span><span
+                                                                        style="color: #cccccc;"> </span><span
+                                                                        style="color: #569cd6;">import</span><span
+                                                                        style="color: #cccccc;">(</span><span
+                                                                        style="color: #ce9178;">'./say.js'</span><span
+                                                                        style="color: #cccccc;">);</span></div>
+                                                        <div><span style="color: #dcdcaa;">hi</span><span
+                                                                        style="color: #cccccc;">();</span></div>
+                                                        <div><span style="color: #dcdcaa;">bye</span><span
+                                                                        style="color: #cccccc;">();</span></div>
+                                                </div>
+                                        </div>
+                                        <p>If the module has a default export, you can access it using the default
+                                                property of the module object:</p>
+                                        <div class="cods" contenteditable="" spellcheck="false">
+                                                <div>
+                                                        <div><span style="color: #569cd6;">let</span><span
+                                                                        style="color: #cccccc;"> </span><span
+                                                                        style="color: #9cdcfe;">obj</span><span
+                                                                        style="color: #cccccc;"> </span><span
+                                                                        style="color: #d4d4d4;">=</span><span
+                                                                        style="color: #cccccc;"> </span><span
+                                                                        style="color: #c586c0;">await</span><span
+                                                                        style="color: #cccccc;"> </span><span
+                                                                        style="color: #569cd6;">import</span><span
+                                                                        style="color: #cccccc;">(</span><span
+                                                                        style="color: #ce9178;">'./say.js'</span><span
+                                                                        style="color: #cccccc;">);</span></div>
+                                                        <div><span style="color: #569cd6;">let</span><span
+                                                                        style="color: #cccccc;"> </span><span
+                                                                        style="color: #9cdcfe;">say</span><span
+                                                                        style="color: #cccccc;"> </span><span
+                                                                        style="color: #d4d4d4;">=</span><span
+                                                                        style="color: #cccccc;"> </span><span
+                                                                        style="color: #9cdcfe;">obj</span><span
+                                                                        style="color: #cccccc;">.</span><span
+                                                                        style="color: #9cdcfe;">default</span><span
+                                                                        style="color: #cccccc;">;</span></div>
+                                                        <div><span style="color: #6a9955;">// or in one line: let {
+                                                                        default: say } = await
+                                                                        import('./say.js');</span></div><br>
+                                                        <div><span style="color: #dcdcaa;">say</span><span
+                                                                        style="color: #cccccc;">();</span></div>
+                                                </div>
+                                        </div>
+                                        <p>It's important to note that dynamic imports work in regular scripts and don't require the script tag with type="module". Also, while the import() expression may look like a function call, it's a special syntax that cannot be copied to a variable or used with call() or apply().</p>
+                                </details>
+                        </li>
+                </ul>
+
         </details>
         <details class="dad">
                 <summary>Miscellaneous</summary>
+
         </details>
 
 
