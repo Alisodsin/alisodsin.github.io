@@ -1,0 +1,17 @@
+To update Node using NPM, do the following:
+
+    Open the Terminal and check your current Node version: 
+    node -v 
+    Install n package using the following command:
+    npm install -g n   
+    This command will install a tool called "n" which you can use to update Node easily.
+    To update Node, run the following command in your terminal:           
+    n latest
+    This command will install the latest version of Node on your system.
+    Now you can verify that your update is complete by rechecking your Node version:  
+    node -v
+
+
+
+
+Gana_Mohamed_love_2
