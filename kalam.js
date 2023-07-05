@@ -949,4 +949,4 @@ function downloadObj(obj, filename) {
     a.click();
     URL.revokeObjectURL(url);
 }
-phpNames();
+retrieveBigData();
