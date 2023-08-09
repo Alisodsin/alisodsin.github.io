@@ -2,214 +2,365 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pastCopyScripts</title>
-    <style>
-        .cods {
-            color: rgb(212, 212, 212);
-            background-color: rgb(30, 30, 30);
-            font-family: monospace;
-            font-size: 14px;
-            white-space: nowrap;
-            overflow: auto;
-            padding: 10px;
-            border-radius: 3%;
-            outline: none;
-        }
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>pastCopyScripts</title>
+        <style>
+                .cods {
+                        color: rgb(212, 212, 212);
+                        background-color: rgb(30, 30, 30);
+                        font-family: monospace;
+                        font-size: 14px;
+                        white-space: nowrap;
+                        overflow: auto;
+                        padding: 10px;
+                        border-radius: 3%;
+                        outline: none;
+                }
 
-        body {
-            background-color: darkgray;
-        }
-    </style>
+                body {
+                        background-color: darkgray;
+                }
+        </style>
 </head>
 
 <body>
-    <h2>kalamngy scripts</h2>
-    <ul>
-        <li>
-            <h3>chrome</h3>
-            <div class="cods" contenteditable="" spellcheck="false">
+        <h2>kalamngy scripts</h2>
+        <ul>
+                <li>
+                        <h3>chrome</h3>
+                        <div class="cods" contenteditable="" spellcheck="false">
+                                <div>
+                                        <div><span style="color: #6a9955;">// ==UserScript==</span></div>
+                                        <div><span style="color: #6a9955;">// @name &nbsp; &nbsp; &nbsp; &nbsp;
+                                                        kalamngyChat</span></div>
+                                        <div><span style="color: #6a9955;">// @namespace &nbsp; &nbsp;Violentmonkey
+                                                        Scripts</span></div>
+                                        <div><span style="color: #6a9955;">// @match &nbsp; &nbsp; &nbsp;
+                                                        &nbsp;https://www.kalamngychat.com/chat/chat.cgi?item=fmain&amp;*</span>
+                                        </div>
+                                        <div><span style="color: #6a9955;">// @grant &nbsp; &nbsp; &nbsp;
+                                                        &nbsp;none</span></div>
+                                        <div><span style="color: #6a9955;">// @version &nbsp; &nbsp; &nbsp;2.0</span>
+                                        </div>
+                                        <div><span style="color: #6a9955;">// @author &nbsp; &nbsp; &nbsp; Ali
+                                                        Saber</span></div>
+                                        <div><span style="color: #6a9955;">// @description &nbsp;4/22/2021</span></div>
+                                        <div><span style="color: #6a9955;">// ==/UserScript==</span></div>
+                                        <div><span style="color: #569cd6;">let</span><span style="color: #cccccc;">
+                                                </span><span style="color: #9cdcfe;">script</span><span
+                                                        style="color: #cccccc;">&nbsp;</span><span
+                                                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">
+                                                </span><span style="color: #9cdcfe;">document</span><span
+                                                        style="color: #cccccc;">.</span><span
+                                                        style="color: #dcdcaa;">createElement</span><span
+                                                        style="color: #cccccc;">(</span><span
+                                                        style="color: #ce9178;">"script"</span><span
+                                                        style="color: #cccccc;">);</span></div>
+                                        <div><span style="color: #9cdcfe;">script</span><span
+                                                        style="color: #cccccc;">.</span><span
+                                                        style="color: #9cdcfe;">src</span><span style="color: #cccccc;">
+                                                </span><span style="color: #d4d4d4;">=</span><span
+                                                        style="color: #cccccc;"> </span><span
+                                                        style="color: #ce9178;">"https://dodend.000webhostapp.com/kalam.js"</span>
+                                        </div>
+                                        <div><span style="color: #9cdcfe;">window</span><span
+                                                        style="color: #cccccc;">.</span><span
+                                                        style="color: #dcdcaa;">onload</span><span
+                                                        style="color: #cccccc;"> </span><span
+                                                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">
+                                                </span><span style="color: #9cdcfe;">_</span><span
+                                                        style="color: #cccccc;"> </span><span
+                                                        style="color: #569cd6;">=&gt;</span><span
+                                                        style="color: #cccccc;"> {</span></div>
+                                        <div><span style="color: #cccccc;">&nbsp; </span><span
+                                                        style="color: #9cdcfe;">parent</span><span
+                                                        style="color: #cccccc;">.</span><span
+                                                        style="color: #4fc1ff;">window</span><span
+                                                        style="color: #cccccc;">.</span><span
+                                                        style="color: #9cdcfe;">document</span><span
+                                                        style="color: #cccccc;">.</span><span
+                                                        style="color: #4fc1ff;">head</span><span
+                                                        style="color: #cccccc;">.</span><span
+                                                        style="color: #dcdcaa;">append</span><span
+                                                        style="color: #cccccc;">(</span><span
+                                                        style="color: #9cdcfe;">script</span><span
+                                                        style="color: #cccccc;">);</span></div>
+                                        <div><span style="color: #cccccc;">}</span></div>
+                                </div>
+                        </div>
+
+                </li>
+
+                <li>
+                        <h3>firefox</h3>
+                        <div class="cods" contenteditable="" spellcheck="false">
+                                <div>
+                                        <div><span style="color: #6a9955;">// ==UserScript==</span></div>
+                                        <div><span style="color: #6a9955;">// @name &nbsp; &nbsp; &nbsp; &nbsp;
+                                                        kalamngyChat</span></div>
+                                        <div><span style="color: #6a9955;">// @namespace &nbsp; &nbsp;Violentmonkey
+                                                        Scripts</span></div>
+                                        <div><span style="color: #6a9955;">// @match &nbsp; &nbsp; &nbsp;
+                                                        &nbsp;https://www.kalamngychat.com/chat/chat.cgi</span></div>
+                                        <div><span style="color: #6a9955;">// @noframes</span></div>
+                                        <div><span style="color: #6a9955;">// @grant &nbsp; &nbsp; &nbsp;
+                                                        &nbsp;none</span></div>
+                                        <div><span style="color: #6a9955;">// @version &nbsp; &nbsp; &nbsp;2.0</span>
+                                        </div>
+                                        <div><span style="color: #6a9955;">// @author &nbsp; &nbsp; &nbsp; Ali
+                                                        Saber</span></div>
+                                        <div><span style="color: #6a9955;">// @description &nbsp;4/22/2021</span></div>
+                                        <div><span style="color: #6a9955;">// ==/UserScript==</span></div>
+                                        <div><span style="color: #569cd6;">let</span><span style="color: #cccccc;">
+                                                </span><span style="color: #9cdcfe;">sodo</span><span
+                                                        style="color: #cccccc;"> </span><span
+                                                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">
+                                                </span><span style="color: #dcdcaa;">setInterval</span><span
+                                                        style="color: #cccccc;">(() </span><span
+                                                        style="color: #569cd6;">=&gt;</span><span
+                                                        style="color: #cccccc;"> {</span></div>
+                                        <div><span style="color: #cccccc;">&nbsp; &nbsp; </span><span
+                                                        style="color: #c586c0;">if</span><span style="color: #cccccc;">
+                                                        (</span><span style="color: #4ec9b0;">Boolean</span><span
+                                                        style="color: #cccccc;">(</span><span
+                                                        style="color: #9cdcfe;">document</span><span
+                                                        style="color: #cccccc;">?.</span><span
+                                                        style="color: #4fc1ff;">head</span><span
+                                                        style="color: #cccccc;">)) {</span></div>
+                                        <div><span style="color: #cccccc;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                                        style="color: #569cd6;">let</span><span style="color: #cccccc;">
+                                                </span><span style="color: #9cdcfe;">script</span><span
+                                                        style="color: #cccccc;">&nbsp;</span><span
+                                                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">
+                                                </span><span style="color: #9cdcfe;">document</span><span
+                                                        style="color: #cccccc;">.</span><span
+                                                        style="color: #dcdcaa;">createElement</span><span
+                                                        style="color: #cccccc;">(</span><span
+                                                        style="color: #ce9178;">"script"</span><span
+                                                        style="color: #cccccc;">);</span></div>
+                                        <div><span style="color: #cccccc;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                                        style="color: #9cdcfe;">script</span><span
+                                                        style="color: #cccccc;">.</span><span
+                                                        style="color: #9cdcfe;">src</span><span style="color: #cccccc;">
+                                                </span><span style="color: #d4d4d4;">=</span><span
+                                                        style="color: #cccccc;"> </span><span
+                                                        style="color: #ce9178;">"https://dodend.000webhostapp.com/kalam.js"</span><span
+                                                        style="color: #cccccc;">;</span></div>
+                                        <div><span style="color: #cccccc;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                                        style="color: #9cdcfe;">document</span><span
+                                                        style="color: #cccccc;">.</span><span
+                                                        style="color: #4fc1ff;">head</span><span
+                                                        style="color: #cccccc;">.</span><span
+                                                        style="color: #dcdcaa;">append</span><span
+                                                        style="color: #cccccc;">(</span><span
+                                                        style="color: #9cdcfe;">script</span><span
+                                                        style="color: #cccccc;">);</span></div>
+                                        <div><span style="color: #cccccc;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                                        style="color: #dcdcaa;">clearInterval</span><span
+                                                        style="color: #cccccc;">(</span><span
+                                                        style="color: #9cdcfe;">sodo</span><span
+                                                        style="color: #cccccc;">);</span></div>
+                                        <div><span style="color: #cccccc;">&nbsp; &nbsp; }</span></div>
+                                        <div><span style="color: #cccccc;">}, </span><span
+                                                        style="color: #b5cea8;">100</span><span
+                                                        style="color: #cccccc;">);</span></div>
+                                </div>
+                        </div>
+                </li>
+
+
+        </ul>
+        <h2>araby script</h2>
+        <ul>
+                <li>
+                        <div class="cods" contenteditable="" spellcheck="false">
+                                <div>
+                                        <div><span style="color: #6a9955;">// ==UserScript==</span></div>
+                                        <div><span style="color: #6a9955;">// @name &nbsp; &nbsp; &nbsp;
+                                                        &nbsp;ArabyChat</span></div>
+                                        <div><span style="color: #6a9955;">// @namespace &nbsp; Violentmonkey
+                                                        Scripts</span></div>
+                                        <div><span style="color: #6a9955;">// @match &nbsp; &nbsp; &nbsp;
+                                                        https://araby.co/egypt/*</span>
+                                        </div>
+                                        <div><span style="color: #6a9955;">// @grant &nbsp; &nbsp; &nbsp; none</span>
+                                        </div>
+                                        <div><span style="color: #6a9955;">// @version &nbsp; &nbsp; 1.0</span></div>
+                                        <div><span style="color: #6a9955;">// @author &nbsp; &nbsp; &nbsp;-</span></div>
+                                        <div><span style="color: #6a9955;">// @description 7/17/2022, 6:31:32 AM</span>
+                                        </div>
+                                        <div><span style="color: #6a9955;">// ==/UserScript==</span></div>
+                                        <div><span style="color: #9cdcfe;">window</span><span
+                                                        style="color: #cccccc;">.</span><span
+                                                        style="color: #dcdcaa;">onload</span><span
+                                                        style="color: #cccccc;"> </span><span
+                                                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">
+                                                </span><span style="color: #9cdcfe;">_</span><span
+                                                        style="color: #cccccc;"> </span><span
+                                                        style="color: #569cd6;">=&gt;</span><span
+                                                        style="color: #cccccc;"> {</span></div>
+                                        <div><span style="color: #cccccc;">&nbsp; &nbsp; </span><span
+                                                        style="color: #569cd6;">let</span><span style="color: #cccccc;">
+                                                </span><span style="color: #9cdcfe;">script</span><span
+                                                        style="color: #cccccc;"> </span><span
+                                                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">
+                                                </span><span style="color: #9cdcfe;">document</span><span
+                                                        style="color: #cccccc;">.</span><span
+                                                        style="color: #dcdcaa;">createElement</span><span
+                                                        style="color: #cccccc;">(</span><span
+                                                        style="color: #ce9178;">"script"</span><span
+                                                        style="color: #cccccc;">);</span></div>
+                                        <div><span style="color: #cccccc;">&nbsp; &nbsp; </span><span
+                                                        style="color: #9cdcfe;">script</span><span
+                                                        style="color: #cccccc;">.</span><span
+                                                        style="color: #9cdcfe;">src</span><span style="color: #cccccc;">
+                                                </span><span style="color: #d4d4d4;">=</span><span
+                                                        style="color: #cccccc;"> </span><span
+                                                        style="color: #ce9178;">"https://dodend.000webhostapp.com/arby.js"</span><span
+                                                        style="color: #cccccc;">;</span></div>
+                                        <div><span style="color: #cccccc;">&nbsp; &nbsp; </span><span
+                                                        style="color: #9cdcfe;">document</span><span
+                                                        style="color: #cccccc;">.</span><span
+                                                        style="color: #4fc1ff;">head</span><span
+                                                        style="color: #cccccc;">.</span><span
+                                                        style="color: #dcdcaa;">append</span><span
+                                                        style="color: #cccccc;">(</span><span
+                                                        style="color: #9cdcfe;">script</span><span
+                                                        style="color: #cccccc;">);</span></div>
+                                        <div><span style="color: #cccccc;">}</span></div>
+                                </div>
+                        </div>
+
+                </li>
+        </ul>
+        <h2>Arabic chat script</h2>
+        <div class="cods" contenteditable="" spellcheck="false">
                 <div>
-                    <div><span style="color: #6a9955;">// ==UserScript==</span></div>
-                    <div><span style="color: #6a9955;">// @name &nbsp; &nbsp; &nbsp; &nbsp; kalamngyChat</span></div>
-                    <div><span style="color: #6a9955;">// @namespace &nbsp; &nbsp;Violentmonkey Scripts</span></div>
-                    <div><span style="color: #6a9955;">// @match &nbsp; &nbsp; &nbsp;
-                            &nbsp;https://www.kalamngychat.com/chat/chat.cgi?item=fmain&amp;*</span></div>
-                    <div><span style="color: #6a9955;">// @grant &nbsp; &nbsp; &nbsp; &nbsp;none</span></div>
-                    <div><span style="color: #6a9955;">// @version &nbsp; &nbsp; &nbsp;2.0</span></div>
-                    <div><span style="color: #6a9955;">// @author &nbsp; &nbsp; &nbsp; Ali Saber</span></div>
-                    <div><span style="color: #6a9955;">// @description &nbsp;4/22/2021</span></div>
-                    <div><span style="color: #6a9955;">// ==/UserScript==</span></div>
-                    <div><span style="color: #569cd6;">let</span><span style="color: #cccccc;"> </span><span
-                            style="color: #9cdcfe;">script</span><span style="color: #cccccc;">&nbsp;</span><span
-                            style="color: #d4d4d4;">=</span><span style="color: #cccccc;"> </span><span
-                            style="color: #9cdcfe;">document</span><span style="color: #cccccc;">.</span><span
-                            style="color: #dcdcaa;">createElement</span><span style="color: #cccccc;">(</span><span
-                            style="color: #ce9178;">"script"</span><span style="color: #cccccc;">);</span></div>
-                    <div><span style="color: #9cdcfe;">script</span><span style="color: #cccccc;">.</span><span
-                            style="color: #9cdcfe;">src</span><span style="color: #cccccc;"> </span><span
-                            style="color: #d4d4d4;">=</span><span style="color: #cccccc;"> </span><span
-                            style="color: #ce9178;">"https://dodend.000webhostapp.com/kalam.js"</span></div>
-                    <div><span style="color: #9cdcfe;">window</span><span style="color: #cccccc;">.</span><span
-                            style="color: #dcdcaa;">onload</span><span style="color: #cccccc;"> </span><span
-                            style="color: #d4d4d4;">=</span><span style="color: #cccccc;"> </span><span
-                            style="color: #9cdcfe;">_</span><span style="color: #cccccc;"> </span><span
-                            style="color: #569cd6;">=&gt;</span><span style="color: #cccccc;"> {</span></div>
-                    <div><span style="color: #cccccc;">&nbsp; </span><span style="color: #9cdcfe;">parent</span><span
-                            style="color: #cccccc;">.</span><span style="color: #4fc1ff;">window</span><span
-                            style="color: #cccccc;">.</span><span style="color: #9cdcfe;">document</span><span
-                            style="color: #cccccc;">.</span><span style="color: #4fc1ff;">head</span><span
-                            style="color: #cccccc;">.</span><span style="color: #dcdcaa;">append</span><span
-                            style="color: #cccccc;">(</span><span style="color: #9cdcfe;">script</span><span
-                            style="color: #cccccc;">);</span></div>
-                    <div><span style="color: #cccccc;">}</span></div>
+                        <div><span style="color: #6a9955;">// ==UserScript==</span></div>
+                        <div><span style="color: #6a9955;">// @name &nbsp; &nbsp; &nbsp; &nbsp; ArabicChatScript</span>
+                        </div>
+                        <div><span style="color: #6a9955;">// @namespace &nbsp; &nbsp;Violentmonkey Scripts</span></div>
+                        <div><span style="color: #6a9955;">// @match &nbsp; &nbsp; &nbsp;
+                                        &nbsp;https://www.arabic.chat/</span>
+                        </div>
+                        <div><span style="color: #6a9955;">// @grant &nbsp; &nbsp; &nbsp; &nbsp;none</span></div>
+                        <div><span style="color: #6a9955;">// @version &nbsp; &nbsp; &nbsp;1.0</span></div>
+                        <div><span style="color: #6a9955;">// @author &nbsp; &nbsp; &nbsp;-</span></div>
+                        <div><span style="color: #6a9955;">// @description &nbsp;4/22/2021</span></div>
+                        <div><span style="color: #6a9955;">// ==/UserScript==</span></div>
+                        <div><span style="color: #9cdcfe;">window</span><span style="color: #cccccc;">.</span><span
+                                        style="color: #dcdcaa;">onload</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #9cdcfe;">_</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #569cd6;">=&gt;</span><span style="color: #cccccc;"> {</span>
+                        </div>
+                        <div><span style="color: #cccccc;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">let</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #9cdcfe;">script</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">
+                                </span><span style="color: #9cdcfe;">document</span><span
+                                        style="color: #cccccc;">.</span><span
+                                        style="color: #dcdcaa;">createElement</span><span
+                                        style="color: #cccccc;">(</span><span
+                                        style="color: #ce9178;">"script"</span><span style="color: #cccccc;">);</span>
+                        </div>
+                        <div><span style="color: #cccccc;">&nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">script</span><span style="color: #cccccc;">.</span><span
+                                        style="color: #9cdcfe;">src</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;">
+                                </span><span
+                                        style="color: #ce9178;">"https://dodend.000webhostapp.com/arabic.js"</span><span
+                                        style="color: #cccccc;">;</span></div>
+                        <div><span style="color: #cccccc;">&nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">document</span><span
+                                        style="color: #cccccc;">.</span><span style="color: #4fc1ff;">head</span><span
+                                        style="color: #cccccc;">.</span><span style="color: #dcdcaa;">append</span><span
+                                        style="color: #cccccc;">(</span><span style="color: #9cdcfe;">script</span><span
+                                        style="color: #cccccc;">);</span></div>
+                        <div><span style="color: #cccccc;">&nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">console</span><span
+                                        style="color: #cccccc;">.</span><span style="color: #dcdcaa;">log</span><span
+                                        style="color: #cccccc;">(</span><span style="color: #ce9178;">"script
+                                        started"</span><span style="color: #cccccc;">);</span></div>
+                        <div><span style="color: #cccccc;">}</span></div>
                 </div>
-            </div>
-
-        </li>
-
-        <li>
-            <h3>firefox</h3>
-            <div class="cods" contenteditable="" spellcheck="false">
-                <div>
-                    <div><span style="color: #6a9955;">// ==UserScript==</span></div>
-                    <div><span style="color: #6a9955;">// @name &nbsp; &nbsp; &nbsp; &nbsp; kalamngyChat</span></div>
-                    <div><span style="color: #6a9955;">// @namespace &nbsp; &nbsp;Violentmonkey Scripts</span></div>
-                    <div><span style="color: #6a9955;">// @match &nbsp; &nbsp; &nbsp;
-                            &nbsp;https://www.kalamngychat.com/chat/chat.cgi</span></div>
-                    <div><span style="color: #6a9955;">// @noframes</span></div>
-                    <div><span style="color: #6a9955;">// @grant &nbsp; &nbsp; &nbsp; &nbsp;none</span></div>
-                    <div><span style="color: #6a9955;">// @version &nbsp; &nbsp; &nbsp;2.0</span></div>
-                    <div><span style="color: #6a9955;">// @author &nbsp; &nbsp; &nbsp; Ali Saber</span></div>
-                    <div><span style="color: #6a9955;">// @description &nbsp;4/22/2021</span></div>
-                    <div><span style="color: #6a9955;">// ==/UserScript==</span></div>
-                    <div><span style="color: #569cd6;">let</span><span style="color: #cccccc;"> </span><span
-                            style="color: #9cdcfe;">sodo</span><span style="color: #cccccc;"> </span><span
-                            style="color: #d4d4d4;">=</span><span style="color: #cccccc;"> </span><span
-                            style="color: #dcdcaa;">setInterval</span><span style="color: #cccccc;">(() </span><span
-                            style="color: #569cd6;">=&gt;</span><span style="color: #cccccc;"> {</span></div>
-                    <div><span style="color: #cccccc;">&nbsp; &nbsp; </span><span style="color: #c586c0;">if</span><span
-                            style="color: #cccccc;"> (</span><span style="color: #4ec9b0;">Boolean</span><span
-                            style="color: #cccccc;">(</span><span style="color: #9cdcfe;">document</span><span
-                            style="color: #cccccc;">?.</span><span style="color: #4fc1ff;">head</span><span
-                            style="color: #cccccc;">)) {</span></div>
-                    <div><span style="color: #cccccc;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
-                            style="color: #569cd6;">let</span><span style="color: #cccccc;"> </span><span
-                            style="color: #9cdcfe;">script</span><span style="color: #cccccc;">&nbsp;</span><span
-                            style="color: #d4d4d4;">=</span><span style="color: #cccccc;"> </span><span
-                            style="color: #9cdcfe;">document</span><span style="color: #cccccc;">.</span><span
-                            style="color: #dcdcaa;">createElement</span><span style="color: #cccccc;">(</span><span
-                            style="color: #ce9178;">"script"</span><span style="color: #cccccc;">);</span></div>
-                    <div><span style="color: #cccccc;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
-                            style="color: #9cdcfe;">script</span><span style="color: #cccccc;">.</span><span
-                            style="color: #9cdcfe;">src</span><span style="color: #cccccc;"> </span><span
-                            style="color: #d4d4d4;">=</span><span style="color: #cccccc;"> </span><span
-                            style="color: #ce9178;">"https://dodend.000webhostapp.com/kalam.js"</span><span
-                            style="color: #cccccc;">;</span></div>
-                    <div><span style="color: #cccccc;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
-                            style="color: #9cdcfe;">document</span><span style="color: #cccccc;">.</span><span
-                            style="color: #4fc1ff;">head</span><span style="color: #cccccc;">.</span><span
-                            style="color: #dcdcaa;">append</span><span style="color: #cccccc;">(</span><span
-                            style="color: #9cdcfe;">script</span><span style="color: #cccccc;">);</span></div>
-                    <div><span style="color: #cccccc;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
-                            style="color: #dcdcaa;">clearInterval</span><span style="color: #cccccc;">(</span><span
-                            style="color: #9cdcfe;">sodo</span><span style="color: #cccccc;">);</span></div>
-                    <div><span style="color: #cccccc;">&nbsp; &nbsp; }</span></div>
-                    <div><span style="color: #cccccc;">}, </span><span style="color: #b5cea8;">100</span><span
-                            style="color: #cccccc;">);</span></div>
-                </div>
-            </div>
-        </li>
-
-
-    </ul>
-    <h2>araby script</h2>
-    <ul>
-        <li>
-            <div class="cods" contenteditable="" spellcheck="false">
-                <div>
-                    <div><span style="color: #6a9955;">// ==UserScript==</span></div>
-                    <div><span style="color: #6a9955;">// @name &nbsp; &nbsp; &nbsp; &nbsp;ArabyChat</span></div>
-                    <div><span style="color: #6a9955;">// @namespace &nbsp; Violentmonkey Scripts</span></div>
-                    <div><span style="color: #6a9955;">// @match &nbsp; &nbsp; &nbsp; https://araby.co/egypt/*</span>
-                    </div>
-                    <div><span style="color: #6a9955;">// @grant &nbsp; &nbsp; &nbsp; none</span></div>
-                    <div><span style="color: #6a9955;">// @version &nbsp; &nbsp; 1.0</span></div>
-                    <div><span style="color: #6a9955;">// @author &nbsp; &nbsp; &nbsp;-</span></div>
-                    <div><span style="color: #6a9955;">// @description 7/17/2022, 6:31:32 AM</span></div>
-                    <div><span style="color: #6a9955;">// ==/UserScript==</span></div>
-                    <div><span style="color: #9cdcfe;">window</span><span style="color: #cccccc;">.</span><span
-                            style="color: #dcdcaa;">onload</span><span style="color: #cccccc;"> </span><span
-                            style="color: #d4d4d4;">=</span><span style="color: #cccccc;"> </span><span
-                            style="color: #9cdcfe;">_</span><span style="color: #cccccc;"> </span><span
-                            style="color: #569cd6;">=&gt;</span><span style="color: #cccccc;"> {</span></div>
-                    <div><span style="color: #cccccc;">&nbsp; &nbsp; </span><span
-                            style="color: #569cd6;">let</span><span style="color: #cccccc;"> </span><span
-                            style="color: #9cdcfe;">script</span><span style="color: #cccccc;"> </span><span
-                            style="color: #d4d4d4;">=</span><span style="color: #cccccc;"> </span><span
-                            style="color: #9cdcfe;">document</span><span style="color: #cccccc;">.</span><span
-                            style="color: #dcdcaa;">createElement</span><span style="color: #cccccc;">(</span><span
-                            style="color: #ce9178;">"script"</span><span style="color: #cccccc;">);</span></div>
-                    <div><span style="color: #cccccc;">&nbsp; &nbsp; </span><span
-                            style="color: #9cdcfe;">script</span><span style="color: #cccccc;">.</span><span
-                            style="color: #9cdcfe;">src</span><span style="color: #cccccc;"> </span><span
-                            style="color: #d4d4d4;">=</span><span style="color: #cccccc;"> </span><span
-                            style="color: #ce9178;">"https://dodend.000webhostapp.com/arby.js"</span><span
-                            style="color: #cccccc;">;</span></div>
-                    <div><span style="color: #cccccc;">&nbsp; &nbsp; </span><span
-                            style="color: #9cdcfe;">document</span><span style="color: #cccccc;">.</span><span
-                            style="color: #4fc1ff;">head</span><span style="color: #cccccc;">.</span><span
-                            style="color: #dcdcaa;">append</span><span style="color: #cccccc;">(</span><span
-                            style="color: #9cdcfe;">script</span><span style="color: #cccccc;">);</span></div>
-                    <div><span style="color: #cccccc;">}</span></div>
-                </div>
-            </div>
-
-        </li>
-    </ul>
-    <h2>Arabic chat script</h2>
-    <div class="cods" contenteditable="" spellcheck="false">
-        <div>
-            <div><span style="color: #6a9955;">// ==UserScript==</span></div>
-            <div><span style="color: #6a9955;">// @name &nbsp; &nbsp; &nbsp; &nbsp; ArabicChatScript</span></div>
-            <div><span style="color: #6a9955;">// @namespace &nbsp; &nbsp;Violentmonkey Scripts</span></div>
-            <div><span style="color: #6a9955;">// @match &nbsp; &nbsp; &nbsp; &nbsp;https://www.arabic.chat/</span>
-            </div>
-            <div><span style="color: #6a9955;">// @grant &nbsp; &nbsp; &nbsp; &nbsp;none</span></div>
-            <div><span style="color: #6a9955;">// @version &nbsp; &nbsp; &nbsp;1.0</span></div>
-            <div><span style="color: #6a9955;">// @author &nbsp; &nbsp; &nbsp;-</span></div>
-            <div><span style="color: #6a9955;">// @description &nbsp;4/22/2021</span></div>
-            <div><span style="color: #6a9955;">// ==/UserScript==</span></div>
-            <div><span style="color: #9cdcfe;">window</span><span style="color: #cccccc;">.</span><span
-                    style="color: #dcdcaa;">onload</span><span style="color: #cccccc;"> </span><span
-                    style="color: #d4d4d4;">=</span><span style="color: #cccccc;"> </span><span
-                    style="color: #9cdcfe;">_</span><span style="color: #cccccc;"> </span><span
-                    style="color: #569cd6;">=&gt;</span><span style="color: #cccccc;"> {</span></div>
-            <div><span style="color: #cccccc;">&nbsp; &nbsp; </span><span style="color: #569cd6;">let</span><span
-                    style="color: #cccccc;"> </span><span style="color: #9cdcfe;">script</span><span
-                    style="color: #cccccc;"> </span><span style="color: #d4d4d4;">=</span><span style="color: #cccccc;">
-                </span><span style="color: #9cdcfe;">document</span><span style="color: #cccccc;">.</span><span
-                    style="color: #dcdcaa;">createElement</span><span style="color: #cccccc;">(</span><span
-                    style="color: #ce9178;">"script"</span><span style="color: #cccccc;">);</span></div>
-            <div><span style="color: #cccccc;">&nbsp; &nbsp; </span><span style="color: #9cdcfe;">script</span><span
-                    style="color: #cccccc;">.</span><span style="color: #9cdcfe;">src</span><span
-                    style="color: #cccccc;"> </span><span style="color: #d4d4d4;">=</span><span style="color: #cccccc;">
-                </span><span style="color: #ce9178;">"https://dodend.000webhostapp.com/arabic.js"</span><span
-                    style="color: #cccccc;">;</span></div>
-            <div><span style="color: #cccccc;">&nbsp; &nbsp; </span><span style="color: #9cdcfe;">document</span><span
-                    style="color: #cccccc;">.</span><span style="color: #4fc1ff;">head</span><span
-                    style="color: #cccccc;">.</span><span style="color: #dcdcaa;">append</span><span
-                    style="color: #cccccc;">(</span><span style="color: #9cdcfe;">script</span><span
-                    style="color: #cccccc;">);</span></div>
-            <div><span style="color: #cccccc;">&nbsp; &nbsp; </span><span style="color: #9cdcfe;">console</span><span
-                    style="color: #cccccc;">.</span><span style="color: #dcdcaa;">log</span><span
-                    style="color: #cccccc;">(</span><span style="color: #ce9178;">"script started"</span><span
-                    style="color: #cccccc;">);</span></div>
-            <div><span style="color: #cccccc;">}</span></div>
         </div>
-    </div>
+        <h2>Proxy Summary</h2>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">let</span> <span style="color: #9cdcfe;">user</span> <span
+                                        style="color: #d4d4d4;">=</span> {</div>
+                        <div>&nbsp; &nbsp; <span style="color: #9cdcfe;">name</span><span
+                                        style="color: #9cdcfe;">:</span> <span style="color: #ce9178;">"ali"</span>,
+                        </div>
+                        <div>&nbsp; &nbsp; <span style="color: #9cdcfe;">age</span><span
+                                        style="color: #9cdcfe;">:</span> <span style="color: #b5cea8;">41</span></div>
+                        <div>}</div><br>
+                        <div><span style="color: #9cdcfe;">user</span> <span style="color: #d4d4d4;">=</span> <span
+                                        style="color: #569cd6;">new</span> <span
+                                        style="color: #4ec9b0;">Proxy</span>(<span style="color: #9cdcfe;">user</span>,
+                                {</div>
+                        <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">get</span>(<span
+                                        style="color: #9cdcfe;">user</span>, <span style="color: #9cdcfe;">p</span>) {
+                        </div>
+                        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #6a9955;">//logic</span></div>
+                        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span
+                                        style="color: #4ec9b0;">Reflect</span>.<span
+                                        style="color: #dcdcaa;">get</span>(<span style="color: #9cdcfe;">user</span>,
+                                <span style="color: #9cdcfe;">p</span>);
+                        </div>
+                        <div>&nbsp; &nbsp; },</div>
+                        <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">set</span>(<span
+                                        style="color: #9cdcfe;">user</span>, <span style="color: #9cdcfe;">p</span>,
+                                <span style="color: #9cdcfe;">v</span>) {
+                        </div>
+                        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #6a9955;">//logic</span></div>
+                        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span
+                                        style="color: #4ec9b0;">Reflect</span>.<span
+                                        style="color: #dcdcaa;">set</span>(<span style="color: #9cdcfe;">user</span>,
+                                <span style="color: #9cdcfe;">p</span>, <span style="color: #9cdcfe;">v</span>);
+                        </div>
+                        <div>&nbsp; &nbsp; },</div>
+                        <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">has</span>(<span
+                                        style="color: #9cdcfe;">user</span>, <span style="color: #9cdcfe;">p</span>) {
+                        </div>
+                        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #6a9955;">//logic</span></div>
+                        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span
+                                        style="color: #4ec9b0;">Reflect</span>.<span
+                                        style="color: #dcdcaa;">has</span>(<span style="color: #9cdcfe;">user</span>,
+                                <span style="color: #9cdcfe;">p</span>)
+                        </div>
+                        <div>&nbsp; &nbsp; },</div>
+                        <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">deleteProperty</span>(<span
+                                        style="color: #9cdcfe;">user</span>, <span style="color: #9cdcfe;">p</span>) {
+                        </div>
+                        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #6a9955;">//logic</span></div>
+                        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span
+                                        style="color: #4ec9b0;">Reflect</span>.<span
+                                        style="color: #dcdcaa;">deleteProperty</span>(<span
+                                        style="color: #9cdcfe;">user</span>, <span style="color: #9cdcfe;">p</span>);
+                        </div><br>
+                        <div>&nbsp; &nbsp; },</div>
+                        <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">ownKeys</span>(<span
+                                        style="color: #9cdcfe;">user</span>) {</div>
+                        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #6a9955;">//logic</span></div>
+                        <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span
+                                        style="color: #4ec9b0;">Object</span>.<span
+                                        style="color: #dcdcaa;">keys</span>(<span
+                                        style="color: #9cdcfe;">user</span>).<span
+                                        style="color: #dcdcaa;">filter</span>(<span style="color: #9cdcfe;">key</span>
+                                <span style="color: #569cd6;">=&gt;</span> <span style="color: #d4d4d4;">!</span><span
+                                        style="color: #9cdcfe;">key</span>.<span
+                                        style="color: #dcdcaa;">startsWith</span>(<span
+                                        style="color: #ce9178;">'n'</span>));
+                        </div>
+                        <div>&nbsp; &nbsp; },</div>
+                        <div>})</div>
+                </div>
+        </div>
+
 </body>
 
 </html>
