@@ -322,6 +322,7 @@ function runCode() {
             clearInterval(check);
         }
     }, 100);
+    input.placeholder = femalesNames.size; 
 }
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
