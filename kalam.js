@@ -106,7 +106,7 @@ function runCode() {
             joiningPplClass = _fmain.document.getElementsByClassName("main-nickg");
             listTarget = _fwindowlist.document.getElementById("windowlist");
             input = parent.fform.document.querySelector("#say");
-            input.placeholder = femalesNames.size; 
+            input.placeholder = femalesNames.size;
             listObserver.observe(listTarget, objConfig);
             fform.onkeydown = keysHandelr;
             ters = fform.document.getElementsByTagName("img")[0]
@@ -151,7 +151,7 @@ function runCode() {
             containersDiv.style.padding = "0"
             _fwindowlist["Witems"] = new Proxy(_fwindowlist["Witems"], {
                 set(target, p, v) {
-                    if (checkForFemaleName(p, femalesNames) | p == myNick) {
+                    if (checkForFemaleName(p, femalesNames) | p == myNick | /^Kalamngy_\d{4}$/.test(p)) {
                         return Reflect.set(target, p, v)
                     }
                     else {
@@ -960,5 +960,5 @@ async function fetchJsons(url) {
     shrr3 = response[1];
     runCode();
     await sleep(3000);
-    
+
 })();
