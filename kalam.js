@@ -949,12 +949,13 @@ async function fetchJsons(url) {
 (async function () {
     let response = await fetchJsons(fmlgiturl);
     femalesNames = response[0];
+    testSet = femalesNames;
     shrr1 = response[1];
     response = await fetchJsons(mlsgiturl);
     males = response[0];
     shrr2 = response[1];
     response = await fetchJsons(msgsgiturl);
     messages = response[0];
-    shrr3 = response[1]; 
+    shrr3 = response[1];
     runCode();
 })();
