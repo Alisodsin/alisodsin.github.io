@@ -106,6 +106,7 @@ function runCode() {
             joiningPplClass = _fmain.document.getElementsByClassName("main-nickg");
             listTarget = _fwindowlist.document.getElementById("windowlist");
             input = parent.fform.document.querySelector("#say");
+            input.placeholder = femalesNames.size; 
             listObserver.observe(listTarget, objConfig);
             fform.onkeydown = keysHandelr;
             ters = fform.document.getElementsByTagName("img")[0]
@@ -959,5 +960,5 @@ async function fetchJsons(url) {
     shrr3 = response[1];
     runCode();
     await sleep(3000);
-    input.placeholder = femalesNames.size; 
+    
 })();
