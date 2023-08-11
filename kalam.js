@@ -16,10 +16,17 @@ let check = setInterval(_ => {
     input,
     myNick,
     R,
-    messages = new Set(),
-    notWanted = new Set(),
-    randomizeMessage = false,
+    fmlgiturl = `https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/femaleNames.json`,
+    mlsgiturl = `https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/males.json`,
+    msgsgiturl = `https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/messages.json`,
+    femalesNames = new Set(),
     shrr1,
+    males = new Set(),
+    shrr2,
+    messages = new Set(),
+    shrr3,
+    testSet = new Set(),
+    randomizeMessage = false,
     users,
     stream = {},
     framo,
@@ -40,8 +47,6 @@ let check = setInterval(_ => {
     message4 = "ممكن لو سمحتى تردى عليا ؟",
     regex = /onedaymothersaidgetupearlytogotoschool/,
     personsGotMyMsg1 = new Set(),
-    femalesNames = new Set(),
-    testSet = new Set(),
     toggles = new Set(),
     malesNames = new Set(),
     roomName,
@@ -93,9 +98,9 @@ function runCode() {
     let check = setInterval(_ => {
         if (Boolean(Object?.keys?.(fwindowlist?.Witems)?.[1])) {
             roomName = Object.keys(fwindowlist.Witems)[1];
-            framo = document.createElement("iframe");
-            framo.src = "https://dodend.000webhostapp.com/add.html";
-            framo.name = "child"
+            // framo = document.createElement("iframe");
+            // framo.src = "https://dodend.000webhostapp.com/add.html";
+            // framo.name = "child"
             mainTarget = _fmain.document.querySelector(".main-span");
             myNick = _fwindowlist.mynickname;
             joiningPplClass = _fmain.document.getElementsByClassName("main-nickg");
@@ -204,13 +209,13 @@ function runCode() {
             ol1.style.background = "black";
             ol1.style.color = "green";
             ol1.style.overflow = "auto"
-            framo.id = "biginput";
+            // framo.id = "biginput";
             ol2.id = "ol2";
             ol2.style.background = "black";
             ol2.style.color = "white"
             ol2.style.overflow = "auto"
             ol2.style.display = "block";
-            containersDiv.append(ol1, framo, ol2)
+            containersDiv.append(ol1, ol2)
             _fmain.document.body.append(buttonContainers, containersDiv);
             _fmain.document.head.append(style)
             _fmain.document.querySelector(".main-closepic").remove();
@@ -218,58 +223,59 @@ function runCode() {
             _fmain.document.querySelector("#hidderbtn").style.display = "none";
             _fmain.document.querySelector("#mainplusbtn").remove();
 
-            _fmain.addEventListener('message', function (event) {
-                window.mantor = event;
-                if (event.origin === 'https://dodend.000webhostapp.com') {
-                    if (typeof event.data == "string") {
-                        let name = event.data.replace(/\s:.{1,}/g, "");
-                        if (event.data.includes("added to femaleNames")) {
-                            femalesNames.add(name);
-                            input.placeholder = `${name} added to females`
-                        }
-                        else if (event.data.includes("deleted from femaleNames")) {
-                            femalesNames.delete(name);
-                            input.placeholder = `${name} deleted from the females`;
-                        }
-                        else if (event.data.includes("added to notwanted names")) {
-                            notWanted.add(name)
-                            input.placeholder = `${name} added from the males`;
-                        }
-                        else if (event.data.includes("deleted from notwanted names")) {
-                            notWanted.delete(name);
-                            input.placeholder = `${name} deleted from the males`;
+            // _fmain.addEventListener('message', function (event) {
+            //     window.mantor = event;
+            //     if (event.origin === 'https://dodend.000webhostapp.com') {
+            //         if (typeof event.data == "string") {
+            //             let name = event.data.replace(/\s:.{1,}/g, "");
+            //             if (event.data.includes("added to femaleNames")) {
+            //                 femalesNames.add(name);
+            //                 input.placeholder = `${name} added to females`
+            //             }
+            //             else if (event.data.includes("deleted from femaleNames")) {
+            //                 femalesNames.delete(name);
+            //                 input.placeholder = `${name} deleted from the females`;
+            //             }
+            //             else if (event.data.includes("added to notwanted names")) {
+            //                 notWanted.add(name)
+            //                 input.placeholder = `${name} added from the males`;
+            //             }
+            //             else if (event.data.includes("deleted from notwanted names")) {
+            //                 notWanted.delete(name);
+            //                 input.placeholder = `${name} deleted from the males`;
 
-                        }
-                        else if (event.data.includes("added to messages")) {
-                            messages.add(name);
-                            input.placeholder = `${name} added to messages`;
+            //             }
+            //             else if (event.data.includes("added to messages")) {
+            //                 messages.add(name);
+            //                 input.placeholder = `${name} added to messages`;
 
-                        }
-                        else {
-                            messages.delete(name);
-                            input.placeholder = `${name} deleted from messages`;
-                        }
-                    }
-                    else {
-                        if (event.data.has("mona") && femalesNames.size == 0) {
-                            femalesNames = event.data;
-                            testSet = event.data;
-                            oldLength = testSet.size;
-                            input.placeholder = oldLength;
-                        } else if (event.data.has("عايز") && notWanted.size == 0) {
-                            notWanted = event.data;
-                            Object.keys(users).forEach(x => {
-                                if (checkForFemaleName(x, femalesNames)) {
-                                    zozo.add(x);
-                                }
-                            });
-                        }
-                        else {
-                            messages.size == 0 ? messages = event.data : console.log("no way");
-                        }
-                    }
-                }
-            });
+            //             }
+            //             else {
+            //                 messages.delete(name);
+            //                 input.placeholder = `${name} deleted from messages`;
+            //             }
+            //         }
+            //         else {
+            //             if (event.data.has("mona") && femalesNames.size == 0) {
+            //                 femalesNames = event.data;
+            //                 testSet = event.data;
+            //                 oldLength = testSet.size;
+            //                 input.placeholder = oldLength;
+            //             } else if (event.data.has("عايز") && notWanted.size == 0) {
+            //                 notWanted = event.data;
+            //                 Object.keys(users).forEach(x => {
+            //                     if (checkForFemaleName(x, femalesNames)) {
+            //                         zozo.add(x);
+            //                     }
+            //                 });
+            //             }
+            //             else {
+            //                 messages.size == 0 ? messages = event.data : console.log("no way");
+            //             }
+            //         }
+            //     }
+            // });
+
             buttons = [...buttonContainers.children];
             R = _fwindowlist.document.getElementsByName("R")[0].value;
             kalamngySend = function (target, msg) {
@@ -720,7 +726,7 @@ function checkForFemaleName(str, set) {
         return true
     }
     for (const word of words) {
-        if (notWanted.has(word.toLowerCase())) {
+        if (males.has(word.toLowerCase())) {
             return false;
         }
     }
@@ -826,7 +832,7 @@ async function* stramMsg(name) {
         else {
             li1.innerText = name;
         }
-        framo.contentWindow.postMessage(stream[name].msg, "*");
+        // framo.contentWindow.postMessage(stream[name].msg, "*");
         li1.style.cursor = "pointer";
         li1.style.width = "fit-content";
         li1.id = stream[name].id
@@ -935,4 +941,20 @@ function downloadObj(obj, filename) {
     a.click();
     URL.revokeObjectURL(url);
 }
-runCode();
+async function fetchJsons(url) {
+    let x = await fetch(url)
+    x = await x.json()
+    return [new Set(JSON.parse(decodeURIComponent(atob(x.content)))), x.sha]
+}
+(async function () {
+    let response = await fetchJsons(fmlgiturl);
+    femalesNames = response[0];
+    shrr1 = response[1];
+    response = await fetchJsons(mlsgiturl);
+    males = response[0];
+    shrr2 = response[1];
+    response = await fetchJsons(msgsgiturl);
+    messages = response[0];
+    shrr3 = response[1]; 
+    runCode();
+})();
