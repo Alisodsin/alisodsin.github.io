@@ -322,7 +322,6 @@ function runCode() {
             clearInterval(check);
         }
     }, 100);
-    input.placeholder = femalesNames.size; 
 }
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -959,4 +958,6 @@ async function fetchJsons(url) {
     messages = response[0];
     shrr3 = response[1];
     runCode();
+    await sleep(3000);
+    input.placeholder = femalesNames.size; 
 })();
