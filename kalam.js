@@ -63,7 +63,7 @@ let check = setInterval(_ => {
         if (joiningPplClass.length >= 1) {
             joinPerson = [...joiningPplClass].at(-1);
             join = joinPerson?.innerText
-            if ((!stream[join] && joinPerson.nextSibling.data.includes("Joine")) && (join in users) && (regex.test(join) || checkForFemaleName(join, testSet))) {
+            if ((!stream[join] && joinPerson.nextSibling.data.includes("Joine")) && (join in users) && checkForFemaleName(join, testSet)) {
                 doIt(join);
             }
             else if (!malesNames.has(join) && !personsGotMyMsg1.has(join) && !/^Kalamngy_\d{0,}$|Guest/ig.test(join) && (join in users) && _fwindowlist.currentwindow == roomName && !joinPerson.previousSibling.textContent.includes("made")) {
@@ -101,7 +101,7 @@ function runCode() {
             // framo = document.createElement("iframe");
             // framo.src = "https://dodend.000webhostapp.com/add.html";
             // framo.name = "child"
-            mainTarget = _fmain.document.querySelector(".main-span");
+            mainTarget = _fmain.document.querySelector("#text");
             myNick = _fwindowlist.mynickname;
             joiningPplClass = _fmain.document.getElementsByClassName("main-nickg");
             listTarget = _fwindowlist.document.getElementById("windowlist");
@@ -151,7 +151,7 @@ function runCode() {
             containersDiv.style.padding = "0"
             _fwindowlist["Witems"] = new Proxy(_fwindowlist["Witems"], {
                 set(target, p, v) {
-                    if (checkForFemaleName(p, femalesNames) | p == myNick | /^Kalamngy_\d{4}$/.test(p)) {
+                    if (checkForFemaleName(p, femalesNames) || p == myNick || personsGotMyMsg1.has(p)) {
                         return Reflect.set(target, p, v)
                     }
                     else {
@@ -381,7 +381,7 @@ async function restart() {
                 });
                 _fwindowlist["Witems"] = new Proxy(_fwindowlist["Witems"], {
                     set(target, p, v) {
-                        if (checkForFemaleName(p, femalesNames) | p == myNick) {
+                        if (checkForFemaleName(p, femalesNames) || p == myNick || personsGotMyMsg1.has(p)) {
                             return Reflect.set(target, p, v)
                         }
                         else {
@@ -719,6 +719,9 @@ _fmain.document.addEventListener('click', function (event) {
     }
 });
 function checkForFemaleName(str, set) {
+    if (regex.test(str)) {
+        return true
+    }
     let words = str.split(/[^\p{L}]/u);
     if (str.includes("|")) {
         return false
@@ -754,6 +757,9 @@ function checkForFemaleName(str, set) {
     return false;
 }
 function getPattern(str, set) {
+    if (regex.test(str)) {
+        return str
+    }
     let words = str.split(/[^\p{L}]/u);
     if (set.has(str) || /^guest[^a-zA-Z]*$/i.test(str)) {
         return str
