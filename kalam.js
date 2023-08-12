@@ -210,6 +210,7 @@ function runCode() {
             ol1.style.background = "black";
             ol1.style.color = "green";
             ol1.style.overflow = "auto"
+            ol1.style.borderBottom = "3px solid green"
             // framo.id = "biginput";
             ol2.id = "ol2";
             ol2.style.background = "black";
