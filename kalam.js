@@ -59,6 +59,9 @@ let check = setInterval(_ => {
     listTarget,
     patterns = [["^k$", /^Kalamngy_\d{4}$/], ["noPtrn", /onedaymothersaidgetupearlytogotoschool/], ["*[<=5]", /^.{1,6}$/], ["ar<=5", /^[\u0621-\u064A\xA0\x5F\0-9]{1,7}$/], ["*digts", /\d+$/], ["ar*", /^[\u0621-\u064A\xA0\x5F\0-9]+$/], ["*", /^.+$/], ["k|short", /(^.{1,5}$|^Kalamngy_)/i]],
     mainTarget,
+    clrpage,
+    music,
+    smile,
     mainObserver = new MutationObserver(_ => {
         if (joiningPplClass.length >= 1) {
             joinPerson = [...joiningPplClass].at(-1);
@@ -98,9 +101,6 @@ function runCode() {
     let check = setInterval(_ => {
         if (Boolean(Object?.keys?.(fwindowlist?.Witems)?.[1])) {
             roomName = Object.keys(fwindowlist.Witems)[1];
-            // framo = document.createElement("iframe");
-            // framo.src = "https://dodend.000webhostapp.com/add.html";
-            // framo.name = "child"
             mainTarget = _fmain.document.querySelector("#text");
             myNick = _fwindowlist.mynickname;
             joiningPplClass = _fmain.document.getElementsByClassName("main-nickg");
@@ -113,6 +113,20 @@ function runCode() {
             _fmain.nickmenu = function () { return false }
             _fmain.document.getElementById("menu").remove();
             _fmain.document.getElementById("mainplusbtn").click();
+            clrpage = fform.document.querySelector("[onclick='parent.fmain.pageclear();']")
+            music = fform.document.querySelector("[onclick='parent.fmain.RADIOlist();']");
+            smile = fform.document.querySelector("[onclick='parent.fmain.smilies();']");
+            clrpage.onclick = _ => {
+                let name = input.value.trim();
+                if (femalesNames.has(name)) {
+                    input.value = ""
+                    input.placeholder = `${name} is in females`;
+                    return
+                }
+                femalesNames.add(name)
+                input.value = ""
+                input.placeholder = `${name} added to females`;
+            }
             users = _fwindowlist?.Witems?.[roomName]?.users;
             parent.fuserlist.document.querySelectorAll('.menu').forEach(menuElement => {
                 menuElement.style.display = 'none';
@@ -224,60 +238,6 @@ function runCode() {
             _fmain.document.querySelector(".userlist-hiddeni").remove();
             _fmain.document.querySelector("#hidderbtn").style.display = "none";
             _fmain.document.querySelector("#mainplusbtn").remove();
-
-            // _fmain.addEventListener('message', function (event) {
-            //     window.mantor = event;
-            //     if (event.origin === 'https://dodend.000webhostapp.com') {
-            //         if (typeof event.data == "string") {
-            //             let name = event.data.replace(/\s:.{1,}/g, "");
-            //             if (event.data.includes("added to femaleNames")) {
-            //                 femalesNames.add(name);
-            //                 input.placeholder = `${name} added to females`
-            //             }
-            //             else if (event.data.includes("deleted from femaleNames")) {
-            //                 femalesNames.delete(name);
-            //                 input.placeholder = `${name} deleted from the females`;
-            //             }
-            //             else if (event.data.includes("added to notwanted names")) {
-            //                 notWanted.add(name)
-            //                 input.placeholder = `${name} added from the males`;
-            //             }
-            //             else if (event.data.includes("deleted from notwanted names")) {
-            //                 notWanted.delete(name);
-            //                 input.placeholder = `${name} deleted from the males`;
-
-            //             }
-            //             else if (event.data.includes("added to messages")) {
-            //                 messages.add(name);
-            //                 input.placeholder = `${name} added to messages`;
-
-            //             }
-            //             else {
-            //                 messages.delete(name);
-            //                 input.placeholder = `${name} deleted from messages`;
-            //             }
-            //         }
-            //         else {
-            //             if (event.data.has("mona") && femalesNames.size == 0) {
-            //                 femalesNames = event.data;
-            //                 testSet = event.data;
-            //                 oldLength = testSet.size;
-            //                 input.placeholder = oldLength;
-            //             } else if (event.data.has("عايز") && notWanted.size == 0) {
-            //                 notWanted = event.data;
-            //                 Object.keys(users).forEach(x => {
-            //                     if (checkForFemaleName(x, femalesNames)) {
-            //                         zozo.add(x);
-            //                     }
-            //                 });
-            //             }
-            //             else {
-            //                 messages.size == 0 ? messages = event.data : console.log("no way");
-            //             }
-            //         }
-            //     }
-            // });
-
             buttons = [...buttonContainers.children];
             R = _fwindowlist.document.getElementsByName("R")[0].value;
             kalamngySend = function (target, msg) {
