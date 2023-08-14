@@ -623,13 +623,12 @@ function buttonsCreator() {
                 button.onclick = _ => {
                     let name = input.value.trim();
                     if (femalesNames.has(name)) {
-                        input.value = ""
-                        input.placeholder = `${name} is in females`;
+                        femalesNames.delete(name);
+                        input.value = "";
+                        input.placeholder = `${name} deleted from females`;
                         return
                     }
-                    femalesNames.add(name)
-                    input.value = ""
-                    input.placeholder = `${name} added to females`;
+                    input.placeholder = `${name} not found in females`;
                 }
                 break;
         }
