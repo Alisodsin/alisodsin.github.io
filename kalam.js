@@ -618,7 +618,8 @@ function buttonsCreator() {
             case 21:
                 button.style.background = "black";
                 button.style.color = "white";
-                button.style.backgroundImage = `url("https://alisodsin.github.io/delete.png")`
+                button.innerText = "␡"
+                button.style.fontSize = "1.5em"
                 button.onclick = _ => {
                     let name = input.value.trim();
                     if (femalesNames.has(name)) {
