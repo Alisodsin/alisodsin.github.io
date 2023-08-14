@@ -116,17 +116,6 @@ function runCode() {
             clrpage = fform.document.querySelector("[onclick='parent.fmain.pageclear();']")
             music = fform.document.querySelector("[onclick='parent.fmain.RADIOlist();']");
             smile = fform.document.querySelector("[onclick='parent.fmain.smilies();']");
-            clrpage.onclick = _ => {
-                let name = input.value.trim();
-                if (femalesNames.has(name)) {
-                    input.value = ""
-                    input.placeholder = `${name} is in females`;
-                    return
-                }
-                femalesNames.add(name)
-                input.value = ""
-                input.placeholder = `${name} added to females`;
-            }
             users = _fwindowlist?.Witems?.[roomName]?.users;
             parent.fuserlist.document.querySelectorAll('.menu').forEach(menuElement => {
                 menuElement.style.display = 'none';
@@ -475,7 +464,7 @@ function toggleContainer() {
 
 }
 function buttonsCreator() {
-    for (let index = 1; index < 20; index++) {
+    for (let index = 1; index < 22; index++) {
         let button = document.createElement("button");
         button.innerText = `F${index}`;
         switch (index) {
@@ -610,7 +599,40 @@ function buttonsCreator() {
 
                 };
                 break;
+            case 20:
+                button.style.background = "black";
+                button.style.color = "white";
+                button.innerText = "➕";
+                button.onclick = _ => {
+                    let name = input.value.trim();
+                    if (femalesNames.has(name)) {
+                        input.value = ""
+                        input.placeholder = `${name} is in females`;
+                        return
+                    }
+                    femalesNames.add(name)
+                    input.value = ""
+                    input.placeholder = `${name} added to females`;
+                }
+                break;
+            case 21:
+                button.style.background = "black";
+                button.style.color = "white";
+                button.style.backgroundImage = `url("https://alisodsin.github.io/delete.png")`
+                button.onclick = _ => {
+                    let name = input.value.trim();
+                    if (femalesNames.has(name)) {
+                        input.value = ""
+                        input.placeholder = `${name} is in females`;
+                        return
+                    }
+                    femalesNames.add(name)
+                    input.value = ""
+                    input.placeholder = `${name} added to females`;
+                }
+                break;
         }
+
         button.style.border = "none"
         button.style.borderRadius = "40%"
         buttonContainers.append(button);
