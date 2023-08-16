@@ -237,6 +237,11 @@ function runCode() {
             }
             doIt(myNick);
             mainObserver.observe(mainTarget, objConfig);
+            Object.keys(users).forEach(x => {
+                if (checkForFemaleName(x, femalesNames)) {
+                    zozo.add(x);
+                }
+            });
             _fwindowlist["Witems"][roomName]["users"] = new Proxy(_fwindowlist["Witems"][roomName]["users"], {
                 deleteProperty(target, prop) {
                     if (zozo.has(prop)) {
@@ -949,5 +954,4 @@ async function fetchJsons(url) {
     shrr3 = response[1];
     runCode();
     await sleep(3000);
-
 })();
