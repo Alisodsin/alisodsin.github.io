@@ -4,7 +4,7 @@ sweetAlert.src = "https://sweetalert.js.org/assets/sweetalert/sweetalert.min.js"
     document.head.appendChild(sweetAlert)
 let pplJoin = id("on"),
     elTarget = document.querySelector("#on"),
-    idArray = new Set(),
+    idArray = new Set() ,
     oltEsmy = new Set(),
     femaleNames = new Set(),
     messages = new Set(),
