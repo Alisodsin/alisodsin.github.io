@@ -1,4 +1,4 @@
-// global variables
+// global variabless
 let check = setInterval(_ => {
     if (parent?.fwindowlist) {
         Object.keys(parent.fwindowlist).forEach((x) => {
