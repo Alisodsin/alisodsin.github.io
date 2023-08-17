@@ -360,6 +360,99 @@
                         <div>})</div>
                 </div>
         </div>
+        <h3>info script</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">// ==UserScript==</span></div>
+                        <div><span style="color: #6a9955;">// @name &nbsp; &nbsp; &nbsp; &nbsp;jsinfo</span></div>
+                        <div><span style="color: #6a9955;">// @namespace &nbsp; Violentmonkey Scripts</span></div>
+                        <div><span style="color: #6a9955;">// @match &nbsp; &nbsp; &nbsp;
+                                        https://javascript.info/*</span></div>
+                        <div><span style="color: #6a9955;">// @grant &nbsp; &nbsp; &nbsp; none</span></div>
+                        <div><span style="color: #6a9955;">// @version &nbsp; &nbsp; 1.0</span></div>
+                        <div><span style="color: #6a9955;">// @author &nbsp; &nbsp; &nbsp;-</span></div>
+                        <div><span style="color: #6a9955;">// @description 11/28/2021, 3:31:58 AM</span></div>
+                        <div><span style="color: #6a9955;">// ==/UserScript==</span></div>
+                        <div><span style="color: #9cdcfe;">window</span><span style="color: #cccccc;">.</span><span
+                                        style="color: #dcdcaa;">onload</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #9cdcfe;">_</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #569cd6;">=&gt;</span><span style="color: #cccccc;"> {</span>
+                        </div>
+                        <div><span style="color: #cccccc;">&nbsp; &nbsp;</span><span
+                                        style="color: #9cdcfe;">x</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #9cdcfe;">document</span><span
+                                        style="color: #cccccc;">.</span><span
+                                        style="color: #dcdcaa;">getElementsByClassName</span><span
+                                        style="color: #cccccc;">(</span><span
+                                        style="color: #ce9178;">"language-javascript"</span><span
+                                        style="color: #cccccc;">);</span></div>
+                        <div><span style="color: #cccccc;">&nbsp; &nbsp;</span><span
+                                        style="color: #c586c0;">for</span><span style="color: #cccccc;"> (</span><span
+                                        style="color: #569cd6;">let</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #9cdcfe;">i</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #cccccc;">; </span><span
+                                        style="color: #9cdcfe;">i</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #d4d4d4;">&lt;</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #9cdcfe;">x</span><span style="color: #cccccc;">.</span><span
+                                        style="color: #9cdcfe;">length</span><span style="color: #cccccc;">;
+                                </span><span style="color: #9cdcfe;">i</span><span
+                                        style="color: #d4d4d4;">++</span><span style="color: #cccccc;">) {</span></div>
+                        <div><span style="color: #cccccc;">&nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">x</span><span style="color: #cccccc;">[</span><span
+                                        style="color: #9cdcfe;">i</span><span style="color: #cccccc;">].</span><span
+                                        style="color: #dcdcaa;">setAttribute</span><span
+                                        style="color: #cccccc;">(</span><span
+                                        style="color: #ce9178;">"contenteditable"</span><span style="color: #cccccc;">,
+                                </span><span style="color: #569cd6;">true</span><span style="color: #cccccc;">);</span>
+                        </div>
+                        <div><span style="color: #cccccc;">&nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">x</span><span style="color: #cccccc;">[</span><span
+                                        style="color: #9cdcfe;">i</span><span style="color: #cccccc;">].</span><span
+                                        style="color: #dcdcaa;">setAttribute</span><span
+                                        style="color: #cccccc;">(</span><span
+                                        style="color: #ce9178;">"spellcheck"</span><span style="color: #cccccc;">,
+                                </span><span style="color: #569cd6;">false</span><span style="color: #cccccc;">)</span>
+                        </div><br>
+                        <div><span style="color: #cccccc;">&nbsp; &nbsp;}</span></div><br>
+                        <div><span style="color: #cccccc;">&nbsp; &nbsp;</span><span
+                                        style="color: #569cd6;">let</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #9cdcfe;">m</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #9cdcfe;">document</span><span
+                                        style="color: #cccccc;">.</span><span
+                                        style="color: #dcdcaa;">getElementsByClassName</span><span
+                                        style="color: #cccccc;">(</span><span style="color: #ce9178;">"token
+                                        function"</span><span style="color: #cccccc;">)</span></div><br>
+                        <div><span style="color: #cccccc;">&nbsp; &nbsp;</span><span
+                                        style="color: #4ec9b0;">Array</span><span style="color: #cccccc;">.</span><span
+                                        style="color: #dcdcaa;">from</span><span style="color: #cccccc;">(</span><span
+                                        style="color: #9cdcfe;">m</span><span style="color: #cccccc;">).</span><span
+                                        style="color: #dcdcaa;">forEach</span><span
+                                        style="color: #cccccc;">((</span><span style="color: #9cdcfe;">x</span><span
+                                        style="color: #cccccc;">) </span><span style="color: #569cd6;">=&gt;</span><span
+                                        style="color: #cccccc;"> {</span></div>
+                        <div><span style="color: #cccccc;">&nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">if</span><span style="color: #cccccc;"> (</span><span
+                                        style="color: #9cdcfe;">x</span><span style="color: #cccccc;">.</span><span
+                                        style="color: #9cdcfe;">innerText</span><span style="color: #cccccc;">
+                                </span><span style="color: #d4d4d4;">==</span><span style="color: #cccccc;">
+                                </span><span style="color: #ce9178;">"alert"</span><span style="color: #cccccc;">)
+                                        {</span></div>
+                        <div><span style="color: #cccccc;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span
+                                        style="color: #9cdcfe;">x</span><span style="color: #cccccc;">.</span><span
+                                        style="color: #9cdcfe;">innerText</span><span style="color: #cccccc;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #ce9178;">"console.log"</span></div>
+                        <div><span style="color: #cccccc;">&nbsp; &nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #cccccc;">&nbsp; &nbsp;})</span></div>
+                        <div><span style="color: #cccccc;">}</span></div>
+                </div>
+
+        </div>
+
 
 </body>
 
