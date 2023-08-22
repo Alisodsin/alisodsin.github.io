@@ -452,6 +452,122 @@
                 </div>
 
         </div>
+        <h3>google translate scipt</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">// ==UserScript==</span></div>
+                        <div><span style="color: #6a9955;">// @name &nbsp; &nbsp; &nbsp; &nbsp;Translate</span></div>
+                        <div><span style="color: #6a9955;">// @namespace &nbsp; Violentmonkey Scripts</span></div>
+                        <div><span style="color: #6a9955;">// @match &nbsp; &nbsp; &nbsp;
+                                        https://translate.google.com/*</span></div>
+                        <div><span style="color: #6a9955;">// @grant &nbsp; &nbsp; &nbsp; none</span></div>
+                        <div><span style="color: #6a9955;">// @version &nbsp; &nbsp; 1.0</span></div>
+                        <div><span style="color: #6a9955;">// @author &nbsp; &nbsp; &nbsp;-</span></div>
+                        <div><span style="color: #6a9955;">// @description 9/24/2022, 6:15:40 PM</span></div>
+                        <div><span style="color: #6a9955;">// ==/UserScript==</span></div>
+                        <div><span style="color: #9cdcfe;">window</span><span style="color: #cccccc;">.</span><span
+                                        style="color: #dcdcaa;">onload</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #9cdcfe;">_</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #569cd6;">=&gt;</span><span style="color: #cccccc;"> {</span>
+                        </div>
+                        <div><span style="color: #cccccc;">&nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">but</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #9cdcfe;">document</span><span
+                                        style="color: #cccccc;">.</span><span
+                                        style="color: #dcdcaa;">createElement</span><span
+                                        style="color: #cccccc;">(</span><span
+                                        style="color: #ce9178;">"button"</span><span style="color: #cccccc;">);</span>
+                        </div>
+                        <div><span style="color: #cccccc;">&nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">document</span><span
+                                        style="color: #cccccc;">.</span><span style="color: #9cdcfe;">body</span><span
+                                        style="color: #cccccc;">.</span><span style="color: #dcdcaa;">append</span><span
+                                        style="color: #cccccc;">(</span><span style="color: #9cdcfe;">but</span><span
+                                        style="color: #cccccc;">)</span></div>
+                        <div><span style="color: #cccccc;">&nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">but</span><span style="color: #cccccc;">.</span><span
+                                        style="color: #9cdcfe;">innerText</span><span style="color: #cccccc;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #ce9178;">"TRANSLATE"</span></div>
+                        <div><span style="color: #cccccc;">&nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">but</span><span style="color: #cccccc;">.</span><span
+                                        style="color: #9cdcfe;">style</span><span style="color: #cccccc;">.</span><span
+                                        style="color: #9cdcfe;">position</span><span style="color: #cccccc;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #ce9178;">"fixed"</span></div>
+                        <div><span style="color: #cccccc;">&nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">but</span><span style="color: #cccccc;">.</span><span
+                                        style="color: #9cdcfe;">style</span><span style="color: #cccccc;">.</span><span
+                                        style="color: #9cdcfe;">top</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #ce9178;">"10%"</span></div>
+                        <div><span style="color: #cccccc;">&nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">but</span><span style="color: #cccccc;">.</span><span
+                                        style="color: #9cdcfe;">style</span><span style="color: #cccccc;">.</span><span
+                                        style="color: #9cdcfe;">right</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #ce9178;">"20%"</span></div>
+                        <div><span style="color: #cccccc;">&nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">but</span><span style="color: #cccccc;">.</span><span
+                                        style="color: #9cdcfe;">style</span><span style="color: #cccccc;">.</span><span
+                                        style="color: #9cdcfe;">zIndex</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #ce9178;">"5"</span></div>
+                        <div><span style="color: #cccccc;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">let</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #9cdcfe;">txt</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #9cdcfe;">document</span><span
+                                        style="color: #cccccc;">.</span><span
+                                        style="color: #dcdcaa;">getElementsByTagName</span><span
+                                        style="color: #cccccc;">(</span><span
+                                        style="color: #ce9178;">"textarea"</span><span
+                                        style="color: #cccccc;">)[</span><span style="color: #b5cea8;">0</span><span
+                                        style="color: #cccccc;">]</span></div>
+                        <div><span style="color: #cccccc;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">let</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #9cdcfe;">p</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #9cdcfe;">document</span><span
+                                        style="color: #cccccc;">.</span><span
+                                        style="color: #dcdcaa;">createElement</span><span
+                                        style="color: #cccccc;">(</span><span style="color: #ce9178;">"p"</span><span
+                                        style="color: #cccccc;">);</span></div>
+                        <div><span style="color: #cccccc;">&nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">txt</span><span style="color: #cccccc;">.</span><span
+                                        style="color: #dcdcaa;">addEventListener</span><span
+                                        style="color: #cccccc;">(</span><span
+                                        style="color: #ce9178;">'paste'</span><span style="color: #cccccc;">,
+                                </span><span style="color: #569cd6;">function</span><span style="color: #cccccc;">
+                                        (</span><span style="color: #9cdcfe;">_</span><span style="color: #cccccc;">)
+                                        {</span></div>
+                        <div><span style="color: #cccccc;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">setTimeout</span><span style="color: #cccccc;">(()
+                                </span><span style="color: #569cd6;">=&gt;</span><span style="color: #cccccc;"> {</span>
+                        </div>
+                        <div><span style="color: #cccccc;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">p</span><span style="color: #cccccc;">.</span><span
+                                        style="color: #9cdcfe;">innerText</span><span style="color: #cccccc;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #9cdcfe;">txt</span><span style="color: #cccccc;">.</span><span
+                                        style="color: #9cdcfe;">value</span><span style="color: #cccccc;">;</span></div>
+                        <div><span style="color: #cccccc;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">txt</span><span style="color: #cccccc;">.</span><span
+                                        style="color: #9cdcfe;">value</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #cccccc;"> </span><span
+                                        style="color: #9cdcfe;">p</span><span style="color: #cccccc;">.</span><span
+                                        style="color: #9cdcfe;">innerText</span><span style="color: #cccccc;">;</span>
+                        </div>
+                        <div><span style="color: #cccccc;">&nbsp; &nbsp; &nbsp; &nbsp; }, </span><span
+                                        style="color: #b5cea8;">100</span><span style="color: #cccccc;">);</span></div>
+                        <div><span style="color: #cccccc;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #cccccc;">&nbsp; &nbsp; )</span></div>
+                        <div><span style="color: #cccccc;">} </span></div>
+                </div>
+        </div>
+
 
 
 </body>
