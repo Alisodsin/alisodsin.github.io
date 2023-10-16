@@ -1,6 +1,6 @@
-let fmlurl = "https://tuundun.x10.mx/femaleNames.json",
-    notwantedurl = "https://tuundun.x10.mx/notwanted.json",
-    messagesurl = "https://tuundun.x10.mx/messages.json",
+let fmlurl = "https://dodend.000webhostapp.com/femaleNames.json",
+    notwantedurl = "https://dodend.000webhostapp.com/notwanted.json",
+    messagesurl = "https://dodend.000webhostapp.com/messages.json",
     fmlgiturl = `https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/femaleNames.json`,
     notwantedgiturl = `https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/males.json`,
     msgsgiturl = `https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/messages.json`;
@@ -45,12 +45,12 @@ function generateRandomString() {
     return randomString;
 }
 export {
-      fmlurl as fmls,
-      fmlgiturl as fmlsGit,
-      messagesurl as msgs,
-      msgsgiturl as msgsGit,
-      notwantedurl as mls,
-      notwantedgiturl as mlsGit,
+    fmlurl as fmls,
+    fmlgiturl as fmlsGit,
+    messagesurl as msgs,
+    msgsgiturl as msgsGit,
+    notwantedurl as mls,
+    notwantedgiturl as mlsGit,
     fetchJSONAndConvertToSet,
     calculateSetSHA,
     generateRandomString,
