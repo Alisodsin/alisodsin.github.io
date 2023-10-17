@@ -28,7 +28,6 @@
   <svg viewBox="0 0 100 100" id="svg">
     <path xmlns="http://www.w3.org/2000/svg" id="pth" stroke="red" stroke-width="5" fill="#dc2c2a" />
   </svg>
-
   <script type="module">
     function sleep(n) {
       return new Promise((r, _) => {
@@ -70,12 +69,32 @@
       cir.append(anim2)
       svg.append(cir)
     }
-    for (let i = 0; i < 1000; i++) {//
-      doIt(random(0.1, 3), random(0.5, 1), 0, 100, 0, `${random(1, 100)}s`, random(1, 100), 0, 100, 0, `${random(1, 100)}s`)
-      await sleep(300);
+    async function moveByCode(r) {
+      let cir = createCircle(r, 1, 1)
+      svg.append(cir)
+      for (let i = 1; i <= 100; i += 1) {
+        let y = Math.sin(i * Math.PI / 50) * 50 + 50;
+        cir.setAttribute("cx", i);
+        cir.setAttribute("cy", y);
+        if (i == 100) {
+          for (; i >= 0; i -= 1) {
+            y = Math.sin(i * Math.PI / 50) * -50 + 50;
+            cir.setAttribute("cx", i);
+            cir.setAttribute("cy", y);
+            await sleep(50)
+          }
+        }
+        await sleep(50)
+      }
+    }
+    for (let i = 1; i <= 50; i += 1) {
+      doIt(random(1, 3), random(0.5, 1), 0, 100, 0, `${random(1, 10)}s`, random(1, 100), 0, 100, 0, `${random(1, 10)}s`)
+      moveByCode(random(1, 3))
+      await sleep(100)
 
     }
   </script>
+
 </body>
 
 </html>
