@@ -72,6 +72,9 @@ function range(x, y) {
         }
     }
 }
+function* sequence(start, end) {
+    for (let i = start; i <= end; i++) yield i;
+}
 export {
     fmlurl as fmls,
     fmlgiturl as fmlsGit,
@@ -85,5 +88,6 @@ export {
     downloadObj,
     getAll,
     sleep,
-    range
+    range,
+    sequence
 }
