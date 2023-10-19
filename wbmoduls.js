@@ -1,9 +1,9 @@
-let fmls = "https://dodend.000webhostapp.com/femaleNames.json",
-    mls = "https://dodend.000webhostapp.com/notwanted.json",
-    msgs = "https://dodend.000webhostapp.com/messages.json",
-    fmlsGit = `https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/femaleNames.json`,
-    mlsGit = `https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/males.json`,
-    msgsGit = `https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/messages.json`;
+let fmlurl = "https://dodend.000webhostapp.com/femaleNames.json",
+    notwantedurl = "https://dodend.000webhostapp.com/notwanted.json",
+    messagesurl = "https://dodend.000webhostapp.com/messages.json",
+    fmlgiturl = `https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/femaleNames.json`,
+    notwantedgiturl = `https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/males.json`,
+    msgsgiturl = `https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/messages.json`;
 
 async function fetchJSONAndConvertToSet(url) {
     if (url.includes("github")) {
@@ -45,7 +45,7 @@ function generateRandomString() {
     return randomString;
 }
 async function getAll() {
-    let arr = [fmls, mls, msgs]
+    let arr = [fmlurl, notwantedurl, messagesurl]
     let arrr = arr.map(x => fetch(x))
     let data = await Promise.all(arrr).then(e => {
         let ar = []
@@ -59,17 +59,31 @@ function sleep(n) {
         setTimeout(r, n, "done")
     })
 }
+function range(x, y) {
+    return {
+        [Symbol.iterator]() {
+            return {
+                current: x,
+                last: y,
+                next() {
+                    return this.current <= this.last ? { done: false, value: this.current++ } : { done: true }
+                }
+            }
+        }
+    }
+}
 export {
-    fmls,
-    fmlsGit,
-    msgs,
-    msgsGit,
-    mls,
-    mlsGit,
+    fmlurl as fmls,
+    fmlgiturl as fmlsGit,
+    messagesurl as msgs,
+    msgsgiturl as msgsGit,
+    notwantedurl as mls,
+    notwantedgiturl as mlsGit,
     fetchJSONAndConvertToSet,
     calculateSetSHA,
     generateRandomString,
     downloadObj,
     getAll,
-    sleep
+    sleep,
+    range
 }
