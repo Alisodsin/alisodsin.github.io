@@ -248,6 +248,11 @@ function runCode() {
           }
         }
       }, 50);
+      Object.keys(users).forEach(x => {
+        if (checkForFemaleName(x, femalesNames)) {
+          zozo.add(x);
+        }
+      });
       let prsntPplMsg = setInterval(_ => {
         if (zozo.size < 1) {
           clearInterval(prsntPplMsg);
@@ -912,6 +917,6 @@ async function fetchJsons(url) {
   response = await fetchJsons(msgsgiturl);
   messages = response[0];
   shrr3 = response[1];
-  runCode();
   await sleep(3000);
-})();
+  runCode();
+})(); 
