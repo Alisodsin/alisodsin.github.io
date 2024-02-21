@@ -23,6 +23,8 @@ let check = setInterval(_ => {
   notWanted = new Set(),
   randomizeMessage = false,
   shrr1,
+  shrr2,
+  shrr3,
   users,
   stream = {},
   hrdspc = "\u00A0",
