@@ -210,6 +210,7 @@ function runCode() {
       ol1.style.color = "green";
       ol1.style.overflow = "auto"
       ol2.id = "ol2";
+      ol1.style.borderBottom = "3px solid green"
       ol2.style.background = "black";
       ol2.style.color = "white"
       ol2.style.overflow = "auto"
