@@ -22,14 +22,15 @@ let check = setInterval(_ => {
   messages = new Set(),
   notWanted = new Set(),
   randomizeMessage = false,
-  shrr1,
-  shrr2,
+  shaf,
+  sham,
   shrr3,
   users,
+  oldFlength,
+  oldMlength,
   stream = {},
   hrdspc = "\u00A0",
   ters,
-  oldLength,
   condition = false,
   num = false,
   zozo = new Set(),
@@ -49,6 +50,8 @@ let check = setInterval(_ => {
   toggles = new Set(),
   malesNames = new Set(),
   roomName,
+  newNamesF = [],
+  newNamesM = [],
   containersDiv = document.createElement("div"),
   ol1 = document.createElement("ol"),
   ol2 = document.createElement("ol"),
@@ -105,6 +108,7 @@ function runCode() {
       listTarget = _fwindowlist.document.getElementById("windowlist");
       input = parent.fform.document.querySelector("#say");
       listObserver.observe(listTarget, objConfig);
+      input.placeholder = `you have ${oldFlength} female names`
       fform.onkeydown = keysHandelr;
       ters = fform.document.getElementsByTagName("img")[0]
       _fmain.nickmenu = function () { return false }
@@ -459,7 +463,7 @@ function toggleContainer() {
 
 }
 function buttonsCreator() {
-  for (let index = 1; index < 19; index++) {
+  for (let index = 1; index <= 20; index++) {
     let button = document.createElement("button");
     button.innerText = `F${index}`;
     switch (index) {
@@ -600,18 +604,83 @@ function buttonsCreator() {
       case 19:
         button.style.background = "black";
         button.style.color = "white";
-        button.innerText = "f";
-        button.onclick = function () {
-          if (condition) {
-            condition = false;
-            this.innerText = "f";
+        button.innerText = "+";
+        button.onclick = async function () {
+          if (_fwindowlist.currentwindow == rooms[0]) {
+            let nName = input.value.trim().toLowerCase()
+            localStorage.f += nName + ","
+            newNamesF.push(nName);
+            input.value = ""
+            await sleep(1500)
+            input.placeholder = `${nName} added to  newNamesF`
           }
           else {
-            condition = true;
-            this.innerText = "t";
+            let nName = input.value.trim().toLowerCase()
+            localStorage.m += nName + ","
+            newNamesM.push(nName);
+            input.value = ""
+            await sleep(1500)
+            input.placeholder = `${nName} added to  newNamesM`
           }
-
         };
+        break;
+      case 20:
+        button.style.background = "black";
+        button.style.color = "white";
+        button.innerText = "gt";
+        button.onclick = async function () {
+          if (_fwindowlist.currentwindow == rooms[0]) {
+            newNamesF.forEach(x => {
+              if (x) {
+                femalesNames.add(x)
+              }
+            })
+            delete localStorage.f;
+            if (femalesNames.size > oldFlength) {
+              try {
+                await fetch(fmlgiturl, { method: 'PUT', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}`, }, body: JSON.stringify({ message: 'Add new names', content: btoa(encodeURIComponent(JSON.stringify([...femalesNames]))), sha: shaf, }), });
+                this.innerText = "females updated on git hub"
+                await sleep(3000)
+                this.innerText = "gt"
+              } catch (error) {
+                this.innerText = `${error.message}`
+                await sleep(3000)
+                this.innerText = "gt"
+              }
+            }
+            else {
+              this.innerText = `already updated`
+              await sleep(3000)
+              this.innerText = "gt"
+            }
+          }
+          else {
+            newNamesM.forEach(x => {
+              if (x) {
+                notWanted.add(x)
+              }
+            })
+            delete localStorage.m;
+            if (notWanted.size > oldMlength) {
+              try {
+                await fetch(mlsgiturl, { method: 'PUT', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}`, }, body: JSON.stringify({ message: 'Add new names', content: btoa(encodeURIComponent(JSON.stringify([...notWanted]))), sha: sham, }), });
+
+                this.innerText = "males updated on git hub"
+                await sleep(3000)
+                this.innerText = "gt"
+              } catch (error) {
+                this.innerText = `${error.message}`
+                await sleep(3000)
+                this.innerText = "gt"
+              }
+            }
+            else {
+              this.innerText = `already updated`
+              await sleep(3000)
+              this.innerText = "gt"
+            }
+          }
+        }
     }
     button.style.border = "none"
     button.style.borderRadius = "40%"
@@ -911,13 +980,30 @@ async function fetchJsons(url) {
   let response = await fetchJsons(fmlgiturl);
   femalesNames = response[0];
   testFset = new Set([...response[0]])
-  shrr1 = response[1];
+  shaf = response[1];
+  oldFlength = femalesNames.size
   response = await fetchJsons(mlsgiturl);
   notWanted = response[0];
-  shrr2 = response[1];
+  sham = response[1];
+  oldMlength = notWanted.size
   response = await fetchJsons(msgsgiturl);
   messages = response[0];
   shrr3 = response[1];
+  if (localStorage["f"]) {
+    newNamesF = localStorage.f.split(",")
+    newNamesF.pop()
+    newNamesF = newNamesF.filter((x => x))
+  }
+  else {
+    localStorage.f = ""
+  }
+  if (localStorage["m"]) {
+    newNamesM = localStorage.m.split(",")
+    newNamesM.pop()
+  }
+  else {
+    localStorage.m = ""
+  }
   await sleep(3000);
   runCode();
-})(); 
+})();
