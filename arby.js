@@ -3,12 +3,12 @@ let sweetAlert = document.createElement("script")
 sweetAlert.src = "https://sweetalert.js.org/assets/sweetalert/sweetalert.min.js",
     document.head.appendChild(sweetAlert),
     pplJoin = id("on"),
-    elTarget = document.querySelector("#on"),
+    elTarget = document.querySelector("#on"), 
     idArray = new Set(),
     oltEsmy = new Set(),
-    fmlgiturl = `https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/femaleNames.json`,
-    mlsgiturl = `https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/males.json`,
-    msgsgiturl = `https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/messages.json`,
+    fmlgiturl = `https://raw.githubusercontent.com/Alisodsin/alisodsin.github.io/main/femaleNames.json`,
+    mlsgiturl = 'https://raw.githubusercontent.com/Alisodsin/alisodsin.github.io/main/males.json',
+    msgsgiturl = `https://raw.githubusercontent.com/Alisodsin/alisodsin.github.io/main/messages.json`,
     femaleNames = new Set(),
     messages = new Set(),
     males = new Set(),
@@ -688,9 +688,9 @@ function runCode() {
     id("onp").click()
 }
 async function fetchJsons(url) {
-    let x = await fetch(url)
-    x = await x.json()
-    return new Set(JSON.parse(decodeURIComponent(atob(x.content))))
+    let x = await fetch(url);
+    x = await x.text();
+    return new Set(JSON.parse(decodeURIComponent(x)))
 }
 (async function () {
     femaleNames = await fetchJsons(fmlgiturl);
