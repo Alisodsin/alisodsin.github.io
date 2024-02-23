@@ -1,11 +1,14 @@
+//code
 let sweetAlert = document.createElement("script")
 sweetAlert.src = "https://sweetalert.js.org/assets/sweetalert/sweetalert.min.js",
-    srvr = "https://tuundun.x10.mx/",
-    document.head.appendChild(sweetAlert)
-let pplJoin = id("on"),
+    document.head.appendChild(sweetAlert),
+    pplJoin = id("on"),
     elTarget = document.querySelector("#on"),
-    idArray = new Set() ,
+    idArray = new Set(),
     oltEsmy = new Set(),
+    fmlgiturl = `https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/femaleNames.json`,
+    mlsgiturl = `https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/males.json`,
+    msgsgiturl = `https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/messages.json`,
     femaleNames = new Set(),
     messages = new Set(),
     males = new Set(),
@@ -22,14 +25,14 @@ let pplJoin = id("on"),
     allPeople = pplJoin.children,
     msg1 = "",
     input = id("ta"),
-    msg2 = "انا مهندس على من المنصوره , نتعرف؟",
-    audio = new Audio("https://soundbible.com/mp3/A-Tone-His_Self-1266414414.mp3"),
+    msg2 = "على 42 منصوره , وانتى؟",
+    audio = new Audio("https://alisodsin.github.io/Short.mp3"),
     bll = new Audio("https://www.soundjay.com/phone/cell-phone-1-nr0.mp3"),
     inbox = id("hs"),
     tile = id("tt"),
     onn = false,
-    myNick,
-    myId,
+    myNick = "",
+    myId = "",
     msgSwitch = 0,
     names = [
         "دكر_عنيف",
@@ -169,7 +172,6 @@ let pplJoin = id("on"),
     button14 = document.createElement("button"),
     button15 = document.createElement("button"),
     button16 = document.createElement("button"),
-    button17 = document.createElement("button"),
     observer = new MutationObserver(e => {
         if (Boolean(e[0].removedNodes[0])) {
             if (secondRepleyers.has(e[0].removedNodes[0].id)) {
@@ -435,7 +437,7 @@ function runCode() {
             whoReply.appendChild(thisPersonReplyMe)
             thisPersonReplyMe.scrollIntoView()
             socket.emit("is", [data[0], msg2])
-            audio.play()
+            audio.play().catch(_ => true)
             if (add && !messages.has(data[2].trim())) {
                 messages.add(data[2].trim());
                 console.log(`${data[2]}`);
@@ -447,7 +449,7 @@ function runCode() {
 
                 let secondRepleyer = document.createElement("li")
                 secondRepleyer.innerHTML = `<bdi style="color:#51b5a9">${data[1]}</bdi> ➡ <bdi style="color:#fade8b">${data[2]}</bdi>`
-                bll.play();
+                bll.play().catch(_ => true)
                 secondRepleyer.style.color = "white"
                 secondRepleyer.style.cursor = "pointer"
                 secondRepleyer.style.width = "fit-content"
@@ -466,17 +468,6 @@ function runCode() {
             }
         }
     })
-    tile.conte
-    function updateMessages() {
-        return fetch(srvr, {
-            method: 'POST',
-            body: new URLSearchParams({
-                "qury": JSON.stringify([...messages]),
-                "action": "updatemessages"
-            })
-        }).then(e => e.text()).then(r => console.log(r)
-        )
-    }
     buttonsContainer.style.display = "flex"
     buttonsContainer.style.justifyContent = "space-around"
     buttonsContainer.style.flexWrap = "wrap"
@@ -505,7 +496,7 @@ function runCode() {
     button7.onclick = closeCurrentPerson
     button8.innerText = "F4"
     button8.onclick = _ => {
-        input.value = "انا على 37 سنه من المنصوره"
+        input.value = "على 42 منصوره"
         id("snd").click()
         input.value = "وانتى؟"
         id("snd").click()
@@ -541,14 +532,14 @@ function runCode() {
     button13.innerText = "gdMsg"
     button13.onclick = _ => {
         if (msgSwitch == 0) {
-            msg1 = "ما تيجى انيكك ؟";
-            msg2 = "عندك جتسى او لاين او تلجرام؟";
+            msg1 = "تتناكى صوت ؟";
+            msg2 = "نتكلم على برنامج اى؟";
             button13.innerText = "bdMsg"
             msgSwitch = 1
         }
         else {
             msg1 = keepMsg
-            msg2 = "🌹"
+            msg2 = "على 42 منصوره , وانتى ؟";
             button13.innerText = "gdMsg"
             msgSwitch = 0
         }
@@ -570,17 +561,6 @@ function runCode() {
             button16.innerText = "notad";
         }
     }
-    button17.innerText = "clearMesgs";
-    button17.onclick = function () {
-        messages.clear();
-        updateMessages();
-        this.innerText = "cleared";
-    }
-    setInterval(_ => {
-        if (add) {
-            updateMessages();
-        }
-    }, 60000)
     namesContainer.style.backgroundColor = "#0b2429"
     namesContainer.style.color = "#f3ac3c"
     namesContainer.style.height = "50%"
@@ -595,7 +575,7 @@ function runCode() {
     peopleWhoReplyAgain.style.listStylePosition = "inside"
     peopleWhoReplyAgain.style.whiteSpace = "pre"
     peopleWhoReplyAgain.id = "peopleWhoReplyAgain"
-    buttonsContainer.append(button1, button2, button3, button4, button5, button9, button6, button7, button8, button10, button11, button12, button13, button14, button15, button16, button17)
+    buttonsContainer.append(button1, button2, button3, button4, button5, button9, button6, button7, button8, button10, button11, button12, button13, button14, button15, button16)
     fatherDiv.style.display = "flex"
     fatherDiv.style.flexDirection = "column"
     fatherDiv.style.height = "30vh"
@@ -660,7 +640,7 @@ function runCode() {
             color: #fff !important;
             background-color: #000 !important
         }
-        
+
         .w3-display-bottommiddle {
             position: absolute;
             left: 26%;
@@ -707,19 +687,14 @@ function runCode() {
     id("nt").style.opacity = "0"
     id("onp").click()
 }
-function fetchAll() {
-    Promise.all([fetch(`${srvr}femaleNames.json`), fetch(`${srvr}notwanted.json`), fetch(`${srvr}messages.json`)])
-        .then(
-            e => Promise.all(e.map(x => x.json())))
-        .then(arr => {
-            femaleNames = new Set(arr[0]);
-            males = new Set(arr[1]);
-            messages = new Set(arr[2]);
-            runCode();
-        })
-        .then(_ => console.log("fetching done")).catch(err => {
-            alert(err);
-            open("https://alisodsin.github.io/ArabyChat.htm", "_self");
-        })
+async function fetchJsons(url) {
+    let x = await fetch(url)
+    x = await x.json()
+    return new Set(JSON.parse(decodeURIComponent(atob(x.content))))
 }
-fetchAll(); 
+(async function () {
+    femaleNames = await fetchJsons(fmlgiturl);
+    males = await fetchJsons(mlsgiturl)
+    messages = await fetchJsons(msgsgiturl);
+    runCode();
+})();  
