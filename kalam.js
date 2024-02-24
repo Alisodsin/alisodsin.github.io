@@ -255,7 +255,8 @@ function runCode() {
             <button id="updtremote">updtR</button>  
             <button id="dlta">D</button>
         </div>
-        <div id="mutablediv" style="overflow:auto;width:90%;height:30%">  
+        <div id="mutablediv" style="overflow:auto;width:90%;height:30%;white-space:nowrap;">  
+        <ul></ul>
         </div>  
       `
       switcherc = controlDiv.children[0];
@@ -265,6 +266,14 @@ function runCode() {
       butAddL = controlDiv.querySelector("#updtlocal")
       butAddR = controlDiv.querySelector("#updtremote")
       mutablediv = controlDiv.children[3];
+      let inmutablediv = mutablediv.children[0]
+
+      if (newNamesF.length > 0) {
+        inmutablediv.innerHTML = `<li style="color:green">there are new ${newNamesF.length} female names</li>`
+      }
+      if (newNamesM.length > 0) {
+        inmutablediv.innerHTML += `<li style="color:green"> there are new ${newNamesM.length} male names</li>`
+      }
       switcherc.onclick = function () {
         this.innerText = this.innerText.startsWith("f") ? "males" : "females";
       }
@@ -330,14 +339,30 @@ function runCode() {
         else if (newNamesM.includes(vlu)) {
           mutablediv.innerText = `${vlu} exists in newNamesM`
         }
+        else if (notWanted.has(vlu) && switcherc.innerText.startsWith("m")) {
+          notWanted.delete(vlu);
+          mutablediv.innerText = `${vlu} removed from old male names`;
+        }
+        else if (femalesNames.has(vlu) && switcherc.innerText.startsWith("f")) {
+          femalesNames.delete(vlu)
+          mutablediv.innerText = `${vlu} removde from  old female names`
+        }
+
+        else if (notWanted.has(vlu)) {
+          mutablediv.innerText = `${vlu} exists in old male names,click switcher to delete it`;
+        }
+        else if (femalesNames.has(vlu)) {
+          mutablediv.innerText = `${vlu} exists in old female names,click switcher to delete it`
+        }
         else {
-          mutablediv.innerText = `${vlu} doesn't exist in newNames`
+          mutablediv.innerText = `${vlu} doesn't exist in either newNames or oldNames`
         }
       }
+
       butAddL.onclick = function () {
         let vlu = inputc.value.trim().toLowerCase();
         if (vlu) {
-          if (switcherc.innerText.startsWith("f") && !femalesNames.has(vlu) && !newNamesF.includes(vlu)) {
+          if (switcherc.innerText.startsWith("f") && !femalesNames.has(vlu) && !newNamesF.includes(vlu) && !notWanted.has(vlu)) {
             newNamesF.push(vlu);
             femalesNames.add(vlu)
             localStorage.f = newNamesF.join()
@@ -345,7 +370,7 @@ function runCode() {
             mutablediv.innerHTML = ""
             mutablediv.innerText = `${vlu} added to  newNamesF`
           }
-          else if (switcherc.innerText.startsWith("m") && !notWanted.has(vlu) && !newNamesM.includes(vlu)) {
+          else if (switcherc.innerText.startsWith("m") && !notWanted.has(vlu) && !newNamesM.includes(vlu) && !femalesNames.has(vlu)) {
             newNamesM.push(vlu);
             notWanted.add(vlu)
             localStorage.m = newNamesM.join()
