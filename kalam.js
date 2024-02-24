@@ -35,6 +35,13 @@ let check = setInterval(_ => {
   num = false,
   zozo = new Set(),
   togC,
+  switcherc,
+  butGet,
+  inputc,
+  butDelete,
+  butAddL,
+  butAddR,
+  mutablediv,
   kalamngySend,
   num1 = 0,
   buttons,
@@ -54,6 +61,7 @@ let check = setInterval(_ => {
   newNamesM = [],
   containersDiv = document.createElement("div"),
   ol1 = document.createElement("ol"),
+  controlDiv = document.createElement("div"),
   ol2 = document.createElement("ol"),
   joiningPplClass,
   joinPerson,
@@ -197,7 +205,7 @@ function runCode() {
                       display:none !important;
                   }
               }
-              #father * {
+              #father > * {
                   flex: 1;
                   margin:0;
                   font-size: small;
@@ -208,18 +216,207 @@ function runCode() {
                  position: relative;
                  left: -19px;
                  white-space:nowrap;
-              }`;
+              }
+              #butcot > button {
+                  background-color: black;
+                  color: white;
+              }
+              table {
+                width:50%;
+                border-collapse: collapse;
+              }
+              th, td {
+                border: 2px solid red;
+                text-align: center;
+                padding: 5px;
+                font-size: small;
+              } 
+              `;
       ol1.id = "ol";
       ol1.style.background = "black";
       ol1.style.color = "green";
       ol1.style.overflow = "auto"
       ol2.id = "ol2";
-      ol1.style.borderBottom = "3px solid green"
+      controlDiv.style.width = "100%"
+      controlDiv.style.background = "black"
+      controlDiv.style.color = "white"
+      controlDiv.style.border = "1px solid green"
+      controlDiv.style.display = "flex"
+      controlDiv.style.flexDirection = "column"
+      controlDiv.style.alignItems = "center"
+      controlDiv.style.justifyContent = "space-evenly"
+      controlDiv.style.overflow = "auto"
+      controlDiv.innerHTML = ` 
+      <div id ="switcher" style="cursor:pointer;font-size:1.2rem;">females</div> 
+      <textarea id="inputo" style = "background: black;color:white;width:90%" ></textarea>
+      <div id="butcot" style="width:100%;display:flex;justify-content:space-around">
+            <button id="getnew">G</button>
+            <button id="updtlocal">updtL</button>
+            <button id="updtremote">updtR</button>  
+            <button id="dlta">D</button>
+        </div>
+        <div id="mutablediv" style="overflow:auto;width:90%;height:30%">  
+        </div>  
+      `
+      switcherc = controlDiv.children[0];
+      inputc = controlDiv.children[1];
+      butGet = controlDiv.querySelector("#getnew")
+      butDelete = controlDiv.querySelector("#dlta")
+      butAddL = controlDiv.querySelector("#updtlocal")
+      butAddR = controlDiv.querySelector("#updtremote")
+      mutablediv = controlDiv.children[3];
+      switcherc.onclick = function () {
+        this.innerText = this.innerText.startsWith("f") ? "males" : "females";
+      }
+      butGet.onclick = function () {
+        mutablediv.innerHTML = "";
+        if (newNamesM.length || newNamesF.length) {
+          let table = document.createElement("table")
+          table.innerHTML = `
+          <tr>
+          <td style="color:orange">females</td>
+          <td style="color:orange" >males</td>   
+          </tr>
+          `
+          if (newNamesF.length >= newNamesM.length) {
+            newNamesF.forEach((ele, index) => {
+              let tr = document.createElement("tr");
+              let mname = newNamesM[index] ? newNamesM[index] : "";
+              tr.innerHTML = `<td>${ele}</td><td>${mname}</td>`
+              table.append(tr);
+            })
+          }
+          else {
+            newNamesM.forEach((ele, index) => {
+              let tr = document.createElement("tr");
+              let fname = newNamesF[index] ? newNamesF[index] : "";
+              tr.innerHTML = `<td>${fname}</td><td>${ele}</td>`
+              table.append(tr);
+            })
+          }
+          mutablediv.append(table)
+        }
+        else {
+          mutablediv.innerHTML = "no new names";
+        }
+
+      }
+      butDelete.onclick = function () {
+
+
+        let vlu = inputc.value.trim().toLowerCase();
+        console.log(vlu)
+        mutablediv.innerHTML = ""
+        if (vlu && switcherc.innerText.startsWith("f") && newNamesF.includes(vlu)) {
+          newNamesF = newNamesF.filter(x => x != vlu);
+          femalesNames.delete(vlu)
+          localStorage.f = newNamesF.join();
+          mutablediv.innerText = `${vlu} removed from newNamesF`
+
+        }
+        else if (vlu && switcherc.innerText.startsWith("m") && newNamesM.includes(vlu)) {
+          newNamesM = newNamesM.filter(x => x != vlu);
+          notWanted.delete(vlu)
+          localStorage.m = newNamesM.join();
+          mutablediv.innerText = `${vlu} removed from newNamesM`
+        }
+        else if (!vlu) {
+          mutablediv.innerText = `there is no name to delete`
+        }
+        else if (newNamesF.includes(vlu)) {
+          mutablediv.innerText = `${vlu} exists in newNamesF`
+
+        }
+        else if (newNamesM.includes(vlu)) {
+          mutablediv.innerText = `${vlu} exists in newNamesM`
+        }
+        else {
+          mutablediv.innerText = `${vlu} doesn't exist in newNames`
+        }
+      }
+      butAddL.onclick = function () {
+        let vlu = inputc.value.trim().toLowerCase();
+        if (vlu) {
+          if (switcherc.innerText.startsWith("f") && !femalesNames.has(vlu) && !newNamesF.includes(vlu)) {
+            newNamesF.push(vlu);
+            femalesNames.add(vlu)
+            localStorage.f = newNamesF.join()
+            inputc.value = ""
+            mutablediv.innerHTML = ""
+            mutablediv.innerText = `${vlu} added to  newNamesF`
+          }
+          else if (switcherc.innerText.startsWith("m") && !notWanted.has(vlu) && !newNamesM.includes(vlu)) {
+            newNamesM.push(vlu);
+            notWanted.add(vlu)
+            localStorage.m = newNamesM.join()
+            inputc.value = ""
+            mutablediv.innerHTML = ""
+            mutablediv.innerText = `${vlu} added to  newNamesM`
+          }
+          else if (femalesNames.has(vlu)) {
+            inputc.value = ""
+            mutablediv.innerHTML = ""
+            mutablediv.innerText = `${vlu} already exist in Females`
+          }
+          else if (notWanted.has(vlu)) {
+            inputc.value = ""
+            mutablediv.innerHTML = ""
+            mutablediv.innerText = `${vlu} already exist in Males`
+          }
+          else {
+            return false
+          }
+        }
+        else {
+          mutablediv.innerHTML = ""
+          mutablediv.innerText = `there is no name to add`
+
+        }
+      }
+      butAddR.onclick = async function () {
+        if (switcherc.innerText.startsWith("f")) {
+          if (femalesNames.size > oldFlength) {
+            try {
+              await fetch(fmlgiturl, { method: 'PUT', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}`, }, body: JSON.stringify({ message: 'Add new names', content: btoa(encodeURIComponent(JSON.stringify([...femalesNames]))), sha: shaf, }), });
+              mutablediv.innerHTML = ""
+              mutablediv.innerText = "females updated on git hub"
+              localStorage.f = ""
+              newNamesF = [];
+            } catch (error) {
+              mutablediv.innerHTML = ""
+              mutablediv.innerText = `${error.message}`
+            }
+          }
+          else {
+            mutablediv.innerHTML = "";
+            mutablediv.innerText = `females already updated`;
+          }
+        }
+        else {
+          if (notWanted.size > oldMlength) {
+            try {
+              await fetch(mlsgiturl, { method: 'PUT', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}`, }, body: JSON.stringify({ message: 'Add new names', content: btoa(encodeURIComponent(JSON.stringify([...notWanted]))), sha: sham, }), });
+              mutablediv.innerHTML = ""
+              mutablediv.innerText = "males updated on git hub"
+              localStorage.m = ""
+              newNamesM = [];
+            } catch (error) {
+              mutablediv.innerHTML = ""
+              mutablediv.innerText = `${error.message}`
+            }
+          }
+          else {
+            mutablediv.innerHTML = "";
+            mutablediv.innerText = `males already updated`;
+          }
+        }
+
+      }
       ol2.style.background = "black";
       ol2.style.color = "white"
       ol2.style.overflow = "auto"
       ol2.style.display = "block";
-      containersDiv.append(ol1, ol2)
+      containersDiv.append(ol1, controlDiv, ol2)
       _fmain.document.body.append(buttonContainers, containersDiv);
       _fmain.document.head.append(style)
       _fmain.document.querySelector(".main-closepic").remove();
@@ -372,7 +569,6 @@ function block(x) {
     })
   }
 }
-
 function closAll() {
   let sentme = Object.keys(parent.fwindowlist.Witems);
   for (let i = 0; i < sentme.length; i++) {
@@ -463,7 +659,7 @@ function toggleContainer() {
 
 }
 function buttonsCreator() {
-  for (let index = 1; index <= 20; index++) {
+  for (let index = 1; index <= 18; index++) {
     let button = document.createElement("button");
     button.innerText = `F${index}`;
     switch (index) {
@@ -601,86 +797,6 @@ function buttonsCreator() {
           }
         };
         break;
-      case 19:
-        button.style.background = "black";
-        button.style.color = "white";
-        button.innerText = "+";
-        button.onclick = async function () {
-          if (_fwindowlist.currentwindow == rooms[0]) {
-            let nName = input.value.trim().toLowerCase()
-            localStorage.f += nName + ","
-            newNamesF.push(nName);
-            input.value = ""
-            await sleep(1500)
-            input.placeholder = `${nName} added to  newNamesF`
-          }
-          else {
-            let nName = input.value.trim().toLowerCase()
-            localStorage.m += nName + ","
-            newNamesM.push(nName);
-            input.value = ""
-            await sleep(1500)
-            input.placeholder = `${nName} added to  newNamesM`
-          }
-        };
-        break;
-      case 20:
-        button.style.background = "black";
-        button.style.color = "white";
-        button.innerText = "gt";
-        button.onclick = async function () {
-          if (_fwindowlist.currentwindow == rooms[0]) {
-            newNamesF.forEach(x => {
-              if (x) {
-                femalesNames.add(x)
-              }
-            })
-            delete localStorage.f;
-            if (femalesNames.size > oldFlength) {
-              try {
-                await fetch(fmlgiturl, { method: 'PUT', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}`, }, body: JSON.stringify({ message: 'Add new names', content: btoa(encodeURIComponent(JSON.stringify([...femalesNames]))), sha: shaf, }), });
-                this.innerText = "females updated on git hub"
-                await sleep(3000)
-                this.innerText = "gt"
-              } catch (error) {
-                this.innerText = `${error.message}`
-                await sleep(3000)
-                this.innerText = "gt"
-              }
-            }
-            else {
-              this.innerText = `already updated`
-              await sleep(3000)
-              this.innerText = "gt"
-            }
-          }
-          else {
-            newNamesM.forEach(x => {
-              if (x) {
-                notWanted.add(x)
-              }
-            })
-            delete localStorage.m;
-            if (notWanted.size > oldMlength) {
-              try {
-                await fetch(mlsgiturl, { method: 'PUT', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}`, }, body: JSON.stringify({ message: 'Add new names', content: btoa(encodeURIComponent(JSON.stringify([...notWanted]))), sha: sham, }), });
-
-                this.innerText = "males updated on git hub"
-                await sleep(3000)
-                this.innerText = "gt"
-              } catch (error) {
-                this.innerText = `${error.message}`
-                await sleep(3000)
-                this.innerText = "gt"
-              }
-            }
-            else {
-              this.innerText = `already updated`
-              await sleep(3000)
-              this.innerText = "gt"
-            }
-          }
-        }
     }
     button.style.border = "none"
     button.style.borderRadius = "40%"
@@ -991,19 +1107,22 @@ async function fetchJsons(url) {
   shrr3 = response[1];
   if (localStorage["f"]) {
     newNamesF = localStorage.f.split(",")
-    newNamesF.pop()
-    newNamesF = newNamesF.filter((x => x))
+    newNamesF.forEach(x => {
+      femalesNames.add(x)
+    })
   }
   else {
     localStorage.f = ""
   }
   if (localStorage["m"]) {
     newNamesM = localStorage.m.split(",")
-    newNamesM.pop()
+    newNamesM.forEach(x => {
+      notWanted.add(x)
+    })
   }
   else {
     localStorage.m = ""
   }
   await sleep(3000);
   runCode();
-})();
+})(); 
