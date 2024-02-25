@@ -377,7 +377,7 @@ function runCode() {
             mutablediv.innerHTML = ""
             mutablediv.innerText = `${vlu} added to  newNamesF`
           }
-          else if (switcherc.innerText.startsWith("m") && !notWanted.has(vlu) && !newNamesM.includes(vlu) && !femalesNames.has(vlu) && !newNamesMd.includes(vlu) && !newNamesFd.includes(vlu)) {ث
+          else if (switcherc.innerText.startsWith("m") && !notWanted.has(vlu) && !newNamesM.includes(vlu) && !femalesNames.has(vlu) && !newNamesMd.includes(vlu) && !newNamesFd.includes(vlu)) {
             newNamesM.push(vlu);
             notWanted.add(vlu)
             localStorage.m = newNamesM.join()
