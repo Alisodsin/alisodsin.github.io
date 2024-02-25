@@ -268,20 +268,6 @@ function runCode() {
       butAddL = controlDiv.querySelector("#updtlocal");
       butAddR = controlDiv.querySelector("#updtremote");
       mutablediv = controlDiv.children[3];
-      let inmutablediv = mutablediv.children[0];
-
-      if (newNamesF.length > 0) {
-        inmutablediv.innerHTML = `<li style="color:green">there are new ${newNamesF.length} female names to add</li>`
-      }
-      if (newNamesM.length > 0) {
-        inmutablediv.innerHTML += `<li style="color:green"> there are new ${newNamesM.length} male names to add</li>`
-      }
-      if (newNamesFd.length > 0) {
-        inmutablediv.innerHTML += `<li style="color:red">there are new ${newNamesFd.length} female names to delete</li>`
-      }
-      if (newNamesMd.length > 0) {
-        inmutablediv.innerHTML += `<li style="color:red"> there are new ${newNamesMd.length} male names to delete</li>`
-      }
       switcherc.onclick = function () {
         this.innerText = this.innerText.startsWith("f") ? "males" : "females";
       }
@@ -315,10 +301,9 @@ function runCode() {
           mutablediv.innerHTML = "no new names";
         }
       }
-
+      butGet.click();
       butDelete.onclick = function () {
         let vlu = inputc.value.trim().toLowerCase();
-        console.log(vlu)
         mutablediv.innerHTML = ""
         if (vlu && switcherc.innerText.startsWith("f") && newNamesF.includes(vlu)) {
           newNamesF = newNamesF.filter(x => x != vlu);
@@ -494,23 +479,25 @@ function runCode() {
           }
         }
       }, 50);
-      Object.keys(users).forEach(x => {
-        if (checkForFemaleName(x, femalesNames)) {
-          zozo.add(x);
-        }
-      });
-      let prsntPplMsg = setInterval(_ => {
-        if (zozo.size < 1) {
-          clearInterval(prsntPplMsg);
-        }
-        else {
-          let name = [...zozo].at((Math.floor(Math.random() * zozo.size)));
-          if (_fmain.document.getElementById("togf").innerText == "on" && num1 < 2) {
-            doIt(name);
+      setTimeout(_ => {
+        Object.keys(users).forEach(x => {
+          if (checkForFemaleName(x, femalesNames) && !Object.keys(users[x]).length) {
+            zozo.add(x);
           }
-        }
+        });
+        let prsntPplMsg = setInterval(_ => {
+          if (zozo.size < 1) {
+            clearInterval(prsntPplMsg);
+          }
+          else {
+            let name = [...zozo].at((Math.floor(Math.random() * zozo.size)));
+            if (_fmain.document.getElementById("togf").innerText == "on" && num1 < 2) {
+              doIt(name);
+            }
+          }
 
-      }, 60000);
+        }, 60000);
+      }, 4000)
       clearInterval(check);
     }
   }, 100);
@@ -1161,8 +1148,6 @@ async function fetchJsons(url) {
   else {
     localStorage.f = ""
   }
-
-
   if (localStorage["m"]) {
 
     newNamesM = localStorage.m.split(",")
@@ -1174,9 +1159,6 @@ async function fetchJsons(url) {
   else {
     localStorage.m = ""
   }
-
-
-
   if (localStorage["fd"]) {
 
     newNamesFd = localStorage.fd.split(",")
@@ -1188,9 +1170,6 @@ async function fetchJsons(url) {
   else {
     localStorage.fd = ""
   }
-
-
-
   if (localStorage["md"]) {
 
     newNamesMd = localStorage.md.split(",")
@@ -1202,29 +1181,6 @@ async function fetchJsons(url) {
   else {
     localStorage.md = ""
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   await sleep(3000);
   runCode();
 })(); 
