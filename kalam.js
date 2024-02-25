@@ -120,6 +120,7 @@ function runCode() {
       listObserver.observe(listTarget, objConfig);
       input.placeholder = `you have ${oldFlength} female names`
       fform.onkeydown = keysHandelr;
+      fform.fns = _ => true;
       ters = fform.document.getElementsByTagName("img")[0]
       _fmain.nickmenu = function () { return false }
       _fmain.document.getElementById("menu").remove();
