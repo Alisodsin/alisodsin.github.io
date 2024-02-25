@@ -59,6 +59,8 @@ let check = setInterval(_ => {
   roomName,
   newNamesF = [],
   newNamesM = [],
+  newNamesFd = [],
+  newNamesMd = [],
   containersDiv = document.createElement("div"),
   ol1 = document.createElement("ol"),
   controlDiv = document.createElement("div"),
@@ -226,7 +228,7 @@ function runCode() {
                 border-collapse: collapse;
               }
               th, td {
-                border: 2px solid red;
+                border: 2px solid white;
                 text-align: center;
                 padding: 5px;
                 font-size: small;
@@ -261,58 +263,60 @@ function runCode() {
       `
       switcherc = controlDiv.children[0];
       inputc = controlDiv.children[1];
-      butGet = controlDiv.querySelector("#getnew")
-      butDelete = controlDiv.querySelector("#dlta")
-      butAddL = controlDiv.querySelector("#updtlocal")
-      butAddR = controlDiv.querySelector("#updtremote")
+      butGet = controlDiv.querySelector("#getnew");
+      butDelete = controlDiv.querySelector("#dlta");
+      butAddL = controlDiv.querySelector("#updtlocal");
+      butAddR = controlDiv.querySelector("#updtremote");
       mutablediv = controlDiv.children[3];
-      let inmutablediv = mutablediv.children[0]
+      let inmutablediv = mutablediv.children[0];
 
       if (newNamesF.length > 0) {
-        inmutablediv.innerHTML = `<li style="color:green">there are new ${newNamesF.length} female names</li>`
+        inmutablediv.innerHTML = `<li style="color:green">there are new ${newNamesF.length} female names to add</li>`
       }
       if (newNamesM.length > 0) {
-        inmutablediv.innerHTML += `<li style="color:green"> there are new ${newNamesM.length} male names</li>`
+        inmutablediv.innerHTML += `<li style="color:green"> there are new ${newNamesM.length} male names to add</li>`
+      }
+      if (newNamesFd.length > 0) {
+        inmutablediv.innerHTML += `<li style="color:red">there are new ${newNamesFd.length} female names to delete</li>`
+      }
+      if (newNamesMd.length > 0) {
+        inmutablediv.innerHTML += `<li style="color:red"> there are new ${newNamesMd.length} male names to delete</li>`
       }
       switcherc.onclick = function () {
         this.innerText = this.innerText.startsWith("f") ? "males" : "females";
       }
       butGet.onclick = function () {
         mutablediv.innerHTML = "";
-        if (newNamesM.length || newNamesF.length) {
+        if (newNamesM.length || newNamesF.length || newNamesFd.length || newNamesMd.length) {
           let table = document.createElement("table")
           table.innerHTML = `
           <tr>
-          <td style="color:orange">females</td>
-          <td style="color:orange" >males</td>   
+          <th style="color:green">F</th>
+          <th style="color:green" >M</th> 
+          <th style="color:red">Fd</th>
+          <th style="color:red">Md</th> 
           </tr>
           `
-          if (newNamesF.length >= newNamesM.length) {
-            newNamesF.forEach((ele, index) => {
+          let maxLength = Math.max(newNamesF.length, newNamesM.length, newNamesFd.length, newNamesMd.length);
+          if (maxLength) {
+            for (let index = 0; index < maxLength; index++) {
               let tr = document.createElement("tr");
-              let mname = newNamesM[index] ? newNamesM[index] : "";
-              tr.innerHTML = `<td>${ele}</td><td>${mname}</td>`
+              let f = newNamesF[index] ? newNamesF[index] : "";
+              let m = newNamesM[index] ? newNamesM[index] : "";
+              let fd = newNamesFd[index] ? newNamesFd[index] : "";
+              let md = newNamesMd[index] ? newNamesMd[index] : "";
+              tr.innerHTML = `<td>${f}</td> <td>${m}</td> <td>${fd}</td> <td>${md}</td>`
               table.append(tr);
-            })
+            }
+            mutablediv.append(table)
           }
-          else {
-            newNamesM.forEach((ele, index) => {
-              let tr = document.createElement("tr");
-              let fname = newNamesF[index] ? newNamesF[index] : "";
-              tr.innerHTML = `<td>${fname}</td><td>${ele}</td>`
-              table.append(tr);
-            })
-          }
-          mutablediv.append(table)
         }
         else {
           mutablediv.innerHTML = "no new names";
         }
-
       }
+
       butDelete.onclick = function () {
-
-
         let vlu = inputc.value.trim().toLowerCase();
         console.log(vlu)
         mutablediv.innerHTML = ""
@@ -341,13 +345,16 @@ function runCode() {
         }
         else if (notWanted.has(vlu) && switcherc.innerText.startsWith("m")) {
           notWanted.delete(vlu);
+          newNamesMd.push(vlu);
+          localStorage.md = newNamesMd.join();
           mutablediv.innerText = `${vlu} removed from old male names`;
         }
         else if (femalesNames.has(vlu) && switcherc.innerText.startsWith("f")) {
           femalesNames.delete(vlu)
+          newNamesFd.push(vlu);
+          localStorage.fd = newNamesFd.join();
           mutablediv.innerText = `${vlu} removde from  old female names`
         }
-
         else if (notWanted.has(vlu)) {
           mutablediv.innerText = `${vlu} exists in old male names,click switcher to delete it`;
         }
@@ -362,7 +369,7 @@ function runCode() {
       butAddL.onclick = function () {
         let vlu = inputc.value.trim().toLowerCase();
         if (vlu) {
-          if (switcherc.innerText.startsWith("f") && !femalesNames.has(vlu) && !newNamesF.includes(vlu) && !notWanted.has(vlu)) {
+          if (switcherc.innerText.startsWith("f") && !femalesNames.has(vlu) && !newNamesF.includes(vlu) && !notWanted.has(vlu) && !newNamesFd.includes(vlu) && !newNamesMd.includes(vlu)) {
             newNamesF.push(vlu);
             femalesNames.add(vlu)
             localStorage.f = newNamesF.join()
@@ -370,13 +377,25 @@ function runCode() {
             mutablediv.innerHTML = ""
             mutablediv.innerText = `${vlu} added to  newNamesF`
           }
-          else if (switcherc.innerText.startsWith("m") && !notWanted.has(vlu) && !newNamesM.includes(vlu) && !femalesNames.has(vlu)) {
+          else if (switcherc.innerText.startsWith("m") && !notWanted.has(vlu) && !newNamesM.includes(vlu) && !femalesNames.has(vlu) && !newNamesMd.includes(vlu) && !newNamesFd.includes(vlu)) {ث
             newNamesM.push(vlu);
             notWanted.add(vlu)
             localStorage.m = newNamesM.join()
             inputc.value = ""
             mutablediv.innerHTML = ""
             mutablediv.innerText = `${vlu} added to  newNamesM`
+          }
+          else if (newNamesFd.includes(vlu)) {
+            newNamesFd = newNamesFd.filter(x => x != vlu);
+            localStorage.fd = newNamesFd.join();
+            femalesNames.add(vlu);
+            mutablediv.innerText = `${vlu} went back to old female names`
+          }
+          else if (newNamesMd.includes(vlu)) {
+            newNamesMd = newNamesMd.filter(x => x != vlu);
+            localStorage.md = newNamesMd.join();
+            notWanted.add(vlu)
+            mutablediv.innerText = `${vlu} went back to old male names`
           }
           else if (femalesNames.has(vlu)) {
             inputc.value = ""
@@ -1130,24 +1149,82 @@ async function fetchJsons(url) {
   response = await fetchJsons(msgsgiturl);
   messages = response[0];
   shrr3 = response[1];
+
   if (localStorage["f"]) {
+
     newNamesF = localStorage.f.split(",")
     newNamesF.forEach(x => {
       femalesNames.add(x)
     })
+
   }
   else {
     localStorage.f = ""
   }
+
+
   if (localStorage["m"]) {
+
     newNamesM = localStorage.m.split(",")
     newNamesM.forEach(x => {
       notWanted.add(x)
     })
+
   }
   else {
     localStorage.m = ""
   }
+
+
+
+  if (localStorage["fd"]) {
+
+    newNamesFd = localStorage.fd.split(",")
+    newNamesFd.forEach(x => {
+      femalesNames.delete(x)
+    })
+
+  }
+  else {
+    localStorage.fd = ""
+  }
+
+
+
+  if (localStorage["md"]) {
+
+    newNamesMd = localStorage.md.split(",")
+    newNamesMd.forEach(x => {
+      notWanted.delete(x)
+    })
+
+  }
+  else {
+    localStorage.md = ""
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   await sleep(3000);
   runCode();
 })(); 
