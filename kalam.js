@@ -359,7 +359,6 @@ function runCode() {
             newNamesF.push(vlu);
             femalesNames.add(vlu)
             localStorage.f = newNamesF.join()
-            inputc.value = ""
             mutablediv.innerHTML = ""
             mutablediv.innerText = `${vlu} added to  newNamesF`
           }
@@ -367,7 +366,6 @@ function runCode() {
             newNamesM.push(vlu);
             notWanted.add(vlu)
             localStorage.m = newNamesM.join()
-            inputc.value = ""
             mutablediv.innerHTML = ""
             mutablediv.innerText = `${vlu} added to  newNamesM`
           }
@@ -384,12 +382,10 @@ function runCode() {
             mutablediv.innerText = `${vlu} went back to old male names`
           }
           else if (femalesNames.has(vlu)) {
-            inputc.value = ""
             mutablediv.innerHTML = ""
             mutablediv.innerText = `${vlu} already exist in Females`
           }
           else if (notWanted.has(vlu)) {
-            inputc.value = ""
             mutablediv.innerHTML = ""
             mutablediv.innerText = `${vlu} already exist in Males`
           }
@@ -492,7 +488,7 @@ function runCode() {
           }
           else {
             let name = [...zozo].at((Math.floor(Math.random() * zozo.size)));
-            if (_fmain.document.getElementById("togf").innerText == "on" && num1 < 2) {
+            if (_fmain.document.getElementById("togf").innerText == "on" && _fwindowlist.currentwindow == roomName && num1 < 2) {
               doIt(name);
             }
           }
