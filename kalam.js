@@ -309,6 +309,7 @@ function runCode() {
         if (vlu && switcherc.innerText.startsWith("f") && newNamesF.includes(vlu)) {
           newNamesF = newNamesF.filter(x => x != vlu);
           femalesNames.delete(vlu)
+          testFset.delete(vlu)
           localStorage.f = newNamesF.join();
           mutablediv.innerText = `${vlu} removed from newNamesF`
 
@@ -337,6 +338,7 @@ function runCode() {
         }
         else if (femalesNames.has(vlu) && switcherc.innerText.startsWith("f")) {
           femalesNames.delete(vlu)
+          testFset.delete(vlu)
           newNamesFd.push(vlu);
           localStorage.fd = newNamesFd.join();
           mutablediv.innerText = `${vlu} removde from  old female names`
@@ -358,6 +360,7 @@ function runCode() {
           if (switcherc.innerText.startsWith("f") && !femalesNames.has(vlu) && !newNamesF.includes(vlu) && !notWanted.has(vlu) && !newNamesFd.includes(vlu) && !newNamesMd.includes(vlu)) {
             newNamesF.push(vlu);
             femalesNames.add(vlu)
+            testFset.add(vlu)
             localStorage.f = newNamesF.join()
             mutablediv.innerHTML = ""
             mutablediv.innerText = `${vlu} added to  newNamesF`
@@ -373,6 +376,7 @@ function runCode() {
             newNamesFd = newNamesFd.filter(x => x != vlu);
             localStorage.fd = newNamesFd.join();
             femalesNames.add(vlu);
+            testFset.add(vlu)
             mutablediv.innerText = `${vlu} went back to old female names`
           }
           else if (newNamesMd.includes(vlu)) {
@@ -401,13 +405,15 @@ function runCode() {
       }
       butAddR.onclick = async function () {
         if (switcherc.innerText.startsWith("f")) {
-          if (femalesNames.size > oldFlength) {
+          if (newNamesF.length || newNamesFd.length) {
             try {
-              await fetch(fmlgiturl, { method: 'PUT', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}`, }, body: JSON.stringify({ message: 'Add new names', content: btoa(encodeURIComponent(JSON.stringify([...femalesNames]))), sha: shaf, }), });
+              await fetch(fmlgiturl, { method: 'PUT', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}`, }, body: JSON.stringify({ message: 'Add new names', content: btoa(encodeURIComponent(JSON.stringify([...testFset]))), sha: shaf, }), });
               mutablediv.innerHTML = ""
               mutablediv.innerText = "females updated on git hub"
               localStorage.f = ""
+              localStorage.fd = ""
               newNamesF = [];
+              newNamesFd = [];
             } catch (error) {
               mutablediv.innerHTML = ""
               mutablediv.innerText = `${error.message}`
@@ -419,13 +425,15 @@ function runCode() {
           }
         }
         else {
-          if (notWanted.size > oldMlength) {
+          if (newNamesM.length || newNamesMd.length) {
             try {
               await fetch(mlsgiturl, { method: 'PUT', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}`, }, body: JSON.stringify({ message: 'Add new names', content: btoa(encodeURIComponent(JSON.stringify([...notWanted]))), sha: sham, }), });
               mutablediv.innerHTML = ""
               mutablediv.innerText = "males updated on git hub"
               localStorage.m = ""
+              localStorage.md = ""
               newNamesM = [];
+              newNamesMd = [];
             } catch (error) {
               mutablediv.innerHTML = ""
               mutablediv.innerText = `${error.message}`
@@ -1139,6 +1147,7 @@ async function fetchJsons(url) {
     newNamesF = localStorage.f.split(",")
     newNamesF.forEach(x => {
       femalesNames.add(x)
+      testFset.add(x)
     })
 
   }
@@ -1161,6 +1170,7 @@ async function fetchJsons(url) {
     newNamesFd = localStorage.fd.split(",")
     newNamesFd.forEach(x => {
       femalesNames.delete(x)
+      testFset.delete(x)
     })
 
   }
