@@ -82,7 +82,7 @@ let check = setInterval(_ => {
       else if (!malesNames.has(join) && !personsGotMyMsg1.has(join) && !/^Kalamngy_\d{0,}$|Guest/ig.test(join) && (join in users) && _fwindowlist.currentwindow == roomName && !joinPerson.previousSibling.textContent.includes("made")) {
         if (!zozo.has(join) && checkForFemaleName(join, testFset)) {
           zozo.add(join)
-          mutablediv.innerHTML = `<p><bdi style="color:yellow">"${join}"</bdi> <span style="color:green"> added</span> to zozo</p>`
+          mutablediv.innerHTML = `<b style="font-size: 1.5em;"><bdi style="color:green">"${join}"</bdi></b>`
         }
         else if (!zozo.has(join)) {
           let li = document.createElement("li");
@@ -479,7 +479,7 @@ function runCode() {
           if (zozo.has(prop)) {
             zozo.delete(prop)
             if (!femalesNames.size) {
-               mutablediv.innerHTML = `<p> <bdi style="color:yellow">"${prop}"</bdi> <span style="color:red"> deletd</span> from zozo</p>`
+              mutablediv.innerHTML = `<b style="font-size: 1.5em;"><bdi style="color:red">"${prop}"</bdi></b>`
             }
           }
           if (personsGotMyMsg1.has(prop)) {
