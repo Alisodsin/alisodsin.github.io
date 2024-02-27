@@ -80,15 +80,21 @@ let check = setInterval(_ => {
         doIt(join);
       }
       else if (!malesNames.has(join) && !personsGotMyMsg1.has(join) && !/^Kalamngy_\d{0,}$|Guest/ig.test(join) && (join in users) && _fwindowlist.currentwindow == roomName && !joinPerson.previousSibling.textContent.includes("made")) {
-        let li = document.createElement("li");
-        li.innerText = join
-        ol2.append(li);
-        li.scrollIntoView();
-        malesNames.add(join);
+        if (!zozo.has(join) && checkForFemaleName(join, testFset)) {
+          zozo.add(join)
+          mutablediv.innerHTML = `<p><bdi style="color:yellow">"${join}"</bdi> <span style="color:green"> added</span> to zozo</p>`
+        }
+        else if (!zozo.has(join)) {
+          let li = document.createElement("li");
+          li.innerText = join
+          ol2.append(li);
+          li.scrollIntoView();
+          malesNames.add(join);
+        }
       }
     }
-
-  }),
+  })
+  ,
   listObserver = new MutationObserver(_ => {
     personsGotMyMsg1.forEach(name => {
       let regex = new RegExp(name + "\n!", "g");
@@ -336,7 +342,7 @@ function runCode() {
           localStorage.md = newNamesMd.join();
           mutablediv.innerText = `${vlu} removed from old male names`;
         }
-        else if (femalesNames.has(vlu) && switcherc.innerText.startsWith("f")) {
+        else if (testFset.has(vlu) && switcherc.innerText.startsWith("f")) {
           femalesNames.delete(vlu)
           testFset.delete(vlu)
           newNamesFd.push(vlu);
@@ -346,7 +352,7 @@ function runCode() {
         else if (notWanted.has(vlu)) {
           mutablediv.innerText = `${vlu} exists in old male names,click switcher to delete it`;
         }
-        else if (femalesNames.has(vlu)) {
+        else if (testFset.has(vlu)) {
           mutablediv.innerText = `${vlu} exists in old female names,click switcher to delete it`
         }
         else {
@@ -357,15 +363,17 @@ function runCode() {
       butAddL.onclick = function () {
         let vlu = inputc.value.trim().toLowerCase();
         if (vlu) {
-          if (switcherc.innerText.startsWith("f") && !femalesNames.has(vlu) && !newNamesF.includes(vlu) && !notWanted.has(vlu) && !newNamesFd.includes(vlu) && !newNamesMd.includes(vlu)) {
+          if (switcherc.innerText.startsWith("f") && !testFset.has(vlu) && !newNamesF.includes(vlu) && !notWanted.has(vlu) && !newNamesFd.includes(vlu) && !newNamesMd.includes(vlu)) {
             newNamesF.push(vlu);
-            femalesNames.add(vlu)
+            if (femalesNames.size) {
+              femalesNames.add(vlu)
+            }
             testFset.add(vlu)
             localStorage.f = newNamesF.join()
             mutablediv.innerHTML = ""
             mutablediv.innerText = `${vlu} added to  newNamesF`
           }
-          else if (switcherc.innerText.startsWith("m") && !notWanted.has(vlu) && !newNamesM.includes(vlu) && !femalesNames.has(vlu) && !newNamesMd.includes(vlu) && !newNamesFd.includes(vlu)) {
+          else if (switcherc.innerText.startsWith("m") && !notWanted.has(vlu) && !newNamesM.includes(vlu) && !testFset.has(vlu) && !newNamesMd.includes(vlu) && !newNamesFd.includes(vlu)) {
             newNamesM.push(vlu);
             notWanted.add(vlu)
             localStorage.m = newNamesM.join()
@@ -375,7 +383,9 @@ function runCode() {
           else if (newNamesFd.includes(vlu)) {
             newNamesFd = newNamesFd.filter(x => x != vlu);
             localStorage.fd = newNamesFd.join();
-            femalesNames.add(vlu);
+            if (femalesNames.size) {
+              femalesNames.add(vlu);
+            }
             testFset.add(vlu)
             mutablediv.innerText = `${vlu} went back to old female names`
           }
@@ -385,7 +395,7 @@ function runCode() {
             notWanted.add(vlu)
             mutablediv.innerText = `${vlu} went back to old male names`
           }
-          else if (femalesNames.has(vlu)) {
+          else if (testFset.has(vlu)) {
             mutablediv.innerHTML = ""
             mutablediv.innerText = `${vlu} already exist in Females`
           }
@@ -468,6 +478,9 @@ function runCode() {
         deleteProperty(target, prop) {
           if (zozo.has(prop)) {
             zozo.delete(prop)
+            if (!femalesNames.size) {
+               mutablediv.innerHTML = `<p> <bdi style="color:yellow">"${prop}"</bdi> <span style="color:red"> deletd</span> from zozo</p>`
+            }
           }
           if (personsGotMyMsg1.has(prop)) {
             block(prop)
@@ -479,14 +492,14 @@ function runCode() {
       setInterval(() => {
         let behinedJoiner = _fwindowlist.Witems[rooms[0]]?.text?.filter(x => x?.includes("Joined"))?.at(-1)?.match(/<a.*>(.*)<\/a>/i)?.[1];
         if (Boolean(users)) {
-          if (num && _fwindowlist.currentwindow != roomName && behinedJoiner && !personsGotMyMsg1.has(behinedJoiner) && behinedJoiner in users && (regex.test(behinedJoiner) || checkForFemaleName(behinedJoiner, femalesNames))) {
+          if (num && _fwindowlist.currentwindow != roomName && behinedJoiner && !personsGotMyMsg1.has(behinedJoiner) && behinedJoiner in users && (regex.test(behinedJoiner) || checkForFemaleName(behinedJoiner, testFset))) {
             doIt(behinedJoiner);
           }
         }
       }, 50);
       setTimeout(_ => {
         Object.keys(users).forEach(x => {
-          if (checkForFemaleName(x, femalesNames) && !Object.keys(users[x]).length) {
+          if (checkForFemaleName(x, testFset) && !Object.keys(users[x]).length) {
             zozo.add(x);
           }
         });
@@ -564,7 +577,7 @@ async function restart() {
         });
         _fwindowlist["Witems"] = new Proxy(_fwindowlist["Witems"], {
           set(target, p, v) {
-            if (checkForFemaleName(p, femalesNames) || p == myNick || personsGotMyMsg1.has(p)) {
+            if (checkForFemaleName(p, testFset) || p == myNick || personsGotMyMsg1.has(p)) {
               return Reflect.set(target, p, v)
             }
             else {
@@ -1018,7 +1031,7 @@ async function* stramMsg(name) {
     li1.style.cursor = "pointer";
     li1.style.width = "fit-content";
     li1.id = stream[name].id
-    li1.style.color = (femalesNames.has(name)) ? "green" : "#FFA500";
+    li1.style.color = (testFset.has(name)) ? "green" : "#FFA500";
     li1.onclick = function (event) {
       kalamngySend(name, `/query ${name}`)
       event.stopPropagation();
@@ -1101,7 +1114,7 @@ class User {
     this.name = esm;
     this.excuterObj = stramMsg(esm);
     this.timeout = (condition) ? setTimeout(() => { stream[esm].excuterObj.next(true); }, 60000) : "";
-    this.ptrn = getPattern(esm, femalesNames);
+    this.ptrn = getPattern(esm, testFset);
 
   }
 }
@@ -1183,7 +1196,6 @@ async function fetchJsons(url) {
     newNamesMd.forEach(x => {
       notWanted.delete(x)
     })
-
   }
   else {
     localStorage.md = ""
