@@ -285,8 +285,8 @@ function runCode() {
           table.innerHTML = `
           <tr>
           <th style="color:green">F</th>
-          <th style="color:green" >M</th> 
           <th style="color:red">Fd</th>
+          <th style="color:green" >M</th> 
           <th style="color:red">Md</th> 
           </tr>
           `
@@ -298,10 +298,10 @@ function runCode() {
               let m = newNamesM[index] ? newNamesM[index] : "";
               let fd = newNamesFd[index] ? newNamesFd[index] : "";
               let md = newNamesMd[index] ? newNamesMd[index] : "";
-              tr.innerHTML = `<td>${f}</td> <td>${m}</td> <td>${fd}</td> <td>${md}</td>`
+              tr.innerHTML = `<td>${f}</td><td>${fd}</td> <td>${m}</td><td>${md}</td>`
               table.append(tr);
             }
-            mutablediv.append(table)
+            mutablediv.append(table) 
           }
         }
         else {
