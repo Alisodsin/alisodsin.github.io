@@ -301,7 +301,7 @@ function runCode() {
               tr.innerHTML = `<td>${f}</td><td>${fd}</td> <td>${m}</td><td>${md}</td>`
               table.append(tr);
             }
-            mutablediv.append(table) 
+            mutablediv.append(table)
           }
         }
         else {
@@ -910,7 +910,6 @@ _fmain.document.addEventListener('click', function (event) {
 });
 function checkForFemaleName(str, set) {
   let words = str.split(/[^\p{L}]/u);
-
   if (str.includes("|")) {
     return false
   }
@@ -939,12 +938,15 @@ function checkForFemaleName(str, set) {
       return true;
     }
   }
-  if (/^[A-Z\W]+$/.test(str)) {
-    return false
-  }
   words = str.split(/(?=[A-Z])/);
   for (const word of words) {
     if (set.has(word.toLowerCase())) {
+      return true;
+    }
+  }
+  words = str.split(/^(ال|أل)/)
+  for (const word of words) {
+    if (set.has(word)) {
       return true;
     }
   }
