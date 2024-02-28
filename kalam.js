@@ -260,16 +260,16 @@ function runCode() {
       <textarea id="inputo" style = "background: black;color:white;width:90%" ></textarea>
       <div id="butcot" style="width:100%;display:flex;justify-content:space-around">
             <button id="getnew">G</button>
-            <button id="updtlocal">updtL</button>
-            <button id="updtremote">updtR</button>  
+            <button id="updtlocal">Ul</button>
+            <button id="updtremote">Ur</button>  
             <button id="dlta">D</button>
         </div>
         <div id="mutablediv" style="overflow:auto;width:90%;height:30%;white-space:nowrap;">  
         <ul></ul>
         </div>  
       `
-      switcherc = controlDiv.children[0];
-      inputc = controlDiv.children[1];
+      switcherc = controlDiv.querySelector("#switcher");
+      inputc = controlDiv.querySelector("#inputo");
       butGet = controlDiv.querySelector("#getnew");
       butDelete = controlDiv.querySelector("#dlta");
       butAddL = controlDiv.querySelector("#updtlocal");
@@ -708,7 +708,7 @@ function toggleContainer() {
 
 }
 function buttonsCreator() {
-  for (let index = 1; index <= 18; index++) {
+  for (let index = 1; index <= 17; index++) {
     let button = document.createElement("button");
     button.innerText = `F${index}`;
     switch (index) {
@@ -816,22 +816,19 @@ function buttonsCreator() {
             num1++;
 
           }
+          else if (num1 == 2) {
+            regex = /onedaymothersaidgetupearlytogotoschool/;
+            this.innerText = "OFF"
+            num1++;
+          }
           else {
             femalesNames = new Set([...testFset]);
-            regex = /onedaymothersaidgetupearlytogotoschool/;
             this.innerText = "justF";
             num1 = 0;
           }
         };
         break;
       case 17:
-        button.style.background = "black";
-        button.style.color = "white";
-        button.id = "togf";
-        button.innerText = "on";
-        button.onclick = toggleFemales;
-        break;
-      case 18:
         button.style.background = "black";
         button.style.color = "white";
         button.innerText = "sngl";
