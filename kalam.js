@@ -51,6 +51,7 @@ let check = setInterval(_ => {
   message3 = "تحبى نتكلم بشكل محترم؟",
   message4 = "ممكن لو سمحتى تردى عليا ؟",
   regex = /onedaymothersaidgetupearlytogotoschool/,
+  guesto = /^guest[^a-zA-Z]*$/i,
   personsGotMyMsg1 = new Set(),
   femalesNames = new Set(),
   testFset = new Set(),
@@ -509,7 +510,7 @@ function runCode() {
           }
           else {
             let name = [...zozo].at((Math.floor(Math.random() * zozo.size)));
-            if (_fmain.document.getElementById("togf").innerText == "on" && _fwindowlist.currentwindow == roomName && num1 < 2) {
+            if (_fmain.document.getElementById("togf").innerText != "OFF" && _fwindowlist.currentwindow == roomName && num1 < 2) {
               doIt(name);
             }
           }
@@ -800,6 +801,7 @@ function buttonsCreator() {
         }
         break;
       case 16:
+        button.id = "togf";
         button.style.background = "black";
         button.style.color = "white";
         button.innerText = "justF"
@@ -818,12 +820,14 @@ function buttonsCreator() {
           }
           else if (num1 == 2) {
             regex = /onedaymothersaidgetupearlytogotoschool/;
+            guesto = /onedaymothersaidgetupearlytogotoschool/;
             this.innerText = "OFF"
             num1++;
           }
           else {
             femalesNames = new Set([...testFset]);
             this.innerText = "justF";
+            guesto = /^guest[^a-zA-Z]*$/i;
             num1 = 0;
           }
         };
@@ -895,7 +899,6 @@ function keysHandelr(e) {
     e.preventDefault()
   }
 }
-
 _fmain.document.addEventListener('click', function (event) {
   if (event.target.matches('.main-nickg')) {
     let txt = event.target.innerText;
@@ -909,7 +912,7 @@ function checkForFemaleName(str, set) {
   if (str.includes("|")) {
     return false
   }
-  if (set.has(str.toLowerCase()) || /^guest[^a-zA-Z]*$/i.test(str)) {
+  if (set.has(str.toLowerCase()) || guesto.test(str)) {
     return true
   }
   let words = str.split(/[^\p{L}]|ال|أل/u);
@@ -1223,4 +1226,4 @@ async function fetchJsons(url) {
   }
   await sleep(3000);
   runCode();
-})(); 
+})();  
