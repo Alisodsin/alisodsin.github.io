@@ -916,7 +916,7 @@ function checkForFemaleName(str, set) {
     return true
   }
   let words = str.split(/[^\p{L}]|ال|أل/u);
-  
+
   for (const word of words) {
     if (notWanted.has(word.toLowerCase())) {
       return false;
@@ -1158,38 +1158,51 @@ async function fetchJsons(url) {
   response = await fetchJsons(msgsgiturl);
   messages = response[0];
   shrr3 = response[1];
-
   if (localStorage["f"]) {
-
-    newNamesF = localStorage.f.split(",")
-    newNamesF.forEach(x => {
-      femalesNames.add(x)
-      testFset.add(x)
-    })
-
+    newNamesF = localStorage.f.split(",");
+    for (let i = 0; i < newNamesF.length; i++) {
+      if (femalesNames.has(newNamesF[i])) {
+        newNamesF = newNamesF.filter(nm => nm != newNamesF[i])
+      }
+      else {
+        femalesNames.add(newNamesF[i]);
+        testFset.add(newNamesF[i]);
+      }
+    }
+    localStorage.f = newNamesF.join()
   }
   else {
     localStorage.f = ""
   }
   if (localStorage["m"]) {
+    newNamesM = localStorage.m.split(",");
+    for (let i = 0; i < newNamesM.length; i++) {
 
-    newNamesM = localStorage.m.split(",")
-    newNamesM.forEach(x => {
-      notWanted.add(x)
-    })
-
+      if (notWanted.has(newNamesM[i])) {
+        newNamesM = newNamesM.filter(nm => nm != newNamesM[i])
+      }
+      else {
+        notWanted.add(newNamesM[i]);
+      }
+    }
+    localStorage.m = newNamesM.join();
   }
   else {
     localStorage.m = ""
   }
   if (localStorage["fd"]) {
-
     newNamesFd = localStorage.fd.split(",")
-    newNamesFd.forEach(x => {
-      femalesNames.delete(x)
-      testFset.delete(x)
-    })
+    for (let i = 0; i < newNamesFd.length; i++) {
 
+      if (!femalesNames.has(newNamesFd[i])) {
+        newNamesFd = newNamesFd.filter(nm => nm != newNamesFd[i])
+      }
+      else {
+        femalesNames.delete(newNamesFd[i])
+        testFset.delete(newNamesFd[i])
+      }
+    }
+    localStorage.fd = newNamesFd.join()
   }
   else {
     localStorage.fd = ""
@@ -1197,9 +1210,16 @@ async function fetchJsons(url) {
   if (localStorage["md"]) {
 
     newNamesMd = localStorage.md.split(",")
-    newNamesMd.forEach(x => {
-      notWanted.delete(x)
-    })
+    for (let i = 0; i < newNamesMd.length; i++) {
+
+      if (!notWanted.has(newNamesMd[i])) {
+        newNamesMd = newNamesMd.filter(nm => nm != newNamesMd[i])
+      }
+      else {
+        notWanted.delete(newNamesMd[i])
+      }
+    }
+    localStorage.md = newNamesMd.join()
   }
   else {
     localStorage.md = ""
