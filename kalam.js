@@ -909,13 +909,13 @@ _fmain.document.addEventListener('click', function (event) {
   }
 });
 function checkForFemaleName(str, set) {
-  let words = str.split(/[^\p{L}]|ال|أل/u);
+  let words = str.split(/[^\p{L}]|^ال|^أل/u);
   if (str.includes("|")) {
     return false
   }
   if (set.has(str.toLowerCase()) || /^guest[^a-zA-Z]*$/i.test(str)) {
     return true
-  }
+  } 
   for (const word of words) {
     if (notWanted.has(word.toLowerCase())) {
       return false;
