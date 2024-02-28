@@ -76,7 +76,7 @@ let check = setInterval(_ => {
     if (joiningPplClass.length >= 1) {
       joinPerson = [...joiningPplClass].at(-1);
       join = joinPerson?.innerText
-      if ((!stream[join] && joinPerson.nextSibling.data.includes("Joine")) && (join in users) && (regex.test(join) || checkForFemaleName(join, femalesNames))) {
+      if ((!stream[join] && joinPerson.nextSibling.data.includes("Joine")) && !malesNames.has(join) && (join in users) && (regex.test(join) || checkForFemaleName(join, femalesNames))) {
         doIt(join);
       }
       else if (!malesNames.has(join) && !personsGotMyMsg1.has(join) && !/^Kalamngy_\d{0,}$|Guest/ig.test(join) && (join in users) && _fwindowlist.currentwindow == roomName && !joinPerson.previousSibling.textContent.includes("made")) {
