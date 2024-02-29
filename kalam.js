@@ -285,10 +285,10 @@ function runCode() {
           let table = document.createElement("table")
           table.innerHTML = `
           <tr>
-          <th style="color:green">F</th>
-          <th style="color:red">Fd</th>
-          <th style="color:green" >M</th> 
-          <th style="color:red">Md</th> 
+          <th style="color:green">F<sub>${newNamesF.length}</sub></th>
+          <th style="color:red">F<sub>${newNamesFd.length}</sub></th>
+          <th style="color:green" >M<sub>${newNamesM.length}</sub></th> 
+          <th style="color:red">M<sub>${newNamesFd.length}</sub></th>     
           </tr>
           `
           let maxLength = Math.max(newNamesF.length, newNamesM.length, newNamesFd.length, newNamesMd.length);
