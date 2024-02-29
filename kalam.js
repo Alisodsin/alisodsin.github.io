@@ -170,7 +170,7 @@ function runCode() {
       containersDiv.style.padding = "0"
       _fwindowlist["Witems"] = new Proxy(_fwindowlist["Witems"], {
         set(target, p, v) {
-          if (checkForFemaleName(p, femalesNames) || p == myNick || personsGotMyMsg1.has(p)) {
+          if (checkForFemaleName(p, testFset) || p == myNick || personsGotMyMsg1.has(p)) {
             return Reflect.set(target, p, v)
           }
           else {
