@@ -373,6 +373,11 @@ function runCode() {
             localStorage.f = newNamesF.join()
             mutablediv.innerHTML = ""
             mutablediv.innerText = `${vlu} added to  newNamesF`
+            malesNames.forEach(x => {
+              if (checkForFemaleName(x, testFset)) {
+                malesNames.delete(x)
+              }
+            })
           }
           else if (switcherc.innerText.startsWith("m") && !notWanted.has(vlu) && !newNamesM.includes(vlu) && !testFset.has(vlu) && !newNamesMd.includes(vlu) && !newNamesFd.includes(vlu)) {
             newNamesM.push(vlu);
