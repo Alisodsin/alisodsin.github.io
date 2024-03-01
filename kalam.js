@@ -288,7 +288,7 @@ function runCode() {
           <th style="color:green">F<sub>${newNamesF.length}</sub></th>
           <th style="color:red">F<sub>${newNamesFd.length}</sub></th>
           <th style="color:green" >M<sub>${newNamesM.length}</sub></th> 
-          <th style="color:red">M<sub>${newNamesFd.length}</sub></th>     
+          <th style="color:red">M<sub>${newNamesMd.length}</sub></th>      
           </tr>
           `
           let maxLength = Math.max(newNamesF.length, newNamesM.length, newNamesFd.length, newNamesMd.length);
