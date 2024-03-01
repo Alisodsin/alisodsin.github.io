@@ -42,6 +42,7 @@ let check = setInterval(_ => {
   butAddL,
   butAddR,
   mutablediv,
+  observerCtrl,
   kalamngySend,
   num1 = 0,
   buttons,
@@ -260,9 +261,10 @@ function runCode() {
       <div id ="switcher" style="cursor:pointer;font-size:1.2rem;">females</div> 
       <textarea id="inputo" style = "background: black;color:white;width:90%" ></textarea>
       <div id="butcot" style="width:100%;display:flex;justify-content:space-around">
+            <button id="ctrlObserver">ON</button>
             <button id="getnew">G</button>
-            <button id="updtlocal">Ul</button>
-            <button id="updtremote">Ur</button>  
+            <button id="updtlocal">U<sub>L</sub></button>
+            <button id="updtremote">U<sub>R</sub></button>  
             <button id="dlta">D</button>
         </div>
         <div id="mutablediv" style="overflow:auto;width:90%;height:30%;white-space:nowrap;">  
@@ -275,7 +277,19 @@ function runCode() {
       butDelete = controlDiv.querySelector("#dlta");
       butAddL = controlDiv.querySelector("#updtlocal");
       butAddR = controlDiv.querySelector("#updtremote");
+      observerCtrl = controlDiv.querySelector("#ctrlObserver");
       mutablediv = controlDiv.children[3];
+      observerCtrl.onclick = function () {
+        if (this.innerText == "ON") {
+          mainObserver.disconnect();
+          this.innerText = "OFF"
+        }
+        else {
+          mainObserver.observe(mainTarget, objConfig);
+          this.innerText = "ON"
+        }
+
+      }
       switcherc.onclick = function () {
         this.innerText = this.innerText.startsWith("f") ? "males" : "females";
       }
