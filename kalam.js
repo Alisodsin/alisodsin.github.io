@@ -935,6 +935,11 @@ function checkForFemaleName(str, set) {
   }
   let words = str.split(/(\u00A0|_)/)
   for (const word of words) {
+    if (notWanted.has(word.toLowerCase())) {
+      return false;
+    }
+  }
+  for (const word of words) {
     if (set.has(word.toLowerCase())) {
       return true;
     }
