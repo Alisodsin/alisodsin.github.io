@@ -225,7 +225,6 @@ function runCode() {
                 }
               #ol>li ,#ol2>li{
                  position: relative;
-                 left: -19px;
                  white-space:nowrap;
               }
               #butcot > button {
