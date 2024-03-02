@@ -933,7 +933,13 @@ function checkForFemaleName(str, set) {
   if (set.has(str.toLowerCase()) || guesto.test(str)) {
     return true
   }
-  let words = str.split(/[^\p{L}]/u);
+  let words = str.split(/(\u00A0|_)/)
+  for (const word of words) {
+    if (set.has(word.toLowerCase())) {
+      return true;
+    }
+  }
+  words = str.split(/[^\p{L}]/u);
   for (const word of words) {
     if (notWanted.has(word.toLowerCase())) {
       return false;
