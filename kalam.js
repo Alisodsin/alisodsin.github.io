@@ -843,7 +843,7 @@ function buttonsCreator() {
             num1++;
           }
           else {
-            femalesNames = new Set([...testFset]);
+            femalesNames = structuredClone(testFset);
             this.innerText = "justF";
             guesto = /^guest[^a-zA-Z]*$/i;
             num1 = 0;
@@ -1163,7 +1163,7 @@ async function fetchJsons(url) {
 (async function () {
   let response = await fetchJsons(fmlgiturl);
   femalesNames = response[0];
-  testFset = new Set([...response[0]])
+  testFset = structuredClone(femalesNames)
   shaf = response[1];
   oldFlength = femalesNames.size
   response = await fetchJsons(mlsgiturl);
