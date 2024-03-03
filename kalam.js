@@ -955,21 +955,13 @@ function checkForFemaleName(str, set) {
       return true;
     }
   }
-  words = str.split(/(\b[\p{L}\p{M}]+\b)/ug)
+  words = str.split(/(\b[\p{L}\p{M}]+\b|\u00A0|_|\s)/ug)
   for (const word of words) {
     if (set.has(word.toLowerCase())) {
       return true;
     }
   }
-  for (let i = 0; i < words.length; i++) {
-    let ws = words[i].split(/(\u00A0|_|\s)/)
-    for (let i = 0; i < ws.length; i++) {
-      if (set.has(ws[i].toLowerCase())) {
-        return true
-      }
-    }
-  }
-  words = str.split(/(?=[A-Z])/);
+  words = str.split(/(?=[A-Z|\u00A0|_|\s])/);
   for (const word of words) {
     if (set.has(word.toLowerCase())) {
       return true;
