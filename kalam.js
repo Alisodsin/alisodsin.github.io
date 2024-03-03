@@ -962,7 +962,7 @@ function checkForFemaleName(str, set) {
     }
   }
   for (let i = 0; i < words.length; i++) {
-    ws = words[i].split(/(\u00A0|_|\s)/)
+    let ws = words[i].split(/(\u00A0|_|\s)/)
     for (let i = 0; i < ws.length; i++) {
       if (set.has(ws[i].toLowerCase())) {
         return true
