@@ -6,7 +6,7 @@ let check = setInterval(_ => {
         parent.fwindowlist[x] = _ => { return true }
       }
     });
-    clearInterval(check);
+   clearInterval(check);
   }
 }, 50),
   _fmain = parent.fmain,
