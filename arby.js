@@ -3,7 +3,7 @@ let sweetAlert = document.createElement("script")
 sweetAlert.src = "https://sweetalert.js.org/assets/sweetalert/sweetalert.min.js",
     document.head.appendChild(sweetAlert),
     pplJoin = id("on"),
-    elTarget = document.querySelector("#on"), 
+    elTarget = document.querySelector("#on"),
     idArray = new Set(),
     oltEsmy = new Set(),
     fmlgiturl = `https://raw.githubusercontent.com/Alisodsin/alisodsin.github.io/main/femaleNames.json`,
@@ -418,56 +418,62 @@ function runCode() {
             }
         }
     });
-
-    socket.on("ig", data => {
-        if (!blockedPPl.has(data[0]) && !oltEsmy.has(data[0])) {
-
-            let thisPersonReplyMe = document.createElement("li")
-            thisPersonReplyMe.innerHTML = `<bdi style="color:#51b5a9">${data[1]}</bdi> ➡ <bdi style="color:#fade8b">${data[2]}</bdi>`
-            thisPersonReplyMe.style.cursor = "pointer"
-            thisPersonReplyMe.style.width = "fit-content"
-            thisPersonReplyMe.onclick = _ => {
-                try {
-                    id(data[0]).children[0].click()
-                }
-                catch (_) {
-                    thisPersonReplyMe.innerText = "doesn't exist"
-                }
-            }
-            whoReply.appendChild(thisPersonReplyMe)
-            thisPersonReplyMe.scrollIntoView()
-            socket.emit("is", [data[0], msg2])
-            audio.play().catch(_ => true)
-            if (add && !messages.has(data[2].trim())) {
-                messages.add(data[2].trim());
-                console.log(`${data[2]}`);
-            }
-            oltEsmy.add(data[0]);
-        }
-        else {
-            if (!blockedPPl.has(data[0])) {
-
-                let secondRepleyer = document.createElement("li")
-                secondRepleyer.innerHTML = `<bdi style="color:#51b5a9">${data[1]}</bdi> ➡ <bdi style="color:#fade8b">${data[2]}</bdi>`
-                bll.play().catch(_ => true)
-                secondRepleyer.style.color = "white"
-                secondRepleyer.style.cursor = "pointer"
-                secondRepleyer.style.width = "fit-content"
-                secondRepleyers.add(data[0])
-                secondRepleyer.onclick = _ => {
-                    try {
-                        id(data[0]).children[0].click()
+        socket.on("ig", data => { 
+            if (!/(تسجيل|موقع|https)/ig.test(data[2])) {
+                if (!blockedPPl.has(data[0]) && !oltEsmy.has(data[0])) {
+                    let thisPersonReplyMe = document.createElement("li")
+                    thisPersonReplyMe.innerHTML = `<bdi style="color:#51b5a9">${data[1]}</bdi> ➡ <bdi style="color:#fade8b">${data[2]}</bdi>`
+                    thisPersonReplyMe.style.cursor = "pointer"
+                    thisPersonReplyMe.style.width = "fit-content"
+                    thisPersonReplyMe.onclick = _ => {
+                        try {
+                            id(data[0]).children[0].click()
+                        }
+                        catch (_) {
+                            thisPersonReplyMe.innerText = "doesn't exist"
+                        }
                     }
-                    catch (_) {
-                        secondRepleyer.innerText = "doesn't exist"
+                    whoReply.appendChild(thisPersonReplyMe)
+                    thisPersonReplyMe.scrollIntoView()
+                    socket.emit("is", [data[0], msg2])
+                    audio.play().catch(_ => true)
+                    if (add && !messages.has(data[2].trim())) {
+                        messages.add(data[2].trim());
+                        console.log(`${data[2]}`);
+                    }
+                    oltEsmy.add(data[0]);
+                }
+                else {
+                    if (!blockedPPl.has(data[0])) {
+
+                        let secondRepleyer = document.createElement("li")
+                        secondRepleyer.innerHTML = `<bdi style="color:#51b5a9">${data[1]}</bdi> ➡ <bdi style="color:#fade8b">${data[2]}</bdi>`
+                        bll.play().catch(_ => true)
+                        secondRepleyer.style.color = "white"
+                        secondRepleyer.style.cursor = "pointer"
+                        secondRepleyer.style.width = "fit-content"
+                        secondRepleyers.add(data[0])
+                        secondRepleyer.onclick = _ => {
+                            try {
+                                id(data[0]).children[0].click()
+                            }
+                            catch (_) {
+                                secondRepleyer.innerText = "doesn't exist"
+                            }
+                        }
+                        peopleWhoReplyAgain.appendChild(secondRepleyer)
+                        secondRepleyer.scrollIntoView()
+
                     }
                 }
-                peopleWhoReplyAgain.appendChild(secondRepleyer)
-                secondRepleyer.scrollIntoView()
-
             }
-        }
-    })
+            else {
+                document.getElementById(data[0]).children[2].click();
+                console.log(`${data[1]}`)
+            }
+
+
+        })
     buttonsContainer.style.display = "flex"
     buttonsContainer.style.justifyContent = "space-around"
     buttonsContainer.style.flexWrap = "wrap"
