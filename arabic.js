@@ -11,6 +11,11 @@ let list = document.createElement("ol");
 let notfications = document.createElement("ol");
 let style = document.createElement("style");
 let msgList = document.getElementsByClassName("ulist_name gprivate")
+let males = new Set();
+let females = new Set();
+
+let fmlgiturl = `https://raw.githubusercontent.com/Alisodsin/alisodsin.github.io/main/femaleNames.json`;
+let mlsgiturl = 'https://raw.githubusercontent.com/Alisodsin/alisodsin.github.io/main/males.json';
 //functions
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -71,10 +76,12 @@ function disConnect(prm) {
     }
 }
 function msgSend() {
+
     let lastF = fms[fms.length - 1],
         name = lastF.innerText,
         id = lastF.getAttribute("data-uid");
-    if (!messagedFs.has(id) && lastF.parentElement.innerText.includes("زائر")) {
+
+    if (!messagedFs.has(id) && lastF.parentElement.innerText.includes("زائر") && checkForFemaleName(name, females)) {
         messagedFs.add(id);
         fetch("system/private_process.php", {
             method: "POST",
@@ -149,9 +156,6 @@ style.textContent = `
 `
 elTarget.append(list, notfications);
 document.head.append(style);
-connect(1);
-connect(2);
-
 list.onclick = _ => {
     connect(1);
     connect(2);
@@ -164,3 +168,58 @@ $('.fa.fa-times').on('click', function () {
     connect(1);
     connect(2);
 });
+
+function checkForFemaleName(str, set) {
+    if (str.includes("|")) {
+        return false
+    }
+    if (set.has(str.toLowerCase()) || guesto.test(str)) {
+        return true
+    }
+    let words = str.split(/(\u00A0|_|\s)/)
+    for (const word of words) {
+        if (notWanted.has(word.toLowerCase())) {
+            return false;
+        }
+    }
+    for (const word of words) {
+        if (set.has(word.toLowerCase())) {
+            return true;
+        }
+    }
+    words = str.split(/[^\p{L}]/u);
+    for (const word of words) {
+        if (notWanted.has(word.toLowerCase())) {
+            return false;
+        }
+    }
+    for (const word of words) {
+        if (set.has(word.toLowerCase())) {
+            return true;
+        }
+    }
+    words = str.split(/(\b[\p{L}\p{M}]+\b|\u00A0|_|\s)/ug)
+    for (const word of words) {
+        if (set.has(word.toLowerCase())) {
+            return true;
+        }
+    }
+    words = str.split(/(?=[A-Z|\u00A0|_|\s])/);
+    for (const word of words) {
+        if (set.has(word.toLowerCase())) {
+            return true;
+        }
+    }
+    return false;
+}
+async function fetchJsons(url) {
+    let x = await fetch(url);
+    x = await x.text();
+    return new Set(JSON.parse(decodeURIComponent(x)))
+}
+(async function () {
+    females = await fetchJsons(fmlgiturl);
+    males = await fetchJsons(mlsgiturl)
+    connect(1);
+    connect(2);
+})();   
