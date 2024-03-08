@@ -173,7 +173,7 @@ function checkForFemaleName(str, set) {
     if (str.includes("|")) {
         return false
     }
-    if (set.has(str.toLowerCase()) || guesto.test(str)) {
+    if (set.has(str.toLowerCase())) {
         return true
     }
     let words = str.split(/(\u00A0|_|\s)/)
