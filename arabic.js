@@ -1,3 +1,4 @@
+//variables
 let elTarget = document.body.querySelector("#chat_logs_container");
 let messagedFs = new Set();
 let messagedMs = new Set();
@@ -19,8 +20,12 @@ let namesSource = document.createElement("ol");
 let framo = document.createElement("iframe");
 let parentDiv = document.createElement("div");
 
+let fmlgiturl = `https://raw.githubusercontent.com/Alisodsin/alisodsin.github.io/main/femaleNames.json`;
+let mlsgiturl = 'https://raw.githubusercontent.com/Alisodsin/alisodsin.github.io/main/males.json';
+framo.src = "https://99f2537e-72f2-4e73-9898-cc9c6e98f207-00-aoo727xiohcd.janeway.replit.dev/"; 
 parentDiv.id = "conto";
 
+//functions
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -61,16 +66,31 @@ async function privo() {
     await sleep(2000);
     msgList[0].click();
 }
+//instructions 
 observer.isConnectd = false;
 observerr.isConnectd = false;
+//
 
 list.style.backgroundColor = "black"
 list.style.color = "white";
+// list.style.width = "70%";
+// list.style.height = "15vh";
 list.style.position = "relative";
+// list.style.top = "10%";
+// list.style.left = "0";
+// list.style.fontSize = "small";
 list.style.zIndex = "1";
 list.style.overflow = "auto"
 list.style.whiteSpace = "pre";
+// list.style.position = "absolute"
+// list.dir = "ltr";
 list.id = "lista";
+// list.style.direction = "ltr"
+//
+// button.style.position = "fixed";
+// button.style.top = "10%";
+// button.style.right = "50%";
+// button.style.zIndex = "1";
 button.style.padding = "5px"
 button.style.borderRadius = "20%"
 button.id = "butto";
@@ -79,6 +99,11 @@ button.style.position="absolute"
 button.style.right="0"
 button.style.top="0" 
 button.style.padding= "5%"
+// button0.style.position = "fixed";
+// button0.style.top = "21.5%";
+// button0.style.right = "50%";
+// button0.style.zIndex = "1";
+// button0.style.padding = "5px"
 button0.style.borderRadius = "20%"
 button0.id = "sw";
 button0.innerText = "G"
@@ -88,17 +113,33 @@ button0.style.bottom="0%"
 button0.style.background = "green"
 button0.style.padding= "5%"
 
+//
 namesSource.style.backgroundColor = "black"
 namesSource.style.color = "white";
+// namesSource.style.width = "70%";
+// namesSource.style.height = "15vh";
+// namesSource.style.position = "fixed";
+// namesSource.style.top = "28%";
+// namesSource.style.left = "0";
+// namesSource.style.fontSize = "small";
+// namesSource.style.zIndex = "1";
 namesSource.style.overflow = "auto"
 namesSource.style.whiteSpace = "pre";
+// namesSource.dir = "ltr";
 namesSource.id = "noto";
+// namesSource.style.direction = "ltr"
 
+// framo.style.width = "70%";
+// framo.style.height = "30vh";
+// framo.style.position = "fixed";
+// framo.style.bottom = "15vh";
+// framo.style.left = "0";
+// framo.style.zIndex = "1";
 
 
 button0.onclick = function () {
     if (this.innerText == "G") {
-        msg = "ما تيجى انيكك صوت؟"
+        msg = "تسمعى شخرتى وانا بنزلهم فى كسك يا منيوكتى؟"
         this.innerText = "B"
         this.style.backgroundColor = "red"
     }
