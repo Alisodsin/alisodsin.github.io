@@ -657,7 +657,7 @@ function efsl() {
 
 function togleMessage() {
   if (!toggles.has("dodend1")) {
-    message1 = "تتناكى صوت؟";
+    message1 = "تسمعى شخرتى وانا بنزلهم فى كسك يا منيوكتى؟";
     message2 = "نتكلم على برنامج اى؟";
     message3 = "؟";
     message4 = "ما تردى عليا يا لبوتى"
