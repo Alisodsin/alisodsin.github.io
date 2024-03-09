@@ -1,79 +1,28 @@
 //variables
 let elTarget = document.body.querySelector("#chat_logs_container");
 let messagedFs = new Set();
+let messagedMs = new Set();
 let resala = document.getElementsByClassName("i_btm fa fa-envelope")[0];
 let targetElement = document.getElementById('notify_private');
 let observerr = new MutationObserver(privo);
-let msg = "تتناكى صوت؟"
+let msg = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير"
+let imsg = msg;
 let observer = new MutationObserver(msgSend);
 let fms = document.getElementsByClassName("username bcolor23");
 let list = document.createElement("ol");
-let notfications = document.createElement("ol");
+let button = document.createElement("button");
+let button0 = document.createElement("button");
 let style = document.createElement("style");
 let msgList = document.getElementsByClassName("ulist_name gprivate")
 let males = new Set();
 let females = new Set();
+let namesSource = document.createElement("ol");
 
 let fmlgiturl = `https://raw.githubusercontent.com/Alisodsin/alisodsin.github.io/main/femaleNames.json`;
 let mlsgiturl = 'https://raw.githubusercontent.com/Alisodsin/alisodsin.github.io/main/males.json';
 //functions
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
-}
-function connect(prm) {
-    if (prm == 1 && !observer.isConnectd) {
-        observer.observe(elTarget, { childList: true, subtree: true, attributes: false, characterData: false });
-        observer.isConnectd = true;
-        // console.log("observer 1 connected");
-        let li = document.createElement("li");
-        li.innerText = "observer 1 connected";
-        notfications.append(li);
-        li.scrollIntoView();
-    }
-    else if (prm == 2 && !observerr.isConnectd) {
-        observerr.observe(targetElement, { attributes: true });
-        observerr.isConnectd = true;
-        // console.log("observer 2 connected");
-        let li = document.createElement("li");
-        li.innerText = "observer 2 connected";
-        notfications.append(li);
-        li.scrollIntoView();
-    }
-    else if (prm) {
-        // console.log(`observer ${prm} is already connected`);
-        let li = document.createElement("li");
-        li.innerText = `observer ${prm} is already connected`;
-        notfications.append(li);
-        li.scrollIntoView();
-    }
-}
-function disConnect(prm) {
-    if (prm == 1 && observer.isConnectd) {
-        observer.disconnect()
-        observer.isConnectd = false;
-        // console.log("observer 1 disconnected");
-        let li = document.createElement("li");
-        li.innerText = "observer 1 disconnected";
-        notfications.append(li);
-        li.scrollIntoView();
-
-    }
-    else if (prm == 2 && observerr.isConnectd) {
-        observerr.disconnect()
-        observerr.isConnectd = false;
-        // console.log("observer 2 disconnected");
-        let li = document.createElement("li");
-        li.innerText = "observer 2 disconnected";
-        notfications.append(li);
-        li.scrollIntoView();
-    }
-    else if (prm) {
-        // console.log(`observer ${prm} is already disconnected`);
-        let li = document.createElement("li");
-        li.innerText = `observer ${prm} is already disconnected`;
-        notfications.append(li);
-        li.scrollIntoView();
-    }
 }
 function msgSend() {
 
@@ -90,7 +39,7 @@ function msgSend() {
             },
             body: `target=${id}&content=${msg}&token=${utk}`
         }).then(_ => {
-            // console.log(name);
+            console.log(name);
             let li = document.createElement("li");
             li.innerText = name;
             list.appendChild(li);
@@ -98,22 +47,27 @@ function msgSend() {
         }
         )
     }
+    else if (!messagedMs.has(id) && !messagedFs.has(id) && lastF.parentElement.innerText.includes("زائر")) {
+        messagedMs.add(id)
+        let li = document.createElement("li")
+        li.innerText = name;
+        namesSource.append(li)
+        li.scrollIntoView()
+    }
 }
 async function privo() {
-    disConnect(1);
-    disConnect(2);
-    await sleep(2000);
+    oh();
     getPrivate();
     await sleep(2000);
     msgList[0].click();
 }
-//instructions
+
 observer.isConnectd = false;
 observerr.isConnectd = false;
 
 list.style.backgroundColor = "black"
 list.style.color = "white";
-list.style.width = "50%";
+list.style.width = "30%";
 list.style.height = "15vh";
 list.style.position = "fixed";
 list.style.top = "10%";
@@ -125,24 +79,62 @@ list.style.whiteSpace = "pre";
 list.dir = "ltr";
 list.id = "lista";
 
-notfications.style.backgroundColor = "black"
-notfications.style.color = "white";
-notfications.style.width = "50%";
-notfications.style.height = "15vh";
-notfications.style.position = "fixed";
-notfications.style.top = "30%";
-notfications.style.left = "0";
-notfications.style.fontSize = "small";
-notfications.style.zIndex = "1";
-notfications.style.overflow = "auto"
-notfications.style.whiteSpace = "pre";
-notfications.dir = "ltr";
-notfications.id = "noto";
+
+button.style.position = "fixed";
+button.style.top = "10%";
+button.style.right = "70%";
+button.style.zIndex = "1";
+button.style.padding = "5px"
+button.style.borderRadius = "20%"
+button.id = "butto";
+button.innerText = "switch"
+button0.style.position = "fixed";
+button0.style.top = "21.5%";
+button0.style.right = "70%";
+button0.style.zIndex = "1";
+button0.style.padding = "5px"
+button0.style.borderRadius = "20%"
+button0.id = "sw";
+button0.innerText = "G"
+button0.style.background = "green"
+namesSource.style.backgroundColor = "black"
+namesSource.style.color = "white";
+namesSource.style.width = "30%";
+namesSource.style.height = "15vh";
+namesSource.style.position = "fixed";
+namesSource.style.top = "28%";
+namesSource.style.left = "0";
+namesSource.style.fontSize = "small";
+namesSource.style.zIndex = "1";
+namesSource.style.overflow = "auto"
+namesSource.style.whiteSpace = "pre";
+namesSource.dir = "ltr";
+namesSource.id = "noto";
 
 
+list.append(button, button0)
 
+button0.onclick = function () {
+    if (this.innerText == "G") {
+        msg = "ما تيجى انيكك صوت؟"
+        this.innerText = "B"
+        this.style.backgroundColor = "red"
+    }
+    else {
+        msg = imsg
+        this.innerText = "G"
+        this.style.backgroundColor = "green"
 
+    }
+}
 style.textContent = `
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+*{
+    scrollbar-width:none !important;
+}
 #lista > li {
     list-style: decimal;
     position : relative;
@@ -154,21 +146,44 @@ style.textContent = `
     left :-17px; 
 }
 `
-elTarget.append(list, notfications);
+elTarget.append(list, namesSource);
 document.head.append(style);
-list.onclick = _ => {
-    connect(1);
-    connect(2);
-}
-notfications.onclick = _ => {
-    disConnect(1);
-    disConnect(2);
-}
-$('.fa.fa-times').on('click', function () {
-    connect(1);
-    connect(2);
-});
+button.onclick = function () {
+    if (observer.isConnectd && observerr.isConnectd) {
+        observer.disconnect()
+        observer.isConnectd = false
+        observerr.disconnect()
+        observerr.isConnectd = false
+        this.style.backgroundColor = "red";
+        this.innerText = "F"
+    }
+    else {
+        observer.observe(elTarget, { childList: true, subtree: true, attributes: false, characterData: false });
+        observer.isConnectd = true;
+        observerr.observe(targetElement, { attributes: true });
+        observerr.isConnectd = true;
+        button.style.backgroundColor = "green"
+        this.innerText = "N"
 
+    }
+}
+
+function oh() {
+    if (observer.isConnectd && observerr.isConnectd) {
+        button.click();
+    }
+}
+function no() {
+    if (!(observer.isConnectd && observerr.isConnectd)) {
+        button.click();
+    }
+}
+$('.chat_head').on('click', function () {
+    oh()
+});
+$('.fa.fa-times').on('click', function () {
+    no()
+});
 function checkForFemaleName(str, set) {
     if (str.includes("|")) {
         return false
@@ -220,6 +235,11 @@ async function fetchJsons(url) {
 (async function () {
     females = await fetchJsons(fmlgiturl);
     males = await fetchJsons(mlsgiturl)
-    connect(1);
-    connect(2);
+    observer.observe(elTarget, { childList: true, subtree: true, attributes: false, characterData: false });
+    observer.isConnectd = true;
+    observerr.observe(targetElement, { attributes: true });
+    observerr.isConnectd = true;
+    button.style.backgroundColor = "green";
+    button.innerText = "N"
+
 })();   
