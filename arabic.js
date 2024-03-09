@@ -82,7 +82,7 @@ button.style.borderRadius = "20%"
 button.id = "butto";
 button.innerText = "N"
 button.style.position = "fixed"
-button.style.right = "40%"
+button.style.right = "35%"
 button.style.top = "10%"
 button.style.padding = "2%"
 
@@ -90,7 +90,7 @@ button0.style.borderRadius = "20%"
 button0.id = "sw";
 button0.innerText = "G"
 button0.style.position = "fixed"
-button0.style.right = "40%"
+button0.style.right = "35%"
 button0.style.bottom = "65%"
 button0.style.background = "green"
 button0.style.padding = "2%"
@@ -125,7 +125,7 @@ style.textContent = `
     display: flex;
     flex-direction: column;
     top: 10%;
-    width: 60vw;
+    width: 65vw;
     height: 75%;
     left: 0px;
     margin: 0px;
