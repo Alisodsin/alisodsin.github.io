@@ -116,7 +116,7 @@ list.append(button, button0)
 
 button0.onclick = function () {
     if (this.innerText == "G") {
-        msg = "ما تيجى انيكك صوت؟"
+        msg = "تسمعى شخرتى وانا بنزلهم فى كسك يا منيوكتى؟"
         this.innerText = "B"
         this.style.backgroundColor = "red"
     }
