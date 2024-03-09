@@ -1,4 +1,3 @@
-//variables
 let elTarget = document.body.querySelector("#chat_logs_container");
 let messagedFs = new Set();
 let messagedMs = new Set();
@@ -17,11 +16,11 @@ let msgList = document.getElementsByClassName("ulist_name gprivate")
 let males = new Set();
 let females = new Set();
 let namesSource = document.createElement("ol");
-let controlDiv = document.createElement("div");
+let framo = document.createElement("iframe");
+let parentDiv = document.createElement("div");
 
-let fmlgiturl = `https://raw.githubusercontent.com/Alisodsin/alisodsin.github.io/main/femaleNames.json`;
-let mlsgiturl = 'https://raw.githubusercontent.com/Alisodsin/alisodsin.github.io/main/males.json';
-//functions
+parentDiv.id = "conto";
+
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -62,107 +61,44 @@ async function privo() {
     await sleep(2000);
     msgList[0].click();
 }
-//instructions 
 observer.isConnectd = false;
 observerr.isConnectd = false;
-//
+
 list.style.backgroundColor = "black"
 list.style.color = "white";
-list.style.width = "50%";
-list.style.height = "15vh";
-list.style.position = "fixed";
-list.style.top = "10%";
-list.style.left = "0";
-list.style.fontSize = "small";
+list.style.position = "relative";
 list.style.zIndex = "1";
 list.style.overflow = "auto"
 list.style.whiteSpace = "pre";
-list.dir = "ltr";
 list.id = "lista";
-list.style.direction = "ltr"
-//
-button.style.position = "fixed";
-button.style.top = "10%";
-button.style.right = "50%";
-button.style.zIndex = "1";
 button.style.padding = "5px"
 button.style.borderRadius = "20%"
 button.id = "butto";
-button.innerText = "switch"
-button0.style.position = "fixed";
-button0.style.top = "21.5%";
-button0.style.right = "50%";
-button0.style.zIndex = "1";
-button0.style.padding = "5px"
+button.innerText = "N"
+button.style.position="absolute"
+button.style.right="0"
+button.style.top="0" 
+button.style.padding= "5%"
 button0.style.borderRadius = "20%"
 button0.id = "sw";
 button0.innerText = "G"
+button0.style.position="absolute"
+button0.style.right="0"
+button0.style.bottom="0%" 
 button0.style.background = "green"
-//
+button0.style.padding= "5%"
+
 namesSource.style.backgroundColor = "black"
 namesSource.style.color = "white";
-namesSource.style.width = "50%";
-namesSource.style.height = "15vh";
-namesSource.style.position = "fixed";
-namesSource.style.top = "28%";
-namesSource.style.left = "0";
-namesSource.style.fontSize = "small";
-namesSource.style.zIndex = "1";
 namesSource.style.overflow = "auto"
 namesSource.style.whiteSpace = "pre";
-namesSource.dir = "ltr";
 namesSource.id = "noto";
-namesSource.style.direction = "ltr"
-//
-controlDiv.style.backgroundColor = "black"
-controlDiv.style.color = "white";
-controlDiv.style.width = "50%";
-controlDiv.style.height = "40vh";
-controlDiv.style.position = "fixed";
-controlDiv.style.bottom = "15vh";
-controlDiv.style.left = "0";
-controlDiv.style.fontSize = "small";
-controlDiv.style.zIndex = "1";
-controlDiv.style.overflow = "auto"
-controlDiv.style.whiteSpace = "pre";
-controlDiv.style.border = "1px solid green"
-controlDiv.style.display = "flex"
-controlDiv.style.flexDirection = "column"
-controlDiv.style.alignItems = "center"
-controlDiv.style.justifyContent = "space-evenly"
-controlDiv.style.borderRadius = "10%"
-controlDiv.style.direction = "ltr"
 
 
-lkm=/(?=ة)/
 
-controlDiv.innerHTML = `
-<div id ="switcher" style="cursor:pointer;font-size:1.2rem;">females</div> 
-<textarea id="inputo" style = "background: black;color:white;width:90%" ></textarea>
-
-<div id="butcot" style="width:100%;display:flex;justify-content:space-around">
-<button style="background:green;padding:3px"  id="ctrlObserver">ON</button>
-<button style="background:green;padding:3px"  id="getnew">G</button>
-<button style="background:green;padding:3px"  id="updtlocal">U<sub>L</sub></button>
-<button style="background:green;padding:3px"  id="updtremote">U<sub>R</sub></button>  
-<button style="background:green;padding:3px"  id="dlta">D</button>
-</div>
-<div id="mutablediv" style="overflow:auto;width:90%;height:30%;white-space:nowrap;">
-</div>
-
-`
-let switcherc = controlDiv.querySelector("#switcher");
-let inputc = controlDiv.querySelector("#inputo");
-let butGet = controlDiv.querySelector("#getnew");
-let butDelete = controlDiv.querySelector("#dlta");
-let butAddL = controlDiv.querySelector("#updtlocal");
-let butAddR = controlDiv.querySelector("#updtremote");
-let observerCtrl = controlDiv.querySelector("#ctrlObserver");
-let mutablediv = controlDiv.children[3];
-// 
 button0.onclick = function () {
     if (this.innerText == "G") {
-        msg = "تسمعى شخرتى وانا بنزلهم فى كسك يا منيوكتى؟"
+        msg = "ما تيجى انيكك صوت؟"
         this.innerText = "B"
         this.style.backgroundColor = "red"
     }
@@ -178,24 +114,40 @@ style.textContent = `
     width: 0px;
     height: 0px;
 }
+#conto { 
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 10%;
+    width: 60vw;
+    height: 75%;
+    left: 0px;
+    margin: 0px;
+    direction:ltr;
+    z-index: 1;
+
+}
+#conto > * {
+    flex: 1;
+    margin: 0;
+    font-size: small;
+}
 *{
     scrollbar-width:none !important;
 }
 #lista > li {
     list-style: decimal;
-    position : relative;
-    left :-17px; 
+    position : relative; 
 }
 #noto > li {
     list-style: decimal;
-    position : relative;
-    left :-17px; 
+    position : relative; 
 
 }
-button{}
 `
 list.append(button, button0)
-elTarget.append(list, namesSource, controlDiv);
+parentDiv.append(list, framo,namesSource);
+elTarget.append(parentDiv);
 document.head.append(style);
 button.onclick = function () {
     if (observer.isConnectd && observerr.isConnectd) {
