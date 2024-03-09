@@ -17,6 +17,7 @@ let msgList = document.getElementsByClassName("ulist_name gprivate")
 let males = new Set();
 let females = new Set();
 let namesSource = document.createElement("ol");
+let controlDiv = document.createElement("div");
 
 let fmlgiturl = `https://raw.githubusercontent.com/Alisodsin/alisodsin.github.io/main/femaleNames.json`;
 let mlsgiturl = 'https://raw.githubusercontent.com/Alisodsin/alisodsin.github.io/main/males.json';
@@ -61,13 +62,13 @@ async function privo() {
     await sleep(2000);
     msgList[0].click();
 }
-
+//instructions 
 observer.isConnectd = false;
 observerr.isConnectd = false;
-
+//
 list.style.backgroundColor = "black"
 list.style.color = "white";
-list.style.width = "30%";
+list.style.width = "50%";
 list.style.height = "15vh";
 list.style.position = "fixed";
 list.style.top = "10%";
@@ -78,11 +79,11 @@ list.style.overflow = "auto"
 list.style.whiteSpace = "pre";
 list.dir = "ltr";
 list.id = "lista";
-
-
+list.style.direction = "ltr"
+//
 button.style.position = "fixed";
 button.style.top = "10%";
-button.style.right = "70%";
+button.style.right = "50%";
 button.style.zIndex = "1";
 button.style.padding = "5px"
 button.style.borderRadius = "20%"
@@ -90,16 +91,17 @@ button.id = "butto";
 button.innerText = "switch"
 button0.style.position = "fixed";
 button0.style.top = "21.5%";
-button0.style.right = "70%";
+button0.style.right = "50%";
 button0.style.zIndex = "1";
 button0.style.padding = "5px"
 button0.style.borderRadius = "20%"
 button0.id = "sw";
 button0.innerText = "G"
 button0.style.background = "green"
+//
 namesSource.style.backgroundColor = "black"
 namesSource.style.color = "white";
-namesSource.style.width = "30%";
+namesSource.style.width = "50%";
 namesSource.style.height = "15vh";
 namesSource.style.position = "fixed";
 namesSource.style.top = "28%";
@@ -110,10 +112,54 @@ namesSource.style.overflow = "auto"
 namesSource.style.whiteSpace = "pre";
 namesSource.dir = "ltr";
 namesSource.id = "noto";
+namesSource.style.direction = "ltr"
+//
+controlDiv.style.backgroundColor = "black"
+controlDiv.style.color = "white";
+controlDiv.style.width = "50%";
+controlDiv.style.height = "40vh";
+controlDiv.style.position = "fixed";
+controlDiv.style.bottom = "15vh";
+controlDiv.style.left = "0";
+controlDiv.style.fontSize = "small";
+controlDiv.style.zIndex = "1";
+controlDiv.style.overflow = "auto"
+controlDiv.style.whiteSpace = "pre";
+controlDiv.style.border = "1px solid green"
+controlDiv.style.display = "flex"
+controlDiv.style.flexDirection = "column"
+controlDiv.style.alignItems = "center"
+controlDiv.style.justifyContent = "space-evenly"
+controlDiv.style.borderRadius = "10%"
+controlDiv.style.direction = "ltr"
 
 
-list.append(button, button0)
+lkm=/(?=ة)/
 
+controlDiv.innerHTML = `
+<div id ="switcher" style="cursor:pointer;font-size:1.2rem;">females</div> 
+<textarea id="inputo" style = "background: black;color:white;width:90%" ></textarea>
+
+<div id="butcot" style="width:100%;display:flex;justify-content:space-around">
+<button style="background:green;padding:3px"  id="ctrlObserver">ON</button>
+<button style="background:green;padding:3px"  id="getnew">G</button>
+<button style="background:green;padding:3px"  id="updtlocal">U<sub>L</sub></button>
+<button style="background:green;padding:3px"  id="updtremote">U<sub>R</sub></button>  
+<button style="background:green;padding:3px"  id="dlta">D</button>
+</div>
+<div id="mutablediv" style="overflow:auto;width:90%;height:30%;white-space:nowrap;">
+</div>
+
+`
+let switcherc = controlDiv.querySelector("#switcher");
+let inputc = controlDiv.querySelector("#inputo");
+let butGet = controlDiv.querySelector("#getnew");
+let butDelete = controlDiv.querySelector("#dlta");
+let butAddL = controlDiv.querySelector("#updtlocal");
+let butAddR = controlDiv.querySelector("#updtremote");
+let observerCtrl = controlDiv.querySelector("#ctrlObserver");
+let mutablediv = controlDiv.children[3];
+// 
 button0.onclick = function () {
     if (this.innerText == "G") {
         msg = "تسمعى شخرتى وانا بنزلهم فى كسك يا منيوكتى؟"
@@ -144,9 +190,12 @@ style.textContent = `
     list-style: decimal;
     position : relative;
     left :-17px; 
+
 }
+button{}
 `
-elTarget.append(list, namesSource);
+list.append(button, button0)
+elTarget.append(list, namesSource, controlDiv);
 document.head.append(style);
 button.onclick = function () {
     if (observer.isConnectd && observerr.isConnectd) {
