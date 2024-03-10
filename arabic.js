@@ -82,7 +82,7 @@ button.style.borderRadius = "20%"
 button.id = "butto";
 button.innerText = "N"
 button.style.position = "fixed"
-button.style.right = "35%"
+button.style.right = "20%"
 button.style.top = "10%"
 button.style.padding = "2%"
 
@@ -90,8 +90,8 @@ button0.style.borderRadius = "20%"
 button0.id = "sw";
 button0.innerText = "G"
 button0.style.position = "fixed"
-button0.style.right = "35%"
-button0.style.bottom = "65%"
+button0.style.right = "20%"
+button0.style.bottom = "69%"
 button0.style.background = "green"
 button0.style.padding = "2%"
 
@@ -103,6 +103,8 @@ namesSource.style.whiteSpace = "pre";
 namesSource.id = "noto";
 
 button0.onclick = function () {
+    
+
     if (this.innerText == "G") {
         msg = "تسمعى شخرتى وانا بنزلهم فى كسك يا منيوكتى؟"
         this.innerText = "B"
@@ -125,12 +127,13 @@ style.textContent = `
     display: flex;
     flex-direction: column;
     top: 10%;
-    width: 65vw;
-    height: 75%;
+    width: 80vw;
+    height: 65%;
     left: 0px;
     margin: 0px;
     direction:ltr;
     z-index: 1;
+    line-height:25px;
 
 }
 #conto > * {
@@ -156,6 +159,7 @@ parentDiv.append(list, framo, namesSource);
 elTarget.append(parentDiv);
 document.head.append(style);
 button.onclick = function () {
+    
     if (observer.isConnectd && observerr.isConnectd) {
         observer.disconnect()
         observer.isConnectd = false
@@ -186,9 +190,11 @@ function no() {
     }
 }
 $('.chat_head').on('click', function () {
+    
     oh()
 });
 $('.fa.fa-times').on('click', function () {
+    
     no()
 });
 function checkForFemaleName(str, set) {
