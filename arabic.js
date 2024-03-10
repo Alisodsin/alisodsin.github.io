@@ -85,14 +85,14 @@ let divo = document.createElement("div")
 button.style.borderRadius = "20%"
 button.id = "butto";
 button.innerText = "N"
-button.style.padding = "2%"
+button.style.padding = "4%"
 button.style.backgroundColor = "green";
 
 button0.style.borderRadius = "20%"
 button0.id = "sw";
 button0.innerText = "G"
 button0.style.background = "green"
-button0.style.padding = "2%"
+button0.style.padding = "4%"
 
 
 
@@ -100,7 +100,7 @@ button1.style.borderRadius = "20%"
 button1.id = "sizec";
 button1.innerText = "S"
 button1.style.background = "green"
-button1.style.padding = "2%"
+button1.style.padding = "4%"
 
 
 namesSource.style.backgroundColor = "black"
@@ -113,7 +113,7 @@ button0.onclick = function () {
 
 
     if (this.innerText == "G") {
-        msg = "ما تيجى نتكلم صوت بره على جtسى او tلجرام؟"
+        msg = "تحبى نتمتع صوت على جاتسى او جاستوك؟"
         this.innerText = "B"
         this.style.backgroundColor = "red"
     }
@@ -164,6 +164,20 @@ style.textContent = `
     width: 0px;
     height: 0px;
 }
+@media screen and (max-height:500px){
+    #buttonsContainer{
+        display:none !important;
+    }
+    #lista{
+        display:none !important;
+    }
+    #noto{
+        display:none !important;
+    }
+    #conto{
+        height:70% !important; 
+    } 
+}
 #conto { 
     position: fixed;
     display: flex;
@@ -188,6 +202,7 @@ style.textContent = `
     direction: ltr;
     z-index: 1;
     justify-content:space-evenly;
+    height:4%;
 }
 #conto > * {
     flex: 1;
@@ -217,21 +232,27 @@ document.head.append(style);
 function oh() {
     if (observer.isConnectd && observerr.isConnectd) {
         button.click();
-        button1.click();
+
     }
+
 }
 function no() {
     if (!(observer.isConnectd && observerr.isConnectd)) {
         button.click();
-        button1.click();
     }
 }
 $('.chat_head').on('click', function () {
+    if (button1.innerText == "S") {
+        button1.click();
+    }
 
     oh()
 });
 $('.fa.fa-times').on('click', function () {
 
+    if (button1.innerText == "H") {
+        button1.click();
+    }
     no()
 });
 function checkForFemaleName(str, set) {
