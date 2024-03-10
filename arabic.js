@@ -11,7 +11,9 @@ let fms = document.getElementsByClassName("username bcolor23");
 let list = document.createElement("ol");
 let button = document.createElement("button");
 let button0 = document.createElement("button");
+let button1 = document.createElement("button");
 let style = document.createElement("style");
+let buttonsContainer = document.createElement("div");
 let msgList = document.getElementsByClassName("ulist_name gprivate")
 let males = new Set();
 let females = new Set();
@@ -45,7 +47,7 @@ function msgSend() {
             let li = document.createElement("li");
             li.innerText = name;
             list.appendChild(li);
-            li.style.width="fit-content"
+            li.style.width = "fit-content"
             li.scrollIntoView();
         }
         )
@@ -54,7 +56,7 @@ function msgSend() {
         messagedMs.add(id)
         let li = document.createElement("li")
         li.innerText = name;
-        li.style.width="fit-content"
+        li.style.width = "fit-content"
         namesSource.append(li)
         li.scrollIntoView()
     }
@@ -67,6 +69,8 @@ async function privo() {
 }
 observer.isConnectd = false;
 observerr.isConnectd = false;
+
+buttonsContainer.id = "buttonsContainer"
 
 list.style.backgroundColor = "black"
 list.style.color = "white";
@@ -81,19 +85,22 @@ let divo = document.createElement("div")
 button.style.borderRadius = "20%"
 button.id = "butto";
 button.innerText = "N"
-button.style.position = "fixed"
-button.style.right = "20%"
-button.style.top = "10%"
 button.style.padding = "2%"
+button.style.backgroundColor = "green";
 
 button0.style.borderRadius = "20%"
 button0.id = "sw";
 button0.innerText = "G"
-button0.style.position = "fixed"
-button0.style.right = "20%"
-button0.style.bottom = "69%"
 button0.style.background = "green"
 button0.style.padding = "2%"
+
+
+
+button1.style.borderRadius = "20%"
+button1.id = "sizec";
+button1.innerText = "S"
+button1.style.background = "green"
+button1.style.padding = "2%"
 
 
 namesSource.style.backgroundColor = "black"
@@ -103,10 +110,10 @@ namesSource.style.whiteSpace = "pre";
 namesSource.id = "noto";
 
 button0.onclick = function () {
-    
+
 
     if (this.innerText == "G") {
-        msg = "تسمعى شخرتى وانا بنزلهم فى كسك يا منيوكتى؟"
+        msg = "ما تيجى نتكلم صوت بره على جtسى او tلجرام؟"
         this.innerText = "B"
         this.style.backgroundColor = "red"
     }
@@ -116,6 +123,41 @@ button0.onclick = function () {
         this.style.backgroundColor = "green"
 
     }
+}
+button.onclick = function () {
+
+    if (observer.isConnectd && observerr.isConnectd) {
+        observer.disconnect()
+        observer.isConnectd = false
+        observerr.disconnect()
+        observerr.isConnectd = false
+        this.style.backgroundColor = "red";
+        this.innerText = "F"
+    }
+    else {
+        observer.observe(elTarget, { childList: true, subtree: true, attributes: false, characterData: false });
+        observer.isConnectd = true;
+        observerr.observe(targetElement, { attributes: true });
+        observerr.isConnectd = true;
+        button.style.backgroundColor = "green"
+        this.innerText = "N"
+
+    }
+}
+button1.onclick = function () {
+
+    if (this.innerText == "S") {
+
+        parentDiv.style.display = "none"
+        this.innerText = "H"
+        this.style.backgroundColor = "red"
+    }
+    else {
+        parentDiv.style.display = "flex"
+        this.innerText = "S"
+        this.style.backgroundColor = "green"
+    }
+
 }
 style.textContent = `
 ::-webkit-scrollbar {
@@ -128,13 +170,24 @@ style.textContent = `
     flex-direction: column;
     top: 10%;
     width: 80vw;
-    height: 65%;
+    height:77%;
     left: 0px;
     margin: 0px;
     direction:ltr;
     z-index: 1;
-    line-height:25px;
+    line-height:22px; 
 
+}
+#buttonsContainer {
+    position: fixed;
+    display: flex;
+    top: 6%;
+    width: 40vw;
+    left: 0px;
+    margin: 0px;
+    direction: ltr;
+    z-index: 1;
+    justify-content:space-evenly;
 }
 #conto > * {
     flex: 1;
@@ -154,47 +207,31 @@ style.textContent = `
 
 }
 `
-list.append(button,button0)
+buttonsContainer.append(button, button0, button1)
 parentDiv.append(list, framo, namesSource);
-elTarget.append(parentDiv);
+elTarget.append(buttonsContainer, parentDiv);
 document.head.append(style);
-button.onclick = function () {
-    
-    if (observer.isConnectd && observerr.isConnectd) {
-        observer.disconnect()
-        observer.isConnectd = false
-        observerr.disconnect()
-        observerr.isConnectd = false
-        this.style.backgroundColor = "red";
-        this.innerText = "F"
-    }
-    else {
-        observer.observe(elTarget, { childList: true, subtree: true, attributes: false, characterData: false });
-        observer.isConnectd = true;
-        observerr.observe(targetElement, { attributes: true });
-        observerr.isConnectd = true;
-        button.style.backgroundColor = "green"
-        this.innerText = "N"
 
-    }
-}
+
 
 function oh() {
     if (observer.isConnectd && observerr.isConnectd) {
         button.click();
+        button1.click();
     }
 }
 function no() {
     if (!(observer.isConnectd && observerr.isConnectd)) {
         button.click();
+        button1.click();
     }
 }
 $('.chat_head').on('click', function () {
-    
+
     oh()
 });
 $('.fa.fa-times').on('click', function () {
-    
+
     no()
 });
 function checkForFemaleName(str, set) {
@@ -245,14 +282,35 @@ async function fetchJsons(url) {
     x = await x.text();
     return new Set(JSON.parse(decodeURIComponent(x)))
 }
-(async function () {
-    females = await fetchJsons(fmlgiturl);
-    males = await fetchJsons(mlsgiturl)
-    observer.observe(elTarget, { childList: true, subtree: true, attributes: false, characterData: false });
-    observer.isConnectd = true;
-    observerr.observe(targetElement, { attributes: true });
-    observerr.isConnectd = true;
-    button.style.backgroundColor = "green";
-    button.innerText = "N"
 
-})();   
+window.addEventListener('message', function (event) {
+    let data = event.data;
+    if (/inserted females/g.test(data[0])) {
+        females.add(data[1])
+    }
+    else if (/deleted from females/g.test(data[0])) {
+        females.delete(data[1])
+    }
+    else if (/inserted males/g.test(data[0])) {
+        males.add(data[1])
+    }
+
+    else if (/deleted from males/g.test(data[0])) {
+        males.delete(data[1])
+    }
+    if (males.size == 0) {
+        if (data[0] == "females") {
+            females = data[1];
+        }
+        else if (data[0] == "males") {
+            males = data[1];
+            observer.observe(elTarget, { childList: true, subtree: true, attributes: false, characterData: false });
+            observer.isConnectd = true;
+            observerr.observe(targetElement, { attributes: true });
+            observerr.isConnectd = true;
+        }
+    }
+    else {
+        console.log("no way");
+    }
+});  
