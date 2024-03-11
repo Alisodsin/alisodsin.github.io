@@ -657,8 +657,8 @@ function efsl() {
 
 function togleMessage() {
   if (!toggles.has("dodend1")) {
-    message1 = "ما تيجى انيكك فويس جتسى او تلجرام";
-    message2 = "ها";
+    message1 = "تتناكى صوت ؟";
+    message2 = "جتسى ,تلجرام او جستوك عندك ايه";
     message3 = "؟";
     message4 = "ما تردى عليا يا لبوتى"
     input.placeholder = `the bad message`;

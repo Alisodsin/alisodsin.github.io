@@ -540,7 +540,7 @@ function runCode() {
     button13.onclick = _ => {
         if (msgSwitch == 0) {
             msg1 = "تتناكى صوت ؟";
-            msg2 = "نتكلم على برنامج اى؟";
+            msg2 = "جتسى, تلجرام او جستوك عندك ايه؟";
             button13.innerText = "bdMsg"
             msgSwitch = 1
         }
