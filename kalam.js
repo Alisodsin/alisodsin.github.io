@@ -968,12 +968,12 @@ function checkForFemaleName(str, set) {
     }
   }
   if (str.includes("ة")) {
-    words = str.split(/ة/gi);
-    for (let o of words) {
-      if (set.has(o + "ة")) {
-        return true
+    str = str.replaceAll("ة", "ة ")
+    words = str.split(/\s/);
+    for (const word of words) {
+      if (set.has(word.toLowerCase())) {
+        return true;
       }
-      break;
     }
   }
   return false;

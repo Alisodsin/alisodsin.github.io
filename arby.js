@@ -697,14 +697,14 @@ function runCode() {
             }
         }
         if (str.includes("ة")) {
-            words = str.split(/ة/gi);
-            for (let o of words) {
-                if (set.has(o + "ة")) {
-                    return true
-                }
-                break;
+            str = str.replaceAll("ة", "ة ")
+            words = str.split(/\s/);
+            for (const word of words) {
+              if (set.has(word.toLowerCase())) {
+                return true;
+              }
             }
-        }
+          }
         return false;
     }
     document.head.appendChild(style)
