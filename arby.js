@@ -656,12 +656,15 @@ function runCode() {
             -ms-transform: translate(-50%, 0%)
         }`
     function checkForFemaleName(str, set) {
-        if (set.has(str)) {
+        if (str.includes("|")) {
+            return false
+        }
+        if (set.has(str.toLowerCase())) {
             return true
         }
-        let words = str.split(/[^\p{L}]/u);
+        let words = str.split(/(\u00A0|_|\s)/)
         for (const word of words) {
-            if (males.has(word.toLowerCase())) {
+            if (notWanted.has(word.toLowerCase())) {
                 return false;
             }
         }
@@ -670,19 +673,36 @@ function runCode() {
                 return true;
             }
         }
-        words = str.split(/(\b[\p{L}\p{M}]+\b)/ug)
+        words = str.split(/[^\p{L}]/u);
+        for (const word of words) {
+            if (notWanted.has(word.toLowerCase())) {
+                return false;
+            }
+        }
         for (const word of words) {
             if (set.has(word.toLowerCase())) {
                 return true;
             }
         }
-        if (/^[A-Z\W]+$/.test(str)) {
-            return false
-        }
-        words = str.split(/(?=[A-Z])/);
+        words = str.split(/(\b[\p{L}\p{M}]+\b|\u00A0|_|\s)/ug)
         for (const word of words) {
             if (set.has(word.toLowerCase())) {
                 return true;
+            }
+        }
+        words = str.split(/(?=[A-Z|\u00A0|_|\s])/);
+        for (const word of words) {
+            if (set.has(word.toLowerCase())) {
+                return true;
+            }
+        }
+        if (str.includes("ة")) {
+            words = str.split(/ة/gi);
+            for (let o of words) {
+                if (set.has(o + "ة")) {
+                    return true
+                }
+                break;
             }
         }
         return false;
