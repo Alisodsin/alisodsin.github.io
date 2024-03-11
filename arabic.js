@@ -297,8 +297,26 @@ function checkForFemaleName(str, set) {
         }
     }
     if (str.includes("ة")) {
-        str = str.replaceAll("ة", "ة ")
-        words = str.split(/\s/);
+        let stro = str.replaceAll("ة", "ة ")
+        words = stro.split(/\s/);
+        for (const word of words) {
+          if (set.has(word.toLowerCase())) {
+            return true;
+          }
+        }
+      }
+      if (str.includes("ء")) {
+        let stro = str.replaceAll("ء", "ء ")
+        words = stro.split(/\s/);
+        for (const word of words) {
+          if (set.has(word.toLowerCase())) {
+            return true;
+          }
+        }
+      }
+      if (str.includes("د")) {
+        let stro = str.replaceAll("د", "د ")
+        words = stro.split(/\s/);
         for (const word of words) {
           if (set.has(word.toLowerCase())) {
             return true;
