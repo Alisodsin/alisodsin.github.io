@@ -259,12 +259,12 @@ function checkForFemaleName(str, set) {
     if (str.includes("|")) {
         return false
     }
-    if (set.has(str.toLowerCase())) {
+    if (set.has(str.toLowerCase()) || guesto.test(str)) {
         return true
     }
     let words = str.split(/(\u00A0|_|\s)/)
     for (const word of words) {
-        if (males.has(word.toLowerCase())) {
+        if (notWanted.has(word.toLowerCase())) {
             return false;
         }
     }
@@ -275,7 +275,7 @@ function checkForFemaleName(str, set) {
     }
     words = str.split(/[^\p{L}]/u);
     for (const word of words) {
-        if (males.has(word.toLowerCase())) {
+        if (notWanted.has(word.toLowerCase())) {
             return false;
         }
     }
@@ -294,6 +294,15 @@ function checkForFemaleName(str, set) {
     for (const word of words) {
         if (set.has(word.toLowerCase())) {
             return true;
+        }
+    }
+    if (str.includes("ة")) {
+        words = str.split(/ة/gi);
+        for (let o of words) {
+            if (set.has(o + "ة")) {
+                return true
+            }
+            break;
         }
     }
     return false;

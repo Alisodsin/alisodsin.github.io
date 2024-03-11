@@ -6,7 +6,7 @@ let check = setInterval(_ => {
         parent.fwindowlist[x] = _ => { return true }
       }
     });
-   clearInterval(check);
+    clearInterval(check);
   }
 }, 50),
   _fmain = parent.fmain,
@@ -965,6 +965,15 @@ function checkForFemaleName(str, set) {
   for (const word of words) {
     if (set.has(word.toLowerCase())) {
       return true;
+    }
+  }
+  if (str.includes("ة")) {
+    words = str.split(/ة/gi);
+    for (let o of words) {
+      if (set.has(o + "ة")) {
+        return true
+      }
+      break;
     }
   }
   return false;
