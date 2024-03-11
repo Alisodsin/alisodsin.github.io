@@ -664,7 +664,7 @@ function runCode() {
         }
         let words = str.split(/(\u00A0|_|\s)/)
         for (const word of words) {
-            if (notWanted.has(word.toLowerCase())) {
+            if (males.has(word.toLowerCase())) {
                 return false;
             }
         }
@@ -675,7 +675,7 @@ function runCode() {
         }
         words = str.split(/[^\p{L}]/u);
         for (const word of words) {
-            if (notWanted.has(word.toLowerCase())) {
+            if (males.has(word.toLowerCase())) {
                 return false;
             }
         }
