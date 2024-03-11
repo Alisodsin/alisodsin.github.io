@@ -1183,7 +1183,11 @@ function downloadObj(obj, filename) {
   URL.revokeObjectURL(url);
 }
 async function fetchJsons(url) {
-  let x = await fetch(url)
+  let x = await fetch(url, {
+    headers: {
+      'Authorization': `token ${TOKEN}`
+    }
+  })
   x = await x.json()
   return [new Set(JSON.parse(decodeURIComponent(atob(x.content)))), x.sha]
 }

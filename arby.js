@@ -6,9 +6,9 @@ sweetAlert.src = "https://sweetalert.js.org/assets/sweetalert/sweetalert.min.js"
     elTarget = document.querySelector("#on"),
     idArray = new Set(),
     oltEsmy = new Set(),
-    fmlgiturl = `https://raw.githubusercontent.com/Alisodsin/alisodsin.github.io/main/femaleNames.json`,
-    mlsgiturl = 'https://raw.githubusercontent.com/Alisodsin/alisodsin.github.io/main/males.json',
-    msgsgiturl = `https://raw.githubusercontent.com/Alisodsin/alisodsin.github.io/main/messages.json`,
+    fmlgiturl = `https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/femaleNames.json`,
+    mlsgiturl = `https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/males.json`,
+    msgsgiturl = `https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/messages.json`,
     femaleNames = new Set(),
     messages = new Set(),
     males = new Set(),
@@ -700,29 +700,29 @@ function runCode() {
             let stro = str.replaceAll("ة", "ة ")
             words = stro.split(/\s/);
             for (const word of words) {
-              if (set.has(word.toLowerCase())) {
-                return true;
-              }
+                if (set.has(word.toLowerCase())) {
+                    return true;
+                }
             }
-          }
-          if (str.includes("ء")) {
+        }
+        if (str.includes("ء")) {
             let stro = str.replaceAll("ء", "ء ")
             words = stro.split(/\s/);
             for (const word of words) {
-              if (set.has(word.toLowerCase())) {
-                return true;
-              }
+                if (set.has(word.toLowerCase())) {
+                    return true;
+                }
             }
-          }
-          if (str.includes("د")) {
+        }
+        if (str.includes("د")) {
             let stro = str.replaceAll("د", "د ")
             words = stro.split(/\s/);
             for (const word of words) {
-              if (set.has(word.toLowerCase())) {
-                return true;
-              }
+                if (set.has(word.toLowerCase())) {
+                    return true;
+                }
             }
-          }
+        }
         return false;
     }
     document.head.appendChild(style)
@@ -733,13 +733,16 @@ function runCode() {
     id("onp").click()
 }
 async function fetchJsons(url) {
-    let x = await fetch(url);
-    x = await x.text();
-    return new Set(JSON.parse(decodeURIComponent(x)))
+    let x = await fetch(url, {
+        headers: {
+            'Authorization': `token ${TOKEN}`
+        }
+    })
+    x = await x.json()
+    return new Set(JSON.parse(decodeURIComponent(atob(x.content))))
 }
 (async function () {
     femaleNames = await fetchJsons(fmlgiturl);
     males = await fetchJsons(mlsgiturl)
-    messages = await fetchJsons(msgsgiturl);
     runCode();
 })();  
