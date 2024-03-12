@@ -1294,15 +1294,17 @@ async function fetchJsons(url) {
   shrr3 = response[1];
   if (localStorage["f"]) {
     newNamesF = localStorage.f.split(",");
+    let setf = new Set(newNamesF)
     for (let i = 0; i < newNamesF.length; i++) {
       if (femalesNames.has(newNamesF[i])) {
-        newNamesF = newNamesF.filter(nm => nm != newNamesF[i])
+        setf.delete(newNamesF[i])
       }
       else {
         femalesNames.add(newNamesF[i]);
         testFset.add(newNamesF[i]);
       }
     }
+    newNamesF = [...setf];
     localStorage.f = newNamesF.join()
   }
   else {
@@ -1310,15 +1312,16 @@ async function fetchJsons(url) {
   }
   if (localStorage["m"]) {
     newNamesM = localStorage.m.split(",");
+    let setm = new Set(newNamesM)
     for (let i = 0; i < newNamesM.length; i++) {
-
       if (notWanted.has(newNamesM[i])) {
-        newNamesM = newNamesM.filter(nm => nm != newNamesM[i])
+        setm.delete(newNamesM[i])
       }
       else {
         notWanted.add(newNamesM[i]);
       }
     }
+    newNamesM = [...setm];
     localStorage.m = newNamesM.join();
   }
   else {
