@@ -48,10 +48,10 @@ class User {
         localStorage.sent = [...sentHimBefore].join();
         return "usert past made"
     }
-    get isFsessionMessaged() {
+    get isSessionRecordInFemales() {
         return messagedFs.has(this.id)
     }
-    get isMsessionMessaged() {
+    get isSessionRecordInMales() {
         return messagedMs.has(this.id)
     }
     get IsFemale1() {
@@ -76,7 +76,6 @@ class User {
         zozo.set(this.name, this.id)
     }
 }
-
 function sendMsg(idd, msgg) {
     return fetch("system/private_process.php", {
         method: "POST",
@@ -86,7 +85,6 @@ function sendMsg(idd, msgg) {
         body: `target=${idd}&content=${msgg}&token=${utk}`
     })
 }
-
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -94,7 +92,7 @@ async function doit() {
     let lastF = fms[fms.length - 1]
     let user = new User(lastF.innerText, lastF.getAttribute("data-uid"))
     users[user.name] = user;
-    if (!user.isFsessionMessaged && lastF.parentElement.innerText.includes("زائر") && user.IsFemale1) {
+    if (!user.isSessionRecordInFemales && lastF.parentElement.innerText.includes("زائر") && user.IsFemale1) {
         user.sessionRecordinFemales();
         let li = document.createElement("li");
         if (user.hasPast) {
@@ -133,7 +131,7 @@ async function doit() {
         list.appendChild(li);
         li.scrollIntoView();
     }
-    else if (!user.isMsessionMessaged && !user.isFsessionMessaged && !user.isZozed && lastF.parentElement.innerText.includes("زائر")) {
+    else if (!user.isSessionRecordInMales && !user.isSessionRecordInFemales && !user.isZozed && lastF.parentElement.innerText.includes("زائر")) {
         if (user.IsFemale2) {
             user.zozit();
             console.log(zozo);
@@ -165,10 +163,12 @@ async function privo() {
                 gotmsg.add(idd)
                 sendMsg(idd, msg2).then(_ => {
                     let name = document.querySelector(".bellips").innerText;
-                    let lio = document.querySelector(`[data_gid="${users[name].id}"]`)
-                    let message = document.querySelector(".target_private").innerText
-                    lio.innerHTML = `<bdi>${name}</bdi> ⏪ <bdi style="color:white">${message}</bdi>`
-                    list.append(lio);
+                    if (users[name]) {
+                        let lio = document.querySelector(`[data_gid="${users[name].id}"]`)
+                        let message = document.querySelector(".target_private").innerText
+                        lio.innerHTML = `<bdi>${name}</bdi> ⏪ <bdi style="color:white">${message}</bdi>`
+                        list.append(lio);
+                    }
                     return sleep(3000)
                 }).then(_ => closo.click())
             }
@@ -179,8 +179,6 @@ async function privo() {
 closo.onclick = _ => {
     no();
 }
-"Amany 2"
-"677387009"
 privt.style.display = "none"
 buttonsContainer.id = "buttonsContainer"
 
