@@ -5,7 +5,8 @@ let resala = document.getElementsByClassName("i_btm fa fa-envelope")[0];
 let targetElement = document.getElementById('notify_private');
 let observerr = new MutationObserver(privo);
 let msg = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير"
-let imsg = msg;
+let msg2 = "انا على 35 سنه من المنصوره, ممكن نتعرف"
+
 let observer = new MutationObserver(doit);
 let fms = document.getElementsByClassName("username bcolor23");
 let list = document.createElement("ol");
@@ -17,6 +18,8 @@ let buttonsContainer = document.createElement("div");
 let msgList = document.getElementsByClassName("ulist_name gprivate")
 let males = new Set();
 let females = new Set();
+let gotmsg = new Set();
+let sentHimBefore = new Set();
 let namesSource = document.createElement("ol");
 let framo = document.createElement("iframe");
 let parentDiv = document.createElement("div");
@@ -26,6 +29,53 @@ let privt = $("#private_box")[0];
 let closo = document.getElementById("private_close")
 framo.src = "https://99f2537e-72f2-4e73-9898-cc9c6e98f207-00-aoo727xiohcd.janeway.replit.dev/";
 parentDiv.id = "conto";
+let users = {};
+
+
+class User {
+    constructor(name, id) {
+        this.name = name;
+        this.id = id;
+    }
+    get hasPast() {
+        return sentHimBefore.has(this.id)
+    }
+    makePast() {
+        if (sentHimBefore.has(this.id)) {
+            return "user has a past"
+        }
+        sentHimBefore.add(this.id)
+        localStorage.sent = [...sentHimBefore].join();
+        return "usert past made"
+    }
+    get isFsessionMessaged() {
+        return messagedFs.has(this.id)
+    }
+    get isMsessionMessaged() {
+        return messagedMs.has(this.id)
+    }
+    get IsFemale1() {
+        return checkForFemaleName(this.name, females);
+    }
+    get IsFemale2() {
+        return checkForFemaleName(this.name, testFset);
+    }
+    sessionRecordinFemales() {
+        messagedFs.add(this.id)
+    }
+    sessionRecordinMales() {
+        messagedMs.add(this.id)
+    }
+    get isZozed() {
+        return zozo.has(this.name)
+    }
+    zozit() {
+        if (zozo.has(this.name)) {
+            return "user is already zozed"
+        }
+        zozo.set(this.name, this.id)
+    }
+}
 
 function sendMsg(idd, msgg) {
     return fetch("system/private_process.php", {
@@ -41,28 +91,52 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 async function doit() {
-    let lastF = fms[fms.length - 1],
-        name = lastF.innerText,
-        id = lastF.getAttribute("data-uid");
-    if (!messagedFs.has(id) && lastF.parentElement.innerText.includes("زائر") && checkForFemaleName(name, females)) {
-        messagedFs.add(id);
-        await sendMsg(id, msg);
-        console.log(name);
+    let lastF = fms[fms.length - 1]
+    let user = new User(lastF.innerText, lastF.getAttribute("data-uid"))
+    users[user.name] = user;
+    if (!user.isFsessionMessaged && lastF.parentElement.innerText.includes("زائر") && user.IsFemale1) {
+        user.sessionRecordinFemales();
         let li = document.createElement("li");
-        li.innerText = name;
+        if (user.hasPast) {
+            li.style.color = "green"
+        }
+        else {
+            await sendMsg(user.id, msg);
+            user.makePast()
+        }
+        console.log(user.name);
+        li.innerText = user.name;
         list.appendChild(li);
         li.style.width = "fit-content"
+        li.onclick = user.openP
+        li.setAttribute("data_gid", user.id)
         li.scrollIntoView();
+        li.onclick = function () {
+            if (privt.style.display == "none") {
+                oh();
+                openPrivate(user.id, user.name)
+                showPrivateAd()
+                privReload = 1
+                lastPriv = 0
+                chat_reload(true);
+            }
+            else {
+                closo.click();
+                this.click();
+            }
+        }
+        li.style.width = "fit-content"
+        li.style.cursor = "pointer"
     }
-    else if (!messagedMs.has(id) && !messagedFs.has(id) && !zozo.has(name) && lastF.parentElement.innerText.includes("زائر")) {
-        if (checkForFemaleName(name, testFset)) {
-            zozo.set(name, id)
+    else if (!user.isMsessionMessaged && !user.isFsessionMessaged && !user.isZozed && lastF.parentElement.innerText.includes("زائر")) {
+        if (user.IsFemale2) {
+            user.zozit();
             console.log(zozo);
         }
         else {
-            messagedMs.add(id)
+            user.sessionRecordinMales();
             let li = document.createElement("li")
-            li.innerText = name;
+            li.innerText = user.name;
             li.style.width = "fit-content"
             namesSource.append(li)
             li.scrollIntoView()
@@ -76,18 +150,31 @@ async function privo() {
             token: utk,
         }, function (response) {
             let ele = (new DOMParser()).parseFromString(response, "text/html").body.querySelector(".ulist_container").children[0].children[1]
-            openPrivate(ele.getAttribute("data"), ele.getAttribute("value"))
+            let idd = ele.getAttribute("data")
+            openPrivate(idd, ele.getAttribute("value"))
             showPrivateAd()
             privReload = 1
             lastPriv = 0
             chat_reload(true)
+            if (!gotmsg.has(idd)) {
+                gotmsg.add(idd)
+                sendMsg(idd, msg2).then(_ => {
+                    let name = document.querySelector(".bellips").innerText;
+                    let lio = document.querySelector(`[data_gid="${users[name].id}"]`)
+                    let message = document.querySelector(".target_private").innerText
+                    lio.innerHTML = `<bdi>${name}</bdi> ⏪ <bdi style="color:white">${message}</bdi>`
+                    return sleep(3000)
+                }).then(_ => closo.click())
+            }
         });
     }
+
 }
 closo.onclick = _ => {
     no();
 }
-
+"Amany 2"
+"677387009"
 privt.style.display = "none"
 buttonsContainer.id = "buttonsContainer"
 
@@ -132,12 +219,14 @@ button0.onclick = function () {
 
 
     if (this.innerText == "G") {
-        msg = "تحبى نتمتع صوت على جاتسى او جاستوك؟"
+        msg = "انيك كسك وبزازك صوت بعنف؟"
+        msg2 = "تعالى  صوت على جاتسى او جاستوك؟"
         this.innerText = "B"
         this.style.backgroundColor = "red"
     }
     else {
-        msg = imsg
+        msg = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير"
+        msg2 = "انا على 35 سنه من المنصوره, ممكن نتعرف؟"
         this.innerText = "G"
         this.style.backgroundColor = "green"
 
@@ -350,6 +439,12 @@ window.addEventListener('message', function (event) {
         }
         else if (data[0] == "males") {
             males = data[1];
+            if (localStorage.sent) {
+                sentHimBefore = new Set(localStorage.sent.split(","))
+            }
+
+
+
             observer.observe(elTarget, { childList: true, subtree: true, attributes: false, characterData: false });
             observerr.observe(targetElement, { attributes: true });
         }
