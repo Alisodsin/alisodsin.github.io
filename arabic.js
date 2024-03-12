@@ -106,11 +106,9 @@ async function doit() {
         }
         console.log(user.name);
         li.innerText = user.name;
-        list.appendChild(li);
         li.style.width = "fit-content"
         li.onclick = user.openP
         li.setAttribute("data_gid", user.id)
-        li.scrollIntoView();
         li.onclick = function () {
             if (privt.style.display == "none") {
                 oh();
@@ -121,12 +119,19 @@ async function doit() {
                 chat_reload(true);
             }
             else {
-                closo.click();
-                this.click();
+                if (document.querySelector(".bellips").innerText == this.innerText) {
+                    closo.click();
+                }
+                else {
+                    closo.click();
+                    sleep(500).then(_ => { this.click() })
+                }
             }
         }
         li.style.width = "fit-content"
         li.style.cursor = "pointer"
+        list.appendChild(li);
+        li.scrollIntoView();
     }
     else if (!user.isMsessionMessaged && !user.isFsessionMessaged && !user.isZozed && lastF.parentElement.innerText.includes("زائر")) {
         if (user.IsFemale2) {
@@ -163,6 +168,7 @@ async function privo() {
                     let lio = document.querySelector(`[data_gid="${users[name].id}"]`)
                     let message = document.querySelector(".target_private").innerText
                     lio.innerHTML = `<bdi>${name}</bdi> ⏪ <bdi style="color:white">${message}</bdi>`
+                    list.append(lio);
                     return sleep(3000)
                 }).then(_ => closo.click())
             }
@@ -219,8 +225,8 @@ button0.onclick = function () {
 
 
     if (this.innerText == "G") {
-        msg = "انيك كسك وبزازك صوت بعنف؟"
-        msg2 = "تعالى  صوت على جاتسى او جاستوك؟"
+        msg = "تتناكى صوت على جاتسىى,تاليجرام او جاستوك؟"
+        msg2 = "ياﻻ على اخرى مولع"
         this.innerText = "B"
         this.style.backgroundColor = "red"
     }
