@@ -29,6 +29,8 @@ let check = setInterval(_ => {
   oldFlength,
   oldMlength,
   stream = {},
+  framo,
+  displayDiv = document.createElement("div"),
   hrdspc = "\u00A0",
   ters,
   condition = false,
@@ -84,7 +86,7 @@ let check = setInterval(_ => {
       else if (!malesNames.has(join) && !personsGotMyMsg1.has(join) && !/^Kalamngy_\d{0,}$|Guest/ig.test(join) && (join in users) && _fwindowlist.currentwindow == roomName && !joinPerson.previousSibling.textContent.includes("made")) {
         if (!zozo.has(join) && checkForFemaleName(join, testFset)) {
           zozo.add(join)
-          mutablediv.innerHTML = `<b style="font-size: 1.5em;"><bdi style="color:green">"${join}"</bdi></b>`
+          displayDiv.innerHTML = `<span style="font-size: 1.5em;"><bdi style="color:green">"${join}"</bdi></span>`
         }
         else if (!zozo.has(join)) {
           let li = document.createElement("li");
@@ -120,6 +122,9 @@ function runCode() {
   let check = setInterval(_ => {
     if (Boolean(Object?.keys?.(_fwindowlist?.Witems)?.[1])) {
       roomName = Object.keys(_fwindowlist.Witems)[1];
+      framo = document.createElement("iframe");
+      framo.src = "https://99f2537e-72f2-4e73-9898-cc9c6e98f207-00-aoo727xiohcd.janeway.replit.dev/";
+      framo.style.display = "none"
       mainTarget = _fmain.document.querySelector("#text");
       myNick = _fwindowlist.mynickname;
       joiningPplClass = _fmain.document.getElementsByClassName("main-nickg");
@@ -479,13 +484,87 @@ function runCode() {
       ol2.style.color = "white"
       ol2.style.overflow = "auto"
       ol2.style.display = "block";
-      containersDiv.append(ol1, controlDiv, ol2)
+      displayDiv.style.background = "black";
+      displayDiv.style.display = "none"
+      displayDiv.style.justifyContent = "center"
+      displayDiv.style.alignItems = "center"
+      displayDiv.style.borderRadius = "100%"
+      displayDiv.style.overflow = "auto"
+      displayDiv.style.whiteSpace = "pre"
+      containersDiv.append(ol1, displayDiv, controlDiv, framo, ol2)
       _fmain.document.body.append(buttonContainers, containersDiv);
       _fmain.document.head.append(style)
       _fmain.document.querySelector(".main-closepic").remove();
       _fmain.document.querySelector(".userlist-hiddeni").remove();
       _fmain.document.querySelector("#hidderbtn").style.display = "none";
       _fmain.document.querySelector("#mainplusbtn").remove();
+      _fmain.addEventListener('message', function (event) {
+        let data = event.data;
+        if (data[0] == "females") {
+          let dfr = difference(data[1], testFset)
+          if (dfr.length) {
+            if (switcherc.innerText == "males") {
+              switcherc.click();
+            }
+            console.log("sync local females");
+            dfr.forEach(e => {
+              inputc.value = e
+              butAddL.click()
+
+            })
+          }
+        }
+        else if (data[0] == "males") {
+          let dfm = difference(data[1], notWanted)
+          if (dfm.length) {
+            if (switcherc.innerText == "females") {
+              switcherc.click();
+            }
+            console.log("sync local males");
+            dfm.forEach(e => {
+              inputc.value = e
+              butAddL.click()
+            })
+          }
+        }
+        if (/inserted females/g.test(data[0])) {
+          if (switcherc.innerText == "males") {
+            switcherc.click();
+          }
+          inputc.value = data[1]
+          butAddL.click()
+        }
+        else if (/deleted from females/g.test(data[0])) {
+          if (switcherc.innerText == "males") {
+            switcherc.click();
+          }
+          inputc.value = data[1]
+          butDelete.click()
+        }
+        else if (/inserted males/g.test(data[0])) {
+          if (switcherc.innerText == "females") {
+            switcherc.click();
+          }
+          inputc.value = data[1]
+          butAddL.click()
+        }
+
+        else if (/deleted from males/g.test(data[0])) {
+          if (switcherc.innerText == "females") {
+            switcherc.click();
+          }
+          inputc.value = data[1]
+          butDelete.click()
+        }
+        else if (/inserted messages/g.test(data[0])) {
+          messages.add(data[1])
+          input.placeholder = data[0];
+        }
+        else if (/deleted from messages/g.test(data[0])) {
+          messages.delete(data[1])
+          input.placeholder = data[0];
+        };
+      });
       buttons = [...buttonContainers.children];
       R = _fwindowlist.document.getElementsByName("R")[0].value;
       kalamngySend = function (target, msg) {
@@ -498,7 +577,7 @@ function runCode() {
           if (zozo.has(prop)) {
             zozo.delete(prop)
             if (!femalesNames.size) {
-              mutablediv.innerHTML = `<b style="font-size: 1.5em;"><bdi style="color:red">"${prop}"</bdi></b>`
+              displayDiv.innerHTML = `<span style="font-size: 1.5em;"><bdi style="color:red">"${prop}"</bdi></span>`
             }
           }
           if (personsGotMyMsg1.has(prop)) {
@@ -834,6 +913,8 @@ function buttonsCreator() {
             femalesNames.clear();
             this.innerText = "justK";
             num1++;
+            displayDiv.style.display = "flex"
+            ol1.style.display = "none"
 
           }
           else if (num1 == 2) {
@@ -847,21 +928,25 @@ function buttonsCreator() {
             this.innerText = "justF";
             guesto = /^guest[^a-zA-Z]*$/i;
             num1 = 0;
+            displayDiv.style.display = "none"
+            ol1.style.display = "block"
           }
         };
         break;
       case 17:
         button.style.background = "black";
         button.style.color = "white";
-        button.innerText = "sngl";
+        button.innerText = "L";
         button.onclick = function () {
-          if (!num) {
-            num = true;
-            this.innerText = "dbl"
+          if (this.innerText == "L") {
+            controlDiv.style.display = "none"
+            framo.style.display = ""
+            this.innerText = "R"
           }
           else {
-            num = false;
-            this.innerText = "sngl"
+            controlDiv.style.display = "flex"
+            framo.style.display = "none"
+            this.innerText = "L"
           }
         };
         break;
@@ -1054,6 +1139,9 @@ function removeMultiWordElements(x) {
     }
   }
   return singleWordElements;
+}
+function difference(st1, st2) {
+  return [...st1].filter(x => !st2.has(x))
 }
 function generateRandomString() {
   var chars = "abcdefghijklmnopqrstuvwxyz";
