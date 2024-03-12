@@ -83,12 +83,6 @@ async function privo() {
             chat_reload(true)
         });
     }
-    else {
-        closo.click();
-        await sleep(1000)
-        privo();
-    }
-
 }
 closo.onclick = _ => {
     no();
