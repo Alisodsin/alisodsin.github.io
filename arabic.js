@@ -1,44 +1,67 @@
-let elTarget = document.body.querySelector("#chat_logs_container");
-let messagedFs = new Set();
-let messagedMs = new Set();
-let resala = document.getElementsByClassName("i_btm fa fa-envelope")[0];
-let targetElement = document.getElementById('notify_private');
-let observerr = new MutationObserver(privo);
-let msg = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير"
-let msg2 = "انا على 35 سنه من المنصوره, ممكن نتعرف"
-
-let observer = new MutationObserver(doit);
-let fms = document.getElementsByClassName("username bcolor23");
-let list = document.createElement("ol");
-let button = document.createElement("button");
-let button0 = document.createElement("button");
-let button1 = document.createElement("button");
-let style = document.createElement("style");
-let buttonsContainer = document.createElement("div");
-let msgList = document.getElementsByClassName("ulist_name gprivate")
-let males = new Set();
-let females = new Set();
-let gotmsg = new Set();
-let sentHimBefore = new Set();
-let namesSource = document.createElement("ol");
-let framo = document.createElement("iframe");
-let parentDiv = document.createElement("div");
-let zozo = new Map();
-let testFset = new Set();
-let privt = $("#private_box")[0];
-let closo = document.getElementById("private_close")
-framo.src = "https://99f2537e-72f2-4e73-9898-cc9c6e98f207-00-aoo727xiohcd.janeway.replit.dev/";
-parentDiv.id = "conto";
-let users = {};
-
+let elTarget = document.body.querySelector("#chat_logs_container"),
+    messagedFs = new Set(),
+    messagedMs = new Set(),
+    resala = document.getElementsByClassName("i_btm fa fa-envelope")[0],
+    targetElement = document.getElementById('notify_private'),
+    observerr = new MutationObserver(privo),
+    msg = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير",
+    msg2 = "انا على 35 سنه من المنصوره, ممكن نتعرف",
+    observer = new MutationObserver(doit),
+    fms = document.getElementsByClassName("username bcolor23"),
+    list = document.createElement("ol"),
+    zozdiv = document.createElement("ol"),
+    button = document.createElement("button"),
+    button0 = document.createElement("button"),
+    button1 = document.createElement("button"),
+    style = document.createElement("style"),
+    buttonsContainer = document.createElement("div"),
+    males = new Set(),
+    females = new Set(),
+    gotmsg = new Set(),
+    sentHimBefore = new Set(),
+    namesSource = document.createElement("ol"),
+    framo = document.createElement("iframe"),
+    parentDiv = document.createElement("div"),
+    zozo = new Map(),
+    testFset = new Set(),
+    privt = $("#private_box")[0],
+    closo = document.getElementById("private_close"),
+    users = {};
 
 class User {
     constructor(name, id) {
         this.name = name;
         this.id = id;
     }
+    get IsFemale1() {
+        return checkForFemaleName(this.name, females);
+    }
+    get IsFemale2() {
+        return checkForFemaleName(this.name, testFset);
+    }
     get hasPast() {
         return sentHimBefore.has(this.id)
+    }
+    get isSessionRecordInFemales() {
+        return messagedFs.has(this.id)
+    }
+    get isSessionRecordInMales() {
+        return messagedMs.has(this.id)
+    }
+    get isZozed() {
+        return zozo.has(this.name)
+    }
+    sessionRecordinFemales() {
+        messagedFs.add(this.id)
+    }
+    sessionRecordinMales() {
+        messagedMs.add(this.id)
+    }
+    zozit() {
+        if (zozo.has(this.name)) {
+            return "user is already zozed"
+        }
+        zozo.set(this.name, this.id)
     }
     makePast() {
         if (sentHimBefore.has(this.id)) {
@@ -48,41 +71,14 @@ class User {
         localStorage.sent = [...sentHimBefore].join();
         return "usert past made"
     }
-    get isSessionRecordInFemales() {
-        return messagedFs.has(this.id)
-    }
-    get isSessionRecordInMales() {
-        return messagedMs.has(this.id)
-    }
-    get IsFemale1() {
-        return checkForFemaleName(this.name, females);
-    }
-    get IsFemale2() {
-        return checkForFemaleName(this.name, testFset);
-    }
-    sessionRecordinFemales() {
-        messagedFs.add(this.id)
-    }
-    sessionRecordinMales() {
-        messagedMs.add(this.id)
-    }
-    get isZozed() {
-        return zozo.has(this.name)
-    }
-    zozit() {
-        if (zozo.has(this.name)) {
-            return "user is already zozed"
-        }
-        zozo.set(this.name, this.id)
-    }
 }
-function sendMsg(idd, msgg) {
+function sendMsg(id, msg) {
     return fetch("system/private_process.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"
         },
-        body: `target=${idd}&content=${msgg}&token=${utk}`
+        body: `target=${id}&content=${msg}&token=${utk}`
     })
 }
 function sleep(ms) {
@@ -104,12 +100,9 @@ async function doit() {
         }
         console.log(user.name);
         li.innerText = user.name;
-        li.style.width = "fit-content"
-        li.onclick = user.openP
         li.setAttribute("data_gid", user.id)
         li.onclick = function () {
             if (privt.style.display == "none") {
-                oh();
                 openPrivate(user.id, user.name)
                 showPrivateAd()
                 privReload = 1
@@ -126,21 +119,60 @@ async function doit() {
                 }
             }
         }
-        li.style.width = "fit-content"
-        li.style.cursor = "pointer"
         list.appendChild(li);
         li.scrollIntoView();
     }
     else if (!user.isSessionRecordInMales && !user.isSessionRecordInFemales && !user.isZozed && lastF.parentElement.innerText.includes("زائر")) {
         if (user.IsFemale2) {
             user.zozit();
+            let li = document.createElement("li")
+            li.innerText = user.name;
+            li.setAttribute("data_gid", user.id)
+            li.onclick = function () {
+                if (privt.style.display == "none") {
+                    openPrivate(user.id, user.name)
+                    showPrivateAd()
+                    privReload = 1
+                    lastPriv = 0
+                    chat_reload(true);
+                }
+                else {
+                    if (document.querySelector(".bellips").innerText == this.innerText) {
+                        closo.click();
+                    }
+                    else {
+                        closo.click();
+                        sleep(500).then(_ => { this.click() })
+                    }
+                }
+            }
+            li.style.color = user.hasPast ? "green" : "white";
+            zozdiv.append(li);
+            li.scrollIntoView();
             console.log(zozo);
         }
         else {
             user.sessionRecordinMales();
             let li = document.createElement("li")
             li.innerText = user.name;
-            li.style.width = "fit-content"
+            li.onclick = function () {
+                if (privt.style.display == "none") {
+                    openPrivate(user.id, user.name)
+                    showPrivateAd()
+                    privReload = 1
+                    lastPriv = 0
+                    chat_reload(true);
+                }
+                else {
+                    if (document.querySelector(".bellips").innerText == this.innerText) {
+                        closo.click();
+                    }
+                    else {
+                        closo.click();
+                        sleep(500).then(_ => { this.click() })
+                    }
+                }
+            }
             namesSource.append(li)
             li.scrollIntoView()
         }
@@ -148,20 +180,19 @@ async function doit() {
 }
 async function privo() {
     if (privt.style.display == "none") {
-        oh();
         $.post('system/box/private_notify.php', {
             token: utk,
         }, function (response) {
             let ele = (new DOMParser()).parseFromString(response, "text/html").body.querySelector(".ulist_container").children[0].children[1]
-            let idd = ele.getAttribute("data")
-            openPrivate(idd, ele.getAttribute("value"))
+            let id = ele.getAttribute("data")
+            openPrivate(id, ele.getAttribute("value"))
             showPrivateAd()
             privReload = 1
             lastPriv = 0
             chat_reload(true)
-            if (!gotmsg.has(idd)) {
-                gotmsg.add(idd)
-                sendMsg(idd, msg2).then(_ => {
+            if (!gotmsg.has(id)) {
+                gotmsg.add(id)
+                sendMsg(id, msg2).then(_ => {
                     let name = document.querySelector(".bellips").innerText;
                     if (users[name]) {
                         let lio = document.querySelector(`[data_gid="${users[name].id}"]`)
@@ -176,52 +207,23 @@ async function privo() {
     }
 
 }
-closo.onclick = _ => {
-    no();
-}
+
+parentDiv.id = "conto"
+framo.src = "https://99f2537e-72f2-4e73-9898-cc9c6e98f207-00-aoo727xiohcd.janeway.replit.dev/";
 privt.style.display = "none"
 buttonsContainer.id = "buttonsContainer"
-
-list.style.backgroundColor = "black"
-list.style.color = "white";
-list.style.position = "relative";
-list.style.zIndex = "1";
-list.style.overflow = "auto"
-list.style.whiteSpace = "pre";
 list.id = "lista";
-
-let divo = document.createElement("div")
-
-button.style.borderRadius = "20%"
+zozdiv.id = "zoza";
+zozdiv.style.display = "none"
 button.id = "butto";
 button.innerText = "N"
-button.style.padding = "4%"
-button.style.backgroundColor = "green";
-
-button0.style.borderRadius = "20%"
 button0.id = "sw";
 button0.innerText = "G"
-button0.style.background = "green"
-button0.style.padding = "4%"
-
-
-
-button1.style.borderRadius = "20%"
 button1.id = "sizec";
 button1.innerText = "S"
-button1.style.background = "green"
-button1.style.padding = "4%"
-
-
-namesSource.style.backgroundColor = "black"
-namesSource.style.color = "white";
-namesSource.style.overflow = "auto"
-namesSource.style.whiteSpace = "pre";
 namesSource.id = "noto";
 
 button0.onclick = function () {
-
-
     if (this.innerText == "G") {
         msg = "تتناكى صوت على جاتسىى,تاليجرام او جاستوك؟"
         msg2 = "ياﻻ على اخرى مولع"
@@ -242,11 +244,15 @@ button.onclick = function () {
         females.clear()
         this.style.backgroundColor = "red";
         this.innerText = "F"
+        list.style.display = "none"
+        zozdiv.style.display = "";
     }
     else {
         females = structuredClone(testFset)
         button.style.backgroundColor = "green"
         this.innerText = "N"
+        list.style.display = ""
+        zozdiv.style.display = "none";
 
     }
 }
@@ -266,6 +272,34 @@ button1.onclick = function () {
 
 }
 style.textContent = `
+li {
+    width: fit-content;
+    cursor: pointer;
+}
+#lista,#zoza { 
+    background-color: black;
+    color: white;
+    position: relative;
+    z-index: 1;
+    overflow: auto;
+    white-space: nowrap;
+}
+#zoza{
+    background-color:rgb(83,28,28);
+}
+#butto,
+#sw,
+#sizec{
+    border-radius: 20%;
+    background-color: green;
+    width:16%; 
+}
+#noto {
+    background-color: black;
+    color: white;
+    overflow: auto;
+    white-space: nowrap;
+}
 ::-webkit-scrollbar {
     width: 0px;
     height: 0px;
@@ -275,6 +309,9 @@ style.textContent = `
         display:none !important;
     }
     #lista{
+        display:none !important;
+    }
+    #zoza{
         display:none !important;
     }
     #noto{
@@ -296,7 +333,6 @@ style.textContent = `
     direction:ltr;
     z-index: 1;
     line-height:22px; 
-
 }
 #buttonsContainer {
     position: fixed;
@@ -318,29 +354,27 @@ style.textContent = `
 *{
     scrollbar-width:none !important;
 }
-#lista > li {
+#lista> li {
     list-style: decimal;
     position : relative; 
 }
+#zoza >li{
+    list-style: decimal;
+    position : relative; 
+} 
 #noto > li {
     list-style: decimal;
     position : relative; 
-
 }
 `
 buttonsContainer.append(button, button0, button1)
-parentDiv.append(list, framo, namesSource);
+parentDiv.append(list, zozdiv, framo, namesSource);
 elTarget.append(buttonsContainer, parentDiv);
 document.head.append(style);
-
-
-
 function oh() {
     if (females.size) {
         button.click();
-
     }
-
 }
 function no() {
     if (!(females.size)) {
@@ -446,9 +480,6 @@ window.addEventListener('message', function (event) {
             if (localStorage.sent) {
                 sentHimBefore = new Set(localStorage.sent.split(","))
             }
-
-
-
             observer.observe(elTarget, { childList: true, subtree: true, attributes: false, characterData: false });
             observerr.observe(targetElement, { attributes: true });
         }
