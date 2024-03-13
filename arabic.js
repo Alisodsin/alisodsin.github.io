@@ -86,46 +86,20 @@ function sleep(ms) {
 }
 async function doit() {
     let lastF = fms[fms.length - 1]
-    let user = new User(lastF.innerText, lastF.getAttribute("data-uid"))
-    users[user.name] = user;
-    if (!user.isSessionRecordInFemales && lastF.parentElement.innerText.includes("زائر") && user.IsFemale1) {
-        user.sessionRecordinFemales();
-        let li = document.createElement("li");
-        if (user.hasPast) {
-            li.style.color = "green"
-        }
-        else {
-            await sendMsg(user.id, msg);
-            user.makePast()
-        }
-        console.log(user.name);
-        li.innerText = user.name;
-        li.setAttribute("data_gid", user.id)
-        li.onclick = function () {
-            if (privt.style.display == "none") {
-                openPrivate(user.id, user.name)
-                showPrivateAd()
-                privReload = 1
-                lastPriv = 0
-                chat_reload(true);
+    if (lastF.parentElement.innerText.includes("زائر")) {
+        let user = new User(lastF.innerText, lastF.getAttribute("data-uid"))
+        users[user.name] = user;
+        if (!user.isSessionRecordInFemales && user.IsFemale1) {
+            user.sessionRecordinFemales();
+            let li = document.createElement("li");
+            if (user.hasPast) {
+                li.style.color = "green"
             }
             else {
-                if (document.querySelector(".bellips").innerText == this.innerText) {
-                    closo.click();
-                }
-                else {
-                    closo.click();
-                    sleep(500).then(_ => { this.click() })
-                }
+                await sendMsg(user.id, msg);
+                user.makePast()
             }
-        }
-        list.appendChild(li);
-        li.scrollIntoView();
-    }
-    else if (!user.isSessionRecordInMales && !user.isSessionRecordInFemales && !user.isZozed && lastF.parentElement.innerText.includes("زائر")) {
-        if (user.IsFemale2) {
-            user.zozit();
-            let li = document.createElement("li")
+            console.log(user.name);
             li.innerText = user.name;
             li.setAttribute("data_gid", user.id)
             li.onclick = function () {
@@ -146,35 +120,45 @@ async function doit() {
                     }
                 }
             }
-            li.style.color = user.hasPast ? "green" : "white";
-            zozdiv.append(li);
+            list.appendChild(li);
             li.scrollIntoView();
-            console.log(zozo);
         }
-        else {
-            user.sessionRecordinMales();
-            let li = document.createElement("li")
-            li.innerText = user.name;
-            li.onclick = function () {
-                if (privt.style.display == "none") {
-                    openPrivate(user.id, user.name)
-                    showPrivateAd()
-                    privReload = 1
-                    lastPriv = 0
-                    chat_reload(true);
-                }
-                else {
-                    if (document.querySelector(".bellips").innerText == this.innerText) {
-                        closo.click();
+        else if (!user.isSessionRecordInMales && !user.isSessionRecordInFemales && !user.isZozed) {
+            if (user.IsFemale2) {
+                user.zozit();
+                let li = document.createElement("li")
+                li.innerText = user.name;
+                li.setAttribute("data_gid", user.id)
+                li.onclick = function () {
+                    if (privt.style.display == "none") {
+                        openPrivate(user.id, user.name)
+                        showPrivateAd()
+                        privReload = 1
+                        lastPriv = 0
+                        chat_reload(true);
                     }
                     else {
-                        closo.click();
-                        sleep(500).then(_ => { this.click() })
+                        if (document.querySelector(".bellips").innerText == this.innerText) {
+                            closo.click();
+                        }
+                        else {
+                            closo.click();
+                            sleep(500).then(_ => { this.click() })
+                        }
                     }
                 }
+                li.style.color = user.hasPast ? "green" : "white";
+                zozdiv.append(li);
+                li.scrollIntoView();
+                console.log(zozo);
             }
-            namesSource.append(li)
-            li.scrollIntoView()
+            else {
+                user.sessionRecordinMales();
+                let li = document.createElement("li")
+                li.innerText = user.name;
+                namesSource.append(li)
+                li.scrollIntoView()
+            }
         }
     }
 }
@@ -205,7 +189,6 @@ async function privo() {
             }
         });
     }
-
 }
 
 parentDiv.id = "conto"
@@ -326,7 +309,7 @@ li {
     display: flex;
     flex-direction: column;
     top: 10%;
-    width: 80vw;
+    width: 40vw;
     height:77%;
     left: 0px;
     margin: 0px;
@@ -343,8 +326,16 @@ li {
     margin: 0px;
     direction: ltr;
     z-index: 1;
-    justify-content:space-evenly;
+    justify-content: space-between;
     height:4%;
+}
+@media screen and (max-width:500px){
+    #conto {
+        width:70%;
+    }
+    #buttonsContainer {
+        width:70%;
+    }
 }
 #conto > * {
     flex: 1;
@@ -356,15 +347,12 @@ li {
 }
 #lista> li {
     list-style: decimal;
-    position : relative; 
 }
 #zoza >li{
     list-style: decimal;
-    position : relative; 
 } 
 #noto > li {
     list-style: decimal;
-    position : relative; 
 }
 `
 buttonsContainer.append(button, button0, button1)
