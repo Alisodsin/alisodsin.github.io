@@ -13,6 +13,7 @@ let elTarget = document.body.querySelector("#chat_logs_container"),
     button = document.createElement("button"),
     button0 = document.createElement("button"),
     button1 = document.createElement("button"),
+    button2 = document.createElement("button"),
     style = document.createElement("style"),
     buttonsContainer = document.createElement("div"),
     males = new Set(),
@@ -51,6 +52,11 @@ class User {
     get isZozed() {
         return zozo.has(this.name)
     }
+    get gotMySecondMessage() {
+
+        return gotmsg.has(this.id)
+
+    }
     sessionRecordinFemales() {
         messagedFs.add(this.id)
     }
@@ -70,6 +76,12 @@ class User {
         sentHimBefore.add(this.id)
         localStorage.sent = [...sentHimBefore].join();
         return "usert past made"
+    }
+    sendThisUerMySecondMessage() {
+        return sendMsg(this.id, msg2).then(_ => {
+            gotmsg.add(this.id)
+            localStorage.msgd = [...gotmsg].join();
+        })
     }
 }
 function sendMsg(id, msg) {
@@ -150,7 +162,6 @@ async function doit() {
                 li.style.color = user.hasPast ? "green" : "white";
                 zozdiv.append(li);
                 li.scrollIntoView();
-                console.log(zozo);
             }
             else {
                 user.sessionRecordinMales();
@@ -163,32 +174,34 @@ async function doit() {
     }
 }
 async function privo() {
-    if (privt.style.display == "none") {
-        $.post('system/box/private_notify.php', {
-            token: utk,
-        }, function (response) {
-            let ele = (new DOMParser()).parseFromString(response, "text/html").body.querySelector(".ulist_container").children[0].children[1]
-            let id = ele.getAttribute("data")
-            openPrivate(id, ele.getAttribute("value"))
-            showPrivateAd()
-            privReload = 1
-            lastPriv = 0
-            chat_reload(true)
-            if (!gotmsg.has(id)) {
-                gotmsg.add(id)
-                sendMsg(id, msg2).then(_ => {
-                    let name = document.querySelector(".bellips").innerText;
-                    if (users[name]) {
-                        let lio = document.querySelector(`[data_gid="${users[name].id}"]`)
-                        let message = document.querySelector(".target_private").innerText
-                        lio.innerHTML = `<bdi>${name}</bdi> ⏪ <bdi style="color:white">${message}</bdi>`
-                        list.append(lio);
-                    }
-                    return sleep(3000)
-                }).then(_ => closo.click())
+    console.log("hjhjh");
+    $.post('system/box/private_notify.php', {
+        token: utk,
+    }, function (response) {
+        let ele = (new DOMParser()).parseFromString(response, "text/html").body.querySelector(".ulist_container").children[0].children[1]
+        let id = ele.getAttribute("data")
+        let name = ele.getAttribute("value");
+        openPrivate(id, name)
+        showPrivateAd()
+        privReload = 1
+        lastPriv = 0
+        chat_reload(true)
+        if (!users[name]) {
+            users[name] = new User(name, id);
+        }
+        if (!users[name].gotMySecondMessage) {
+            users[name].sendThisUerMySecondMessage().then(_ => {
+                let lio = document.querySelector(`[data_gid="${users[name].id}"]`)
+                if (lio) {
+                    let message = document.querySelector(".target_private").innerText
+                    lio.innerHTML = `<bdi>${name}</bdi> ⏪ <bdi style="color:white">${message}</bdi>`
+                    list.append(lio);
+                }
+                return sleep(3000)
             }
-        });
-    }
+            ).then(_ => closo.click())
+        }
+    });
 }
 
 parentDiv.id = "conto"
@@ -205,6 +218,9 @@ button0.innerText = "G"
 button1.id = "sizec";
 button1.innerText = "S"
 namesSource.id = "noto";
+
+button2.id = "obs";
+button2.innerText = "observer"
 
 button0.onclick = function () {
     if (this.innerText == "G") {
@@ -254,6 +270,21 @@ button1.onclick = function () {
     }
 
 }
+button2.onclick = function () {
+    let butstr = this.innerText;
+    if (butstr.startsWith("o")) {
+        this.innerText = "Observer"
+        this.style.backgroundColor = "red"
+        observer.disconnect()
+        observerr.disconnect()
+    }
+    else {
+        this.innerText = "observer"
+        this.style.backgroundColor = "green"
+        observer.observe(elTarget, { childList: true, subtree: true, attributes: false, characterData: false });
+        observerr.observe(targetElement, { attributes: true });
+    }
+}
 style.textContent = `
 li {
     width: fit-content;
@@ -272,10 +303,11 @@ li {
 }
 #butto,
 #sw,
-#sizec{
+#sizec,#obs{
     border-radius: 20%;
     background-color: green;
-    width:16%; 
+    width:20%; 
+    border-right: 1px solid white;
 }
 #noto {
     background-color: black;
@@ -355,7 +387,7 @@ li {
     list-style: decimal;
 }
 `
-buttonsContainer.append(button, button0, button1)
+buttonsContainer.append(button, button0, button1, button2)
 parentDiv.append(list, zozdiv, framo, namesSource);
 elTarget.append(buttonsContainer, parentDiv);
 document.head.append(style);
@@ -466,7 +498,10 @@ window.addEventListener('message', function (event) {
         else if (data[0] == "males") {
             males = data[1];
             if (localStorage.sent) {
-                sentHimBefore = new Set(localStorage.sent.split(","))
+                sentHimBefore = new Set(localStorage.sent.split(","));
+            }
+            if (localStorage.msgd) {
+                gotmsg = new Set(localStorage.msgd.split(","))
             }
             observer.observe(elTarget, { childList: true, subtree: true, attributes: false, characterData: false });
             observerr.observe(targetElement, { attributes: true });
