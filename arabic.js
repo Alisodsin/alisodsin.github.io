@@ -6,7 +6,15 @@ let elTarget = document.body.querySelector("#chat_logs_container"),
     observerr = new MutationObserver(privo),
     msg = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير",
     msg2 = "انا على 35 سنه من المنصوره, ممكن نتعرف",
-    observer = new MutationObserver(doit),
+    observer = new MutationObserver(async function () {
+        let lastF = fms[fms.length - 1];
+        console.log(lastF.innerText);
+        if (lastF.parentElement.innerText.includes("زائر")) {
+            let user = new User(lastF.innerText, lastF.getAttribute("data-uid"))
+            users[user.name] = user;
+            doit(user);
+        }
+    }),
     fms = document.getElementsByClassName("username bcolor23"),
     list = document.createElement("ol"),
     zozdiv = document.createElement("ol"),
@@ -14,6 +22,7 @@ let elTarget = document.body.querySelector("#chat_logs_container"),
     button0 = document.createElement("button"),
     button1 = document.createElement("button"),
     button2 = document.createElement("button"),
+    button3 = document.createElement("button"),
     style = document.createElement("style"),
     buttonsContainer = document.createElement("div"),
     males = new Set(),
@@ -23,7 +32,7 @@ let elTarget = document.body.querySelector("#chat_logs_container"),
     namesSource = document.createElement("ol"),
     framo = document.createElement("iframe"),
     parentDiv = document.createElement("div"),
-    zozo = new Map(),
+    zozo = new Set(),
     testFset = new Set(),
     privt = $("#private_box")[0],
     closo = document.getElementById("private_close"),
@@ -34,10 +43,10 @@ class User {
         this.name = name;
         this.id = id;
     }
-    get IsFemale1() {
+    get isFemale1() {
         return checkForFemaleName(this.name, females);
     }
-    get IsFemale2() {
+    get isFemale2() {
         return checkForFemaleName(this.name, testFset);
     }
     get hasPast() {
@@ -50,7 +59,7 @@ class User {
         return messagedMs.has(this.id)
     }
     get isZozed() {
-        return zozo.has(this.name)
+        return zozo.has(this.id)
     }
     get gotMySecondMessage() {
 
@@ -64,10 +73,10 @@ class User {
         messagedMs.add(this.id)
     }
     zozit() {
-        if (zozo.has(this.name)) {
+        if (zozo.has(this.id)) {
             return "user is already zozed"
         }
-        zozo.set(this.name, this.id)
+        zozo.add(this.id)
     }
     makePast() {
         if (sentHimBefore.has(this.id)) {
@@ -83,6 +92,12 @@ class User {
             localStorage.msgd = [...gotmsg].join();
         })
     }
+    deleteMyLi() {
+        if (this.isSessionRecordInMales) {
+            messagedMs.delete(this.id);
+            document.querySelector(`[data_gid="${this.id}"]`).remove();
+        }
+    }
 }
 function sendMsg(id, msg) {
     return fetch("system/private_process.php", {
@@ -96,22 +111,44 @@ function sendMsg(id, msg) {
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
-async function doit() {
-    let lastF = fms[fms.length - 1]
-    if (lastF.parentElement.innerText.includes("زائر")) {
-        let user = new User(lastF.innerText, lastF.getAttribute("data-uid"))
-        users[user.name] = user;
-        if (!user.isSessionRecordInFemales && user.IsFemale1) {
-            user.sessionRecordinFemales();
-            let li = document.createElement("li");
-            if (user.hasPast) {
-                li.style.color = "green"
+async function doit(user) {
+    if (!user.isSessionRecordInFemales && !user.isZozed && user.isFemale1) {
+        user.sessionRecordinFemales();
+        let li = document.createElement("li");
+        if (user.hasPast) {
+            li.style.color = "green"
+        }
+        else {
+            await sendMsg(user.id, msg);
+            user.makePast();
+        }
+        li.innerText = user.name;
+        li.setAttribute("data_gid", user.id)
+        li.onclick = function () {
+            if (privt.style.display == "none") {
+                openPrivate(user.id, user.name)
+                showPrivateAd()
+                privReload = 1
+                lastPriv = 0
+                chat_reload(true);
             }
             else {
-                await sendMsg(user.id, msg);
-                user.makePast()
+                if (document.querySelector(".bellips").innerText == this.innerText) {
+                    closo.click();
+                }
+                else {
+                    closo.click();
+                    sleep(500).then(_ => { this.click() })
+                }
             }
-            console.log(user.name);
+        }
+        list.appendChild(li);
+        li.scrollIntoView();
+    }
+    else if (!user.isSessionRecordInMales && !user.isSessionRecordInFemales && !user.isZozed) {
+        if (user.isFemale2) {
+            user.zozit();
+            let li = document.createElement("li")
             li.innerText = user.name;
             li.setAttribute("data_gid", user.id)
             li.onclick = function () {
@@ -132,49 +169,22 @@ async function doit() {
                     }
                 }
             }
-            list.appendChild(li);
+            li.style.color = user.hasPast ? "green" : "white";
+            zozdiv.append(li);
             li.scrollIntoView();
         }
-        else if (!user.isSessionRecordInMales && !user.isSessionRecordInFemales && !user.isZozed) {
-            if (user.IsFemale2) {
-                user.zozit();
-                let li = document.createElement("li")
-                li.innerText = user.name;
-                li.setAttribute("data_gid", user.id)
-                li.onclick = function () {
-                    if (privt.style.display == "none") {
-                        openPrivate(user.id, user.name)
-                        showPrivateAd()
-                        privReload = 1
-                        lastPriv = 0
-                        chat_reload(true);
-                    }
-                    else {
-                        if (document.querySelector(".bellips").innerText == this.innerText) {
-                            closo.click();
-                        }
-                        else {
-                            closo.click();
-                            sleep(500).then(_ => { this.click() })
-                        }
-                    }
-                }
-                li.style.color = user.hasPast ? "green" : "white";
-                zozdiv.append(li);
-                li.scrollIntoView();
-            }
-            else {
-                user.sessionRecordinMales();
-                let li = document.createElement("li")
-                li.innerText = user.name;
-                namesSource.append(li)
-                li.scrollIntoView()
-            }
+        else {
+            user.sessionRecordinMales();
+            let li = document.createElement("li")
+            li.innerText = user.name;
+            li.setAttribute("data_gid", user.id)
+            namesSource.append(li)
+            li.scrollIntoView()
         }
     }
+
 }
 async function privo() {
-    console.log("hjhjh");
     $.post('system/box/private_notify.php', {
         token: utk,
     }, function (response) {
@@ -191,6 +201,7 @@ async function privo() {
         }
         if (!users[name].gotMySecondMessage) {
             users[name].sendThisUerMySecondMessage().then(_ => {
+                users[name].makePast();
                 let lio = document.querySelector(`[data_gid="${users[name].id}"]`)
                 if (lio) {
                     let message = document.querySelector(".target_private").innerText
@@ -203,89 +214,29 @@ async function privo() {
         }
     });
 }
-
-parentDiv.id = "conto"
-framo.src = "https://99f2537e-72f2-4e73-9898-cc9c6e98f207-00-aoo727xiohcd.janeway.replit.dev/";
-privt.style.display = "none"
-buttonsContainer.id = "buttonsContainer"
-list.id = "lista";
-zozdiv.id = "zoza";
-zozdiv.style.display = "none"
-button.id = "butto";
-button.innerText = "N"
-button0.id = "sw";
-button0.innerText = "G"
-button1.id = "sizec";
-button1.innerText = "S"
-namesSource.id = "noto";
-
-button2.id = "obs";
-button2.innerText = "observer"
-
-button0.onclick = function () {
-    if (this.innerText == "G") {
-        msg = "تتناكى صوت على جاتسىى,تاليجرام او جاستوك؟"
-        msg2 = "ياﻻ على اخرى مولع"
-        this.innerText = "B"
-        this.style.backgroundColor = "red"
-    }
-    else {
-        msg = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير"
-        msg2 = "انا على 35 سنه من المنصوره, ممكن نتعرف؟"
-        this.innerText = "G"
-        this.style.backgroundColor = "green"
-
-    }
-}
-button.onclick = function () {
-
-    if (females.size) {
-        females.clear()
-        this.style.backgroundColor = "red";
-        this.innerText = "F"
-        list.style.display = "none"
-        zozdiv.style.display = "";
-    }
-    else {
-        females = structuredClone(testFset)
-        button.style.backgroundColor = "green"
-        this.innerText = "N"
-        list.style.display = ""
-        zozdiv.style.display = "none";
-
-    }
-}
-button1.onclick = function () {
-
-    if (this.innerText == "S") {
-
-        parentDiv.style.display = "none"
-        this.innerText = "H"
-        this.style.backgroundColor = "red"
-    }
-    else {
-        parentDiv.style.display = "flex"
-        this.innerText = "S"
-        this.style.backgroundColor = "green"
-    }
-
-}
-button2.onclick = function () {
-    let butstr = this.innerText;
-    if (butstr.startsWith("o")) {
-        this.innerText = "Observer"
-        this.style.backgroundColor = "red"
-        observer.disconnect()
-        observerr.disconnect()
-    }
-    else {
-        this.innerText = "observer"
-        this.style.backgroundColor = "green"
-        observer.observe(elTarget, { childList: true, subtree: true, attributes: false, characterData: false });
-        observerr.observe(targetElement, { attributes: true });
-    }
-}
-style.textContent = `
+function instructions() {
+    parentDiv.id = "conto"
+    framo.src = "https://99f2537e-72f2-4e73-9898-cc9c6e98f207-00-aoo727xiohcd.janeway.replit.dev/";
+    privt.style.display = "none"
+    buttonsContainer.id = "buttonsContainer"
+    list.id = "lista";
+    zozdiv.id = "zoza";
+    zozdiv.style.display = "none"
+    button.id = "butto";
+    button.innerText = "N"
+    button0.id = "sw";
+    button0.innerText = "G"
+    button1.id = "sizec";
+    button1.innerText = "S"
+    namesSource.id = "noto";
+    button2.id = "obs";
+    button2.innerText = "O"
+    button3.id = "past"
+    button3.innerText = "clr"
+    buttonsContainer.append(button, button0, button1, button2, button3);
+    parentDiv.append(list, zozdiv, framo, namesSource);
+    elTarget.append(buttonsContainer, parentDiv);
+    style.textContent = `
 li {
     width: fit-content;
     cursor: pointer;
@@ -303,11 +254,10 @@ li {
 }
 #butto,
 #sw,
-#sizec,#obs{
+#sizec,#obs,#past{
     border-radius: 20%;
     background-color: green;
-    width:20%; 
-    border-right: 1px solid white;
+    width:18%;  
 }
 #noto {
     background-color: black;
@@ -387,10 +337,79 @@ li {
     list-style: decimal;
 }
 `
-buttonsContainer.append(button, button0, button1, button2)
-parentDiv.append(list, zozdiv, framo, namesSource);
-elTarget.append(buttonsContainer, parentDiv);
-document.head.append(style);
+    document.head.append(style);
+}
+button0.onclick = function () {
+    if (this.innerText == "G") {
+        msg = "تتناكى صوت على جاتسىى,تاليجرام او جاستوك؟"
+        msg2 = "ياﻻ على اخرى مولع"
+        this.innerText = "B"
+        this.style.backgroundColor = "red"
+    }
+    else {
+        msg = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير"
+        msg2 = "انا على 35 سنه من المنصوره, ممكن نتعرف؟"
+        this.innerText = "G"
+        this.style.backgroundColor = "green"
+
+    }
+}
+button.onclick = function () {
+    if (females.size) {
+        females.clear()
+        this.style.backgroundColor = "red";
+        this.innerText = "F"
+        list.style.display = "none"
+        zozdiv.style.display = "";
+    }
+    else {
+        females = structuredClone(testFset)
+        button.style.backgroundColor = "green"
+        this.innerText = "N"
+        list.style.display = ""
+        zozdiv.style.display = "none";
+
+    }
+}
+button1.onclick = function () {
+
+    if (this.innerText == "S") {
+
+        parentDiv.style.display = "none"
+        this.innerText = "H"
+        this.style.backgroundColor = "red"
+    }
+    else {
+        parentDiv.style.display = "flex"
+        this.innerText = "S"
+        this.style.backgroundColor = "green"
+    }
+
+}
+button2.onclick = function () {
+    let butstr = this.innerText;
+    if (butstr.startsWith("O")) {
+        this.innerText = "o"
+        this.style.backgroundColor = "red"
+        observer.disconnect()
+    }
+    else {
+        this.innerText = "O";
+        this.style.backgroundColor = "green";
+        observer.observe(elTarget, { childList: true, subtree: true, attributes: false, characterData: false });
+    }
+}
+button3.onclick = async function () {
+    sentHimBefore.clear();
+    localStorage.sent = "";
+    gotmsg.clear();
+    localStorage.msgd = "";
+    this.innerText = "Done";
+    this.style.backgroundColor = "red";
+    await sleep(3000);
+    this.innerText = "clr";
+    this.style.backgroundColor = "green";
+}
 function oh() {
     if (females.size) {
         button.click();
@@ -478,6 +497,13 @@ window.addEventListener('message', function (event) {
             females.add(data[1])
         }
         testFset.add(data[1])
+        let ozy = [...namesSource.children];
+        ozy.forEach(e => {
+            if (users[e.innerText].isFemale2) {
+                users[e.innerText].deleteMyLi();
+                doit(users[e.innerText]);
+            }
+        })
     }
     else if (/deleted from females/g.test(data[0])) {
         females.delete(data[1])
@@ -504,10 +530,9 @@ window.addEventListener('message', function (event) {
                 gotmsg = new Set(localStorage.msgd.split(","))
             }
             observer.observe(elTarget, { childList: true, subtree: true, attributes: false, characterData: false });
+            observer.isConnected = true;
             observerr.observe(targetElement, { attributes: true });
         }
     }
-    else {
-        console.log("no way");
-    }
-});   
+});
+instructions();    
