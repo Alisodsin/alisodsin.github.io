@@ -17,6 +17,7 @@ let elTarget = document.body.querySelector("#chat_logs_container"),
             for (let i = 0; i < last6.length; i++) {
                 if (!users[last6[i].innerText]) {
                     let user = new User(last6[i].innerText, last6[i].getAttribute("data-uid"));
+                    users[user.name] = user;
                     await doit(user);
                 }
             }
