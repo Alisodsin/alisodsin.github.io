@@ -291,7 +291,7 @@ li {
     display: flex;
     flex-direction: column;
     top: 10%;
-    width: 40vw;
+    width: 30vw;
     height:77%;
     left: 0px;
     margin: 0px;
@@ -303,7 +303,7 @@ li {
     position: fixed;
     display: flex;
     top: 6%;
-    width: 35vw;
+    width: 30vw;
     left: 0px;
     margin: 0px;
     direction: ltr;
