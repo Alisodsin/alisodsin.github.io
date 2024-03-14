@@ -303,7 +303,7 @@ li {
     position: fixed;
     display: flex;
     top: 6%;
-    width: 40vw;
+    width: 35vw;
     left: 0px;
     margin: 0px;
     direction: ltr;
