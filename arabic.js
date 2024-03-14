@@ -291,7 +291,7 @@ li {
     display: flex;
     flex-direction: column;
     top: 10%;
-    width: 30vw;
+    width: 40vw;
     height:77%;
     left: 0px;
     margin: 0px;
@@ -303,7 +303,7 @@ li {
     position: fixed;
     display: flex;
     top: 6%;
-    width: 30vw;
+    width:40vw;
     left: 0px;
     margin: 0px;
     direction: ltr;
@@ -313,10 +313,10 @@ li {
 }
 @media screen and (max-width:500px){
     #conto {
-        width:70%;
+        width:50%;
     }
     #buttonsContainer {
-        width:70%;
+        width:50%;
     }
 }
 #conto > * {
