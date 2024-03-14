@@ -349,8 +349,8 @@ li {
 }
 button0.onclick = function () {
     if (this.innerText == "G") {
-        msg = "تتناكى صوت على جاتسىى,تاليجرام او جاستوك؟"
-        msg2 = "ياﻻ على اخرى مولع"
+        msg = "ما تيجي انيكهولك يا أحبه واعبهولك لبن يا منيوكه 🥵 يالا جيتيسي او تيليجرام";
+        msg2 = "أو جاستوك , عندك ايه؟";
         this.innerText = "B"
         this.style.backgroundColor = "red"
     }
