@@ -7,12 +7,19 @@ let elTarget = document.body.querySelector("#chat_logs_container"),
     msg = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير",
     msg2 = "انا على 35 سنه من المنصوره, ممكن نتعرف",
     observer = new MutationObserver(async function () {
-        let lastF = fms[fms.length - 1];
-        console.log(lastF.innerText);
-        if (lastF.parentElement.innerText.includes("زائر")) {
-            let user = new User(lastF.innerText, lastF.getAttribute("data-uid"))
+        let last6 = [...fms].reverse().filter(x => x.parentElement.innerText.includes("زائر")).slice(0, 6);
+        let user = new User(last6[0].innerText, last6[0].getAttribute("data-uid"))
+        if (females.size) {
             users[user.name] = user;
-            doit(user);
+            await doit(user);
+        }
+        else {
+            for (let i = 0; i < last6.length; i++) {
+                if (!users[last6[i].innerText]) {
+                    let user = new User(last6[i].innerText, last6[i].getAttribute("data-uid"));
+                    await doit(user);
+                }
+            }
         }
     }),
     fms = document.getElementsByClassName("username bcolor23"),
@@ -303,7 +310,7 @@ li {
     position: fixed;
     display: flex;
     top: 6%;
-    width:40vw;
+    width: 40vw;
     left: 0px;
     margin: 0px;
     direction: ltr;
@@ -313,10 +320,10 @@ li {
 }
 @media screen and (max-width:500px){
     #conto {
-        width:50%;
+        width:53%;
     }
     #buttonsContainer {
-        width:50%;
+        width:53%;
     }
 }
 #conto > * {
@@ -532,6 +539,8 @@ window.addEventListener('message', function (event) {
             observer.observe(elTarget, { childList: true, subtree: true, attributes: false, characterData: false });
             observer.isConnected = true;
             observerr.observe(targetElement, { attributes: true });
+            document.querySelector(".modal_top_element.close_modal")?.click();
+            button.click();
         }
     }
 });
