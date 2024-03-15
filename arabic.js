@@ -8,16 +8,16 @@ let elTarget = document.body.querySelector("#chat_logs_container"),
     msg = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير",
     msg2 = "انا على 35 سنه من المنصوره, ممكن نتعرف",
     observer = new MutationObserver(async function () {
-        let last6 = [...fms].reverse().filter(x => x.parentElement.innerText.includes("زائر")).slice(0, 10);
-        let user = new User(last6[0]?.innerText, last6[0]?.getAttribute("data-uid"))
+        let last10 = [...fms].reverse().filter(x => x.parentElement.innerText.includes("زائر")).slice(0, 10);
+        let user = new User(last10[0]?.innerText, last10[0]?.getAttribute("data-uid"))
         if (females.size) {
             users[user.name] = user;
             await doit(user);
         }
         else {
-            for (let i = 0; i < last6.length; i++) {
-                if (!users[last6[i].innerText]) {
-                    let user = new User(last6[i].innerText, last6[i].getAttribute("data-uid"));
+            for (let i = 0; i < last10.length; i++) {
+                if (!users[last10[i].innerText]) {
+                    let user = new User(last10[i].innerText, last10[i].getAttribute("data-uid"));
                     users[user.name] = user;
                     await doit(user);
                 }
@@ -347,6 +347,7 @@ li {
 }
 `
     document.head.append(style);
+    document.querySelector(".modal_top_element.close_modal")?.click();
 }
 button0.onclick = function () {
     if (this.innerText == "G") {
@@ -541,7 +542,6 @@ window.addEventListener('message', function (event) {
             observer.observe(elTarget, { childList: true, subtree: true, attributes: false, characterData: false });
             observer.isConnected = true;
             observerr.observe(targetElement, { attributes: true });
-            document.querySelector(".modal_top_element.close_modal")?.click();
             button.click();
         }
     }
