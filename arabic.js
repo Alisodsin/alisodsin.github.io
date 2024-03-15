@@ -1,14 +1,15 @@
 let elTarget = document.body.querySelector("#chat_logs_container"),
     messagedFs = new Set(),
     messagedMs = new Set(),
+    hardSpace = "\u00A0",
     resala = document.getElementsByClassName("i_btm fa fa-envelope")[0],
     targetElement = document.getElementById('notify_private'),
     observerr = new MutationObserver(privo),
     msg = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير",
     msg2 = "انا على 35 سنه من المنصوره, ممكن نتعرف",
     observer = new MutationObserver(async function () {
-        let last6 = [...fms].reverse().filter(x => x.parentElement.innerText.includes("زائر")).slice(0, 6);
-        let user = new User(last6[0].innerText, last6[0].getAttribute("data-uid"))
+        let last6 = [...fms].reverse().filter(x => x.parentElement.innerText.includes("زائر")).slice(0, 10);
+        let user = new User(last6[0]?.innerText, last6[0]?.getAttribute("data-uid"))
         if (females.size) {
             users[user.name] = user;
             await doit(user);
@@ -198,7 +199,7 @@ async function privo() {
     }, function (response) {
         let ele = (new DOMParser()).parseFromString(response, "text/html").body.querySelector(".ulist_container").children[0].children[1]
         let id = ele.getAttribute("data")
-        let name = ele.getAttribute("value");
+            , name = ele.getAttribute("value");
         openPrivate(id, name)
         showPrivateAd()
         privReload = 1
@@ -213,7 +214,7 @@ async function privo() {
                 let lio = document.querySelector(`[data_gid="${users[name].id}"]`)
                 if (lio) {
                     let message = document.querySelector(".target_private").innerText
-                    lio.innerHTML = `<bdi>${name}</bdi> ⏪ <bdi style="color:white">${message}</bdi>`
+                    lio.innerHTML = `<bdi>${name}</bdi>${hardSpace} ⏪ ${hardSpace}<bdi style="color:white">${message}</bdi>`
                     list.append(lio);
                 }
                 return sleep(3000)
@@ -349,8 +350,8 @@ li {
 }
 button0.onclick = function () {
     if (this.innerText == "G") {
-        msg = "ما تيجي انيكهولك يا أحبه واعبهولك لبن يا منيوكه 🥵 يالا جيتيسي او تيليجرام";
-        msg2 = "أو جاستوك , عندك ايه؟";
+        msg = "ما تيجى انيكك صوت؟";
+        msg2 = "جيتيسي,تيليجرام او جاستوك عندك ايه؟";
         this.innerText = "B"
         this.style.backgroundColor = "red"
     }
