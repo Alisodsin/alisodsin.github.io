@@ -47,6 +47,15 @@ let elTarget = document.body.querySelector("#chat_logs_container"),
     closo = document.getElementById("private_close"),
     users = {};
 
+async function getAllUsers() {
+    return fetch("/system/action.php", {
+        method: 'POST',
+        body: new URLSearchParams({
+            token: utk,
+            get_userlist: "1"
+        })
+    })
+}
 class User {
     constructor(name, id) {
         this.name = name;
@@ -500,7 +509,7 @@ function checkForFemaleName(str, set) {
     }
     return false;
 }
-window.addEventListener('message', function (event) {
+window.addEventListener('message', async function (event) {
     let data = event.data;
     if (/inserted females/g.test(data[0])) {
         if (females.size) {
@@ -540,9 +549,16 @@ window.addEventListener('message', function (event) {
                 gotmsg = new Set(localStorage.msgd.split(","))
             }
             observer.observe(elTarget, { childList: true, subtree: true, attributes: false, characterData: false });
-            observer.isConnected = true;
             observerr.observe(targetElement, { attributes: true });
             button.click();
+            let females = await getAllUsers();
+            females = await females.json();
+            females = females["online"].filter(e => e[4] == "2" && e[9][1] == "زائر")
+            for (let female of females) {
+                let user = new User(female[1], female[0]);
+                users[female[1]] = user;
+                await doit(user);
+            }
         }
     }
 });
