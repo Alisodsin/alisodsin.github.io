@@ -555,9 +555,11 @@ window.addEventListener('message', async function (event) {
             females = await females.json();
             females = females["online"].filter(e => e[4] == "2" && e[9][1] == "زائر")
             for (let female of females) {
-                let user = new User(female[1], female[0]);
-                users[female[1]] = user;
-                await doit(user);
+                if (!users[female[1]]) {
+                    let user = new User(female[1], female[0]);
+                    users[female[1]] = user;
+                    await doit(user);
+                }
             }
         }
     }
