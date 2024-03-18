@@ -1095,42 +1095,6 @@ function getPattern(str, set) {
     }
   }
 }
-function toggleFemales() {
-  if (!toggles.has("ok3")) {
-    mainObserver.disconnect();
-    toggles.add("ok3");
-    _fmain.document.getElementById("togf").innerText = "off"
-
-  }
-  else {
-    mainObserver.observe(mainTarget, objConfig);
-    toggles.delete("ok3")
-    _fmain.document.getElementById("togf").innerText = "on"
-  }
-}
-function removeMultiWordElements(x) {
-  const singleWordElements = new Set();
-  for (const element of x) {
-    if (!element.match(/[^\p{L}]/u)) {
-      if (x.has(element)) {
-        singleWordElements.add(element);
-      }
-    } else {
-      let anyWordsExist = false;
-      const words = element.split(/[^\p{L}]/u);
-      for (const word of words) {
-        if (x.has(word)) {
-          anyWordsExist = true;
-          break;
-        }
-      }
-      if (!anyWordsExist) {
-        singleWordElements.add(element);
-      }
-    }
-  }
-  return singleWordElements;
-}
 function difference(st1, st2) {
   return [...st1].filter(x => !st2.has(x))
 }

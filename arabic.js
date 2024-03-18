@@ -25,6 +25,12 @@ let elTarget = document.body.querySelector("#chat_logs_container"),
         }
     }),
     fms = document.getElementsByClassName("username bcolor23"),
+    privateBox = document.querySelector("#private_box"),
+    privateBoxObserver = new MutationObserver(e => {
+        if (e[0].target.style.display == "block" && button.innerText == "N") {
+            button.click();
+        }
+    }),
     list = document.createElement("ol"),
     zozdiv = document.createElement("ol"),
     button = document.createElement("button"),
@@ -144,11 +150,7 @@ async function doit(user) {
         li.setAttribute("data_gid", user.id)
         li.onclick = function () {
             if (privt.style.display == "none") {
-                openPrivate(user.id, user.name)
-                showPrivateAd()
-                privReload = 1
-                lastPriv = 0
-                chat_reload(true);
+                openPrivateBox(user.id, user.name)
             }
             else {
                 if (document.querySelector(".bellips").innerText == this.innerText) {
@@ -541,6 +543,12 @@ window.addEventListener('message', async function (event) {
             }
             observer.observe(elTarget, { childList: true, subtree: true, attributes: false, characterData: false });
             observerr.observe(targetElement, { attributes: true });
+            setTimeout(_ => {
+                privateBoxObserver.observe(privateBox, {
+                    attributes: true,
+                    attributeFilter: ['style']
+                });
+            }, 3000)
             button.click();
             let females = await getAllUsers();
             females = await females.json();
