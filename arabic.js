@@ -498,15 +498,6 @@ function checkForFemaleName(str, set) {
             }
         }
     }
-    if (str.includes("د")) {
-        let stro = str.replaceAll("د", "د ")
-        words = stro.split(/\s/);
-        for (const word of words) {
-            if (set.has(word.toLowerCase())) {
-                return true;
-            }
-        }
-    }
     return false;
 }
 window.addEventListener('message', async function (event) {
