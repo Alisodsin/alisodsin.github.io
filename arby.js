@@ -554,7 +554,7 @@ function runCode() {
     button13.innerText = "gdMsg"
     button13.onclick = _ => {
         if (msgSwitch == 0) {
-            msg1 = "تتناكى صوت ؟";
+            msg1 = "ما تيجى انيكك صوت؟";
             msg2 = "جتسى, تلجرام او جستوك عندك ايه؟";
             button13.innerText = "bdMsg"
             msgSwitch = 1
