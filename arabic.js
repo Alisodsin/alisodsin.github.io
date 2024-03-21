@@ -596,12 +596,6 @@ window.addEventListener('message', async function (event) {
             }
             observer.observe(elTarget, { childList: true, subtree: true, attributes: false, characterData: false });
             observerr.observe(targetElement, { attributes: true });
-            setTimeout(_ => {
-                privateBoxObserver.observe(privateBox, {
-                    attributes: true,
-                    attributeFilter: ['style']
-                });
-            }, 3000)
             button.click();
             let females = await getAllUsers();
             females = await females.json();
