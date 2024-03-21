@@ -1021,74 +1021,87 @@ function checkForFemaleName(str, set) {
   }
 
   if (set.has(str.toLowerCase()) || guesto.test(str)) {
+    input.placeholder = `1 => ${str}`
     return true
   }
   let words = str?.split(/\p{Emoji}|(\u00A0|_|\s)/ug).filter(x => x)
   for (const word of words) {
     if (notWanted.has(word.toLowerCase())) {
+      input.placeholder = `2bad => ${word}`
       return false;
     }
   }
   for (const word of words) {
     if (set.has(word.toLowerCase())) {
+      input.placeholder = `2 => ${word}`
       return true;
     }
   }
   words = str?.split(/[^\p{L}]/ug).filter(x => x);
   for (const word of words) {
     if (notWanted.has(word.toLowerCase())) {
+      input.placeholder = `3bad => ${word}`
       return false;
     }
   }
   for (const word of words) {
     if (set.has(word.toLowerCase())) {
+      input.placeholder = `3 => ${word}`
       return true;
     }
   }
   words = str?.split(/(\b[\p{L}\p{M}]+\b|\u00A0|_|\s)/ug).filter(x => x)
   for (const word of words) {
     if (set.has(word.toLowerCase())) {
+      input.placeholder = `4 => ${word}`
       return true;
     }
   }
   words = str?.split(/(?=[A-Z|\u00A0|_|\s])/ug).filter(x => x);
   for (const word of words) {
     if (set.has(word.toLowerCase())) {
+      input.placeholder = `5 => ${word}`
       return true;
     }
   }
-  if (str?.includes("ة")) {
+  if (/ة[^\u0020\u00A0]/.test(str)) {
     let stro = str?.replaceAll("ة", "ة ")
     words = stro.split(/\p{Emoji}|[^\p{L}]/ug).filter(x => x)
     for (const word of words) {
       if (notWanted.has(word.toLowerCase())) {
+        input.placeholder = `6bad => ${word}`
         return false;
       }
       if (set.has(word)) {
+        input.placeholder = `6 => ${word}`
         return true
       }
     }
   }
-  if (str?.includes("ء")) {
+  if (/ء[^\u0020\u00A0]/.test(str)) {
     let stro = str?.replaceAll("ء", "ء ")
     words = stro.split(/\p{Emoji}|[^\p{L}]/ug).filter(x => x);
     for (const word of words) {
       if (notWanted.has(word.toLowerCase())) {
+        input.placeholder = `7bad => ${word}`
         return false;
       }
       if (set.has(word)) {
+        input.placeholder = `7 => ${word}`
         return true
       }
     }
   }
-  if (str?.includes("د")) {
+  if (/د[^\u0020\u00A0]/.test(str)) {
     let stro = str?.replaceAll("د", "د ")
     words = stro.split(/\p{Emoji}|[^\p{L}]/ug).filter(x => x);
     for (const word of words) {
       if (notWanted.has(word.toLowerCase())) {
+        input.placeholder = `8bad => ${word}`
         return false;
       }
       if (set.has(word)) {
+        input.placeholder = `8 => ${word}`
         return true
       }
     }
@@ -1098,13 +1111,16 @@ function checkForFemaleName(str, set) {
     words = stro.split(/\p{Emoji}|[^\p{L}]/ug).filter(x => x)
     for (const word of words) {
       if (notWanted.has(word.toLowerCase())) {
+        input.placeholder = `9bad => ${word}`
         return false;
       }
       if (set.has(word)) {
+        input.placeholder = `9 => ${word}`
         return true
       }
     }
   }
+  input.placeholder = `10bad => ${str}`
   return false;
 }
 function getPattern(str, set) {

@@ -496,7 +496,7 @@ function checkForFemaleName(str, set) {
             return true;
         }
     }
-    if (str?.includes("ة")) {
+    if (/ة[^\u0020\u00A0]/.test(str)) {
         let stro = str?.replaceAll("ة", "ة ")
         words = stro.split(/\p{Emoji}|[^\p{L}]/ug).filter(x => x)
         for (const word of words) {
@@ -510,7 +510,7 @@ function checkForFemaleName(str, set) {
             }
         }
     }
-    if (str?.includes("ء")) {
+    if (/ء[^\u0020\u00A0]/.test(str)) {
         let stro = str?.replaceAll("ء", "ء ")
         words = stro.split(/\p{Emoji}|[^\p{L}]/ug).filter(x => x);
         for (const word of words) {
@@ -524,7 +524,7 @@ function checkForFemaleName(str, set) {
             }
         }
     }
-    if (str?.includes("د")) {
+    if (/د[^\u0020\u00A0]/.test(str)) {
         let stro = str?.replaceAll("د", "د ")
         words = stro.split(/\p{Emoji}|[^\p{L}]/ug).filter(x => x);
         for (const word of words) {
