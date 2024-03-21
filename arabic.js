@@ -1,7 +1,9 @@
 let elTarget = document.body.querySelector("#chat_logs_container"),
     messagedFs = new Set(),
     messagedMs = new Set(),
+    kashida = "ـ",
     hardSpace = "\u00A0",
+    input = document.querySelector("#main_input_box").children[0],
     resala = document.getElementsByClassName("i_btm fa fa-envelope")[0],
     targetElement = document.getElementById('notify_private'),
     observerr = new MutationObserver(privo),
@@ -136,7 +138,7 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 async function doit(user) {
-    if (!user.isSessionRecordInFemales && !user.isZozed && user.isFemale1) {
+    if (females.size && !user.isSessionRecordInFemales && !user.isZozed && user.isFemale1) {
         user.sessionRecordinFemales();
         let li = document.createElement("li");
         if (user.hasPast) {
@@ -442,64 +444,115 @@ function no() {
     }
 }
 function checkForFemaleName(str, set) {
-    if (str.includes("|")) {
+    if (str?.includes("|")) {
         return false
     }
-    if (set.has(str.toLowerCase())) {
+    if (str?.includes(kashida)) {
+        str = str.replaceAll(kashida, "")
+    }
+
+    if (set.has(str?.toLowerCase())) {
+        console.log("1", str);
+        input.value = `1 => ${str}`
         return true
     }
-    let words = str.split(/(\u00A0|_|\s)/)
+    let words = str?.split(/\p{Emoji}|(\u00A0|_|\s)/ug).filter(x => x)
     for (const word of words) {
         if (males.has(word.toLowerCase())) {
+            input.value = `2bad => ${word}`
             return false;
         }
     }
     for (const word of words) {
         if (set.has(word.toLowerCase())) {
+            input.value = `2 => ${word}`
             return true;
         }
     }
-    words = str.split(/[^\p{L}]/u);
+    words = str?.split(/[^\p{L}]/ug).filter(x => x);
     for (const word of words) {
         if (males.has(word.toLowerCase())) {
+            input.value = `3bad => ${word}`
             return false;
         }
     }
     for (const word of words) {
         if (set.has(word.toLowerCase())) {
+            input.value = `3 => ${word}`
             return true;
         }
     }
-    words = str.split(/(\b[\p{L}\p{M}]+\b|\u00A0|_|\s)/ug)
+    words = str?.split(/(\b[\p{L}\p{M}]+\b|\u00A0|_|\s)/ug).filter(x => x)
     for (const word of words) {
         if (set.has(word.toLowerCase())) {
+            input.value = `4 => ${word}`
             return true;
         }
     }
-    words = str.split(/(?=[A-Z|\u00A0|_|\s])/);
+    words = str?.split(/(?=[A-Z|\u00A0|_|\s])/ug).filter(x => x);
     for (const word of words) {
         if (set.has(word.toLowerCase())) {
+            input.value = `5 => ${word}`
             return true;
         }
     }
-    if (str.includes("ة")) {
-        let stro = str.replaceAll("ة", "ة ")
-        words = stro.split(/\s/);
+    if (str?.includes("ة")) {
+        let stro = str?.replaceAll("ة", "ة ")
+        words = stro.split(/\p{Emoji}|[^\p{L}]/ug).filter(x => x)
         for (const word of words) {
-            if (set.has(word.toLowerCase())) {
-                return true;
+            if (males.has(word.toLowerCase())) {
+                input.value = `6bad => ${word}`
+                return false;
+            }
+            if (set.has(word)) {
+                input.value = `6 => ${word}`
+                return true
             }
         }
     }
-    if (str.includes("ء")) {
-        let stro = str.replaceAll("ء", "ء ")
-        words = stro.split(/\s/);
+    if (str?.includes("ء")) {
+        let stro = str?.replaceAll("ء", "ء ")
+        words = stro.split(/\p{Emoji}|[^\p{L}]/ug).filter(x => x);
         for (const word of words) {
-            if (set.has(word.toLowerCase())) {
-                return true;
+            if (males.has(word.toLowerCase())) {
+                input.value = `7bad => ${word}`
+                return false;
+            }
+            if (set.has(word)) {
+                input.value = `7 => ${word}`
+                return true
             }
         }
     }
+    if (str?.includes("د")) {
+        let stro = str?.replaceAll("د", "د ")
+        words = stro.split(/\p{Emoji}|[^\p{L}]/ug).filter(x => x);
+        for (const word of words) {
+            if (males.has(word.toLowerCase())) {
+                input.value = `8bad => ${word}`
+                return false;
+            }
+            if (set.has(word)) {
+                input.value = `8 => ${word}`
+                return true
+            }
+        }
+    }
+    if (/^(ال|أل)/.test(str)) {
+        let stro = str.replaceAll(/^(ال|أل)/ug, "")
+        words = stro.split(/\p{Emoji}|[^\p{L}]/ug).filter(x => x)
+        for (const word of words) {
+            if (males.has(word.toLowerCase())) {
+                input.value = `9bad => ${word}`
+                return false;
+            }
+            if (set.has(word)) {
+                input.value = `9 => ${word}`
+                return true
+            }
+        }
+    }
+    input.value = `10bad => ${str}`
     return false;
 }
 window.addEventListener('message', async function (event) {
