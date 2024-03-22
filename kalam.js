@@ -23,6 +23,7 @@ let check = setInterval(_ => {
   messages = new Set(),
   notWanted = new Set(),
   randomizeMessage = false,
+  dontCheckAgain = new Set(),
   shaf,
   sham,
   shrr3,
@@ -81,11 +82,11 @@ let check = setInterval(_ => {
     if (joiningPplClass.length >= 1) {
       joinPerson = [...joiningPplClass].at(-1);
       join = joinPerson?.innerText
-      if ((!stream[join] && joinPerson.nextSibling.data.includes("Joine")) && !malesNames.has(join) && (join in users) && (regex.test(join) || checkForFemaleName(join, femalesNames))) {
+      if ((femalesNames.size && !stream[join] && joinPerson.nextSibling.data.includes("Joine")) && !malesNames.has(join) && (join in users) && (regex.test(join) || checkForFemaleName(join, femalesNames))) {
         doIt(join);
       }
       else if (!malesNames.has(join) && !personsGotMyMsg1.has(join) && !/^Kalamngy_\d{0,}$|Guest/ig.test(join) && (join in users) && _fwindowlist.currentwindow == roomName && !joinPerson.previousSibling.textContent.includes("made")) {
-        if (!zozo.has(join) && checkForFemaleName(join, testFset)) {
+        if (!zozo.has(join) && !dontCheckAgain.has(join) && checkForFemaleName(join, testFset)) {
           zozo.add(join)
           displayDiv.innerHTML = `<span style="font-size: 1.5em;"><bdi style="color:green">"${join}"</bdi></span>`
         }
@@ -177,7 +178,7 @@ function runCode() {
       containersDiv.style.padding = "0"
       _fwindowlist["Witems"] = new Proxy(_fwindowlist["Witems"], {
         set(target, p, v) {
-          if (checkForFemaleName(p, testFset) || p == myNick || personsGotMyMsg1.has(p)) {
+          if (personsGotMyMsg1.has(p) || p == myNick || checkForFemaleName(p, testFset)) {
             return Reflect.set(target, p, v)
           }
           else {
@@ -507,7 +508,6 @@ function runCode() {
             if (switcherc.innerText == "males") {
               switcherc.click();
             }
-            console.log("sync local females");
             dfr.forEach(e => {
               inputc.value = e
               butAddL.click()
@@ -521,7 +521,6 @@ function runCode() {
             if (switcherc.innerText == "females") {
               switcherc.click();
             }
-            console.log("sync local males");
             dfm.forEach(e => {
               inputc.value = e
               butAddL.click()
@@ -648,7 +647,7 @@ async function sentTwoMsgs() {
 async function defineMySelf() {
   if (_fwindowlist.currentwindow != roomName) {
     let personName = _fwindowlist.currentwindow;
-    await kalamngySend(personName, "على 42 سنه , منصوره");
+    await kalamngySend(personName, "على 35 سنه , منصوره");
     kalamngySend(personName, "وانتى؟");
   }
 }
@@ -659,7 +658,6 @@ async function restart() {
     _fwindowlist.reconnect();
     await sleep(1000);
     let check = setInterval(_ => {
-      console.log("ali");
       if (_fwindowlist.currentwindow == roomName) {
         users = _fwindowlist?.Witems?.[roomName]?.users;
         _fwindowlist["Witems"][roomName]["users"] = new Proxy(_fwindowlist["Witems"][roomName]["users"], {
@@ -1013,7 +1011,9 @@ _fmain.document.addEventListener('click', function (event) {
   }
 });
 function checkForFemaleName(str, set) {
+  let original = str;
   if (str.includes("|")) {
+    dontCheckAgain.add(original)
     return false
   }
   if (str?.includes(kashida)) {
@@ -1021,46 +1021,41 @@ function checkForFemaleName(str, set) {
   }
 
   if (set.has(str.toLowerCase()) || guesto.test(str)) {
-    input.placeholder = `1 => ${str}`
     return true
   }
-  let words = str?.split(/\p{Emoji}|(\u00A0|_|\s)/ug).filter(x => x)
+  let words = str?.split(/[^\p{L}\p{N}]+/ug).filter(x => x)
   for (const word of words) {
     if (notWanted.has(word.toLowerCase())) {
-      input.placeholder = `2bad => ${word}`
+      dontCheckAgain.add(original)
       return false;
     }
   }
   for (const word of words) {
     if (set.has(word.toLowerCase())) {
-      input.placeholder = `2 => ${word}`
       return true;
     }
   }
   words = str?.split(/[^\p{L}]/ug).filter(x => x);
   for (const word of words) {
     if (notWanted.has(word.toLowerCase())) {
-      input.placeholder = `3bad => ${word}`
+      dontCheckAgain.add(original)
       return false;
     }
   }
   for (const word of words) {
     if (set.has(word.toLowerCase())) {
-      input.placeholder = `3 => ${word}`
       return true;
     }
   }
   words = str?.split(/(\b[\p{L}\p{M}]+\b|\u00A0|_|\s)/ug).filter(x => x)
   for (const word of words) {
     if (set.has(word.toLowerCase())) {
-      input.placeholder = `4 => ${word}`
       return true;
     }
   }
   words = str?.split(/(?=[A-Z|\u00A0|_|\s])/ug).filter(x => x);
   for (const word of words) {
     if (set.has(word.toLowerCase())) {
-      input.placeholder = `5 => ${word}`
       return true;
     }
   }
@@ -1069,11 +1064,10 @@ function checkForFemaleName(str, set) {
     words = stro.split(/\p{Emoji}|[^\p{L}]/ug).filter(x => x)
     for (const word of words) {
       if (notWanted.has(word.toLowerCase())) {
-        input.placeholder = `6bad => ${word}`
+        dontCheckAgain.add(original)
         return false;
       }
       if (set.has(word)) {
-        input.placeholder = `6 => ${word}`
         return true
       }
     }
@@ -1083,11 +1077,10 @@ function checkForFemaleName(str, set) {
     words = stro.split(/\p{Emoji}|[^\p{L}]/ug).filter(x => x);
     for (const word of words) {
       if (notWanted.has(word.toLowerCase())) {
-        input.placeholder = `7bad => ${word}`
+        dontCheckAgain.add(original)
         return false;
       }
       if (set.has(word)) {
-        input.placeholder = `7 => ${word}`
         return true
       }
     }
@@ -1097,11 +1090,10 @@ function checkForFemaleName(str, set) {
     words = stro.split(/\p{Emoji}|[^\p{L}]/ug).filter(x => x);
     for (const word of words) {
       if (notWanted.has(word.toLowerCase())) {
-        input.placeholder = `8bad => ${word}`
+        dontCheckAgain.add(original)
         return false;
       }
       if (set.has(word)) {
-        input.placeholder = `8 => ${word}`
         return true
       }
     }
@@ -1111,16 +1103,15 @@ function checkForFemaleName(str, set) {
     words = stro.split(/\p{Emoji}|[^\p{L}]/ug).filter(x => x)
     for (const word of words) {
       if (notWanted.has(word.toLowerCase())) {
-        input.placeholder = `9bad => ${word}`
+        dontCheckAgain.add(original)
         return false;
       }
       if (set.has(word)) {
-        input.placeholder = `9 => ${word}`
         return true
       }
     }
   }
-  input.placeholder = `10bad => ${str}`
+  dontCheckAgain.add(original)
   return false;
 }
 function getPattern(str, set) {
