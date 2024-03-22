@@ -452,47 +452,39 @@ function checkForFemaleName(str, set) {
     }
 
     if (set.has(str?.toLowerCase())) {
-        console.log("1", str);
-        input.value = `1 => ${str}`
         return true
     }
-    let words = str?.split(/\p{Emoji}|(\u00A0|_|\s)/ug).filter(x => x)
+    let words = str?.str?.split(/[^\p{L}\p{N}]+/ug).filter(x => x)
     for (const word of words) {
         if (males.has(word.toLowerCase())) {
-            input.value = `2bad => ${word}`
             return false;
         }
     }
     for (const word of words) {
         if (set.has(word.toLowerCase())) {
-            input.value = `2 => ${word}`
             return true;
         }
     }
     words = str?.split(/[^\p{L}]/ug).filter(x => x);
     for (const word of words) {
         if (males.has(word.toLowerCase())) {
-            input.value = `3bad => ${word}`
             return false;
         }
     }
     for (const word of words) {
         if (set.has(word.toLowerCase())) {
-            input.value = `3 => ${word}`
             return true;
         }
     }
     words = str?.split(/(\b[\p{L}\p{M}]+\b|\u00A0|_|\s)/ug).filter(x => x)
     for (const word of words) {
         if (set.has(word.toLowerCase())) {
-            input.value = `4 => ${word}`
             return true;
         }
     }
     words = str?.split(/(?=[A-Z|\u00A0|_|\s])/ug).filter(x => x);
     for (const word of words) {
         if (set.has(word.toLowerCase())) {
-            input.value = `5 => ${word}`
             return true;
         }
     }
@@ -501,11 +493,9 @@ function checkForFemaleName(str, set) {
         words = stro.split(/\p{Emoji}|[^\p{L}]/ug).filter(x => x)
         for (const word of words) {
             if (males.has(word.toLowerCase())) {
-                input.value = `6bad => ${word}`
                 return false;
             }
             if (set.has(word)) {
-                input.value = `6 => ${word}`
                 return true
             }
         }
@@ -515,11 +505,9 @@ function checkForFemaleName(str, set) {
         words = stro.split(/\p{Emoji}|[^\p{L}]/ug).filter(x => x);
         for (const word of words) {
             if (males.has(word.toLowerCase())) {
-                input.value = `7bad => ${word}`
                 return false;
             }
             if (set.has(word)) {
-                input.value = `7 => ${word}`
                 return true
             }
         }
@@ -529,11 +517,9 @@ function checkForFemaleName(str, set) {
         words = stro.split(/\p{Emoji}|[^\p{L}]/ug).filter(x => x);
         for (const word of words) {
             if (males.has(word.toLowerCase())) {
-                input.value = `8bad => ${word}`
                 return false;
             }
             if (set.has(word)) {
-                input.value = `8 => ${word}`
                 return true
             }
         }
@@ -543,16 +529,13 @@ function checkForFemaleName(str, set) {
         words = stro.split(/\p{Emoji}|[^\p{L}]/ug).filter(x => x)
         for (const word of words) {
             if (males.has(word.toLowerCase())) {
-                input.value = `9bad => ${word}`
                 return false;
             }
             if (set.has(word)) {
-                input.value = `9 => ${word}`
                 return true
             }
         }
     }
-    input.value = `10bad => ${str}`
     return false;
 }
 window.addEventListener('message', async function (event) {
