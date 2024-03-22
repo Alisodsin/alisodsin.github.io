@@ -82,7 +82,7 @@ let check = setInterval(_ => {
     if (joiningPplClass.length >= 1) {
       joinPerson = [...joiningPplClass].at(-1);
       join = joinPerson?.innerText
-      if ((femalesNames.size && !stream[join] && joinPerson.nextSibling.data.includes("Joine")) && !malesNames.has(join) && (join in users) && (regex.test(join) || checkForFemaleName(join, femalesNames))) {
+      if ((!stream[join] && joinPerson.nextSibling.data.includes("Joine")) && !malesNames.has(join) && (join in users) && (regex.test(join) || (femalesNames.size && checkForFemaleName(join, femalesNames)))) {
         doIt(join);
       }
       else if (!malesNames.has(join) && !personsGotMyMsg1.has(join) && !/^Kalamngy_\d{0,}$|Guest/ig.test(join) && (join in users) && _fwindowlist.currentwindow == roomName && !joinPerson.previousSibling.textContent.includes("made")) {
@@ -1007,7 +1007,6 @@ _fmain.document.addEventListener('click', function (event) {
     if (!personsGotMyMsg1.has(txt)) {
       doIt(txt);
     }
-
   }
 });
 function checkForFemaleName(str, set) {

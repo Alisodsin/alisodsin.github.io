@@ -13,6 +13,7 @@ sweetAlert.src = "https://sweetalert.js.org/assets/sweetalert/sweetalert.min.js"
     messages = new Set(),
     males = new Set(),
     add = false,
+    kashida = "ـ",
     blockedPPl = new Set(),
     secondRepleyers = new Set(),
     objConfig = {
@@ -222,7 +223,6 @@ function runCode() {
     }
     window.onkeydown = e => {
 
-        console.log(e.key)
 
         if (e.key == "F1") {
             closeCurrentPerson();
@@ -346,7 +346,7 @@ function runCode() {
     function blockCurrentPerson() {
         let _id = input.getAttribute("name")
         id("hsp").click()
-        id(_id).children[1].click() // block
+        id(_id).children[1].click() // block 
         id(_id).children[2].click() // close
         blockedPPl.add(_id)
         id("onp").click()
@@ -415,25 +415,18 @@ function runCode() {
             if (!pplJoin.style.display) {
                 tile.textContent = `UsersCount : ${allPeople.length}`
                 id(data[0]).scrollIntoView()
-
             }
         }
     });
-
     function checkBad(da) {
         for (let bad of fucking) {
-            console.log(bad);
             if (da.includes(bad)) {
                 return false
-
             }
         }
-        console.log(20);
         return true;
     }
     socket.on("ig", data => {
-
-
         if (checkBad(data[2])) {
             if (!blockedPPl.has(data[0]) && !oltEsmy.has(data[0])) {
                 let thisPersonReplyMe = document.createElement("li")
@@ -454,7 +447,6 @@ function runCode() {
                 audio.play().catch(_ => true)
                 if (add && !messages.has(data[2].trim())) {
                     messages.add(data[2].trim());
-                    console.log(`${data[2]}`);
                 }
                 oltEsmy.add(data[0]);
             }
@@ -485,7 +477,6 @@ function runCode() {
         else {
             document.getElementById(data[0]).children[2].click();
             document.querySelector(`[custom_id=${data[0]}]`)?.remove();
-            console.log(`${data[1]}`)
         }
 
 
@@ -671,13 +662,17 @@ function runCode() {
             -ms-transform: translate(-50%, 0%)
         }`
     function checkForFemaleName(str, set) {
-        if (str.includes("|")) {
+        if (str?.includes("|")) {
             return false
         }
-        if (set.has(str.toLowerCase())) {
+        if (str?.includes(kashida)) {
+            str = str.replaceAll(kashida, "")
+        }
+
+        if (set.has(str?.toLowerCase())) {
             return true
         }
-        let words = str.split(/(\u00A0|_|\s)/)
+        let words = str?.split(/[^\p{L}\p{N}]+/ug).filter(x => x)
         for (const word of words) {
             if (males.has(word.toLowerCase())) {
                 return false;
@@ -688,7 +683,7 @@ function runCode() {
                 return true;
             }
         }
-        words = str.split(/[^\p{L}]/u);
+        words = str?.split(/[^\p{L}]/ug).filter(x => x);
         for (const word of words) {
             if (males.has(word.toLowerCase())) {
                 return false;
@@ -699,38 +694,69 @@ function runCode() {
                 return true;
             }
         }
-        words = str.split(/(\b[\p{L}\p{M}]+\b|\u00A0|_|\s)/ug)
+        words = str?.split(/(\b[\p{L}\p{M}]+\b|\u00A0|_|\s)/ug).filter(x => x)
         for (const word of words) {
             if (set.has(word.toLowerCase())) {
                 return true;
             }
         }
-        words = str.split(/(?=[A-Z|\u00A0|_|\s])/);
+        words = str?.split(/(?=[A-Z|\u00A0|_|\s])/ug).filter(x => x);
         for (const word of words) {
             if (set.has(word.toLowerCase())) {
                 return true;
             }
         }
-        if (str.includes("ة")) {
-            let stro = str.replaceAll("ة", "ة ")
-            words = stro.split(/\s/);
+        if (/ة[^\u0020\u00A0]/.test(str)) {
+            let stro = str?.replaceAll("ة", "ة ")
+            words = stro.split(/\p{Emoji}|[^\p{L}]/ug).filter(x => x)
             for (const word of words) {
-                if (set.has(word.toLowerCase())) {
-                    return true;
+                if (males.has(word.toLowerCase())) {
+                    return false;
+                }
+                if (set.has(word)) {
+                    return true
                 }
             }
         }
-        if (str.includes("ء")) {
-            let stro = str.replaceAll("ء", "ء ")
-            words = stro.split(/\s/);
+        if (/ء[^\u0020\u00A0]/.test(str)) {
+            let stro = str?.replaceAll("ء", "ء ")
+            words = stro.split(/\p{Emoji}|[^\p{L}]/ug).filter(x => x);
             for (const word of words) {
-                if (set.has(word.toLowerCase())) {
-                    return true;
+                if (males.has(word.toLowerCase())) {
+                    return false;
+                }
+                if (set.has(word)) {
+                    return true
+                }
+            }
+        }
+        if (/د[^\u0020\u00A0]/.test(str)) {
+            let stro = str?.replaceAll("د", "د ")
+            words = stro.split(/\p{Emoji}|[^\p{L}]/ug).filter(x => x);
+            for (const word of words) {
+                if (males.has(word.toLowerCase())) {
+                    return false;
+                }
+                if (set.has(word)) {
+                    return true
+                }
+            }
+        }
+        if (/^(ال|أل)/.test(str)) {
+            let stro = str.replaceAll(/^(ال|أل)/ug, "")
+            words = stro.split(/\p{Emoji}|[^\p{L}]/ug).filter(x => x)
+            for (const word of words) {
+                if (males.has(word.toLowerCase())) {
+                    return false;
+                }
+                if (set.has(word)) {
+                    return true
                 }
             }
         }
         return false;
     }
+
     document.head.appendChild(style)
     observer.observe(elTarget, objConfig)
     id("hmp").remove()

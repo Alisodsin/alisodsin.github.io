@@ -181,7 +181,7 @@ async function doit(user) {
     }
     else if (user.hasPast && user.isZozed) {
         li.style.color = "yellow"
-        zozdiv.append(li);
+        females.size ? list.append(li) : zozdiv.append(li)
         zozo.delete(user.name)
     }
     li.scrollIntoView();
