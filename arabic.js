@@ -454,7 +454,7 @@ function checkForFemaleName(str, set) {
     if (set.has(str?.toLowerCase())) {
         return true
     }
-    let words = str?.str?.split(/[^\p{L}\p{N}]+/ug).filter(x => x)
+    let words = str?.split(/[^\p{L}\p{N}]+/ug).filter(x => x)
     for (const word of words) {
         if (males.has(word.toLowerCase())) {
             return false;
