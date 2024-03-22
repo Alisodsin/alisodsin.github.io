@@ -49,7 +49,7 @@ let elTarget = document.body.querySelector("#chat_logs_container"),
     namesSource = document.createElement("ol"),
     framo = document.createElement("iframe"),
     parentDiv = document.createElement("div"),
-    zozo = new Set(),
+    zozo = new Map(),
     testFset = new Set(),
     privt = $("#private_box")[0],
     closo = document.getElementById("private_close"),
@@ -85,12 +85,32 @@ class User {
         return messagedMs.has(this.id)
     }
     get isZozed() {
-        return zozo.has(this.id)
+        return zozo.has(this.name)
     }
     get gotMySecondMessage() {
 
         return gotmsg.has(this.id)
 
+    }
+    li(name = this.name, id = this.id) {
+        let li = document.createElement("li")
+        li.innerText = name;
+        li.setAttribute("data_gid", id)
+        li.onclick = function () {
+            if (privt.style.display == "none") {
+                openPrivateBox(id, name)
+            }
+            else {
+                if (document.querySelector(".bellips").innerText == this.innerText) {
+                    closo.click();
+                }
+                else {
+                    closo.click();
+                    sleep(500).then(_ => { this.click() })
+                }
+            }
+        }
+        return li;
     }
     sessionRecordinFemales() {
         messagedFs.add(this.id)
@@ -99,10 +119,10 @@ class User {
         messagedMs.add(this.id)
     }
     zozit() {
-        if (zozo.has(this.id)) {
+        if (zozo.has(this.name)) {
             return "user is already zozed"
         }
-        zozo.add(this.id)
+        zozo.set(this.name, this.id)
     }
     makePast() {
         if (sentHimBefore.has(this.id)) {
@@ -138,73 +158,33 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 async function doit(user) {
-    if (females.size && !user.isSessionRecordInFemales && !user.isZozed && user.isFemale1) {
+    let li = user.li()
+    if (!user.hasPast && females.size && !user.isSessionRecordInFemales && !user.isZozed && user.isFemale1) {
         user.sessionRecordinFemales();
-        let li = document.createElement("li");
-        if (user.hasPast) {
-            li.style.color = "green"
-        }
-        else {
-            await sendMsg(user.id, msg);
-            user.makePast();
-        }
-        li.innerText = user.name;
-        li.setAttribute("data_gid", user.id)
-        li.onclick = function () {
-            if (privt.style.display == "none") {
-                openPrivateBox(user.id, user.name)
-            }
-            else {
-                if (document.querySelector(".bellips").innerText == this.innerText) {
-                    closo.click();
-                }
-                else {
-                    closo.click();
-                    sleep(500).then(_ => { this.click() })
-                }
-            }
-        }
+        await sendMsg(user.id, msg);
+        user.makePast();
         list.appendChild(li);
-        li.scrollIntoView();
     }
+
     else if (!user.isSessionRecordInMales && !user.isSessionRecordInFemales && !user.isZozed) {
         if (user.isFemale2) {
             user.zozit();
-            let li = document.createElement("li")
-            li.innerText = user.name;
-            li.setAttribute("data_gid", user.id)
-            li.onclick = function () {
-                if (privt.style.display == "none") {
-                    openPrivate(user.id, user.name)
-                    showPrivateAd()
-                    privReload = 1
-                    lastPriv = 0
-                    chat_reload(true);
-                }
-                else {
-                    if (document.querySelector(".bellips").innerText == this.innerText) {
-                        closo.click();
-                    }
-                    else {
-                        closo.click();
-                        sleep(500).then(_ => { this.click() })
-                    }
-                }
-            }
             li.style.color = user.hasPast ? "green" : "white";
             zozdiv.append(li);
-            li.scrollIntoView();
         }
         else {
             user.sessionRecordinMales();
-            let li = document.createElement("li")
-            li.innerText = user.name;
-            li.setAttribute("data_gid", user.id)
+            li.onclick = _ => true;
             namesSource.append(li)
-            li.scrollIntoView()
+
         }
     }
-
+    else if (user.hasPast && user.isZozed) {
+        li.style.color = "yellow"
+        zozdiv.append(li);
+        zozo.delete(user.name)
+    }
+    li.scrollIntoView();
 }
 async function privo() {
     $.post('system/box/private_notify.php', {
@@ -590,6 +570,24 @@ window.addEventListener('message', async function (event) {
                     await doit(user);
                 }
             }
+            let zozoMsg = setInterval(async () => {
+                if (zozo.size) {
+                    let entry = [...zozo].at((Math.floor(Math.random() * zozo.size)));
+                    let user = new User(entry[0], entry[1]);
+                    if (!user.hasPast) {
+                        document.querySelector(`[data_gid="${user.id}"]`).remove();
+                        users[user.name] = user
+                        await sendMsg(user.id, msg);
+                        user.makePast();
+                        doit(user);
+                    }
+                }
+                else {
+                    clearInterval(zozoMsg);
+                }
+
+            }, 60000)
+
         }
     }
 });
