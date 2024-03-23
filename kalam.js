@@ -75,7 +75,6 @@ let check = setInterval(_ => {
   joinPerson,
   join,
   listTarget,
-  patterns = [["^k$", /^Kalamngy_\d{4}$/], ["noPtrn", /onedaymothersaidgetupearlytogotoschool/], ["*[<=5]", /^.{1,6}$/], ["ar<=5", /^[\u0621-\u064A\xA0\x5F\0-9]{1,7}$/], ["*digts", /\d+$/], ["ar*", /^[\u0621-\u064A\xA0\x5F\0-9]+$/], ["*", /^.+$/], ["k|short", /(^.{1,5}$|^Kalamngy_)/i]],
   justKamangy = /^Kalamngy_\d{4}$/,
   mainTarget,
   mainObserver = new MutationObserver(async (e) => {
@@ -912,14 +911,13 @@ function buttonsCreator() {
             femalesNames.clear();
             this.innerText = "justK";
             num1++;
-            displayDiv.style.display = "flex"
-            ol1.style.display = "none"
-
           }
           else if (num1 == 2) {
             regex = /onedaymothersaidgetupearlytogotoschool/;
             guesto = /onedaymothersaidgetupearlytogotoschool/;
-            this.innerText = "OFF"
+            this.innerText = "OFF";
+            displayDiv.style.display = "flex";
+            ol1.style.display = "none";
             num1++;
           }
           else {
