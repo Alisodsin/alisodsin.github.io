@@ -165,7 +165,6 @@ async function doit(user) {
         user.makePast();
         list.appendChild(li);
     }
-
     else if (!user.isSessionRecordInMales && !user.isSessionRecordInFemales && !user.isZozed) {
         if (user.isFemale2) {
             user.zozit();

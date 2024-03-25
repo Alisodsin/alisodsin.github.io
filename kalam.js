@@ -115,9 +115,7 @@ let check = setInterval(_ => {
     characterData: false
   },
   audio = new Audio("https://alisodsin.github.io/Short.mp3"),
-  bll = new Audio("https://soundbible.com/mp3/A-Tone-His_Self-1266414414.mp3");
-
-
+  bll = new Audio("https://www.soundjay.com/phone/cell-phone-1-nr0.mp3");
 // global  functions
 function runCode() {
   let check = setInterval(_ => {
