@@ -332,6 +332,12 @@ function runCode() {
         } else if (context == "delete" && set == "messages") {
           messages.delete(value);
           input.placeholder = `${value} deleted from messages`;
+        } else if (context == "observer" && set == "OFF") {
+          mainObserver.disconnect();
+          input.placeholder = value;
+        } else if (context == "observer" && set == "ON" && !value) {
+          mainObserver.observe(mainTarget, objConfig);
+          input.placeholder = value;
         }
       });
       buttons = [...buttonContainers.children];
