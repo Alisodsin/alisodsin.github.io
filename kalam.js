@@ -335,7 +335,7 @@ function runCode() {
         } else if (context == "observer" && set == "OFF") {
           mainObserver.disconnect();
           input.placeholder = value;
-        } else if (context == "observer" && set == "ON" && !value) {
+        } else if (context == "observer" && set == "ON") {
           mainObserver.observe(mainTarget, objConfig);
           input.placeholder = value;
         }
