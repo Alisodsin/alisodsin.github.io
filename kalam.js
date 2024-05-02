@@ -1,14 +1,16 @@
 // global variabless
-let check = setInterval(_ => {
-  if (parent?.fwindowlist) {
-    Object.keys(parent.fwindowlist).forEach((x) => {
-      if (/(_0x|mynickpre|AF|gFV|canvas|getClient)/.test(x)) {
-        parent.fwindowlist[x] = _ => { return true }
-      }
-    });
-    clearInterval(check);
-  }
-}, 50),
+let check = setInterval((_) => {
+    if (parent?.fwindowlist) {
+      Object.keys(parent.fwindowlist).forEach((x) => {
+        if (/(_0x|mynickpre|AF|gFV|canvas|getClient)/.test(x)) {
+          parent.fwindowlist[x] = (_) => {
+            return true;
+          };
+        }
+      });
+      clearInterval(check);
+    }
+  }, 50),
   _fmain = parent.fmain,
   buttonContainers = document.createElement("div"),
   _fwindowlist = parent.fwindowlist,
@@ -51,7 +53,10 @@ let check = setInterval(_ => {
   num1 = 0,
   buttons,
   rooms = ["#مصر", "#رومانسية"],
-  message1 = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير",
+  message1 =
+    new Date().getHours() >= 2 && new Date().getHours() <= 14
+      ? "صباح الخير"
+      : "مساء الخير",
   message2 = "مهندس علي 35 سنه",
   message3 = "ممكن نتعرف لو مفيش مانع",
   message4 = "؟",
@@ -69,7 +74,6 @@ let check = setInterval(_ => {
   newNamesMd = [],
   containersDiv = document.createElement("div"),
   ol1 = document.createElement("ol"),
-  controlDiv = document.createElement("div"),
   ol2 = document.createElement("ol"),
   joiningPplClass,
   joinPerson,
@@ -80,69 +84,87 @@ let check = setInterval(_ => {
   mainObserver = new MutationObserver(async (e) => {
     if (joiningPplClass.length >= 1) {
       joinPerson = [...joiningPplClass].at(-1);
-      join = joinPerson?.innerText
-      if ((!stream[join] && joinPerson.nextSibling.data.includes("Joine")) && !malesNames.has(join) && (join in users) && (regex.test(join) || (femalesNames.size && checkForFemaleName(join, femalesNames)))) {
+      join = joinPerson?.innerText;
+      if (
+        !stream[join] &&
+        joinPerson.nextSibling.data.includes("Joine") &&
+        !malesNames.has(join) &&
+        join in users &&
+        (regex.test(join) ||
+          (femalesNames.size && checkForFemaleName(join, femalesNames)))
+      ) {
         doIt(join);
-      }
-      else if (!malesNames.has(join) && !personsGotMyMsg1.has(join) && !/^Kalamngy_\d{0,}$|Guest/ig.test(join) && (join in users) && _fwindowlist.currentwindow == roomName && !joinPerson.previousSibling.textContent.includes("made")) {
-        if (!zozo.has(join) && !dontCheckAgain.has(join) && checkForFemaleName(join, testFset)) {
-          zozo.add(join)
-          displayDiv.innerHTML = `<span style="font-size: 1.5em;"><bdi style="color:green">"${join}"</bdi></span>`
-        }
-        else if (!zozo.has(join)) {
+      } else if (
+        !malesNames.has(join) &&
+        !personsGotMyMsg1.has(join) &&
+        !/^Kalamngy_\d{0,}$|Guest/gi.test(join) &&
+        join in users &&
+        _fwindowlist.currentwindow == roomName &&
+        !joinPerson.previousSibling.textContent.includes("made")
+      ) {
+        if (
+          !zozo.has(join) &&
+          !dontCheckAgain.has(join) &&
+          checkForFemaleName(join, testFset)
+        ) {
+          zozo.add(join);
+          displayDiv.innerHTML = `<span style="font-size: 1.5em;"><bdi style="color:green">"${join}"</bdi></span>`;
+        } else if (!zozo.has(join)) {
           let li = document.createElement("li");
-          li.innerText = join
+          li.innerText = join;
           ol2.append(li);
           li.scrollIntoView();
           malesNames.add(join);
         }
       }
     }
-  })
-  ,
-  listObserver = new MutationObserver(_ => {
-    personsGotMyMsg1.forEach(name => {
+  }),
+  listObserver = new MutationObserver((_) => {
+    personsGotMyMsg1.forEach((name) => {
       let regex = new RegExp(name + "\n!", "g");
       if (listTarget.innerText.match(regex)) {
         stream[name].excuterObj.next();
       }
-    })
+    });
   }),
   objConfig = {
     childList: true,
     subtree: true,
     attributes: false,
-    characterData: false
+    characterData: false,
   },
   audio = new Audio("https://alisodsin.github.io/Short.mp3"),
   bll = new Audio("https://www.soundjay.com/phone/cell-phone-1-nr0.mp3");
 // global  functions
 function runCode() {
-  let check = setInterval(_ => {
+  let check = setInterval((_) => {
     if (Boolean(Object?.keys?.(_fwindowlist?.Witems)?.[1])) {
       roomName = Object.keys(_fwindowlist.Witems)[1];
       framo = document.createElement("iframe");
-      framo.src = "https://99f2537e-72f2-4e73-9898-cc9c6e98f207-00-aoo727xiohcd.janeway.replit.dev/";
-      framo.style.display = "none"
+      framo.src = "http://localhost:3000";
       mainTarget = _fmain.document.querySelector("#text");
       myNick = _fwindowlist.mynickname;
       joiningPplClass = _fmain.document.getElementsByClassName("main-nickg");
       listTarget = _fwindowlist.document.getElementById("windowlist");
       input = parent.fform.document.querySelector("#say");
       listObserver.observe(listTarget, objConfig);
-      input.placeholder = `you have ${oldFlength} female names`
+      input.placeholder = `you have ${oldFlength} female names`;
       fform.onkeydown = keysHandelr;
-      fform.fns = _ => true;
-      ters = fform.document.getElementsByTagName("img")[0]
-      _fmain.nickmenu = function () { return false }
+      fform.fns = (_) => true;
+      ters = fform.document.getElementsByTagName("img")[0];
+      _fmain.nickmenu = function () {
+        return false;
+      };
       _fmain.document.getElementById("menu").remove();
       _fmain.document.getElementById("mainplusbtn").click();
       users = _fwindowlist?.Witems?.[roomName]?.users;
-      parent.fuserlist.document.querySelectorAll('.menu').forEach(menuElement => {
-        menuElement.style.display = 'none';
-      });
-      parent.fuserlist.document.addEventListener('click', function (event) {
-        if (event.target.matches('td')) {
+      parent.fuserlist.document
+        .querySelectorAll(".menu")
+        .forEach((menuElement) => {
+          menuElement.style.display = "none";
+        });
+      parent.fuserlist.document.addEventListener("click", function (event) {
+        if (event.target.matches("td")) {
           let txt = event.target.innerText;
           if (!personsGotMyMsg1.has(txt)) {
             doIt(txt);
@@ -151,53 +173,68 @@ function runCode() {
       });
       ters.onclick = function name() {
         togleMessage();
-      }
-      parent.fform.addEventListener("contextmenu", function (e) {
-        e.stopPropagation()
-      }, true);
-      _fmain.addEventListener("contextmenu", function (e) {
-        e.stopPropagation()
-      }, true);
-      _fmain.samehh = _ => true;
+      };
+      parent.fform.addEventListener(
+        "contextmenu",
+        function (e) {
+          e.stopPropagation();
+        },
+        true
+      );
+      _fmain.addEventListener(
+        "contextmenu",
+        function (e) {
+          e.stopPropagation();
+        },
+        true
+      );
+      _fmain.samehh = (_) => true;
       setInterval(function () {
-        kalamngySend(roomName, `/clear ${roomName}`)
+        kalamngySend(roomName, `/clear ${roomName}`);
       }, 60000);
       buttonsCreator();
       containersDiv.style.position = "fixed";
       containersDiv.style.display = "flex";
-      containersDiv.id = "father"
+      containersDiv.id = "father";
       containersDiv.style.flexDirection = "column";
       containersDiv.style.top = "0%";
       containersDiv.style.width = "30vw";
       containersDiv.style.height = "100%";
-      containersDiv.style.right = "0"
-      containersDiv.style.margin = "0"
-      containersDiv.style.padding = "0"
+      containersDiv.style.right = "0";
+      containersDiv.style.margin = "0";
+      containersDiv.style.padding = "0";
       _fwindowlist["Witems"] = new Proxy(_fwindowlist["Witems"], {
         set(target, p, v) {
-          if (personsGotMyMsg1.has(p) || p == myNick || checkForFemaleName(p, testFset)) {
-            return Reflect.set(target, p, v)
+          if (
+            personsGotMyMsg1.has(p) ||
+            p == myNick ||
+            checkForFemaleName(p, testFset)
+          ) {
+            return Reflect.set(target, p, v);
+          } else {
+            return false;
           }
-          else {
-            return false
-          }
-        }
+        },
       });
       _fwindowlist.witemadd = function (name, channel) {
         if (_fwindowlist.Witems[name] || _fwindowlist.findwin(name)) return;
-        name = name.replace(/\"/g, '&quot;');
-        _fwindowlist.Witems[name] = { activity: 0, text: [], channel: channel, speak: 1, info: 0 };
+        name = name.replace(/\"/g, "&quot;");
+        _fwindowlist.Witems[name] = {
+          activity: 0,
+          text: [],
+          channel: channel,
+          speak: 1,
+          info: 0,
+        };
         if (channel) {
           try {
             _fwindowlist.Witems[name].users = {};
-            _fwindowlist.Witems[name].topic = '';
-
-          } catch {
-          }
+            _fwindowlist.Witems[name].topic = "";
+          } catch {}
         }
         if (!_fwindowlist.currentwindow) _fwindowlist.currentwindow = name;
         _fwindowlist.wlistredraw();
-      }
+      };
       buttonContainers.style.position = "fixed";
       buttonContainers.style.display = "flex";
       buttonContainers.style.flexDirection = "column";
@@ -206,7 +243,7 @@ function runCode() {
       buttonContainers.style.height = "100%";
       buttonContainers.style.justifyContent = "space-around";
       buttonContainers.style.flexWrap = "wrap";
-      buttonContainers.id = "buttonContainers"
+      buttonContainers.id = "buttonContainers";
       style.textContent = `
       ::-webkit-scrollbar { width: 0px; height: 0px; }
               @media screen and (max-height:500px){
@@ -249,379 +286,139 @@ function runCode() {
       ol1.id = "ol";
       ol1.style.background = "black";
       ol1.style.color = "green";
-      ol1.style.overflow = "auto"
+      ol1.style.overflow = "auto";
       ol2.id = "ol2";
-      controlDiv.style.width = "100%"
-      controlDiv.style.background = "black"
-      controlDiv.style.color = "white"
-      controlDiv.style.border = "1px solid green"
-      controlDiv.style.display = "flex"
-      controlDiv.style.flexDirection = "column"
-      controlDiv.style.alignItems = "center"
-      controlDiv.style.justifyContent = "space-evenly"
-      controlDiv.style.overflow = "auto"
-      controlDiv.innerHTML = ` 
-      <div id ="switcher" style="cursor:pointer;font-size:1.2rem;">females</div> 
-      <textarea id="inputo" style = "background: black;color:white;width:90%" ></textarea>
-      <div id="butcot" style="width:100%;display:flex;justify-content:space-around">
-            <button id="ctrlObserver">ON</button>
-            <button id="getnew">G</button>
-            <button id="updtlocal">U<sub>L</sub></button>
-            <button id="updtremote">U<sub>R</sub></button>  
-            <button id="dlta">D</button>
-        </div>
-        <div id="mutablediv" style="overflow:auto;width:90%;height:30%;white-space:nowrap;">  
-        <ul></ul>
-        </div>  
-      `
-      switcherc = controlDiv.querySelector("#switcher");
-      inputc = controlDiv.querySelector("#inputo");
-      butGet = controlDiv.querySelector("#getnew");
-      butDelete = controlDiv.querySelector("#dlta");
-      butAddL = controlDiv.querySelector("#updtlocal");
-      butAddR = controlDiv.querySelector("#updtremote");
-      observerCtrl = controlDiv.querySelector("#ctrlObserver");
-      mutablediv = controlDiv.children[3];
-      observerCtrl.onclick = function () {
-        if (this.innerText == "ON") {
-          mainObserver.disconnect();
-          this.innerText = "OFF"
-        }
-        else {
-          mainObserver.observe(mainTarget, objConfig);
-          this.innerText = "ON"
-        }
-
-      }
-      switcherc.onclick = function () {
-        this.innerText = this.innerText.startsWith("f") ? "males" : "females";
-      }
-      butGet.onclick = function () {
-        mutablediv.innerHTML = "";
-        if (newNamesM.length || newNamesF.length || newNamesFd.length || newNamesMd.length) {
-          let table = document.createElement("table")
-          table.innerHTML = `
-          <tr>
-          <th style="color:green">F<sub>${newNamesF.length}</sub></th>
-          <th style="color:red">F<sub>${newNamesFd.length}</sub></th>
-          <th style="color:green" >M<sub>${newNamesM.length}</sub></th> 
-          <th style="color:red">M<sub>${newNamesMd.length}</sub></th>      
-          </tr>
-          `
-          let maxLength = Math.max(newNamesF.length, newNamesM.length, newNamesFd.length, newNamesMd.length);
-          if (maxLength) {
-            for (let index = 0; index < maxLength; index++) {
-              let tr = document.createElement("tr");
-              let f = newNamesF[index] ? newNamesF[index] : "";
-              let m = newNamesM[index] ? newNamesM[index] : "";
-              let fd = newNamesFd[index] ? newNamesFd[index] : "";
-              let md = newNamesMd[index] ? newNamesMd[index] : "";
-              tr.innerHTML = `<td>${f}</td><td>${fd}</td> <td>${m}</td><td>${md}</td>`
-              table.append(tr);
-            }
-            mutablediv.append(table)
-          }
-        }
-        else {
-          mutablediv.innerHTML = "no new names";
-        }
-      }
-      butGet.click();
-      butDelete.onclick = function () {
-        let vlu = inputc.value.trim().toLowerCase();
-        mutablediv.innerHTML = ""
-        if (vlu && switcherc.innerText.startsWith("f") && newNamesF.includes(vlu)) {
-          newNamesF = newNamesF.filter(x => x != vlu);
-          femalesNames.delete(vlu)
-          testFset.delete(vlu)
-          localStorage.f = newNamesF.join();
-          mutablediv.innerText = `${vlu} removed from newNamesF`
-
-        }
-        else if (vlu && switcherc.innerText.startsWith("m") && newNamesM.includes(vlu)) {
-          newNamesM = newNamesM.filter(x => x != vlu);
-          notWanted.delete(vlu)
-          localStorage.m = newNamesM.join();
-          mutablediv.innerText = `${vlu} removed from newNamesM`
-        }
-        else if (!vlu) {
-          mutablediv.innerText = `there is no name to delete`
-        }
-        else if (newNamesF.includes(vlu)) {
-          mutablediv.innerText = `${vlu} exists in newNamesF`
-
-        }
-        else if (newNamesM.includes(vlu)) {
-          mutablediv.innerText = `${vlu} exists in newNamesM`
-        }
-        else if (notWanted.has(vlu) && switcherc.innerText.startsWith("m")) {
-          notWanted.delete(vlu);
-          newNamesMd.push(vlu);
-          localStorage.md = newNamesMd.join();
-          mutablediv.innerText = `${vlu} removed from old male names`;
-        }
-        else if (testFset.has(vlu) && switcherc.innerText.startsWith("f")) {
-          femalesNames.delete(vlu)
-          testFset.delete(vlu)
-          newNamesFd.push(vlu);
-          localStorage.fd = newNamesFd.join();
-          mutablediv.innerText = `${vlu} removde from  old female names`
-        }
-        else if (notWanted.has(vlu)) {
-          mutablediv.innerText = `${vlu} exists in old male names,click switcher to delete it`;
-        }
-        else if (testFset.has(vlu)) {
-          mutablediv.innerText = `${vlu} exists in old female names,click switcher to delete it`
-        }
-        else {
-          mutablediv.innerText = `${vlu} doesn't exist in either newNames or oldNames`
-        }
-      }
-
-      butAddL.onclick = function () {
-        let vlu = inputc.value.trim().toLowerCase();
-        if (vlu) {
-          if (switcherc.innerText.startsWith("f") && !testFset.has(vlu) && !newNamesF.includes(vlu) && !notWanted.has(vlu) && !newNamesFd.includes(vlu) && !newNamesMd.includes(vlu)) {
-            newNamesF.push(vlu);
-            if (femalesNames.size) {
-              femalesNames.add(vlu)
-            }
-            testFset.add(vlu)
-            localStorage.f = newNamesF.join()
-            mutablediv.innerHTML = ""
-            mutablediv.innerText = `${vlu} added to  newNamesF`
-            malesNames.forEach(x => {
-              if (checkForFemaleName(x, testFset)) {
-                malesNames.delete(x)
-              }
-            })
-          }
-          else if (switcherc.innerText.startsWith("m") && !notWanted.has(vlu) && !newNamesM.includes(vlu) && !testFset.has(vlu) && !newNamesMd.includes(vlu) && !newNamesFd.includes(vlu)) {
-            newNamesM.push(vlu);
-            notWanted.add(vlu)
-            localStorage.m = newNamesM.join()
-            mutablediv.innerHTML = ""
-            mutablediv.innerText = `${vlu} added to  newNamesM`
-          }
-          else if (newNamesFd.includes(vlu)) {
-            newNamesFd = newNamesFd.filter(x => x != vlu);
-            localStorage.fd = newNamesFd.join();
-            if (femalesNames.size) {
-              femalesNames.add(vlu);
-            }
-            testFset.add(vlu)
-            mutablediv.innerText = `${vlu} went back to old female names`
-          }
-          else if (newNamesMd.includes(vlu)) {
-            newNamesMd = newNamesMd.filter(x => x != vlu);
-            localStorage.md = newNamesMd.join();
-            notWanted.add(vlu)
-            mutablediv.innerText = `${vlu} went back to old male names`
-          }
-          else if (testFset.has(vlu)) {
-            mutablediv.innerHTML = ""
-            mutablediv.innerText = `${vlu} already exist in Females`
-          }
-          else if (notWanted.has(vlu)) {
-            mutablediv.innerHTML = ""
-            mutablediv.innerText = `${vlu} already exist in Males`
-          }
-          else {
-            return false
-          }
-        }
-        else {
-          mutablediv.innerHTML = ""
-          mutablediv.innerText = `there is no name to add`
-
-        }
-      }
-      butAddR.onclick = async function () {
-        if (switcherc.innerText.startsWith("f")) {
-          if (newNamesF.length || newNamesFd.length) {
-            try {
-              await fetch(fmlgiturl, { method: 'PUT', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}`, }, body: JSON.stringify({ message: 'Add new names', content: btoa(encodeURIComponent(JSON.stringify([...testFset]))), sha: shaf, }), });
-              mutablediv.innerHTML = ""
-              mutablediv.innerText = "females updated on git hub"
-              localStorage.f = ""
-              localStorage.fd = ""
-              newNamesF = [];
-              newNamesFd = [];
-            } catch (error) {
-              mutablediv.innerHTML = ""
-              mutablediv.innerText = `${error.message}`
-            }
-          }
-          else {
-            mutablediv.innerHTML = "";
-            mutablediv.innerText = `females already updated`;
-          }
-        }
-        else {
-          if (newNamesM.length || newNamesMd.length) {
-            try {
-              await fetch(mlsgiturl, { method: 'PUT', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}`, }, body: JSON.stringify({ message: 'Add new names', content: btoa(encodeURIComponent(JSON.stringify([...notWanted]))), sha: sham, }), });
-              mutablediv.innerHTML = ""
-              mutablediv.innerText = "males updated on git hub"
-              localStorage.m = ""
-              localStorage.md = ""
-              newNamesM = [];
-              newNamesMd = [];
-            } catch (error) {
-              mutablediv.innerHTML = ""
-              mutablediv.innerText = `${error.message}`
-            }
-          }
-          else {
-            mutablediv.innerHTML = "";
-            mutablediv.innerText = `males already updated`;
-          }
-        }
-
-      }
       ol2.style.background = "black";
-      ol2.style.color = "white"
-      ol2.style.overflow = "auto"
+      ol2.style.color = "white";
+      ol2.style.overflow = "auto";
       ol2.style.display = "block";
       displayDiv.style.background = "black";
-      displayDiv.style.display = "none"
-      displayDiv.style.justifyContent = "center"
-      displayDiv.style.alignItems = "center"
-      displayDiv.style.borderRadius = "100%"
-      displayDiv.style.overflow = "auto"
-      displayDiv.style.whiteSpace = "pre"
-      containersDiv.append(ol1, displayDiv, controlDiv, framo, ol2)
+      displayDiv.style.display = "none";
+      displayDiv.style.justifyContent = "center";
+      displayDiv.style.alignItems = "center";
+      displayDiv.style.borderRadius = "100%";
+      displayDiv.style.overflow = "auto";
+      displayDiv.style.whiteSpace = "pre";
+      containersDiv.append(ol1, displayDiv, framo, ol2);
       _fmain.document.body.append(buttonContainers, containersDiv);
-      _fmain.document.head.append(style)
+      _fmain.document.head.append(style);
       _fmain.document.querySelector(".main-closepic").remove();
       _fmain.document.querySelector(".userlist-hiddeni").remove();
       _fmain.document.querySelector("#hidderbtn").style.display = "none";
       _fmain.document.querySelector("#mainplusbtn").remove();
-      _fmain.addEventListener('message', function (event) {
-        let data = event.data;
-        if (data[0] == "females") {
-          let dfr = difference(data[1], testFset)
-          if (dfr.length) {
-            if (switcherc.innerText == "males") {
-              switcherc.click();
-            }
-            dfr.forEach(e => {
-              inputc.value = e
-              butAddL.click()
-
-            })
+      _fmain.addEventListener("message", function (event) {
+        let [value, context, set] = event.data;
+        if (context == "insert" && set == "females") {
+          testFset.add(value);
+          if (femalesNames.size != 0) {
+            femalesNames.add(value);
           }
-        }
-        else if (data[0] == "males") {
-          let dfm = difference(data[1], notWanted)
-          if (dfm.length) {
-            if (switcherc.innerText == "females") {
-              switcherc.click();
-            }
-            dfm.forEach(e => {
-              inputc.value = e
-              butAddL.click()
-            })
+          input.placeholder = `${value} added to females`;
+        } else if (context == "delete" && set == "females") {
+          testFset.delete(value);
+          if (femalesNames.size != 0) {
+            femalesNames.delete(value);
           }
+          input.placeholder = `${value} deleted from females`;
+        } else if (context == "insert" && set == "males") {
+          notWanted.add(value);
+          input.placeholder = `${value} added to males`;
+        } else if (context == "delete" && set == "males") {
+          notWanted.delete(value);
+          input.placeholder = `${value} deleted from males`;
+        } else if (context == "insert" && set == "messages") {
+          messages.add(value);
+          input.placeholder = `${value} inserted into messages`;
+        } else if (context == "delete" && set == "messages") {
+          messages.delete(value);
+          input.placeholder = `${value} deleted from messages`;
         }
-        if (/inserted females/g.test(data[0])) {
-          if (switcherc.innerText == "males") {
-            switcherc.click();
-          }
-          inputc.value = data[1]
-          butAddL.click()
-        }
-        else if (/deleted from females/g.test(data[0])) {
-          if (switcherc.innerText == "males") {
-            switcherc.click();
-          }
-          inputc.value = data[1]
-          butDelete.click()
-        }
-        else if (/inserted males/g.test(data[0])) {
-          if (switcherc.innerText == "females") {
-            switcherc.click();
-          }
-          inputc.value = data[1]
-          butAddL.click()
-        }
-
-        else if (/deleted from males/g.test(data[0])) {
-          if (switcherc.innerText == "females") {
-            switcherc.click();
-          }
-          inputc.value = data[1]
-          butDelete.click()
-        }
-        else if (/inserted messages/g.test(data[0])) {
-          messages.add(data[1])
-          input.placeholder = data[0];
-        }
-        else if (/deleted from messages/g.test(data[0])) {
-          messages.delete(data[1])
-          input.placeholder = data[0];
-        };
       });
       buttons = [...buttonContainers.children];
       R = _fwindowlist.document.getElementsByName("R")[0].value;
       kalamngySend = function (target, msg) {
-        return fetch("https://www.kalamngychat.com/chat/client-perl.cgi", { method: "POST", headers: { "Content-type": "application/x-www-form-urlencoded" }, body: `item=say&cmd=say&say=${msg}&target=${target}&R=${R}&xmlhttp=1` });
+        return fetch("https://www.kalamngychat.com/chat/client-perl.cgi", {
+          method: "POST",
+          headers: { "Content-type": "application/x-www-form-urlencoded" },
+          body: `item=say&cmd=say&say=${msg}&target=${target}&R=${R}&xmlhttp=1`,
+        });
       };
       doIt(myNick);
       mainObserver.observe(mainTarget, objConfig);
-      _fwindowlist["Witems"][roomName]["users"] = new Proxy(_fwindowlist["Witems"][roomName]["users"], {
-        deleteProperty(target, prop) {
-          if (zozo.has(prop)) {
-            zozo.delete(prop)
-            if (!femalesNames.size) {
-              displayDiv.innerHTML = `<span style="font-size: 1.5em;"><bdi style="color:red">"${prop}"</bdi></span>`
+      _fwindowlist["Witems"][roomName]["users"] = new Proxy(
+        _fwindowlist["Witems"][roomName]["users"],
+        {
+          deleteProperty(target, prop) {
+            if (zozo.has(prop)) {
+              zozo.delete(prop);
+              if (!femalesNames.size) {
+                displayDiv.innerHTML = `<span style="font-size: 1.5em;"><bdi style="color:red">"${prop}"</bdi></span>`;
+              }
             }
-          }
-          if (personsGotMyMsg1.has(prop)) {
-            block(prop)
-            input.placeholder = `${prop} quit`;
-          }
-          Reflect.deleteProperty(target, prop)
+            if (personsGotMyMsg1.has(prop)) {
+              block(prop);
+              input.placeholder = `${prop} quit`;
+            }
+            Reflect.deleteProperty(target, prop);
+          },
         }
-      });
+      );
       setInterval(() => {
-        let behinedJoiner = _fwindowlist.Witems[rooms[0]]?.text?.filter(x => x?.includes("Joined"))?.at(-1)?.match(/<a.*>(.*)<\/a>/i)?.[1];
+        let behinedJoiner = _fwindowlist.Witems[rooms[0]]?.text
+          ?.filter((x) => x?.includes("Joined"))
+          ?.at(-1)
+          ?.match(/<a.*>(.*)<\/a>/i)?.[1];
         if (Boolean(users)) {
-          if (num && _fwindowlist.currentwindow != roomName && behinedJoiner && !personsGotMyMsg1.has(behinedJoiner) && behinedJoiner in users && (regex.test(behinedJoiner) || checkForFemaleName(behinedJoiner, testFset))) {
+          if (
+            num &&
+            _fwindowlist.currentwindow != roomName &&
+            behinedJoiner &&
+            !personsGotMyMsg1.has(behinedJoiner) &&
+            behinedJoiner in users &&
+            (regex.test(behinedJoiner) ||
+              checkForFemaleName(behinedJoiner, testFset))
+          ) {
             doIt(behinedJoiner);
           }
         }
       }, 50);
-      setTimeout(_ => {
-        Object.keys(users).forEach(x => {
-          if (checkForFemaleName(x, testFset) && !Object.keys(users[x]).length) {
+      setTimeout((_) => {
+        Object.keys(users).forEach((x) => {
+          if (
+            checkForFemaleName(x, testFset) &&
+            !Object.keys(users[x]).length
+          ) {
             zozo.add(x);
           }
         });
-        let prsntPplMsg = setInterval(_ => {
+        let prsntPplMsg = setInterval((_) => {
           if (zozo.size < 1) {
             clearInterval(prsntPplMsg);
-          }
-          else {
-            let name = [...zozo].at((Math.floor(Math.random() * zozo.size)));
-            if (_fmain.document.getElementById("togf").innerText != "OFF" && _fwindowlist.currentwindow == roomName && num1 < 2) {
+          } else {
+            let name = [...zozo].at(Math.floor(Math.random() * zozo.size));
+            if (
+              _fmain.document.getElementById("togf").innerText != "OFF" &&
+              _fwindowlist.currentwindow == roomName &&
+              num1 < 2
+            ) {
               doIt(name);
             }
           }
-
         }, 60000);
-      }, 4000)
+      }, 4000);
       clearInterval(check);
     }
   }, 100);
 }
 function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 function closeCurrentPerson() {
-
   if (_fwindowlist.currentwindow != roomName) {
-    kalamngySend(_fwindowlist.currentwindow, `/winclose ${_fwindowlist.currentwindow}`)
+    kalamngySend(
+      _fwindowlist.currentwindow,
+      `/winclose ${_fwindowlist.currentwindow}`
+    );
   }
 }
 function changeMessage1() {
@@ -630,7 +427,10 @@ function changeMessage1() {
   message3 = prompt("Enter new message3", message3);
 }
 function getRandomMessage() {
-  const randomIndex = Math.floor(crypto.getRandomValues(new Uint32Array(1))[0] / (Math.pow(2, 32) - 1) * messages.size);
+  const randomIndex = Math.floor(
+    (crypto.getRandomValues(new Uint32Array(1))[0] / (Math.pow(2, 32) - 1)) *
+      messages.size
+  );
   return [...messages][randomIndex];
 }
 async function sentTwoMsgs() {
@@ -638,7 +438,6 @@ async function sentTwoMsgs() {
     let personName = _fwindowlist.currentwindow;
     await kalamngySend(personName, "الو");
     kalamngySend(personName, "معايا؟");
-
   }
 }
 async function defineMySelf() {
@@ -654,43 +453,47 @@ async function restart() {
     await sleep(1000);
     _fwindowlist.reconnect();
     await sleep(1000);
-    let check = setInterval(_ => {
+    let check = setInterval((_) => {
       if (_fwindowlist.currentwindow == roomName) {
         users = _fwindowlist?.Witems?.[roomName]?.users;
-        _fwindowlist["Witems"][roomName]["users"] = new Proxy(_fwindowlist["Witems"][roomName]["users"], {
-          deleteProperty(target, prop) {
-            if (zozo.has(prop)) {
-              zozo.delete(prop)
-            }
-            if (personsGotMyMsg1.has(prop)) {
-              block(prop)
-              input.placeholder = `${prop} quit`;
-            }
-            return Reflect.deleteProperty(target, prop)
+        _fwindowlist["Witems"][roomName]["users"] = new Proxy(
+          _fwindowlist["Witems"][roomName]["users"],
+          {
+            deleteProperty(target, prop) {
+              if (zozo.has(prop)) {
+                zozo.delete(prop);
+              }
+              if (personsGotMyMsg1.has(prop)) {
+                block(prop);
+                input.placeholder = `${prop} quit`;
+              }
+              return Reflect.deleteProperty(target, prop);
+            },
           }
-        });
+        );
         _fwindowlist["Witems"] = new Proxy(_fwindowlist["Witems"], {
           set(target, p, v) {
-            if (checkForFemaleName(p, testFset) || p == myNick || personsGotMyMsg1.has(p)) {
-              return Reflect.set(target, p, v)
+            if (
+              checkForFemaleName(p, testFset) ||
+              p == myNick ||
+              personsGotMyMsg1.has(p)
+            ) {
+              return Reflect.set(target, p, v);
+            } else {
+              return false;
             }
-            else {
-              return false
-            }
-          }
+          },
         });
         clearInterval(check);
       }
     }, 100);
-
-  }
-  else {
+  } else {
     _fwindowlist.reconnect();
   }
 }
 async function sendMsgToMyself() {
   await kalamngySend(myNick, message1);
-  await sleep(700)
+  await sleep(700);
   kalamngySend(myNick, `/winclose ${myNick}`);
 }
 function goToRoom() {
@@ -699,24 +502,23 @@ function goToRoom() {
 function block(x) {
   if (x != roomName && x != myNick && personsGotMyMsg1.has(x)) {
     if (x == _fwindowlist.currentwindow) {
-      kalamngySend(x, `/winclose ${x}`)
+      kalamngySend(x, `/winclose ${x}`);
     }
     personsGotMyMsg1.delete(x);
     _fmain.document.getElementById(stream?.[x]?.id)?.remove();
     clearTimeout(stream?.[x]?.timeout);
-    delete stream[x]
-  }
-  else if ((x != roomName && x != myNick && !personsGotMyMsg1.has(x))) {
-    kalamngySend(x, `/ignore ${x}`).then(_ => {
+    delete stream[x];
+  } else if (x != roomName && x != myNick && !personsGotMyMsg1.has(x)) {
+    kalamngySend(x, `/ignore ${x}`).then((_) => {
       kalamngySend(x, `/winclose ${x}`);
-    })
+    });
   }
 }
 function closAll() {
   let sentme = Object.keys(parent.fwindowlist.Witems);
   for (let i = 0; i < sentme.length; i++) {
     if (/#|Status/i.test(sentme[i])) {
-      continue
+      continue;
     }
     kalamngySend(sentme[i], `/winclose ${sentme[i]}`);
   }
@@ -735,31 +537,32 @@ function togleMessage() {
     message1 = "ما تيجى انيكك صوت؟";
     message2 = "جتسى ,تلجرام او جستوك عندك ايه";
     message3 = "؟";
-    message4 = "ما تردى عليا يا لبوتى"
+    message4 = "ما تردى عليا يا لبوتى";
     input.placeholder = `the bad message`;
     toggles.add("dodend1");
-  }
-  else if (!toggles.has("dodend3")) {
+  } else if (!toggles.has("dodend3")) {
     randomizeMessage = true;
     input.placeholder = `random messages`;
     toggles.add("dodend3");
-
-  }
-
-  else if (!toggles.has("dodend2")) {
-    message1 = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير";
+  } else if (!toggles.has("dodend2")) {
+    message1 =
+      new Date().getHours() >= 2 && new Date().getHours() <= 14
+        ? "صباح الخير"
+        : "مساء الخير";
     message2 = "تحبى نتعرف ";
     message3 = "بشكل محترم؟";
     message4 = "ارجو انك تردى عليا";
     randomizeMessage = false;
     input.placeholder = `good message2`;
     toggles.add("dodend2");
-  }
-  else {
-    message1 = (new Date().getHours() >= 2 && new Date().getHours() <= 14) ? "صباح الخير" : "مساء الخير";
+  } else {
+    message1 =
+      new Date().getHours() >= 2 && new Date().getHours() <= 14
+        ? "صباح الخير"
+        : "مساء الخير";
     message2 = "على 42 منصوره";
     message3 = "ممكن نتعرف؟";
-    message4 = "ممكن لو سمحتى تردى عليا ؟"
+    message4 = "ممكن لو سمحتى تردى عليا ؟";
     input.placeholder = "good message1";
     toggles.delete("dodend1");
     toggles.delete("dodend2");
@@ -771,38 +574,32 @@ function toggleButtons() {
   if (!toggles.has("ok2")) {
     for (let index = 0; index < buttons.length; index++) {
       if (buttons[index].innerText == "F13") {
-        continue
+        continue;
       }
       buttons[index].style.display = "none";
     }
     toggles.add("ok2");
-  }
-  else {
+  } else {
     for (let index = 0; index < buttons.length; index++) {
       if (buttons[index].innerText == "F13") {
-        continue
+        continue;
       }
       buttons[index].style.display = "inline";
     }
-    toggles.delete("ok2")
+    toggles.delete("ok2");
   }
 }
 function toggleContainer() {
-
   if (!toggles.has("show")) {
-    containersDiv.style.display = "none"
+    containersDiv.style.display = "none";
     toggles.add("show");
-  }
-  else {
-    containersDiv.style.display = "flex"
+  } else {
+    containersDiv.style.display = "flex";
     toggles.delete("show");
-
   }
-
-
 }
 function buttonsCreator() {
-  for (let index = 1; index <= 17; index++) {
+  for (let index = 1; index < 17; index++) {
     let button = document.createElement("button");
     button.innerText = `F${index}`;
     switch (index) {
@@ -842,7 +639,7 @@ function buttonsCreator() {
       case 8:
         button.style.background = "red";
         button.style.color = "white";
-        button.onclick = _ => {
+        button.onclick = (_) => {
           let str = _fwindowlist.currentwindow;
           block(str);
         };
@@ -871,12 +668,12 @@ function buttonsCreator() {
       case 13:
         button.style.background = "#B565A7";
         button.style.color = "white";
-        button.onclick = toggleButtons
+        button.onclick = toggleButtons;
         break;
       case 14:
         button.style.background = "#DD4124";
         button.style.color = "white";
-        button.onclick = _ => _fwindowlist.hideuserlist();
+        button.onclick = (_) => _fwindowlist.hideuserlist();
         break;
       case 15:
         button.style.background = "black";
@@ -885,69 +682,47 @@ function buttonsCreator() {
         button.onclick = function () {
           if (this.innerText == "S") {
             containersDiv.style.width = "70%";
-            this.innerText = "L"
-          }
-          else {
+            this.innerText = "L";
+          } else {
             containersDiv.style.width = "30vw";
-            this.innerText = "S"
+            this.innerText = "S";
           }
-        }
+        };
         break;
       case 16:
         button.id = "togf";
         button.style.background = "black";
         button.style.color = "white";
-        button.innerText = "justF"
+        button.innerText = "justF";
         button.onclick = function () {
           if (num1 == 0) {
             regex = justKamangy;
             this.innerText = "F+K";
             num1++;
-
-          }
-          else if (num1 == 1) {
+          } else if (num1 == 1) {
             femalesNames.clear();
             this.innerText = "justK";
             num1++;
-          }
-          else if (num1 == 2) {
+          } else if (num1 == 2) {
             regex = /onedaymothersaidgetupearlytogotoschool/;
             guesto = /onedaymothersaidgetupearlytogotoschool/;
             this.innerText = "OFF";
             displayDiv.style.display = "flex";
             ol1.style.display = "none";
             num1++;
-          }
-          else {
+          } else {
             femalesNames = structuredClone(testFset);
             this.innerText = "justF";
             guesto = /^guest[^a-zA-Z]*$/i;
             num1 = 0;
-            displayDiv.style.display = "none"
-            ol1.style.display = "block"
-          }
-        };
-        break;
-      case 17:
-        button.style.background = "black";
-        button.style.color = "white";
-        button.innerText = "L";
-        button.onclick = function () {
-          if (this.innerText == "L") {
-            controlDiv.style.display = "none"
-            framo.style.display = ""
-            this.innerText = "R"
-          }
-          else {
-            controlDiv.style.display = "flex"
-            framo.style.display = "none"
-            this.innerText = "L"
+            displayDiv.style.display = "none";
+            ol1.style.display = "block";
           }
         };
         break;
     }
-    button.style.border = "none"
-    button.style.borderRadius = "40%"
+    button.style.border = "none";
+    button.style.borderRadius = "40%";
     buttonContainers.append(button);
   }
 }
@@ -955,50 +730,40 @@ function keysHandelr(e) {
   if (e.key == "F1") {
     closeCurrentPerson();
     e.preventDefault();
-  }
-  else if (e.key == "F2") {
+  } else if (e.key == "F2") {
     changeMessage1();
-    e.preventDefault()
-  }
-  else if (e.key == "F3") {
+    e.preventDefault();
+  } else if (e.key == "F3") {
     sentTwoMsgs();
-    e.preventDefault()
-  }
-  else if (e.key == "F4") {
+    e.preventDefault();
+  } else if (e.key == "F4") {
     defineMySelf();
-    e.preventDefault()
-  }
-  else if (e.key == "F5") {
+    e.preventDefault();
+  } else if (e.key == "F5") {
     restart();
     e.preventDefault();
-  }
-  else if (e.key == "F6") {
+  } else if (e.key == "F6") {
     sendMsgToMyself();
     e.preventDefault();
-  }
-  else if (e.key == "F7") {
+  } else if (e.key == "F7") {
     goToRoom();
     e.preventDefault();
-  }
-  else if (e.key == "F8") {
+  } else if (e.key == "F8") {
     block(_fwindowlist.currentwindow);
     e.preventDefault();
-  }
-  else if (e.key == "F9") {
+  } else if (e.key == "F9") {
     closAll();
     e.preventDefault();
-  }
-  else if (e.key == "F10") {
+  } else if (e.key == "F10") {
     goToLogin();
-    e.preventDefault()
-  }
-  else if (e.key == "F11") {
+    e.preventDefault();
+  } else if (e.key == "F11") {
     efsl();
-    e.preventDefault()
+    e.preventDefault();
   }
 }
-_fmain.document.addEventListener('click', function (event) {
-  if (event.target.matches('.main-nickg')) {
+_fmain.document.addEventListener("click", function (event) {
+  if (event.target.matches(".main-nickg")) {
     let txt = event.target.innerText;
     if (!personsGotMyMsg1.has(txt)) {
       doIt(txt);
@@ -1008,20 +773,20 @@ _fmain.document.addEventListener('click', function (event) {
 function checkForFemaleName(str, set) {
   let original = str;
   if (str.includes("|")) {
-    dontCheckAgain.add(original)
-    return false
+    dontCheckAgain.add(original);
+    return false;
   }
   if (str?.includes(kashida)) {
-    str = str.replaceAll(kashida, "")
+    str = str.replaceAll(kashida, "");
   }
 
   if (set.has(str.toLowerCase()) || guesto.test(str)) {
-    return true
+    return true;
   }
-  let words = str?.split(/[^\p{L}\p{N}]+/ug).filter(x => x)
+  let words = str?.split(/[^\p{L}\p{N}]+/gu).filter((x) => x);
   for (const word of words) {
     if (notWanted.has(word.toLowerCase())) {
-      dontCheckAgain.add(original)
+      dontCheckAgain.add(original);
       return false;
     }
   }
@@ -1030,10 +795,10 @@ function checkForFemaleName(str, set) {
       return true;
     }
   }
-  words = str?.split(/[^\p{L}]/ug).filter(x => x);
+  words = str?.split(/[^\p{L}]/gu).filter((x) => x);
   for (const word of words) {
     if (notWanted.has(word.toLowerCase())) {
-      dontCheckAgain.add(original)
+      dontCheckAgain.add(original);
       return false;
     }
   }
@@ -1042,84 +807,84 @@ function checkForFemaleName(str, set) {
       return true;
     }
   }
-  words = str?.split(/(\b[\p{L}\p{M}]+\b|\u00A0|_|\s)/ug).filter(x => x)
+  words = str?.split(/(\b[\p{L}\p{M}]+\b|\u00A0|_|\s)/gu).filter((x) => x);
   for (const word of words) {
     if (set.has(word.toLowerCase())) {
       return true;
     }
   }
-  words = str?.split(/(?=[A-Z|\u00A0|_|\s])/ug).filter(x => x);
+  words = str?.split(/(?=[A-Z|\u00A0|_|\s])/gu).filter((x) => x);
   for (const word of words) {
     if (set.has(word.toLowerCase())) {
       return true;
     }
   }
   if (/ة[^\u0020\u00A0]/.test(str)) {
-    let stro = str?.replaceAll("ة", "ة ")
-    words = stro.split(/\p{Emoji}|[^\p{L}]/ug).filter(x => x)
+    let stro = str?.replaceAll("ة", "ة ");
+    words = stro.split(/\p{Emoji}|[^\p{L}]/gu).filter((x) => x);
     for (const word of words) {
       if (notWanted.has(word.toLowerCase())) {
-        dontCheckAgain.add(original)
+        dontCheckAgain.add(original);
         return false;
       }
       if (set.has(word)) {
-        return true
+        return true;
       }
     }
   }
   if (/ء[^\u0020\u00A0]/.test(str)) {
-    let stro = str?.replaceAll("ء", "ء ")
-    words = stro.split(/\p{Emoji}|[^\p{L}]/ug).filter(x => x);
+    let stro = str?.replaceAll("ء", "ء ");
+    words = stro.split(/\p{Emoji}|[^\p{L}]/gu).filter((x) => x);
     for (const word of words) {
       if (notWanted.has(word.toLowerCase())) {
-        dontCheckAgain.add(original)
+        dontCheckAgain.add(original);
         return false;
       }
       if (set.has(word)) {
-        return true
+        return true;
       }
     }
   }
   if (/د[^\u0020\u00A0]/.test(str)) {
-    let stro = str?.replaceAll("د", "د ")
-    words = stro.split(/\p{Emoji}|[^\p{L}]/ug).filter(x => x);
+    let stro = str?.replaceAll("د", "د ");
+    words = stro.split(/\p{Emoji}|[^\p{L}]/gu).filter((x) => x);
     for (const word of words) {
       if (notWanted.has(word.toLowerCase())) {
-        dontCheckAgain.add(original)
+        dontCheckAgain.add(original);
         return false;
       }
       if (set.has(word)) {
-        return true
+        return true;
       }
     }
   }
   if (/^(ال|أل)/.test(str)) {
-    let stro = str.replaceAll(/^(ال|أل)/ug, "")
-    words = stro.split(/\p{Emoji}|[^\p{L}]/ug).filter(x => x)
+    let stro = str.replaceAll(/^(ال|أل)/gu, "");
+    words = stro.split(/\p{Emoji}|[^\p{L}]/gu).filter((x) => x);
     for (const word of words) {
       if (notWanted.has(word.toLowerCase())) {
-        dontCheckAgain.add(original)
+        dontCheckAgain.add(original);
         return false;
       }
       if (set.has(word)) {
-        return true
+        return true;
       }
     }
   }
-  dontCheckAgain.add(original)
+  dontCheckAgain.add(original);
   return false;
 }
 function getPattern(str, set) {
   let words = str.split(/[^\p{L}]/u);
   if (set.has(str) || /^guest[^a-zA-Z]*$/i.test(str)) {
-    return str
+    return str;
   }
   for (const word of words) {
     if (set.has(word.toLowerCase())) {
       return word;
     }
   }
-  words = str.split(/(\b[\p{L}\p{M}]+\b)/ug)
+  words = str.split(/(\b[\p{L}\p{M}]+\b)/gu);
   for (const word of words) {
     if (set.has(word.toLowerCase())) {
       return word;
@@ -1133,7 +898,7 @@ function getPattern(str, set) {
   }
 }
 function difference(st1, st2) {
-  return [...st1].filter(x => !st2.has(x))
+  return [...st1].filter((x) => !st2.has(x));
 }
 function generateRandomString() {
   var chars = "abcdefghijklmnopqrstuvwxyz";
@@ -1150,45 +915,41 @@ async function* stramMsg(name) {
     let li1 = document.createElement("li");
     if (randomizeMessage) {
       li1.innerHTML = `<bdi>${name}</bdi> ⏪ <bdi style="color:white">${stream[name].msg}</bdi>`;
-    }
-    else {
+    } else {
       li1.innerText = name;
     }
     li1.style.cursor = "pointer";
     li1.style.width = "fit-content";
-    li1.id = stream[name].id
-    li1.style.color = (testFset.has(name)) ? "green" : "#FFA500";
+    li1.id = stream[name].id;
+    li1.style.color = testFset.has(name) ? "green" : "#FFA500";
     li1.onclick = function (event) {
-      kalamngySend(name, `/query ${name}`)
+      kalamngySend(name, `/query ${name}`);
       event.stopPropagation();
-    }
+    };
     if (zozo.has(name)) {
       li1.style.color = "violet";
-      zozo.delete(name)
+      zozo.delete(name);
     }
-    ol1.append(li1)
+    ol1.append(li1);
     li1.scrollIntoView();
-    await kalamngySend(name, `/winclose ${name}`)
-
+    await kalamngySend(name, `/winclose ${name}`);
+  } else {
+    return false;
   }
-  else {
-    return false
-  }
-  let noreply = yield 1
+  let noreply = yield 1;
   if (noreply) {
     await kalamngySend(name, message4);
-    kalamngySend(name, `/winclose ${name}`)
-  }
-  else {
+    kalamngySend(name, `/winclose ${name}`);
+  } else {
     clearTimeout(stream[name].timeout);
     await kalamngySend(name, `/query ${name}`);
-    audio.play().catch(_ => true)
+    audio.play().catch((_) => true);
     await kalamngySend(name, message2);
     await kalamngySend(name, message3);
     let txt = _fwindowlist["Witems"][_fwindowlist.currentwindow].text[0];
     let tmpoDiv = document.createElement("div");
-    tmpoDiv.innerHTML = txt
-    let str = tmpoDiv.childNodes[0].childNodes[4].innerText
+    tmpoDiv.innerHTML = txt;
+    let str = tmpoDiv.childNodes[0].childNodes[4].innerText;
     let li = _fmain.document.getElementById(stream[name].id);
     li.innerText = "";
     li.innerHTML = `<bdi>${name}</bdi> ⏩ <bdi style="color:white">${str}</bdi> ⏪ <bdi style="color:white">${stream[name].msg}</bdi>`;
@@ -1196,22 +957,22 @@ async function* stramMsg(name) {
     li.onclick = function (event) {
       kalamngySend(name, `/query ${name}`);
       event.stopPropagation();
-    }
+    };
     ol1.append(li);
     li.scrollIntoView();
     await sleep(600);
-    kalamngySend(name, `/winclose ${name}`)
+    kalamngySend(name, `/winclose ${name}`);
   }
-  yield 2
+  yield 2;
   if (noreply) {
     await kalamngySend(name, `/query ${name}`);
     await kalamngySend(name, message2);
     await kalamngySend(name, message3);
-    audio.play().catch(_ => true)
+    audio.play().catch((_) => true);
     let txt = _fwindowlist["Witems"][_fwindowlist.currentwindow].text[0];
     let tmpoDiv = document.createElement("div");
-    tmpoDiv.innerHTML = txt
-    let str = tmpoDiv.childNodes[0].childNodes[4].innerText
+    tmpoDiv.innerHTML = txt;
+    let str = tmpoDiv.childNodes[0].childNodes[4].innerText;
     let li = _fmain.document.getElementById(stream[name].id);
     li.innerText = "";
     li.innerHTML = `<bdi>${name}</bdi>${hrdspc} ⏩ ${hrdspc}<bdi style="color:white">${str}</bdi>`;
@@ -1219,18 +980,18 @@ async function* stramMsg(name) {
     li.onclick = function (event) {
       kalamngySend(name, `/query ${name}`);
       event.stopPropagation();
-    }
+    };
     ol1.append(li);
     li.scrollIntoView();
     await sleep(200);
-    kalamngySend(name, `/winclose ${name}`)
-    noreply = false
-    yield 3
+    kalamngySend(name, `/winclose ${name}`);
+    noreply = false;
+    yield 3;
   }
   while (true) {
-    bll.play().catch(_ => true)
+    bll.play().catch((_) => true);
     kalamngySend(name, `/query ${name}`);
-    yield 4
+    yield 4;
   }
 }
 class User {
@@ -1239,9 +1000,12 @@ class User {
     this.id = id;
     this.name = esm;
     this.excuterObj = stramMsg(esm);
-    this.timeout = (condition) ? setTimeout(() => { stream[esm].excuterObj.next(true); }, 60000) : "";
+    this.timeout = condition
+      ? setTimeout(() => {
+          stream[esm].excuterObj.next(true);
+        }, 60000)
+      : "";
     this.ptrn = getPattern(esm, testFset);
-
   }
 }
 function doIt(name) {
@@ -1254,9 +1018,9 @@ function doIt(name) {
 }
 function downloadObj(obj, filename) {
   const json = JSON.stringify(obj);
-  const blob = new Blob([json], { type: 'application/json' });
+  const blob = new Blob([json], { type: "application/json" });
   const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
+  const a = document.createElement("a");
   a.href = url;
   a.download = `${filename}.json`;
   a.click();
@@ -1265,94 +1029,22 @@ function downloadObj(obj, filename) {
 async function fetchJsons(url) {
   let x = await fetch(url, {
     headers: {
-      'Authorization': `token ${TOKEN}`
-    }
-  })
-  x = await x.json()
-  return [new Set(JSON.parse(decodeURIComponent(atob(x.content)))), x.sha]
+      Authorization: `token ${TOKEN}`,
+    },
+  });
+  x = await x.json();
+  return [new Set(JSON.parse(decodeURIComponent(atob(x.content)))), x.sha];
 }
 (async function () {
   let response = await fetchJsons(fmlgiturl);
   femalesNames = response[0];
-  testFset = structuredClone(femalesNames)
-  shaf = response[1];
-  oldFlength = femalesNames.size
+  testFset = structuredClone(femalesNames);
+  oldFlength = femalesNames.size;
   response = await fetchJsons(mlsgiturl);
   notWanted = response[0];
-  sham = response[1];
-  oldMlength = notWanted.size
+  oldMlength = notWanted.size;
   response = await fetchJsons(msgsgiturl);
   messages = response[0];
-  shrr3 = response[1];
-  if (localStorage["f"]) {
-    newNamesF = localStorage.f.split(",");
-    let setf = new Set(newNamesF)
-    for (let i = 0; i < newNamesF.length; i++) {
-      if (femalesNames.has(newNamesF[i])) {
-        setf.delete(newNamesF[i])
-      }
-      else {
-        femalesNames.add(newNamesF[i]);
-        testFset.add(newNamesF[i]);
-      }
-    }
-    newNamesF = [...setf];
-    localStorage.f = newNamesF.join()
-  }
-  else {
-    localStorage.f = ""
-  }
-  if (localStorage["m"]) {
-    newNamesM = localStorage.m.split(",");
-    let setm = new Set(newNamesM)
-    for (let i = 0; i < newNamesM.length; i++) {
-      if (notWanted.has(newNamesM[i])) {
-        setm.delete(newNamesM[i])
-      }
-      else {
-        notWanted.add(newNamesM[i]);
-      }
-    }
-    newNamesM = [...setm];
-    localStorage.m = newNamesM.join();
-  }
-  else {
-    localStorage.m = ""
-  }
-  if (localStorage["fd"]) {
-    newNamesFd = localStorage.fd.split(",")
-    for (let i = 0; i < newNamesFd.length; i++) {
-
-      if (!femalesNames.has(newNamesFd[i])) {
-        newNamesFd = newNamesFd.filter(nm => nm != newNamesFd[i])
-      }
-      else {
-        femalesNames.delete(newNamesFd[i])
-        testFset.delete(newNamesFd[i])
-      }
-    }
-    localStorage.fd = newNamesFd.join()
-  }
-  else {
-    localStorage.fd = ""
-  }
-  if (localStorage["md"]) {
-
-    newNamesMd = localStorage.md.split(",")
-    for (let i = 0; i < newNamesMd.length; i++) {
-
-      if (!notWanted.has(newNamesMd[i])) {
-        newNamesMd = newNamesMd.filter(nm => nm != newNamesMd[i])
-      }
-      else {
-        notWanted.delete(newNamesMd[i])
-      }
-    }
-    localStorage.md = newNamesMd.join()
-  }
-  else {
-    localStorage.md = ""
-  }
   await sleep(3000);
   runCode();
-})();  
+})();
