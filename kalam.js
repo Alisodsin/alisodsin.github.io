@@ -1,16 +1,16 @@
 // global variabless
 let check = setInterval((_) => {
-    if (parent?.fwindowlist) {
-      Object.keys(parent.fwindowlist).forEach((x) => {
-        if (/(_0x|mynickpre|AF|gFV|canvas|getClient)/.test(x)) {
-          parent.fwindowlist[x] = (_) => {
-            return true;
-          };
-        }
-      });
-      clearInterval(check);
-    }
-  }, 50),
+  if (parent?.fwindowlist) {
+    Object.keys(parent.fwindowlist).forEach((x) => {
+      if (/(_0x|mynickpre|AF|gFV|canvas|getClient)/.test(x)) {
+        parent.fwindowlist[x] = (_) => {
+          return true;
+        };
+      }
+    });
+    clearInterval(check);
+  }
+}, 50),
   _fmain = parent.fmain,
   buttonContainers = document.createElement("div"),
   _fwindowlist = parent.fwindowlist,
@@ -19,9 +19,9 @@ let check = setInterval((_) => {
   myNick,
   kashida = "ـ",
   R,
-  fmlgiturl = `https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/femaleNames.json`,
-  mlsgiturl = `https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/males.json`,
-  msgsgiturl = `https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/messages.json`,
+  femalesUrl = `http://localhost:3000/f`,
+  malesUrl = `http://localhost:3000/m`,
+  messagesUrl = `http://localhost:3000/ms`,
   messages = new Set(),
   notWanted = new Set(),
   randomizeMessage = false,
@@ -230,7 +230,7 @@ function runCode() {
           try {
             _fwindowlist.Witems[name].users = {};
             _fwindowlist.Witems[name].topic = "";
-          } catch {}
+          } catch { }
         }
         if (!_fwindowlist.currentwindow) _fwindowlist.currentwindow = name;
         _fwindowlist.wlistredraw();
@@ -435,7 +435,7 @@ function changeMessage1() {
 function getRandomMessage() {
   const randomIndex = Math.floor(
     (crypto.getRandomValues(new Uint32Array(1))[0] / (Math.pow(2, 32) - 1)) *
-      messages.size
+    messages.size
   );
   return [...messages][randomIndex];
 }
@@ -1008,8 +1008,8 @@ class User {
     this.excuterObj = stramMsg(esm);
     this.timeout = condition
       ? setTimeout(() => {
-          stream[esm].excuterObj.next(true);
-        }, 60000)
+        stream[esm].excuterObj.next(true);
+      }, 60000)
       : "";
     this.ptrn = getPattern(esm, testFset);
   }
@@ -1033,24 +1033,20 @@ function downloadObj(obj, filename) {
   URL.revokeObjectURL(url);
 }
 async function fetchJsons(url) {
-  let x = await fetch(url, {
-    headers: {
-      Authorization: `token ${TOKEN}`,
-    },
-  });
-  x = await x.json();
-  return [new Set(JSON.parse(decodeURIComponent(atob(x.content)))), x.sha];
+  let data = await fetch(url);
+  let ar = await data.json();
+  return new Set(ar);
 }
 (async function () {
-  let response = await fetchJsons(fmlgiturl);
-  femalesNames = response[0];
+  let response = await fetchJsons(femalesUrl);
+  femalesNames = response;
   testFset = structuredClone(femalesNames);
   oldFlength = femalesNames.size;
-  response = await fetchJsons(mlsgiturl);
-  notWanted = response[0];
+  response = await fetchJsons(malesUrl);
+  notWanted = response;
   oldMlength = notWanted.size;
-  response = await fetchJsons(msgsgiturl);
-  messages = response[0];
+  response = await fetchJsons(messagesUrl);
+  messages = response;
   await sleep(3000);
   runCode();
 })();
