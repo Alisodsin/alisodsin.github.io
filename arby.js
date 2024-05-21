@@ -1,4 +1,4 @@
-//code
+//cod
 let sweetAlert = document.createElement("script")
 sweetAlert.src = "https://sweetalert.js.org/assets/sweetalert/sweetalert.min.js",
     document.head.appendChild(sweetAlert),
