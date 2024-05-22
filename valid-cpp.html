@@ -28,6 +28,7 @@
       let str = area.value;
       str = str.replace(/(\d{1,}:)/gi, "");
       str = str.replace(/(“|”)/gi, '"');
+      str = str.replace(/’/gi, "'");
       area.value = str;
     };
   </script>
