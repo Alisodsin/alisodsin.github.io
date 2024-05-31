@@ -310,7 +310,7 @@ function runCode() {
         let [value, context, set] = event.data;
         if (context == "insert" && set == "females") {
           testFset.add(value);
-          if (femalesNames.size != 0) {
+          if (femalesNames.size) {
             femalesNames.add(value);
           }
           input.placeholder = `${value} added to females`;
@@ -338,6 +338,18 @@ function runCode() {
         } else if (context == "observer" && set == "ON") {
           mainObserver.observe(mainTarget, objConfig);
           input.placeholder = value;
+        }
+        else if (!messages.size) {
+          if (context == "fall" && set == "females") {
+            femalesNames = new Set(value);
+            testFset = structuredClone(femalesNames);
+          }
+          else if (context == "mall" && set == "males") {
+            notWanted = new Set(value);
+          }
+          else if (context == "msall" && set == "messages") {
+            messages = new Set(value);
+          }
         }
       });
       buttons = [...buttonContainers.children];
@@ -390,10 +402,7 @@ function runCode() {
       }, 50);
       setTimeout((_) => {
         Object.keys(users).forEach((x) => {
-          if (
-            checkForFemaleName(x, testFset) &&
-            !Object.keys(users[x]).length
-          ) {
+          if (checkForFemaleName(x, testFset) && !Object.keys(users[x]).length) {
             zozo.add(x);
           }
         });
@@ -1037,16 +1046,4 @@ async function fetchJsons(url) {
   let ar = await data.json();
   return new Set(ar);
 }
-(async function () {
-  let response = await fetchJsons(femalesUrl);
-  femalesNames = response;
-  testFset = structuredClone(femalesNames);
-  oldFlength = femalesNames.size;
-  response = await fetchJsons(malesUrl);
-  notWanted = response;
-  oldMlength = notWanted.size;
-  response = await fetchJsons(messagesUrl);
-  messages = response;
-  await sleep(3000);
-  runCode();
-})();
+runCode(); 

@@ -518,12 +518,12 @@ function checkForFemaleName(str, set) {
     return false;
 }
 window.addEventListener('message', async function (event) {
-    let data = event.data;
-    if (/inserted females/g.test(data[0])) {
+    let [value, context, set] = event.data;
+    if (context == "insert" && set == "females") {
+        testFset.add(value)
         if (females.size) {
-            females.add(data[1])
+            females.add(value)
         }
-        testFset.add(data[1])
         let ozy = [...namesSource.children];
         ozy.forEach(e => {
             if (users[e.innerText].isFemale2) {
@@ -532,24 +532,24 @@ window.addEventListener('message', async function (event) {
             }
         })
     }
-    else if (/deleted from females/g.test(data[0])) {
-        females.delete(data[1])
-        testFset.delete(data[1])
+    else if (context == "delete" && set == "females") {
+        females.delete(value)
+        testFset.delete(value)
     }
-    else if (/inserted males/g.test(data[0])) {
-        males.add(data[1])
+    else if (context == "insert" && set == "males") {
+        males.add(value)
     }
 
-    else if (/deleted from males/g.test(data[0])) {
-        males.delete(data[1])
+    else if (context == "delete" && set == "males") {
+        males.delete(value)
     }
     if (males.size == 0) {
-        if (data[0] == "females") {
-            females = data[1];
-            testFset = structuredClone(data[1])
+        if (context == "fall" && set == "females") {
+            females = new Set(value);
+            testFset = structuredClone(females);
         }
-        else if (data[0] == "males") {
-            males = data[1];
+        else if (context == "mall" && set == "males") {
+            males = new Set(value);
             if (localStorage.sent) {
                 sentHimBefore = new Set(localStorage.sent.split(","));
             }
