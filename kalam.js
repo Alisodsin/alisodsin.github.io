@@ -30,7 +30,6 @@ let check = setInterval((_) => {
   sham,
   shrr3,
   users,
-  oldFlength,
   oldMlength,
   stream = {},
   framo,
@@ -148,7 +147,6 @@ function runCode() {
       listTarget = _fwindowlist.document.getElementById("windowlist");
       input = parent.fform.document.querySelector("#say");
       listObserver.observe(listTarget, objConfig);
-      input.placeholder = `you have ${oldFlength} female names`;
       fform.onkeydown = keysHandelr;
       fform.fns = (_) => true;
       ters = fform.document.getElementsByTagName("img")[0];
@@ -343,6 +341,7 @@ function runCode() {
           if (context == "fall" && set == "females") {
             femalesNames = new Set(value);
             testFset = structuredClone(femalesNames);
+            input.placeholder = `you have ${testFset.size} female names`;
           }
           else if (context == "mall" && set == "males") {
             notWanted = new Set(value);
