@@ -217,7 +217,7 @@ async function privo() {
 }
 function instructions() {
     parentDiv.id = "conto"
-    framo.src = "http://localhost:3000";
+    framo.src = "https://8354b4f0-ece1-4638-a054-94e0f5cd39f2-00-dcq5n25ov3kr.kirk.replit.dev";
     privt.style.display = "none"
     buttonsContainer.id = "buttonsContainer"
     list.id = "lista";

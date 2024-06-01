@@ -140,7 +140,7 @@ function runCode() {
     if (Boolean(Object?.keys?.(_fwindowlist?.Witems)?.[1])) {
       roomName = Object.keys(_fwindowlist.Witems)[1];
       framo = document.createElement("iframe");
-      framo.src = "http://localhost:3000";
+      framo.src = "https://8354b4f0-ece1-4638-a054-94e0f5cd39f2-00-dcq5n25ov3kr.kirk.replit.dev";
       mainTarget = _fmain.document.querySelector("#text");
       myNick = _fwindowlist.mynickname;
       joiningPplClass = _fmain.document.getElementsByClassName("main-nickg");
