@@ -310,6 +310,16 @@ function runCode() {
           testFset.add(value);
           if (femalesNames.size) {
             femalesNames.add(value);
+            let arml = [...ol2.children];
+            for (let index = 0; index < arml.length; index++) {
+              let name = arml[index].textContent;
+              if (checkForFemaleName(name, femalesNames)) {
+                malesNames.delete(name);
+                arml[index].remove();
+                doIt(name);
+                break;
+              }
+            }
           }
           input.placeholder = `${value} added to females`;
         } else if (context == "delete" && set == "females") {
