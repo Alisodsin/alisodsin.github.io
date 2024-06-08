@@ -343,7 +343,7 @@ li {
 }
 button0.onclick = function () {
     if (this.innerText == "G") {
-        msg = "ما تيجى انيكك صوت؟";
+        msg = "تتناكى صوت بعنف؟";
         msg2 = "جيتيسي,تيليجرام او جاستوك عندك ايه؟";
         this.innerText = "B"
         this.style.backgroundColor = "red"
