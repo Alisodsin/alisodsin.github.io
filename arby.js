@@ -26,7 +26,7 @@ sweetAlert.src = "https://sweetalert.js.org/assets/sweetalert/sweetalert.min.js"
     allPeople = pplJoin.children,
     msg1 = "",
     input = id("ta"),
-    msg2 = "على 42 منصوره , وانتى؟",
+    msg2 = "على 35 منصوره , وانتى؟",
     audio = new Audio("https://alisodsin.github.io/Short.mp3"),
     bll = new Audio("https://www.soundjay.com/phone/cell-phone-1-nr0.mp3"),
     inbox = id("hs"),
@@ -509,7 +509,7 @@ function runCode() {
     button7.onclick = closeCurrentPerson
     button8.innerText = "F4"
     button8.onclick = _ => {
-        input.value = "على 42 منصوره"
+        input.value = "على 35 منصوره"
         id("snd").click()
         input.value = "وانتى؟"
         id("snd").click()
@@ -552,7 +552,7 @@ function runCode() {
         }
         else {
             msg1 = keepMsg
-            msg2 = "على 42 منصوره , وانتى ؟";
+            msg2 = "على 35 سنه من المنصوره , ممكن نتعرف؟";
             button13.innerText = "gdMsg"
             msgSwitch = 0
         }
