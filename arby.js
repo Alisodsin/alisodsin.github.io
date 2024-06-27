@@ -427,7 +427,7 @@ function runCode() {
         return true;
     }
     socket.on("ig", data => {
-        if (checkBad(data[2])) {
+        if (checkBad(data[2] && !data[2].includes("تقنية"))) {
             if (!blockedPPl.has(data[0]) && !oltEsmy.has(data[0])) {
                 let thisPersonReplyMe = document.createElement("li")
                 thisPersonReplyMe.innerHTML = `<bdi style="color:#51b5a9">${data[1]}</bdi> ➡ <bdi style="color:#fade8b">${data[2]}</bdi>`
