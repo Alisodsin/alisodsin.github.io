@@ -33,7 +33,7 @@ sweetAlert.src = "https://sweetalert.js.org/assets/sweetalert/sweetalert.min.js"
     tile = id("tt"),
     onn = false,
     myNick = "",
-    fucking = ["Everyone Chat", "انضم", "الشات", "وأجانب", "التسجيلات", "متحركة", "طريقة", "الموقع", "https", "Join", "المستعمل", "بالشات", "إنتظاركم"],
+    fucking = ["Everyone Chat", "انضم", "الشات", "وأجانب", "التسجيلات", "متحركة", "طريقة", "الموقع", "https", "Join", "المستعمل", "بالشات", "إنتظاركم","تقنية","أوديو","المتصفح","https://everyone.chat","مجاني بدون تسجيل"],
     myId = "",
     msgSwitch = 0,
     names = [
@@ -427,7 +427,7 @@ function runCode() {
         return true;
     }
     socket.on("ig", data => {
-        if (checkBad(data[2] && !data[2].includes("تقنية"))) {
+        if (checkBad(data[2])) {
             if (!blockedPPl.has(data[0]) && !oltEsmy.has(data[0])) {
                 let thisPersonReplyMe = document.createElement("li")
                 thisPersonReplyMe.innerHTML = `<bdi style="color:#51b5a9">${data[1]}</bdi> ➡ <bdi style="color:#fade8b">${data[2]}</bdi>`
