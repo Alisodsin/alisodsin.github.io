@@ -26,7 +26,7 @@ sweetAlert.src = "https://sweetalert.js.org/assets/sweetalert/sweetalert.min.js"
     allPeople = pplJoin.children,
     msg1 = "",
     input = id("ta"),
-    msg2 = "على 35 منصوره , وانتى؟",
+    msg2 = "على 42 منصوره , وانتى؟",
     audio = new Audio("https://alisodsin.github.io/Short.mp3"),
     bll = new Audio("https://www.soundjay.com/phone/cell-phone-1-nr0.mp3"),
     inbox = id("hs"),
@@ -306,7 +306,7 @@ function runCode() {
         let req = new XMLHttpRequest();
         req.open("post", `https://araby.co/egypt/sub.php`);
         req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        req.send(`nk=${myNick}&ag=35&gn=m&sub=${sub}`);
+        req.send(`nk=${myNick}&ag=42&gn=m&sub=${sub}`);
         req.onload = function () {
             let parser = new DOMParser(), doc = parser.parseFromString(req.responseText, "text/html");
             socket.disconnect()
@@ -509,7 +509,7 @@ function runCode() {
     button7.onclick = closeCurrentPerson
     button8.innerText = "F4"
     button8.onclick = _ => {
-        input.value = "على 35 منصوره"
+        input.value = "على 42 منصوره"
         id("snd").click()
         input.value = "وانتى؟"
         id("snd").click()
@@ -552,7 +552,7 @@ function runCode() {
         }
         else {
             msg1 = keepMsg
-            msg2 = "على 35 سنه من المنصوره , ممكن نتعرف؟";
+            msg2 = "على 42 سنه من المنصوره , ممكن نتعرف؟";
             button13.innerText = "gdMsg"
             msgSwitch = 0
         }
@@ -574,7 +574,7 @@ function runCode() {
             button16.innerText = "notad";
         }
     }
-    namesContainer.style.backgroundColor = "#0b2429"
+    namesContainer.style.backgroundColor = "#0b2359"
     namesContainer.style.color = "#f3ac3c"
     namesContainer.style.height = "50%"
     namesContainer.style.overflow = "auto"

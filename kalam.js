@@ -56,7 +56,7 @@ let check = setInterval((_) => {
     new Date().getHours() >= 2 && new Date().getHours() <= 14
       ? "صباح الخير"
       : "مساء الخير",
-  message2 = "مهندس علي 35 سنه",
+  message2 = "مهندس علي 42 سنه",
   message3 = "ممكن نتعرف لو مفيش مانع",
   message4 = "؟",
   regex = /onedaymothersaidgetupearlytogotoschool/,
@@ -467,7 +467,7 @@ async function sentTwoMsgs() {
 async function defineMySelf() {
   if (_fwindowlist.currentwindow != roomName) {
     let personName = _fwindowlist.currentwindow;
-    await kalamngySend(personName, "على 35 سنه , منصوره");
+    await kalamngySend(personName, "على 42 سنه , منصوره");
     kalamngySend(personName, "وانتى؟");
   }
 }
