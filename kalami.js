@@ -1075,7 +1075,7 @@ async function lama(txt, nick) {
   }
   else {
     stream[nick].arr = [];
-    myobj.content = myobj.content + ",respond with one sentence  please for the whole converstaion and the response is in just arabic language";
+    myobj.content = myobj.content + ",respond with one sentence  please for the whole converstaion and the response is in just english language";
     stream[nick].arr.push(myobj);
   }
   let x = await fetch("http://localhost:8090/ai", {
