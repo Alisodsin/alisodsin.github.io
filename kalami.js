@@ -19,9 +19,9 @@ let check = setInterval((_) => {
   myNick,
   kashida = "ـ",
   R,
-  femalesUrl = `http://localhost:3000/f`,
-  malesUrl = `http://localhost:3000/m`,
-  messagesUrl = `http://localhost:3000/ms`,
+  femalesUrl = `http://localhost:8090/f`,
+  malesUrl = `http://localhost:8090/m`,
+  messagesUrl = `http://localhost:8090/ms`,
   messages = new Set(),
   notWanted = new Set(),
   randomizeMessage = false,
@@ -134,7 +134,7 @@ function runCode() {
     if (Boolean(Object?.keys?.(_fwindowlist?.Witems)?.[1])) {
       roomName = Object.keys(_fwindowlist.Witems)[1];
       framo = document.createElement("iframe");
-      framo.src = "http://localhost:3000/";
+      framo.src = "http://localhost:8090/";
       mainTarget = _fmain.document.querySelector("#text");
       myNick = _fwindowlist.mynickname;
       joiningPplClass = _fmain.document.getElementsByClassName("main-nickg");
@@ -1078,7 +1078,7 @@ async function lama(txt, nick) {
     myobj.content = myobj.content + ",respond with one sentence  please for the whole converstaion and the response is in just arabic language";
     stream[nick].arr.push(myobj);
   }
-  let x = await fetch("http://localhost:3000/ai", {
+  let x = await fetch("http://localhost:8090/ai", {
     method: "POST",
     "headers": {
       "Content-Type": "application/json"
