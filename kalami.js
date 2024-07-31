@@ -104,7 +104,7 @@ let check = setInterval((_) => {
       try {
         let msg = [...[..._fmain.document?.querySelector?.("#text")?.childNodes]?.at?.(-1)?.children]?.at?.(-2)?.innerText;
         let nick = [...[..._fmain.document?.querySelector?.("#text")?.childNodes]].at(-1).childNodes[1].children[0].innerText;
-        if (nick == _fwindowlist.currentwindow && _fwindowlist.currentwindow != myNick) {
+        if (nick == _fwindowlist.currentwindow && _fwindowlist.currentwindow != myNick && stream[nick]) {
           lama(msg, nick);
         }
       } catch (_) {
