@@ -52,10 +52,7 @@ let check = setInterval((_) => {
   num1 = 0,
   buttons,
   rooms = ["#مصر", "#رومانسية"],
-  message1 =
-    new Date().getHours() >= 2 && new Date().getHours() <= 14
-      ? "صباح الخير"
-      : "مساء الخير",
+  message1 = new Date().getHours() >= 2 && new Date().getHours() <= 14 ? "صباح الخير" : "مساء الخير",
   message2 = "مهندس علي 42 سنه",
   message3 = "ممكن نتعرف لو مفيش مانع",
   message4 = "؟",
@@ -746,10 +743,12 @@ function buttonsCreator() {
           if (this.innerText == "lmf") {
             toggles.add("lmaaa");
             this.innerText = "lmn";
+            message1 = "hi";
           }
           else {
             this.innerText = "lmf";
             toggles.delete("lmaaa");
+            message1 = new Date().getHours() >= 2 && new Date().getHours() <= 14 ? "صباح الخير" : "مساء الخير";
           }
         }
         break;
@@ -1075,7 +1074,8 @@ async function lama(txt, nick) {
   }
   else {
     stream[nick].arr = [];
-    myobj.content = myobj.content + ",respond with one sentence  please for the whole converstaion and just answer in english please";
+    myobj.content = myobj.content + ` , respond with one sentence for the whole converstaion and just answer in english please , my name is ${stream[nick].ptrn}`;
+    console.log(stream[nick].ptrn);
     stream[nick].arr.push(myobj);
   }
   let x = await fetch("http://localhost:8090/ai", {
