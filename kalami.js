@@ -906,28 +906,119 @@ function checkForFemaleName(str, set) {
   dontCheckAgain.add(original);
   return false;
 }
+
 function getPattern(str, set) {
-  let words = str.split(/[^\p{L}]/u);
-  if (set.has(str) || /^guest[^a-zA-Z]*$/i.test(str)) {
+  let original = str;
+  if (str.includes("|")) {
+    dontCheckAgain.add(original);
+    return false;
+  }
+  if (str?.includes(kashida)) {
+    str = str.replaceAll(kashida, "");
+  }
+
+  if (set.has(str.toLowerCase()) || guesto.test(str)) {
     return str;
+    // return true;
+  }
+  let words = str?.split(/[^\p{L}\p{N}]+/gu).filter((x) => x);
+  for (const word of words) {
+    if (notWanted.has(word.toLowerCase())) {
+      dontCheckAgain.add(original);
+      return false;
+    }
+  }
+  for (const word of words) {
+    if (set.has(word.toLowerCase())) {
+      return word
+      // return true;
+    }
+  }
+  words = str?.split(/[^\p{L}]/gu).filter((x) => x);
+  for (const word of words) {
+    if (notWanted.has(word.toLowerCase())) {
+      dontCheckAgain.add(original);
+      return false;
+    }
   }
   for (const word of words) {
     if (set.has(word.toLowerCase())) {
       return word;
+      // return true;
     }
   }
-  words = str.split(/(\b[\p{L}\p{M}]+\b)/gu);
+  words = str?.split(/(\b[\p{L}\p{M}]+\b|\u00A0|_|\s)/gu).filter((x) => x);
+  for (const word of words) {
+    if (set.has(word.toLowerCase())) {
+      return word
+      // return true;
+    }
+  }
+  words = str?.split(/(?=[A-Z|\u00A0|_|\s])/gu).filter((x) => x);
   for (const word of words) {
     if (set.has(word.toLowerCase())) {
       return word;
+      // return true;
     }
   }
-  words = str.split(/(?=[A-Z])/);
-  for (const word of words) {
-    if (set.has(word.toLowerCase())) {
-      return word;
+  if (/ة[^\u0020\u00A0]/.test(str)) {
+    let stro = str?.replaceAll("ة", "ة ");
+    words = stro.split(/\p{Emoji}|[^\p{L}]/gu).filter((x) => x);
+    for (const word of words) {
+      if (notWanted.has(word.toLowerCase())) {
+        dontCheckAgain.add(original);
+        return false;
+      }
+      if (set.has(word)) {
+        return word;
+        // return true;
+      }
     }
   }
+  if (/ء[^\u0020\u00A0]/.test(str)) {
+    let stro = str?.replaceAll("ء", "ء ");
+    words = stro.split(/\p{Emoji}|[^\p{L}]/gu).filter((x) => x);
+    for (const word of words) {
+      if (notWanted.has(word.toLowerCase())) {
+        dontCheckAgain.add(original);
+        return false;
+      }
+      if (set.has(word)) {
+        return word;
+        // return true;
+      }
+    }
+  }
+  if (/د[^\u0020\u00A0]/.test(str)) {
+    let stro = str?.replaceAll("د", "د ");
+    words = stro.split(/\p{Emoji}|[^\p{L}]/gu).filter((x) => x);
+    for (const word of words) {
+      if (notWanted.has(word.toLowerCase())) {
+        dontCheckAgain.add(original);
+        return false;
+      }
+      if (set.has(word)) {
+        return word;
+        // return true;
+      }
+    }
+  }
+  if (/^(ال|أل)/.test(str)) {
+    let stro = str.replaceAll(/^(ال|أل)/gu, "");
+    words = stro.split(/\p{Emoji}|[^\p{L}]/gu).filter((x) => x);
+    for (const word of words) {
+      if (notWanted.has(word.toLowerCase())) {
+        dontCheckAgain.add(original);
+        return false;
+      }
+      if (set.has(word)) {
+        return word;
+        // return true;
+      }
+    }
+  }
+  dontCheckAgain.add(original);
+  return false;
 }
 function difference(st1, st2) {
   return [...st1].filter((x) => !st2.has(x));
