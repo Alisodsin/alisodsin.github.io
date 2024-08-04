@@ -1169,7 +1169,7 @@ async function lama(txt, nick) {
   if (!stream[nick].arr) {
     stream[nick].arr = [];
     if (toggles.has("nmo")) {
-      stream[nick].arr.push({ role: "assistant", content: "You are an Egyptian man called Ali 42 years old who love chat in a friendly way in just arabic language , you live in Mansoura city " });
+      stream[nick].arr.push({ role: "assistant", content: "You are a trukish man called \"Burak\" 35 years old who love chat in a friendly way in just arabic language , you live in istanbul city " });
       myobj.content = myobj.content + ` , respond with one sentence for the whole converstaion and just answer in arabic please , my name is ${stream[nick].ptrn}`;
     }
     else {
