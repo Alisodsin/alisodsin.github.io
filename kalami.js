@@ -1169,7 +1169,7 @@ async function lama(txt, nick) {
   if (!stream[nick].arr) {
     stream[nick].arr = [];
     if (toggles.has("nmo")) {
-      myobj.content = `You are Fatma, a 24-year-old Turkish girl. You only speak Arabic. Respond in short sentences of no more than 10 words.\n${txt} , my name is ${stream[nick].ptrn}`;
+      myobj.content = `أنتِ فاطمة، فتاة تركية عمرها 24 سنة. تتحدثين فقط العربية. أجيبي بجمل قصيرة لا تزيد عن 10 كلمات.${txt}، اسمي ${stream[nick].ptrn}`
     }
     else {
       myobj.content = myobj.content + ` , respond with one sentence for the whole converstaion and just answer in english please , my name is ${stream[nick].ptrn}`;
