@@ -97,7 +97,7 @@ let check = setInterval((_) => {
         }
       }
     }
-    if (_fwindowlist.currentwindow != roomName && toggles.has("lmaaa")) {
+    if (_fwindowlist.currentwindow != roomName && (toggles.has("lmaaa") || toggles.has("nmo"))) {
       try {
         let msg = [...[..._fmain.document?.querySelector?.("#text")?.childNodes]?.at?.(-1)?.children]?.at?.(-2)?.innerText;
         let nick = [...[..._fmain.document?.querySelector?.("#text")?.childNodes]].at(-1).childNodes[1].children[0].innerText;
@@ -738,17 +738,22 @@ function buttonsCreator() {
       case 17:
         button.style.background = "black";
         button.style.color = "white";
-        button.innerText = "lmf";
+        button.innerText = "aif";
         button.onclick = function () {
-          if (this.innerText == "lmf") {
+          if (this.innerText == "aif") {
             toggles.add("lmaaa");
-            this.innerText = "lmn";
+            this.innerText = "lma";
             message1 = "hi";
           }
-          else {
-            this.innerText = "lmf";
-            toggles.delete("lmaaa");
+          else if (this.innerText == "lma") {
+            toggles.delete("lmaaa")
+            toggles.add("nmo");
+            this.innerText = "nmo";
             message1 = new Date().getHours() >= 2 && new Date().getHours() <= 14 ? "صباح الخير" : "مساء الخير";
+          }
+          else {
+            toggles.delete("nmo");
+            this.innerText = "aif";
           }
         }
         break;
@@ -1067,7 +1072,7 @@ async function* stramMsg(name) {
     clearTimeout(stream[name].timeout);
     await kalamngySend(name, `/query ${name}`);
     audio.play().catch((_) => true);
-    if (!toggles.has("lmaaa")) {
+    if (!(toggles.has("lmaaa") || toggles.has("nmo"))) {
       await kalamngySend(name, message2);
       await kalamngySend(name, message3);
     }
@@ -1085,7 +1090,7 @@ async function* stramMsg(name) {
     };
     ol1.append(li);
     li.scrollIntoView();
-    if (!toggles.has("lmaaa")) {
+    if (!(toggles.has("lmaaa") || toggles.has("nmo"))) {
       await sleep(600);
       kalamngySend(name, `/winclose ${name}`);
     }
@@ -1159,17 +1164,25 @@ async function fetchJsons(url) {
   return new Set(ar);
 }
 async function lama(txt, nick) {
+  let url = "http://localhost:8090/ai";
+
   let myobj = { role: "user", "content": txt };
   if (stream[nick].arr) {
     stream[nick].arr.push(myobj);
   }
   else {
     stream[nick].arr = [];
-    myobj.content = myobj.content + ` , respond with one sentence for the whole converstaion and just answer in english please , my name is ${stream[nick].ptrn}`;
-    console.log(stream[nick].ptrn);
+    if (toggles.has("nmo")) {
+      stream[nick].arr.push({ role: "assistant", content: "You are an Egyptian man called Ali 42 years old who love chat in a friendly way in just arabic language , you live in Mansoura city " });
+      myobj.content = myobj.content + ` , respond with one sentence for the whole converstaion and just answer in arabic please , my name is ${stream[nick].ptrn}`;
+      url = "http://localhost:8090/ain";
+    }
+    else {
+      myobj.content = myobj.content + ` , respond with one sentence for the whole converstaion and just answer in english please , my name is ${stream[nick].ptrn}`;
+    }
     stream[nick].arr.push(myobj);
   }
-  let x = await fetch("http://localhost:8090/ai", {
+  let x = await fetch(url, {
     method: "POST",
     "headers": {
       "Content-Type": "application/json"
