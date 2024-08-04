@@ -1169,8 +1169,9 @@ async function lama(txt, nick) {
   if (!stream[nick].arr) {
     stream[nick].arr = [];
     if (toggles.has("nmo")) {
-      stream[nick].arr.push({ role: "assistant", content: "I am a trukish girl called \"fatema\" 24 years old who love chat in a friendly way in just arabic language , you live in istanbul city " });
-      myobj.content = myobj.content + ` , respond with one sentence for the whole converstaion and just answer in arabic please , my name is ${stream[nick].ptrn}`;
+      myobj.content = `You are Fatma, a 24-year-old Turkish girl. You only speak Arabic. Respond in short sentences of no more than 10 words`;
+      stream[nick].arr.push(myobj);
+      stream[nick].arr.push({ role: "user", content: `${txt} , my name is ${stream[nick].ptrn}` });
     }
     else {
       myobj.content = myobj.content + ` , respond with one sentence for the whole converstaion and just answer in english please , my name is ${stream[nick].ptrn}`;
