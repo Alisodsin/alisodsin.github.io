@@ -1164,24 +1164,19 @@ async function fetchJsons(url) {
   return new Set(ar);
 }
 async function lama(txt, nick) {
-  let url = "http://localhost:8090/ai";
-
+  let url = toggles.has("lmaaa") ? "http://localhost:8090/ai" : "http://localhost:8090/ain";
   let myobj = { role: "user", "content": txt };
-  if (stream[nick].arr) {
-    stream[nick].arr.push(myobj);
-  }
-  else {
+  if (!stream[nick].arr) {
     stream[nick].arr = [];
     if (toggles.has("nmo")) {
       stream[nick].arr.push({ role: "assistant", content: "You are an Egyptian man called Ali 42 years old who love chat in a friendly way in just arabic language , you live in Mansoura city " });
       myobj.content = myobj.content + ` , respond with one sentence for the whole converstaion and just answer in arabic please , my name is ${stream[nick].ptrn}`;
-      url = "http://localhost:8090/ain";
     }
     else {
       myobj.content = myobj.content + ` , respond with one sentence for the whole converstaion and just answer in english please , my name is ${stream[nick].ptrn}`;
     }
-    stream[nick].arr.push(myobj);
   }
+  stream[nick].arr.push(myobj);
   let x = await fetch(url, {
     method: "POST",
     "headers": {
