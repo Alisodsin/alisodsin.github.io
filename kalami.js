@@ -1194,7 +1194,9 @@ async function lama(txt, nick) {
     let respnseObj = await x.json();
     stream[nick].arr.push(respnseObj);
     await kalamngySend(nick, normalize_text(respnseObj.content.trim().replace(/\n+/g, ".")))
-    kalamngySend(nick, `/query ${nick}`);
+    if (_fwindowlist.currentwindow != nick) {
+      kalamngySend(nick, `/query ${nick}`);
+    }
   }
 }
 
