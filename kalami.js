@@ -754,6 +754,7 @@ function buttonsCreator() {
             toggles.delete("nmo")
             toggles.add("gemy");
             this.innerText = "gemy";
+            message1 = new Date().getHours() >= 2 && new Date().getHours() <= 14 ? "صباح الخير" : "مساء الخير";
           }
           else if (this.innerText == "gemy") {
             toggles.delete("gemy")
