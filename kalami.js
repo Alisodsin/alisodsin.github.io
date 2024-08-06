@@ -97,16 +97,16 @@ let check = setInterval((_) => {
         }
       }
     }
-    if (_fwindowlist.currentwindow != roomName && (toggles.has("lmaaa") || toggles.has("nmo") || toggles.has("gemy"))) {
-      try {
+    try {
+      if (_fwindowlist.currentwindow != roomName && (toggles.has("lmaaa") || toggles.has("nmo") || toggles.has("gemy") || toggles.has("gemye"))) {
         let msg = [...[..._fmain.document?.querySelector?.("#text")?.childNodes]?.at?.(-1)?.children]?.at?.(-2)?.innerText;
         let nick = [...[..._fmain.document?.querySelector?.("#text")?.childNodes]].at(-1).childNodes[1].children[0].innerText;
         if (nick == _fwindowlist.currentwindow && _fwindowlist.currentwindow != myNick && stream[nick]) {
           lama(msg, nick);
         }
-      } catch (_) {
-        return;
       }
+    } catch (_) {
+      return;
     }
   }),
   listObserver = new MutationObserver((_) => {
@@ -749,16 +749,22 @@ function buttonsCreator() {
             toggles.delete("lmaaa")
             toggles.add("nmo");
             this.innerText = "nmo";
-            message1 = new Date().getHours() >= 2 && new Date().getHours() <= 14 ? "صباح الخير" : "مساء الخير";
           }
           else if (this.innerText == "nmo") {
             toggles.delete("nmo")
             toggles.add("gemy");
             this.innerText = "gemy";
           }
+          else if (this.innerText == "gemy") {
+            toggles.delete("gemy")
+            toggles.add("gemye");
+            this.innerText = "gemye";
+            message1 = "Hey"
+          }
           else {
-            toggles.delete("gemy");
+            toggles.delete("gemye");
             this.innerText = "aif";
+            message1 = new Date().getHours() >= 2 && new Date().getHours() <= 14 ? "صباح الخير" : "مساء الخير";
           }
         }
         break;
@@ -1077,7 +1083,7 @@ async function* stramMsg(name) {
     clearTimeout(stream[name].timeout);
     await kalamngySend(name, `/query ${name}`);
     audio.play().catch((_) => true);
-    if (!(toggles.has("lmaaa") || toggles.has("nmo") || toggles.has("gemy"))) {
+    if (!(toggles.has("lmaaa") || toggles.has("nmo") || toggles.has("gemy") || toggles.has("gemye"))) {
       await kalamngySend(name, message2);
       await kalamngySend(name, message3);
     }
@@ -1095,7 +1101,7 @@ async function* stramMsg(name) {
     };
     ol1.append(li);
     li.scrollIntoView();
-    if (!(toggles.has("lmaaa") || toggles.has("nmo") || toggles.has("gemy"))) {
+    if (!(toggles.has("lmaaa") || toggles.has("nmo") || toggles.has("gemy") || toggles.has("gemye"))) {
       await sleep(600);
       kalamngySend(name, `/winclose ${name}`);
     }
@@ -1175,7 +1181,31 @@ async function lama(txt, nick) {
     stream[nick].arr = [];
     stream[nick].msgs = new Set();
     if (toggles.has("nmo") || toggles.has("gemy")) {
-      myobj.content = `أنتِ فاطمة،أنتِ فتاة تركية غير متزوجة من مدينة إسطنبول عمرك 24 عام.أنتِ تتحدثين باللغه العربيه الفصحى فقط. أنتِ في هذا الشات الذي يسمى "كلامنجى" للبحث عن زوج مصري أصيل ووسيم. أنتِ جميلة، بيضاء، ذات عيون زرقاء، طولكِ 170 سم ووزنكِ 65 كجم. أنتِ مسلمة سنية ملتزمة بالحجاب ولا تريدين الكلام في الجنس، وأنتِ جادة في موضوع الزواج. أجيبي بجمل قصيرة لا تزيد عن 10 كلمات. لا تستخدمي أي إيموجي في إجاباتك. ${txt}`
+      if (!stream[nick].ptrn) {
+        myobj.content = `أنتِ فاطمة،أنتِ فتاة تركية غير متزوجة من مدينة إسطنبول عمرك 24 عام.أنتِ تتحدثين باللغه العربيه الفصحى فقط. أنتِ في هذا الشات الذي يسمى "كلامنجى" للبحث عن زوج مصري أصيل ووسيم. أنتِ جميلة، بيضاء، ذات عيون زرقاء، طولكِ 170 سم ووزنكِ 65 كجم. أنتِ مسلمة سنية ملتزمة بالحجاب ولا تريدين الكلام في الجنس، وأنتِ جادة في موضوع الزواج. أجيبي بجمل قصيرة لا تزيد عن 10 كلمات. لا تستخدمي أي إيموجي في إجاباتك`
+        myobj.content += `.${txt}.`;
+        myobj.content += "أنا رجل اريد أن اتعرف عليكى يا فاطمه"
+        console.log(myobj.content)
+      }
+      else {
+        myobj.content = `أنتِ فاطمة، فتاة تركية تبلغ من العمر 24 سنة. تريدين التعرف على صديقات مصريات. تعشقين الفن المصري بما في ذلك الأغاني وتعشقين الرقص البلدي المصري. تتحدثين بالعربية الفصحى فقط. أجيبي بجمل قصيرة لا تزيد عن 10 كلمات. لا تستخدمي أي إيموجي في إجاباتك. ${txt}`
+        myobj.content += `.${txt}`;
+        myobj.content += `انا بنت اسمى هو ${stream[nick].ptrn}`;
+        console.log(myobj.content)
+      }
+    }
+    else if (toggles.has("gemye")) {
+      if (!stream[nick].ptrn) {
+        myobj.content = `You are Fatma, a 24-year-old Turkish girl from Istanbul. You speak only English. You are in this chat called "Kalamangy" to find an authentic and handsome Egyptian husband. You are beautiful, fair-skinned, with blue eyes, 170 cm tall, and weigh 65 kg. You are a Sunni Muslim who wears a hijab and does not want to talk about sex. You are serious about marriage. Answer in short sentences of no more than 10 words. Do not use any emojis in your responses.`;
+        myobj.content += `.${txt}.`;
+        myobj.content += "I am a man who wants to meet you, Fatma.";
+        console.log(myobj.content);
+      } else {
+        myobj.content = `You are Fatma, a 24-year-old Turkish girl from Istanbul. You want to make friends with Egyptian girls. You love Egyptian art, including songs and traditional Egyptian dance. You speak only English. Answer in short sentences of no more than 10 words. Do not use any emojis in your responses. ${txt}`;
+        myobj.content += `.${txt}`;
+        myobj.content += `I am a girl and my name is ${stream[nick].ptrn}`;
+        console.log(myobj.content);
+      }
     }
     else {
       myobj.content = myobj.content + ` , respond with one sentence for the whole converstaion and just answer in english please , my name is ${stream[nick].ptrn}`;
