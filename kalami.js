@@ -98,7 +98,7 @@ let check = setInterval((_) => {
       }
     }
     try {
-      if (_fwindowlist.currentwindow != roomName && (toggles.has("lmaaa") || toggles.has("nmo") || toggles.has("gemy") || toggles.has("gemye"))) {
+      if (_fwindowlist.currentwindow != roomName && (toggles.has("lmaaa") || toggles.has("gemy") || toggles.has("gemye"))) {
         let msg = [...[..._fmain.document?.querySelector?.("#text")?.childNodes]?.at?.(-1)?.children]?.at?.(-2)?.innerText;
         let nick = [...[..._fmain.document?.querySelector?.("#text")?.childNodes]].at(-1).childNodes[1].children[0].innerText;
         if (nick == _fwindowlist.currentwindow && _fwindowlist.currentwindow != myNick && stream[nick]) {
@@ -747,11 +747,6 @@ function buttonsCreator() {
           }
           else if (this.innerText == "lma") {
             toggles.delete("lmaaa")
-            toggles.add("nmo");
-            this.innerText = "nmo";
-          }
-          else if (this.innerText == "nmo") {
-            toggles.delete("nmo")
             toggles.add("gemy");
             this.innerText = "gemy";
             message1 = new Date().getHours() >= 2 && new Date().getHours() <= 14 ? "صباح الخير" : "مساء الخير";
@@ -1084,7 +1079,7 @@ async function* stramMsg(name) {
     clearTimeout(stream[name].timeout);
     await kalamngySend(name, `/query ${name}`);
     audio.play().catch((_) => true);
-    if (!(toggles.has("lmaaa") || toggles.has("nmo") || toggles.has("gemy") || toggles.has("gemye"))) {
+    if (!(toggles.has("lmaaa") || toggles.has("gemy") || toggles.has("gemye"))) {
       await kalamngySend(name, message2);
       await kalamngySend(name, message3);
     }
@@ -1102,7 +1097,7 @@ async function* stramMsg(name) {
     };
     ol1.append(li);
     li.scrollIntoView();
-    if (!(toggles.has("lmaaa") || toggles.has("nmo") || toggles.has("gemy") || toggles.has("gemye"))) {
+    if (!(toggles.has("lmaaa") || toggles.has("gemy") || toggles.has("gemye"))) {
       await sleep(600);
       kalamngySend(name, `/winclose ${name}`);
     }
@@ -1176,12 +1171,12 @@ async function fetchJsons(url) {
   return new Set(ar);
 }
 async function lama(txt, nick) {
-  let prefix = toggles.has("lmaaa") ? "lma" : toggles.has("nmo") ? "nemo" : "gemy";
+  let prefix = toggles.has("lmaaa") ? "lma" : "gemy";
   let myobj = { role: "user", "content": txt };
   if (!stream[nick].arr) {
     stream[nick].arr = [];
     stream[nick].msgs = new Set();
-    if (toggles.has("nmo") || toggles.has("gemy")) {
+    if (toggles.has("gemy")) {
       if (!stream[nick].ptrn) {
         myobj.content = `أنتِ فاطمة،أنتِ فتاة تركية غير متزوجة من مدينة إسطنبول عمرك 24 عام.أنتِ تتحدثين باللغه العربيه الفصحى فقط. أنتِ في هذا الشات الذي يسمى "كلامنجى" للبحث عن زوج مصري أصيل ووسيم. أنتِ جميلة، بيضاء، ذات عيون زرقاء، طولكِ 170 سم ووزنكِ 65 كجم. أنتِ مسلمة سنية ملتزمة بالحجاب ولا تريدين الكلام في الجنس، وأنتِ جادة في موضوع الزواج. أجيبي بجمل قصيرة لا تزيد عن 10 كلمات. لا تستخدمي أي إيموجي في إجاباتك`
         myobj.content += `.${txt}.`;
