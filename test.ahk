@@ -199,15 +199,17 @@ Return
 
     IfExist, /home/ali/extra/auto/flags/java
     {
-        Run code /home/ali/extra/study/java/cod/
+        RunWait code "/home/ali/extra/study/java/cod/"
+        Run firefox "/home/ali/extra/books/java/java.pdf" "notion.so" "https://www.youtube.com/watch?v=KuvkahVyY9E&list=PLsyeobzWxl7pe_IiTfNyr55kwJPWbgxB5&index=87"
     }
     IfExist, /home/ali/extra/auto/flags/cpp
     {
-        Run code /home/ali/extra/study/cpp/
+        RunWait code "/home/ali/extra/study/cpp/"
+        Run firefox "/home/ali/extra/books/cpp/modernCpp.pdf" "https://www.notion.so" "https://alisodsin.github.io/valid-cpp.html" 
     }
-    IfExist, /home/ali/extra/auto/flags/python
+    IfExist, /home/ali/extra/auto/flags/python 
     {
-        Run code /home/ali/extra/study/python/
+        Run code "/home/ali/extra/study/python/" 
     }
 Return 
 
