@@ -184,6 +184,12 @@ Return
     Gosub pastTxt 
 Return
 
+:*:rer::
+    txt = "clear();location.reload();"
+    spc = {Enter} 
+    Gosub pastTxt 
+Return
+
 :*:nwaa::
     IfExist, /home/ali/extra/auto/flags/java
     {
