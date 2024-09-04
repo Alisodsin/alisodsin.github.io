@@ -30,26 +30,6 @@ F1::
     } 
 
 Return 
-F2::
-    MouseMove, 1573, 980
-    Click 
-    IfExist, /home/ali/extra/auto/flags/cpp
-    {
-        txt = "clear && ./build/out" 
-        spc = {Enter} 
-        Gosub pastTxt 
-    }
-
-    IfExist, /home/ali/extra/auto/flags/java
-    {
-
-        txt = "clear && java Main" 
-        spc = {Enter} 
-        Gosub pastTxt
-    }
-
-Return
-
 F3::
     MouseMove, 1573, 980
     Click
@@ -91,8 +71,9 @@ Return
 Return
 
 !x::
-    Run , poweroff
+    Run , systemctl suspend
 Return
+
 
 !k::
     Run , code
@@ -178,7 +159,7 @@ Return
     spc = {Enter} 
     Gosub pastTxt 
 Return
-:*:ret::
+:*:reot::
     txt = "echo $?"
     spc = {Enter} 
     Gosub pastTxt 
@@ -190,7 +171,13 @@ Return
     Gosub pastTxt 
 Return
 
-:*:nwaa::
+:*:gnm::
+  txt = "gnome-terminal"
+   spc = {Enter} 
+   Gosub pastTxt
+Return  
+
+:*:nmnm::
     IfExist, /home/ali/extra/auto/flags/java
     {
         Run, bash -c "cat /home/ali/extra/auto/news/newj > /home/ali/extra/study/java/cod/Main.java"
