@@ -30,6 +30,10 @@ F1::
     } 
 
 Return 
+F2:: 
+    RunWait ahk "/home/ali/extra/auto/scripts/autopy.ahk"
+    ExitApp
+Return
 F3::
     MouseMove, 1573, 980
     Click
