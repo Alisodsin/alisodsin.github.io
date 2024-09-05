@@ -211,6 +211,10 @@ Return
     {
         Run code "/home/ali/extra/study/python/" 
     }
+     IfExist, /home/ali/extra/auto/flags/node 
+    {
+        RunWait code "/home/ali/extra/study/node" 
+    }
 Return 
 
 pastTxt: 
