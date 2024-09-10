@@ -75,7 +75,7 @@ Return
 Return
 
 !x::
-    Run , systemctl suspend
+    Run , poweroff
 Return
 
 !k::
