@@ -76,8 +76,10 @@ Return
 
 !x::
     Run , poweroff
-Return
-
+Return 
+!s::
+    Run , systemctl suspend
+Return 
 !k::
     Run , code
 Return

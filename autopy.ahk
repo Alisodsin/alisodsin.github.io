@@ -66,7 +66,9 @@ Return
 !x::
     RunWait , poweroff
 Return
-
+!s::
+    Run , systemctl suspend
+Return 
 !k::
     RunWait , code
 Return
