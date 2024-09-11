@@ -32,7 +32,7 @@ F1::
 Return 
 F2:: 
     RunWait ahk "/home/ali/extra/auto/scripts/autopy.ahk"
-    ExitApp
+ExitApp
 Return
 F3::
     MouseMove, 1573, 980
@@ -137,9 +137,7 @@ Return
     Gosub pastTxt 
 Return
 :*:rj:: 
-    txt = "rm *class" 
-    spc = {Enter} 
-    Gosub pastTxt 
+    RunWait pastTxt "find . \( -name "*.class" -o -name "*.jar" -o -name "manifest.txt" \) -print | xargs rm" "enter" 1
 Return
 
 :*:rooto::
@@ -211,7 +209,7 @@ Return
     {
         Run code "/home/ali/extra/study/python/" 
     }
-     IfExist, /home/ali/extra/auto/flags/node 
+    IfExist, /home/ali/extra/auto/flags/node 
     {
         RunWait code "/home/ali/extra/study/node" 
     }

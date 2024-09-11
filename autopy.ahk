@@ -25,7 +25,7 @@ F1::
 Return 
 F2:: 
     RunWait ahk "/home/ali/extra/auto/scripts/auto.ahk"
-    ExitApp
+ExitApp
 Return
 F3::
     MouseMove, 1573, 980
@@ -114,9 +114,9 @@ Return
 
 Return
 :*:rj:: 
-    RunWait pastTxt "rm *class" "enter" 1 
+    RunWait pastTxt "find . \( -name "*.class" -o -name "*.jar" -o -name "manifest.txt" \) -print | xargs rm" "enter" 1
 
-Return
+Return 
 
 :*:rooto::
     RunWait pastTxt "sudo -i" "enter" 1 
@@ -172,7 +172,7 @@ Return
     {
         RunWait code "/home/ali/extra/study/python/" 
     }
-     IfExist, /home/ali/extra/auto/flags/node 
+    IfExist, /home/ali/extra/auto/flags/node 
     {
         RunWait code "/home/ali/extra/study/node" 
     }
