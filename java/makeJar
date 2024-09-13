@@ -1,2 +1,0 @@
-#!/usr/bin/bash
-find . -name "*.java" -print | xargs javac && echo 'Main-Class: Main' > manifest.txt && find . -name "*.class" -print | xargs jar cfm MyApp.jar manifest.txt && find . \( -name "*.class" -o -name "*.txt" \) -print | xargs rm

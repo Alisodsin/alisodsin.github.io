@@ -1,8 +1,7 @@
 #!/usr/bin/bash
-if [ Main.class -nt Main.java ]; then
-    clear && java -ea Main
-elif compgen -G "*.class" >/dev/null; then
-    rm ./*class && javac Main.java && clear && java -ea Main
+if [ MyApp.jar -nt Main.java ]; then
+
+    clear && echo 1 && java -jar MyApp.jar
 else
-    javac Main.java && clear && java -ea Main
+    clear && ./makeJar && echo 2 && java -jar MyApp.jar
 fi
