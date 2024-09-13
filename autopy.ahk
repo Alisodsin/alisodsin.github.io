@@ -23,9 +23,9 @@ F1::
     } 
 
 Return 
-F2:: 
-    RunWait ahk "/home/ali/extra/auto/scripts/auto.ahk"
-ExitApp
+; F2:: 
+;     RunWait ahk "/home/ali/extra/auto/scripts/auto.ahk"
+; ExitApp
 Return
 F3::
     MouseMove, 1573, 980
