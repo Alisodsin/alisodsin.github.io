@@ -143,6 +143,10 @@ Return
     RunWait pastTxt "clear();location.reload();" "enter" 1 
 Return
 
+:*:oppp:: 
+    RunWait pastTxt "open MyApp.jar" "enter" 1 
+Return
+
 :*:gnm:: 
     RunWait pastTxt "gnome-terminal" "enter" 1 
 Return 
