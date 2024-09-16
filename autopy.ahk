@@ -111,6 +111,11 @@ Return
 
 Return
 
+:*:readfile::
+    RunWait pastTxt 'lib.Functions.readFile("");' left 3
+
+Return
+
 :*:rrr:: 
     RunWait pastTxt "rama" "enter" 1 
 
