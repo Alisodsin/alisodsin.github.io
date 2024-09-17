@@ -2,7 +2,7 @@ CoordMode, Mouse, Screen
 F1::
     IfExist, /home/ali/extra/auto/flags/java
     {
-        RunWait pastTxt "System.out.println();" "left" 2
+        RunWait pastTxt "println();" "left" 2
     } 
 
     IfExist, /home/ali/extra/auto/flags/cpp
@@ -111,8 +111,8 @@ Return
 
 Return
 
-:*:readfile::
-    RunWait pastTxt 'lib.Functions.readFile("");' left 3
+:*:rdf::
+    RunWait pastTxt 'readFile("");' left 3
 
 Return
 

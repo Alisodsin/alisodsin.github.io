@@ -1,15 +1,43 @@
 package lib;
 
 import java.io.*;
+import java.util.Scanner;
 
 public class Functions {
-    public static String readFile(String fileNmae) {
-        try (var file = new FileInputStream(fileNmae);var reader = new InputStreamReader(file);var bufreader = new BufferedReader(reader);) {
-            var charbuf = new char[(int) (new File(fileNmae).length())];
+    public static PrintWriter out = new PrintWriter(System.out);
+    //
+    public static Scanner in = new Scanner(System.in);
+
+    public static void println(Object x) {
+        out.println(x);
+        out.flush();
+    }
+
+    //
+    public static void print(Object x) {
+        out.print(x);
+        out.flush();
+    }
+
+    //
+    public static String readFile(String fileName) {
+        try (var file = new FileInputStream(fileName);
+                var reader = new InputStreamReader(file);
+                var bufreader = new BufferedReader(reader);) {
+            var charbuf = new char[(int) (new File(fileName).length())];
             bufreader.read(charbuf);
             return new String(charbuf);
         } catch (IOException e) {
             return null;
+        }
+    }
+    //
+
+    public static void pause(long millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            return;
         }
     }
 }
