@@ -90,6 +90,7 @@ Return
 Return
 :*:ff::^+i
 :*:ppp::^+v
+:*:xcx::./x{enter}
 :*:lll::
     RunWait pastTxt "nmap -Pn localhost" "enter" 1
 Return
@@ -159,7 +160,7 @@ Return
 :*:nmnm::
     IfExist, /home/ali/extra/auto/flags/java
     {
-        RunWait, bash -c "cat /home/ali/extra/auto/news/newj > /home/ali/extra/study/java/cod/Main.java"
+        RunWait, bash -c "cat /home/ali/extra/auto/news/newj > /home/ali/extra/repos/alisodsin.github.io/study/java/Main.java"
     }
     IfExist, /home/ali/extra/auto/flags/cpp
     {
@@ -171,7 +172,7 @@ Return
 
     IfExist, /home/ali/extra/auto/flags/java
     {
-        RunWait code "/home/ali/extra/study/java/cod/"
+        RunWait code "/home/ali/extra/repos/alisodsin.github.io/study/java/"
         RunWait microsoft-edge "/home/ali/extra/books/java/java.pdf" "notion.so" "https://www.youtube.com/watch?v=KuvkahVyY9E&list=PLsyeobzWxl7pe_IiTfNyr55kwJPWbgxB5&index=87"
     }
     IfExist, /home/ali/extra/auto/flags/cpp

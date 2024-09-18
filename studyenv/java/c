@@ -1,7 +1,0 @@
-#!/usr/bin/bash
-if [ MyApp.jar -nt Main.java ]; then
-
-    clear && java -jar MyApp.jar
-else
-    clear && ./makeJar && java -jar MyApp.jar
-fi

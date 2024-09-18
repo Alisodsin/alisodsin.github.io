@@ -1,6 +1,8 @@
+import static lib.Functions.*;
+
 class Main {
     public static void main(String[] args) {
-       seprator.S.big();
-        System.out.println("hello");
+        println("hi");
+
     }
 }
