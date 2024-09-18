@@ -190,7 +190,7 @@ Return
     }
     IfExist, /home/ali/extra/auto/flags/python 
     {
-        RunWait code "/home/ali/extra/study/python/" 
+        RunWait code "/home/ali/extra/repos/alisodsin.github.io/study/python/" 
     }
     IfExist, /home/ali/extra/auto/flags/node 
     {
