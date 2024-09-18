@@ -153,6 +153,14 @@ Return
     RunWait pastTxt "open MyApp.jar" "enter" 1 
 Return
 
+:*:stts:: 
+    RunWait pastTxt "cd ../../" "enter" 1 
+    sleep 500
+    RunWait pastTxt "git status" "enter" 1
+    sleep 500
+    RunWait pastTxt "cd -" "enter" 1
+Return
+
 :*:gnm:: 
     RunWait pastTxt "gnome-terminal" "enter" 1 
 Return 
