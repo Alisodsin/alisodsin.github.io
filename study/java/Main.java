@@ -2,7 +2,7 @@ import static lib.Functions.*;
 
 class Main {
     public static void main(String[] args) {
-        println("hi");
+        println(20);
 
     }
 }
