@@ -194,6 +194,6 @@ Return
     }
     IfExist, /home/ali/extra/auto/flags/node 
     {
-        RunWait code "/home/ali/extra/study/node" 
+        RunWait code "/home/ali/extra/repos/alisodsin.github.io/study/node" 
     }
 Return 
