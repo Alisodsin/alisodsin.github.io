@@ -2,3 +2,6 @@ study/java/MyApp.jar
 study/java/*.txt
 study/java/Main.java
 study/python/main.py
+study/node/node_modules
+study/node/node_modules
+study/node/src/index.js
