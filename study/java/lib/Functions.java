@@ -43,7 +43,7 @@ public class Functions {
 
     //
     public static void setInterval(Runnable f, long millis) {
-        while (true) {
+        for (int i = 0; i < 500; i++) {
             f.run();
             pause(millis);
         }
