@@ -193,7 +193,8 @@ Return
     }
     IfExist, /home/ali/extra/auto/flags/cpp
     {
-        RunWait code "/home/ali/extra/study/cpp/"
+        RunWait code "/home/ali/extra/repos/alisodsin.github.io/study/cpp/"
+
         RunWait microsoft-edge "/home/ali/extra/books/cpp/modernCpp.pdf" "https://www.notion.so" "https://alisodsin.github.io/valid-cpp.html" 
     }
     IfExist, /home/ali/extra/auto/flags/python 
