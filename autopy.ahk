@@ -23,9 +23,9 @@ F1::
     } 
 
 Return 
- F2:: 
-     RunWait ahk "/home/ali/extra/auto/scripts/auto.ahk"
-     ExitApp
+F2:: 
+    RunWait ahk "/home/ali/extra/auto/scripts/auto.ahk"
+ExitApp
 Return
 F3::
     MouseMove, 1573, 980
@@ -133,10 +133,18 @@ Return
 Return 
 
 :*:nnn:: 
-    RunWait pastTxt "#include <iostream>" "enter" 1 
-    RunWait pastTxt "using namespace std;" "enter" 1 
 
-Return
+    IfExist, /home/ali/extra/auto/flags/java
+    {
+        RunWait pastTxt "import static lib.Functions.*;" "enter" 1
+    } 
+
+    IfExist, /home/ali/extra/auto/flags/cpp
+    {
+        RunWait pastTxt "#include <iostream>" "enter" 1 
+        RunWait pastTxt "using namespace std;" "enter" 1  
+    } 
+Return 
 
 :*:szzz:: 
     RunWait pastTxt "used-space" "enter" 1 

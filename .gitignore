@@ -5,3 +5,5 @@ study/python/main.py
 study/node/node_modules
 study/node/node_modules
 study/node/src/index.js
+study/cpp/build
+study/cpp/main.cpp
