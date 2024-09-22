@@ -40,4 +40,24 @@ public class Functions {
             return;
         }
     }
+
+    //
+    public static void setInterval(Runnable f, long millis) {
+        while (true) {
+            f.run();
+            pause(millis);
+        }
+    }
+
+    //
+    public static void big() {
+        println("======================");
+    }
+
+    //
+    public static void small() {
+
+        println("------");
+
+    }
 }

@@ -100,11 +100,11 @@ Return
 Return
 
 :*:sddd::
-    RunWait pastTxt "seprator.S.big();" "enter" 1   
+    RunWait pastTxt "big();" "enter" 1   
 Return
 
 :*:sds::
-    RunWait pastTxt "seprator.S.small();" "enter" 1   
+    RunWait pastTxt "small();" "enter" 1    
 Return
 
 :*:rrt::
