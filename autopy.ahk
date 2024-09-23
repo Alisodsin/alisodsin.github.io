@@ -1,10 +1,10 @@
 CoordMode, Mouse, Screen
 F1::
-    IfExist, /home/ali/extra/auto/flags/java
+    IfExist, /home/ali/extra/auto/flags/java 
     {
-        RunWait pastTxt "println();" "left" 2
+        SendRaw println();
+        Send {Left 2} 
     } 
-
     IfExist, /home/ali/extra/auto/flags/cpp
     {
         RunWait pastTxt "cout << << endl;"  "left" 9
@@ -23,19 +23,21 @@ F1::
     } 
 
 Return 
-; F2:: 
-;     RunWait ahk "/home/ali/extra/auto/scripts/auto.ahk"
-; ExitApp
-; Return
 F3::
+    WinGetClass, class, A 
+    If class = jetbrains-idea-ce
+    {
+        Send ^{F5} 
+        Return 
+    } 
     MouseMove, 1573, 980
     Click 
-    RunWait pastTxt "./c" "enter" 1
-
-Return
+    RunWait pastTxt "./c" "enter" 1 
+Return 
 
 F5:: 
-    RunWait pastTxt "clear" "enter" 1
+    SendRaw clear
+    Send {Enter} 
 Return
 
 F6::
@@ -86,57 +88,79 @@ Return
 Return
 
 :*:xxx::
-    RunWait pastTxt "exit" "enter" 1
+    SendRaw exit
+    Send {Enter} 
 Return
-:*:ff::^+i
-:*:ppp::^+v
+:*:ff::
+    WinGetClass, class, A 
+    If class = jetbrains-idea-ce
+    {
+        Send +!f
+        Return 
+    } 
+    Send ^+i 
+Return
+:*:ppp::
+    WinGetClass, class, A 
+    If class = jetbrains-idea-ce 
+    {
+        Send ^v
+        Return 
+    } 
+    Send ^+v 
+Return 
+
 :*:xcx::./x{enter}
-:*:lll::
-    RunWait pastTxt "nmap -Pn localhost" "enter" 1
-Return
-
-:*:psss::
-    RunWait pastTxt "pstree" "enter" 1 
-Return
-
+:*:lll::nmap -Pn localhost{Enter} 
+:*:psss::pstree{Enter} 
 :*:sddd::
+    WinGetClass, class, A 
+    If class = jetbrains-idea-ce 
+    {
+        SendRaw big();
+        Send {Enter} 
+        Return 
+    } 
     RunWait pastTxt "big();" "enter" 1   
 Return
 
 :*:sds::
+    WinGetClass, class, A 
+    If class = jetbrains-idea-ce 
+    {
+        SendRaw small();
+        Send {Enter} 
+        Return 
+    } 
     RunWait pastTxt "small();" "enter" 1    
 Return
 
-:*:rrt::
-    RunWait pastTxt "reset" "enter" 1 
-
-Return
-
+:*:rrt::reset{Enter} 
 :*:rdf::
+    WinGetClass, class, A 
+    If class = jetbrains-idea-ce 
+    {
+        SendRaw readFile("");
+        Send {Left 3} 
+        Return 
+    } 
     RunWait pastTxt 'readFile("");' left 3
 
 Return
 
-:*:rrr:: 
-    RunWait pastTxt "rama" "enter" 1 
-
-Return
-:*:rj:: 
-    RunWait pastTxt "find . \( -name "*.class" -o -name "*.jar" -o -name "manifest.txt" \) -print | xargs rm" "enter" 1
-
-Return 
-
-:*:rooto::
-    RunWait pastTxt "sudo -i" "enter" 1 
-    Sleep 500
-    RunWait pastTxt "111" "enter" 1 
-Return 
-
+:*:rrr::rama{Enter} 
 :*:nnn:: 
-
     IfExist, /home/ali/extra/auto/flags/java
     {
+        WinGetClass, class, A 
+        If class = jetbrains-idea-ce 
+        {
+            SendRaw import static lib.Functions.*;
+            Send {Enter} 
+            Return 
+        } 
         RunWait pastTxt "import static lib.Functions.*;" "enter" 1
+        Return 
     } 
 
     IfExist, /home/ali/extra/auto/flags/cpp
@@ -146,21 +170,11 @@ Return
     } 
 Return 
 
-:*:szzz:: 
-    RunWait pastTxt "used-space" "enter" 1 
-Return
-:*:reot::
-    RunWait pastTxt "echo $?" "enter" 1 
-Return
-
+:*:szzz::used-space{Enter} 
 :*:rer:: 
     RunWait pastTxt "clear();location.reload();" "enter" 1 
 Return
-
-:*:oppp:: 
-    RunWait pastTxt "open MyApp.jar" "enter" 1 
-Return
-
+:*:oppp::open MyApp.jar{Enter} 
 :*:stts:: 
     RunWait pastTxt "cd ../../" "enter" 1 
     sleep 500
@@ -169,14 +183,18 @@ Return
     RunWait pastTxt "cd -" "enter" 1
 Return
 
-:*:gnm:: 
-    RunWait pastTxt "gnome-terminal" "enter" 1 
-Return 
-
+:*:gnm::gnome-terminal{Enter} 
 :*:nmnm::
     IfExist, /home/ali/extra/auto/flags/java
     {
+        WinGetClass, class, A 
+        If class = jetbrains-idea-ce 
+        {
+            RunWait, bash -c "cat /home/ali/extra/auto/news/newj > /home/ali/extra/study/java/src/Main.java"
+            Return 
+        } 
         RunWait, bash -c "cat /home/ali/extra/auto/news/newj > /home/ali/extra/repos/alisodsin.github.io/study/java/Main.java"
+        Return 
     }
     IfExist, /home/ali/extra/auto/flags/cpp
     {
@@ -184,22 +202,24 @@ Return
     }
 Return
 
-:*:kode::
-
+:*:kode:: 
     IfExist, /home/ali/extra/auto/flags/java
     {
         RunWait code "/home/ali/extra/repos/alisodsin.github.io/study/java/"
+        RunWait idea 
         RunWait microsoft-edge "/home/ali/extra/books/java/java.pdf" "notion.so" "https://www.youtube.com/watch?v=KuvkahVyY9E&list=PLsyeobzWxl7pe_IiTfNyr55kwJPWbgxB5&index=87"
+        Return 
     }
     IfExist, /home/ali/extra/auto/flags/cpp
     {
         RunWait code "/home/ali/extra/repos/alisodsin.github.io/study/cpp/"
-
         RunWait microsoft-edge "/home/ali/extra/books/cpp/modernCpp.pdf" "https://www.notion.so" "https://alisodsin.github.io/valid-cpp.html" 
+        Return
     }
     IfExist, /home/ali/extra/auto/flags/python 
     {
         RunWait code "/home/ali/extra/repos/alisodsin.github.io/study/python/" 
+        Return
     }
     IfExist, /home/ali/extra/auto/flags/node 
     {
