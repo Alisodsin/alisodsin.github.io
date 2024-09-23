@@ -34,16 +34,13 @@ F3::
     Click 
     RunWait pastTxt "./c" "enter" 1 
 Return 
-
 F5:: 
     SendRaw clear
     Send {Enter} 
 Return
-
 F6::
     Send ^c
 Return
-
 F7::
     Send ^x
 Return
@@ -51,20 +48,16 @@ F8::
     Send ^a
     Send ^v
 Return
-
 F9::
     Send ^a
     Send ^c
 Return
-
 F10::
     Send ^v
 Return
-
 !r::
     RunWait , reboot
 Return
-
 !x::
     RunWait , poweroff
 Return
@@ -77,19 +70,15 @@ Return
 !i::
     RunWait , idea
 Return
-
 !f::
     RunWait , firefox
 Return
-
 !e::
     RunWait , microsoft-edge
 Return 
-
 !t::
     RunWait gnome-terminal
 Return
-
 :*:xxx::
     SendRaw exit
     Send {Enter} 
@@ -112,7 +101,6 @@ Return
     } 
     Send ^+v 
 Return 
-
 :*:xcx::./x{enter}
 :*:lll::nmap -Pn localhost{Enter} 
 :*:psss::pstree{Enter} 
@@ -126,7 +114,6 @@ Return
     } 
     RunWait pastTxt "big();" "enter" 1   
 Return
-
 :*:sds::
     WinGetClass, class, A 
     If class = jetbrains-idea-ce 
@@ -137,7 +124,6 @@ Return
     } 
     RunWait pastTxt "small();" "enter" 1    
 Return
-
 :*:rrt::reset{Enter} 
 :*:rdf::
     WinGetClass, class, A 
@@ -150,7 +136,6 @@ Return
     RunWait pastTxt 'readFile("");' left 3
 
 Return
-
 :*:rrr::rama{Enter} 
 :*:nnn:: 
     IfExist, /home/ali/extra/auto/flags/java
@@ -172,7 +157,6 @@ Return
         RunWait pastTxt "using namespace std;" "enter" 1  
     } 
 Return 
-
 :*:szzz::used-space{Enter} 
 :*:rer:: 
     RunWait pastTxt "clear();location.reload();" "enter" 1 
@@ -185,7 +169,6 @@ Return
     sleep 500
     RunWait pastTxt "cd -" "enter" 1
 Return
-
 :*:gnm::gnome-terminal{Enter} 
 :*:nmnm::
     IfExist, /home/ali/extra/auto/flags/java
@@ -204,7 +187,6 @@ Return
         RunWait, bash -c "cat /home/ali/extra/auto/news/newp > /home/ali/extra/study/cpp/main.cpp"
     }
 Return
-
 :*:kode:: 
     IfExist, /home/ali/extra/auto/flags/java
     {
