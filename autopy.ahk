@@ -74,6 +74,9 @@ Return
 !k::
     RunWait , code
 Return
+!i::
+    RunWait , idea
+Return
 
 !f::
     RunWait , firefox
