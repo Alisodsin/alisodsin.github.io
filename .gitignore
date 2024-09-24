@@ -1,6 +1,9 @@
 study/java/MyApp.jar
 study/java/*.txt
 study/java/Main.java
+study/java/org
+study/java/gui.xml
+study/java/logo.jpeg
 study/python/main.py
 study/node/node_modules
 study/node/node_modules
