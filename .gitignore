@@ -10,3 +10,5 @@ study/node/node_modules
 study/node/src/index.js
 study/cpp/build
 study/cpp/main.cpp
+study/gui/java/src/main/java/com/example/java
+study/gui/java/MyApp.jar
