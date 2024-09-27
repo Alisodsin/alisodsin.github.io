@@ -180,7 +180,7 @@ Return
             Return 
         } 
         RunWait, bash -c "cat /home/ali/extra/auto/news/newj > /home/ali/extra/repos/alisodsin.github.io/study/java/Main.java"
-        RunWait, bash -c "cat /home/ali/extra/auto/news/newju > /home/ali/extra/study/gui/java/src/main/java/com/example/java/Main.java"
+        RunWait, bash -c "cat /home/ali/extra/auto/news/newju > /home/ali/extra/repos/alisodsin.github.io/study/gui/java/src/main/java/com/example/java/Main.java"
         Return 
     }
     IfExist, /home/ali/extra/auto/flags/cpp
