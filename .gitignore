@@ -12,4 +12,5 @@ study/cpp/build
 study/cpp/main.cpp
 study/gui/java/src/main/java/com/example/java
 study/gui/java/MyApp.jar
-study/gui/java/src/main/resources/com/example/java
+study/gui/java/src/main/resources/com/example/java/v.fxml
+study/gui/java/src/main/resources/com/example/java/s.css
