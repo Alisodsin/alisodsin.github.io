@@ -169,6 +169,16 @@ Return
     sleep 500
     RunWait pastTxt "cd -" "enter" 1
 Return
+
+:*:sttts:: 
+    RunWait pastTxt "cd ../../../" "enter" 1 
+    sleep 500
+    RunWait pastTxt "git status" "enter" 1
+    sleep 500
+    RunWait pastTxt "cd -" "enter" 1
+Return
+
+
 :*:gnm::gnome-terminal{Enter} 
 :*:nmnm::
     IfExist, /home/ali/extra/auto/flags/java

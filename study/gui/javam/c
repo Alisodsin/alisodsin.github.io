@@ -8,14 +8,10 @@ compl(){
 makeJar(){
     cp -r src/main/resources/* outDir/ && jar --create --file "$jarfile" --main-class com.example.java.Main -C outDir . && rm -rf outDir
 }
-runJar(){
-    java --module-path "$sdk_path" --add-modules javafx.controls,javafx.fxml -jar "$jarfile"
-}
-
 newest=$(find "$com_folder" -type f -print0 | xargs -0 ls -t | head -n 1)
 
 if [ "$jarfile" -nt "$newest" ]; then
-    clear && echo "running..." && runJar
+    clear && echo "running..." && javaGui "$jarfile"
 else
-    clear && echo "compiling..." && compl && makeJar && runJar
+    clear && echo "compiling..." && compl && makeJar &&  javaGui "$jarfile"
 fi
