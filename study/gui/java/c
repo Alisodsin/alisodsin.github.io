@@ -4,10 +4,10 @@ jarfile="app.jar"
 com_folder="src"
 newest=$(find "$com_folder" -type f -print0 | xargs -0 ls -t | head -n 1)
 compl(){
-    javac -d outDir --module-path "$sdk_path" -cp "$sdk_path/javafx.controls.jar:$sdk_path/javafx.graphics.jar:$sdk_path/javafx.base.jar:$sdk_path/javafx.fxml.jar"  src/*.java
+    javac -d outDir --module-path "$sdk_path" -cp "$sdk_path/javafx.controls.jar:$sdk_path/javafx.graphics.jar:$sdk_path/javafx.base.jar:$sdk_path/javafx.fxml.jar"  src/*.java src/lib/*.java
 }
 makeJar(){
-    cp -r src/resources/* outDir/ && jar --create --file "$jarfile" --main-class Main -C outDir . && rm -rf outDir
+    mkdir outDir/resources && cp -r src/resources/* outDir/resources && jar --create --file "$jarfile" --main-class Main -C outDir . && rm -rf outDir
 }
 
 if [ "$jarfile" -nt "$newest" ]; then
