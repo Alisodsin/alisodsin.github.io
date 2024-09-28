@@ -1,3 +1,0 @@
-#!/bin/bash
-cmake --build ./build --config Debug --target all -- && clear && ./build/out
-# cmake --build ./build --config Debug --target all --

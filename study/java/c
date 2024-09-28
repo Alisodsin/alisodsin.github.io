@@ -1,7 +1,0 @@
-#!/usr/bin/bash
-if [ MyApp.jar -nt Main.java ]; then
-
-    clear && java -jar MyApp.jar
-else
-    clear && find . -name "*.java" -print | xargs javac && echo 'Main-Class: Main' > manifest.txt && find . -name "*.class" -print | xargs jar cfm MyApp.jar manifest.txt && find . \( -name "*.class" -o -name "manifest.txt" \) -print | xargs rm && java -jar MyApp.jar
-fi
