@@ -161,7 +161,7 @@ Return
 :*:rer:: 
     RunWait pastTxt "clear();location.reload();" "enter" 1 
 Return
-:*:oppp::open MyApp.jar{Enter} 
+:*:oppp::open app.jar{Enter} 
 :*:stts:: 
     RunWait pastTxt "cd ../../" "enter" 1 
     sleep 500

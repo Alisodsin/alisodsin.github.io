@@ -1,0 +1,4 @@
+{
+  "java.autobuild.enabled": false
+  "css.lint.vendorPrefix": "ignore",
+}
