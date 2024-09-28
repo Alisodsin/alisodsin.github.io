@@ -1,8 +1,10 @@
 package lib;
+
 import java.io.*;
 import java.util.Scanner;
 
 public class Functions {
+    public static int times = 1000;
     public static PrintWriter out = new PrintWriter(System.out);
     //
     public static Scanner in = new Scanner(System.in);
@@ -42,10 +44,16 @@ public class Functions {
 
     //
     public static void setInterval(Runnable f, long millis) {
-        for (int i = 0; i < 500; i++) {
+        for (int i = 0; i < times; i++) {
             f.run();
             pause(millis);
         }
+    }
+
+    public static void clearInterval() {
+
+        times = -1000;
+
     }
 
     //
