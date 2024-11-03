@@ -772,7 +772,6 @@ async function fetchJsons(url) {
         }
     });
     let text = await response.json();
-    console.log(text);
     return new Set(text);
 }
 async function go() {
