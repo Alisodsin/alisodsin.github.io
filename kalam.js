@@ -19,6 +19,9 @@ let check = setInterval((_) => {
   myNick,
   kashida = "ـ",
   R,
+  fmlgiturl = 'https://api.github.com/repos/Alisodsin/node/contents/public/assets/f.json',
+  mlsgiturl = 'https://api.github.com/repos/Alisodsin/node/contents/public/assets/m.json',
+  msgsgiturl = 'https://api.github.com/repos/Alisodsin/node/contents/public/assets/ms.json',
   femalesUrl = `http://localhost:3000/f`,
   malesUrl = `http://localhost:3000/m`,
   messagesUrl = `http://localhost:3000/ms`,
@@ -136,11 +139,9 @@ let check = setInterval((_) => {
   bll = new Audio("https://www.soundjay.com/phone/cell-phone-1-nr0.mp3");
 // global  functions
 function runCode() {
-  let check = setInterval((_) => {
+  let check = setInterval(async (_) => {
     if (Boolean(Object?.keys?.(_fwindowlist?.Witems)?.[1])) {
       roomName = Object.keys(_fwindowlist.Witems)[1];
-      framo = document.createElement("iframe");
-      framo.src = "http://localhost:3000/";
       mainTarget = _fmain.document.querySelector("#text");
       myNick = _fwindowlist.mynickname;
       joiningPplClass = _fmain.document.getElementsByClassName("main-nickg");
@@ -297,7 +298,32 @@ function runCode() {
       displayDiv.style.borderRadius = "100%";
       displayDiv.style.overflow = "auto";
       displayDiv.style.whiteSpace = "pre";
-      containersDiv.append(ol1, displayDiv, framo, ol2);
+      containersDiv.append(ol1, displayDiv);
+      if (await checkServerStatus()) {
+        framo = document.createElement("iframe");
+        framo.src = "http://localhost:3000/";
+        containersDiv.append(framo);
+      }
+      else {
+        femalesNames = await fetchJsons(fmlgiturl);
+        testFset = structuredClone(femalesNames);
+        notWanted = await fetchJsons(mlsgiturl);
+        messages = await fetchJsons(msgsgiturl);
+        ol1.style.borderBottom = "2px solid green";
+        let lif = document.createElement("li");
+        lif.textContent = `femalesLength = ${testFset.size}`
+        let lim = document.createElement("li");
+        lim.textContent = `malesLength = ${notWanted.size}`
+        let lims = document.createElement("li");
+        lims.textContent = `messagesLength = ${messages.size}`
+        ol1.append(lif, lim, lims);
+        setTimeout(_ => {
+          lif.remove();
+          lim.remove();
+          lims.remove();
+        }, 20000);
+      }
+      containersDiv.append(ol2);
       _fmain.document.body.append(buttonContainers, containersDiv);
       _fmain.document.head.append(style);
       _fmain.document.querySelector(".main-closepic").remove();
@@ -1051,8 +1077,25 @@ function downloadObj(obj, filename) {
   URL.revokeObjectURL(url);
 }
 async function fetchJsons(url) {
-  let data = await fetch(url);
-  let ar = await data.json();
-  return new Set(ar);
+  let response = await fetch(url, {
+    headers: {
+      'Authorization': `token ${TOKEN}`,
+      'Accept': 'application/vnd.github.v3.raw'
+    }
+  });
+  let text = await response.json();
+  return new Set(text);
+}
+async function checkServerStatus() {
+  try {
+    const response = await fetch('http://localhost:3000', { method: 'HEAD' });
+    if (response.ok) {
+      return true;
+    } else {
+      return false;
+    }
+  } catch (_) {
+    return false;
+  }
 }
 runCode(); 
