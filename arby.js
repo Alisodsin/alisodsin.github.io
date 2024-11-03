@@ -4,11 +4,11 @@ sweetAlert.src = "https://sweetalert.js.org/assets/sweetalert/sweetalert.min.js"
     document.head.appendChild(sweetAlert),
     pplJoin = id("on"),
     elTarget = document.querySelector("#on"),
+    fmlgiturl = 'https://api.github.com/repos/Alisodsin/node/contents/public/assets/f.json',
+    mlsgiturl = 'https://api.github.com/repos/Alisodsin/node/contents/public/assets/m.json',
+    msgsgiturl = 'https://api.github.com/repos/Alisodsin/node/contents/public/assets/ms.json',
     idArray = new Set(),
     oltEsmy = new Set(),
-    fmlgiturl = `https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/femaleNames.json`,
-    mlsgiturl = `https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/males.json`,
-    msgsgiturl = `https://api.github.com/repos/alisodsin/alisodsin.github.io/contents/messages.json`,
     femaleNames = new Set(),
     messages = new Set(),
     males = new Set(),
@@ -33,7 +33,7 @@ sweetAlert.src = "https://sweetalert.js.org/assets/sweetalert/sweetalert.min.js"
     tile = id("tt"),
     onn = false,
     myNick = "",
-    fucking = ["جوجل","للموقع","Everyone Chat", "انضم", "الشات", "وأجانب", "التسجيلات", "متحركة", "طريقة", "الموقع", "https", "Join", "المستعمل", "بالشات", "إنتظاركم","تقنية","تسجيل"],
+    fucking = ["جوجل", "للموقع", "Everyone Chat", "انضم", "الشات", "وأجانب", "التسجيلات", "متحركة", "طريقة", "الموقع", "https", "Join", "المستعمل", "بالشات", "إنتظاركم", "تقنية", "تسجيل"],
     myId = "",
     msgSwitch = 0,
     names = [
@@ -765,16 +765,20 @@ function runCode() {
     id("onp").click()
 }
 async function fetchJsons(url) {
-    let x = await fetch(url, {
+    let response = await fetch(url, {
         headers: {
-            'Authorization': `token ${TOKEN}`
+            'Authorization': `token ${TOKEN}`,
+            'Accept': 'application/vnd.github.v3.raw'
         }
-    })
-    x = await x.json()
-    return new Set(JSON.parse(decodeURIComponent(atob(x.content))))
+    });
+    let text = await response.json();
+    console.log(text);
+    return new Set(text);
 }
-(async function () {
+async function go() {
     femaleNames = await fetchJsons(fmlgiturl);
-    males = await fetchJsons(mlsgiturl)
+    males = await fetchJsons(mlsgiturl);
+    messages = await fetchJsons(msgsgiturl);
     runCode();
-})();  
+}
+go();
