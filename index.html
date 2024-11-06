@@ -126,6 +126,14 @@
                 </ul>
             </details>
         </li>
+        <li>
+            <details>
+                <summary>scripts</summary>
+                <ul>
+                    <iframe src="./scripts.html" frameborder="0"></iframe>
+                </ul>
+            </details>
+        </li>
         <li><a style="color: greenyellow;" href="./notes/index.html">Notes</a></li>
         <li><a href="./go.html">go programming</a></li>
         </li>
@@ -150,6 +158,13 @@
         <li><a href="./nodmoduls.js">jsNodeModules</a></li>
         <li><a href="./bubbles.html">Bubbles</a></li>
     </ol>
+    <script>
+        window.addEventListener('message', function (event) {
+            if (event.data.action === 'openLink' && event.data.url) {
+                window.location.href = event.data.url;
+            }
+        });
+    </script>
 </body>
 
 </html>
