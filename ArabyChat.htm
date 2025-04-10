@@ -1,148 +1,173 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="ar" dir="rtl">
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="ArabyChat_files/code.js" defer="defer"></script>
     <title>ArabyChat</title>
     <link rel="shortcut icon" href="./arby.png" type="image/x-icon">
-    <link rel="stylesheet" href="ArabyChat_files/style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1e272e 0%, #2f3542 100%);
+            padding: 15px;
+        }
+
+        .login-container {
+            background: rgba(45, 52, 54, 0.95);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            width: 100%;
+            max-width: 500px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .title {
+            font-size: 2rem; 
+            color: #dfe6e9;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: bold;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem; 
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            padding: 1rem;
+            border: 1px solid #636e72;
+            border-radius: 8px;
+            font-size: 1.2rem; 
+            width: 100%;
+            outline: none;
+            background: #353b48;
+            color: #dfe6e9;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input[type="text"]::placeholder,
+        input[type="number"]::placeholder {
+            color: #b2bec3;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus {
+            border-color: #00a8ff;
+            box-shadow: 0 0 8px rgba(0, 168, 255, 0.3);
+        }
+
+        button {
+            padding: 1rem 1.2rem;
+            border: none;
+            border-radius: 8px;
+            background: #00a8ff;
+            color: #ffffff;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #0097e6;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            color: #dfe6e9;
+            font-size: 1.1rem;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        input[type="radio"] {
+            accent-color: #00a8ff;
+            transform: scale(1.2);
+        }
+
+        input[type="submit"] {
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            background: #00b894;
+            color: #ffffff;
+            cursor: pointer;
+            font-size: 1.2rem; 
+            transition: background 0.3s, transform 0.2s;
+            font-weight: bold;
+        }
+
+        input[type="submit"]:hover {
+            background: #00a676;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 520px) {
+            .login-container {
+                margin: 1rem;
+                padding: 2rem;
+                max-width: 95%;
+            }
+            .title {
+                font-size: 1.8rem;
+            }
+            input[type="text"],
+            input[type="number"],
+            input[type="submit"],
+            .radio-group {
+                font-size: 1.1rem;
+            }
+            input[type="submit"] {
+                padding: 0.9rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
-    <form id="frm" class="w3-display-topmiddle flex" autocapitalize="none" method="post"
-        action="https://araby.co/egypt/sub.php">
-        <span style="font-size:25px;">شات عربى</span>
-        <input type="text" name="nk" maxlength="15" placeholder="الإسم المستعار" list="nms">
-        <datalist id="nms">
+    <div class="login-container">
+        <div class="title">شات عربى</div>
+        <form id="frm" autocapitalize="none" method="post" action="https://araby.co/egypt/sub.php">
+            <input type="text" name="nk" maxlength="15" placeholder="الإسم المستعار" list="nms" required>
+            <datalist id="nms"></datalist>
 
-
-            <option value="دكر_عنيف"></option>
-            <option value="true_man"></option>
-            <option value="فحل_للتعشير"></option>
-            <option value="انيكك_فويس"></option>
-            <option value="رومانسى"></option>
-            <option value="من_المنصوره"></option>
-            <option value="راجل_بجد"></option>
-            <option value="Guest_"></option>
-            <option value="_ali_"></option>
-            <option value="ابحث_عنكى"></option>
-            <option value="Crazy_Kid"></option>
-            <option value="صديق جاد"></option>
-            <option value="غريب_الاطوار"></option>
-            <option value="صافي الود"></option>
-            <option value="صدى الصورة"></option>
-            <option value="قلب من ورق"></option>
-            <option value="شموس طيفك"></option>
-            <option value="ساحر جفونك"></option>
-            <option value="دنيآآآآ الحب"></option>
-            <option value="هنروح و نيجي"></option>
-            <option value="مالك القلب"></option>
-            <option value="بلا ميعاد"></option>
-            <option value="صنع بحب"></option>
-            <option value="الضوء الساطع"></option>
-            <option value="المحروم"></option>
-            <option value="صافى الود"></option>
-            <option value="معاند جروحه"></option>
-            <option value="Before sunrise"></option>
-            <option value="Killer smile"></option>
-            <option value="عيش اللحظة"></option>
-            <option value="أنا الملاذ لك"></option>
-            <option value="لصمتي حكاية"></option>
-            <option value="والله دنيا"></option>
-            <option value="عيون الليل"></option>
-            <option value="قلب من دهب"></option>
-            <option value="أجمل حب"></option>
-            <option value="الدنيا لحظة"></option>
-            <option value="روح الروح"></option>
-            <option value="مميز للغاية"></option>
-            <option value="رجل بلا قلب"></option>
-            <option value="loveless"></option>
-            <option value="مكسور"></option>
-            <option value="عساني طايح"></option>
-            <option value="الفيلسوف"></option>
-            <option value="ضاع الحب"></option>
-            <option value="الغريب"></option>
-            <option value="عاشق_الهدوء"></option>
-            <option value="القنوع"></option>
-            <option value="ملك روحى"></option>
-            <option value="شوق العمر"></option>
-            <option value="سموه الاحساس"></option>
-            <option value="همس القلوب"></option>
-            <option value="غريب الدار"></option>
-            <option value="دموع القمر"></option>
-            <option value="صمت الوداع"></option>
-            <option value="امير بزمن حقير"></option>
-            <option value="سفير المحبه"></option>
-            <option value="عاشق الغروب"></option>
-            <option value="اسير القمر"></option>
-            <option value="ساحر القلوب"></option>
-            <option value="العيون السود"></option>
-            <option value="طائر النورس"></option>
-            <option value="قصاد عينى"></option>
-            <option value="لامكان لاوطن"></option>
-            <option value="جفاء الريح"></option>
-            <option value="تلج مشوى"></option>
-            <option value="شحنه حب"></option>
-            <option value="صمت الرجوله"></option>
-            <option value="لعيونك انا"></option>
-            <option value="نبع الوفا"></option>
-            <option value="كاتم الاحزان"></option>
-            <option value="اهات الحب"></option>
-            <option value="متحدى زمانى"></option>
-            <option value="عازف الاهات"></option>
-            <option value="قلب ميت"></option>
-            <option value="بحر الود"></option>
-            <option value="انفاس الحب"></option>
-            <option value="مولع بهواها"></option>
-            <option value="عيونو سحر"></option>
-            <option value="ملكتنى"></option>
-            <option value="ملك بلا مملكه"></option>
-            <option value="شموخ رجل"></option>
-            <option value="وحيد يا ليل"></option>
-            <option value="منحرف بس محترف"></option>
-            <option value="عاشق الجنان"></option>
-            <option value="المبتسم"></option>
-            <option value="الذيب"></option>
-            <option value="دموع الليالي"></option>
-            <option value="دمعة شوق"></option>
-            <option value="ضوء القمر"></option>
-            <option value="مرسول الحب"></option>
-            <option value="علمتني الحياة"></option>
-            <option value="الصقر الحر"></option>
-            <option value="طيف الأحزان"></option>
-            <option value="لعيونك"></option>
-            <option value="شايل جروحى بروحى"></option>
-            <option value="صدى الشوق"></option>
-            <option value="لغز الحياة"></option>
-            <option value="القلب الحنون"></option>
-            <option value="حسونه"></option>
-            <option value="غسق الدجى"></option>
-            <option value="صمت الاحساس"></option>
-            <option value="الورد الابيض"></option>
-            <option value="نهر الحزن"></option>
-            <option value="سمو المشاعر"></option>
-            <option value="بياع الورد"></option>
-            <option value="سهم الغدر"></option>
-            <option value="حب العمر"></option>
-            <option value="لعيونك جيت"></option>
-            <option value="غريب انا فيها"></option>
-            <option value="وهم الاقنعه"></option>
-            <option value="لحسه مخ"></option>
-            <option value="طويل العمر"></option>
-        </datalist>
-
-        <button type="button" id="changeName">غير الاسم</button>
-        <button type="button" id="nameRandom">غير الاسم عشوائى</button>
-        <input type="text" name="ag" placeholder="العمر" value="35">
-        <input id="male" type="radio" name="gn" value="m" checked="checked">
-        <input id="female" type="radio" name="gn" value="f">
-        <input type="submit" name="sub" value="دخول الدردشة">
-
-    </form>
+            <input type="number" name="ag" placeholder="العمر" value="35" min="18" max="99" required>
+            
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="gd" value="1" checked>
+                    <span>ذكر</span>
+                </label>
+                <label>
+                    <input type="radio" name="gd" value="2">
+                    <span>أنثى</span>
+                </label>
+            </div>
+            <!-- Added Submit Button -->
+            <input type="submit" value="دخول">
+        </form>
+    </div>
 </body>
-
 </html>
