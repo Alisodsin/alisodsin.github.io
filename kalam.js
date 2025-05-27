@@ -108,7 +108,19 @@ let _fmain = parent.fmain,
     personsGotMyMsg1.forEach((name) => {
       let regex = new RegExp(name + "\n!", "g");
       if (listTarget.innerText.match(regex)) {
-        stream[name].excuterObj.next();
+        let last = createHtmlObjectFromString(fwindowlist["Witems"][name].text.at(-1));
+        let lastMsg = last.childNodes[4].textContent
+        let li = ol1.querySelector(`#${stream[name].id}`);
+        if (li && stream[name].lastMsg != lastMsg) {
+          stream[name].excuterObj.next();
+          stream[name].lastMsg = lastMsg
+          li.innerHTML = `<bdi>${name}</bdi> ${hrdspc}⏩${hrdspc} <bdi style="color:white">${lastMsg}</bdi>`;
+          ol1.append(li);
+          li.scrollIntoView();
+        }
+        // kalamngySend(name, `/winclose ${name}`); 
+        fwindowlist.witemact(name);
+
       }
     });
   }),
@@ -120,7 +132,7 @@ let _fmain = parent.fmain,
   },
   audio = new Audio("https://alisodsin.github.io/Short.mp3"),
   bll = new Audio("https://www.soundjay.com/phone/cell-phone-1-nr0.mp3");
-// global  functions
+
 function runCode() {
   let check = setInterval(async (_) => {
     if (Boolean(Object?.keys?.(_fwindowlist?.Witems)?.[1])) {
@@ -189,7 +201,6 @@ function runCode() {
         set(target, p, v) {
           if (
             personsGotMyMsg1.has(p) ||
-            p == myNick ||
             checkForFemaleName(p, testFset)
           ) {
             return Reflect.set(target, p, v);
@@ -286,18 +297,6 @@ function runCode() {
       testFset = structuredClone(femalesNames);
       notWanted = await fetchJsons(mlsgiturl);
       ol1.style.borderBottom = "2px solid green";
-      let lif = document.createElement("li");
-      lif.textContent = `femalesLength = ${testFset.size}`
-      let lim = document.createElement("li");
-      lim.textContent = `malesLength = ${notWanted.size}`
-      let lims = document.createElement("li");
-      lims.textContent = `messagesLength = ${messages.size}`
-      ol1.append(lif, lim, lims);
-      setTimeout(_ => {
-        lif.remove();
-        lim.remove();
-        lims.remove();
-      }, 20000);
       containersDiv.append(ol2);
       _fmain.document.body.append(buttonContainers, containersDiv);
       _fmain.document.head.append(style);
@@ -371,7 +370,6 @@ function runCode() {
           body: `item=say&cmd=say&say=${msg}&target=${target}&R=${R}&xmlhttp=1`,
         });
       };
-      doIt(myNick);
       mainObserver.observe(mainTarget, objConfig);
       _fwindowlist["Witems"][roomName]["users"] = new Proxy(
         _fwindowlist["Witems"][roomName]["users"],
@@ -500,7 +498,6 @@ async function restart() {
           set(target, p, v) {
             if (
               checkForFemaleName(p, testFset) ||
-              p == myNick ||
               personsGotMyMsg1.has(p)
             ) {
               return Reflect.set(target, p, v);
@@ -517,15 +514,17 @@ async function restart() {
   }
 }
 async function sendMsgToMyself() {
+  await kalamngySend("Status", `/query Status`);
+  await kalamngySend("Status", `/clear Status`);
   await kalamngySend(myNick, message1);
-  await sleep(700);
-  kalamngySend(myNick, `/winclose ${myNick}`);
+  await sleep(2000);
+  kalamngySend(roomName, `/query ${roomName}`);
 }
 function goToRoom() {
   kalamngySend(roomName, `/query ${roomName}`);
 }
 function block(x) {
-  if (x != roomName && x != myNick && personsGotMyMsg1.has(x)) {
+  if (x != roomName && personsGotMyMsg1.has(x)) {
     if (x == _fwindowlist.currentwindow) {
       kalamngySend(x, `/winclose ${x}`);
     }
@@ -533,7 +532,7 @@ function block(x) {
     _fmain.document.getElementById(stream?.[x]?.id)?.remove();
     clearTimeout(stream?.[x]?.timeout);
     delete stream[x];
-  } else if (x != roomName && x != myNick && !personsGotMyMsg1.has(x)) {
+  } else if (x != roomName && !personsGotMyMsg1.has(x)) {
     kalamngySend(x, `/ignore ${x}`).then((_) => {
       kalamngySend(x, `/winclose ${x}`);
     });
@@ -934,89 +933,39 @@ function generateRandomString() {
   }
   return randomString;
 }
+
+
 async function* stramMsg(name) {
   await kalamngySend(name, message1);
+  let li = document.createElement("li");
   if (stream[name]) {
-    let li1 = document.createElement("li");
-    if (randomizeMessage) {
-      li1.innerHTML = `<bdi>${name}</bdi> ⏪ <bdi style="color:white">${stream[name].msg}</bdi>`;
-    } else {
-      li1.innerText = name;
-    }
-    li1.style.cursor = "pointer";
-    li1.style.width = "fit-content";
-    li1.id = stream[name].id;
-    li1.style.color = testFset.has(name) ? "green" : "#FFA500";
-    li1.onclick = function (event) {
+    li.innerText = name;
+    li.style.cursor = "pointer";
+    li.style.width = "fit-content";
+    li.id = stream[name].id;
+    li.style.color = testFset.has(name) ? "green" : "#FFA500";
+    li.onclick = function (event) {
       kalamngySend(name, `/query ${name}`);
       event.stopPropagation();
     };
     if (zozo.has(name)) {
-      li1.style.color = "violet";
+      li.style.color = "violet";
       zozo.delete(name);
     }
-    ol1.append(li1);
-    li1.scrollIntoView();
+    ol1.append(li);
+    li.scrollIntoView();
     await kalamngySend(name, `/winclose ${name}`);
   } else {
     return false;
   }
-  let noreply = yield 1;
-  if (noreply) {
-    await kalamngySend(name, message4);
-    kalamngySend(name, `/winclose ${name}`);
-  } else {
-    clearTimeout(stream[name].timeout);
-    await kalamngySend(name, `/query ${name}`);
-    audio.play().catch((_) => true);
-    await kalamngySend(name, message2);
-    await kalamngySend(name, message3);
-    let txt = _fwindowlist["Witems"][_fwindowlist.currentwindow].text[0];
-    let tmpoDiv = document.createElement("div");
-    tmpoDiv.innerHTML = txt;
-    let str = tmpoDiv.childNodes[0].childNodes[4].innerText;
-    let li = _fmain.document.getElementById(stream[name].id);
-    li.innerText = "";
-    li.innerHTML = `<bdi>${name}</bdi> ⏩ <bdi style="color:white">${str}</bdi> ⏪ <bdi style="color:white">${stream[name].msg}</bdi>`;
-    li.style.whiteSpace = "pre";
-    li.onclick = function (event) {
-      kalamngySend(name, `/query ${name}`);
-      event.stopPropagation();
-    };
-    ol1.append(li);
-    li.scrollIntoView();
-    await sleep(600);
-    kalamngySend(name, `/winclose ${name}`);
-  }
+  yield 1;
+  await kalamngySend(name, message2);
+  await kalamngySend(name, message3);
+  audio.play().catch((_) => true);
   yield 2;
-  if (noreply) {
-    await kalamngySend(name, `/query ${name}`);
-    await kalamngySend(name, message2);
-    await kalamngySend(name, message3);
-    audio.play().catch((_) => true);
-    let txt = _fwindowlist["Witems"][_fwindowlist.currentwindow].text[0];
-    let tmpoDiv = document.createElement("div");
-    tmpoDiv.innerHTML = txt;
-    let str = tmpoDiv.childNodes[0].childNodes[4].innerText;
-    let li = _fmain.document.getElementById(stream[name].id);
-    li.innerText = "";
-    li.innerHTML = `<bdi>${name}</bdi>${hrdspc} ⏩ ${hrdspc}<bdi style="color:white">${str}</bdi>`;
-    li.style.whiteSpace = "pre";
-    li.onclick = function (event) {
-      kalamngySend(name, `/query ${name}`);
-      event.stopPropagation();
-    };
-    ol1.append(li);
-    li.scrollIntoView();
-    await sleep(200);
-    kalamngySend(name, `/winclose ${name}`);
-    noreply = false;
-    yield 3;
-  }
   while (true) {
     bll.play().catch((_) => true);
-    kalamngySend(name, `/query ${name}`);
-    yield 4;
+    yield 3;
   }
 }
 class User {
@@ -1025,18 +974,11 @@ class User {
     this.id = id;
     this.name = esm;
     this.excuterObj = stramMsg(esm);
-    this.timeout = condition
-      ? setTimeout(() => {
-        stream[esm].excuterObj.next(true);
-      }, 60000)
-      : "";
     this.ptrn = getPattern(esm, testFset);
+    this.lastMsg = "";
   }
 }
 function doIt(name) {
-  if (randomizeMessage) {
-    message1 = getRandomMessage();
-  }
   stream[name] = new User(message1, generateRandomString(), name);
   stream[name].excuterObj.next();
   personsGotMyMsg1.add(name);
@@ -1059,5 +1001,11 @@ async function fetchJsons(url) {
   });
   let text = await response.json();
   return new Set(text);
+}
+function createHtmlObjectFromString(htmlString) {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(htmlString, 'text/html');
+  // You can select the specific element you want, e.g., the first div
+  return doc.body.firstChild; // Or doc.querySelector('.main-item');
 }
 runCode(); 
