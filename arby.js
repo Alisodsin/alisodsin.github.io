@@ -4,9 +4,8 @@ sweetAlert.src = "https://sweetalert.js.org/assets/sweetalert/sweetalert.min.js"
     document.head.appendChild(sweetAlert),
     pplJoin = id("on"),
     elTarget = document.querySelector("#on"),
-    fmlgiturl = 'https://api.github.com/repos/Alisodsin/node/contents/public/assets/f.json',
-    mlsgiturl = 'https://api.github.com/repos/Alisodsin/node/contents/public/assets/m.json',
-    msgsgiturl = 'https://api.github.com/repos/Alisodsin/node/contents/public/assets/ms.json',
+    fmlgiturl = 'https://raw.githubusercontent.com/Alisodsin/alisodsin.github.io/main/femaleNames.json',
+    mlsgiturl = 'https://raw.githubusercontent.com/Alisodsin/alisodsin.github.io/main/males.json',
     idArray = new Set(),
     oltEsmy = new Set(),
     femaleNames = new Set(),
@@ -767,7 +766,6 @@ function runCode() {
 async function fetchJsons(url) {
     let response = await fetch(url, {
         headers: {
-            'Authorization': `token ${TOKEN}`,
             'Accept': 'application/vnd.github.v3.raw'
         }
     });
@@ -777,7 +775,6 @@ async function fetchJsons(url) {
 async function go() {
     femaleNames = await fetchJsons(fmlgiturl);
     males = await fetchJsons(mlsgiturl);
-    messages = await fetchJsons(msgsgiturl);
     runCode();
 }
 go();
