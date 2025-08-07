@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kashida</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: black;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Arial', sans-serif;
+      cursor: pointer;
+      user-select: none;
+      overflow: hidden;
+    }
+
+    #tatweel {
+      font-size: 100vw; /* Full screen width */
+      line-height: 1;
+      transition: transform 0.1s ease;
+    }
+
+    #tatweel:active {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body onclick="copyKashida()">
+  <div id="tatweel">ـ</div>
+
+  <script>
+    function copyKashida() {
+      const tatweel = 'ـ';
+      navigator.clipboard.writeText(tatweel).then(() => {
+        console.log('Tatweel copied!');
+      }).catch(err => {
+        console.error('Failed to copy:', err);
+      });
+    }
+  </script>
+</body>
+</html>
