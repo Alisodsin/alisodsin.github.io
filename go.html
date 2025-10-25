@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <script src="./o.js" defer></script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+                * {
+                        color: white;
+                }
+
+                table,
+                td,
+                th {
+                        border: 1px solid;
+                        border-collapse: collapse;
+                        text-align: center;
+                        vertical-align: middle;
+
+                }
+
+                table {
+                        width: 100%;
+                        aspect-ratio: 2;
+                }
+
+                .cods {
+                        color: rgb(212, 212, 212);
+                        background-color: rgb(30, 30, 30);
+                        font-family: monospace;
+                        white-space: nowrap;
+                        overflow: auto;
+                        line-height: 19px;
+                        overflow: auto;
+                        padding: 10px;
+                        border-radius: 1%;
+                        outline: none;
+                        font-size: 1.09em;
+                }
+
+                h3 {
+                        color: red !important;
+                }
+
+                h1 {
+                        text-align: center;
+                }
+
+                h4 {
+                        font-family: cursive;
+                        font-style: italic;
+                        color: #9cdcfe;
+                }
+        </style>
+        <title>go notes</title>
+</head>
+
+<body style="background-color:black">
+        <h3>Write our First Program & Structure of a Go File</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">package</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">main</span></div><br>
+                        <div><span style="color: #d4d4d4;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"fmt"</span></div><br>
+                        <div><span style="color: #d4d4d4;">func</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">main</span><span style="color: #d4d4d4;">() {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"welcome to our
+                                        conference booking application"</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"Get your text
+                                        here to attend"</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        <h3>Variables & Constants in Go</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">package</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">main</span></div><br>
+                        <div><span style="color: #d4d4d4;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"fmt"</span></div><br>
+                        <div><span style="color: #d4d4d4;">func</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">main</span><span style="color: #d4d4d4;">() {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">conferenceName</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"Go conference"</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #569cd6;">const</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">conferenceTickets</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">50</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">remainingTickets</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">50</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"welcome to our
+                                        "</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">conferenceName</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">" booking application"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"we have total of
+                                        "</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">conferenceTickets</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">" tickets and "</span><span
+                                        style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">remainingTickets</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">" are still available"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"Get your text
+                                        here to attend"</span><span style="color: #d4d4d4;">)</span>
+                        </div><br>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        <h3>Formatted Output - printf</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">package</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">main</span></div><br>
+                        <div><span style="color: #d4d4d4;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"fmt"</span></div><br>
+                        <div><span style="color: #d4d4d4;">func</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">main</span><span style="color: #d4d4d4;">() {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #569cd6;">const</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"ali"</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">age</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">40</span></div><br>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Printf</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"my name is </span><span
+                                        style="color: #ce9178;">%v</span><span style="color: #ce9178;"> and my age is
+                                </span><span style="color: #ce9178;">%v</span><span
+                                        style="color: #ce9178;">\n</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">name</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">age</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        <h3>Data Types in Go</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">package</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">main</span></div><br>
+                        <div><span style="color: #d4d4d4;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"fmt"</span></div><br>
+                        <div><span style="color: #d4d4d4;">func</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">main</span><span style="color: #d4d4d4;">() {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">//type
+                                        infer</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">userName</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #4ec9b0;">string</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">age</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">int</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">userName</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"ali"</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">age</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">45</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Printf</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"my name is </span><span
+                                        style="color: #ce9178;">%v</span><span style="color: #ce9178;"> and my age is
+                                </span><span style="color: #ce9178;">%v</span><span
+                                        style="color: #ce9178;">\n</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">userName</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #9cdcfe;">age</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Printf</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"name type is </span><span
+                                        style="color: #ce9178;">%T</span><span style="color: #ce9178;">\n</span><span
+                                        style="color: #ce9178;">and age type is </span><span
+                                        style="color: #ce9178;">%T</span><span style="color: #ce9178;">\n</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">userName</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #9cdcfe;">age</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">// explicity
+                                        define variable type</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">userNamee</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #4ec9b0;">string</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"ali"</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">agee</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">int</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">45</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Printf</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"my name is </span><span
+                                        style="color: #ce9178;">%v</span><span style="color: #ce9178;"> and my age is
+                                </span><span style="color: #ce9178;">%v</span><span
+                                        style="color: #ce9178;">\n</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">userNamee</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #9cdcfe;">agee</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Printf</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"name type is </span><span
+                                        style="color: #ce9178;">%T</span><span style="color: #ce9178;">\n</span><span
+                                        style="color: #ce9178;">and age type is </span><span
+                                        style="color: #ce9178;">%T</span><span style="color: #ce9178;">\n</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">userNamee</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #9cdcfe;">agee</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">//
+                                        **********data types*********</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">//&#160;&#160;uint</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">//&#160;&#160;uint8</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">//&#160;&#160;uint16</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">//&#160;&#160;uint32</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">//&#160;&#160;uint64</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">//&#160;&#160;uintptr</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">//-----------------</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">//
+                                        int</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">//
+                                        int8</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">//
+                                        int16</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">//
+                                        int32</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">//
+                                        int64</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">//
+                                        --------------------</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">//
+                                        float32</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">//
+                                        float64</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">//*************variable syntactic sugar with just
+                                        vars</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">country</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">:=</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #ce9178;">"egypt"</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"my country is
+                                        "</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">country</span><span style="color: #d4d4d4;">)</span>
+                        </div><br>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        <h3>Getting User Input</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">package</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">main</span></div><br>
+                        <div><span style="color: #d4d4d4;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"fmt"</span></div><br>
+                        <div><span style="color: #d4d4d4;">func</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">main</span><span style="color: #d4d4d4;">() {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">string</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">age</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">int</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"name?: "</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Scan</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #d4d4d4;">&amp;</span><span
+                                        style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;">) </span><span
+                                        style="color: #6a9955;">// functon&#160;&#160;input is
+                                        pointer | address</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"your age? "</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Scan</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #d4d4d4;">&amp;</span><span
+                                        style="color: #9cdcfe;">age</span><span style="color: #d4d4d4;">) </span><span
+                                        style="color: #6a9955;">// functon&#160;&#160;input is
+                                        pointer | address</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Printf</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"my name is </span><span
+                                        style="color: #ce9178;">%v</span><span style="color: #ce9178;"> and my age is
+                                </span><span style="color: #ce9178;">%v</span><span
+                                        style="color: #ce9178;">\n</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">name</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">age</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Printf</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"my name is </span><span
+                                        style="color: #ce9178;">%T</span><span style="color: #ce9178;"> and my age is
+                                </span><span style="color: #ce9178;">%T</span><span
+                                        style="color: #ce9178;">\n</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">name</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">age</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #d4d4d4;">&amp;</span><span
+                                        style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #d4d4d4;">&amp;</span><span
+                                        style="color: #9cdcfe;">age</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        <h3>Arrays</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">package</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">main</span></div><br>
+                        <div><span style="color: #d4d4d4;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"fmt"</span></div><br>
+                        <div><span style="color: #d4d4d4;">func</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">main</span><span style="color: #d4d4d4;">() {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">firstNam</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"ali"</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">lastName</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"saber"</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">// array has
+                                        fixed size</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">nams</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #b5cea8;">1</span><span
+                                        style="color: #d4d4d4;">]</span><span style="color: #4ec9b0;">string</span><span
+                                        style="color: #d4d4d4;">{</span><span style="color: #ce9178;">"soso"</span><span
+                                        style="color: #d4d4d4;">} </span><span style="color: #6a9955;">//initialize
+                                        1</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">names</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #b5cea8;">10</span><span
+                                        style="color: #d4d4d4;">]</span><span style="color: #4ec9b0;">string</span><span
+                                        style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">//initialize 2</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">//update
+                                        array</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">names</span><span style="color: #d4d4d4;">[</span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">]</span><span
+                                        style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">firstNam</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">names</span><span style="color: #d4d4d4;">[</span><span
+                                        style="color: #b5cea8;">1</span><span style="color: #d4d4d4;">]</span><span
+                                        style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">lastName</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">//access
+                                        array elements</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">nams</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">names</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"my name
+                                        is"</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">nams</span><span style="color: #d4d4d4;">[</span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">]</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"my name is
+                                        "</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">names</span><span style="color: #d4d4d4;">[</span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">]</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">names</span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #b5cea8;">1</span><span
+                                        style="color: #d4d4d4;">]</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Printf</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"array nams type is </span><span
+                                        style="color: #ce9178;">%T</span><span style="color: #ce9178;">\n</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">nams</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Printf</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"array names type is </span><span
+                                        style="color: #ce9178;">%T</span><span style="color: #ce9178;">\n</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">names</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Printf</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"the size of nams array is&#160;&#160;</span><span
+                                        style="color: #ce9178;">%v</span><span style="color: #ce9178;">\n</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #dcdcaa;">len</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">nams</span><span style="color: #d4d4d4;">))</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Printf</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"the size of names array is&#160;&#160;</span><span
+                                        style="color: #ce9178;">%v</span><span style="color: #ce9178;">\n</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #dcdcaa;">len</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">names</span><span style="color: #d4d4d4;">))</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        <h3>Slices</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">package</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">main</span></div><br>
+                        <div><span style="color: #d4d4d4;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"fmt"</span></div><br>
+                        <div><span style="color: #d4d4d4;">func</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">main</span><span style="color: #d4d4d4;">() {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">slic</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #d4d4d4;">]</span><span
+                                        style="color: #4ec9b0;">string</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #6a9955;">// slice declaration</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">slic</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">append</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">slic</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #ce9178;">"ali"</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #ce9178;">"saber"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"souad"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">slic</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        <h3>Loops in Go</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">package</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">main</span></div><br>
+                        <div><span style="color: #d4d4d4;">import</span><span style="color: #d4d4d4;"> (</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #ce9178;">"fmt"</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #ce9178;">"strings"</span></div>
+                        <div><span style="color: #d4d4d4;">)</span></div><br>
+                        <div><span style="color: #d4d4d4;">func</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">main</span><span style="color: #d4d4d4;">() {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">// infinte loop</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">// for {</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">//&#160;&#160;fmt.Println("hi")</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">// }</span></div><br>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">//normal for iterating</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">names</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">:=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #d4d4d4;">]</span><span
+                                        style="color: #4ec9b0;">string</span><span style="color: #d4d4d4;">{</span><span
+                                        style="color: #ce9178;">"ahmed saber"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"ali saber"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"reda sho"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"sayed nono"</span><span
+                                        style="color: #d4d4d4;">}</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">for</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">i</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">:=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">; </span><span
+                                        style="color: #9cdcfe;">i</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">&lt;</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">len</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">names</span><span style="color: #d4d4d4;">);
+                                </span><span style="color: #9cdcfe;">i</span><span
+                                        style="color: #d4d4d4;">++</span><span style="color: #d4d4d4;"> {</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">names</span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #9cdcfe;">i</span><span
+                                        style="color: #d4d4d4;">]</span><span style="color: #d4d4d4;">)</span></div><br>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;}</span></div><br>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">line</span><span style="color: #d4d4d4;">()</span></div>
+                        <br>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">// For-Each loop "iterating over a list"</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">for</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">index</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">value</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">:=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">range</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">names</span><span style="color: #d4d4d4;"> {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">index</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">strings</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">Fields</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">value</span><span
+                                        style="color: #d4d4d4;">)</span><span style="color: #d4d4d4;">[</span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">]</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #6a9955;">//extract first
+                                        name</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">name</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;}</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">line</span><span style="color: #d4d4d4;">()</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">//if we don't want the index we can use
+                                        underscore</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">for</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">_</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">value</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">:=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">range</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">names</span><span style="color: #d4d4d4;"> {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">strings</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">Fields</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">value</span><span
+                                        style="color: #d4d4d4;">)</span><span style="color: #d4d4d4;">[</span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">]</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #6a9955;">//extract first
+                                        name</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">name</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;}</span></div><br>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        <h3>Conditionals (if / else) and Boolean Data Type</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">package</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">main</span></div><br>
+                        <div><span style="color: #d4d4d4;">import</span><span style="color: #d4d4d4;"> (</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #ce9178;">"fmt"</span></div>
+                        <div><span style="color: #d4d4d4;">)</span></div><br>
+                        <div><span style="color: #d4d4d4;">func</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">main</span><span style="color: #d4d4d4;">() {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">//basic syntax</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">num</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">:=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">20</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">if</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">num</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">==</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #d4d4d4;"> {</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"if"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;} </span><span
+                                        style="color: #c586c0;">else</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">if</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">num</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">&gt;</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">20</span><span style="color: #d4d4d4;"> {</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"else
+                                        if"</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;} </span><span
+                                        style="color: #c586c0;">else</span><span style="color: #d4d4d4;"> {</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"else"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;}</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">line</span><span style="color: #d4d4d4;">()</span></div>
+                        <br>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">//------------------------------------------------------</span>
+                        </div><br>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">// use in loops</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">names</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">:=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #d4d4d4;">]</span><span
+                                        style="color: #4ec9b0;">string</span><span style="color: #d4d4d4;">{</span><span
+                                        style="color: #ce9178;">"ahmed"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"ali"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"reda"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"sayed"</span><span
+                                        style="color: #d4d4d4;">}</span></div><br>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">//break</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">for</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">_</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">value</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">:=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">range</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">names</span><span style="color: #d4d4d4;"> {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">if</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">value</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">==</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"reda"</span><span style="color: #d4d4d4;"> {</span>
+                        </div>
+                        <div><span
+                                        style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">break</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">value</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;}</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">line</span><span style="color: #d4d4d4;">()</span></div>
+                        <br>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">for</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">i</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">:=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">; </span><span
+                                        style="color: #9cdcfe;">i</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">&lt;</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">len</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">names</span><span style="color: #d4d4d4;">);
+                                </span><span style="color: #9cdcfe;">i</span><span
+                                        style="color: #d4d4d4;">++</span><span style="color: #d4d4d4;"> {</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">if</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">names</span><span style="color: #d4d4d4;">[</span><span
+                                        style="color: #9cdcfe;">i</span><span style="color: #d4d4d4;">]</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #d4d4d4;">==</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #ce9178;">"reda"</span><span
+                                        style="color: #d4d4d4;"> {</span></div>
+                        <div><span
+                                        style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">break</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">names</span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #9cdcfe;">i</span><span
+                                        style="color: #d4d4d4;">]</span><span style="color: #d4d4d4;">)</span></div><br>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;}</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">line</span><span style="color: #d4d4d4;">()</span></div>
+                        <br>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">//continue</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">for</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">_</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">value</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">:=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">range</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">names</span><span style="color: #d4d4d4;"> {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">if</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">value</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">==</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"reda"</span><span style="color: #d4d4d4;"> {</span>
+                        </div>
+                        <div><span
+                                        style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">continue</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">value</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;}</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #dcdcaa;">line</span><span style="color: #d4d4d4;">()</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">for</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">i</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">:=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">; </span><span
+                                        style="color: #9cdcfe;">i</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">&lt;</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">len</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">names</span><span style="color: #d4d4d4;">);
+                                </span><span style="color: #9cdcfe;">i</span><span
+                                        style="color: #d4d4d4;">++</span><span style="color: #d4d4d4;"> {</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">if</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">names</span><span style="color: #d4d4d4;">[</span><span
+                                        style="color: #9cdcfe;">i</span><span style="color: #d4d4d4;">]</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #d4d4d4;">==</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #ce9178;">"reda"</span><span
+                                        style="color: #d4d4d4;"> {</span></div>
+                        <div><span
+                                        style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">continue</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">names</span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #9cdcfe;">i</span><span
+                                        style="color: #d4d4d4;">]</span><span style="color: #d4d4d4;">)</span></div><br>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;}</span></div><br>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        <hr>
+        <hr>
+        <hr>
+        <h1>notes from book</h1>
+        <h3>Working with Different Data Types</h3>
+        <p>In Go, there are four types of data:</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">// Basic: Examples include strings, numbers, and
+                                        Booleans.</span></div>
+                        <div><span style="color: #6a9955;">// Aggregate: Examples include arrays and structs.</span>
+                        </div>
+                        <div><span style="color: #6a9955;">// Reference: Examples include pointers, slices, functions,
+                                        and channels.</span></div>
+                        <div><span style="color: #6a9955;">// Interface: An interface is a collection of method
+                                        signatures</span></div>
+                </div>
+
+        </div>
+        <h4>Declaring Always-Changing Variables</h4>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">package</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">main</span></div><br>
+                        <div><span style="color: #d4d4d4;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"fmt"</span></div><br>
+                        <div><span style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">num1</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">50</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #6a9955;">// variable&#160;&#160;defined outside a function type
+                                        infered "int"</span></div><br>
+                        <div><span style="color: #d4d4d4;">func</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">main</span><span style="color: #d4d4d4;">() {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">num2</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">5</span><span
+                                        style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">// var inside a function&#160;&#160;type inferred
+                                        "integer"</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">num2</span><span
+                                        style="color: #d4d4d4;">) </span><span style="color: #6a9955;">// 5</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">num1</span><span
+                                        style="color: #d4d4d4;">) </span><span style="color: #6a9955;">// 50</span>
+                        </div><br>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+
+        </div>
+        <h4>Specifying the data type: Explicitly typed variables</h4>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">package</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">main</span></div><br>
+                        <div><span style="color: #d4d4d4;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"fmt"</span></div><br>
+                        <div><span style="color: #d4d4d4;">func</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">main</span><span style="color: #d4d4d4;">() {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">//implicity typed</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">num1</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">5</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #6a9955;">// type inferred</span></div><br>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">// explicitly typed</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">num2</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">int</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">num3</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">float32</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #6a9955;">// floating point variable</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">string</span><span
+                                        style="color: #d4d4d4;">&#160;&#160;</span><span style="color: #6a9955;">//
+                                        string variable</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">raining</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #4ec9b0;">bool</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #6a9955;">// boolean variable</span></div><br>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">// explicitly declare and initialize</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">rates</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">float32</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">4.5</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #6a9955;">// declared as float32 and then initialize</span></div>
+                        <br>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">//acessing values</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">num1</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">// 5</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">num2</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">// 0</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">num3</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">// 0</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">name</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">// "" (empty string)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">raining</span><span style="color: #d4d4d4;">)
+                                </span><span style="color: #6a9955;">// false</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">rates</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">// 4.5</span></div><br>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        <p>Using the short variable declaration operator</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #9cdcfe;">firstName</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">:=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"Wei-Meng"</span></div>
+                </div>
+        </div>
+        <p>declare and initialize multiple variables (of different types) in a single statement</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #9cdcfe;">firstName</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">lastName</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #9cdcfe;">age</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">:=</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #ce9178;">"Wei-Meng"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"Lee"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #b5cea8;">25</span></div>
+                </div>
+        </div>
+        <p>using var key word</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">firstName</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #9cdcfe;">lastName</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #4ec9b0;">string</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"Wei-Meng"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"Lee"</span></div>
+                </div>
+        </div>
+        <p>Note that if you’re declaring and initializing multiple variables using the var key word, all the variables
+                must be of the same type. The following is not allowed:</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">firstName</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #9cdcfe;">lastName</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #9cdcfe;">string</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #9cdcfe;">age</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #4ec9b0;">int</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"Wei-Meng"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"Lee"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #b5cea8;">25</span></div>
+                </div>
+
+        </div>
+        <p>The preceding statement can be fixed by removing the data type, like this:</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">firstName</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #9cdcfe;">lastName</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #9cdcfe;">age</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"Wei-Meng"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #ce9178;">"Lee"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #b5cea8;">25</span></div>
+                </div>
+        </div>
+        <p>Alternatively, you can declare them this way</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> (</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">firstName</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #4ec9b0;">string</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"Wei-Meng"</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">lastName</span><span
+                                        style="color: #d4d4d4;">&#160;&#160;</span><span
+                                        style="color: #4ec9b0;">string</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"Lee"</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">age</span><span
+                                        style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #4ec9b0;">int</span><span
+                                        style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">25</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;)</span></div>
+                </div>
+        </div>
+        <p>When you declare and initialize a variable using the := operator, you can’t use it
+                for variables declared outside function bodies, like the following:</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">package</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">main</span></div><br>
+                        <div><span style="color: #d4d4d4;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"fmt"</span></div>
+                        <div><span style="color: #9cdcfe;">num1</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">:=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">5</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #6a9955;">// error; non-declaration statement outside function
+                                        body</span></div><br>
+                        <div><span style="color: #d4d4d4;">func</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">main</span><span style="color: #d4d4d4;">() {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"Hello,
+                                        world!"</span><span style="color: #d4d4d4;">)</span></div><br>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        <p>The := operator can only be used for declaring and initializing variables inside functions</p>
+        <h4>constants</h4>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">package</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">main</span></div><br>
+                        <div><span style="color: #d4d4d4;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"fmt"</span></div><br>
+                        <div><span style="color: #569cd6;">const</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">publisher</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"Wiley"</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #6a9955;">// constant</span></div><br>
+                        <div><span style="color: #d4d4d4;">func</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">main</span><span style="color: #d4d4d4;">() {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">publisher</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        <h4>Removing Unused Variables</h4>
+        <p>The presence of an unused variable may indicate a bug, while unused imports just slow down compilation.
+                Accumulate enough unused imports in your code tree and things can get very slow. For these reasons, Go
+                allows neither.</p>
+        <p>if a variable is declared outside a function and not used any- where in the program, the compiler wouldn’t
+                complain:</p>
+        <p>If you insist on having unused variables in your program, Go offers a quick way
+                to address this issue. Simply assign the unused variable to a blank identifier (_),
+                like this</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">package</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">main</span></div><br>
+                        <div><span style="color: #d4d4d4;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"fmt"</span></div><br>
+                        <div><span style="color: #d4d4d4;">func</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">main</span><span style="color: #d4d4d4;">() {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">num1</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">5</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">_</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">num1</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #6a9955;">// The compiler is now happy!</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">num1</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        <h4>Dealing with Strings</h4>
+        <p>A string can contain special characters (such as \n or \t), as shown in the following example:</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">package</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">main</span></div><br>
+                        <div><span style="color: #d4d4d4;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"fmt"</span></div><br>
+                        <div><span style="color: #d4d4d4;">func</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">main</span><span style="color: #d4d4d4;">() {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">address</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">:=</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #ce9178;">"The White House</span><span
+                                        style="color: #ce9178;">\n</span><span style="color: #ce9178;">1600 Pennsylvania
+                                        Avenue NW</span><span style="color: #ce9178;">\n</span><span
+                                        style="color: #ce9178;">Washington, DC 20500"</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">address</span><span style="color: #d4d4d4;">)</span>
+                        </div><br>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        <p>Go also supports raw strings. A raw string is enclosed by a pair of back ticks (``). It can span multiple
+                lines, and special characters have no meaning in it. Here’s an example of a raw string:</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">package</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">main</span></div><br>
+                        <div><span style="color: #d4d4d4;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"fmt"</span></div><br>
+                        <div><span style="color: #d4d4d4;">func</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">main</span><span style="color: #d4d4d4;">() {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">quotation</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">:=</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #ce9178;">`ali</span></div>
+                        <div><span style="color: #ce9178;">saber</span></div>
+                        <div><span style="color: #ce9178;">ali</span></div>
+                        <div><span style="color: #ce9178;">ghttas</span></div>
+                        <div><span style="color: #ce9178;">`</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">quotation</span><span style="color: #d4d4d4;">)</span>
+                        </div><br>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        <p> you can also use the Unicode encodings of each character in your strings:</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">package</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">main</span></div><br>
+                        <div><span style="color: #d4d4d4;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"fmt"</span></div><br>
+                        <div><span style="color: #d4d4d4;">func</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">main</span><span style="color: #d4d4d4;">() {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">str3</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">:=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"</span><span
+                                        style="color: #ce9178;">\u4f60\u597d\uff0c\u4e16\u754c</span><span
+                                        style="color: #ce9178;">"</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">str3</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        <p>length of chineese char</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">package</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">main</span></div><br>
+                        <div><span style="color: #d4d4d4;">import</span><span style="color: #d4d4d4;"> (</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #ce9178;">"fmt"</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #ce9178;">"unicode/utf8"</span></div>
+                        <div><span style="color: #d4d4d4;">)</span></div><br>
+                        <div><span style="color: #d4d4d4;">func</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">main</span><span style="color: #d4d4d4;">() {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">str2</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">:=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"界"</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #dcdcaa;">len</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">str2</span><span
+                                        style="color: #d4d4d4;">))&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">// 3</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">utf8</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">RuneCountInString</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">str2</span><span
+                                        style="color: #d4d4d4;">)) </span><span style="color: #6a9955;">// 1</span>
+                        </div><br>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        <h4>Performing Type Conversions</h4>
+        <p>nowing data type</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">package</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">main</span></div><br>
+                        <div><span style="color: #d4d4d4;">import</span><span style="color: #d4d4d4;"> (</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #ce9178;">"fmt"</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #ce9178;">"reflect"</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #ce9178;">"time"</span></div>
+                        <div><span style="color: #d4d4d4;">)</span></div><br>
+                        <div><span style="color: #d4d4d4;">func</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">main</span><span style="color: #d4d4d4;">() {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">start</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">:=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">time</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Now</span><span style="color: #d4d4d4;">()</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Printf</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #ce9178;">%T</span><span
+                                        style="color: #ce9178;">\n</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">start</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">// first method</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">reflect</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">TypeOf</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">start</span><span
+                                        style="color: #d4d4d4;">)) </span><span style="color: #6a9955;">// second
+                                        method</span></div><br>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        <p>Converting a variable’s type</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">package</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">main</span></div><br>
+                        <div><span style="color: #d4d4d4;">import</span><span style="color: #d4d4d4;"> (</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #ce9178;">"fmt"</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #ce9178;">"strconv"</span></div>
+                        <div><span style="color: #d4d4d4;">)</span></div><br>
+                        <div><span style="color: #d4d4d4;">func</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">main</span><span style="color: #d4d4d4;">() {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">input</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">string</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Print</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"Please enter your age: "</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Scanf</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #ce9178;">%s</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #d4d4d4;">&amp;</span><span
+                                        style="color: #9cdcfe;">input</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">age</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">err</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">strconv</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">Atoi</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">input</span><span
+                                        style="color: #d4d4d4;">) </span><span style="color: #6a9955;">//convert str to
+                                        int&#160;&#160;or return err</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #c586c0;">if</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">err</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">!=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">nil</span><span style="color: #d4d4d4;"> {</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"Enter proper
+                                        numerical value"</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;} </span><span
+                                        style="color: #c586c0;">else</span><span style="color: #d4d4d4;"> {</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">age</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;}</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        <p>To convert string values to specific types, such as Boolean, floating point num-
+                bers, or integers, you can use the various Parse functions:</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">package</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">main</span></div><br>
+                        <div><span style="color: #d4d4d4;">import</span><span style="color: #d4d4d4;"> (</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #ce9178;">"fmt"</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #ce9178;">"strconv"</span></div>
+                        <div><span style="color: #d4d4d4;">)</span></div><br>
+                        <div><span style="color: #d4d4d4;">func</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">main</span><span style="color: #d4d4d4;">() {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">//str to bool</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">b</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">err</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">:=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">strconv</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">ParseBool</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"t"</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">b</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">// true</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">err</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">// &lt;nil&gt;</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Printf</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #ce9178;">%T</span><span
+                                        style="color: #ce9178;">\n</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">b</span><span
+                                        style="color: #d4d4d4;">) </span><span style="color: #6a9955;">// bool</span>
+                        </div><br>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">//str to float</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">f</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">err</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">:=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">strconv</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">ParseFloat</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"3.1415"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #b5cea8;">64</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">f</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">// 3.1415</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">err</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">// &lt;nil&gt;</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Printf</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #ce9178;">%T</span><span
+                                        style="color: #ce9178;">\n</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">f</span><span
+                                        style="color: #d4d4d4;">) </span><span style="color: #6a9955;">// float64</span>
+                        </div><br>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">// str to int64</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">i</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">err</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">:=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">strconv</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">ParseInt</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"-18.56"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #b5cea8;">10</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #b5cea8;">64</span><span style="color: #d4d4d4;">)
+                                </span><span style="color: #6a9955;">// base</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">i</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">// 0</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">err</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">// strconv.ParseInt: parsing "-18.56": invalid
+                                        syntax</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Printf</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #ce9178;">%T</span><span
+                                        style="color: #ce9178;">\n</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">i</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">// int64</span></div><br>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">//str to uint</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">u1</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">err</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">:=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">strconv</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">ParseUint</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"18"</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #b5cea8;">10</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #b5cea8;">64</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">u1</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">// 18</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">err</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">// &lt;nil&gt;</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Printf</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #ce9178;">%T</span><span
+                                        style="color: #ce9178;">\n</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">u1</span><span
+                                        style="color: #d4d4d4;">) </span><span style="color: #6a9955;">// uint64</span>
+                        </div><br>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">//str to to uint</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">u2</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #9cdcfe;">err</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">:=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">strconv</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">ParseUint</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"-18"</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #b5cea8;">10</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #b5cea8;">64</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">u2</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">// 0</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Println</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">err</span><span
+                                        style="color: #d4d4d4;">)&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;">// strconv.ParseUint: parsing "-18": invalid
+                                        syntax</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Printf</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #ce9178;">%T</span><span
+                                        style="color: #ce9178;">\n</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">u2</span><span
+                                        style="color: #d4d4d4;">) </span><span style="color: #6a9955;">// uint64</span>
+                        </div><br>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        <p>To convert between the various numeric data types like int and float, you can
+                simply use the int(), float32(), and float64() functions:</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">package</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">main</span></div><br>
+                        <div><span style="color: #d4d4d4;">import</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"fmt"</span></div><br>
+                        <div><span style="color: #d4d4d4;">func</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">main</span><span style="color: #d4d4d4;">() {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">num1</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">:=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">5</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">num2</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">:=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">float32</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">num1</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">num3</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">:=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">float64</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">num2</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">num4</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">:=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">float32</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">num3</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">num5</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">:=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">int</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">num4</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Printf</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #ce9178;">%T</span><span
+                                        style="color: #ce9178;">\n</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">num1</span><span
+                                        style="color: #d4d4d4;">) </span><span style="color: #6a9955;">// int</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Printf</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #ce9178;">%T</span><span
+                                        style="color: #ce9178;">\n</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">num2</span><span
+                                        style="color: #d4d4d4;">) </span><span style="color: #6a9955;">// float32</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Printf</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #ce9178;">%T</span><span
+                                        style="color: #ce9178;">\n</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">num3</span><span
+                                        style="color: #d4d4d4;">) </span><span style="color: #6a9955;">// float64</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Printf</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #ce9178;">%T</span><span
+                                        style="color: #ce9178;">\n</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">num4</span><span
+                                        style="color: #d4d4d4;">) </span><span style="color: #6a9955;">// float32</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Printf</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #ce9178;">%T</span><span
+                                        style="color: #ce9178;">\n</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">num5</span><span
+                                        style="color: #d4d4d4;">) </span><span style="color: #6a9955;">// int</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        <h4>Interpolating strings</h4>
+        <p>The Sprintf() function formats a string based on the formatting verbs (such as
+                %d and %s).</p>
+                <div class="cods" contenteditable="" spellcheck="false">
+                       <div ><div><span style="color: #d4d4d4;">package</span><span style="color: #d4d4d4;"> </span><span style="color: #4ec9b0;">main</span></div><br><div><span style="color: #d4d4d4;">import</span><span style="color: #d4d4d4;"> </span><span style="color: #ce9178;">"fmt"</span></div><br><div><span style="color: #d4d4d4;">func</span><span style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">main</span><span style="color: #d4d4d4;">() {</span></div><div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span style="color: #9cdcfe;">queue</span><span style="color: #d4d4d4;"> </span><span style="color: #d4d4d4;">:=</span><span style="color: #d4d4d4;"> </span><span style="color: #b5cea8;">5</span></div><div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;"> </span><span style="color: #d4d4d4;">:=</span><span style="color: #d4d4d4;"> </span><span style="color: #ce9178;">"John"</span></div><div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span style="color: #9cdcfe;">s</span><span style="color: #d4d4d4;"> </span><span style="color: #d4d4d4;">:=</span><span style="color: #d4d4d4;"> </span><span style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">Sprintf</span><span style="color: #d4d4d4;">(</span><span style="color: #ce9178;">"</span><span style="color: #ce9178;">%s</span><span style="color: #ce9178;">, your queue number is </span><span style="color: #ce9178;">%d</span><span style="color: #ce9178;">"</span><span style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;">, </span><span style="color: #9cdcfe;">queue</span><span style="color: #d4d4d4;">) </span><span style="color: #6a9955;">// Sprintf formats according to a format specifier and returns the resulting string</span></div><div><span style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span style="color: #9cdcfe;">fmt</span><span style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">Println</span><span style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">s</span><span style="color: #d4d4d4;">)</span></div><br><div><span style="color: #d4d4d4;">}</span></div></div> 
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

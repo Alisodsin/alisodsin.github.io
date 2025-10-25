@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>c++ code adjust</title>
+</head>
+<style>
+  * {
+    background-color: black;
+    color: white;
+  }
+</style>
+
+<body>
+  <textarea id="area" style="width:75vw;height:75vh;" spellcheck="false"></textarea>
+  <p></p>
+  <button id="button" style="width:90px;padding:5px;cursor: pointer;">click</button>
+  <script>
+    const area = document.getElementById("area");
+    const button = document.getElementById("button");
+    button.onclick = function () {
+      let str = area.value;
+      str = str.replace(/(\d{1,}:)/gi, "");
+      str = str.replace(/(“|”)/gi, '"');
+      str = str.replace(/’/gi, "'");
+      area.value = str;
+    };
+  </script>
+</body>
+
+</html>

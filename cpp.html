@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="./javascript.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        ::-webkit-scrollbar {
+            width: 0px;
+            height: 0px;
+        }
+
+        .dad {
+            color: #f44336 !important;
+            font-size: larger;
+        }
+
+        li {
+            font-family: monospace;
+            color: blue;
+            list-style-type: none;
+        }
+
+        ol>li {
+            font-family: monospace;
+            color: rgb(181, 181, 201);
+            list-style-type: decimal;
+            font-size: 13px;
+        }
+
+        body {
+            background: rgb(0, 0, 0);
+        }
+
+        h3 {
+            color: #00ffff !important;
+            font-size: initial;
+        }
+
+        .cods {
+            color: rgb(212, 212, 212);
+            background-color: rgb(30, 30, 30);
+            font-family: monospace;
+            font-size: 14px;
+            white-space: nowrap;
+            overflow: auto;
+            padding: 10px;
+            border-radius: 3%;
+            outline: none;
+        }
+
+        p {
+            color: bisque !important;
+            font-size: smaller !important;
+        }
+
+        .son li {
+            color: bisque !important;
+            font-size: smaller !important;
+            list-style-type: decimal;
+        }
+
+        table,
+        th,
+        td {
+            color: bisque;
+            text-align: center;
+            border: 1px solid white;
+            border-collapse: collapse;
+            font-size: small;
+        }
+
+        b {
+            color: tomato;
+        }
+    </style>
+    <title>C++</title>
+</head>
+
+<body>
+    <details  class="dad">
+        <summary>the basics</summary>
+        <ul>
+            <li>
+                <details>
+                    <summary>Lesson 1. Getting Started</summary>
+                    <ul></ul>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>Lesson 2. The Anatomy of a C++ Program</summary>
+                    <ul></ul>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>Lesson 3. Using Variables, Declaring Constants</summary>
+                    <ul>
+                        <li>
+                            <h3 id="h1">What Is a Variable?</h3>
+                            <p>In C++, a variable is a named storage location that holds a value. Variables are used to
+                                store and manipulate data within a program. To define a variable in C++, you need to
+                                specify its data type and a name. The basic syntax for defining a variable is as
+                                follows:</p>
+                            <div class="cods" contenteditable="" spellcheck="false">
+                                <div>data_type <span style="color: #9cdcfe;">variable_name</span>;</div>
+                            </div>
+                            <p>Here's an example:</p>
+                            <div class="cods" contenteditable="" spellcheck="false">
+                                <div>
+                                    <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;">
+                                        </span><span style="color: #ce9178;">&lt;iostream&gt;</span></div><br>
+                                    <div><span style="color: #569cd6;">int</span> <span
+                                            style="color: #dcdcaa;">main</span>()</div>
+                                    <div>{</div>
+                                    <div><span style="color: #6a9955;">&#160;&#160;&#160;&#160;// Define an integer
+                                            variable named 'age'</span></div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #569cd6;">int</span> <span
+                                            style="color: #9cdcfe;">age</span>;</div><br>
+                                    <div><span style="color: #6a9955;">&#160;&#160;&#160;&#160;// Assign a value to the
+                                            'age' variable</span></div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">age</span> <span
+                                            style="color: #d4d4d4;">=</span> <span style="color: #b5cea8;">25</span>;
+                                    </div><br>
+                                    <div><span style="color: #6a9955;">&#160;&#160;&#160;&#160;// Display the value of
+                                            the 'age' variable</span></div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #4ec9b0;">std</span>::<span
+                                            style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span style="color: #ce9178;">"Age:
+                                            "</span> <span style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #9cdcfe;">age</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #4ec9b0;">std</span>::<span
+                                            style="color: #dcdcaa;">endl</span>;</div><br>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #c586c0;">return</span> <span
+                                            style="color: #b5cea8;">0</span>;</div>
+                                    <div>}</div>
+                                </div>
+                            </div>
+                            <p>You can also combine variable declaration and assignment in a single statement:</p>
+                            <div class="cods" contenteditable="" spellcheck="false">
+                                <div>
+                                    <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;">
+                                        </span><span style="color: #ce9178;">&lt;iostream&gt;</span></div><br>
+                                    <div><span style="color: #569cd6;">int</span> <span
+                                            style="color: #dcdcaa;">main</span>()</div>
+                                    <div>{</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #569cd6;">int</span> <span
+                                            style="color: #9cdcfe;">age</span> <span style="color: #d4d4d4;">=</span>
+                                        <span style="color: #b5cea8;">25</span>;
+                                    </div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #c586c0;">return</span> <span
+                                            style="color: #b5cea8;">0</span>;</div>
+                                    <div>}</div>
+                                </div>
+                            </div>
+                            <p>Listing 3.1 Using Variables to Store Numbers and the Result of Their Multiplication</p>
+                            <div class="cods" contenteditable="" spellcheck="false">
+                                <div>
+                                    <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;">
+                                        </span><span style="color: #ce9178;">&lt;iostream&gt;</span></div>
+                                    <div><span style="color: #c586c0;">using</span> <span
+                                            style="color: #569cd6;">namespace</span> <span
+                                            style="color: #4ec9b0;">std</span>;</div><br>
+                                    <div><span style="color: #569cd6;">int</span> <span
+                                            style="color: #dcdcaa;">main</span>()</div>
+                                    <div>{</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span style="color: #ce9178;">"This
+                                            program multiplies two numbers"</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #dcdcaa;">endl</span>;</div><br>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span style="color: #ce9178;">"Enter
+                                            the first number: "</span>;</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #569cd6;">int</span> <span
+                                            style="color: #9cdcfe;">firstNumber</span> <span
+                                            style="color: #d4d4d4;">=</span> <span style="color: #b5cea8;">0</span>;
+                                    </div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cin</span> <span
+                                            style="color: #dcdcaa;">&gt;&gt;</span> <span
+                                            style="color: #9cdcfe;">firstNumber</span>;</div><br>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span style="color: #ce9178;">"Enter
+                                            the second number: "</span>;</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #569cd6;">int</span> <span
+                                            style="color: #9cdcfe;">secondNumber</span> <span
+                                            style="color: #d4d4d4;">=</span> <span style="color: #b5cea8;">0</span>;
+                                    </div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cin</span> <span
+                                            style="color: #dcdcaa;">&gt;&gt;</span> <span
+                                            style="color: #9cdcfe;">secondNumber</span>;</div><br>
+                                    <div><span style="color: #6a9955;">&#160;&#160;&#160;&#160;// Multiply two numbers,
+                                            store result in a variable</span></div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #569cd6;">int</span> <span
+                                            style="color: #9cdcfe;">multiplicationResult</span> <span
+                                            style="color: #d4d4d4;">=</span> <span
+                                            style="color: #9cdcfe;">firstNumber</span> <span
+                                            style="color: #d4d4d4;">*</span> <span
+                                            style="color: #9cdcfe;">secondNumber</span>;</div><br>
+                                    <div><span style="color: #6a9955;">&#160;&#160;&#160;&#160;// Display result</span>
+                                    </div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #9cdcfe;">firstNumber</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span style="color: #ce9178;">" x
+                                            "</span> <span style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #9cdcfe;">secondNumber</span>;</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span style="color: #ce9178;">" =
+                                            "</span> <span style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #9cdcfe;">multiplicationResult</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #dcdcaa;">endl</span>;</div><br>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #c586c0;">return</span> <span
+                                            style="color: #b5cea8;">0</span>;</div>
+                                    <div>}</div>
+                                </div>
+                            </div>
+                            <p>If you wanted to, you could condense the declaration of these three variables to one line
+                                of code that looks like this:</p>
+                            <div class="cods" contenteditable="" spellcheck="false">
+                                <div>
+                                    <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;">
+                                        </span><span style="color: #ce9178;">&lt;iostream&gt;</span></div>
+                                    <div><span style="color: #c586c0;">using</span> <span
+                                            style="color: #569cd6;">namespace</span> <span
+                                            style="color: #4ec9b0;">std</span>;</div><br>
+                                    <div><span style="color: #569cd6;">int</span> <span
+                                            style="color: #dcdcaa;">main</span>()</div>
+                                    <div>{</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #569cd6;">int</span> <span
+                                            style="color: #9cdcfe;">firstNumber</span> <span
+                                            style="color: #d4d4d4;">=</span> <span style="color: #b5cea8;">0</span>,
+                                        <span style="color: #9cdcfe;">secondNumber</span> <span
+                                            style="color: #d4d4d4;">=</span> <span style="color: #b5cea8;">0</span>,
+                                        <span style="color: #9cdcfe;">multiplicationResult</span> <span
+                                            style="color: #d4d4d4;">=</span> <span style="color: #b5cea8;">0</span>;
+                                    </div><br>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #c586c0;">return</span> <span
+                                            style="color: #b5cea8;">0</span>;</div>
+                                    <div>}</div>
+                                </div>
+                            </div>
+                            <p><b>Understanding the Scope of a Variable</b></p>
+                            <p>In C++, the scope of a variable refers to the region of the program where the variable is
+                                recognized and can be used. The scope determines where a variable is accessible and
+                                where it is not.</p>
+                            <p>Listing 3.2 Demonstrating the Scope of the Variables</p>
+                            <div class="cods" contenteditable="" spellcheck="false">
+                                <div>
+                                    <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;">
+                                        </span><span style="color: #ce9178;">&lt;iostream&gt;</span></div>
+                                    <div><span style="color: #c586c0;">using</span> <span
+                                            style="color: #569cd6;">namespace</span> <span
+                                            style="color: #4ec9b0;">std</span>;</div><br>
+                                    <div><span style="color: #569cd6;">void</span> <span
+                                            style="color: #dcdcaa;">MultiplyNumbers</span>()</div>
+                                    <div>{</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span style="color: #ce9178;">"Enter
+                                            the first number: "</span>;</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #569cd6;">int</span> <span
+                                            style="color: #9cdcfe;">firstNumber</span> <span
+                                            style="color: #d4d4d4;">=</span> <span style="color: #b5cea8;">0</span>;
+                                    </div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cin</span> <span
+                                            style="color: #dcdcaa;">&gt;&gt;</span> <span
+                                            style="color: #9cdcfe;">firstNumber</span>;</div><br>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span style="color: #ce9178;">"Enter
+                                            the second number: "</span>;</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #569cd6;">int</span> <span
+                                            style="color: #9cdcfe;">secondNumber</span> <span
+                                            style="color: #d4d4d4;">=</span> <span style="color: #b5cea8;">0</span>;
+                                    </div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cin</span> <span
+                                            style="color: #dcdcaa;">&gt;&gt;</span> <span
+                                            style="color: #9cdcfe;">secondNumber</span>;</div><br>
+                                    <div><span style="color: #6a9955;">&#160;&#160;&#160;&#160;// Multiply two numbers,
+                                            store result in a variable</span></div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #569cd6;">int</span> <span
+                                            style="color: #9cdcfe;">multiplicationResult</span> <span
+                                            style="color: #d4d4d4;">=</span> <span
+                                            style="color: #9cdcfe;">firstNumber</span> <span
+                                            style="color: #d4d4d4;">*</span> <span
+                                            style="color: #9cdcfe;">secondNumber</span>;</div><br>
+                                    <div><span style="color: #6a9955;">&#160;&#160;&#160;&#160;// Display result</span>
+                                    </div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #9cdcfe;">firstNumber</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span style="color: #ce9178;">" x
+                                            "</span> <span style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #9cdcfe;">secondNumber</span>;</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span style="color: #ce9178;">" =
+                                            "</span> <span style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #9cdcfe;">multiplicationResult</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #dcdcaa;">endl</span>;</div>
+                                    <div>}</div>
+                                    <div><span style="color: #569cd6;">int</span> <span
+                                            style="color: #dcdcaa;">main</span>()</div>
+                                    <div>{</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span style="color: #ce9178;">"This
+                                            program multiplies two numbers"</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #dcdcaa;">endl</span>;</div><br>
+                                    <div><span style="color: #6a9955;">&#160;&#160;&#160;&#160;// Call the function that
+                                            does all the work</span></div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #dcdcaa;">MultiplyNumbers</span>();
+                                    </div><br>
+                                    <div><span style="color: #6a9955;">&#160;&#160;&#160;&#160;// cout &lt;&lt;
+                                            firstNumber &lt;&lt; " x " &lt;&lt; secondNumber;</span></div>
+                                    <div><span style="color: #6a9955;">&#160;&#160;&#160;&#160;// cout &lt;&lt; " = "
+                                            &lt;&lt; multiplicationResult &lt;&lt; endl;</span></div><br>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #c586c0;">return</span> <span
+                                            style="color: #b5cea8;">0</span>;</div>
+                                    <div>}</div>
+                                </div>
+                            </div>
+                            <p><b>Global Variables</b></p>
+                            <p>In C++, global variables are declared outside any function or class, making them
+                                accessible throughout the entire program. They have a global scope, allowing them to be
+                                accessed by any function in the same file or across multiple files when declared as
+                                extern. However, excessive use of global variables can lead to code maintenance
+                                challenges and is generally discouraged in favor of encapsulation and modular design.
+                            </p>
+                            <p>Listing 3.3 Using Global Variables</p>
+                            <div class="cods" contenteditable="" spellcheck="false">
+                                <div>
+                                    <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;">
+                                        </span><span style="color: #ce9178;">&lt;iostream&gt;</span></div>
+                                    <div><span style="color: #c586c0;">using</span> <span
+                                            style="color: #569cd6;">namespace</span> <span
+                                            style="color: #4ec9b0;">std</span>;</div><br>
+                                    <div><span style="color: #6a9955;">// Declare three global integers</span></div>
+                                    <div><span style="color: #569cd6;">int</span> <span
+                                            style="color: #9cdcfe;">firstNumber</span> <span
+                                            style="color: #d4d4d4;">=</span> <span style="color: #b5cea8;">0</span>;
+                                    </div>
+                                    <div><span style="color: #569cd6;">int</span> <span
+                                            style="color: #9cdcfe;">secondNumber</span> <span
+                                            style="color: #d4d4d4;">=</span> <span style="color: #b5cea8;">0</span>;
+                                    </div>
+                                    <div><span style="color: #569cd6;">int</span> <span
+                                            style="color: #9cdcfe;">multiplicationResult</span> <span
+                                            style="color: #d4d4d4;">=</span> <span style="color: #b5cea8;">0</span>;
+                                    </div><br>
+                                    <div><span style="color: #569cd6;">void</span> <span
+                                            style="color: #dcdcaa;">MultiplyNumbers</span>()</div>
+                                    <div>{</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span style="color: #ce9178;">"Enter
+                                            the first number: "</span>;</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cin</span> <span
+                                            style="color: #dcdcaa;">&gt;&gt;</span> <span
+                                            style="color: #9cdcfe;">firstNumber</span>;</div><br>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span style="color: #ce9178;">"Enter
+                                            the second number: "</span>;</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cin</span> <span
+                                            style="color: #dcdcaa;">&gt;&gt;</span> <span
+                                            style="color: #9cdcfe;">secondNumber</span>;</div><br>
+                                    <div><span style="color: #6a9955;">&#160;&#160;&#160;&#160;// Multiply two numbers,
+                                            store result in a variable</span></div>
+                                    <div>&#160;&#160;&#160;&#160;<span
+                                            style="color: #9cdcfe;">multiplicationResult</span> <span
+                                            style="color: #d4d4d4;">=</span> <span
+                                            style="color: #9cdcfe;">firstNumber</span> <span
+                                            style="color: #d4d4d4;">*</span> <span
+                                            style="color: #9cdcfe;">secondNumber</span>;</div><br>
+                                    <div><span style="color: #6a9955;">&#160;&#160;&#160;&#160;// Display
+                                            multiplicationResult</span></div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #ce9178;">"Displaying from MultiplyNumbers(): "</span>;</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #9cdcfe;">firstNumber</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span style="color: #ce9178;">" x
+                                            "</span> <span style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #9cdcfe;">secondNumber</span>;</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span style="color: #ce9178;">" =
+                                            "</span> <span style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #9cdcfe;">multiplicationResult</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #dcdcaa;">endl</span>;</div>
+                                    <div>}</div>
+                                    <div><span style="color: #569cd6;">int</span> <span
+                                            style="color: #dcdcaa;">main</span>()</div>
+                                    <div>{</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span style="color: #ce9178;">"This
+                                            program multiplies two numbers"</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #dcdcaa;">endl</span>;</div><br>
+                                    <div><span style="color: #6a9955;">&#160;&#160;&#160;&#160;// Call the function that
+                                            does all the work</span></div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #dcdcaa;">MultiplyNumbers</span>();
+                                    </div><br>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #ce9178;">"Displaying from main(): "</span>;</div><br>
+                                    <div><span style="color: #6a9955;">&#160;&#160;&#160;&#160;// This line will now
+                                            compile and work!</span></div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #9cdcfe;">firstNumber</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span style="color: #ce9178;">" x
+                                            "</span> <span style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #9cdcfe;">secondNumber</span>;</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span style="color: #ce9178;">" =
+                                            "</span> <span style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #9cdcfe;">multiplicationResult</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #dcdcaa;">endl</span>;</div><br>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #c586c0;">return</span> <span
+                                            style="color: #b5cea8;">0</span>;</div>
+                                    <div>}</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <h3 id="h2">Common Compiler-Supported C++ Variable Types</h3>
+                            <p><b>Table 3.1 Variable Types</b></p>
+                            <table>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Values</th>
+                                </tr>
+                                <tr>
+                                    <td>0001</td>
+                                    <td>true or false</td>
+                                </tr>
+                                <tr>
+                                    <td>char</td>
+                                    <td>256 character values</td>
+                                </tr>
+                                <tr>
+                                    <td>unsigned short int</td>
+                                    <td>0 to 65,535</td>
+                                </tr>
+                                <tr>
+                                    <td>short int</td>
+                                    <td>-32,768 to 32,767</td>
+                                </tr>
+                                <tr>
+                                    <td>unsigned long int</td>
+                                    <td>0 to 4,294,967,295</td>
+                                </tr>
+                                <tr>
+                                    <td>long int</td>
+                                    <td>-2,147,483,648 to 2,147,483,647</td>
+                                </tr>
+                                <tr>
+                                    <td>unsigned long long</td>
+                                    <td>0 to 18,446,744,073,709,551,615</td>
+                                </tr>
+                                <tr>
+                                    <td>Long long</td>
+                                    <td>-9,223,372,036,854,775,808 to 9,223,372,036,854,775,807</td>
+                                </tr>
+                                <tr>
+                                    <td>int (16 bit)</td>
+                                    <td>-32,768 to 32,767</td>
+                                </tr>
+                                <tr>
+                                    <td>int (32 bit)</td>
+                                    <td>-2,147,483,648 to 2,147,483,647</td>
+                                </tr>
+                                <tr>
+                                    <td>unsigned int (16 bit)</td>
+                                    <td>0 to 65,535</td>
+                                </tr>
+                                <tr>
+                                    <td>unsigned int (32 bit)</td>
+                                    <td>0 to 4,294,967,295</td>
+                                </tr>
+                                <tr>
+                                    <td>float</td>
+                                    <td>1.2e-38 to 3.4e38</td>
+                                </tr>
+                                <tr>
+                                    <td>double</td>
+                                    <td>2.2e-308 to 1.8e308</td>
+                                </tr>
+                                <tr>
+                                    <td>long double</td>
+                                    <td>2.2e-308 to 1.8e308</td>
+                                </tr>
+                            </table>
+                            <p><b>Avoiding Overflow Errors by Selecting Correct Data Types in C++</b></p>
+                            <p>Overflow errors occur in C++ when a mathematical operation results in a value that's too
+                                big or too small for the chosen data type. This can lead to unpredictable behavior,
+                                crashes, and inaccurate results. Selecting the correct data type can help prevent such
+                                errors.</p>
+                            <p>Here's how choosing the right data type helps avoid overflow:</p>
+                            <ol>
+                                <li>Data types have size limitations: Each data type (e.g., int, float) has a specific
+                                    range of values it can hold. Exceeding this range during an operation leads to
+                                    overflow.</li>
+                                <li>Overflow behavior is undefined: C++ doesn't guarantee how an overflow will manifest.
+                                    It might wrap around to the minimum value, yield unexpected results, or even crash
+                                    the program.</li>
+                                <li>Matching data type to expected range: Choosing a data type that can comfortably hold
+                                    the expected range of values in your program reduces the risk of overflow.</li>
+                            </ol>
+                            <p>Listing 3.4 Examples of the Ill Effects of Signed and Unsigned Integer Overflow Errors
+                            </p>
+                            <div class="cods" contenteditable="" spellcheck="false">
+                                <div>
+                                    <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;">
+                                        </span><span style="color: #ce9178;">&lt;iostream&gt;</span></div>
+                                    <div><span style="color: #c586c0;">using</span> <span
+                                            style="color: #569cd6;">namespace</span> <span
+                                            style="color: #4ec9b0;">std</span>;</div><br>
+                                    <div><span style="color: #569cd6;">int</span> <span
+                                            style="color: #dcdcaa;">main</span>()</div>
+                                    <div>{</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #569cd6;">unsigned</span> <span
+                                            style="color: #569cd6;">short</span> <span
+                                            style="color: #9cdcfe;">uShortValue</span> <span
+                                            style="color: #d4d4d4;">=</span> <span style="color: #b5cea8;">65535</span>;
+                                    </div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #ce9178;">"unsigned short 65535 + 1 = "</span>;</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #d4d4d4;">++</span><span
+                                            style="color: #9cdcfe;">uShortValue</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #dcdcaa;">endl</span>;</div><br>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #569cd6;">short</span> <span
+                                            style="color: #9cdcfe;">signedShort</span> <span
+                                            style="color: #d4d4d4;">=</span> <span style="color: #b5cea8;">32767</span>;
+                                    </div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #ce9178;">"signed short 32767 + 1 = "</span>;</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #d4d4d4;">++</span><span
+                                            style="color: #9cdcfe;">signedShort</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #dcdcaa;">endl</span>;</div><br>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #c586c0;">return</span> <span
+                                            style="color: #b5cea8;">0</span>;</div>
+                                    <div>}</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <h3 id="h3">Determining the Size of a Variable by Using sizeof()</h3>
+                            <p>Size is the amount of memory that the compiler reserves when a programmer declares
+                                avariable to hold the data assigned to it. The size of a variable depends on its type,
+                                and C++ has a very convenient operator called sizeof() that tells you the size, in
+                                bytes, of a variable or a type.</p>
+                            <p>Listing 3.5 Finding the Sizes of Standard C++ Variable Types</p>
+                            <div class="cods" contenteditable="" spellcheck="false">
+                                <div>
+                                    <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;">
+                                        </span><span style="color: #ce9178;">&lt;iostream&gt;</span></div><br>
+                                    <div><span style="color: #569cd6;">int</span> <span
+                                            style="color: #dcdcaa;">main</span>()</div>
+                                    <div>{</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #c586c0;">using</span> <span
+                                            style="color: #569cd6;">namespace</span> <span
+                                            style="color: #4ec9b0;">std</span>;</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #ce9178;">"Computing the size of inbuilt variable
+                                            types"</span> <span style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #dcdcaa;">endl</span>;</div><br>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #ce9178;">"sizeof bool: "</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #569cd6;">sizeof</span>(<span
+                                            style="color: #569cd6;">bool</span>) <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #dcdcaa;">endl</span>;</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #ce9178;">"sizeof char: "</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #569cd6;">sizeof</span>(<span
+                                            style="color: #569cd6;">char</span>) <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #dcdcaa;">endl</span>;</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #ce9178;">"sizeof unsigned short int: "</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #569cd6;">sizeof</span>(<span
+                                            style="color: #569cd6;">unsigned</span> <span
+                                            style="color: #569cd6;">short</span>) <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #dcdcaa;">endl</span>;</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #ce9178;">"sizeof short int: "</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #569cd6;">sizeof</span>(<span
+                                            style="color: #569cd6;">short</span>) <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #dcdcaa;">endl</span>;</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #ce9178;">"sizeof unsigned long int: "</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #569cd6;">sizeof</span>(<span
+                                            style="color: #569cd6;">unsigned</span> <span
+                                            style="color: #569cd6;">long</span>) <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #dcdcaa;">endl</span>;</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #ce9178;">"sizeof long: "</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #569cd6;">sizeof</span>(<span
+                                            style="color: #569cd6;">long</span>) <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #dcdcaa;">endl</span>;</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #ce9178;">"sizeof int: "</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #569cd6;">sizeof</span>(<span
+                                            style="color: #569cd6;">int</span>) <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #dcdcaa;">endl</span>;</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #ce9178;">"sizeof uns. long long: "</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #569cd6;">sizeof</span>(<span
+                                            style="color: #569cd6;">unsigned</span> <span
+                                            style="color: #569cd6;">long</span> <span
+                                            style="color: #569cd6;">long</span>) <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #dcdcaa;">endl</span>;</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #ce9178;">"sizeof long long: "</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #569cd6;">sizeof</span>(<span
+                                            style="color: #569cd6;">long</span> <span
+                                            style="color: #569cd6;">long</span>) <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #dcdcaa;">endl</span>;</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #ce9178;">"sizeof unsigned int: "</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #569cd6;">sizeof</span>(<span
+                                            style="color: #569cd6;">unsigned</span> <span
+                                            style="color: #569cd6;">int</span>) <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #dcdcaa;">endl</span>;</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #ce9178;">"sizeof float: "</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #569cd6;">sizeof</span>(<span
+                                            style="color: #569cd6;">float</span>) <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #dcdcaa;">endl</span>;</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #ce9178;">"sizeof double: "</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #569cd6;">sizeof</span>(<span
+                                            style="color: #569cd6;">double</span>) <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #dcdcaa;">endl</span>;</div><br>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span style="color: #ce9178;">"The
+                                            output changes with compiler, hardware and OS"</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #dcdcaa;">endl</span>;</div><br>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #c586c0;">return</span> <span
+                                            style="color: #b5cea8;">0</span>;</div>
+                                    <div>}</div>
+                                </div>
+                            </div>
+                            <p><b>Avoid Narrowing Conversion Errors by Using List Initialization</b></p>
+                            <div class="cods" contenteditable="" spellcheck="false">
+                                <div>
+                                    <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;">
+                                        </span><span style="color: #ce9178;">&lt;iostream&gt;</span></div>
+                                    <div><span style="color: #c586c0;">using</span> <span
+                                            style="color: #569cd6;">namespace</span> <span
+                                            style="color: #4ec9b0;">std</span>;</div>
+                                    <div><span style="color: #569cd6;">int</span> <span
+                                            style="color: #dcdcaa;">main</span>()</div>
+                                    <div>{</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #569cd6;">short</span> <span
+                                            style="color: #9cdcfe;">x</span>{<span
+                                            style="color: #b5cea8;">5000000</span>};<span style="color: #6a9955;">
+                                            //&#160;&#160;error: narrowing conversion of ‘5000000’ from ‘int’ to ‘short
+                                            int’</span></div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #c586c0;">return</span> <span
+                                            style="color: #b5cea8;">0</span>;</div>
+                                    <div>}</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <h3 id="h4">Automatic Type Inference Using auto</h3>
+                            <p>auto is a magic keyword in C++ that lets the compiler automatically deduce the type of a
+                                variable based on its initialization. This can make your code cleaner and more readable,
+                                as you don't need to explicitly write the type every time.</p>
+                            <div class="cods" contenteditable="" spellcheck="false">
+                                <div>
+                                    <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;">
+                                        </span><span style="color: #ce9178;">&lt;iostream&gt;</span></div>
+                                    <div><span style="color: #c586c0;">using</span> <span
+                                            style="color: #569cd6;">namespace</span> <span
+                                            style="color: #4ec9b0;">std</span>;</div><br>
+                                    <div><span style="color: #569cd6;">int</span> <span
+                                            style="color: #dcdcaa;">main</span>()</div>
+                                    <div>{</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #569cd6;">int</span> <span
+                                            style="color: #9cdcfe;">x</span> <span style="color: #d4d4d4;">=</span>
+                                        <span style="color: #b5cea8;">10</span>;<span
+                                            style="color: #6a9955;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;//
+                                            Explicit type declaration</span>
+                                    </div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #569cd6;">auto</span> <span
+                                            style="color: #9cdcfe;">y</span> <span style="color: #d4d4d4;">=</span>
+                                        <span style="color: #b5cea8;">10</span>;<span
+                                            style="color: #6a9955;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;//
+                                            Compiler infers type as int based on initializer</span>
+                                    </div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #569cd6;">auto</span> <span
+                                            style="color: #9cdcfe;">sum</span> <span style="color: #d4d4d4;">=</span>
+                                        <span style="color: #b5cea8;">2</span> <span style="color: #d4d4d4;">+</span>
+                                        <span style="color: #b5cea8;">3</span>;<span
+                                            style="color: #6a9955;">&#160;&#160;&#160;// Compiler infers type as int
+                                            (result of expression)</span>
+                                    </div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #569cd6;">auto</span> <span
+                                            style="color: #9cdcfe;">pi</span> <span style="color: #d4d4d4;">=</span>
+                                        <span style="color: #b5cea8;">3.14</span>;<span
+                                            style="color: #6a9955;">&#160;&#160;&#160;&#160;&#160;// Compiler infers
+                                            type as double (literal value)</span>
+                                    </div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #569cd6;">auto</span> <span
+                                            style="color: #9cdcfe;">str</span> <span style="color: #d4d4d4;">=</span>
+                                        <span style="color: #ce9178;">"Hello"</span>;<span style="color: #6a9955;"> //
+                                            Compiler infers type as const char* (string literal)</span>
+                                    </div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #569cd6;">auto</span> <span
+                                            style="color: #d4d4d4;">&amp;</span><span style="color: #9cdcfe;">ref</span>
+                                        <span style="color: #d4d4d4;">=</span> <span
+                                            style="color: #9cdcfe;">str</span>;<span
+                                            style="color: #6a9955;">&#160;&#160;&#160;&#160;// Compiler infers type as
+                                            const char&amp; (reference to const char*)</span>
+                                    </div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #c586c0;">return</span> <span
+                                            style="color: #b5cea8;">0</span>;</div>
+                                    <div>}</div>
+                                </div>
+                            </div>
+                            <p>Listing 3.6 Using the auto Keyword and Relying on the Compiler’s Type-Inference
+                                Capabilities</p>
+                            <div class="cods" contenteditable="" spellcheck="false">
+                                <div>
+                                    <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;">
+                                        </span><span style="color: #ce9178;">&lt;iostream&gt;</span></div>
+                                    <div><span style="color: #c586c0;">using</span> <span
+                                            style="color: #569cd6;">namespace</span> <span
+                                            style="color: #4ec9b0;">std</span>;</div><br>
+                                    <div><span style="color: #569cd6;">int</span> <span
+                                            style="color: #dcdcaa;">main</span>()</div>
+                                    <div>{</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #569cd6;">auto</span> <span
+                                            style="color: #9cdcfe;">coinFlippedHeads</span> <span
+                                            style="color: #d4d4d4;">=</span> <span style="color: #569cd6;">true</span>;
+                                    </div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #569cd6;">auto</span> <span
+                                            style="color: #9cdcfe;">largeNumber</span> <span
+                                            style="color: #d4d4d4;">=</span> <span
+                                            style="color: #b5cea8;">2500000000000</span>;</div><br>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #ce9178;">"coinFlippedHeads = "</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #9cdcfe;">coinFlippedHeads</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span style="color: #ce9178;">",
+                                            "</span>;</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #ce9178;">"sizeof(coinFlippedHeads) = "</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #569cd6;">sizeof</span>(<span
+                                            style="color: #9cdcfe;">coinFlippedHeads</span>);</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #dcdcaa;">endl</span></div>
+                                    <div>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #ce9178;">"largeNumber = "</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #9cdcfe;">largeNumber</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span style="color: #ce9178;">",
+                                            "</span>;</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #9cdcfe;">cout</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #ce9178;">"sizeof(largeNumber) = "</span> <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #569cd6;">sizeof</span>(<span
+                                            style="color: #9cdcfe;">largeNumber</span>) <span
+                                            style="color: #dcdcaa;">&lt;&lt;</span> <span
+                                            style="color: #dcdcaa;">endl</span>;</div><br>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #c586c0;">return</span> <span
+                                            style="color: #b5cea8;">0</span>;</div>
+                                    <div>}</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <h3 id="h5">Using typedef to Substitute a Variable’s Type</h3>
+                            <p>In C++, typedef allows you to create an alias for an existing data type, essentially
+                                substituting the type with a more descriptive or convenient name. This can be helpful
+                                for several reasons:</p>
+                            <ol>
+                                <li>Readability: Imagine using a long, complex type like unsigned long long repeatedly
+                                    in your code. Using a typedef like ULongLong makes the code easier to read and
+                                    understand.</li>
+                                <li>Code Clarity: typedef can clarify the meaning of a variable by using a descriptive
+                                    name that reflects its purpose. For example, typedef int Age immediately tells you
+                                    what the Age variable represents.</li>
+                                <li>Self-Documenting Code: Well-chosen typedef names can serve as documentation within
+                                    the code, explaining the purpose and constraints of specific variables.</li>
+                            </ol>
+                            <p>Here are some examples of using typedef to substitute a variable's type:</p>
+                            <div class="cods" contenteditable="" spellcheck="false">
+                                <div>
+                                    <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;">
+                                        </span><span style="color: #ce9178;">&lt;iostream&gt;</span></div>
+                                    <div><span style="color: #c586c0;">using</span> <span
+                                            style="color: #569cd6;">namespace</span> <span
+                                            style="color: #4ec9b0;">std</span>;</div>
+                                    <div><span style="color: #569cd6;">typedef</span> <span
+                                            style="color: #569cd6;">unsigned</span> <span
+                                            style="color: #569cd6;">long</span> <span
+                                            style="color: #569cd6;">long</span> <span
+                                            style="color: #4ec9b0;">ULongLong</span>;<span style="color: #6a9955;"> //
+                                            Substitute ULongLong for unsigned long long</span></div>
+                                    <div><span style="color: #569cd6;">typedef</span> <span
+                                            style="color: #569cd6;">int</span> <span
+                                            style="color: #4ec9b0;">Temperature</span>;<span
+                                            style="color: #6a9955;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;//
+                                            Now "Temperature" instead of generic "int"</span></div>
+                                    <div><span style="color: #569cd6;">typedef</span> <span
+                                            style="color: #569cd6;">struct</span></div>
+                                    <div>{</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #569cd6;">char</span> <span
+                                            style="color: #9cdcfe;">name</span>[<span
+                                            style="color: #b5cea8;">32</span>];</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #569cd6;">int</span> <span
+                                            style="color: #9cdcfe;">age</span>;</div>
+                                    <div>} <span style="color: #4ec9b0;">Person</span>;<span style="color: #6a9955;"> //
+                                            Define a new type called "Person"</span></div><br>
+                                    <div><span style="color: #569cd6;">int</span> <span
+                                            style="color: #dcdcaa;">main</span>()</div>
+                                    <div>{</div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #4ec9b0;">ULongLong</span> <span
+                                            style="color: #9cdcfe;">maxPopulation</span> <span
+                                            style="color: #d4d4d4;">=</span> <span
+                                            style="color: #b5cea8;">10000000</span>;<span
+                                            style="color: #6a9955;">&#160;&#160;// Now code becomes more readable</span>
+                                    </div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #4ec9b0;">Temperature</span> <span
+                                            style="color: #9cdcfe;">boilingPointWater</span> <span
+                                            style="color: #d4d4d4;">=</span> <span
+                                            style="color: #b5cea8;">100</span>;<span style="color: #6a9955;"> // Code
+                                            clearly shows the variable's purpose</span></div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #4ec9b0;">Person</span> <span
+                                            style="color: #9cdcfe;">john</span> <span style="color: #d4d4d4;">=</span>
+                                        {<span style="color: #ce9178;">"John Doe"</span>, <span
+                                            style="color: #b5cea8;">30</span>};<span
+                                            style="color: #6a9955;">&#160;&#160;&#160;&#160;&#160;&#160;// Create a
+                                            "Person" variable named john</span></div>
+                                    <div>&#160;&#160;&#160;&#160;<span style="color: #c586c0;">return</span> <span
+                                            style="color: #b5cea8;">0</span>;</div>
+                                    <div>}</div>
+                                </div>
+                            </div>
+                            <p>Things to remember:</p>
+                            <ol>
+                                <li>typedef doesn't change the underlying data type, just its name.</li>
+                                <li>Use typedef sparingly to avoid cluttering your code.</li>
+                                <li>Choose clear and concise names for your typedefs.</li>
+                            </ol>
+                        </li>
+                        <li>
+                            <h3 id="h6">What Is a Constant?</h3>
+                        </li>
+                        <li></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </ul>
+                </details>
+            </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <li>
+                <details>
+                    <summary>Lesson 4. Managing Arrays and Strings</summary>
+                    <ul></ul>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>Lesson 5. Working with Expressions,Statements, and Operators</summary>
+                    <ul></ul>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>Lesson 6. Controlling Program Flow</summary>
+                    <ul></ul>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>Lesson 7. Organizing Code with Functions</summary>
+                    <ul></ul>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>Lesson 8. Pointers and References Explained</summary>
+                    <ul></ul>
+                </details>
+            </li>
+        </ul>
+    </details>
+    <details class="dad">
+        <summary>Fundamentals of Object-Oriented C++ Programming</summary>
+        <ul>
+            <li>
+                <details>
+                    <summary>lesson 1</summary>
+                    <ul></ul>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>Lesson 2. The Anatomy of a C++ Program</summary>
+                    <ul></ul>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary></summary>
+                    <ul></ul>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary></summary>
+                    <ul></ul>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary></summary>
+                    <ul></ul>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary></summary>
+                    <ul></ul>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary></summary>
+                    <ul></ul>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary></summary>
+                    <ul></ul>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary></summary>
+                    <ul></ul>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary></summary>
+                    <ul></ul>
+                </details>
+            </li>
+        </ul>
+    </details>
+
+
+
+
+
+
+
+
+
+
+    <script>
+        let ol = document.createElement("ol");
+        ol.style.lineHeight = "25px";
+        let previousState = new Set();
+        let p = document.createElement("h2");
+        let up = document.createElement("div");
+        p.id = "begin";
+        p.innerText = "C++ index";
+        p.style.color = "white";
+        ol.style.height = "150px";
+        ol.style.overflow = "auto";
+        ol.style.border = "1px solid #00ffff";
+        ol.style.borderRadius = "5%"
+        document.body.prepend(p, ol);
+        let h3 = document.getElementsByTagName("h3"), num = 1;
+        Array.from(h3).forEach(element => {
+            element.id = `h${num}`;
+            num++;
+            let li = document.createElement("li");
+            li.style.listStyle = "decimal";
+            li.style.color = "#00ffff"
+            let a = document.createElement("a");
+            a.href = `#${element.id}`;
+            a.style.textDecoration = "none";
+            a.style.color = "#00ffff";
+            a.textContent = element.textContent;
+            a.onclick = function (e) {
+                if ([...previousState].at(-1)) {
+                    let sub = document.getElementById([...previousState].at(-1));
+                    sub.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.toggleAttribute("open");
+                    sub.parentElement.parentElement.parentElement.toggleAttribute("open");
+                }
+                let sub = document.getElementById(element.id);
+                sub.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.toggleAttribute("open");
+                sub.parentElement.parentElement.parentElement.toggleAttribute("open");
+                sub.scrollIntoView();
+                previousState.add(element.id);
+                e.preventDefault();
+            }
+            li.appendChild(a);
+            ol.appendChild(li);
+        });
+        up.innerText = "⬆️";
+        up.style.position = "fixed";
+        up.style.bottom = "0px";
+        up.style.right = "0px";
+        up.style.fontSize = "3rem";
+        up.style.cursor = "pointer";
+        document.body.prepend(up);
+        up.onclick = _ => {
+            p.scrollIntoView();
+        } 
+    </script>
+</body>
+
+</html>

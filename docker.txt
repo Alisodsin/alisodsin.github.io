@@ -1,0 +1,61 @@
+# test
+docker run hello-world
+docker run fedora
+
+# list the current containers
+docker ps -all
+docker container ls -a
+
+
+# list images
+docker images  
+
+# remove container 
+docker container rm [id] 
+
+# remove images
+docker image rm [image REPOSITORY ]   
+
+# run a container in background 
+docker container run -d [ id || name] 
+
+# stop container that is in background
+docker container stop [id || name]
+
+# start container again
+docker container start [id || name]
+
+
+
+# tags
+docker container run redis:alpine # alpine is a tag
+
+# logs
+docker container logs [container id] || [ NAME ] 
+
+
+# inspect
+docker inspect redis
+
+
+# stats
+ docker container stats [id || name ] 
+
+# info
+docker info   
+
+
+# get containers ip
+ docker inspect --format='{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' [name || id] 
+
+# run the nginx Server
+docker container run --detach --publish 80:80 --name n1 nginx
+
+# interact with nginx Server
+docker exec -it n1 bash  # open bash terminal for nginx Server
+service nginx -V   # give service version
+service nginx status
+service nginx reload
+nginx -T 
+service nginx stop
+#

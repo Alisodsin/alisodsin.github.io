@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الانضمام إلى عربى شات</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Define CSS Variables for Easy Theming */
+        :root {
+            --primary-bg: #1A1A1A;
+            /* Darker background for the body */
+            --secondary-bg: #2C2C2C;
+            /* Slightly lighter background for the form */
+            --text-color: #E0E0E0;
+            /* Light grey for general text */
+            --accent-color: #007bff;
+            /* Bright blue for main actions/highlights */
+            --border-color: #444;
+            /* Darker border for inputs/containers */
+            --hover-color: #0056b3;
+            /* Darker blue for hover states */
+            --error-color: #dc3545;
+            /* Red for error messages */
+        }
+
+        /* Universal Box-Sizing for consistent layout across all elements */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Noto Sans Arabic', sans-serif;
+            font-size: 18px;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            display: flex;
+            /* Use Flexbox to center content */
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            /* Ensure body takes full viewport height */
+            padding: 20px;
+            /* Add padding for small screens */
+            direction: rtl;
+            /* Set text direction for Arabic */
+            text-align: right;
+            /* Default text alignment for Arabic */
+        }
+
+        .chat-form-container {
+            background-color: var(--secondary-bg);
+            padding: 30px;
+            border-radius: 12px;
+            /* Modern rounded corners */
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+            /* Enhanced shadow for depth */
+            width: 100%;
+            max-width: 450px;
+            /* Max width for larger screens */
+            display: flex;
+            /* Flexbox for internal form elements */
+            flex-direction: column;
+            gap: 20px;
+            /* Spacing between form groups */
+            border: 1px solid var(--border-color);
+            /* Subtle border */
+        }
+
+        .chat-form-container h2 {
+            font-size: 36px;
+            /* Prominent title */
+            color: var(--text-color);
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: 700;
+            /* Bold title */
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            /* Space between label and input */
+        }
+
+        .form-group label {
+            font-size: 16px;
+            color: var(--text-color);
+            font-weight: 400;
+            /* Lighter weight for labels */
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            /* Consistent rounded corners */
+            background-color: var(--primary-bg);
+            /* Darker background for inputs */
+            color: var(--text-color);
+            font-size: 18px;
+            outline: none;
+            /* Remove default outline */
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            /* Smooth transitions */
+            text-align: right;
+            /* Align input text to the right for RTL */
+        }
+
+        input[type="text"]::placeholder,
+        input[type="number"]::placeholder {
+            color: #999;
+            /* Lighter placeholder text */
+            text-align: right;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.35);
+            /* Accent color glow on focus */
+        }
+
+        /* Styling for the custom radio buttons */
+        .gender-selection {
+            display: flex;
+            gap: 25px;
+            /* Space between male/female options */
+            justify-content: center;
+            align-items: center;
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            border-radius: 8px;
+            background-color: var(--primary-bg);
+        }
+
+        .gender-selection label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-size: 18px;
+            gap: 8px;
+            /* Space between radio button and text */
+        }
+
+        /* Hide default radio input */
+        input[type="radio"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--accent-color);
+            border-radius: 50%;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+            background-color: var(--primary-bg);
+            flex-shrink: 0;
+            /* Prevent button from shrinking */
+        }
+
+        /* Inner dot for checked radio */
+        input[type="radio"]:checked {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        input[type="radio"]:checked::before {
+            content: '';
+            display: block;
+            width: 10px;
+            height: 10px;
+            background-color: var(--text-color);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Visually hidden for accessibility but still available for screen readers */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        .buttons-group {
+            display: flex;
+            flex-direction: column;
+            /* Stack buttons by default */
+            gap: 12px;
+            /* Space between buttons */
+        }
+
+        button,
+        input[type="submit"] {
+            width: 100%;
+            padding: 14px 20px;
+            /* Generous padding for buttons */
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            /* Subtle button shadow */
+        }
+
+        button {
+            background-color: var(--border-color);
+            /* Grey for utility buttons */
+            color: var(--text-color);
+        }
+
+        button:hover {
+            background-color: #666;
+            transform: translateY(-2px);
+            /* Lift effect on hover */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        input[type="submit"] {
+            background-color: var(--accent-color);
+            /* Primary action button */
+            color: white;
+            margin-top: 10px;
+            /* Space above submit button */
+        }
+
+        input[type="submit"]:hover {
+            background-color: var(--hover-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .error-message {
+            color: var(--error-color);
+            font-size: 14px;
+            margin-top: -5px;
+            /* Adjust spacing to be closer to input */
+            margin-bottom: 10px;
+            text-align: right;
+            /* Error message text alignment */
+            display: none;
+            /* Hidden by default, shown by JS */
+        }
+
+        /* Class for invalid inputs */
+        .error-border {
+            border-color: var(--error-color) !important;
+            box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.35) !important;
+            /* Red glow for errors */
+        }
+
+        /* Responsive adjustments for larger screens */
+        @media (min-width: 500px) {
+            .buttons-group {
+                flex-direction: row;
+                /* Buttons side-by-side on larger screens */
+                justify-content: space-between;
+            }
+
+            .buttons-group button {
+                width: 48%;
+                /* Each button takes almost half width */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <form id="chatEntryForm" class="chat-form-container" method="post" action="https://araby.co/egypt/sub.php"
+        novalidate>
+        <h2>شات عربي</h2>
+
+        <div class="form-group">
+            <label for="nicknameInput">الاسم المستعار</label>
+            <input type="text" id="nicknameInput" name="nk" maxlength="15" placeholder="أدخل اسمك المستعار" list="nms"
+                required>
+            <datalist id="nms">
+            </datalist>
+            <div class="error-message" id="nicknameError">الاسم المستعار مطلوب ولا يمكن أن يكون فارغًا.</div>
+        </div>
+
+        <div class="buttons-group">
+            <button type="button" id="changeName">الاسم التالي من القائمة</button>
+            <button type="button" id="nameRandom">اسم عشوائي</button>
+        </div>
+
+        <div class="form-group">
+            <label for="ageInput">العمر</label>
+            <input type="number" id="ageInput" name="ag" value="25" min="12" max="99" placeholder="أدخل عمرك" required>
+            <div class="error-message" id="ageError">العمر يجب أن يكون بين 12 و 99 سنة.</div>
+        </div>
+
+        <fieldset class="gender-selection">
+            <legend class="sr-only">اختر جنسك</legend>
+            <label for="male">
+                <input type="radio" id="male" name="gn" value="m" checked>
+                ذكر
+            </label>
+            <label for="female">
+                <input type="radio" id="female" name="gn" value="f">
+                أنثى
+            </label>
+        </fieldset>
+
+        <input type="submit" name="sub" value="دخول الدردشة">
+    </form>
+
+    <script>
+        // Array of predefined names for the chat
+        const names = [
+            "دكر_عنيف", "true_man", "فحل_للتعشير", "انيكك_فويس", "رومانسى", "من_المنصوره",
+            "راجل_بجد", "Guest_", "_ali_", "ابحث_عنكى", "Crazy_Kid", "صديق جاد",
+            "غريب_الاطوار", "صافي الود", "صدى الصورة", "قلب من ورق", "شموس طيفك",
+            "ساحر جفونك", "دنيآآآآ الحب", "هنروح و نيجي", "مالك القلب", "بلا ميعاد",
+            "صنع بحب", "الضوء الساطع", "المحروم", "صافى الود", "معاند جروحه",
+            "Before sunrise", "Killer smile", "عيش اللحظة", "أنا الملاذ لك",
+            "لصمتي حكاية", "والله دنيا", "عيون الليل", "قلب من دهب", "أجمل حب",
+            "الدنيا لحظة", "روح الروح", "مميز للغاية", "رجل بلا قلب", "loveless",
+            "مكسور", "عساني طايح", "الفيلسوف", "ضاع الحب", "الغريب", "عاشق_الهدوء",
+            "القنوع", "ملك روحى", "شوق العمر", "سموه الاحساس", "همس القلوب",
+            "غريب الدار", "دموع القمر", "صمت الوداع", "امير بزمن حقير", "سفير المحبه",
+            "عاشق الغروب", "اسير القمر", "ساحر القلوب", "العيون السود", "طائر النورس",
+            "قصاد عينى", "لامكان لاوطن", "جفاء الريح", "تلج مشوى", "شحنه حب",
+            "صمت الرجوله", "لعيونك انا", "نبع الوفا", "كاتم الاحزان", "اهات الحب",
+            "متحدى زمانى", "عازف الاهات", "قلب ميت", "بحر الود", "انفاس الحب",
+            "مولع بهواها", "عيونو سحر", "ملكتنى", "ملك بلا مملكه", "شموخ رجل",
+            "وحيد يا ليل", "منحرف بس محترف", "عاشق الجنان", "المبتسم", "الذيب",
+            "دموع الليالي", "دمعة شوق", "ضوء القمر", "مرسول الحب", "علمتني الحياة",
+            "الصقر الحر", "طيف الأحزان", "لعيونك", "شايل جروحى بروحى", "صدى الشوق",
+            "لغز الحياة", "القلب الحنون", "حسونه", "غسق الدجى", "صمت الاحساس",
+            "الورد الابيض", "نهر الحزن", "سمو المشاعر", "بياع الورد", "سهم الغدر",
+            "حب العمر", "لعيونك جيت", "غريب انا فيها", "وهم الاقنعه", "لحسه مخ",
+            "طويل العمر",
+        ];
+
+        // Get references to DOM elements
+        const nicknameInput = document.getElementById("nicknameInput");
+        const ageInput = document.getElementById("ageInput");
+        const changeNameBtn = document.getElementById("changeName");
+        const nameRandomBtn = document.getElementById("nameRandom");
+        const nameDatalist = document.getElementById("nms");
+        const chatEntryForm = document.getElementById("chatEntryForm");
+        const nicknameError = document.getElementById("nicknameError");
+        const ageError = document.getElementById("ageError");
+
+        let currentNameIndex = 0; // To keep track of the current name in the list
+
+        // Function to populate the datalist with all predefined names
+        function populateDatalist() {
+            names.forEach(name => {
+                const option = document.createElement("option");
+                option.value = name;
+                nameDatalist.appendChild(option);
+            });
+        }
+
+        // Set initial values and populate datalist when the page loads
+        document.addEventListener("DOMContentLoaded", () => {
+            populateDatalist();
+            // Set an initial nickname and age
+            nicknameInput.value = names[currentNameIndex];
+            ageInput.value = 25;
+            document.getElementById("male").checked = true; // Default gender to male
+        });
+
+        // Event listener for the "Next Name from List" button
+        changeNameBtn.addEventListener("click", () => {
+            currentNameIndex = (currentNameIndex + 1) % names.length; // Cycle through names
+            nicknameInput.value = names[currentNameIndex];
+            validateNickname(); // Re-validate nickname after changing
+        });
+
+        // Event listener for the "Random Name" button
+        nameRandomBtn.addEventListener("click", () => {
+            const randomIndex = Math.floor(Math.random() * names.length);
+            nicknameInput.value = names[randomIndex];
+            validateNickname(); // Re-validate nickname after changing
+        });
+
+        // Client-side validation function for nickname
+        function validateNickname() {
+            if (nicknameInput.value.trim() === "") {
+                nicknameError.style.display = "block";
+                nicknameInput.classList.add("error-border");
+                return false;
+            } else {
+                nicknameError.style.display = "none";
+                nicknameInput.classList.remove("error-border");
+                return true;
+            }
+        }
+
+        // Client-side validation function for age
+        function validateAge() {
+            const age = parseInt(ageInput.value, 10);
+            if (isNaN(age) || age < 12 || age > 99) {
+                ageError.style.display = "block";
+                ageInput.classList.add("error-border");
+                return false;
+            } else {
+                ageError.style.display = "none";
+                ageInput.classList.remove("error-border");
+                return true;
+            }
+        }
+
+        // Add real-time validation feedback as user types
+        nicknameInput.addEventListener("input", validateNickname);
+        ageInput.addEventListener("input", validateAge);
+
+        // Add form submission listener for final validation
+        chatEntryForm.addEventListener("submit", (event) => {
+            const isNicknameValid = validateNickname();
+            const isAgeValid = validateAge();
+
+            // If any validation fails, prevent form submission
+            if (!isNicknameValid || !isAgeValid) {
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+
+</html>

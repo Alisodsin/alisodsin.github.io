@@ -1,0 +1,2601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Changa:wght@500&amp;family=Lalezar&amp;family=Scheherazade&amp;display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Tajawal&amp;display=swap" rel="stylesheet">
+    <title>c programming language</title>
+    <style>
+        p.w3-container {
+            color: #f2aa4cff;
+        }
+
+        .ali {
+            background-color: rgb(30 30 30) !important;
+            width: 100%;
+            padding: 1vw;
+            border-radius: 10px;
+
+        }
+
+        .hma {
+            height: 5vw;
+
+        }
+
+        .cods {
+            color: rgb(212, 212, 212);
+            background-color: rgb(30, 30, 30);
+            font-family: Consolas, "Courier New", monospace;
+            white-space: nowrap;
+            overflow: auto;
+            line-height: 19px;
+            font-size: 14px;
+        }
+
+        a {
+            display: block;
+            text-decoration: none;
+        }
+
+        .w3-green {
+            color: rgb(0, 0, 0) !important;
+        }
+
+        [dir=rtl] {
+            font-family: 'Tajawal', serif;
+            font-size: 1.2em;
+            line-height: 2;
+        }
+
+        div.w3-code.w3-card.w3-grey {
+            border-left: 15px solid #00458b !important;
+            font-size: 1rem !important;
+            line-height: 1.4 !important;
+            margin: 0 0 24px !important;
+            max-width: 100% !important;
+            overflow: auto !important;
+            padding: 24px !important;
+            width: 100% !important;
+            white-space: nowrap !important;
+            overflow: auto !important;
+            border-radius: 5% !important;
+        }
+
+        div.w3-bar.w3-margin-bottom {
+            position: sticky;
+            top: 5px;
+            background-color: teal;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        span[class=w3-text-blue] {
+            font-weight: bold;
+            color: darkblue !important;
+        }
+
+        table,
+        td,
+        th {
+            border: 1px solid rgb(255, 0, 0);
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        .w3 .example {
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+    </style>
+</head>
+
+<body class="w3-black w3-content">
+    <div id="max" style="color: red;position: fixed;cursor: pointer;top:1vw;background-color:rgb(0, 0, 0,0.5);">Menu
+    </div>
+    <div class="w3-bar w3-margin-bottom example"
+        style="width:fit-content;height:10vw;text-align: left;overflow:auto;position:fixed;-ms-overflow-style: none;opacity:0.8;display: none;">
+        <div id="close"
+            style="color: red;font-size:1.5vw;width:fit-content;height: fit-content;cursor:pointer;top: 0%;position:fixed;text-align: center;scrollbar-width:0;background-color: black;">
+            &#x2715;</div>
+        <ol style="width: fit-content;">
+            <li><a class="w3-button" href="#ch1">C Introduction</a></li>
+            <li><a class="w3-button" href="#ch2">C Flow Contro</a></li>
+            <li><a class="w3-button" href="#ch3">functinos</a></li>
+            <li><a class="w3-button" href="#ch4">C Programming Arrays</a></li>
+            <li><a class="w3-button" href="#ch5">C Pointers</a></li>
+            <li><a class="w3-button" href="#ch6">C Programming Strings</a></li>
+            <li><a class="w3-button" href="#ch7">Structure And Unions</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </ol>
+    </div>
+
+    <div class="w3-center w3-container w3-text-red w3-margin-bottom">
+        <h2 id="ch1">C Introduction</h2>
+    </div>
+    <div class="w3-container w3-text-aqua">
+        <h3>C Keywords and Identifiers</h3>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>C Keywords</h4>
+    </div>
+    <p class="w3-container">Keywords are predefined, reserved words used in programming that have special meanings to
+        the compiler</p>
+    <table summary="List of keywords used in C language">
+        <tbody>
+            <tr>
+                <td><code>auto</code></td>
+                <td><code>double</code></td>
+                <td><code>int</code></td>
+                <td><code>struct</code></td>
+            </tr>
+            <tr>
+                <td><code>break</code></td>
+                <td><code>else</code></td>
+                <td><code>long</code></td>
+                <td><code>switch</code></td>
+            </tr>
+            <tr>
+                <td><code>case</code></td>
+                <td><code>enum</code></td>
+                <td><code>register</code></td>
+                <td><code><tt>typedef</tt></code></td>
+            </tr>
+            <tr>
+                <td><code>char</code></td>
+                <td><code>extern</code></td>
+                <td><code>return</code></td>
+                <td><code>union</code></td>
+            </tr>
+            <tr>
+                <td><code>continue</code></td>
+                <td><code>for</code></td>
+                <td><code>signed</code></td>
+                <td><code>void</code></td>
+            </tr>
+            <tr>
+                <td><code>do</code></td>
+                <td><code>if</code></td>
+                <td><code>static</code></td>
+                <td><code>while</code></td>
+            </tr>
+            <tr>
+                <td><code>default</code></td>
+                <td><code>goto</code></td>
+                <td><code>sizeof</code></td>
+                <td><code>volatile</code></td>
+            </tr>
+            <tr>
+                <td><code>const</code></td>
+                <td><code>float</code></td>
+                <td><code>short</code></td>
+                <td><code>unsigned</code></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="w3-container w3-text-blue">
+        <h4>C Identifiers</h4>
+    </div>
+    <p class="w3-container">Identifier refers to name given to entities such as variables, functions, structures etc.
+    </p>
+    <div class="w3-container w3-text-aqua">
+        <h3>C Variables, Constants and Literals</h3>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>Variables</h4>
+    </div>
+    <div class="w3-code  w3-card w3-grey" contenteditable>
+        int playerScore = 95;&#160;&#160;<span class="w3-text-blue">#integer variable</span><br>
+        char ch = 'a';&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span class="w3-text-blue">#char
+            variable</span><br>
+        int number = 5;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span class="w3-text-blue">#integer
+            variable</span><br>
+        float y = 10.5&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span class="w3-text-blue">#float
+            variable</span><br>
+        number = 5.5;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+            class="w3-text-blue">#error</span><br>
+        double number;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span class="w3-text-blue">#error</span><br>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>Literals</h4>
+    </div>
+    <p class="w3-container">Literals are data used for representing fixed values. They can be used directly in the code.
+        For example: 1, 2.5, 'c' etc.
+        Here, 1, 2.5 and 'c' are literals. Why? You cannot assign different values to these terms.</p>
+    <ol>
+        <li><span style="color:red">1ntegers</span>
+            <p class="w3-container">here are three types of integer literals in C programming:</p>
+            <ol>
+                <li>decimal (base 10)</li>
+                <li>octal (base 8)</li>
+                <li>hexadecimal (base 16)</li>
+            </ol>
+            <p class="w3-container">In C programming, octal starts with a 0, and hexadecimal starts with a 0x.</p>
+        </li>
+        <li><span style="color:red">Floating-point Literals</span></li>
+        <p class="w3-container">A floating-point literal is a numeric literal that has either a fractional form or an
+            exponent form. For example:</p>
+        <div class="w3-code  w3-card w3-grey" contenteditable>
+            -2.0<br>
+            0.0000234<br>
+            -0.22E-5<br>
+        </div>
+        <li><span style="color:red">Characters</span>
+            <p class="w3-container">A character literal is created by enclosing a single character inside single
+                quotation marks. For example: 'a', 'm', 'F', '2', '}' etc.</p>
+        </li>
+        <li><span style="color:red">Escape Sequences</span>
+            <table summary="A list of escape sequences used in C programming language" border="0">
+                <caption>Escape Sequences</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Escape Sequences</th>
+                        <th scope="col">Character</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>\b</code></td>
+                        <td>Backspace</td>
+                    </tr>
+                    <tr>
+                        <td><code>\f</code></td>
+                        <td>Form feed</td>
+                    </tr>
+                    <tr>
+                        <td><code>\n</code></td>
+                        <td>Newline</td>
+                    </tr>
+                    <tr>
+                        <td><code>\r</code></td>
+                        <td>Return</td>
+                    </tr>
+                    <tr>
+                        <td><code>\t</code></td>
+                        <td>Horizontal tab</td>
+                    </tr>
+                    <tr>
+                        <td><code>\v</code></td>
+                        <td>Vertical tab</td>
+                    </tr>
+                    <tr>
+                        <td><code>\\</code></td>
+                        <td>Backslash</td>
+                    </tr>
+                    <tr>
+                        <td><code>\'</code></td>
+                        <td>Single quotation mark</td>
+                    </tr>
+                    <tr>
+                        <td><code>\"</code></td>
+                        <td>Double quotation mark</td>
+                    </tr>
+                    <tr>
+                        <td><code>\?</code></td>
+                        <td>Question mark</td>
+                    </tr>
+                    <tr>
+                        <td><code>\0</code></td>
+                        <td>Null character</td>
+                    </tr>
+                </tbody>
+            </table>
+        </li><br><br>
+        <li><span style="color:red">String Literals</span>
+            <div class="w3-code  w3-card w3-grey" contenteditable>
+                "good"&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+                    class="w3-text-blue">#string constant</span><br>
+                ""&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+                    class="w3-text-blue">#null string constant</span><br>
+                "
+                "&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+                    class="w3-text-blue">#string constant of six white space</span><br>
+                "x"&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+                    class="w3-text-blue">#string constant having a single character.</span><br>
+                "Earth is round\n"&#160;&#160;<span class="w3-text-blue">#prints string with a newline</span><br>
+            </div>
+
+        </li>
+    </ol>
+    <div class="w3-container w3-text-blue">
+        <h4>Constants</h4>
+    </div>
+    <p class="w3-container">If you want to define a variable whose value cannot be changed, you can use the const
+        keyword. This will create a constant. For example,</p>
+    <div class="w3-code  w3-card w3-grey" contenteditable>
+        const double PI = 3.14;<br>
+        PI = 2.9;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+            class="w3-text-blue">#Error ,we can't change const value</span><br>
+    </div>
+    <div class="w3-container w3-text-aqua">
+        <h3>C Data Types</h3>
+    </div>
+    <p class="w3-container">In C programming, data types are declarations for variables. This determines the type and
+        size of data associated with variables. For example,</p>
+    <div class="w3-code  w3-card w3-grey" contenteditable>
+        <span style="color:red">int</span> myVar;&#160;&#160;<span class="w3-text-blue">#Here, myVar is a variable of
+            <span style="color:red">int</span> (integer) type. The size of int is 4 bytes.</span><br>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>Basic types</h4>
+    </div>
+    <table cellpadding="1" cellspacing="1">
+        <thead>
+            <tr>
+                <th scope="col">Type</th>
+                <th scope="col">Size (bytes)</th>
+                <th scope="col">Format Specifier</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>int</code></td>
+                <td>at least 2, usually 4</td>
+                <td><code>%d</code>, <code>%i</code></td>
+            </tr>
+            <tr>
+                <td><code>char</code></td>
+                <td>1</td>
+                <td><code>%c</code></td>
+            </tr>
+            <tr>
+                <td><code>float</code></td>
+                <td>4</td>
+                <td><code>%f</code></td>
+            </tr>
+            <tr>
+                <td><code>double</code></td>
+                <td>8</td>
+                <td><code>%lf</code></td>
+            </tr>
+            <tr>
+                <td><code>short int</code></td>
+                <td>2 usually</td>
+                <td><code>%hd</code></td>
+            </tr>
+            <tr>
+                <td><code>unsigned int</code></td>
+                <td>at least 2, usually 4</td>
+                <td><code>%u</code></td>
+            </tr>
+            <tr>
+                <td><code>long int</code></td>
+                <td>at least 4, usually 8</td>
+                <td><code>%ld</code>, <code>%li</code></td>
+            </tr>
+            <tr>
+                <td><code>long long int</code></td>
+                <td>at least 8</td>
+                <td><code>%lld</code>, <code>%lli</code></td>
+            </tr>
+            <tr>
+                <td><code>unsigned long int</code></td>
+                <td>at least 4</td>
+                <td><code>%lu</code></td>
+            </tr>
+            <tr>
+                <td><code>unsigned long long int</code></td>
+                <td>at least 8</td>
+                <td><code>%llu</code></td>
+            </tr>
+            <tr>
+                <td><code>signed char</code></td>
+                <td>1</td>
+                <td><code>%c</code></td>
+            </tr>
+            <tr>
+                <td><code>unsigned char</code></td>
+                <td>1</td>
+                <td><code>%c</code></td>
+            </tr>
+            <tr>
+                <td><code>long double</code></td>
+                <td>at least 10, usually 12 or 16</td>
+                <td><code>%Lf</code></td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="w3-container">You can always check the size of a variable using the sizeof() operator.</p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">short</span> <span style="color: #9cdcfe;">a</span>;</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">long</span> <span style="color: #9cdcfe;">b</span>;</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">long</span> <span style="color: #569cd6;">long</span> <span
+                    style="color: #9cdcfe;">c</span>;</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">long</span> <span style="color: #569cd6;">double</span>
+                <span style="color: #9cdcfe;">d</span>;
+            </div><br>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"size of short
+                    = </span><span style="color: #9cdcfe;">%d</span><span style="color: #ce9178;"> bytes</span><span
+                    style="color: #d7ba7d;">\n</span><span style="color: #ce9178;">"</span>, <span
+                    style="color: #569cd6;">sizeof</span>(<span style="color: #9cdcfe;">a</span>));</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"size of long =
+                </span><span style="color: #9cdcfe;">%d</span><span style="color: #ce9178;"> bytes</span><span
+                    style="color: #d7ba7d;">\n</span><span style="color: #ce9178;">"</span>, <span
+                    style="color: #569cd6;">sizeof</span>(<span style="color: #9cdcfe;">b</span>));</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"size of long
+                    long = </span><span style="color: #9cdcfe;">%d</span><span style="color: #ce9178;">
+                    bytes</span><span style="color: #d7ba7d;">\n</span><span style="color: #ce9178;">"</span>, <span
+                    style="color: #569cd6;">sizeof</span>(<span style="color: #9cdcfe;">c</span>));</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"size of long
+                    double= </span><span style="color: #9cdcfe;">%d</span><span style="color: #ce9178;">
+                    bytes</span><span style="color: #d7ba7d;">\n</span><span style="color: #ce9178;">"</span>, <span
+                    style="color: #569cd6;">sizeof</span>(<span style="color: #9cdcfe;">d</span>));</div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #b5cea8;">0</span>;</div>
+            <div>}</div>
+        </div>
+    </div>
+
+    <div class="w3-container w3-text-blue">
+        <h4>Derived Data Types</h4>
+    </div>
+    <p class="w3-container">Data types that are derived from fundamental data types are derived types. For example:
+        arrays, pointers, function types, structures, etc.</p>
+    <div class="w3-container w3-text-aqua">
+        <h3>C Input Output (I/O)</h3>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>C Output</h4>
+    </div>
+    <p class="w3-container">In C programming, printf() is one of the main output function. The function sends formatted
+        output to the screen. For example,</p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"C
+                    Programming</span><span style="color: #d7ba7d;">\n</span><span style="color: #ce9178;">"</span>);
+                &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #6a9955;">// displays the string inside quotations</span>
+            </div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Number =
+                </span><span style="color: #9cdcfe;">%d</span><span style="color: #d7ba7d;">\n</span><span
+                    style="color: #ce9178;">"</span>, <span style="color: #b5cea8;">5</span>); &nbsp; &nbsp; &nbsp;
+                <span style="color: #6a9955;">// display integer</span>
+            </div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"number1 =
+                </span><span style="color: #9cdcfe;">%f</span><span style="color: #d7ba7d;">\n</span><span
+                    style="color: #ce9178;">"</span>, <span style="color: #b5cea8;">35.65</span>); &nbsp;<span
+                    style="color: #6a9955;">// display float</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"number2 =
+                </span><span style="color: #9cdcfe;">%lf</span><span style="color: #d7ba7d;">\n</span><span
+                    style="color: #ce9178;">"</span>, <span style="color: #b5cea8;">77.23</span>); <span
+                    style="color: #6a9955;">// display double</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"character =
+                </span><span style="color: #9cdcfe;">%c</span><span style="color: #ce9178;">"</span>, <span
+                    style="color: #ce9178;">'x'</span>); &nbsp; &nbsp;<span style="color: #6a9955;">// display a
+                    character</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #b5cea8;">0</span>;</div>
+            <div>}</div>
+        </div>
+    </div>
+
+    <div class="w3-container w3-text-blue">
+        <h4>C input</h4>
+    </div>
+    <p class="w3-container">
+        In C programming, <span style="color:red">scanf()</span> is one of the commonly used function to take input from
+        the user. The <span style="color:red">scanf()</span> function
+        reads formatted input from the standard input such as keyboards.
+    </p>
+    <p class="w3-container">example</p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span
+                    style="color: #9cdcfe;">testInteger</span>;</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Enter an
+                    integer: "</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">scanf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%d</span><span style="color: #ce9178;">"</span>, &amp;<span
+                    style="color: #9cdcfe;">testInteger</span>); &nbsp; &nbsp; &nbsp; &nbsp; <span
+                    style="color: #6a9955;">// we use format Specifier %d for integer input and &amp; to get integer
+                    variable address</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Number =
+                </span><span style="color: #9cdcfe;">%d</span><span style="color: #ce9178;">"</span>, <span
+                    style="color: #9cdcfe;">testInteger</span>);<span style="color: #6a9955;">// print the integer
+                    value</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #b5cea8;">0</span>;</div>
+            <div>}</div>
+        </div>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>I/O Multiple Values</h4>
+    </div>
+    <p class="w3-container">Here's how you can take multiple inputs from the user and display them.</p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">a</span>;</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">float</span> <span style="color: #9cdcfe;">b</span>;</div>
+            <br>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Enter integer
+                    and then a float: "</span>);</div><br>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">scanf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%d%f</span><span style="color: #ce9178;">"</span>, &amp;<span
+                    style="color: #9cdcfe;">a</span>, &amp;<span style="color: #9cdcfe;">b</span>); <span
+                    style="color: #6a9955;">// Taking multiple inputs</span></div><br>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"You entered
+                </span><span style="color: #9cdcfe;">%d</span><span style="color: #ce9178;"> and </span><span
+                    style="color: #9cdcfe;">%f</span><span style="color: #ce9178;">"</span>, <span
+                    style="color: #9cdcfe;">a</span>, <span style="color: #9cdcfe;">b</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #b5cea8;">0</span>;</div>
+            <div>}</div>
+        </div>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>Format Specifiers for I/O</h4>
+    </div>
+    <p class="w3-container">As you can see from the above examples, we use</p>
+    <ul>
+        <li><code>%d</code> for <code>int</code></li>
+        <li><code>%f</code> for <code>float</code></li>
+        <li><code>%lf</code> for <code>double</code></li>
+        <li><code>%c</code> for <code>char</code></li>
+    </ul>
+    <p class="w3-container">Here's a list of commonly used C data types and their format specifiers</p>
+    <table border="0">
+        <thead>
+            <tr>
+                <th>Data Type</th>
+                <th>Format Specifier</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>int</code></td>
+                <td><code>%d</code></td>
+            </tr>
+            <tr>
+                <td><code>char</code></td>
+                <td><code>%c</code></td>
+            </tr>
+            <tr>
+                <td><code>float</code></td>
+                <td><code>%f</code></td>
+            </tr>
+            <tr>
+                <td><code>double</code></td>
+                <td><code>%lf</code></td>
+            </tr>
+            <tr>
+                <td><code>short int</code></td>
+                <td><code>%hd</code></td>
+            </tr>
+            <tr>
+                <td><code>unsigned int</code></td>
+                <td><code>%u</code></td>
+            </tr>
+            <tr>
+                <td><code>long int</code></td>
+                <td><code>%li</code></td>
+            </tr>
+            <tr>
+                <td><code>long long int</code></td>
+                <td><code>%lli</code></td>
+            </tr>
+            <tr>
+                <td><code>unsigned long int</code></td>
+                <td><code>%lu</code></td>
+            </tr>
+            <tr>
+                <td><code>unsigned long long int</code></td>
+                <td><code>%llu</code></td>
+            </tr>
+            <tr>
+                <td><code>signed char</code></td>
+                <td><code>%c</code></td>
+            </tr>
+            <tr>
+                <td><code>unsigned char</code></td>
+                <td><code>%c</code></td>
+            </tr>
+            <tr>
+                <td><code>long double</code></td>
+                <td><code>%Lf</code></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="w3-container w3-text-aqua">
+        <h3>C Programming Operators</h3>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>C Arithmetic Operators</h4>
+    </div>
+    <table border="0">
+        <thead>
+            <tr>
+                <th>Operator</th>
+                <th>Meaning of Operator</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>+</td>
+                <td>addition or unary plus</td>
+            </tr>
+            <tr>
+                <td>-</td>
+                <td>subtraction or unary minus</td>
+            </tr>
+            <tr>
+                <td>*</td>
+                <td>multiplication</td>
+            </tr>
+            <tr>
+                <td>/</td>
+                <td>division</td>
+            </tr>
+            <tr>
+                <td>%</td>
+                <td>remainder after division (modulo division)</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="w3-container w3-text-blue">
+        <h4>C Increment and Decrement Operators</h4>
+    </div>
+    <p class="w3-container">C programming has two operators increment <span style="color:red">++</span> and decrement
+        <span style="color:red">--</span> to change the value of an
+        operand (constant or variable) by 1.
+        Increment <span style="color:red">++</span> increases the value by 1 whereas decrement <span
+            style="color:red">--</span> decreases the value by 1. These two operators are
+        unary operators, meaning they only operate on a single operand.
+    </p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">z</span> = <span
+                    style="color: #b5cea8;">10</span>;</div>
+            <div>&nbsp; &nbsp; <span style="color: #9cdcfe;">z</span>++; &nbsp; &nbsp; &nbsp; &nbsp; <span
+                    style="color: #6a9955;">// variable z become 11</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">x</span> = <span
+                    style="color: #9cdcfe;">z</span>++; <span style="color: #6a9955;">// variable x become 11 and z
+                    become 12</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">y</span> = ++<span
+                    style="color: #9cdcfe;">z</span>; <span style="color: #6a9955;">// variable y become 13 and z become
+                    13</span></div><br>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"z is
+                </span><span style="color: #9cdcfe;">%d</span><span style="color: #d7ba7d;">\n</span><span
+                    style="color: #ce9178;">y is </span><span style="color: #9cdcfe;">%d</span><span
+                    style="color: #d7ba7d;">\n</span><span style="color: #ce9178;">x is </span><span
+                    style="color: #9cdcfe;">%d</span><span style="color: #ce9178;">"</span>, <span
+                    style="color: #9cdcfe;">z</span>, <span style="color: #9cdcfe;">y</span>, <span
+                    style="color: #9cdcfe;">x</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #b5cea8;">0</span>;</div>
+            <div>}</div>
+        </div>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>C Assignment Operators</h4>
+    </div>
+    <table border="0">
+        <thead>
+            <tr>
+                <th>Operator</th>
+                <th>Example</th>
+                <th>Same as</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>=</td>
+                <td>a = b</td>
+                <td>a = b</td>
+            </tr>
+            <tr>
+                <td>+=</td>
+                <td>a += b</td>
+                <td>a = a+b</td>
+            </tr>
+            <tr>
+                <td>-=</td>
+                <td>a -= b</td>
+                <td>a = a-b</td>
+            </tr>
+            <tr>
+                <td>*=</td>
+                <td>a *= b</td>
+                <td>a = a*b</td>
+            </tr>
+            <tr>
+                <td>/=</td>
+                <td>a /= b</td>
+                <td>a = a/b</td>
+            </tr>
+            <tr>
+                <td>%=</td>
+                <td>a %= b</td>
+                <td>a = a%b</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="w3-container w3-text-blue">
+        <h4>C Relational Operators</h4>
+    </div>
+    <table border="0">
+        <thead>
+            <tr>
+                <th>Operator</th>
+                <th>Meaning of Operator</th>
+                <th>Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>==</td>
+                <td>Equal to</td>
+                <td><code>5 == 3</code> is evaluated to 0</td>
+            </tr>
+            <tr>
+                <td>&gt;</td>
+                <td>Greater than</td>
+                <td><code>5 &gt; 3</code> is evaluated to 1</td>
+            </tr>
+            <tr>
+                <td>&lt;</td>
+                <td>Less than</td>
+                <td><code>5 &lt; 3</code> is evaluated to 0</td>
+            </tr>
+            <tr>
+                <td>!=</td>
+                <td>Not equal to</td>
+                <td><code>5 != 3</code> is evaluated to 1</td>
+            </tr>
+            <tr>
+                <td>&gt;=</td>
+                <td>Greater than or equal to</td>
+                <td><code>5 &gt;= 3</code> is evaluated to 1</td>
+            </tr>
+            <tr>
+                <td>&lt;=</td>
+                <td>Less than or equal to</td>
+                <td><code>5 &lt;= 3</code> is evaluated to 0</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="w3-container w3-text-blue">
+        <h4>C Logical Operators</h4>
+    </div>
+    <table border="0">
+        <thead>
+            <tr>
+                <th>Operator</th>
+                <th>Meaning</th>
+                <th>Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>&amp;&amp;</td>
+                <td>Logical AND. True only if all operands are true</td>
+                <td>If c = 5 and d = 2 then, expression <code>((c==5) &amp;&amp; (d&gt;5))</code> equals to 0.</td>
+            </tr>
+            <tr>
+                <td>||</td>
+                <td>Logical OR. True only if either one operand is true</td>
+                <td>If c = 5 and d = 2 then, expression <code>((c==5) || (d&gt;5))</code> equals to 1.</td>
+            </tr>
+            <tr>
+                <td>!</td>
+                <td>Logical NOT. True only if the operand is 0</td>
+                <td>If c = 5 then, expression <code>!(c==5)</code> equals to 0.</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="w3-container w3-text-blue">
+        <h4>C Bitwise Operators</h4>
+    </div>
+    <p class="w3-container">Bitwise operators are used in C programming to perform bit-level operations.</p>
+    <table border="0">
+        <thead>
+            <tr>
+                <th>Operators</th>
+                <th>Meaning of operators</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>&amp;</td>
+                <td>Bitwise AND</td>
+            </tr>
+            <tr>
+                <td>|</td>
+                <td>Bitwise OR</td>
+            </tr>
+            <tr>
+                <td>^</td>
+                <td>Bitwise exclusive OR</td>
+            </tr>
+            <tr>
+                <td>~</td>
+                <td>Bitwise complement</td>
+            </tr>
+            <tr>
+                <td>&lt;&lt;</td>
+                <td>Shift left</td>
+            </tr>
+            <tr>
+                <td>&gt;&gt;</td>
+                <td>Shift right</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="w3-container w3-text-blue">
+        <h4>Comma Operator</h4>
+    </div>
+    <p class="w3-container">Comma operators are used to link related expressions together. For example:</p>
+    <div class="ali" contenteditable spellcheck="false">
+
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">a</span>, <span
+                    style="color: #9cdcfe;">c</span> = <span style="color: #b5cea8;">5</span>, <span
+                    style="color: #9cdcfe;">d</span>; <span style="color: #6a9955;">// declarations of int
+                    variables</span></div>
+            <div>}</div>
+        </div>
+    </div>
+    <h4>The sizeof operator</h4>
+    </div>
+    <p class="w3-container">The sizeof is a unary operator that returns the size of data (constants, variables, array,
+        structure, etc).</p>
+    <p class="w3-container">example</p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">a</span>;</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">float</span> <span style="color: #9cdcfe;">b</span>;</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">double</span> <span style="color: #9cdcfe;">c</span>;</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">char</span> <span style="color: #9cdcfe;">d</span>;</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Size of
+                    int=</span><span style="color: #9cdcfe;">%lu</span><span style="color: #ce9178;"> bytes</span><span
+                    style="color: #d7ba7d;">\n</span><span style="color: #ce9178;">"</span>, <span
+                    style="color: #569cd6;">sizeof</span>(<span style="color: #9cdcfe;">a</span>));</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Size of
+                    float=</span><span style="color: #9cdcfe;">%lu</span><span style="color: #ce9178;">
+                    bytes</span><span style="color: #d7ba7d;">\n</span><span style="color: #ce9178;">"</span>, <span
+                    style="color: #569cd6;">sizeof</span>(<span style="color: #9cdcfe;">b</span>));</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Size of
+                    double=</span><span style="color: #9cdcfe;">%lu</span><span style="color: #ce9178;">
+                    bytes</span><span style="color: #d7ba7d;">\n</span><span style="color: #ce9178;">"</span>, <span
+                    style="color: #569cd6;">sizeof</span>(<span style="color: #9cdcfe;">c</span>));</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Size of
+                    char=</span><span style="color: #9cdcfe;">%lu</span><span style="color: #ce9178;"> byte</span><span
+                    style="color: #d7ba7d;">\n</span><span style="color: #ce9178;">"</span>, <span
+                    style="color: #569cd6;">sizeof</span>(<span style="color: #9cdcfe;">d</span>));</div><br>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #b5cea8;">0</span>;</div>
+            <div>}</div>
+        </div>
+    </div>
+    <div class="w3-center w3-container w3-text-red w3-margin-bottom">
+        <h2 id="ch2">C Flow Contro</h2>
+    </div>
+    <div class="w3-container w3-text-aqua">
+        <h3>C if...else Statement</h3>
+    </div>
+    <p class="w3-container">example</p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #6a9955;">// Check whether an integer is odd or even</span></div>
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">number</span>;
+            </div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Enter an
+                    integer: "</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">scanf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%d</span><span style="color: #ce9178;">"</span>, &amp;<span
+                    style="color: #9cdcfe;">number</span>);</div><br>
+            <div>&nbsp; &nbsp; <span style="color: #6a9955;">// True if the remainder is 0</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">if</span> (<span style="color: #9cdcfe;">number</span> %
+                <span style="color: #b5cea8;">2</span> == <span style="color: #b5cea8;">0</span>)
+            </div>
+            <div>&nbsp; &nbsp; {</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span
+                    style="color: #ce9178;">"</span><span style="color: #9cdcfe;">%d</span><span
+                    style="color: #ce9178;"> is an even integer."</span>, <span style="color: #9cdcfe;">number</span>);
+            </div>
+            <div>&nbsp; &nbsp; }</div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">else</span></div>
+            <div>&nbsp; &nbsp; {</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span
+                    style="color: #ce9178;">"</span><span style="color: #9cdcfe;">%d</span><span
+                    style="color: #ce9178;"> is an odd integer."</span>, <span style="color: #9cdcfe;">number</span>);
+            </div>
+            <div>&nbsp; &nbsp; }</div><br>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #b5cea8;">0</span>;</div>
+            <div>}</div>
+        </div>
+    </div><br>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #6a9955;">// Program to relate two integers using =, &gt; or &lt; symbol</span>
+            </div>
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">number1</span>,
+                <span style="color: #9cdcfe;">number2</span>;
+            </div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Enter two
+                    integers: "</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">scanf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%d</span><span style="color: #ce9178;"> </span><span
+                    style="color: #9cdcfe;">%d</span><span style="color: #ce9178;">"</span>, &amp;<span
+                    style="color: #9cdcfe;">number1</span>, &amp;<span style="color: #9cdcfe;">number2</span>);</div>
+            <br>
+            <div>&nbsp; &nbsp; <span style="color: #6a9955;">// &nbsp; checks if the two integers are equal.</span>
+            </div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">if</span> (<span style="color: #9cdcfe;">number1</span> ==
+                <span style="color: #9cdcfe;">number2</span>)
+            </div>
+            <div>&nbsp; &nbsp; {</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span
+                    style="color: #ce9178;">"Result: </span><span style="color: #9cdcfe;">%d</span><span
+                    style="color: #ce9178;"> = </span><span style="color: #9cdcfe;">%d</span><span
+                    style="color: #ce9178;">"</span>, <span style="color: #9cdcfe;">number1</span>, <span
+                    style="color: #9cdcfe;">number2</span>);</div>
+            <div>&nbsp; &nbsp; }</div><br>
+            <div>&nbsp; &nbsp; <span style="color: #6a9955;">// &nbsp; checks if number1 is greater than number2.</span>
+            </div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">else</span> <span style="color: #c586c0;">if</span> (<span
+                    style="color: #9cdcfe;">number1</span> &gt; <span style="color: #9cdcfe;">number2</span>)</div>
+            <div>&nbsp; &nbsp; {</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span
+                    style="color: #ce9178;">"Result: </span><span style="color: #9cdcfe;">%d</span><span
+                    style="color: #ce9178;"> &gt; </span><span style="color: #9cdcfe;">%d</span><span
+                    style="color: #ce9178;">"</span>, <span style="color: #9cdcfe;">number1</span>, <span
+                    style="color: #9cdcfe;">number2</span>);</div>
+            <div>&nbsp; &nbsp; }</div><br>
+            <div>&nbsp; &nbsp; <span style="color: #6a9955;">// &nbsp; checks if both test expressions are false</span>
+            </div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">else</span></div>
+            <div>&nbsp; &nbsp; {</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span
+                    style="color: #ce9178;">"Result: </span><span style="color: #9cdcfe;">%d</span><span
+                    style="color: #ce9178;">&lt; </span><span style="color: #9cdcfe;">%d</span><span
+                    style="color: #ce9178;">"</span>, <span style="color: #9cdcfe;">number1</span>, <span
+                    style="color: #9cdcfe;">number2</span>);</div>
+            <div>&nbsp; &nbsp; }</div><br>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #b5cea8;">0</span>;</div>
+            <div>}</div>
+        </div>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>for Loop</h4>
+    </div>
+    <p class="w3-container">example : add numbers</p>
+    <div class="ali" contenteditable spellcheck="false">
+
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">result</span> =
+                <span style="color: #b5cea8;">0</span>;
+            </div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">scope</span>;
+            </div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"enter scope
+                    value: "</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">scanf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%d</span><span style="color: #ce9178;">"</span>, &amp;<span
+                    style="color: #9cdcfe;">scope</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">for</span> (<span style="color: #569cd6;">int</span> <span
+                    style="color: #9cdcfe;">x</span> = <span style="color: #b5cea8;">1</span>; <span
+                    style="color: #9cdcfe;">x</span> &lt;= <span style="color: #9cdcfe;">scope</span>; <span
+                    style="color: #9cdcfe;">x</span>++)</div>
+            <div>&nbsp; &nbsp; {</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #9cdcfe;">result</span> += <span
+                    style="color: #9cdcfe;">x</span>;</div>
+            <div>&nbsp; &nbsp; }</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"result is
+                </span><span style="color: #9cdcfe;">%d</span><span style="color: #ce9178;">"</span>, <span
+                    style="color: #9cdcfe;">result</span>);</div><br>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #b5cea8;">0</span>;</div>
+            <div>}</div>
+        </div>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>while loops</h4>
+    </div>
+    <p class="w3-container">example : </p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #6a9955;">// Print numbers from 1 to 5</span></div>
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">i</span> = <span
+                    style="color: #b5cea8;">1</span>;</div><br>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">while</span> (<span style="color: #9cdcfe;">i</span> &lt;=
+                <span style="color: #b5cea8;">5</span>)
+            </div>
+            <div>&nbsp; &nbsp; {</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span
+                    style="color: #ce9178;">"</span><span style="color: #9cdcfe;">%d</span><span
+                    style="color: #d7ba7d;">\n</span><span style="color: #ce9178;">"</span>, <span
+                    style="color: #9cdcfe;">i</span>);</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; ++<span style="color: #9cdcfe;">i</span>;</div>
+            <div>&nbsp; &nbsp; }</div><br>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #b5cea8;">0</span>;</div>
+            <div>}</div>
+        </div>
+    </div><br>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #6a9955;">// Program to add numbers until the user enters zero</span></div>
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">double</span> <span style="color: #9cdcfe;">number</span>,
+                <span style="color: #9cdcfe;">sum</span> = <span style="color: #b5cea8;">0</span>;
+            </div>
+            <div>&nbsp; &nbsp; <span style="color: #6a9955;">// the body of the loop is executed at least once</span>
+            </div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">do</span></div>
+            <div>&nbsp; &nbsp; {</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span
+                    style="color: #ce9178;">"Enter a number: "</span>);</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">scanf</span>(<span
+                    style="color: #ce9178;">"</span><span style="color: #9cdcfe;">%lf</span><span
+                    style="color: #ce9178;">"</span>, &amp;<span style="color: #9cdcfe;">number</span>);</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #9cdcfe;">sum</span> += <span
+                    style="color: #9cdcfe;">number</span>;</div>
+            <div>&nbsp; &nbsp; } <span style="color: #c586c0;">while</span> (<span style="color: #9cdcfe;">number</span>
+                != <span style="color: #b5cea8;">0.0</span>);</div><br>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Sum =
+                </span><span style="color: #9cdcfe;">%.2lf</span><span style="color: #ce9178;">"</span>, <span
+                    style="color: #9cdcfe;">sum</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #b5cea8;">0</span>;</div>
+            <div>}</div>
+        </div>
+
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>C switch Statement</h4>
+    </div>
+    <p class="w3-container">example : calculator</p>
+    <div class="ali" contenteditable spellcheck="false">
+
+        <div class="cods">
+            <div><span style="color: #6a9955;">// Program to create a simple calculator</span></div>
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">char</span> <span style="color: #9cdcfe;">operator</span>;
+            </div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">double</span> <span style="color: #9cdcfe;">n1</span>,
+                <span style="color: #9cdcfe;">n2</span>;
+            </div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Enter an
+                    operator (+, -, *, /): "</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">scanf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%c</span><span style="color: #ce9178;">"</span>, &amp;<span
+                    style="color: #9cdcfe;">operator</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Enter two
+                    operands: "</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">scanf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%lf</span><span style="color: #ce9178;"> </span><span
+                    style="color: #9cdcfe;">%lf</span><span style="color: #ce9178;">"</span>, &amp;<span
+                    style="color: #9cdcfe;">n1</span>, &amp;<span style="color: #9cdcfe;">n2</span>);</div><br>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">switch</span> (<span
+                    style="color: #9cdcfe;">operator</span>)</div>
+            <div>&nbsp; &nbsp; {</div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">case</span> <span style="color: #ce9178;">'+'</span>:</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span
+                    style="color: #ce9178;">"</span><span style="color: #9cdcfe;">%.1lf</span><span
+                    style="color: #ce9178;"> + </span><span style="color: #9cdcfe;">%.1lf</span><span
+                    style="color: #ce9178;"> = </span><span style="color: #9cdcfe;">%.1lf</span><span
+                    style="color: #ce9178;">"</span>, <span style="color: #9cdcfe;">n1</span>, <span
+                    style="color: #9cdcfe;">n2</span>, <span style="color: #9cdcfe;">n1</span> + <span
+                    style="color: #9cdcfe;">n2</span>);</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #c586c0;">break</span>;</div><br>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">case</span> <span style="color: #ce9178;">'-'</span>:</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span
+                    style="color: #ce9178;">"</span><span style="color: #9cdcfe;">%.1lf</span><span
+                    style="color: #ce9178;"> - </span><span style="color: #9cdcfe;">%.1lf</span><span
+                    style="color: #ce9178;"> = </span><span style="color: #9cdcfe;">%.1lf</span><span
+                    style="color: #ce9178;">"</span>, <span style="color: #9cdcfe;">n1</span>, <span
+                    style="color: #9cdcfe;">n2</span>, <span style="color: #9cdcfe;">n1</span> - <span
+                    style="color: #9cdcfe;">n2</span>);</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #c586c0;">break</span>;</div><br>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">case</span> <span style="color: #ce9178;">'*'</span>:</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span
+                    style="color: #ce9178;">"</span><span style="color: #9cdcfe;">%.1lf</span><span
+                    style="color: #ce9178;"> * </span><span style="color: #9cdcfe;">%.1lf</span><span
+                    style="color: #ce9178;"> = </span><span style="color: #9cdcfe;">%.1lf</span><span
+                    style="color: #ce9178;">"</span>, <span style="color: #9cdcfe;">n1</span>, <span
+                    style="color: #9cdcfe;">n2</span>, <span style="color: #9cdcfe;">n1</span> * <span
+                    style="color: #9cdcfe;">n2</span>);</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #c586c0;">break</span>;</div><br>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">case</span> <span style="color: #ce9178;">'/'</span>:</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span
+                    style="color: #ce9178;">"</span><span style="color: #9cdcfe;">%.1lf</span><span
+                    style="color: #ce9178;"> / </span><span style="color: #9cdcfe;">%.1lf</span><span
+                    style="color: #ce9178;"> = </span><span style="color: #9cdcfe;">%.1lf</span><span
+                    style="color: #ce9178;">"</span>, <span style="color: #9cdcfe;">n1</span>, <span
+                    style="color: #9cdcfe;">n2</span>, <span style="color: #9cdcfe;">n1</span> / <span
+                    style="color: #9cdcfe;">n2</span>);</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #c586c0;">break</span>;</div><br>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #6a9955;">// operator doesn't match any case constant
+                    +, -, *, /</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">default</span>:</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span
+                    style="color: #ce9178;">"Error! operator is not correct"</span>);</div>
+            <div>&nbsp; &nbsp; }</div><br>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #b5cea8;">0</span>;</div>
+            <div>}</div>
+        </div>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>C goto Statement</h4>
+    </div>
+    <p class="w3-container">example</p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div><span style="color: #c8c8c8;">x</span>:</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"hi</span><span
+                    style="color: #d7ba7d;">\n</span><span style="color: #ce9178;">"</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">goto</span> <span style="color: #c8c8c8;">x</span>; <span
+                    style="color: #6a9955;">// jumb to address x</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #b5cea8;">0</span>;</div>
+            <div>}</div>
+        </div>
+    </div>
+    <div class="w3-center w3-container w3-text-red w3-margin-bottom">
+        <h2 id="ch3">functinos</h2>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>C User-defined functions</h4>
+    </div>
+    <p class="w3-container">example : check if number is prime or not</p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">void</span> <span style="color: #dcdcaa;">checkPrimeNumber</span>();
+                <span style="color: #6a9955;">// function prototype</span>
+            </div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">checkPrimeNumber</span>();</div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #b5cea8;">0</span>;</div>
+            <div>}</div>
+            <div><span style="color: #6a9955;">// function definition</span></div>
+            <div><span style="color: #569cd6;">void</span> <span style="color: #dcdcaa;">checkPrimeNumber</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">n</span>, <span
+                    style="color: #9cdcfe;">i</span>, <span style="color: #9cdcfe;">flag</span> = <span
+                    style="color: #b5cea8;">0</span>;</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Enter a
+                    positive integer: "</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">scanf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%d</span><span style="color: #ce9178;">"</span>, &amp;<span
+                    style="color: #9cdcfe;">n</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">for</span> (<span style="color: #9cdcfe;">i</span> = <span
+                    style="color: #b5cea8;">2</span>; <span style="color: #9cdcfe;">i</span> &lt;= <span
+                    style="color: #9cdcfe;">n</span> / <span style="color: #b5cea8;">2</span>; ++<span
+                    style="color: #9cdcfe;">i</span>)</div>
+            <div>&nbsp; &nbsp; {</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #c586c0;">if</span> (<span
+                    style="color: #9cdcfe;">n</span> % <span style="color: #9cdcfe;">i</span> == <span
+                    style="color: #b5cea8;">0</span>)</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; {</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #9cdcfe;">flag</span> = <span
+                    style="color: #b5cea8;">1</span>;</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; }</div>
+            <div>&nbsp; &nbsp; }</div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">if</span> (<span style="color: #9cdcfe;">flag</span> ==
+                <span style="color: #b5cea8;">1</span>)
+            </div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span
+                    style="color: #ce9178;">"</span><span style="color: #9cdcfe;">%d</span><span
+                    style="color: #ce9178;"> is not a prime number."</span>, <span style="color: #9cdcfe;">n</span>);
+            </div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">else</span></div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span
+                    style="color: #ce9178;">"</span><span style="color: #9cdcfe;">%d</span><span
+                    style="color: #ce9178;"> is a prime number."</span>, <span style="color: #9cdcfe;">n</span>);</div>
+            <div>}</div>
+        </div>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>C Recursion</h4>
+    </div>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">sum</span>(<span
+                    style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">n</span>);</div><br>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">number</span>,
+                <span style="color: #9cdcfe;">result</span>;
+            </div><br>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Enter a
+                    positive integer: "</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">scanf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%d</span><span style="color: #ce9178;">"</span>, &amp;<span
+                    style="color: #9cdcfe;">number</span>);</div><br>
+            <div>&nbsp; &nbsp; <span style="color: #9cdcfe;">result</span> = <span
+                    style="color: #dcdcaa;">sum</span>(<span style="color: #9cdcfe;">number</span>);</div><br>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"sum =
+                </span><span style="color: #9cdcfe;">%d</span><span style="color: #ce9178;">"</span>, <span
+                    style="color: #9cdcfe;">result</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #b5cea8;">0</span>;</div>
+            <div>}</div><br>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">sum</span>(<span
+                    style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">n</span>)</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">if</span> (<span style="color: #9cdcfe;">n</span> != <span
+                    style="color: #b5cea8;">0</span>)</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #6a9955;">// sum() function calls itself</span></div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span
+                    style="color: #9cdcfe;">n</span> + <span style="color: #dcdcaa;">sum</span>(<span
+                    style="color: #9cdcfe;">n</span> - <span style="color: #b5cea8;">1</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">else</span></div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span
+                    style="color: #9cdcfe;">n</span>;</div>
+            <div>}</div>
+        </div>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>C Storage Class</h4>
+    </div>
+    <p class="w3-container"> storage class determines the scope, visibility and lifetime of a variable.</p>
+    <p class="w3-container">There are 4 types of storage class:</p>
+    <ol>
+        <li><span style="color:red">automatic or local variable</span>
+            <p class="w3-container">The variables declared inside a block are automatic or local variables. The local
+                variables exist only inside the block in which it is declared.</p>
+            <div class="ali" contenteditable spellcheck="false">
+                <div class="cods">
+                    <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                            style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+                    <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>(<span
+                            style="color: #569cd6;">void</span>)</div>
+                    <div>{</div><br>
+                    <div>&nbsp; &nbsp; <span style="color: #c586c0;">for</span> (<span
+                            style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">i</span> = <span
+                            style="color: #b5cea8;">0</span>; <span style="color: #9cdcfe;">i</span> &lt; <span
+                            style="color: #b5cea8;">5</span>; ++<span style="color: #9cdcfe;">i</span>)</div>
+                    <div>&nbsp; &nbsp; {</div>
+                    <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span
+                            style="color: #ce9178;">"C programming"</span>);</div>
+                    <div>&nbsp; &nbsp; }</div>
+                    <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span
+                            style="color: #ce9178;">"</span><span style="color: #9cdcfe;">%d</span><span
+                            style="color: #ce9178;">"</span>, i); <span style="color: #6a9955;">// Error: i is not
+                            declared at this point</span></div>
+                    <div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span
+                            style="color: #b5cea8;">0</span>;</div>
+                    <div>}</div>
+                </div>
+            </div>
+            <br>
+            <div class="ali" contenteditable spellcheck="false">
+                <div class="cods">
+                    <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                            style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+                    <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+                    <div>{</div>
+                    <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">n1</span>;
+                        <span style="color: #6a9955;">// n1 is a local variable to main()</span>
+                    </div>
+                    <div>}</div><br>
+                    <div><span style="color: #569cd6;">void</span> <span style="color: #dcdcaa;">func</span>()</div>
+                    <div>{</div>
+                    <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">n2</span>;
+                        <span style="color: #6a9955;">// n2 is a local variable to func()</span>
+                    </div>
+                    <div>}</div>
+                </div>
+            </div>
+
+        </li>
+        <li><span style="color:red">external or Global Variable</span>
+            <p class="w3-container">Variables that are declared outside of all functions are known as external or global
+                variables. They are accessible from any function inside the program.</p>
+            <div class="ali" contenteditable spellcheck="false">
+                <div class="cods">
+                    <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                            style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+                    <div><span style="color: #569cd6;">void</span> <span style="color: #dcdcaa;">display</span>();</div>
+                    <br>
+                    <div><span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">n</span> = <span
+                            style="color: #b5cea8;">5</span>; <span style="color: #6a9955;">// global variable</span>
+                    </div><br>
+                    <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+                    <div>{</div>
+                    <div>&nbsp; &nbsp; ++<span style="color: #9cdcfe;">n</span>;</div>
+                    <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">display</span>();</div>
+                    <div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span
+                            style="color: #b5cea8;">0</span>;</div>
+                    <div>}</div><br>
+                    <div><span style="color: #569cd6;">void</span> <span style="color: #dcdcaa;">display</span>()</div>
+                    <div>{</div>
+                    <div>&nbsp; &nbsp; ++<span style="color: #9cdcfe;">n</span>;</div>
+                    <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"n =
+                        </span><span style="color: #9cdcfe;">%d</span><span style="color: #ce9178;">"</span>, <span
+                            style="color: #9cdcfe;">n</span>);</div>
+                    <div>}</div>
+                </div>
+            </div>
+        </li>
+        <li><span style="color:red">static</span></li>
+        <p class="w3-container">A static variable is declared by using the static keyword. For example;</p>
+        <div class="ali" contenteditable spellcheck="false">
+            <div class="cods">
+                <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                        style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+                <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">f</span>()</div>
+                <div>{</div>
+                <div>&nbsp; &nbsp; <span style="color: #6a9955;">// static variable means that this declaration excuted
+                        just in the first call to function f</span></div>
+                <div>&nbsp; &nbsp; <span style="color: #569cd6;">static</span> <span style="color: #569cd6;">int</span>
+                    <span style="color: #9cdcfe;">i</span> = <span style="color: #b5cea8;">0</span>;
+                </div>
+                <div>&nbsp; &nbsp; <span style="color: #9cdcfe;">i</span>++;</div>
+                <div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #9cdcfe;">i</span>;
+                </div>
+                <div>}</div><br>
+                <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+                <div>{</div>
+                <div>&nbsp; &nbsp; <span style="color: #c586c0;">for</span> (<span style="color: #569cd6;">int</span>
+                    <span style="color: #9cdcfe;">n</span> = <span style="color: #b5cea8;">0</span>; <span
+                        style="color: #9cdcfe;">n</span> &lt; <span style="color: #b5cea8;">100</span>; <span
+                        style="color: #9cdcfe;">n</span>++)
+                </div>
+                <div>&nbsp; &nbsp; {</div>
+                <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span
+                        style="color: #ce9178;">"</span><span style="color: #9cdcfe;">%d</span><span
+                        style="color: #d7ba7d;">\n</span><span style="color: #ce9178;">"</span>, <span
+                        style="color: #dcdcaa;">f</span>());</div>
+                <div>&nbsp; &nbsp; }</div>
+                <div>}</div>
+            </div>
+        </div>
+        <li><span style="color:red">register</span>
+            <p class="w3-container">The register keyword is used to declare register variables. Register variables were
+                supposed to be faster than local variables.</p>
+            <p class="w3-container">However, modern compilers are very good at code optimization, and there is a rare
+                chance that using register variables will make your program faster.</p>
+            <p class="w3-container">Unless you are working on embedded systems where you know how to optimize code for
+                the given application, there is no use of register variables.</p>
+        </li>
+    </ol>
+
+    <div class="w3-center w3-container w3-text-red w3-margin-bottom">
+        <h2 id="ch4">C Programming Arrays</h2>
+    </div>
+    <div class="w3-container w3-text-aqua">
+        <h3>Introduction</h3>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>How to declare an array?</h4>
+    </div>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #6a9955;">// formula is "dataType arrayName[arraySize];"</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #6a9955;">// Example</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">mark</span>[<span
+                    style="color: #b5cea8;">5</span>] = {<span style="color: #b5cea8;">19</span>, <span
+                    style="color: #b5cea8;">10</span>, <span style="color: #b5cea8;">8</span>, <span
+                    style="color: #b5cea8;">17</span>, <span style="color: #b5cea8;">9</span>};</div>
+            <div>&nbsp; &nbsp; <span style="color: #6a9955;">// You can also initialize an array like this.</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span
+                    style="color: #9cdcfe;">degrees</span><span style="color: #569cd6;">[]</span> = {<span
+                    style="color: #b5cea8;">19</span>, <span style="color: #b5cea8;">10</span>, <span
+                    style="color: #b5cea8;">8</span>, <span style="color: #b5cea8;">17</span>, <span
+                    style="color: #b5cea8;">9</span>};</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%d</span><span style="color: #d7ba7d;">\n</span><span
+                    style="color: #9cdcfe;">%d</span><span style="color: #ce9178;">"</span>, <span
+                    style="color: #9cdcfe;">mark</span>[<span style="color: #b5cea8;">1</span>], <span
+                    style="color: #9cdcfe;">degrees</span>[<span style="color: #b5cea8;">0</span>]);</div>
+            <div>}</div>
+        </div>
+    </div>
+    <p class="w3-container">It's important to note that the size and type of an array cannot be changed once it is
+        declared.</p>
+    <div class="w3-container w3-text-blue">
+        <h4>Change Value of Array elements</h4>
+    </div>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">mark</span>[<span
+                    style="color: #b5cea8;">5</span>] = {<span style="color: #b5cea8;">19</span>, <span
+                    style="color: #b5cea8;">10</span>, <span style="color: #b5cea8;">8</span>, <span
+                    style="color: #b5cea8;">17</span>, <span style="color: #b5cea8;">9</span>}</div>
+            <div>&nbsp; &nbsp; <span style="color: #6a9955;">// make the value of the third element to -1</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #9cdcfe;">mark</span>[<span style="color: #b5cea8;">2</span>] =
+                -<span style="color: #b5cea8;">1</span>;</div>
+            <div>&nbsp; &nbsp; <span style="color: #6a9955;">// make the value of the fifth element to 0</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #9cdcfe;">mark</span>[<span style="color: #b5cea8;">4</span>] = <span
+                    style="color: #b5cea8;">0</span>;</div>
+            <div>}</div>
+        </div>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>Input and Output Array Elements</h4>
+    </div>
+    <p class="w3-container">Here's how you can take input from the user and store it in an array element.</p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">mark</span>[<span
+                    style="color: #b5cea8;">5</span>] = {<span style="color: #b5cea8;">19</span>, <span
+                    style="color: #b5cea8;">10</span>, <span style="color: #b5cea8;">8</span>, <span
+                    style="color: #b5cea8;">17</span>, <span style="color: #b5cea8;">9</span>}</div>
+            <div>&nbsp; &nbsp; <span style="color: #6a9955;">// take input and store it in the 3rd element</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">scanf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%d</span><span style="color: #ce9178;">"</span>, &amp;<span
+                    style="color: #9cdcfe;">mark</span>[<span style="color: #b5cea8;">2</span>]);</div>
+            <div>&nbsp; &nbsp; <span style="color: #6a9955;">// take input and store it in the ith element</span></div>
+            <div>}</div>
+        </div>
+    </div>
+    <div class="w3-container w3-text-aqua">
+        <h3>Multidimensional arrays</h3>
+    </div>
+    <p class="w3-container">In C programming, you can create an array of arrays. These arrays are known as
+        multidimensional arrays. For example,</p>
+    <div class="w3-code  w3-card w3-grey" contenteditable>
+        float x[3][4];
+    </div>
+    <p class="w3-container">Here, x is a two-dimensional (2d) array. The array can hold 12 elements. You can think the
+        array as a table with 3 rows and each row has 4 columns.</p>
+    <img src="https://cdn.programiz.com/sites/tutorial2program/files/two-dimensional-array_0.jpg" alt=""
+        style="width: 50%;">
+    <p class="w3-container">Similarly, you can declare a three-dimensional (3d) array. For example,</p>
+    <div class="w3-code  w3-card w3-grey" contenteditable>
+        float y[2][4][3];
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>Initializing a multidimensional array</h4>
+    </div>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #6a9955;">// Different ways to initialize two-dimensional
+                    array</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">a</span>[<span
+                    style="color: #b5cea8;">2</span>][<span style="color: #b5cea8;">3</span>] = {{<span
+                    style="color: #b5cea8;">1</span>, <span style="color: #b5cea8;">3</span>, <span
+                    style="color: #b5cea8;">0</span>}, {-<span style="color: #b5cea8;">1</span>, <span
+                    style="color: #b5cea8;">5</span>, <span style="color: #b5cea8;">9</span>}};</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">b</span><span
+                    style="color: #569cd6;">[]</span>[<span style="color: #b5cea8;">3</span>] = {{<span
+                    style="color: #b5cea8;">1</span>, <span style="color: #b5cea8;">3</span>, <span
+                    style="color: #b5cea8;">0</span>}, {-<span style="color: #b5cea8;">1</span>, <span
+                    style="color: #b5cea8;">5</span>, <span style="color: #b5cea8;">9</span>}};</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">c</span>[<span
+                    style="color: #b5cea8;">2</span>][<span style="color: #b5cea8;">3</span>] = {{<span
+                    style="color: #b5cea8;">1</span>, <span style="color: #b5cea8;">3</span>, <span
+                    style="color: #b5cea8;">0</span>},{<span style="color: #b5cea8;">10</span>,<span
+                    style="color: #b5cea8;">18</span>,<span style="color: #b5cea8;">14</span>}};</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%d</span><span style="color: #ce9178;">"</span>, <span
+                    style="color: #9cdcfe;">c</span>[<span style="color: #b5cea8;">0</span>][<span
+                    style="color: #b5cea8;">1</span>]);</div>
+            <div>}</div>
+        </div>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>Initialization of a 3d array</h4>
+    </div>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">test</span>[<span
+                    style="color: #b5cea8;">2</span>][<span style="color: #b5cea8;">3</span>][<span
+                    style="color: #b5cea8;">4</span>] = {{{<span style="color: #b5cea8;">3</span>, <span
+                    style="color: #b5cea8;">4</span>, <span style="color: #b5cea8;">2</span>, <span
+                    style="color: #b5cea8;">3</span>}, {<span style="color: #b5cea8;">0</span>, -<span
+                    style="color: #b5cea8;">3</span>, <span style="color: #b5cea8;">9</span>, <span
+                    style="color: #b5cea8;">11</span>}, {<span style="color: #b5cea8;">23</span>, <span
+                    style="color: #b5cea8;">12</span>, <span style="color: #b5cea8;">23</span>, <span
+                    style="color: #b5cea8;">2</span>}}, {{<span style="color: #b5cea8;">13</span>, <span
+                    style="color: #b5cea8;">4</span>, <span style="color: #b5cea8;">56</span>, <span
+                    style="color: #b5cea8;">3</span>}, {<span style="color: #b5cea8;">5</span>, <span
+                    style="color: #b5cea8;">9</span>, <span style="color: #b5cea8;">3</span>, <span
+                    style="color: #b5cea8;">5</span>}, {<span style="color: #b5cea8;">3</span>, <span
+                    style="color: #b5cea8;">1</span>, <span style="color: #b5cea8;">4</span>, <span
+                    style="color: #b5cea8;">9</span>}}};</div>
+            <div>}</div>
+        </div>
+    </div>
+    <div class="w3-container w3-text-aqua">
+        <h3>C Arrays & Function</h3>
+    </div>
+    <p class="w3-container">Example 1: Pass Individual Array Elements</p>
+
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">void</span> <span style="color: #dcdcaa;">display</span>(<span
+                    style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">age1</span>, <span
+                    style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">age2</span>)</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%d</span><span style="color: #d7ba7d;">\n</span><span
+                    style="color: #ce9178;">"</span>, <span style="color: #9cdcfe;">age1</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%d</span><span style="color: #d7ba7d;">\n</span><span
+                    style="color: #ce9178;">"</span>, <span style="color: #9cdcfe;">age2</span>);</div>
+            <div>}</div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span
+                    style="color: #9cdcfe;">ageArray</span><span style="color: #569cd6;">[]</span> = {<span
+                    style="color: #b5cea8;">2</span>, <span style="color: #b5cea8;">8</span>, <span
+                    style="color: #b5cea8;">4</span>, <span style="color: #b5cea8;">12</span>};</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">display</span>(<span
+                    style="color: #9cdcfe;">ageArray</span>[<span style="color: #b5cea8;">1</span>], <span
+                    style="color: #9cdcfe;">ageArray</span>[<span style="color: #b5cea8;">2</span>]); <span
+                    style="color: #6a9955;">// pass second and third elements to display()</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #b5cea8;">0</span>;</div>
+            <div>}</div>
+        </div>
+    </div>
+    <p class="w3-container">Example 2: Pass Arrays to Functions</p>
+
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">void</span> <span style="color: #dcdcaa;">display</span>(<span
+                    style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">age1</span>, <span
+                    style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">age2</span>)</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%d</span><span style="color: #d7ba7d;">\n</span><span
+                    style="color: #ce9178;">"</span>, <span style="color: #9cdcfe;">age1</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%d</span><span style="color: #d7ba7d;">\n</span><span
+                    style="color: #ce9178;">"</span>, <span style="color: #9cdcfe;">age2</span>);</div>
+            <div>}</div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span
+                    style="color: #9cdcfe;">ageArray</span><span style="color: #569cd6;">[]</span> = {<span
+                    style="color: #b5cea8;">2</span>, <span style="color: #b5cea8;">8</span>, <span
+                    style="color: #b5cea8;">4</span>, <span style="color: #b5cea8;">12</span>};</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">display</span>(<span
+                    style="color: #9cdcfe;">ageArray</span>[<span style="color: #b5cea8;">1</span>], <span
+                    style="color: #9cdcfe;">ageArray</span>[<span style="color: #b5cea8;">2</span>]); <span
+                    style="color: #6a9955;">// pass second and third elements to display()</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #b5cea8;">0</span>;</div>
+            <div>}</div>
+        </div>
+    </div>
+    <div class="w3-center w3-container w3-text-red w3-margin-bottom">
+        <h2 id="ch5">C Pointers</h2>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>Address in C</h4>
+    </div>
+    <p class="w3-container">We have used address numerous times while using the scanf() function.</p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">var</span>;</div>
+            <div><span style="color: #dcdcaa;">scanf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%d</span><span style="color: #ce9178;">"</span>, &amp;<span
+                    style="color: #9cdcfe;">var</span>); <span style="color: #6a9955;">//enter var &nbsp;value </span>
+            </div>
+        </div>
+    </div>
+    <p class="w3-container">Let's take a working example.</p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">var</span> = <span
+                    style="color: #b5cea8;">5</span>;</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"var:
+                </span><span style="color: #9cdcfe;">%d</span><span style="color: #d7ba7d;">\n</span><span
+                    style="color: #ce9178;">"</span>, <span style="color: #9cdcfe;">var</span>);</div><br>
+            <div>&nbsp; &nbsp; <span style="color: #6a9955;">// Notice the use of &amp; before var</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"address of
+                    var: </span><span style="color: #9cdcfe;">%p</span><span style="color: #ce9178;">"</span>,
+                &amp;<span style="color: #9cdcfe;">var</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #b5cea8;">0</span>;</div>
+            <div>}</div>
+        </div>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>C Pointers</h4>
+    </div>
+    <p class="w3-container">Here is how we can declare pointers.</p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods"> <span style="color: #569cd6;">int</span> *<span style="color: #9cdcfe;">p</span>;</div>
+    </div>
+    <p class="w3-container">You can also declare pointers in these ways.</p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #569cd6;">int</span> *<span style="color: #9cdcfe;">p1</span>;</div>
+            <div><span style="color: #569cd6;">int</span> * <span style="color: #9cdcfe;">p2</span>;</div>
+        </div>
+    </div>
+    <p class="w3-container">another example of declaring pointers.</p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods"> <span style="color: #569cd6;">int</span>* <span style="color: #9cdcfe;">p1</span>, <span
+                style="color: #9cdcfe;">p2</span>;</div>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>Assigning addresses to Pointers</h4>
+    </div>
+    <p class="w3-container">example.</p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #569cd6;">int</span> *<span style="color: #9cdcfe;">pc</span>, <span
+                    style="color: #9cdcfe;">c</span>;</div>
+            <div><span style="color: #9cdcfe;">c</span> = <span style="color: #b5cea8;">5</span>;</div>
+            <div><span style="color: rgb(156, 220, 254);">pc</span> = &amp;<span
+                    style="color: rgb(156, 220, 254);">c</span>;</div>
+        </div>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>Get Value of Thing Pointed by Pointers</h4>
+    </div>
+    <p class="w3-container">example</p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #569cd6;">int</span> *<span style="color: #9cdcfe;">pc</span>, <span
+                    style="color: #9cdcfe;">c</span>;</div>
+            <div><span style="color: #9cdcfe;">c</span> = <span style="color: #b5cea8;">5</span>;</div>
+            <div><span style="color: #9cdcfe;">pc</span> = &amp;<span style="color: #9cdcfe;">c</span>;</div>
+            <div><span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%d</span><span style="color: #ce9178;">"</span>, *<span
+                    style="color: #9cdcfe;">pc</span>); <span style="color: #6a9955;">// Output: 5</span></div>
+        </div>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>Changing Value Pointed by Pointers</h4>
+    </div>
+    <p class="w3-container">Let's take an example.</p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> *<span style="color: #9cdcfe;">pc</span>, <span
+                    style="color: #9cdcfe;">c</span>;</div>
+            <div>&nbsp; &nbsp; <span style="color: #9cdcfe;">c</span> = <span style="color: #b5cea8;">5</span>;</div>
+            <div>&nbsp; &nbsp; <span style="color: #9cdcfe;">pc</span> = &amp;<span style="color: #9cdcfe;">c</span>;
+            </div>
+            <div>&nbsp; &nbsp; <span style="color: #9cdcfe;">c</span> = <span style="color: #b5cea8;">1</span>;</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%d</span><span style="color: #ce9178;">"</span>, <span
+                    style="color: #9cdcfe;">c</span>); &nbsp; <span style="color: #6a9955;">// Output: 1</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%d</span><span style="color: #ce9178;">"</span>, *<span
+                    style="color: #9cdcfe;">pc</span>); <span style="color: #6a9955;">// Ouptut: 1</span></div>
+            <div>}</div>
+        </div>
+    </div>
+    <p class="w3-container">Let's take another example.</p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> *<span style="color: #9cdcfe;">pc</span>, <span
+                    style="color: #9cdcfe;">c</span>;</div>
+            <div>&nbsp; &nbsp; <span style="color: #9cdcfe;">c</span> = <span style="color: #b5cea8;">5</span>;</div>
+            <div>&nbsp; &nbsp; <span style="color: #9cdcfe;">pc</span> = &amp;<span style="color: #9cdcfe;">c</span>;
+            </div>
+            <div>&nbsp; &nbsp; *<span style="color: #9cdcfe;">pc</span> = <span style="color: #b5cea8;">1</span>;</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%d</span><span style="color: #ce9178;">"</span>, *<span
+                    style="color: #9cdcfe;">pc</span>); <span style="color: #6a9955;">// Ouptut: 1</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%d</span><span style="color: #ce9178;">"</span>, <span
+                    style="color: #9cdcfe;">c</span>); &nbsp; <span style="color: #6a9955;">// Output: 1</span></div>
+            <div>}</div>
+        </div>
+    </div>
+    <p class="w3-container">Let's take one more example.</p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> *<span style="color: #9cdcfe;">pc</span>, <span
+                    style="color: #9cdcfe;">c</span>, <span style="color: #9cdcfe;">d</span>;</div>
+            <div>&nbsp; &nbsp; <span style="color: #9cdcfe;">c</span> = <span style="color: #b5cea8;">5</span>;</div>
+            <div>&nbsp; &nbsp; <span style="color: #9cdcfe;">d</span> = -<span style="color: #b5cea8;">15</span>;</div>
+            <div>&nbsp; &nbsp; <span style="color: #9cdcfe;">pc</span> = &amp;<span style="color: #9cdcfe;">c</span>;
+            </div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%d</span><span style="color: #ce9178;">"</span>, *<span
+                    style="color: #9cdcfe;">pc</span>); <span style="color: #6a9955;">// Output: 5</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #9cdcfe;">pc</span> = &amp;<span style="color: #9cdcfe;">d</span>;
+            </div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%d</span><span style="color: #ce9178;">"</span>, *<span
+                    style="color: #9cdcfe;">pc</span>); <span style="color: #6a9955;">// Ouptut: -15</span></div>
+            <div>}</div>
+        </div>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>Example: Working of Pointers</h4>
+    </div>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> *<span style="color: #9cdcfe;">pc</span>, <span
+                    style="color: #9cdcfe;">c</span>;</div><br>
+            <div>&nbsp; &nbsp; <span style="color: #9cdcfe;">c</span> = <span style="color: #b5cea8;">22</span>;</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Address of c:
+                </span><span style="color: #9cdcfe;">%p</span><span style="color: #d7ba7d;">\n</span><span
+                    style="color: #ce9178;">"</span>, &amp;<span style="color: #9cdcfe;">c</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Value of c:
+                </span><span style="color: #9cdcfe;">%d</span><span style="color: #d7ba7d;">\n\n</span><span
+                    style="color: #ce9178;">"</span>, <span style="color: #9cdcfe;">c</span>); <span
+                    style="color: #6a9955;">// 22</span></div><br>
+            <div>&nbsp; &nbsp; <span style="color: #9cdcfe;">pc</span> = &amp;<span style="color: #9cdcfe;">c</span>;
+            </div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Address of
+                    pointer pc: </span><span style="color: #9cdcfe;">%p</span><span
+                    style="color: #d7ba7d;">\n</span><span style="color: #ce9178;">"</span>, <span
+                    style="color: #9cdcfe;">pc</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Content of
+                    pointer pc: </span><span style="color: #9cdcfe;">%d</span><span
+                    style="color: #d7ba7d;">\n\n</span><span style="color: #ce9178;">"</span>, *<span
+                    style="color: #9cdcfe;">pc</span>); <span style="color: #6a9955;">// 22</span></div><br>
+            <div>&nbsp; &nbsp; <span style="color: #9cdcfe;">c</span> = <span style="color: #b5cea8;">11</span>;</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Address of
+                    pointer pc: </span><span style="color: #9cdcfe;">%p</span><span
+                    style="color: #d7ba7d;">\n</span><span style="color: #ce9178;">"</span>, <span
+                    style="color: #9cdcfe;">pc</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Content of
+                    pointer pc: </span><span style="color: #9cdcfe;">%d</span><span
+                    style="color: #d7ba7d;">\n\n</span><span style="color: #ce9178;">"</span>, *<span
+                    style="color: #9cdcfe;">pc</span>); <span style="color: #6a9955;">// 11</span></div><br>
+            <div>&nbsp; &nbsp; *<span style="color: #9cdcfe;">pc</span> = <span style="color: #b5cea8;">2</span>;</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Address of c:
+                </span><span style="color: #9cdcfe;">%p</span><span style="color: #d7ba7d;">\n</span><span
+                    style="color: #ce9178;">"</span>, &amp;<span style="color: #9cdcfe;">c</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Value of c:
+                </span><span style="color: #9cdcfe;">%d</span><span style="color: #d7ba7d;">\n\n</span><span
+                    style="color: #ce9178;">"</span>, <span style="color: #9cdcfe;">c</span>); <span
+                    style="color: #6a9955;">// 2</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #b5cea8;">0</span>;</div>
+            <div>}</div>
+        </div>
+    </div>
+    <div class="w3-container w3-text-aqua">
+        <h3>C Pointers & Arrays</h3>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>Relationship Between Arrays and Pointers</h4>
+    </div>
+    <p class="w3-container">print addresses of array elements</p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">x</span>[<span
+                    style="color: #b5cea8;">4</span>];</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">i</span>;</div>
+            <br>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">for</span> (<span style="color: #9cdcfe;">i</span> = <span
+                    style="color: #b5cea8;">0</span>; <span style="color: #9cdcfe;">i</span> &lt; <span
+                    style="color: #b5cea8;">4</span>; ++<span style="color: #9cdcfe;">i</span>)</div>
+            <div>&nbsp; &nbsp; {</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span
+                    style="color: #ce9178;">"&amp;x[</span><span style="color: #9cdcfe;">%d</span><span
+                    style="color: #ce9178;">] = </span><span style="color: #9cdcfe;">%p</span><span
+                    style="color: #d7ba7d;">\n</span><span style="color: #ce9178;">"</span>, <span
+                    style="color: #9cdcfe;">i</span>, &amp;<span style="color: #9cdcfe;">x</span>[<span
+                    style="color: #9cdcfe;">i</span>]);</div>
+            <div>&nbsp; &nbsp; }</div><br>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Address of
+                    array x: </span><span style="color: #9cdcfe;">%p</span><span style="color: #ce9178;">"</span>, <span
+                    style="color: #9cdcfe;">x</span>);</div><br>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #b5cea8;">0</span>;</div>
+            <div>}</div>
+        </div>
+    </div>
+    <p class="w3-container">There is a difference of 4 bytes between two consecutive elements of array x. It is because
+        the size of int is 4 bytes (on our compiler).</p>
+    <p class="w3-container">From the above example, it is clear that &x[0] is equivalent to x. And, x[0] is equivalent
+        to *x.</p>
+    <p class="w3-container">Similarly,</p>
+    <ul>
+        <li><code>&amp;x[1]</code> is equivalent to <code>x+1</code> and <code>x[1]</code> is equivalent to
+            <code>*(x+1)</code>.
+        </li>
+        <li><code>&amp;x[2]</code> is equivalent to <code>x+2</code> and <code>x[2]</code> is equivalent to
+            <code>*(x+2)</code>.
+        </li>
+        <li>...</li>
+        <li>Basically, <code>&amp;x[i]</code> is equivalent to <code>x+i</code> and <code>x[i]</code> is equivalent to
+            <code>*(x+i)</code>.
+        </li>
+    </ul>
+    <div class="w3-container w3-text-blue">
+        <h4>Example 1: Pointers and Arrays</h4>
+    </div>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">i</span>, <span
+                    style="color: #9cdcfe;">x</span>[<span style="color: #b5cea8;">6</span>], <span
+                    style="color: #9cdcfe;">sum</span> = <span style="color: #b5cea8;">0</span>;</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Enter 6
+                    numbers: "</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">for</span> (<span style="color: #9cdcfe;">i</span> = <span
+                    style="color: #b5cea8;">0</span>; <span style="color: #9cdcfe;">i</span> &lt; <span
+                    style="color: #b5cea8;">6</span>; ++<span style="color: #9cdcfe;">i</span>)</div>
+            <div>&nbsp; &nbsp; {</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #6a9955;">// Equivalent to scanf("%d",
+                    &amp;x[i]);</span></div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">scanf</span>(<span
+                    style="color: #ce9178;">"</span><span style="color: #9cdcfe;">%d</span><span
+                    style="color: #ce9178;">"</span>, <span style="color: #9cdcfe;">x</span> + <span
+                    style="color: #9cdcfe;">i</span>);</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #6a9955;">// Equivalent to sum += x[i]</span></div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #9cdcfe;">sum</span> += *(<span
+                    style="color: #9cdcfe;">x</span> + <span style="color: #9cdcfe;">i</span>);</div>
+            <div>&nbsp; &nbsp; }</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Sum =
+                </span><span style="color: #9cdcfe;">%d</span><span style="color: #ce9178;">"</span>, <span
+                    style="color: #9cdcfe;">sum</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #b5cea8;">0</span>;</div>
+            <div>}</div>
+        </div>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>Example 2: Arrays and Pointers</h4>
+    </div>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">x</span>[<span
+                    style="color: #b5cea8;">5</span>] = {<span style="color: #b5cea8;">1</span>, <span
+                    style="color: #b5cea8;">2</span>, <span style="color: #b5cea8;">3</span>, <span
+                    style="color: #b5cea8;">4</span>, <span style="color: #b5cea8;">5</span>};</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> *<span style="color: #9cdcfe;">ptr</span>;</div>
+            <div>&nbsp; &nbsp; <span style="color: #6a9955;">// ptr is assigned the address of the third element</span>
+            </div>
+            <div>&nbsp; &nbsp; <span style="color: #9cdcfe;">ptr</span> = &amp;<span
+                    style="color: #9cdcfe;">x</span>[<span style="color: #b5cea8;">2</span>];</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"*ptr =
+                </span><span style="color: #9cdcfe;">%d</span><span style="color: #ce9178;"> </span><span
+                    style="color: #d7ba7d;">\n</span><span style="color: #ce9178;">"</span>, *<span
+                    style="color: #9cdcfe;">ptr</span>); &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span
+                    style="color: #6a9955;">// 3</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"*(ptr+1) =
+                </span><span style="color: #9cdcfe;">%d</span><span style="color: #ce9178;"> </span><span
+                    style="color: #d7ba7d;">\n</span><span style="color: #ce9178;">"</span>, *(<span
+                    style="color: #9cdcfe;">ptr</span> + <span style="color: #b5cea8;">1</span>)); <span
+                    style="color: #6a9955;">// 4</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"*(ptr-1) =
+                </span><span style="color: #9cdcfe;">%d</span><span style="color: #ce9178;">"</span>, *(<span
+                    style="color: #9cdcfe;">ptr</span> - <span style="color: #b5cea8;">1</span>)); &nbsp; &nbsp;<span
+                    style="color: #6a9955;">// 2</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #b5cea8;">0</span>;</div>
+            <div>}</div>
+        </div>
+
+    </div>
+    <div class="w3-container w3-text-aqua">
+        <h3>C Pointers And Functions</h3>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>C Pass Addresses and Pointers</h4>
+    </div>
+    <p class="w3-container">Example: Pass Addresses to Functions</p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">void</span> <span style="color: #dcdcaa;">swap</span>(<span
+                    style="color: #569cd6;">int</span> *<span style="color: #9cdcfe;">n1</span>, <span
+                    style="color: #569cd6;">int</span> *<span style="color: #9cdcfe;">n2</span>);</div><br>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">num1</span> =
+                <span style="color: #b5cea8;">5</span>, <span style="color: #9cdcfe;">num2</span> = <span
+                    style="color: #b5cea8;">10</span>;
+            </div><br>
+            <div>&nbsp; &nbsp; <span style="color: #6a9955;">// address of num1 and num2 is passed</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">swap</span>(&amp;<span style="color: #9cdcfe;">num1</span>,
+                &amp;<span style="color: #9cdcfe;">num2</span>);</div><br>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"num1 =
+                </span><span style="color: #9cdcfe;">%d</span><span style="color: #d7ba7d;">\n</span><span
+                    style="color: #ce9178;">"</span>, <span style="color: #9cdcfe;">num1</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"num2 =
+                </span><span style="color: #9cdcfe;">%d</span><span style="color: #ce9178;">"</span>, <span
+                    style="color: #9cdcfe;">num2</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #b5cea8;">0</span>;</div>
+            <div>}</div><br>
+            <div><span style="color: #569cd6;">void</span> <span style="color: #dcdcaa;">swap</span>(<span
+                    style="color: #569cd6;">int</span> *<span style="color: #9cdcfe;">n1</span>, <span
+                    style="color: #569cd6;">int</span> *<span style="color: #9cdcfe;">n2</span>)</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">temp</span>;</div>
+            <div>&nbsp; &nbsp; <span style="color: #9cdcfe;">temp</span> = *<span style="color: #9cdcfe;">n1</span>;
+            </div>
+            <div>&nbsp; &nbsp; *<span style="color: #9cdcfe;">n1</span> = *<span style="color: #9cdcfe;">n2</span>;
+            </div>
+            <div>&nbsp; &nbsp; *<span style="color: #9cdcfe;">n2</span> = <span style="color: #9cdcfe;">temp</span>;
+            </div>
+            <div>}</div>
+        </div>
+    </div>
+    <p class="w3-container">Example 2: Passing Pointers to Functions</p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div><br>
+            <div><span style="color: #569cd6;">void</span> <span style="color: #dcdcaa;">addOne</span>(<span
+                    style="color: #569cd6;">int</span> *<span style="color: #9cdcfe;">ptr</span>)</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; (*<span style="color: #9cdcfe;">ptr</span>)++; <span style="color: #6a9955;">// adding 1
+                    to *ptr</span></div>
+            <div>}</div><br>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> *<span style="color: #9cdcfe;">p</span>, <span
+                    style="color: #9cdcfe;">i</span> = <span style="color: #b5cea8;">10</span>;</div>
+            <div>&nbsp; &nbsp; <span style="color: #9cdcfe;">p</span> = &amp;<span style="color: #9cdcfe;">i</span>;
+            </div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">addOne</span>(<span style="color: #9cdcfe;">p</span>);
+            </div><br>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%d</span><span style="color: #ce9178;">"</span>, *<span
+                    style="color: #9cdcfe;">p</span>); <span style="color: #6a9955;">// 11</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #b5cea8;">0</span>;</div>
+            <div>}</div>
+        </div>
+    </div>
+    <div class="w3-container w3-text-aqua">
+        <h3>C Dynamic Memory Allocation</h3>
+    </div>
+    <p class="w3-container">In this tutorial, you'll learn to dynamically allocate memory in your C program using
+        standard library functions: malloc(), calloc(), free() and realloc().</p>
+
+    <p>As you know, an array is a collection of a fixed number of values. Once the size of an array is declared, you
+        cannot change it.</p>
+    <p>Sometimes the size of the array you declared may be insufficient. To solve this issue, you can allocate memory
+        manually during run-time. This is known as dynamic memory allocation in C programming.</p>
+    <p>To allocate memory dynamically, library functions are malloc(), calloc(), realloc() and free() are used. These
+        functions are defined in the &#60;stdlib.h> header file.</p>
+    <div class="w3-container w3-text-blue">
+        <h4>C malloc()</h4>
+    </div>
+    <p class="w3-container">The name "malloc" stands for memory allocation.</p>
+    <p class="w3-container">The malloc() function reserves a block of memory of the specified number of bytes. And, it
+        returns a pointer of void which can be casted into pointers of any form.</p>
+    <p class="w3-container">Syntax of malloc()</p>
+    <div class="w3-code  w3-card w3-grey" contenteditable>
+        ptr = (castType*) malloc(size);
+    </div>
+    <p class="w3-container">concept</p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #569cd6;">float</span> *<span style="color: #9cdcfe;">ptr</span>;</div>
+            <div><span style="color: rgb(106, 153, 85);">/* allocates 400 bytes of memory. It's because the size of
+                    float is 4 bytes. And,</span></div>
+            <div><span style="color: #6a9955;">the pointer ptr holds the address of the first byte in the allocated
+                    memory.*/</span></div>
+            <div><span style="color: #9cdcfe;">ptr</span> = (<span style="color: #569cd6;">float</span> *)<span
+                    style="color: #dcdcaa;">malloc</span>(<span style="color: #b5cea8;">100</span> * <span
+                    style="color: #569cd6;">sizeof</span>(<span style="color: #569cd6;">float</span>));</div>
+        </div>
+    </div>
+    <p class="w3-container">example</p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdlib.h&gt;</span></div>
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;string.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">char</span> *<span style="color: #9cdcfe;">x</span>; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span
+                    style="color: #6a9955;">// here x is apointer</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #9cdcfe;">x</span> = (<span style="color: #569cd6;">char</span>
+                *)<span style="color: #dcdcaa;">malloc</span>(<span style="color: #b5cea8;">15</span> * <span
+                    style="color: #569cd6;">sizeof</span>(<span style="color: #569cd6;">char</span>)); <span
+                    style="color: #6a9955;">// here we allocate 15 byte (char * 15) for x in memory</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">strcpy</span>(<span style="color: #9cdcfe;">x</span>, <span
+                    style="color: #ce9178;">"one day mother said"</span>); &nbsp; &nbsp; &nbsp;<span
+                    style="color: #6a9955;">// here we copy a string to x pointer</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%s</span><span style="color: #ce9178;">"</span>, <span
+                    style="color: #9cdcfe;">x</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #b5cea8;">0</span>;</div>
+            <div>}</div>
+        </div>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>C calloc()</h4>
+    </div>
+    <p class="w3-container">The name "calloc" stands for contiguous allocation.</p>
+    <p class="w3-container">The malloc() function allocates memory and leaves the memory uninitialized, whereas the
+        calloc() function allocates memory and initializes all bits to zero.</p>
+    <p class="w3-container">Syntax of calloc()</p>
+    <div class="w3-code  w3-card w3-grey" contenteditable>ptr = (castType*)calloc(n, size);</div>
+
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #569cd6;">float</span> *<span style="color: #9cdcfe;">ptr</span>;</div>
+            <div><span style="color: #9cdcfe;">ptr</span> = (<span style="color: #569cd6;">float</span> *)<span
+                    style="color: #dcdcaa;">calloc</span>(<span style="color: #b5cea8;">25</span>, <span
+                    style="color: #569cd6;">sizeof</span>(<span style="color: #569cd6;">float</span>));</div>
+        </div>
+    </div>
+    <p class="w3-container">example</p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdlib.h&gt;</span></div>
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;string.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">float</span> *<span style="color: #9cdcfe;">ptr</span>;
+            </div>
+            <div>&nbsp; &nbsp; <span style="color: #9cdcfe;">ptr</span> = (<span style="color: #569cd6;">float</span>
+                *)<span style="color: #dcdcaa;">calloc</span>(<span style="color: #b5cea8;">25</span>, <span
+                    style="color: #569cd6;">sizeof</span>(<span style="color: #569cd6;">float</span>));</div>
+            <div>&nbsp; &nbsp; <span style="color: #9cdcfe;">ptr</span>[<span style="color: #b5cea8;">10</span>]=<span
+                    style="color: #b5cea8;">2.5</span>;</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%f</span><span style="color: #ce9178;">"</span>,<span
+                    style="color: #9cdcfe;">ptr</span>[<span style="color: #b5cea8;">10</span>]);</div>
+            <div>}</div>
+        </div>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>C free()</h4>
+    </div>
+    <p class="w3-container">Dynamically allocated memory created with either calloc() or malloc() doesn't get freed on
+        their own. You must explicitly use free() to release the space.</p>
+    <p class="w3-container">Syntax of free()</p>
+    <div class="w3-code  w3-card w3-grey" contenteditable>free(ptr);<span class="w3-text-blue"> //This statement frees
+            the space allocated in the memory pointed by ptr.</span></div>
+    <p class="w3-container">Example 1: malloc() and free()</p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #6a9955;">// Program to calculate the sum of n numbers entered by the user</span>
+            </div>
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdlib.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">n</span>, <span
+                    style="color: #9cdcfe;">i</span>, *<span style="color: #9cdcfe;">ptr</span>, <span
+                    style="color: #9cdcfe;">sum</span> = <span style="color: #b5cea8;">0</span>;</div><br>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Enter number
+                    of elements: "</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">scanf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%d</span><span style="color: #ce9178;">"</span>, &amp;<span
+                    style="color: #9cdcfe;">n</span>);</div><br>
+            <div>&nbsp; &nbsp; <span style="color: #9cdcfe;">ptr</span> = (<span style="color: #569cd6;">int</span>
+                *)<span style="color: #dcdcaa;">malloc</span>(<span style="color: #9cdcfe;">n</span> * <span
+                    style="color: #569cd6;">sizeof</span>(<span style="color: #569cd6;">int</span>));</div><br>
+            <div>&nbsp; &nbsp; <span style="color: #6a9955;">// if memory cannot be allocated</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">if</span> (<span style="color: #9cdcfe;">ptr</span> ==
+                <span style="color: #569cd6;">NULL</span>)
+            </div>
+            <div>&nbsp; &nbsp; {</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span
+                    style="color: #ce9178;">"Error! memory not allocated."</span>);</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">exit</span>(<span
+                    style="color: #b5cea8;">0</span>);</div>
+            <div>&nbsp; &nbsp; }</div><br>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Enter
+                    elements: "</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">for</span> (<span style="color: #9cdcfe;">i</span> = <span
+                    style="color: #b5cea8;">0</span>; <span style="color: #9cdcfe;">i</span> &lt; <span
+                    style="color: #9cdcfe;">n</span>; ++<span style="color: #9cdcfe;">i</span>)</div>
+            <div>&nbsp; &nbsp; {</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">scanf</span>(<span
+                    style="color: #ce9178;">"</span><span style="color: #9cdcfe;">%d</span><span
+                    style="color: #ce9178;">"</span>, <span style="color: #9cdcfe;">ptr</span> + <span
+                    style="color: #9cdcfe;">i</span>);</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #9cdcfe;">sum</span> += *(<span
+                    style="color: #9cdcfe;">ptr</span> + <span style="color: #9cdcfe;">i</span>);</div>
+            <div>&nbsp; &nbsp; }</div><br>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Sum =
+                </span><span style="color: #9cdcfe;">%d</span><span style="color: #ce9178;">"</span>, <span
+                    style="color: #9cdcfe;">sum</span>);</div><br>
+            <div>&nbsp; &nbsp; <span style="color: #6a9955;">// deallocating the memory</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">free</span>(<span style="color: #9cdcfe;">ptr</span>);
+            </div><br>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #b5cea8;">0</span>;</div>
+            <div>}</div>
+        </div>
+    </div>
+    <p class="w3-container">Example 2: calloc() and free()</p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #6a9955;">// Program to calculate the sum of n numbers entered by the user</span>
+            </div>
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdlib.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">n</span>, <span
+                    style="color: #9cdcfe;">i</span>, *<span style="color: #9cdcfe;">ptr</span>, <span
+                    style="color: #9cdcfe;">sum</span> = <span style="color: #b5cea8;">0</span>;</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Enter number
+                    of elements: "</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">scanf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%d</span><span style="color: #ce9178;">"</span>, &amp;<span
+                    style="color: #9cdcfe;">n</span>);</div><br>
+            <div>&nbsp; &nbsp; <span style="color: #9cdcfe;">ptr</span> = (<span style="color: #569cd6;">int</span>
+                *)<span style="color: #dcdcaa;">calloc</span>(<span style="color: #9cdcfe;">n</span>, <span
+                    style="color: #569cd6;">sizeof</span>(<span style="color: #569cd6;">int</span>));</div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">if</span> (<span style="color: #9cdcfe;">ptr</span> ==
+                <span style="color: #569cd6;">NULL</span>)
+            </div>
+            <div>&nbsp; &nbsp; {</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span
+                    style="color: #ce9178;">"Error! memory not allocated."</span>);</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">exit</span>(<span
+                    style="color: #b5cea8;">0</span>);</div>
+            <div>&nbsp; &nbsp; }</div><br>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Enter
+                    elements: "</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">for</span> (<span style="color: #9cdcfe;">i</span> = <span
+                    style="color: #b5cea8;">0</span>; <span style="color: #9cdcfe;">i</span> &lt; <span
+                    style="color: #9cdcfe;">n</span>; ++<span style="color: #9cdcfe;">i</span>)</div>
+            <div>&nbsp; &nbsp; {</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">scanf</span>(<span
+                    style="color: #ce9178;">"</span><span style="color: #9cdcfe;">%d</span><span
+                    style="color: #ce9178;">"</span>, <span style="color: #9cdcfe;">ptr</span> + <span
+                    style="color: #9cdcfe;">i</span>);</div>
+            <div>&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #9cdcfe;">sum</span> += *(<span
+                    style="color: #9cdcfe;">ptr</span> + <span style="color: #9cdcfe;">i</span>);</div>
+            <div>&nbsp; &nbsp; }</div><br>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Sum =
+                </span><span style="color: #9cdcfe;">%d</span><span style="color: #ce9178;">"</span>, <span
+                    style="color: #9cdcfe;">sum</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">free</span>(<span style="color: #9cdcfe;">ptr</span>);
+            </div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #b5cea8;">0</span>;</div>
+            <div>}</div>
+        </div>
+    </div>
+    <div class="w3-center w3-container w3-text-red w3-margin-bottom">
+        <h2 id="ch6">C Programming Strings</h2>
+    </div>
+    <div class="w3-container w3-text-aqua">
+        <h3>C Programming Strings</h3>
+    </div>
+    <p class="w3-container">In C programming, a string is a sequence of characters terminated with a null character \0.
+        For example</p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods"> <span style="color: #569cd6;">char</span> <span style="color: #9cdcfe;">c</span><span
+                style="color: #569cd6;">[]</span> = <span style="color: #ce9178;">"c string"</span>;</div>
+    </div>
+    <p class="w3-container">When the compiler encounters a sequence of characters enclosed in the double quotation
+        marks, it appends a null character \0 at the end by default.</p>
+    <div class="w3-container w3-text-blue">
+        <h4>How to declare a string?</h4>
+    </div>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods"> <span style="color: #569cd6;">char</span> <span style="color: #9cdcfe;">s</span>[<span
+                style="color: #b5cea8;">5</span>];</div>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>How to initialize strings?</h4>
+    </div>
+    <p class="w3-container">You can initialize strings in a number of ways</p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #569cd6;">char</span> <span style="color: #9cdcfe;">c</span><span
+                    style="color: #569cd6;">[]</span> = <span style="color: #ce9178;">"abcd"</span>;</div>
+            <div><span style="color: #569cd6;">char</span> <span style="color: #9cdcfe;">c</span>[<span
+                    style="color: #b5cea8;">50</span>] = <span style="color: #ce9178;">"abcd"</span>;</div>
+            <div><span style="color: #569cd6;">char</span> <span style="color: #9cdcfe;">c</span><span
+                    style="color: #569cd6;">[]</span> = {<span style="color: #ce9178;">'a'</span>, <span
+                    style="color: #ce9178;">'b'</span>, <span style="color: #ce9178;">'c'</span>, <span
+                    style="color: #ce9178;">'d'</span>, <span style="color: #ce9178;">'</span><span
+                    style="color: #d7ba7d;">\0</span><span style="color: #ce9178;">'</span>};</div>
+            <div><span style="color: #569cd6;">char</span> <span style="color: #9cdcfe;">c</span>[<span
+                    style="color: #b5cea8;">5</span>] = {<span style="color: #ce9178;">'a'</span>, <span
+                    style="color: #ce9178;">'b'</span>, <span style="color: #ce9178;">'c'</span>, <span
+                    style="color: #ce9178;">'d'</span>, <span style="color: #ce9178;">'</span><span
+                    style="color: #d7ba7d;">\0</span><span style="color: #ce9178;">'</span>};</div>
+        </div>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>Assigning Values to Strings</h4>
+    </div>
+    <p class="w3-container">Arrays and strings are second-class citizens in C; they do not support the assignment
+        operator once it is declared. For example,</p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #569cd6;">char</span> <span style="color: #9cdcfe;">c</span>[<span
+                    style="color: #b5cea8;">100</span>];</div>
+            <div><span style="color: #9cdcfe;">c</span> = <span style="color: #ce9178;">"C programming"</span>; <span
+                    style="color: #6a9955;">// Error! array type is not assignable.</span></div>
+        </div>
+    </div>
+    <p class="w3-container">Note: Use the strcpy() function to copy the string instead.</p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdlib.h&gt;</span></div>
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;string.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">char</span> <span style="color: #9cdcfe;">c</span>[<span
+                    style="color: #b5cea8;">100</span>];</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">strcpy</span>(<span style="color: #9cdcfe;">c</span>, <span
+                    style="color: #ce9178;">"onedaymother"</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%s</span><span style="color: #ce9178;">"</span>, <span
+                    style="color: #9cdcfe;">c</span>);</div>
+            <div>}</div>
+        </div>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>Read String from the user</h4>
+    </div>
+    <p class="w3-container">You can use the scanf() function to read a string.
+        The scanf() function reads the sequence of characters until it encounters whitespace (space, newline, tab,
+        etc.).
+    </p>
+    <p class="w3-container">Example 1: scanf() to read a string</p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">char</span> <span style="color: #9cdcfe;">name</span>[<span
+                    style="color: #b5cea8;">20</span>];</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Enter name:
+                    "</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">scanf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%s</span><span style="color: #ce9178;">"</span>, <span
+                    style="color: #9cdcfe;">name</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #6a9955;">/*the name in scanf() already points to the address of the
+                    first</span></div>
+            <div><span style="color: #6a9955;">&nbsp; &nbsp; element in the string, which is why we don't need to use
+                    &amp;.*/</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Your name is
+                </span><span style="color: #9cdcfe;">%s</span><span style="color: #ce9178;">."</span>, <span
+                    style="color: #9cdcfe;">name</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #b5cea8;">0</span>;</div>
+            <div>}</div>
+        </div>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>How to read a line of text?</h4>
+    </div>
+    <p class="w3-container">You can use the fgets() function to read a line of string. And, you can use puts() to
+        display the string.</p>
+    <p class="w3-container">Example 2: fgets() and puts()</p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">char</span> <span style="color: #9cdcfe;">name</span>[<span
+                    style="color: #b5cea8;">30</span>];</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Enter name:
+                    "</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">fgets</span>(<span style="color: #9cdcfe;">name</span>,
+                <span style="color: #569cd6;">sizeof</span>(<span style="color: #9cdcfe;">name</span>), <span
+                    style="color: #569cd6;">stdin</span>); <span style="color: #6a9955;">// read string</span>
+            </div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Name:
+                    "</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">puts</span>(<span style="color: #9cdcfe;">name</span>);
+                <span style="color: #6a9955;">// display string</span>
+            </div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #b5cea8;">0</span>;</div>
+            <div>}</div>
+        </div>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>Passing Strings to Functions</h4>
+    </div>
+    <p class="w3-container">Strings can be passed to a function in a similar way as arrays. Learn more about</p>
+    <p class="w3-container">Example 3: Passing string to a Function</p>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">void</span> <span style="color: #dcdcaa;">displayString</span>(<span
+                    style="color: #569cd6;">char</span> <span style="color: #9cdcfe;">str</span><span
+                    style="color: #569cd6;">[]</span>);</div><br>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">char</span> <span style="color: #9cdcfe;">str</span>[<span
+                    style="color: #b5cea8;">50</span>];</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Enter string:
+                    "</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">fgets</span>(<span style="color: #9cdcfe;">str</span>,
+                <span style="color: #569cd6;">sizeof</span>(<span style="color: #9cdcfe;">str</span>), <span
+                    style="color: #569cd6;">stdin</span>);
+            </div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">displayString</span>(<span
+                    style="color: #9cdcfe;">str</span>); <span style="color: #6a9955;">// Passing string to a
+                    function.</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #b5cea8;">0</span>;</div>
+            <div>}</div>
+            <div><span style="color: #569cd6;">void</span> <span style="color: #dcdcaa;">displayString</span>(<span
+                    style="color: #569cd6;">char</span> <span style="color: #9cdcfe;">str</span><span
+                    style="color: #569cd6;">[]</span>)</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"String Output:
+                    "</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">puts</span>(<span style="color: #9cdcfe;">str</span>);
+            </div>
+            <div>}</div>
+        </div>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>Strings and Pointers</h4>
+    </div>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>(<span
+                    style="color: #569cd6;">void</span>)</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">char</span> <span style="color: #9cdcfe;">name</span><span
+                    style="color: #569cd6;">[]</span> = <span style="color: #ce9178;">"Harry Potter"</span>;</div><br>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%c</span><span style="color: #ce9178;">"</span>, *<span
+                    style="color: #9cdcfe;">name</span>); &nbsp; &nbsp; &nbsp; <span style="color: #6a9955;">// Output:
+                    H</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%c</span><span style="color: #ce9178;">"</span>, *(<span
+                    style="color: #9cdcfe;">name</span> + <span style="color: #b5cea8;">1</span>)); <span
+                    style="color: #6a9955;">// Output: a</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%c</span><span style="color: #ce9178;">"</span>, *(<span
+                    style="color: #9cdcfe;">name</span> + <span style="color: #b5cea8;">7</span>)); <span
+                    style="color: #6a9955;">// Output: o</span></div><br>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">char</span> *<span style="color: #9cdcfe;">namePtr</span>;
+            </div><br>
+            <div>&nbsp; &nbsp; <span style="color: #9cdcfe;">namePtr</span> = <span style="color: #9cdcfe;">name</span>;
+            </div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%c</span><span style="color: #ce9178;">"</span>, *<span
+                    style="color: #9cdcfe;">namePtr</span>); &nbsp; &nbsp; &nbsp; <span style="color: #6a9955;">//
+                    Output: H</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%c</span><span style="color: #ce9178;">"</span>, *(<span
+                    style="color: #9cdcfe;">namePtr</span> + <span style="color: #b5cea8;">1</span>)); <span
+                    style="color: #6a9955;">// Output: a</span></div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"</span><span
+                    style="color: #9cdcfe;">%c</span><span style="color: #ce9178;">"</span>, *(<span
+                    style="color: #9cdcfe;">namePtr</span> + <span style="color: #b5cea8;">7</span>)); <span
+                    style="color: #6a9955;">// Output: o</span></div>
+            <div>}</div>
+        </div>
+    </div>
+    <div class="w3-container w3-text-aqua">
+        <h3>C String Functions</h3>
+    </div>
+    <p class="w3-container">C supports a large number of string handling functions in the standard library "string.h"
+    </p>
+    <p class="w3-container">Strings handling functions are defined under "string.h" header file</p>
+    <table summary="Function under &quot;string.h&quot; header file in C programming" border="0">
+        <thead>
+            <tr>
+                <th>Function</th>
+                <th>Work of Function</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>strlen()</td>
+                <td>computes string's length</td>
+            </tr>
+            <tr class="cprotable">
+                <td>strcpy()</td>
+                <td>copies a string to another</td>
+            </tr>
+            <tr>
+                <td>strcat()</td>
+                <td>concatenates(joins) two strings</td>
+            </tr>
+            <tr class="cprotable">
+                <td>strcmp()</td>
+                <td>compares two strings</td>
+            </tr>
+            <tr>
+                <td>strlwr()</td>
+                <td>converts string to lowercase</td>
+            </tr>
+            <tr class="cprotable">
+                <td>strupr()</td>
+                <td>converts string to uppercase</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="w3-container w3-text-blue">
+        <h4>gets() and puts()</h4>
+    </div>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div><br>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp; <span style="color: #569cd6;">char</span> <span style="color: #9cdcfe;">name</span>[<span
+                    style="color: #b5cea8;">30</span>];</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Enter name:
+                    "</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">gets</span>(<span style="color: #9cdcfe;">name</span>);
+                <span style="color: #6a9955;">// Function to read string from user.</span>
+            </div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"Name:
+                    "</span>);</div>
+            <div>&nbsp; &nbsp; <span style="color: #dcdcaa;">puts</span>(<span style="color: #9cdcfe;">name</span>);
+                <span style="color: #6a9955;">// Function to display string.</span>
+            </div>
+            <div>&nbsp; &nbsp; <span style="color: #c586c0;">return</span> <span style="color: #b5cea8;">0</span>;</div>
+            <div>}</div>
+        </div>
+    </div>
+    <p class="w3-container">Note: Though, gets() and puts() function handle strings, both these functions are defined in
+        "stdio.h" header file.</p>
+    <div class="w3-container w3-text-aqua">
+        <h3>C String Examples</h3>
+    </div>
+    <p class="w3-container"> <a href="https://www.programiz.com/c-programming/c-string-examples">click me</a></p>
+    <div class="w3-center w3-container w3-text-red w3-margin-bottom">
+        <h2 id="ch7">Structure And Union</h2>
+    </div>
+    <div class="ali" contenteditable spellcheck="false">
+        <div class="cods">
+            <div><span style="color: #c586c0;">#include</span><span style="color: #569cd6;"> </span><span
+                    style="color: #ce9178;">&lt;stdio.h&gt;</span></div>
+            <div><span style="color: #569cd6;">int</span> <span style="color: #dcdcaa;">main</span>()</div>
+            <div>{</div>
+            <div>&nbsp; &nbsp;<span style="color: #569cd6;">int</span> <span style="color: #9cdcfe;">i</span> = <span
+                    style="color: #b5cea8;">0</span>;</div>
+            <div>&nbsp; &nbsp;<span style="color: #c586c0;">for</span> (; <span style="color: #9cdcfe;">i</span> &lt;
+                <span style="color: #b5cea8;">100</span>; <span style="color: #9cdcfe;">i</span>++)
+            </div>
+            <div>&nbsp; &nbsp;{</div>
+            <div>&nbsp; &nbsp; &nbsp; <span style="color: #dcdcaa;">printf</span>(<span style="color: #ce9178;">"one
+                    day</span><span style="color: #d7ba7d;">\n</span>
+                <spanf style="color: #ce9178;">"</span>);
+            </div>
+            <div>&nbsp; &nbsp;}</div>
+            <div>&nbsp; &nbsp;<span style="color: #c586c0;">return</span> <span style="color: #b5cea8;">0</span>;</div>
+            <div>}</div>
+        </div>
+
+    </div>
+
+
+
+
+
+    <script>
+        document.getElementById("close").onclick = () => {
+            document.getElementById("close").parentElement.style.display = "none";
+            document.getElementById("max").style.display = "block"
+        }
+        document.getElementById("max").onclick = () => {
+            document.getElementById("close").parentElement.style.display = "block";
+            document.getElementById("max").style.display = "none"
+        }
+    </script>
+</body>
+
+</html>

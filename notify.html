@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notify</title>
+</head>
+
+<body>
+    <script>
+
+        function foneNotify(nick, message) {
+            navigator.serviceWorker.ready.then((registration) => {
+                registration.showNotification(nick, {
+                    body: message,
+                    icon: "https://alisodsin.github.io/speak.png"
+                });
+            });
+        };
+        window.addEventListener("message", (event) => {
+            const nick = event.nick;
+            const message = event.message;
+            foneNotify(nick, message);
+
+        });
+    </script>
+</body>
+
+</html>

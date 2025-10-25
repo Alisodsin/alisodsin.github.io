@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+                * {
+                        color: white;
+                }
+
+                table,
+                td,
+                th {
+                        border: 1px solid;
+                        border-collapse: collapse;
+                        text-align: center;
+                        vertical-align: middle;
+
+                }
+
+                table {
+                        width: 100%;
+                        aspect-ratio: 2;
+                }
+
+                .cods {
+                        color: rgb(212, 212, 212);
+                        background-color: rgb(30, 30, 30);
+                        font-family: monospace;
+                        white-space: nowrap;
+                        overflow: auto;
+                        line-height: 19px;
+                        overflow: auto;
+                        padding: 10px;
+                        border-radius: 1%;
+                        outline: none;
+                        font-size: 1.09em;
+                }
+
+                h3 {
+                        color: red !important;
+                }
+
+                p {
+                        color: blueviolet;
+                }
+        </style>
+        <title>c# in depth</title>
+</head>
+
+<body style="background-color: black;">
+        <h3>THE C# TYPE SYSTEM</h3>
+        <p>INTEGER TYPES</p>
+        c#
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">// 8 integer types</span></div>
+                        <div><span style="color: #569cd6;">byte</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">a</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">50</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #569cd6;">sbyte</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">b</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">-</span><span style="color: #b5cea8;">50</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #569cd6;">short</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">c</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">-</span><span style="color: #b5cea8;">200</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #569cd6;">ushort</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">d</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">200</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #569cd6;">int</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">e</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">-</span><span style="color: #b5cea8;">500</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #569cd6;">uint</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">f</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">500</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #569cd6;">long</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">g</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">-</span><span style="color: #b5cea8;">7000</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #569cd6;">ulong</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">h</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">7000</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #6a9955;">//Binary and Hexadecimal Literals</span></div>
+                        <div><span style="color: #569cd6;">int</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">thirteen</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">0b00001101</span><span style="color: #d4d4d4;">;
+                                </span><span style="color: #6a9955;">//0b used to represent int in binary</span></div>
+                        <div><span style="color: #569cd6;">int</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">theColorMagenta</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">0xFF00FF</span><span style="color: #d4d4d4;">;
+                                </span><span style="color: #6a9955;">// 0x is hexdecimal</span></div>
+                </div>
+        </div>
+        powershell
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;"># 8 integer types</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">byte</span><span
+                                        style="color: #d4d4d4;">]</span><span style="color: #9cdcfe;">$a</span><span
+                                        style="color: #d4d4d4;"> = </span><span style="color: #b5cea8;">50</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">sbyte</span><span
+                                        style="color: #d4d4d4;">]</span><span style="color: #9cdcfe;">$b</span><span
+                                        style="color: #d4d4d4;"> = </span><span style="color: #b5cea8;">-50</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">short</span><span
+                                        style="color: #d4d4d4;">]</span><span style="color: #9cdcfe;">$c</span><span
+                                        style="color: #d4d4d4;"> = </span><span style="color: #b5cea8;">-200</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">ushort</span><span
+                                        style="color: #d4d4d4;">]</span><span style="color: #9cdcfe;">$d</span><span
+                                        style="color: #d4d4d4;"> = </span><span style="color: #b5cea8;">200</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">int</span><span
+                                        style="color: #d4d4d4;">]</span><span style="color: #9cdcfe;">$e</span><span
+                                        style="color: #d4d4d4;"> = </span><span style="color: #b5cea8;">-500</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">uint</span><span
+                                        style="color: #d4d4d4;">]</span><span style="color: #9cdcfe;">$f</span><span
+                                        style="color: #d4d4d4;"> = </span><span style="color: #b5cea8;">500</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">long</span><span
+                                        style="color: #d4d4d4;">]</span><span style="color: #9cdcfe;">$g</span><span
+                                        style="color: #d4d4d4;"> = </span><span style="color: #b5cea8;">-7000</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">ulong</span><span
+                                        style="color: #d4d4d4;">]</span><span style="color: #9cdcfe;">$h</span><span
+                                        style="color: #d4d4d4;"> = </span><span style="color: #b5cea8;">7000</span><span
+                                        style="color: #d4d4d4;"> </span></div>
+                        <div><span style="color: #9cdcfe;">$a</span><span style="color: #d4d4d4;"> + </span><span
+                                        style="color: #9cdcfe;">$b</span><span style="color: #d4d4d4;"> + </span><span
+                                        style="color: #9cdcfe;">$c</span><span style="color: #d4d4d4;"> + </span><span
+                                        style="color: #9cdcfe;">$d</span><span style="color: #d4d4d4;"> + </span><span
+                                        style="color: #9cdcfe;">$e</span><span style="color: #d4d4d4;"> + </span><span
+                                        style="color: #9cdcfe;">$f</span><span style="color: #d4d4d4;"> + </span><span
+                                        style="color: #9cdcfe;">$g</span><span style="color: #d4d4d4;"> + </span><span
+                                        style="color: #9cdcfe;">$h</span></div><br>
+                        <div><span style="color: #6a9955;"># Binary and Hexadecimal Literals</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">int</span><span
+                                        style="color: #d4d4d4;">] </span><span
+                                        style="color: #9cdcfe;">$thirteen</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #b5cea8;">0b00001101</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">int</span><span
+                                        style="color: #d4d4d4;">] </span><span
+                                        style="color: #9cdcfe;">$theColorMagenta</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #b5cea8;">0xFF00FF</span></div>
+                        <div><span style="color: #9cdcfe;">$thirteen</span></div>
+                        <div><span style="color: #9cdcfe;">$theColorMagenta</span><span style="color: #d4d4d4;"> </span>
+                        </div>
+                </div>
+        </div>
+
+        <p>TEXT: CHARACTERS AND STRINGS</p>
+        c#
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">//char</span></div>
+                        <div><span style="color: #569cd6;">char</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">letter</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">'</span><span style="color: #ce9178;">\u0061</span><span
+                                        style="color: #ce9178;">'</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #569cd6;">char</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">aLetter</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">'a'</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #6a9955;">//string</span></div>
+                        <div><span style="color: #569cd6;">string</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">name</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"ali saber"</span><span style="color: #d4d4d4;">;</span>
+                        </div>
+                </div>
+        </div>
+        powershell
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;"># char</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">char</span><span
+                                        style="color: #d4d4d4;">] </span><span
+                                        style="color: #9cdcfe;">$aLetter</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #ce9178;">'a'</span></div>
+                        <div><span style="color: #9cdcfe;">$aLetter</span></div><br>
+                        <div><span style="color: #6a9955;"># string</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">string</span><span
+                                        style="color: #d4d4d4;">] </span><span style="color: #9cdcfe;">$name</span><span
+                                        style="color: #d4d4d4;"> = </span><span style="color: #ce9178;">"ali
+                                        saber"</span></div>
+                        <div><span style="color: #9cdcfe;">$name</span><span style="color: #d4d4d4;"> &nbsp;</span>
+                        </div>
+                </div>
+        </div>
+
+        <p>FLOATING-POINT TYPES</p>
+        c#
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">// floating types</span></div>
+                        <div><span style="color: #569cd6;">double</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">a</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">8.39</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #569cd6;">float</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">b</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">8.77F</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #569cd6;">decimal</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">c</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">20.512M</span><span style="color: #d4d4d4;">;</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">Console</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">$"</span><span
+                                        style="color: #ce9178;">a = </span><span style="color: #ce9178;">{</span><span
+                                        style="color: #9cdcfe;">a</span><span style="color: #ce9178;">}</span><span
+                                        style="color: #d7ba7d;">\n</span><span style="color: #ce9178;">b = {</span><span
+                                        style="color: #9cdcfe;">b</span><span style="color: #ce9178;">}</span><span
+                                        style="color: #d7ba7d;">\n</span><span style="color: #ce9178;">c = {</span><span
+                                        style="color: #9cdcfe;">c</span><span style="color: #ce9178;">}</span><span
+                                        style="color: #ce9178;">"</span><span style="color: #d4d4d4;">);</span></div>
+                        <br>
+                        <div><span style="color: #6a9955;">// Scientific Notation</span></div>
+                        <div><span style="color: #569cd6;">double</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">avogadrosNumber</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">6.022e23</span><span style="color: #d4d4d4;">;</span>
+                        </div>
+                </div>
+        </div>
+        powershell
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;"># floating types</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">double</span><span
+                                        style="color: #d4d4d4;">] </span><span style="color: #9cdcfe;">$a</span><span
+                                        style="color: #d4d4d4;"> = </span><span style="color: #b5cea8;">8.39</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">float</span><span
+                                        style="color: #d4d4d4;">] </span><span style="color: #9cdcfe;">$b</span><span
+                                        style="color: #d4d4d4;"> = </span><span style="color: #b5cea8;">8.77</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">decimal</span><span
+                                        style="color: #d4d4d4;">] </span><span style="color: #9cdcfe;">$c</span><span
+                                        style="color: #d4d4d4;"> = </span><span style="color: #b5cea8;">20.51</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">$a</span><span style="color: #dcdcaa;">.GetType</span><span
+                                        style="color: #d4d4d4;">().Name</span></div>
+                        <div><span style="color: #9cdcfe;">$b</span><span style="color: #dcdcaa;">.GetType</span><span
+                                        style="color: #d4d4d4;">().Name</span></div>
+                        <div><span style="color: #9cdcfe;">$c</span><span style="color: #dcdcaa;">.GetType</span><span
+                                        style="color: #d4d4d4;">().Name</span></div><br>
+                        <div><span style="color: #6a9955;"># Scientific Notation</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">double</span><span
+                                        style="color: #d4d4d4;">] </span><span
+                                        style="color: #9cdcfe;">$avogadrosNumber</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #b5cea8;">6.022e23</span></div>
+                        <div><span style="color: #9cdcfe;">$avogadrosNumber</span></div>
+                </div>
+        </div>
+        <p>THE BOOL TYPE</p>
+        c#
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">// Boolean types</span></div>
+                        <div><span style="color: #569cd6;">bool</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">x</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">true</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #569cd6;">bool</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">y</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">false</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #9cdcfe;">Console</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">$"</span><span
+                                        style="color: #ce9178;">{</span><span style="color: #9cdcfe;">x</span><span
+                                        style="color: #ce9178;">}</span><span style="color: #d7ba7d;">\n</span><span
+                                        style="color: #ce9178;">{</span><span style="color: #9cdcfe;">y</span><span
+                                        style="color: #ce9178;">}</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                </div>
+        </div>
+        powershell
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;"># Boolean types</span></div>
+                        <div><span style="color: #9cdcfe;">$x</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #569cd6;">$true</span></div>
+                        <div><span style="color: #9cdcfe;">$y</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #569cd6;">$false</span></div>
+                        <div><span style="color: #9cdcfe;">$x</span><span style="color: #dcdcaa;">.GetType</span><span
+                                        style="color: #d4d4d4;">().Name</span></div>
+                        <div><span style="color: #9cdcfe;">$y</span><span style="color: #dcdcaa;">.GetType</span><span
+                                        style="color: #d4d4d4;">().Name</span></div>
+                </div>
+        </div>
+        <p>TYPE INFERENCE</p>
+        c#
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">using</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">System</span><span style="color: #d4d4d4;">;</span>
+                        </div><br>
+                        <div><span style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Program</span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">z</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">30</span><span style="color: #d4d4d4;">; </span><span
+                                        style="color: #6a9955;">//error no type inference here</span></div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">static</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">Main</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">string</span><span style="color: #d4d4d4;">[]
+                                </span><span style="color: #9cdcfe;">args</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">a</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">'c'</span><span style="color: #d4d4d4;">; &nbsp;
+                                        &nbsp;</span><span style="color: #6a9955;">// char inference</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">b</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"c"</span><span style="color: #d4d4d4;">; &nbsp;
+                                        &nbsp;</span><span style="color: #6a9955;">// string inference</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">c</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">true</span><span style="color: #d4d4d4;">; &nbsp;
+                                </span><span style="color: #6a9955;">// bool inference</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">d</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">20</span><span style="color: #d4d4d4;">; &nbsp; &nbsp;
+                                </span><span style="color: #6a9955;">// int inference</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">e</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">25.9</span><span style="color: #d4d4d4;">; &nbsp;
+                                </span><span style="color: #6a9955;">// double inference</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        powershell
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">char</span><span
+                                        style="color: #d4d4d4;">] </span><span style="color: #9cdcfe;">$a</span><span
+                                        style="color: #d4d4d4;"> = </span><span style="color: #ce9178;">'x'</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #6a9955;"># char can't be
+                                        infered you have to explicity put its type </span></div>
+                        <div><span style="color: #9cdcfe;">$b</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">"c"</span><span style="color: #d4d4d4;"> &nbsp; &nbsp;
+                                        &nbsp; &nbsp;</span><span style="color: #6a9955;"># string inference</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">$c</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #569cd6;">$true</span><span style="color: #d4d4d4;"> &nbsp; &nbsp;
+                                        &nbsp;</span><span style="color: #6a9955;"># bool inference</span></div>
+                        <div><span style="color: #9cdcfe;">$d</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #b5cea8;">20</span><span style="color: #d4d4d4;"> &nbsp; &nbsp;
+                                        &nbsp; &nbsp; </span><span style="color: #6a9955;"># int inference</span></div>
+                        <div><span style="color: #9cdcfe;">$e</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #b5cea8;">25.9</span><span style="color: #d4d4d4;"> &nbsp; &nbsp;
+                                        &nbsp; </span><span style="color: #6a9955;"># double inference</span></div><br>
+                        <div><span style="color: #9cdcfe;">$a</span><span style="color: #dcdcaa;">.GetType</span><span
+                                        style="color: #d4d4d4;">().Name </span></div>
+                        <div><span style="color: #9cdcfe;">$b</span><span style="color: #dcdcaa;">.GetType</span><span
+                                        style="color: #d4d4d4;">().Name</span></div>
+                        <div><span style="color: #9cdcfe;">$c</span><span style="color: #dcdcaa;">.GetType</span><span
+                                        style="color: #d4d4d4;">().Name</span></div>
+                        <div><span style="color: #9cdcfe;">$d</span><span style="color: #dcdcaa;">.GetType</span><span
+                                        style="color: #d4d4d4;">().Name</span></div>
+                        <div><span style="color: #9cdcfe;">$e</span><span style="color: #dcdcaa;">.GetType</span><span
+                                        style="color: #d4d4d4;">().Name </span></div>
+                </div>
+        </div>
+        <p>THE CONVERT CLASS AND THE PARSE METHODS</p>
+        c#
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">// The Convert class is for converting between these
+                                        different built-in types</span></div>
+                        <div><span style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">a</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">25</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #569cd6;">byte</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">b</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Convert</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">ToByte</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">a</span><span
+                                        style="color: #d4d4d4;">); </span><span style="color: #6a9955;">//Byte</span>
+                        </div>
+                        <div><span style="color: #569cd6;">sbyte</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">c</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Convert</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">ToSByte</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">a</span><span
+                                        style="color: #d4d4d4;">); </span><span style="color: #6a9955;">//sByte</span>
+                        </div>
+                        <div><span style="color: #569cd6;">short</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">d</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Convert</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">ToInt16</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">a</span><span
+                                        style="color: #d4d4d4;">); </span><span style="color: #6a9955;">//short</span>
+                        </div>
+                        <div><span style="color: #569cd6;">ushort</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">e</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Convert</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">ToUInt16</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">a</span><span
+                                        style="color: #d4d4d4;">); </span><span style="color: #6a9955;">//ushort</span>
+                        </div>
+                        <div><span style="color: #569cd6;">int</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">f</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Convert</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">ToInt32</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">a</span><span
+                                        style="color: #d4d4d4;">); </span><span style="color: #6a9955;">//int</span>
+                        </div>
+                        <div><span style="color: #569cd6;">uint</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">g</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Convert</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">ToUInt32</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">a</span><span
+                                        style="color: #d4d4d4;">); </span><span style="color: #6a9955;">//uint</span>
+                        </div>
+                        <div><span style="color: #569cd6;">long</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">h</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Convert</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">ToInt64</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">a</span><span
+                                        style="color: #d4d4d4;">); </span><span style="color: #6a9955;">//long</span>
+                        </div>
+                        <div><span style="color: #569cd6;">ulong</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">i</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Convert</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">ToUInt64</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">a</span><span
+                                        style="color: #d4d4d4;">); </span><span style="color: #6a9955;">//ulong</span>
+                        </div>
+                        <div><span style="color: #569cd6;">double</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">j</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Convert</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">ToDouble</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">a</span><span
+                                        style="color: #d4d4d4;">); </span><span style="color: #6a9955;">//double</span>
+                        </div>
+                        <div><span style="color: #569cd6;">float</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">k</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Convert</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">ToSingle</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">a</span><span
+                                        style="color: #d4d4d4;">); </span><span style="color: #6a9955;">//float</span>
+                        </div>
+                        <div><span style="color: #569cd6;">decimal</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">l</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Convert</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">ToDecimal</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">a</span><span
+                                        style="color: #d4d4d4;">); </span><span style="color: #6a9955;">//decimal</span>
+                        </div>
+                        <div><span style="color: #569cd6;">string</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">m</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Convert</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">ToString</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">a</span><span
+                                        style="color: #d4d4d4;">); </span><span style="color: #6a9955;">//string</span>
+                        </div>
+                        <div><span style="color: #569cd6;">bool</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">n</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Convert</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">ToBoolean</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">a</span><span
+                                        style="color: #d4d4d4;">); </span><span style="color: #6a9955;">//bool</span>
+                        </div>
+                        <div><span style="color: #569cd6;">char</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">o</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Convert</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #dcdcaa;">ToChar</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">a</span><span
+                                        style="color: #d4d4d4;">); </span><span style="color: #6a9955;">// char</span>
+                        </div>
+                </div>
+        </div><br>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">//Parse Methods used in conversion also</span></div>
+                        <div><span style="color: #569cd6;">byte</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Parse</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #569cd6;">sbyte</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Parse</span></div>
+                        <div><span style="color: #569cd6;">short</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Parse</span></div>
+                        <div><span style="color: #569cd6;">ushort</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Parse</span></div>
+                        <div><span style="color: #569cd6;">int</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Parse</span></div>
+                        <div><span style="color: #569cd6;">uint</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Parse</span></div>
+                        <div><span style="color: #569cd6;">long</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Parse</span></div>
+                        <div><span style="color: #569cd6;">double</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Parse</span></div>
+                        <div><span style="color: #569cd6;">float</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Parse</span></div>
+                        <div><span style="color: #569cd6;">bool</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Parse</span></div>
+                        <div><span style="color: #569cd6;">char</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Parse</span></div>
+                </div>
+        </div><br>
+
+        powershell
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;"># The Convert class is for converting between these different
+                                        built-in types</span></div>
+                        <div><span style="color: #9cdcfe;">$a</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #b5cea8;">25</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #9cdcfe;">$b</span><span style="color: #d4d4d4;"> = [</span><span
+                                        style="color: #569cd6;">System.Convert</span><span
+                                        style="color: #d4d4d4;">]::ToByte(</span><span
+                                        style="color: #9cdcfe;">$a</span><span style="color: #d4d4d4;">) &nbsp;
+                                </span><span style="color: #6a9955;">#Byte</span></div>
+                        <div><span style="color: #9cdcfe;">$c</span><span style="color: #d4d4d4;"> = [</span><span
+                                        style="color: #569cd6;">System.Convert</span><span
+                                        style="color: #d4d4d4;">]::ToSByte(</span><span
+                                        style="color: #9cdcfe;">$a</span><span style="color: #d4d4d4;">) &nbsp;
+                                </span><span style="color: #6a9955;">#sByte</span></div>
+                        <div><span style="color: #9cdcfe;">$d</span><span style="color: #d4d4d4;"> = [</span><span
+                                        style="color: #569cd6;">System.Convert</span><span
+                                        style="color: #d4d4d4;">]::ToInt16(</span><span
+                                        style="color: #9cdcfe;">$a</span><span style="color: #d4d4d4;">) &nbsp;
+                                </span><span style="color: #6a9955;">#short</span></div>
+                        <div><span style="color: #9cdcfe;">$e</span><span style="color: #d4d4d4;"> = [</span><span
+                                        style="color: #569cd6;">System.Convert</span><span
+                                        style="color: #d4d4d4;">]::ToUInt16(</span><span
+                                        style="color: #9cdcfe;">$a</span><span style="color: #d4d4d4;">) &nbsp;
+                                </span><span style="color: #6a9955;">#ushort</span></div>
+                        <div><span style="color: #9cdcfe;">$f</span><span style="color: #d4d4d4;"> = [</span><span
+                                        style="color: #569cd6;">System.Convert</span><span
+                                        style="color: #d4d4d4;">]::ToInt32(</span><span
+                                        style="color: #9cdcfe;">$a</span><span style="color: #d4d4d4;">) &nbsp;
+                                </span><span style="color: #6a9955;">#int</span></div>
+                        <div><span style="color: #9cdcfe;">$g</span><span style="color: #d4d4d4;"> = [</span><span
+                                        style="color: #569cd6;">System.Convert</span><span
+                                        style="color: #d4d4d4;">]::ToUInt32(</span><span
+                                        style="color: #9cdcfe;">$a</span><span style="color: #d4d4d4;">) &nbsp;
+                                </span><span style="color: #6a9955;">#uint</span></div>
+                        <div><span style="color: #9cdcfe;">$h</span><span style="color: #d4d4d4;"> = [</span><span
+                                        style="color: #569cd6;">System.Convert</span><span
+                                        style="color: #d4d4d4;">]::ToInt64(</span><span
+                                        style="color: #9cdcfe;">$a</span><span style="color: #d4d4d4;">) &nbsp;
+                                </span><span style="color: #6a9955;">#long</span></div>
+                        <div><span style="color: #9cdcfe;">$i</span><span style="color: #d4d4d4;"> = [</span><span
+                                        style="color: #569cd6;">System.Convert</span><span
+                                        style="color: #d4d4d4;">]::ToUInt64(</span><span
+                                        style="color: #9cdcfe;">$a</span><span style="color: #d4d4d4;">) &nbsp;
+                                </span><span style="color: #6a9955;">#ulong</span></div>
+                        <div><span style="color: #9cdcfe;">$j</span><span style="color: #d4d4d4;"> = [</span><span
+                                        style="color: #569cd6;">System.Convert</span><span
+                                        style="color: #d4d4d4;">]::ToDouble(</span><span
+                                        style="color: #9cdcfe;">$a</span><span style="color: #d4d4d4;">) &nbsp;
+                                </span><span style="color: #6a9955;">#double</span></div>
+                        <div><span style="color: #9cdcfe;">$k</span><span style="color: #d4d4d4;"> = [</span><span
+                                        style="color: #569cd6;">System.Convert</span><span
+                                        style="color: #d4d4d4;">]::ToSingle(</span><span
+                                        style="color: #9cdcfe;">$a</span><span style="color: #d4d4d4;">) &nbsp;
+                                </span><span style="color: #6a9955;">#float</span></div>
+                        <div><span style="color: #9cdcfe;">$l</span><span style="color: #d4d4d4;"> = [</span><span
+                                        style="color: #569cd6;">System.Convert</span><span
+                                        style="color: #d4d4d4;">]::ToDecimal(</span><span
+                                        style="color: #9cdcfe;">$a</span><span style="color: #d4d4d4;">) &nbsp;
+                                </span><span style="color: #6a9955;">#decimal</span></div>
+                        <div><span style="color: #9cdcfe;">$m</span><span style="color: #d4d4d4;"> = [</span><span
+                                        style="color: #569cd6;">System.Convert</span><span
+                                        style="color: #d4d4d4;">]::ToString(</span><span
+                                        style="color: #9cdcfe;">$a</span><span style="color: #d4d4d4;">) &nbsp;
+                                </span><span style="color: #6a9955;">#string</span></div>
+                        <div><span style="color: #9cdcfe;">$n</span><span style="color: #d4d4d4;"> = [</span><span
+                                        style="color: #569cd6;">System.Convert</span><span
+                                        style="color: #d4d4d4;">]::ToBoolean(</span><span
+                                        style="color: #9cdcfe;">$a</span><span style="color: #d4d4d4;">) &nbsp;
+                                </span><span style="color: #6a9955;">#bool</span></div>
+                        <div><span style="color: #9cdcfe;">$o</span><span style="color: #d4d4d4;"> = [</span><span
+                                        style="color: #569cd6;">System.Convert</span><span
+                                        style="color: #d4d4d4;">]::ToChar(</span><span
+                                        style="color: #9cdcfe;">$a</span><span style="color: #d4d4d4;">) &nbsp; &nbsp;
+                                        &nbsp;</span><span style="color: #6a9955;"># char </span></div><br>
+                        <div><span style="color: #6a9955;"># displaying type </span></div><br>
+                        <div><span style="color: #9cdcfe;">$a</span><span style="color: #dcdcaa;">.GetType</span><span
+                                        style="color: #d4d4d4;">().Name</span></div>
+                        <div><span style="color: #9cdcfe;">$b</span><span style="color: #dcdcaa;">.GetType</span><span
+                                        style="color: #d4d4d4;">().Name</span></div>
+                        <div><span style="color: #9cdcfe;">$c</span><span style="color: #dcdcaa;">.GetType</span><span
+                                        style="color: #d4d4d4;">().Name</span></div>
+                        <div><span style="color: #9cdcfe;">$d</span><span style="color: #dcdcaa;">.GetType</span><span
+                                        style="color: #d4d4d4;">().Name</span></div>
+                        <div><span style="color: #9cdcfe;">$e</span><span style="color: #dcdcaa;">.GetType</span><span
+                                        style="color: #d4d4d4;">().Name</span></div>
+                        <div><span style="color: #9cdcfe;">$f</span><span style="color: #dcdcaa;">.GetType</span><span
+                                        style="color: #d4d4d4;">().Name</span></div>
+                        <div><span style="color: #9cdcfe;">$g</span><span style="color: #dcdcaa;">.GetType</span><span
+                                        style="color: #d4d4d4;">().Name</span></div>
+                        <div><span style="color: #9cdcfe;">$h</span><span style="color: #dcdcaa;">.GetType</span><span
+                                        style="color: #d4d4d4;">().Name</span></div>
+                        <div><span style="color: #9cdcfe;">$i</span><span style="color: #dcdcaa;">.GetType</span><span
+                                        style="color: #d4d4d4;">().Name</span></div>
+                        <div><span style="color: #9cdcfe;">$j</span><span style="color: #dcdcaa;">.GetType</span><span
+                                        style="color: #d4d4d4;">().Name</span></div>
+                        <div><span style="color: #9cdcfe;">$k</span><span style="color: #dcdcaa;">.GetType</span><span
+                                        style="color: #d4d4d4;">().Name</span></div>
+                        <div><span style="color: #9cdcfe;">$l</span><span style="color: #dcdcaa;">.GetType</span><span
+                                        style="color: #d4d4d4;">().Name</span></div>
+                        <div><span style="color: #9cdcfe;">$m</span><span style="color: #dcdcaa;">.GetType</span><span
+                                        style="color: #d4d4d4;">().Name</span></div>
+                        <div><span style="color: #9cdcfe;">$n</span><span style="color: #dcdcaa;">.GetType</span><span
+                                        style="color: #d4d4d4;">().Name</span></div>
+                        <div><span style="color: #9cdcfe;">$o</span><span style="color: #dcdcaa;">.GetType</span><span
+                                        style="color: #d4d4d4;">().Name</span></div><br><br>
+                        <div><span style="color: #6a9955;"># parse methods</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">byte</span><span
+                                        style="color: #d4d4d4;">]::Parse</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">sbyte</span><span
+                                        style="color: #d4d4d4;">]::Parse</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">short</span><span
+                                        style="color: #d4d4d4;">]::Parse</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">ushort</span><span
+                                        style="color: #d4d4d4;">]::Parse</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">int</span><span
+                                        style="color: #d4d4d4;">]::Parse</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">uint</span><span
+                                        style="color: #d4d4d4;">]::Parse</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">long</span><span
+                                        style="color: #d4d4d4;">]::Parse</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">double</span><span
+                                        style="color: #d4d4d4;">]::Parse</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">float</span><span
+                                        style="color: #d4d4d4;">]::Parse</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">bool</span><span
+                                        style="color: #d4d4d4;">]::Parse</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">char</span><span
+                                        style="color: #d4d4d4;">]::Parse </span></div>
+                </div>
+        </div>
+        <p>SPECIAL NUMBER VALUES</p>
+        c#
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #9cdcfe;">Console</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #569cd6;">byte</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #4fc1ff;">MaxValue</span><span style="color: #d4d4d4;">);</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">Console</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #569cd6;">sbyte</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #4fc1ff;">MaxValue</span><span style="color: #d4d4d4;">);</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">Console</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #569cd6;">short</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #4fc1ff;">MaxValue</span><span style="color: #d4d4d4;">);</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">Console</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #569cd6;">ushort</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #4fc1ff;">MaxValue</span><span style="color: #d4d4d4;">);</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">Console</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #569cd6;">int</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #4fc1ff;">MaxValue</span><span style="color: #d4d4d4;">);</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">Console</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #569cd6;">uint</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #4fc1ff;">MaxValue</span><span style="color: #d4d4d4;">);</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">Console</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #569cd6;">long</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #4fc1ff;">MaxValue</span><span style="color: #d4d4d4;">);</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">Console</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #569cd6;">ulong</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #4fc1ff;">MaxValue</span><span style="color: #d4d4d4;">);</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">Console</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #569cd6;">double</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #4fc1ff;">MaxValue</span><span style="color: #d4d4d4;">);</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">Console</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #569cd6;">float</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #4fc1ff;">MaxValue</span><span style="color: #d4d4d4;">);</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">Console</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #569cd6;">decimal</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #4fc1ff;">MaxValue</span><span style="color: #d4d4d4;">);</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">Console</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #569cd6;">double</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #4fc1ff;">NaN</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #9cdcfe;">Console</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #569cd6;">double</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #4fc1ff;">PositiveInfinity</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #9cdcfe;">Console</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #569cd6;">double</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #4fc1ff;">NegativeInfinity</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                </div>
+        </div>
+        powershell
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">byte</span><span
+                                        style="color: #d4d4d4;">]::MaxValue</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">sbyte</span><span
+                                        style="color: #d4d4d4;">]::MaxValue</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">short</span><span
+                                        style="color: #d4d4d4;">]::MaxValue</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">ushort</span><span
+                                        style="color: #d4d4d4;">]::MaxValue</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">int</span><span
+                                        style="color: #d4d4d4;">]::MaxValue</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">uint</span><span
+                                        style="color: #d4d4d4;">]::MaxValue</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">long</span><span
+                                        style="color: #d4d4d4;">]::MaxValue</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">ulong</span><span
+                                        style="color: #d4d4d4;">]::MaxValue</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">double</span><span
+                                        style="color: #d4d4d4;">]::MaxValue</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">float</span><span
+                                        style="color: #d4d4d4;">]::MaxValue</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">decimal</span><span
+                                        style="color: #d4d4d4;">]::MaxValue</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">double</span><span
+                                        style="color: #d4d4d4;">]::NaN</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">double</span><span
+                                        style="color: #d4d4d4;">]::PositiveInfinity</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">double</span><span
+                                        style="color: #d4d4d4;">]::NegativeInfinity </span></div>
+                </div>
+        </div>
+        <p>Console class</p>
+        c#
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #9cdcfe;">Console</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">BackgroundColor</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">ConsoleColor</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">Yellow</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #9cdcfe;">Console</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">ForegroundColor</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">ConsoleColor</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #9cdcfe;">Black</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #9cdcfe;">Console</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">Title</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"heloo"</span><span style="color: #d4d4d4;">;</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">Console</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">Clear</span><span style="color: #d4d4d4;">();</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">Console</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">Beep</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #b5cea8;">200</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">5000</span><span style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #9cdcfe;">Console</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">@"C:\Users\RB\Desktop\MyFile.txt"</span><span
+                                        style="color: #d4d4d4;">); </span><span style="color: #6a9955;">//@ for
+                                        escape</span></div>
+                        <div><span style="color: #4ec9b0;">Thread</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">Sleep</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #b5cea8;">5000</span><span style="color: #d4d4d4;">);</span></div>
+                </div>
+        </div>
+        powershell
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">Console</span><span
+                                        style="color: #d4d4d4;">]::BackgroundColor = [</span><span
+                                        style="color: #569cd6;">ConsoleColor</span><span
+                                        style="color: #d4d4d4;">]::Yellow;</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">Console</span><span
+                                        style="color: #d4d4d4;">]::ForegroundColor = [</span><span
+                                        style="color: #569cd6;">ConsoleColor</span><span
+                                        style="color: #d4d4d4;">]::Black;</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">Console</span><span
+                                        style="color: #d4d4d4;">]::Title = </span><span
+                                        style="color: #ce9178;">"heloo"</span><span style="color: #d4d4d4;">;</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">Console</span><span
+                                        style="color: #d4d4d4;">]::Clear();</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span style="color: #569cd6;">Console</span><span
+                                        style="color: #d4d4d4;">]::Beep(</span><span
+                                        style="color: #b5cea8;">200</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">5000</span><span style="color: #d4d4d4;">); </span>
+                        </div>
+                </div>
+        </div>
+        <p>SWITCH EXPRESSIONS</p>
+        c#
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">string</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">response</span><span style="color: #d4d4d4;">;</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">Console</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">Write</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #ce9178;">"guess a number? "</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #569cd6;">int</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">x</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Convert</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">ToInt32</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">ReadLine</span><span style="color: #d4d4d4;">());</span>
+                        </div>
+                        <div><span style="color: #9cdcfe;">response</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">x</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">switch</span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #b5cea8;">1</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=&gt;</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"Ye rest and recover your health."</span><span
+                                        style="color: #d4d4d4;">,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #b5cea8;">2</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=&gt;</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"Raiding the port town get ye 50 gold
+                                        doubloons."</span><span style="color: #d4d4d4;">,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #b5cea8;">3</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=&gt;</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"The wind is at your back; the open horizon
+                                        ahead."</span><span style="color: #d4d4d4;">,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #b5cea8;">4</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=&gt;</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"'Tis but a baby Kraken, but still eats toy
+                                        boats."</span><span style="color: #d4d4d4;">,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">_</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=&gt;</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"Apologies. I do not know that one."</span></div>
+                        <div><span style="color: #d4d4d4;">};</span></div>
+                        <div><span style="color: #9cdcfe;">Console</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #9cdcfe;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span
+                                        style="color: #9cdcfe;">response</span><span style="color: #d4d4d4;">);</span>
+                        </div>
+                </div>
+        </div>
+        powershell
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #9cdcfe;">$response</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">""</span></div>
+                        <div><span style="color: #d4d4d4;">[</span><span
+                                        style="color: #569cd6;">System.Console</span><span
+                                        style="color: #d4d4d4;">]::Write(</span><span style="color: #ce9178;">"guess a
+                                        number? "</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #9cdcfe;">$x</span><span style="color: #d4d4d4;"> = [</span><span
+                                        style="color: #569cd6;">System.Convert</span><span
+                                        style="color: #d4d4d4;">]::ToInt32([</span><span
+                                        style="color: #569cd6;">System.Console</span><span
+                                        style="color: #d4d4d4;">]::ReadLine())</span></div>
+                        <div><span style="color: #9cdcfe;">$response</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #c586c0;">switch</span><span style="color: #d4d4d4;">
+                                        (</span><span style="color: #9cdcfe;">$x</span><span style="color: #d4d4d4;">)
+                                        {</span></div><br>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #b5cea8;">1</span><span style="color: #d4d4d4;"> { </span><span
+                                        style="color: #ce9178;">"Ye rest and recover your health."</span><span
+                                        style="color: #d4d4d4;"> }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #b5cea8;">2</span><span style="color: #d4d4d4;"> { </span><span
+                                        style="color: #ce9178;">"Raiding the port town get ye 50 gold
+                                        doubloons."</span><span style="color: #d4d4d4;"> }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #b5cea8;">3</span><span style="color: #d4d4d4;"> { </span><span
+                                        style="color: #ce9178;">"The wind is at your back; the open horizon
+                                        ahead."</span><span style="color: #d4d4d4;"> }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #b5cea8;">4</span><span style="color: #d4d4d4;"> { </span><span
+                                        style="color: #ce9178;">"'Tis but a baby Kraken, but still eats toy
+                                        boats."</span><span style="color: #d4d4d4;"> }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">Default</span><span style="color: #d4d4d4;"> {
+                                </span><span style="color: #ce9178;">"Apologies. I do not know that one."</span><span
+                                        style="color: #d4d4d4;"> }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span></div>
+                        <div><span style="color: #d4d4d4;">} </span></div>
+                        <div><span style="color: #9cdcfe;">$response</span></div>
+                </div>
+        </div>
+        <p>arrays</p>
+        c#
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">// Arrays contain multiple values of the same type</span>
+                        </div>
+                        <div><span style="color: #569cd6;">int</span><span style="color: #d4d4d4;">[] </span><span
+                                        style="color: #9cdcfe;">scores</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> { </span><span
+                                        style="color: #b5cea8;">1</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">2</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">3</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">4</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">5</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">8</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">9</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">3</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">11</span><span style="color: #d4d4d4;"> };</span></div>
+                        <br>
+                        <div><span style="color: #6a9955;">// Indexing from the End</span></div>
+                        <div><span style="color: #4ec9b0;">Console</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">scores</span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #d4d4d4;">^</span><span
+                                        style="color: #b5cea8;">1</span><span style="color: #d4d4d4;">]);</span></div>
+                        <div><span style="color: #4ec9b0;">Sep</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">seperator</span><span style="color: #d4d4d4;">();</span>
+                        </div><br>
+                        <div><span style="color: #6a9955;">//Ranges</span></div>
+                        <div><span style="color: #569cd6;">int</span><span style="color: #d4d4d4;">[] </span><span
+                                        style="color: #9cdcfe;">firstThreeScores</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">scores</span><span style="color: #d4d4d4;">[</span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #f44747;">..</span><span
+                                        style="color: #b5cea8;">3</span><span style="color: #d4d4d4;">]; </span><span
+                                        style="color: #6a9955;">// not include the end</span></div>
+                        <div><span style="color: #c586c0;">foreach</span><span style="color: #d4d4d4;"> (</span><span
+                                        style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">item</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">in</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">firstThreeScores</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">item</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                        <div><span style="color: #4ec9b0;">Sep</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">seperator</span><span style="color: #d4d4d4;">();</span>
+                        </div>
+                        <div><span style="color: #569cd6;">int</span><span style="color: #d4d4d4;">[] </span><span
+                                        style="color: #9cdcfe;">theMiddle</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">scores</span><span style="color: #d4d4d4;">[</span><span
+                                        style="color: #b5cea8;">1</span><span style="color: #f44747;">..</span><span
+                                        style="color: #d4d4d4;">^</span><span style="color: #b5cea8;">1</span><span
+                                        style="color: #d4d4d4;">]; </span><span style="color: #6a9955;">//this code
+                                        makes a copy of the array except for the first and last items: </span></div>
+                        <div><span style="color: #c586c0;">foreach</span><span style="color: #d4d4d4;"> (</span><span
+                                        style="color: #569cd6;">var</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">item</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">in</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">theMiddle</span><span style="color: #d4d4d4;">)</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #9cdcfe;">item</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        powershell
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">. .\Sep.ps1</span></div>
+                        <div><span style="color: #9cdcfe;">$scores</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #569cd6;">@</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #b5cea8;">1</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">2</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">3</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">4</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">5</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">8</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">9</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">3</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">11</span><span style="color: #d4d4d4;">)</span></div>
+                        <br>
+                        <div><span style="color: #6a9955;"># Indexing from the End</span></div>
+                        <div><span style="color: #9cdcfe;">$scores</span><span style="color: #d4d4d4;">[</span><span
+                                        style="color: #9cdcfe;">$scores</span><span
+                                        style="color: #dcdcaa;">.Length</span><span style="color: #d4d4d4;"> -
+                                </span><span style="color: #b5cea8;">1</span><span style="color: #d4d4d4;">]</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">seperator </span></div><br>
+                        <div><span style="color: #6a9955;"># Ranges</span></div>
+                        <div><span style="color: #9cdcfe;">$firstThreeScores</span><span style="color: #d4d4d4;"> =
+                                </span><span style="color: #9cdcfe;">$scores</span><span
+                                        style="color: #d4d4d4;">[</span><span style="color: #b5cea8;">0</span><span
+                                        style="color: #d4d4d4;">..</span><span style="color: #b5cea8;">3</span><span
+                                        style="color: #d4d4d4;">] &nbsp;</span><span style="color: #6a9955;"># include
+                                        the end</span></div>
+                        <div><span style="color: #c586c0;">foreach</span><span style="color: #d4d4d4;"> (</span><span
+                                        style="color: #9cdcfe;">$i</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #c586c0;">in</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">$firstThreeScores</span><span style="color: #d4d4d4;"> )
+                                        {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">$i</span><span style="color: #d4d4d4;"> </span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        <p>Recursion</p>
+        c#
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">class</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #4ec9b0;">Program</span></div>
+                        <div><span style="color: #d4d4d4;">{</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">static</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">int</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">x</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">1</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">static</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">Main</span><span style="color: #d4d4d4;">()</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">rtr</span><span style="color: #d4d4d4;">();</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">public</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">static</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">void</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">rtr</span><span style="color: #d4d4d4;">()</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">int</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">z</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">x</span><span style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">$"</span><span
+                                        style="color: #ce9178;">i'm function mumber </span><span
+                                        style="color: #ce9178;">{</span><span style="color: #9cdcfe;">z</span><span
+                                        style="color: #ce9178;">}</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">x</span><span style="color: #d4d4d4;">++</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">while</span><span style="color: #d4d4d4;"> (</span><span
+                                        style="color: #9cdcfe;">x</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">&lt;=</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #b5cea8;">20</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #dcdcaa;">rtr</span><span style="color: #d4d4d4;">();</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #4ec9b0;">Console</span><span
+                                        style="color: #d4d4d4;">.</span><span
+                                        style="color: #dcdcaa;">WriteLine</span><span
+                                        style="color: #d4d4d4;">(</span><span style="color: #ce9178;">$"</span><span
+                                        style="color: #ce9178;">i'm function mumber </span><span
+                                        style="color: #ce9178;">{</span><span style="color: #9cdcfe;">z</span><span
+                                        style="color: #ce9178;">}</span><span style="color: #ce9178;">"</span><span
+                                        style="color: #d4d4d4;">);</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                </div>
+        </div>
+        powershell
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #9cdcfe;">$</span><span style="color: #569cd6;">global</span><span
+                                        style="color: #9cdcfe;">:x</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #b5cea8;">1</span></div>
+                        <div><span style="color: #569cd6;">function</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">rtr</span><span style="color: #d4d4d4;">() {</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">$z</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #9cdcfe;">$</span><span style="color: #569cd6;">global</span><span
+                                        style="color: #9cdcfe;">:x</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span style="color: #ce9178;">"i'm
+                                        function mumber </span><span style="color: #9cdcfe;">$z</span><span
+                                        style="color: #ce9178;">"</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #9cdcfe;">$</span><span style="color: #569cd6;">global</span><span
+                                        style="color: #9cdcfe;">:x</span><span style="color: #d4d4d4;">++</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #c586c0;">while</span><span style="color: #d4d4d4;"> (
+                                </span><span style="color: #9cdcfe;">$</span><span
+                                        style="color: #569cd6;">global</span><span
+                                        style="color: #9cdcfe;">:x</span><span style="color: #d4d4d4;"> -le </span><span
+                                        style="color: #b5cea8;">20</span><span style="color: #d4d4d4;"> ) {</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; rtr</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; }</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span style="color: #ce9178;">"i'm
+                                        function mumber </span><span style="color: #9cdcfe;">$z</span><span
+                                        style="color: #ce9178;">"</span></div>
+                        <div><span style="color: #d4d4d4;">}</span></div>
+                        <div><span style="color: #d4d4d4;">rtr</span></div>
+                </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
