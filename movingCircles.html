@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Moving Circles</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+</head>
+<body>
+  <svg>
+  </svg>
+  <script>
+    let body = document.body;
+    let svg = document.querySelector("svg");
+    svg.style.width = "100vw"
+    svg.style.height = "100vh"
+    let colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet", "purple", "pink", "brown", "black"];
+
+    function moveCircle(circle) {
+      let x = Math.floor(Math.random() * body.clientWidth);  // random x coordinate
+      let y = Math.floor(Math.random() * body.clientHeight);  // random y coordinate
+      // animate movement of the circle
+      gsap.to(circle, { duration: 1, cx: x, cy: y });
+    }
+
+    // create and move 20 circles with different colors and timings
+    for (let i = 1; i <= 20; i++) {
+      let circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      circle.setAttribute("r", "40");
+      circle.setAttribute("fill", colors[i % colors.length]);  // use modulo to cycle through the colors array
+      svg.appendChild(circle);
+      setInterval(() => moveCircle(circle), 1000 + i * 100);  // set different timing for each circle
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

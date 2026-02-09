@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gitHubInfo</title>
+</head>
+
+<body>
+    <form spellcheck="false">
+        <p style="color:black;font-size: 2rem;">GithubApi</p>
+        <div>
+            <label for="txt">UserName: &nbsp;</label>
+            <input id="txt" type="text" value="Alisodsin">&nbsp;
+            <input id="send" type="submit" value="send">
+        </div>
+    </form>
+    <script>
+        let input = document.getElementById("txt");
+        let send = document.querySelector("#send")
+        send.onclick = e => {
+            open(`https://api.github.com/users/${input.value}`, "_blank")
+            e.preventDefault();
+        }
+    </script>
+
+
+</body></html>

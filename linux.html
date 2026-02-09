@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="./imgs/favicon.ico" type="image/x-icon">
+        <script src="./o.js" defer></script>
+
+        <style>
+                * {
+                        color: white;
+                }
+
+                table,
+                td,
+                th {
+                        border: 1px solid;
+                        border-collapse: collapse;
+                        text-align: center;
+                        vertical-align: middle;
+
+                }
+
+                table {
+                        width: 100%;
+                        aspect-ratio: 2;
+                }
+
+                .cods {
+                        color: rgb(212, 212, 212);
+                        background-color: rgb(30, 30, 30);
+                        font-family: monospace;
+                        white-space: nowrap;
+                        overflow: auto;
+                        line-height: 19px;
+                        overflow: auto;
+                        padding: 10px;
+                        border-radius: 1%;
+                        outline: none;
+                        font-size: 1.09em;
+                }
+
+                h3 {
+                        color: red !important;
+                }
+        </style>
+        <title>linuxCommands</title>
+</head>
+
+<body style="background-color:black;">
+        <h3>aspell</h3>
+        <div class="cods" spellcheck="false" contenteditable="">
+                <div>
+                        <div><span style="color: #d4d4d4;">aspell -c file.txt </span><span style="color: #6a9955;">#
+                                        Spell-check a
+                                        single file and modify it<br></span></div>
+                </div>
+        </div>
+        <h3>at</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"bash ex"</span><span style="color: #d4d4d4;"> | at now
+                                        +1 minutes
+                                </span><span style="color: #6a9955;"># schedule a script ex to be excuted after one
+                                        minute</span></div>
+                </div>
+        </div>
+        <h3>awk</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">awk </span><span style="color: #ce9178;">'{print
+                                        $0}'</span><span style="color: #d4d4d4;"> information.txt &nbsp; &nbsp;
+                                </span><span style="color: #6a9955;"># print
+                                        all file content</span></div>
+                        <div><span style="color: #d4d4d4;">awk </span><span style="color: #ce9178;">'{print
+                                        NR,$0}'</span><span style="color: #d4d4d4;"> information.txt &nbsp;</span><span
+                                        style="color: #6a9955;"># If you would
+                                        like each line to have a line-number count, you would use the NR built-in
+                                        variable:</span></div>
+                        <div><span style="color: #d4d4d4;">awk </span><span style="color: #ce9178;">'{print
+                                        $1}'</span><span style="color: #d4d4d4;"> information.txt &nbsp; &nbsp;
+                                </span><span style="color: #6a9955;"># print
+                                        the first column</span></div>
+                        <div><span style="color: #d4d4d4;">awk </span><span style="color: #ce9178;">'{print $1,
+                                        $4}'</span><span style="color: #d4d4d4;"> information.txt </span><span
+                                        style="color: #6a9955;"># print the 1st and
+                                        the 4th column</span></div>
+                        <div><span style="color: #d4d4d4;">awk </span><span style="color: #ce9178;">'{print
+                                        $NF}'</span><span style="color: #d4d4d4;"> information.txt &nbsp;
+                                        &nbsp;</span><span style="color: #6a9955;"># print
+                                        the last column</span></div>
+                </div>
+        </div>
+        <h3>basename</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">basename </span><span
+                                        style="color: #ce9178;">"/home/ali/study/linux/info.sh"</span><span
+                                        style="color: #d4d4d4;">
+                                </span><span style="color: #6a9955;"># strip directory and suffix from filenames</span>
+                        </div>
+                </div>
+        </div>
+        <h3>base32 & base64</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;"># code &amp; decode input string</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"hello world"</span><span style="color: #d4d4d4;"> |
+                                        base32</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"NBSWY3DPEB3W64TMMQFA===="</span><span
+                                        style="color: #d4d4d4;"> | base32
+                                        -d</span></div><br>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"hello world"</span><span style="color: #d4d4d4;"> |
+                                        base64</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"aGVsbG8gd29ybGQK"</span><span style="color: #d4d4d4;">
+                                        | base64 -d</span>
+                        </div><br>
+                        <div><span style="color: #6a9955;"># code &amp; decode input file</span></div>
+                        <div><span style="color: #d4d4d4;">cat Untitled.jpg | base32 &gt; file.txt</span></div>
+                        <div><span style="color: #d4d4d4;">cat file.txt | base32 -d &gt; pic.jpg</span></div><br>
+                        <div><span style="color: #d4d4d4;">cat Untitled.jpg | base64 &gt; file.txt</span></div>
+                        <div><span style="color: #d4d4d4;">cat file.txt | base64 -d &gt; pic.jpg</span></div>
+                </div>
+        </div>
+        <h3>bc</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">#!/bin/bash</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">1+1</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">|</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">bc</span><span
+                                        style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;"># add</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">'x=1; x+=2;x'</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">|</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">bc</span><span
+                                        style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;"># variable increment</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">'1&lt;=2'</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #d4d4d4;">|</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">bc</span><span
+                                        style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;"># logic</span></div>
+                        <div><span style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">'obase=16; ibase=10; 1000;'</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #d4d4d4;">|</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #dcdcaa;">bc</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #6a9955;"># convert 1000 to
+                                        hex</span></div>
+                </div>
+        </div>
+        <h3>bzip2</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">bzip2 three.jpg &nbsp; &nbsp; &nbsp; &nbsp;</span><span
+                                        style="color: #6a9955;">#compress three.jpg</span></div>
+                        <div><span style="color: #d4d4d4;">bzip2 -d three.jpg.bz2 </span><span
+                                        style="color: #6a9955;">#decompress
+                                        three.jpg.bz2</span></div>
+                        <div><span style="color: #d4d4d4;">bunzip2 three.jpg.bz2 &nbsp;</span><span
+                                        style="color: #6a9955;">#decompress three.jpg.bz2</span></div>
+                </div>
+        </div>
+
+        <h3>chattr : change file attributes on a Linux file system</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;"># syntax</span></div>
+                        <div><span style="color: #d4d4d4;">sudo +-=[aAcCdDeFijPsStTu] file.txt </span><span
+                                        style="color: #6a9955;"># optional attributes</span></div><br>
+                        <div><span style="color: #6a9955;"># examples</span></div><br>
+                        <div><span style="color: #d4d4d4;">sudo chattr +i file.txt </span><span
+                                        style="color: #6a9955;"># make file
+                                        immutable by root</span></div>
+                        <div><span style="color: #d4d4d4;">sudo chattr -i file.txt </span><span
+                                        style="color: #6a9955;"># make file
+                                        mutable again</span></div>
+                        <div><span style="color: #d4d4d4;">lsattr file.txt &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;"># list file attributes</span></div>
+                        <div><span style="color: #d4d4d4;">sudo chattr +a file.txt </span><span
+                                        style="color: #6a9955;"># add append
+                                        only attribute to the file</span></div>
+                        <div><span style="color: #d4d4d4;">sudo chattr -R +i dir/ &nbsp;</span><span
+                                        style="color: #6a9955;"># make
+                                        firectory and it's content imutable "recursivly"</span></div>
+                </div>
+        </div>
+        <h3>cal</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">cal &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">#
+                                        display current month</span></div>
+                        <div><span style="color: #d4d4d4;">cal 1982 &nbsp; &nbsp;</span><span style="color: #6a9955;">#
+                                        show the
+                                        whole calender of 1982</span></div>
+                        <div><span style="color: #d4d4d4;">cal 04 1982 </span><span style="color: #6a9955;"># display my
+                                        birthday
+                                        month</span></div>
+                        <div><span style="color: #d4d4d4;">cal -3 &nbsp; &nbsp; &nbsp;</span><span
+                                        style="color: #6a9955;"># Shows
+                                        calendar of previous, current and next month</span></div>
+                        <div><span style="color: #d4d4d4;">cal -j &nbsp; &nbsp; &nbsp;</span><span
+                                        style="color: #6a9955;"># بتقولك
+                                        ده اليوم رقم كام فى السنه</span></div>
+                </div>
+        </div>
+        <h3>cat</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">cat file &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;"># show content with line number</span></div>
+                        <div><span style="color: #d4d4d4;">cat file1 file2 &nbsp;</span><span style="color: #6a9955;">#
+                                        To view
+                                        multiple files</span></div>
+                        <div><span style="color: #d4d4d4;">cat -n filename &nbsp;</span><span style="color: #6a9955;">#
+                                        view
+                                        contents of a file preceding with line numbers</span></div>
+                        <div><span style="color: #d4d4d4;">cat &gt;newfile &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;"># Will
+                                        create a file named newfile</span></div>
+                        <div><span style="color: #d4d4d4;">cat -s geeks.txt </span><span style="color: #6a9955;">#
+                                        suppress repeated
+                                        empty lines in output</span></div>
+                        <div><span style="color: #d4d4d4;">tac filename &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;"># Will
+                                        display content in reverse order</span></div>
+                        <div><span style="color: #d4d4d4;">cat -E filename &nbsp;</span><span style="color: #6a9955;">#
+                                        highlight
+                                        the end of line</span></div>
+                        <div><span style="color: #d4d4d4;">cat &gt;&gt;geeks.txt &nbsp;</span><span
+                                        style="color: #6a9955;"># write
+                                        in an already existing file.</span></div>
+                </div>
+        </div>
+        <h3>cd</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #dcdcaa;">cd</span><span style="color: #d4d4d4;"> dirname </span><span
+                                        style="color: #6a9955;"># go to folder dirname</span></div>
+                </div>
+        </div>
+        <h3>chmod : Change access permissions</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">chmod [u|g|o][+|-|=] [r|w|x] file </span><span
+                                        style="color: #6a9955;">#setting permissions using symbolic method</span></div>
+                </div>
+        </div>
+
+        <h3>chown : Change file owner and group</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">sudo chown hma:hma file </span><span
+                                        style="color: #6a9955;">#change file
+                                        owners to user hma and group hma</span></div>
+                </div>
+        </div>
+        <h3>chgrp : Change group ownership </h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">sudo chgrp hma file </span><span
+                                        style="color: #6a9955;">#change the
+                                        default group of file to hma</span></div>
+                </div>
+        </div>
+        <h3>cmp : compare two files byte by byte</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">cmp file1.txt file2.txt </span><span
+                                        style="color: #6a9955;"># compare
+                                        two files byte by byte and if identical there will be no output</span></div>
+                </div>
+        </div>
+        <h3>comm</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">#comm compare two sorted files line by line and write to
+                                        standard output;
+                                        the lines that are common and the lines that are unique.</span></div>
+                        <div><span style="color: #d4d4d4;">comm 3.txt 4.txt </span><span style="color: #6a9955;">#
+                                        compare sorted
+                                        files 3.txt and 4.txt and iutput 3 columns (uniq1,uniq2,common)</span></div>
+                </div>
+        </div>
+        <h3>cp</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #d4d4d4;">cp file1 file2 &nbsp; &nbsp; &nbsp;</span><span
+                                        style="color: #6a9955;">#Copy file1 to file2. If file2 exists, it is overwritten
+                                        with the contents
+                                        of file1. If file2 does not exist, it is created.</span></div>
+                        <div><span style="color: #d4d4d4;">cp -i file1 file2 &nbsp; </span><span
+                                        style="color: #6a9955;">#Same as
+                                        previous command, except that if file2 exists, the user is prompted before it is
+                                        overwritten.</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">cp file1 file2 dir1 </span><span
+                                        style="color: #6a9955;">#Copy file1 and
+                                        file2 into directory dir1. The directory dir1 must already exist.</span></div>
+                        <div><span style="color: #d4d4d4;">cp dir1/* dir2 &nbsp; &nbsp; &nbsp;</span><span
+                                        style="color: #6a9955;">#Using a wildcard, copy all the files in dir1 into dir2.
+                                        The directory dir2
+                                        must already exist.</span></div>
+                        <div><span style="color: #d4d4d4;">cp -r dir1 dir2 &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;">#Copy
+                                        the contents of directory dir1 to directory dir2. If directory dir2 does not
+                                        exist, it is created
+                                        and, after the copy, will contain the same contents as directory dir1. If
+                                        directory dir2 does exist,
+                                        then directory dir1 (and its contents) will be copied into dir2.</span></div>
+                        <div><span style="color: #d4d4d4;">cp -u file1 file2 &nbsp; </span><span
+                                        style="color: #6a9955;">#copy only
+                                        when the file1 is newer than the file2 or when the file2 is missing</span></div>
+                </div>
+        </div>
+        <h3>cpio</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;"># cpio stands for “copy in, copy out“. It is used for
+                                        processing the
+                                        archive files like *.cpio or *.tar. This command can copy files to and from
+                                        archives.</span></div>
+                        <div><span style="color: #d4d4d4;">ls | cpio -o &gt;arch.cpio </span><span
+                                        style="color: #6a9955;">#
+                                        compress all file in current folder</span></div>
+                </div>
+        </div>
+        <h3>cron</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;"># Daemon to execute scheduled commands</span></div><br>
+                        <div><span style="color: #d4d4d4;">crontab -e </span><span style="color: #6a9955;"># make
+                                        scheduled commands</span></div><br>
+                        <div><span style="color: #6a9955;"># syntax</span></div>
+                        <div><span style="color: #6a9955;"># * &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        &nbsp; &nbsp; * &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; * &nbsp; &nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; *
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        &nbsp; &nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;user-name command
+                                        to be executed</span></div>
+                        <div><span style="color: #6a9955;"># minute (0 - 59) &nbsp; &nbsp; &nbsp; hour (0 - 23) &nbsp;
+                                        day of month (1 - 31) &nbsp; &nbsp; &nbsp; month (1 - 12) OR jan,feb,mar,apr ...
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; day of week (0 - 6) (Sunday=0 or 7) OR
+                                        sun,mon,tue,wed,t</span></div><br>
+                        <div><span style="color: #6a9955;"># example</span></div>
+                        <div><span style="color: #d4d4d4;">6 13 * * * </span><span
+                                        style="color: #dcdcaa;">echo</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"this is a test"</span><span style="color: #d4d4d4;">
+                                        &gt;&gt;/home/ali/study/linux/tst/tst/1.txt </span><span
+                                        style="color: #6a9955;"># scedule a command</span></div><br>
+                        <div><span style="color: #6a9955;"># display sheduled commands for today</span></div>
+                        <div><span style="color: #d4d4d4;">crontab -l</span></div><br>
+                        <div><span style="color: #6a9955;"># scedule a command as another user</span></div>
+                        <div><span style="color: #d4d4d4;">crontab -u root -l &nbsp; &nbsp; &nbsp;</span><span
+                                        style="color: #6a9955;">#display</span></div>
+                        <div><span style="color: #d4d4d4;">sudo crontab -u root -e </span><span
+                                        style="color: #6a9955;">#schedule command as a root</span></div>
+                        <div><span style="color: #d4d4d4;">@hourly </span><span style="color: #dcdcaa;">echo</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #ce9178;">"this is a
+                                        test"</span><span style="color: #d4d4d4;">
+                                        &gt;&gt;/home/ali/study/linux/tst/tst/1.txt </span><span
+                                        style="color: #6a9955;"># scedule a command every hour</span></div>
+                </div>
+        </div>
+        <h3>csplit</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;"># csplit - split a file into sections determined by context
+                                        lines</span></div>
+                        <div><span style="color: #d4d4d4;">csplit 1.txt </span><span
+                                        style="color: #ce9178;">'/^part/'</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #ce9178;">'{*}'</span><span style="color: #d4d4d4;"> -f part-
+                                </span><span style="color: #6a9955;"># split file 1.txt based on "part" string</span>
+                        </div>
+                </div>
+        </div>
+        <h3>curl</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;"># transfer a URL</span></div>
+                        <div><span style="color: #d4d4d4;">curl http://192.168.1.17/ali/ &nbsp; &nbsp; &nbsp; &nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #6a9955;"># fetch the url and display it in standard output</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">curl -i http://192.168.1.17/ali/ &nbsp; &nbsp; &nbsp; &nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span
+                                        style="color: #6a9955;"># fetch the url with response header and display it in
+                                        standard output</span></div>
+                        <div><span style="color: #d4d4d4;">curl -I http://192.168.1.17/ali/ &nbsp; &nbsp; &nbsp; &nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span
+                                        style="color: #6a9955;"># just fetch the head response</span></div>
+                        <div><span style="color: #d4d4d4;">curl https://api.github.com/users/Alisodsin | jq &nbsp;
+                                        &nbsp; &nbsp; &nbsp;</span><span style="color: #6a9955;"># fetch json</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">curl https://www.w3schools.com/tags/img_girl.jpg &gt;girl
+                                        &nbsp;</span><span style="color: #6a9955;"># fetch img</span></div>
+                        <div><span style="color: #d4d4d4;">curl http://192.168.1.17/ali/[1-9].html &nbsp; &nbsp; &nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span style="color: #6a9955;"># fetch
+                                        a range pf htmls</span></div>
+                        <div><span style="color: #d4d4d4;">curl http://192.168.1.17/ali/[1-9].html -o save_#1.html
+                                </span><span style="color: #6a9955;"># save to save_[1-9].html</span></div>
+                        <div><span style="color: #d4d4d4;">curl
+                                        http://192.168.1.17/ali/{client.html,notes.txt,fg.sh}</span></div>
+                        <div><span style="color: #d4d4d4;">curl -v http://192.168.1.17 -o /dev/null &nbsp; &nbsp; &nbsp;
+                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><span style="color: #6a9955;"># display
+                                        client , server interaction</span></div><br>
+                        <div><span style="color: #6a9955;"># send specific header</span></div>
+                        <div><span style="color: #d4d4d4;">curl -H </span><span style="color: #ce9178;">'User-Agent:
+                                        Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101
+                                        Firefox/104.0'</span><span style="color: #d4d4d4;"> http://192.168.1.17/ali/
+                                </span><span style="color: #6a9955;"># change client header</span></div><br>
+                        <div><span style="color: #6a9955;"># GET</span></div>
+                        <div><span style="color: #d4d4d4;">curl --get --data-urlencode </span><span
+                                        style="color: #ce9178;">"qr=select first_name from customers"</span><span
+                                        style="color: #d4d4d4;"> http://192.168.1.17/ali/mysql.php</span></div><br>
+                        <div><span style="color: #6a9955;"># post </span></div>
+                        <div><span style="color: #d4d4d4;">curl -d &nbsp;</span><span
+                                        style="color: #ce9178;">"qr=ali"</span><span style="color: #d4d4d4;"> -X POST
+                                        http://192.168.1.17/ali/curl.php</span></div>
+                </div>
+        </div>
+        <h3>cut</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">#!/bin/bash</span></div>
+                        <div><span style="color: #dcdcaa;">cut</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">-b</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">1,2,3</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">state.txt</span><span
+                                        style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;"># cut the first,second and the 3rd byte for each line
+                                        and output it</span></div>
+                        <div><span style="color: #dcdcaa;">cut</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">-b</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">1-3,5-7</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #9cdcfe;">state.txt</span><span
+                                        style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;"># cut form 1 to 3rd byte plus from 5th to 7th
+                                        bytes</span></div>
+                        <div><span style="color: #dcdcaa;">cut</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">-b</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">1-</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">state.txt</span><span
+                                        style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;"># select the all line and output it</span></div>
+                        <div><span style="color: #dcdcaa;">cut</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">-c</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">2,5,7</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">state.txt</span><span
+                                        style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;"># cut the 2nd+5th+7th character from each line and
+                                        output it</span></div>
+                        <div><span style="color: #dcdcaa;">cut</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">-c</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">1-7</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">state.txt</span><span
+                                        style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;"># List with ranges</span></div>
+                        <div><span style="color: #dcdcaa;">cut</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">-c</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">1-</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">state.txt</span><span
+                                        style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;"># list contain (1-) select all all line
+                                        characters</span></div>
+                        <div><span style="color: #dcdcaa;">cut</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">-d</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">" "</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">-f</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">1</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">state.txt</span><span
+                                        style="color: #d4d4d4;">&#160;&#160;&#160;</span><span style="color: #6a9955;">#
+                                        cut field 1 (-f 1) when the fields delimiter is space (-d " ")</span></div>
+                        <div><span style="color: #dcdcaa;">cut</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">-d</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">" "</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">-f</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">1-2</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">state.txt</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #6a9955;"># cut the 1st and the 2nd field when the fields
+                                        delimiter is space (-d " ")</span></div>
+                        <div><span style="color: #dcdcaa;">cut</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">--complement</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #9cdcfe;">-d</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #ce9178;">" "</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #9cdcfe;">-f</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #9cdcfe;">2</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">state.txt</span><span
+                                        style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;"># (–complement) As the name suggests it complement the
+                                        output</span></div>
+                        <div><span style="color: #dcdcaa;">cut</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">-d</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">" "</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">-f</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">1,2</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">state.txt</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #9cdcfe;">--output-delimiter=</span><span
+                                        style="color: #ce9178;">"%"</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #6a9955;"># –output-delimiter</span></div>
+                </div>
+        </div>
+        <h3>date</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">#!/bin/bash</span></div>
+                        <div><span style="color: #dcdcaa;">date</span><span
+                                        style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;"># display date and time</span></div>
+                        <div><span style="color: #dcdcaa;">date</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">-s</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"11/20/2003012:48:00"</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #6a9955;"># set date and
+                                        time</span></div>
+                        <div><span style="color: #dcdcaa;">date</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">+%d%h%y</span><span
+                                        style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;"># %d for date %h form month %y for year</span></div>
+                        <div><span style="color: #dcdcaa;">date</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"+%d-%h-%y"</span></div>
+                        <div><span style="color: #dcdcaa;">date</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"+%d-%h-%y"</span><span
+                                        style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;"># seperated by -</span></div>
+                        <div><span style="color: #dcdcaa;">date</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"+%d/%h/%y"</span><span
+                                        style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;"># seperated by /</span></div>
+                        <div><span style="color: #dcdcaa;">date</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #d4d4d4;">|</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #dcdcaa;">awk</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">'{print $5}'</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #6a9955;"># just print the time</span></div>
+                        <div><span style="color: #dcdcaa;">date</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">+%T</span><span
+                                        style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;"># just print the time</span></div>
+                        <div><span style="color: #dcdcaa;">date</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">-d</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">"1982-04-21"</span><span
+                                        style="color: #d4d4d4;">&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;"># display the weekday for that date</span></div>
+                        <div><span style="color: #dcdcaa;">date</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">+</span><span
+                                        style="color: #ce9178;">"%A:%B:%Y"</span><span
+                                        style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;"># Monday:September:2022</span></div>
+                </div>
+        </div>
+        <h3>dd</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">#!/bin/bash</span></div>
+                        <div><span style="color: #dcdcaa;">dd</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #6a9955;"># dangerous command</span></div>
+                </div>
+
+        </div>
+        <h3>df</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">#!/bin/bash</span></div>
+                        <div><span style="color: #dcdcaa;">df</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">-h</span><span
+                                        style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;"># get a ‘human readable’ version of the output</span>
+                        </div>
+                        <div><span style="color: #dcdcaa;">df</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">-T</span><span
+                                        style="color: #d4d4d4;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span
+                                        style="color: #6a9955;"># Listing types for each file system</span></div>
+                        <div><span style="color: #dcdcaa;">df</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">-h</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #9cdcfe;">directory_name</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #6a9955;"># know how much disk space is available for a
+                                        particular folder in your system in the file system where that folder
+                                        resides</span></div>
+                </div>
+        </div>
+        <h3>diff</h3>
+        <table>
+                <thead>
+                        <tr>
+                                <th>Symbol</th>
+                                <th>Meaning</th>
+                        </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                                <td>A</td>
+                                <td>Add</td>
+                        </tr>
+                        <tr>
+                                <td>C</td>
+                                <td>Change</td>
+                        </tr>
+                        <tr>
+                                <td>D</td>
+                                <td>Delete</td>
+                        </tr>
+                        <tr>
+                                <td>#</td>
+                                <td>Line numbers</td>
+                        </tr>
+                        <tr>
+                                <td>– – –</td>
+                                <td>Separates Files in Output</td>
+                        </tr>
+                        <tr>
+                                <td>&lt;</td>
+                                <td>File 1</td>
+                        </tr>
+                        <tr>
+                                <td>&gt;</td>
+                                <td>File 2</td>
+                        </tr>
+                </tbody>
+        </table> <br>
+        <div class="cods" contenteditable="" spellcheck="false">
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

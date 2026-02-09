@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Changa:wght@500&amp;family=Lalezar&amp;family=Scheherazade&amp;display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Tajawal&amp;display=swap" rel="stylesheet">
+    <title>additional commands</title>
+    <style>
+        a {
+            display: block;
+            text-decoration: none;
+        }
+
+        .w3-green {
+            color: rgb(0, 0, 0) !important;
+        }
+
+        [dir=rtl] {
+            font-family: 'Tajawal', serif;
+            font-size: 1.2em;
+            line-height: 2;
+        }
+
+        div.w3-code.w3-card.w3-grey {
+            border-left: 15px solid #00458b !important;
+            font-size: 1rem !important;
+            line-height: 1.4 !important;
+            margin: 0 0 24px !important;
+            max-width: 100% !important;
+            overflow: auto !important;
+            padding: 24px !important;
+            width: 100% !important;
+            white-space: nowrap !important;
+            overflow: auto !important;
+        }
+
+        div.w3-bar.w3-margin-bottom {
+            position: sticky;
+            top: 5px;
+            background-color: teal;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        span[class=w3-text-blue] {
+            font-weight: bold;
+            color: darkblue !important;
+        }
+
+        table,
+        td,
+        th {
+            border: 1px solid rgb(255, 0, 0);
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        .example {
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+    </style>
+</head>
+
+<body class="w3-black w3-content">
+
+    <div class="w3-center w3-container w3-text-red w3-margin-bottom">
+        <h2 id="ch1">Understanding Linux File Permissions</h2>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>useradd : Adding a new user</h4>
+    </div>
+    <p class="w3-container">: make changes to the following files:</p>
+    <ol>
+        <li>/etc/passwd</li>
+        <li>/etc/shadow</li>
+        <li>/etc/group</li>
+        <li>/etc/gshadow </li>
+        <li>--creates a directory for new user in /home </li>
+    </ol>
+    <p class="w3-container">examples:</p>
+    <div class="w3-code  w3-card w3-grey" contenteditable spellcheck="false">
+        $ sudo useradd
+        test_user&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+            class="w3-text-blue"># add a simple user</span><br>
+        $ sudo useradd -d /home/test_user
+        test_user&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+            class="w3-text-blue"># give a home directory path for new user</span><br>
+        $ sudo useradd -u 1234
+        test_user&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+            class="w3-text-blue"># create a user with specific user id</span><br>
+        $ sudo useradd -g 1000
+        test_user&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+            class="w3-text-blue"># create a user with specific group id</span><br>
+        $ sudo useradd -M
+        test_user&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+            class="w3-text-blue"># create a user without home directory</span><br>
+        $ sudo useradd -e 2020-05-30
+        test_user&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+            class="w3-text-blue"># create a user with expiry date</span><br>
+        $ sudo useradd -c "This is a test user" test_user&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+            class="w3-text-blue"># create a user with a comment</span><br>
+        $ sudo useradd -s /bin/sh
+        test_user&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+            class="w3-text-blue"># create a user with changed login shell</span><br>
+        $ sudo useradd -p test_password
+        test_user&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+            class="w3-text-blue"># set an unencrypted password for the user</span><br>
+        $ sudo useradd
+        --help&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+            class="w3-text-blue"># help</span><br>
+        $ sudo useradd -m
+        test_user&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+            class="w3-text-blue"># create a user with default home directory in /home</span><br>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>userdel : delete a user account</h4>
+    </div>
+    <p class="w3-container">examples : </p>
+    <div class="w3-code  w3-card w3-grey" contenteditable spellcheck="false">
+        $ sudo userdel -f neuser <span class="w3-text-blue"># forces the removal of the specified user account and
+            remove the user’s home directory and mail spool </span><br>
+        $ sudo userdel -r neuser <span class="w3-text-blue"># the user’s home directory will be removed along with the
+            home directory itself and the user’s mail spool. All the files located in other file systems will have to be
+            searched for and deleted manually.</span><br>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>usermod : user modifying </h4>
+    </div>
+    <p class="w3-container">When we execute usermod command in temrinal the command make the changes in these files.</p>
+    <ol>
+        <li>/etc/passwd</li>
+        <li>/etc/group</li>
+        <li>/etc/shadow</li>
+        <li>/etc/login.defs</li>
+        <li>/etc/gshadow</li>
+        <li>/etc/login.defs</li>
+    </ol>
+    <p class="w3-container">examples</p>
+    <div class="w3-code  w3-card w3-grey" contenteditable spellcheck="false">
+        $ sudo usermod -c "This is test user" test_user&#160;&#160;&#160;&#160;<span class="w3-text-blue">#add a comment
+            for a user</span><br>
+        $ sudo usermod -d /home/manav
+        test_user&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+            class="w3-text-blue">#change the home directory of a user </span><br>
+        $ sudo usermod -e 2020-05-29
+        test_user&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+            class="w3-text-blue">#change the expiry date of a user </span><br>
+        $ sudo usermod -g manav
+        test_user&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+            class="w3-text-blue">#change the group of a user </span><br>
+        $ sudo usermod -l test_account test_user&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+            class="w3-text-blue">#change user login name</span><br>
+        $ sudo usermod -L
+        test_user&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+            class="w3-text-blue">#lock a user </span><br>
+        $ sudo usermod -U
+        test_user&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+            class="w3-text-blue">#unlock a user </span><br>
+        $ sudo usermod -p test_password test_user&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+            class="w3-text-blue">#set an unencrypted password for the user</span><br>
+        $ sudo usermod -s /bin/sh
+        test_user&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+            class="w3-text-blue">#To create a shell for the user </span><br>
+        $ sudo usermod -u 1234
+        test_user&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+            class="w3-text-blue">#change the user id of a user </span><br>
+        $ sudo usermod -aG ali
+        hma&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+            class="w3-text-blue">#adding user hma to group ali</span><br>
+        $ sudo gpasswd -d ali
+        hma&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+            class="w3-text-blue">#remove user ali from hma group</span><br>
+        $ groups
+        ali&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+            class="w3-text-blue">#display ali's groups</span><br>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>passwd : Changes the password for an existing user</h4>
+    </div>
+    <p class="w3-container">passwd command in Linux is used to change the user account passwords. The root user reserves
+        the privilege to change the password for any user on the system, while a normal user can only change the account
+        password for his or her own</p>
+    <p class="w3-container">example</p>
+    <div class="w3-code  w3-card w3-grey" contenteditable spellcheck="false">
+        $ sudo passwd hma&#160;&#160;&#160;<span class="w3-text-blue">#change password for user hma</span><br>
+        $ passwd&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+            class="w3-text-blue">#change passwd for yourslf</span><br>
+        $ sudo passwd root&#160;&#160;<span class="w3-text-blue">#change password for root </span><br>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>su -l user : switch user</h4>
+    </div>
+    <p class="w3-container">example</p>
+    <div class="w3-code  w3-card w3-grey" contenteditable spellcheck="false">
+        $ su -l root <span class="w3-text-blue">#switch to root user</span><br>
+        $ su -l hma&#160;&#160;<span class="w3-text-blue">#switch to hma user</span><br>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>chpasswd : Reads a file of login name and password pairs, and updates the passwords
+        </h4>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>chage : Changes the password's expiration date</h4>
+    </div>
+    <p class="w3-container">chage command is used to view and change the user password expiry information. This command
+        is used when the login is to be provided for a user for limited amount of time or when it is necessary to change
+        the login password time to time. With the help of this command we can view the aging information of an account,
+        date when the password was previously changed, set the password changing time, lock an account after certain
+        amount of time etc</p>
+    <p class="w3-container">examples</p>
+    <div class="w3-code  w3-card w3-grey" contenteditable spellcheck="false">
+        $ sudo chage -l
+        hma&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+            class="w3-text-blue">#view the hma account aging information</span><br>
+        $ sudo chage -d 2018-12-01 hma&#160;&#160;&#160;&#160;&#160;&#160;<span class="w3-text-blue">#set the last
+            password change date to your specified date in the command</span><br>
+        $ sudo chage -E 2018-12-01 hma&#160;&#160;&#160;&#160;&#160;&#160;<span class="w3-text-blue">#specify the date
+            when the account should expire </span><br>
+        $ sudo chage -M 5
+        hma&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+            class="w3-text-blue">#specify the maximum number of days between password change.</span><br>
+        $ sudo chage -i 5
+        hma&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+            class="w3-text-blue">#specify the minimum number of days between password change. </span><br>
+    </div>
+
+    <div class="w3-container w3-text-blue">
+        <h4>chfn : Changes the user account's comment information</h4>
+    </div>
+    <p class="w3-container">chfn command in Linux allows you to change a user’s name and other details easily. chfn
+        stands for Change finger. Basically, it is used to modify your finger information on Linux system. This
+        information is generally stored in the file /etc/passwd that includes user’s original name, work phone number
+        etc.</p>
+    <p class="w3-container">Example</p>
+    <div class="w3-code  w3-card w3-grey" contenteditable spellcheck="false">
+        $ sudo chfn -f full_name hma&#160;&#160;&#160;&#160;&#160;&#160;<span class="w3-text-blue">#change the full name
+            on the account hma</span><br>
+        $ sudo chfn -w 01061591229 hma&#160;&#160;&#160;&#160;<span class="w3-text-blue">#change the work phone number
+            on the account hma.</span><br>
+        $ sudo chfn -r room_no hma&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span class="w3-text-blue">#change the
+            room number on the account hma.</span><br>
+        $ sudo chfn -h home_ph hma&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span class="w3-text-blue">#change the
+            home phone number on the account hma.</span><br>
+        $ finger
+        hma&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+            class="w3-text-blue">#view the previous changed information</span><br>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>chsh : Changes the user account's default shell</h4>
+    </div>
+    <p class="w3-container">chsh command in Linux is used to change the user’s login shell(currently login shell). Shell
+        is an interactive user interface with an operating system and can be considered an outer layer of the operating
+        system. The bash shell is one of the most widely used login shells in Linux. This command allows the user to
+        change the shell from the current shell. It can also give warning if the shell is not present in the /etc/shells
+        file. The superuser can change the login shell for the existing</p>
+    <p class="w3-container">example</p>
+    <div class="w3-code  w3-card w3-grey" contenteditable spellcheck="false">
+        $ sudo chsh -s /bin/bash hma <span class="w3-text-blue">#change login shell for user hma to bash</span><br>
+    </div>
+    <div class="w3-container w3-text-aqua">
+        <h3>Using Linux Groups</h3>
+    </div>
+    <p class="w3-container">Group permissions allow multiple users to share a common set of permissions for an object on
+        the system, such as a file, directory, or device</p>
+    <div class="w3-container w3-text-blue">
+        <h4>file : /etc/group</h4>
+    </div>
+    <p class="w3-container">group information is stored in that file like</p>
+    <ol>
+        <li>The group name</li>
+        <li>The group password</li>
+        <li>The GID</li>
+        <li>The list of user accounts that belong to the group</li>
+    </ol>
+    <div class="w3-container w3-text-blue">
+        <h4>groupadd : Creating new group</h4>
+    </div>
+    <p class="w3-container">Examples</p>
+    <div class="w3-code  w3-card w3-grey" contenteditable spellcheck="false">
+        $ sudo groupadd
+        new-group&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+            class="w3-text-blue">#make new group named new-group </span><br>
+        $ sudo groupadd -f
+        new-group&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+            class="w3-text-blue">#This option causes the command to simply exit with success status if the specified
+            group already exists</span><br>
+        $ sudo groupadd -g number
+        new-group&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span
+            class="w3-text-blue">#This option is used to provide a group id (numeric) to the new group, and it should be
+            non-negative and unique </span><br>
+        $ sudo groupadd -k GID_MIN=500 -K GID_MAX=700 new-group&#160;&#160;&#160;&#160;&#160;<span
+            class="w3-text-blue">#Overrides /etc/login.defs defaults (GID_MIN, GID_MAX and others). Multiple -K options
+            can be specified. GID_MIN and GID_MAX are the parameters set in /etc/login.defs which defines the minimum
+            and maximum values that a group id can take</span><br>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>groupmod : group modifying</h4>
+    </div>
+    <p class="w3-container">The groupmod command has following files.</p>
+    <ol>
+        <li>/etc/gshadow:&#160;&#160;&#160;&#160;&#160;&#160;&#160;Secured group account information.</li>
+        <li>/etc/login.defs:&#160;&#160;&#160;&#160;&#160;&#160;&#160;Shadow passwd suite configuration.</li>
+        <li>/etc/passwd:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;User account information.</li>
+    </ol>
+    <p class="w3-container">groupmod command allows you to change the GID (using the -g parameter) or the group name
+        (using the -n parameter) of an existing group:</p>
+    <p class="w3-container">examples</p>
+    <div class="w3-code  w3-card w3-grey" contenteditable spellcheck="false">
+        $ sudo groupmod -n sharing new-group&#160;&#160;<span class="w3-text-blue">#change the group name from new-group
+            to sharing</span><br>
+        $ sudo groupmod -g GID sharing&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span class="w3-text-blue">#change
+            the group id to GID(numerical value)</span><br>
+    </div>
+    <p class="w3-container">When changing the name of a group, the GID and group members remain the same and only the
+        group name changes. Because all security permissions are based on the GID, you can change the name of a group as
+        often as you wish without adversely affecting file security.</p>
+    <div class="w3-container w3-text-aqua">
+        <h3>Decoding File Permissions</h3>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>umask</h4>
+    </div>
+    <div class="w3-code  w3-card w3-grey" contenteditable spellcheck="false">
+        mask = 666 -umask <span class="w3-text-blue">#for files</span><br>
+        mask = 777 -umask <span class="w3-text-blue">#for folders</span><br>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>Chmod</h4>
+    </div>
+    <p class="w3-container">symbolic mode</p>
+    <p class="w3-container">the following is the format for specifying a permission in symbolic mode:</p>
+    <div class="w3-code  w3-card w3-grey" contenteditable spellcheck="false">$ chmod [uoga...][[+-=][rwxXstuog...] file
+    </div>
+    <p class="w3-container">The first group of characters defines to whom the new permissions apply:</p>
+    <ol>
+        <li><span style="color: red;">u</span> for the user</li>
+        <li><span style="color: red;">g</span> for the group</li>
+        <li><span style="color: red;">o</span> for others (everyone else)</li>
+        <li><span style="color: red;">a</span> for all of the above</li>
+    </ol>
+
+    Next, a symbol is used to indicate whether
+    <ol>
+        <li>you want to add the permission to the existing permissions (+)</li>
+        <li>subtract the permission from the existing permissions (-),</li>
+        <li>set the permissions to the value (=).</li>
+    </ol>
+    <p class="w3-container">Finally, the third symbol is the permission used for the setting. You may notice that there
+        are more than the normal rwx values here. The additional settings are as follows:
+    </p>
+    <ol>
+        <li><span style="color: red;">X</span> to assign execute permissions only if the object is a directory or if it
+            already had execute permissions</li>
+        <li><span style="color: red;">s</span> to set the SUID or SGID on execution</li>
+        <li><span style="color: red;">t</span> to set the sticky bit</li>
+        <li><span style="color: red;">u</span> to set the permissions to the owner's permissions</li>
+        <li><span style="color: red;">g</span> to set the permissions to the group's permissions</li>
+        <li><span style="color: red;">o</span> to set the permissions to the others' permissions</li>
+    </ol>
+
+    <div class="w3-container w3-text-blue">
+        <h4>chown : Changing ownership && chgrp : change the default group of a file</h4>
+    </div>
+    <p class="w3-container"><span style="color: red;">chown</span> command is used to change the file Owner or group.
+        Whenever you want to change
+        ownership you can use chown command.</p>
+    <p class="w3-container">example</p>
+    <div class="w3-code  w3-card w3-grey" contenteditable spellcheck="false">
+        $ sudo chown hma:hma file <span class="w3-text-blue">#change file owners to user hma and group hma</span><br>
+    </div>
+    <p class="w3-container">You can specify either the login name or the numeric UID for the new owner of the file (hma)
+    </p>
+    <p class="w3-container">The <span style="color: red;">chgrp</span> command provides an easy way to change just the
+        default group for a file or directory:</p>
+    <div class="w3-code  w3-card w3-grey" contenteditable spellcheck="false">
+        $ sudo chgrp hma file&#160;&#160;&#160;<span class="w3-text-blue">#change the default group of file to
+            hma</span><br>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>Sharing Files</h4>
+    </div>
+    <p class="w3-container">Linux stores three additional bits of information for each file and directory:</p>
+    <ol>
+        <li><span style="color:rgb(0, 140, 255)">The set user ID (SUID): </span> When a file is executed by a user, the program runs
+            under the permissions of the file owner.</li>
+        <li><span style="color:rgb(0, 140, 255)">The set group ID (SGID):</span> For a file, the program runs under the permissions
+            of the file group. For a directory, new files created in the directory use the directory group as the
+            default group.</li>
+        <li><span style="color:rgb(0, 140, 255)">The sticky bit: </span> When applied to a directory, only file owners can delete or
+            rename the files in the directory.</li>
+    </ol>
+    <p class="w3-container">The chmod SUID, SGID, and Sticky Bit Octal Values and they are come befor rwx values</p>
+    <table>
+        <thead>
+            <tr>
+                <th><span>Binary</span></th>
+                <th><span>Octal</span></th>
+                <th><span>Description</span></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span>000</span></td>
+                <td><span>0</span></td>
+                <td><span>All bits are cleared.</span></td>
+            </tr>
+            <tr>
+                <td><span>001</span></td>
+                <td><span>1</span></td>
+                <td><span>The sticky bit is set.</span></td>
+            </tr>
+            <tr>
+                <td><span>010</span></td>
+                <td><span>2</span></td>
+                <td><span>The SGID bit is set.</span></td>
+            </tr>
+            <tr>
+                <td><span>011</span></td>
+                <td><span>3</span></td>
+                <td><span>The SGID and<a></a>
+                        sticky bits are set.</span></td>
+            </tr>
+            <tr>
+                <td><span>100</span></td>
+                <td><span>4</span></td>
+                <td><span>The SUID bit is set.</span></td>
+            </tr>
+            <tr>
+                <td><span>101</span></td>
+                <td><span>5</span></td>
+                <td><span>The SUID and sticky bits are set.</span></td>
+            </tr>
+            <tr>
+                <td class="left"><span id="kobo.998.1" class="koboSpan">110</span></td>
+                <td class="left"><span id="kobo.999.1" class="koboSpan">6</span></td>
+                <td class="left"><span id="kobo.1000.1" class="koboSpan">The SUID and SGID bits are set.</span></td>
+            </tr>
+            <tr>
+                <td class="left"><span id="kobo.1001.1" class="koboSpan">111</span></td>
+                <td class="left"><span id="kobo.1002.1" class="koboSpan">7</span></td>
+                <td class="left"><span id="kobo.1003.1" class="koboSpan">All bits are set.</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="w3-container w3-text-blue">
+        <h4>Access Control Lists : get file acess Control list (getfacl) && set file acess Control list (setfacl) </h4>
+    </div>
+    <p class="w3-container">To use the ACL feature in Linux, you use the setfacl and getfacl commands. The getfacl
+        command allows you to view the ACLs assigned to a file or directory:</p>
+    <p class="w3-container">example</p>
+    <div class="w3-code  w3-card w3-grey" contenteditable spellcheck="false">
+        $ getfacl z <span class="w3-text-blue"># view the ACLs assigned to a program z</span><br>
+        &#160;&#160;&#160;&#160;# file: z <br>
+        &#160;&#160;&#160;&#160;# owner: ali<br>
+        &#160;&#160;&#160;&#160;# group: ali<br>
+        &#160;&#160;&#160;&#160;# flags: s--<br>
+        &#160;&#160;&#160;&#160;user::rwx<br>
+        &#160;&#160;&#160;&#160;group::rw-<br>
+        &#160;&#160;&#160;&#160;other::rwx
+    </div>
+    <p class="w3-container">To assign permissions for additional users or groups, you use the setfacl command:</p>
+    <div class="w3-code  w3-card w3-grey" contenteditable spellcheck="false">
+        $ setfacl -m u:hma:rwx z.c&#160;&#160;<span class="w3-text-blue">#set 'rwx' permissions to user "hma" for file
+            "z.c"</span><br>
+        $ setfacl -m g:hma:rwx z.c&#160;&#160;<span class="w3-text-blue">#set 'rwx' permissions to group "hma" for file
+            "z.c" </span><br>
+    </div>
+    <div class="w3-center w3-container w3-text-red w3-margin-bottom">
+        <h2 id="ch2">Managing Filesystems</h2>
+    </div>
+    <div class="w3-center w3-container w3-text-red w3-margin-bottom">
+        <h2 id="ch3">Installing Software</h2>
+    </div>
+    <div class="w3-container w3-text-blue">
+        <h4>Managing packages with apt</h4>
+    </div>
+    <div class="w3-code  w3-card w3-grey" contenteditable spellcheck="false">
+        $ apt show <span style="color:rgb(0, 140, 255)">package_name</span> <span class="w3-text-blue">#displaying the details of the
+            package</span><br>
+    </div>
+    
+    <p class="w3-container">The apt show command does not indicate that the package is installed on the system.
+        It shows only detailed package information from the software repository.</p>
+        <p class="w3-container">listing of all the files associated with package_name.</p>
+        <div class="w3-code  w3-card w3-grey" contenteditable spellcheck="false">
+        $ dpkg -L package_name <span class="w3-text-blue">#listing of all the files associated with package_name.</span><br>
+        </div>
+        <p class="w3-container">You can also do the reverse — find what package a particular file belongs to:</p>
+<div class="w3-code  w3-card w3-grey" contenteditable spellcheck="false">
+    $ dpkg --search /usr/lib/aspell/en_AU-variant_1.rws <span class="w3-text-blue">#find what package a particular file belongs to</span><br>
+</div>
+<div class="w3-container w3-text-blue"><h4>Installing software packages with apt</h4></div>
+<p class="w3-container">How do you find a particular software package? Use apt with the search command:</p>
+<div class="w3-code  w3-card w3-grey" contenteditable spellcheck="false">$ apt search <span style="color:rgb(86, 77, 219)">package_name</span></div>
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        document.getElementById("close").onclick = () => {
+
+            document.getElementById("close").parentElement.style.display = "none";
+            document.getElementById("max").style.display = "block"
+        }
+        document.getElementById("max").onclick = () => {
+            document.getElementById("close").parentElement.style.display = "block";
+            document.getElementById("max").style.display = "none"
+        }
+    </script>
+</body>
+
+</html>

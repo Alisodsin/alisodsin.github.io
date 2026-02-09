@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <script src="./main.js" type="module"></script> -->
+  <style>
+    #svg {
+      background-color: black;
+      transform: scale(1, -1);
+      transition: 100ms;
+      border: 1px solid white;
+      width: 90%;
+      aspect-ratio: 1;
+
+    }
+
+    body {
+      background: black;
+      margin: 3%;
+    }
+  </style>
+  <title>Document</title>
+</head>
+
+<body>
+  <svg viewBox="0 0 100 100" id="svg">
+    <path xmlns="http://www.w3.org/2000/svg" id="pth" stroke="red" stroke-width="5" fill="#dc2c2a" />
+  </svg>
+  <script type="module">
+    function sleep(n) {
+      return new Promise((r, _) => {
+        setTimeout(r, n, "")
+      })
+    }
+    function random(n1, n2) {
+      return Math.ceil((n2 - n1 + 1) * Math.random() + n1);
+    }
+    function randomColor() {
+      let randomNum = Math.floor(Math.random() * 16777216);
+      let randomHex = randomNum.toString(16);
+      return "#" + randomHex.padStart(6, "0");
+    }
+    let svg = document.getElementById("svg");
+    function createCircle(r, cx, cy) {
+      let circle = document.createElementNS("http://www.w3.org/2000/svg", "circle")
+      circle.setAttribute("stroke", "cyan");
+      circle.setAttribute("stroke-width", "0.2");
+      circle.setAttribute("fill", randomColor());
+      circle.setAttribute("cx", cx)
+      circle.setAttribute("cy", cy)
+      circle.setAttribute("r", r)
+      return circle;
+    }
+    function createAnimate(atr, v, d, r) {
+      let animate = document.createElementNS("http://www.w3.org/2000/svg", "animate")
+      animate.setAttribute("attributeName", atr)
+      animate.setAttribute("values", v)
+      animate.setAttribute("dur", d)
+      animate.setAttribute("repeatCount", r)
+      return animate
+    }
+    function doIt(r, cx, x1, x2, x3, dx, cy, y1, y2, y3, dy) {
+      let cir = createCircle(r, cx, cy)
+      let anim1 = createAnimate("cx", `${x1};${x2};${x3}`, `${dx}`, "10000000");
+      let anim2 = createAnimate("cy", `${y1};${y2};${y3}`, `${dy}`, "10000000");
+      cir.append(anim1)
+      cir.append(anim2)
+      svg.append(cir)
+    }
+    async function moveByCode(r) {
+      let cir = createCircle(r, 1, 1)
+      svg.append(cir)
+      for (let i = 1; i <= 100; i += 0.5) {
+        let y = Math.sin(i * Math.PI / 50) * 50 + 50;
+        cir.setAttribute("cx", i);
+        cir.setAttribute("cy", y);
+        if (i == 100) {
+          for (; i >= 0; i -= 0.5) {
+            y = Math.sin(i * Math.PI / 50) * -50 + 50;
+            cir.setAttribute("cx", i);
+            cir.setAttribute("cy", y);
+            await sleep(10)
+          }
+        }
+        await sleep(10)
+      }
+    }
+    for (let i = 1; i <= 100; i += 1) {
+      // doIt(2, random(0.5, 1), 0, 100, 0, `${random(1, 10)}s`, random(1, 100), 0, 100, 0, `${random(1, 10)}s`)
+      moveByCode(2)
+      await sleep(5000)
+
+    } 
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="./o.js" defer></script>
+
+        <link rel="shortcut icon" href="./imgs/favicon.ico" type="image/x-icon">
+        <style>
+                .cods {
+                        color: rgb(212, 212, 212);
+                        background-color: rgb(30, 30, 30);
+                        font-family: monospace;
+                        white-space: nowrap;
+                        overflow: auto;
+                        line-height: 19px;
+                        overflow: auto;
+                        padding: 10px;
+                        border-radius: 1%;
+                        outline: none;
+                        font-size: 1.09em;
+                }
+
+                h3 {
+                        color: red;
+                }
+
+                * {
+                        color: wheat;
+                }
+        </style>
+        <title>mysql notes</title>
+</head>
+
+<body style="background-color: black;">
+        <h3>-- The SELECT Statement</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">USE</span> sql_store;</div>
+                        <div><span style="color: #569cd6;">SELECT</span> * <span style="color: #569cd6;">FROM</span>
+                                customers;
+                        </div>
+                        <div><span style="color: #569cd6;">SELECT</span> * <span style="color: #569cd6;">FROM</span>
+                                customers
+                                &nbsp;<span style="color: #569cd6;">WHERE</span> customer_id &gt; <span
+                                        style="color: #b5cea8;">1</span>
+                                <span style="color: #569cd6;">ORDER BY</span> first_name;
+                        </div>
+                </div>
+        </div>
+        <h3>--The SELECT Clause</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">SELECT</span> first_name,last_name,points+<span
+                                        style="color: #b5cea8;">10</span> <span style="color: #569cd6;">FROM</span>
+                                customers;</div>
+                        <div><span style="color: #569cd6;">SELECT</span> last_name, first_name, points, points * <span
+                                        style="color: #b5cea8;">10</span> + <span style="color: #b5cea8;">100</span>
+                                <span style="color: #569cd6;">FROM</span> customers;
+                        </div>
+                        <div><span style="color: #569cd6;">SELECT</span> last_name, first_name, points, (points * <span
+                                        style="color: #b5cea8;">10</span>) + <span style="color: #b5cea8;">100</span>
+                                <span style="color: #569cd6;">FROM</span> customers;
+                        </div>
+                        <div><span style="color: #569cd6;">SELECT</span> last_name, first_name, points, points * <span
+                                        style="color: #b5cea8;">10</span> + <span style="color: #b5cea8;">100</span>
+                                <span style="color: #569cd6;">AS</span> discount_factor <span
+                                        style="color: #569cd6;">FROM</span>
+                                customers;
+                        </div>
+                        <div><span style="color: #569cd6;">UPDATE</span> <span
+                                        style="color: #ce9178;">`customers`</span> <span
+                                        style="color: #569cd6;">SET</span> <span style="color: #ce9178;">`state`</span>
+                                = <span style="color: #ce9178;">'MA'</span> <span style="color: #569cd6;">WHERE</span>
+                                <span style="color: #ce9178;">`customers`</span>.<span
+                                        style="color: #ce9178;">`customer_id`</span> =
+                                <span style="color: #b5cea8;">10</span>;
+                        </div>
+                        <div><span style="color: #569cd6;">SELECT DISTINCT</span> <span
+                                        style="color: #569cd6;">state</span> <span style="color: #569cd6;">FROM</span>
+                                customers;</div>
+                        <div><span style="color: #569cd6;">SELECT</span> <span
+                                        style="color: #569cd6;">name</span>,unit_price,(unit_price * <span
+                                        style="color: #b5cea8;">1</span>.<span style="color: #b5cea8;">1</span>) <span
+                                        style="color: #569cd6;">as</span> new_price <span
+                                        style="color: #569cd6;">FROM</span> products;
+                        </div>
+                </div>
+        </div>
+        <h3>-- the WHERE Clause</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">SELECT</span> * <span style="color: #569cd6;">FROM</span>
+                                customers <span style="color: #569cd6;">WHERE</span> points &gt; <span
+                                        style="color: #b5cea8;">3000</span>;</div>
+                        <div><span style="color: #569cd6;">SELECT</span> * <span style="color: #569cd6;">FROM</span>
+                                customers <span style="color: #569cd6;">WHERE</span> birth_date &gt; <span
+                                        style="color: #ce9178;">'1990-01-01'</span>;</div>
+                </div>
+        </div>
+        <h3>-- The AND, OR, and NOT Operators </h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">SELECT</span> * <span style="color: #569cd6;">FROM</span>
+                                customers <span style="color: #569cd6;">WHERE</span> birth_date &gt; <span
+                                        style="color: #ce9178;">'1990-01-01'</span> <span
+                                        style="color: #569cd6;">AND</span> points &gt;
+                                <span style="color: #b5cea8;">1000</span>;
+                        </div>
+                        <div><span style="color: #569cd6;">SELECT</span> * <span style="color: #569cd6;">FROM</span>
+                                customers <span style="color: #569cd6;">WHERE</span> birth_date &gt; <span
+                                        style="color: #ce9178;">'1990-01-01'</span> <span
+                                        style="color: #569cd6;">OR</span> points &gt;
+                                <span style="color: #b5cea8;">1000</span>;
+                        </div>
+                        <div><span style="color: #569cd6;">SELECT</span> * <span style="color: #569cd6;">FROM</span>
+                                customers <span style="color: #569cd6;">WHERE</span> birth_date &gt; <span
+                                        style="color: #ce9178;">'1990-01-01'</span> <span
+                                        style="color: #569cd6;">OR</span> points &gt;
+                                <span style="color: #b5cea8;">1000</span> <span style="color: #569cd6;">AND</span> <span
+                                        style="color: #569cd6;">state</span> = <span style="color: #ce9178;">'VA'</span>
+                                ;
+                        </div>
+                        <div><span style="color: #569cd6;">SELECT</span> * <span style="color: #569cd6;">FROM</span>
+                                customers <span style="color: #569cd6;">WHERE</span> &nbsp;<span
+                                        style="color: #569cd6;">state</span> != <span
+                                        style="color: #ce9178;">'fl'</span>;</div>
+                        <div><span style="color: #569cd6;">SELECT</span> * <span style="color: #569cd6;">FROM</span>
+                                customers <span style="color: #569cd6;">WHERE</span> <span
+                                        style="color: #569cd6;">NOT</span> &nbsp;<span
+                                        style="color: #569cd6;">state</span> = <span
+                                        style="color: #ce9178;">'fl'</span>;</div>
+                </div>
+        </div>
+        <br>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">SELECT</span> &nbsp;*</div>
+                        <div><span style="color: #569cd6;">FROM</span> order_items</div>
+                        <div><span style="color: #569cd6;">WHERE</span> order_id = <span
+                                        style="color: #b5cea8;">6</span></div>
+                        <div><span style="color: #569cd6;">AND</span> unit_price * quantity &gt; <span
+                                        style="color: #b5cea8;">30</span>;</div>
+                </div>
+        </div>
+        <h3>-- the IN Operator</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">-- the IN Operator</span></div>
+                        <div><span style="color: #569cd6;">SELECT</span> &nbsp;*</div>
+                        <div><span style="color: #569cd6;">FROM</span> customers</div>
+                        <div><span style="color: #569cd6;">WHERE</span> <span style="color: #569cd6;">state</span> =
+                                <span style="color: #ce9178;">"VA"</span> <span style="color: #569cd6;">or</span> <span
+                                        style="color: #569cd6;">state</span> = <span style="color: #ce9178;">"GA"</span>
+                                <span style="color: #569cd6;">or</span> <span style="color: #569cd6;">state</span> =
+                                <span style="color: #ce9178;">"FL"</span>;
+                        </div>
+                        <div><span style="color: #6a9955;">-- USING IN operator for ease</span></div>
+                        <div><span style="color: #569cd6;">SELECT</span> &nbsp;*</div>
+                        <div><span style="color: #569cd6;">FROM</span> customers</div>
+                        <div><span style="color: #569cd6;">WHERE</span> <span style="color: #569cd6;">state</span> <span
+                                        style="color: #569cd6;">IN</span> (<span style="color: #ce9178;">"VA"</span>,
+                                <span style="color: #ce9178;">"GA"</span>, <span style="color: #ce9178;">"FL"</span>);
+                        </div>
+                        <div><span style="color: #6a9955;">-- USING NOT IN operator for ease</span></div>
+                        <div><span style="color: #569cd6;">SELECT</span> &nbsp;*</div>
+                        <div><span style="color: #569cd6;">FROM</span> customers</div>
+                        <div><span style="color: #569cd6;">WHERE</span> <span style="color: #569cd6;">state</span> <span
+                                        style="color: #569cd6;">IN</span> (<span style="color: #ce9178;">"VA"</span>,
+                                <span style="color: #ce9178;">"GA"</span>, <span style="color: #ce9178;">"FL"</span>);
+                        </div>
+                </div>
+        </div>
+        <p>the question</p>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> &nbsp;*</span>
+                        </div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> products</span>
+                        </div>
+                        <div><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;"> quantity_in_stock
+                                </span><span style="color: #569cd6;">IN</span><span style="color: #d4d4d4;">
+                                        (</span><span style="color: #b5cea8;">49</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #b5cea8;">38</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #b5cea8;">72</span><span style="color: #d4d4d4;">);</span>
+                        </div>
+                </div>
+        </div>
+        <h3>the BETWEEN operator</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> &nbsp;*</span>
+                        </div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers</span>
+                        </div>
+                        <div><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;"> points &gt;=
+                                </span><span style="color: #b5cea8;">1000</span></div>
+                        <div><span style="color: #569cd6;">AND</span><span style="color: #d4d4d4;"> points &lt;=
+                                </span><span style="color: #b5cea8;">3000</span><span style="color: #d4d4d4;">;</span>
+                        </div>
+                        <div><span style="color: #6a9955;">-- useing BETWEEN</span></div>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> &nbsp;*</span>
+                        </div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers</span>
+                        </div>
+                        <div><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;"> points
+                                </span><span style="color: #569cd6;">BETWEEN</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #b5cea8;">1000</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #569cd6;">AND</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #b5cea8;">3000</span><span style="color: #d4d4d4;">;</span>
+                        </div>
+                        <div><span style="color: #6a9955;">--exercise</span></div>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> &nbsp;*</span>
+                        </div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers</span>
+                        </div>
+                        <div><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;"> birth_date
+                                </span><span style="color: #569cd6;">BETWEEN</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #ce9178;">"1990-01-01"</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #569cd6;">AND</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #ce9178;">"2000-01-01"</span><span style="color: #d4d4d4;">;
+                                </span></div>
+                </div>
+        </div>
+        <h3>the LIKE operator</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">-- % is like * in linux</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> * </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers
+                                </span><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;">
+                                        last_name </span><span style="color: #569cd6;">LIKE</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #ce9178;">'b%'</span><span
+                                        style="color: #d4d4d4;">;</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> * </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers
+                                </span><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;">
+                                        last_name </span><span style="color: #569cd6;">LIKE</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #ce9178;">'%b%'</span><span
+                                        style="color: #d4d4d4;">;</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> * </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers
+                                </span><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;">
+                                        last_name </span><span style="color: #569cd6;">LIKE</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #ce9178;">'%y'</span><span
+                                        style="color: #d4d4d4;">;</span></div><br>
+                        <div><span style="color: #6a9955;">-- "_" match any single letter</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> * </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers
+                                </span><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;">
+                                        last_name </span><span style="color: #569cd6;">LIKE</span><span
+                                        style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">'b____y'</span><span style="color: #d4d4d4;">;</span>
+                        </div><br>
+                        <div><span style="color: #6a9955;">-- exercize</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> *</span></div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers</span>
+                        </div>
+                        <div><span style="color: #569cd6;">WHERE</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">address</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #569cd6;">LIKE</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #ce9178;">"%TRAIL%"</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">OR</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">address</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #569cd6;">LIKE</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #ce9178;">"%AVENUE"</span><span
+                                        style="color: #d4d4d4;">;</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> * </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers
+                                </span><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;"> phone
+                                </span><span style="color: #569cd6;">LIKE</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #ce9178;">"%9"</span><span style="color: #d4d4d4;">;</span>
+                        </div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> * </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers
+                                </span><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;"> phone
+                                </span><span style="color: #569cd6;">NOT</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #569cd6;">LIKE</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #ce9178;">"%9"</span><span style="color: #d4d4d4;">;</span>
+                        </div>
+                </div>
+        </div>
+        <h3>the REGEXP operator</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">--contain field 'field'</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> * </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers
+                                </span><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;">
+                                        last_name </span><span style="color: #569cd6;">REGEXP</span><span
+                                        style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">'field'</span><span style="color: #d4d4d4;">;</span>
+                        </div><br>
+                        <div><span style="color: #6a9955;">--begin with b '^b'</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> * </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers
+                                </span><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;">
+                                        last_name </span><span style="color: #569cd6;">REGEXP</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #ce9178;">'^b'</span><span
+                                        style="color: #d4d4d4;">;</span></div><br>
+                        <div><span style="color: #6a9955;">--end with field 'field$'</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> * </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers
+                                </span><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;">
+                                        last_name </span><span style="color: #569cd6;">REGEXP</span><span
+                                        style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">'field$'</span><span style="color: #d4d4d4;">;</span>
+                        </div><br>
+                        <div><span style="color: #6a9955;">--contain field or mac or rose 'field|mac|rose'</span></div>
+                        <br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> * </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers
+                                </span><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;">
+                                        last_name </span><span style="color: #569cd6;">REGEXP</span><span
+                                        style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">'field|mac|rose'</span><span
+                                        style="color: #d4d4d4;">;</span></div><br>
+                        <div><span style="color: #6a9955;">--contain e perceded by g or i or m '[gim]e'</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> * </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers
+                                </span><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;">
+                                        last_name </span><span style="color: #569cd6;">REGEXP</span><span
+                                        style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">'[gim]e'</span><span style="color: #d4d4d4;">;</span>
+                        </div><br>
+                        <div><span style="color: #6a9955;">--contain e followed by f or m or q 'e[fmq]'</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> * </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers
+                                </span><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;">
+                                        first_name </span><span style="color: #569cd6;">REGEXP</span><span
+                                        style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">'e[fmq]'</span><span style="color: #d4d4d4;">;</span>
+                        </div><br>
+                        <div><span style="color: #6a9955;">--contain e perceded by a letter range[a-h] '[a-h]e'</span>
+                        </div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> * </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers
+                                </span><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;">
+                                        last_name </span><span style="color: #569cd6;">REGEXP</span><span
+                                        style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">'[a-h]e'</span><span style="color: #d4d4d4;">;</span>
+                        </div><br>
+                        <div><span style="color: #6a9955;">--exercize</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> * </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers
+                                </span><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;">
+                                        first_name </span><span style="color: #569cd6;">REGEXP</span><span
+                                        style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">'(^elka$|^ambur$)'</span><span
+                                        style="color: #d4d4d4;">;</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> * </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers
+                                </span><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;">
+                                        last_name </span><span style="color: #569cd6;">REGEXP</span><span
+                                        style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">'(ey$|on$)'</span><span style="color: #d4d4d4;">;</span>
+                        </div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> * </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers
+                                </span><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;">
+                                        last_name </span><span style="color: #569cd6;">REGEXP</span><span
+                                        style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">'(^my|se)'</span><span style="color: #d4d4d4;">;</span>
+                        </div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> * </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers
+                                </span><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;">
+                                        last_name </span><span style="color: #569cd6;">REGEXP</span><span
+                                        style="color: #d4d4d4;"> </span><span
+                                        style="color: #ce9178;">'b[ru]'</span><span style="color: #d4d4d4;">;</span>
+                        </div>
+                </div>
+        </div>
+        <h3>the IS NULL operator</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">-- IS NULL</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> * </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers
+                                </span><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;"> phone
+                                </span><span style="color: #569cd6;">IS</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #569cd6;">NULL</span><span style="color: #d4d4d4;">;</span>
+                        </div><br>
+                        <div><span style="color: #6a9955;">--IS NOT NULL</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> * </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers
+                                </span><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;"> phone
+                                </span><span style="color: #569cd6;">IS</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #569cd6;">NOT</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #569cd6;">NULL</span><span style="color: #d4d4d4;">;</span>
+                        </div><br>
+                        <div><span style="color: #6a9955;">--exercize</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> * </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> orders
+                                </span><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;">
+                                        shipped_date </span><span style="color: #569cd6;">IS</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #569cd6;">NULL</span><span
+                                        style="color: #d4d4d4;">;</span></div>
+                </div>
+        </div>
+        <h3>the ORDER BY Operator</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> * </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers
+                                </span><span style="color: #569cd6;">ORDER BY</span><span style="color: #d4d4d4;">
+                                        first_name;</span></div><br>
+                        <div><span style="color: #6a9955;">--ORDER BY DESC</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> * </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers
+                                </span><span style="color: #569cd6;">ORDER BY</span><span style="color: #d4d4d4;">
+                                        first_name </span><span style="color: #569cd6;">DESC</span><span
+                                        style="color: #d4d4d4;">;</span></div><br>
+                        <div><span style="color: #6a9955;">--ORDER BY multiple columns</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> * </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers
+                                </span><span style="color: #569cd6;">ORDER BY</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #569cd6;">state</span><span style="color: #d4d4d4;">,
+                                        first_name;</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> * </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers
+                                </span><span style="color: #569cd6;">ORDER BY</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #569cd6;">state</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #569cd6;">DESC</span><span style="color: #d4d4d4;"> ,
+                                        first_name </span><span style="color: #569cd6;">DESC</span><span
+                                        style="color: #d4d4d4;">;</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; first_name,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; last_name,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #b5cea8;">10</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">AS</span><span style="color: #d4d4d4;"> points</span>
+                        </div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers</span>
+                        </div>
+                        <div><span style="color: #569cd6;">ORDER BY</span><span style="color: #d4d4d4;"> points,
+                                        first_name;</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> first_name,
+                                        last_name ,points </span><span style="color: #569cd6;">FROM</span><span
+                                        style="color: #d4d4d4;"> customers </span><span style="color: #569cd6;">ORDER
+                                        BY</span><span style="color: #d4d4d4;"> points;</span></div><br>
+                        <div><span style="color: #6a9955;">--Exercize</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> *</span></div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> order_items</span>
+                        </div>
+                        <div><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;"> order_id =
+                                </span><span style="color: #b5cea8;">2</span></div>
+                        <div><span style="color: #569cd6;">ORDER BY</span><span style="color: #d4d4d4;"> quantity *
+                                        unit_price;</span></div>
+                </div>
+        </div>
+        <h3>the LIMIT operator</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div style="color: rgb(212, 212, 212); line-height: 19px;">
+                                <div><span style="color: #6a9955;">-- the LIMIT opeartor</span></div><br>
+                                <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> *
+                                        </span><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;">
+                                                customers </span><span style="color: #569cd6;">LIMIT</span><span
+                                                style="color: #d4d4d4;"> </span><span
+                                                style="color: #b5cea8;">3</span><span style="color: #d4d4d4;">;</span>
+                                </div><br>
+                                <div><span style="color: #6a9955;">-- the LIMIT opeartor with offset , length "ofset not
+                                                &nbsp;included" and come at the end</span></div><br>
+                                <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> *
+                                        </span><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;">
+                                                customers </span><span style="color: #569cd6;">LIMIT</span><span
+                                                style="color: #d4d4d4;"> </span><span
+                                                style="color: #b5cea8;">2</span><span
+                                                style="color: #d4d4d4;">,</span><span
+                                                style="color: #b5cea8;">2</span><span style="color: #d4d4d4;">;</span>
+                                </div><br>
+                                <div><span style="color: #6a9955;">--exercize</span></div><br>
+                                <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> *
+                                        </span><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;">
+                                                customers </span><span style="color: #569cd6;">ORDER BY</span><span
+                                                style="color: #d4d4d4;"> points </span><span
+                                                style="color: #569cd6;">DESC</span><span style="color: #d4d4d4;">
+                                        </span><span style="color: #569cd6;">LIMIT</span><span style="color: #d4d4d4;">
+                                        </span><span style="color: #b5cea8;">3</span><span style="color: #d4d4d4;">
+                                                ;</span></div>
+                        </div>
+                </div>
+        </div>
+        <h3>Inner Joins</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">--join 2 tables in the database on condition</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> *</span></div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> orders</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">JOIN</span><span style="color: #d4d4d4;"> customers
+                                </span><span style="color: #569cd6;">on</span><span style="color: #d4d4d4;">
+                                        orders.customer_id = customers.customer_id;</span></div><br>
+                        <div><span style="color: #6a9955;">--selecting specific columns from that large table</span>
+                        </div><br>
+                        <div><span style="color: #569cd6;">SELECT</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; first_name,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; last_name,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; orders.customer_id,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; order_id</span></div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> orders</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">JOIN</span><span style="color: #d4d4d4;"> customers
+                                </span><span style="color: #569cd6;">on</span><span style="color: #d4d4d4;">
+                                        orders.customer_id = customers.customer_id;</span></div><br>
+                        <div><span style="color: #6a9955;">-- using aliases for tables</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; first_name,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; last_name,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; o.customer_id,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; order_id</span></div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> orders o</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">JOIN</span><span style="color: #d4d4d4;"> customers c
+                                </span><span style="color: #569cd6;">on</span><span style="color: #d4d4d4;">
+                                        o.customer_id = c.customer_id;</span></div><br>
+                        <div><span style="color: #6a9955;">--exercize</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> *</span></div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> order_items</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">JOIN</span><span style="color: #d4d4d4;"> products
+                                </span><span style="color: #569cd6;">ON</span><span style="color: #d4d4d4;">
+                                        order_items.product_id = products.product_id;</span></div>
+                </div>
+        </div>
+        <h3>Joining Across Databases</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">--join 2 tables from different databases</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> *</span></div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> order_items
+                                        oi</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">JOIN</span><span style="color: #d4d4d4;">
+                                        sql_inventory.products p </span><span style="color: #569cd6;">ON</span><span
+                                        style="color: #d4d4d4;"> oi.product_id = p.product_id;</span></div>
+                </div>
+        </div>
+        <h3>Self Joins</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">--show another database table</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> * </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;">
+                                        sql_hr.employees;</span></div><br>
+                        <div><span style="color: #6a9955;">--table self join</span></div>
+                        <div><span style="color: #569cd6;">SELECT</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; e.employee_id,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; e.first_name,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; m.first_name </span><span
+                                        style="color: #569cd6;">as</span><span style="color: #d4d4d4;"> manager</span>
+                        </div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> sql_hr.employees
+                                        e</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">JOIN</span><span style="color: #d4d4d4;">
+                                        sql_hr.employees m </span><span style="color: #569cd6;">ON</span><span
+                                        style="color: #d4d4d4;"> e.reports_to = m.employee_id;</span></div>
+                </div>
+        </div>
+        <h3>Joining Multiple Tables</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">-- join multiple tables</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; first_name,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; o.customer_id,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; order_date,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; os.name </span><span
+                                        style="color: #569cd6;">as</span><span style="color: #d4d4d4;"> stat</span>
+                        </div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> orders o</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">JOIN</span><span style="color: #d4d4d4;"> customers c
+                                </span><span style="color: #569cd6;">ON</span><span style="color: #d4d4d4;">
+                                        o.customer_id = c.customer_id</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">JOIN</span><span style="color: #d4d4d4;"> order_statuses
+                                        os </span><span style="color: #569cd6;">ON</span><span style="color: #d4d4d4;">
+                                        o.status = os.order_status_id;</span></div><br>
+                        <div><span style="color: #6a9955;">--exersize</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; first_name </span><span
+                                        style="color: #569cd6;">as</span><span style="color: #d4d4d4;"> _name,</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; order_date </span><span
+                                        style="color: #569cd6;">as</span><span style="color: #d4d4d4;"> _date,</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">name</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">as</span><span style="color: #d4d4d4;">
+                                        product_name,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; ot.quantity,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; ot.unit_price,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; ot.quantity * ot.unit_price </span><span
+                                        style="color: #569cd6;">as</span><span style="color: #d4d4d4;"> total</span>
+                        </div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers c</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">JOIN</span><span style="color: #d4d4d4;"> orders o
+                                </span><span style="color: #569cd6;">ON</span><span style="color: #d4d4d4;">
+                                        o.customer_id = c.customer_id</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">JOIN</span><span style="color: #d4d4d4;"> order_items ot
+                                </span><span style="color: #569cd6;">ON</span><span style="color: #d4d4d4;"> o.order_id
+                                        = ot.order_id</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">JOIN</span><span style="color: #d4d4d4;"> products p
+                                </span><span style="color: #569cd6;">ON</span><span style="color: #d4d4d4;">
+                                        ot.product_id = p.product_id</span></div>
+                        <div><span style="color: #569cd6;">ORDER BY</span><span style="color: #d4d4d4;">
+                                        o.customer_id;</span></div>
+                </div>
+        </div>
+        <h3>Compound Join Conditions</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">--Compound Join Conditions</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> *</span></div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> order_items
+                                        oi</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">JOIN</span><span style="color: #d4d4d4;">
+                                        order_item_notes oin </span><span style="color: #569cd6;">ON</span><span
+                                        style="color: #d4d4d4;"> oi.order_id = oin.order_Id </span><span
+                                        style="color: #569cd6;">AND</span><span style="color: #d4d4d4;"> oi.product_id =
+                                        oin.product_id;</span></div>
+                </div>
+        </div>
+        <h3>Implicit Join Syntax</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">--Implicit Join Syntax</span></div><br>
+                        <div><span style="color: #6a9955;">--normal JOIN suntax</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> *</span></div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> orders o</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">JOIN</span><span style="color: #d4d4d4;"> customers c
+                                </span><span style="color: #569cd6;">ON</span><span style="color: #d4d4d4;">
+                                        o.customer_id = c.customer_id;</span></div><br>
+                        <div><span style="color: #6a9955;">--Implicit Syntax</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> *</span></div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> orders o, customers
+                                        c</span></div>
+                        <div><span style="color: #569cd6;">WHERE</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; o.customer_id = c.customer_id;</span></div><br>
+                        <div><span style="color: #6a9955;">--cross joins "ERROR" when you forget the WHERE clause</span>
+                        </div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> * </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> orders o,
+                                        customers c;</span></div><br>
+                        <div><span style="color: #6a9955;">-- it's perefable to use the JOIN syntax because it forces
+                                        &nbsp;you to use the JOIN clause</span></div>
+                </div>
+        </div>
+        <h3>Outer Joins</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">-- Outer Joins [LEFT,RIGHT]</span></div><br>
+                        <div><span style="color: #6a9955;">--here we can't see customers who have not orders</span>
+                        </div><br>
+                        <div><span style="color: #569cd6;">SELECT</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; customers.customer_id,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; customers.first_name,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; orders.order_id</span></div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">JOIN</span><span style="color: #d4d4d4;"> orders
+                                </span><span style="color: #569cd6;">on</span><span style="color: #d4d4d4;">
+                                        customers.customer_id = orders.customer_id</span></div>
+                        <div><span style="color: #569cd6;">ORDER</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">BY</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; customers.customer_id;</span></div><br>
+                        <div><span style="color: #6a9955;">--LEFT JOIN</span></div><br>
+                        <div><span style="color: #6a9955;">--here we insert all customers records wheather they have
+                                        orders or NOT [LEFT JOIN]</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; customers.customer_id,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; customers.first_name,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; orders.order_id</span></div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">LEFT</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">JOIN</span><span style="color: #d4d4d4;"> orders
+                                </span><span style="color: #569cd6;">on</span><span style="color: #d4d4d4;">
+                                        customers.customer_id = orders.customer_id</span></div>
+                        <div><span style="color: #569cd6;">ORDER</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">BY</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; customers.customer_id;</span></div><br>
+                        <div><span style="color: #6a9955;">--RIGHT JOIN</span></div><br>
+                        <div><span style="color: #6a9955;">--insert all the orders record (RIGHT) but this is the same
+                                        as first</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; customers.customer_id,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; customers.first_name,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; orders.order_id</span></div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">RIGHT</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">JOIN</span><span style="color: #d4d4d4;"> orders
+                                </span><span style="color: #569cd6;">on</span><span style="color: #d4d4d4;">
+                                        customers.customer_id = orders.customer_id</span></div>
+                        <div><span style="color: #569cd6;">ORDER</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">BY</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; customers.customer_id;</span></div><br>
+                        <div><span style="color: #6a9955;">--alter tables and use RIGHT JOIN to inserT all customrts
+                                        records wheather they have orders or NOT</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; customers.customer_id,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; customers.first_name,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; orders.order_id,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; orders.status</span></div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> orders</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">RIGHT</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">JOIN</span><span style="color: #d4d4d4;"> customers
+                                </span><span style="color: #569cd6;">on</span><span style="color: #d4d4d4;">
+                                        customers.customer_id = orders.customer_id</span></div>
+                        <div><span style="color: #569cd6;">ORDER</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">BY</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; customers.customer_id;</span></div><br>
+                        <div><span style="color: #6a9955;">--Exercize</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; p.product_id,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; p.name,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; oi.quantity</span></div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> products p</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">LEFT</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">JOIN</span><span style="color: #d4d4d4;"> order_items oi
+                                </span><span style="color: #569cd6;">on</span><span style="color: #d4d4d4;">
+                                        p.product_id = oi.product_id;</span></div>
+                </div>
+        </div>
+        <h3>Outer Join Between Multiple Tables</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">--Outer Join Between Multiple Tables</span></div><br>
+                        <div><span style="color: #6a9955;">-- here we outer join 3 tables
+                                        customers,orders,shippers</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; c.customer_id,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; c.first_name,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; o.order_id,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; sh.shipper_id,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; sh.name </span><span
+                                        style="color: #569cd6;">as</span><span style="color: #d4d4d4;"> shipper</span>
+                        </div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers c</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">LEFT</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">JOIN</span><span style="color: #d4d4d4;"> orders o
+                                </span><span style="color: #569cd6;">on</span><span style="color: #d4d4d4;">
+                                        c.customer_id = o.customer_id</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">LEFT</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">JOIN</span><span style="color: #d4d4d4;"> shippers sh
+                                </span><span style="color: #569cd6;">on</span><span style="color: #d4d4d4;">
+                                        o.shipper_id = sh.shipper_id</span></div>
+                        <div><span style="color: #569cd6;">ORDER</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">BY</span><span style="color: #d4d4d4;">
+                                        c.customer_id;</span></div><br>
+                        <div><span style="color: #6a9955;">-- as a best practise ue always outer join "left"</span>
+                        </div><br>
+                        <div><span style="color: #6a9955;">--exercize</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; o.order_date,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; o.order_id,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; c.first_name </span><span
+                                        style="color: #569cd6;">as</span><span style="color: #d4d4d4;"> customer,</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; sh.name </span><span
+                                        style="color: #569cd6;">as</span><span style="color: #d4d4d4;"> shipper,</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; os.name </span><span
+                                        style="color: #569cd6;">as</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">status</span></div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> orders o</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">JOIN</span><span style="color: #d4d4d4;"> customers c
+                                </span><span style="color: #569cd6;">on</span><span style="color: #d4d4d4;">
+                                        c.customer_id = o.customer_id</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">LEFT</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">JOIN</span><span style="color: #d4d4d4;"> shippers sh
+                                </span><span style="color: #569cd6;">on</span><span style="color: #d4d4d4;">
+                                        o.shipper_id = sh.shipper_id</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">JOIN</span><span style="color: #d4d4d4;"> order_statuses
+                                        os </span><span style="color: #569cd6;">on</span><span style="color: #d4d4d4;">
+                                        os.order_status_id = o.status;</span></div>
+                </div>
+        </div>
+        <h3>Self Outer Joins</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">--self outer joins</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; e.employee_id,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; e.first_name,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; m.first_name </span><span
+                                        style="color: #569cd6;">as</span><span style="color: #d4d4d4;"> manager</span>
+                        </div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> employees e</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">JOIN</span><span style="color: #d4d4d4;"> employees m
+                                </span><span style="color: #569cd6;">ON</span><span style="color: #d4d4d4;">
+                                        e.reports_to = m.employee_id;</span></div>
+                </div>
+        </div>
+        <h3>the USING Clause</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> *</span></div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> orders o</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">JOIN</span><span style="color: #d4d4d4;"> customers c
+                                </span><span style="color: #569cd6;">ON</span><span style="color: #d4d4d4;">
+                                        o.customer_id = c.customer_id;</span></div><br>
+                        <div><span style="color: #6a9955;">-- we can replace the condition &nbsp;by the following</span>
+                        </div><br>
+                        <div><span style="color: #569cd6;">SELECT</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; o.order_id,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; c.first_name,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; sh.name </span><span
+                                        style="color: #569cd6;">as</span><span style="color: #d4d4d4;"> shipper</span>
+                        </div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> orders o</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">JOIN</span><span style="color: #d4d4d4;"> customers c
+                                </span><span style="color: #569cd6;">USING</span><span
+                                        style="color: #d4d4d4;">(customer_id)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">LEFT</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">JOIN</span><span style="color: #d4d4d4;"> shippers sh
+                                </span><span style="color: #569cd6;">USING</span><span
+                                        style="color: #d4d4d4;">(shipper_id);</span></div><br>
+                        <div><span style="color: #6a9955;">-- the next hard compound join query</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> *</span></div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> order_items
+                                        oi</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">JOIN</span><span style="color: #d4d4d4;">
+                                        order_item_notes oin </span><span style="color: #569cd6;">ON</span><span
+                                        style="color: #d4d4d4;"> oi.order_id = oin.order_Id </span><span
+                                        style="color: #569cd6;">AND</span><span style="color: #d4d4d4;"> oi.product_id =
+                                        oin.product_id;</span></div><br>
+                        <div><span style="color: #6a9955;">-- can be simplified with</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> *</span></div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> order_items
+                                        oi</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">JOIN</span><span style="color: #d4d4d4;">
+                                        order_item_notes oin </span><span style="color: #569cd6;">USING</span><span
+                                        style="color: #d4d4d4;">(order_id, product_id);</span></div>
+                </div>
+        </div>
+        <h3>NATURAL Joins</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">-- joining tables based on the common columns</span></div>
+                        <br>
+                        <div><span style="color: #6a9955;">--it is easy to code but little bit dangerous because we are
+                                        letting the address</span></div><br>
+                        <div><span style="color: #6a9955;">-- guess the join we don't have control over it</span></div>
+                        <br>
+                        <div><span style="color: #6a9955;">-- nattural joins can produce unexpected results</span></div>
+                        <br>
+                        <div><span style="color: #6a9955;">-- mosh dicourage to use it</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; o.customer_id,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; c.first_name</span></div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> orders o</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span style="color: #569cd6;">NATURAL
+                                        JOIN</span><span style="color: #d4d4d4;"> customers c;</span></div>
+                </div>
+        </div>
+        <h3>Cross Joins</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">--We use cross joins to combine &nbsp;or join every record
+                                        from the first table, with every record, in a second table</span></div><br>
+                        <div><span style="color: #6a9955;">-- explicit syntax</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; c.first_name </span><span
+                                        style="color: #569cd6;">as</span><span style="color: #d4d4d4;"> customer,</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; p.name </span><span
+                                        style="color: #569cd6;">as</span><span style="color: #d4d4d4;"> product</span>
+                        </div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers c</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">CROSS</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">JOIN</span><span style="color: #d4d4d4;"> products
+                                        p</span></div>
+                        <div><span style="color: #569cd6;">ORDER</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">BY</span><span style="color: #d4d4d4;">
+                                        c.first_name;</span></div><br>
+                        <div><span style="color: #6a9955;">-- &nbsp;implicit syntax "not perefable"</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; c.first_name </span><span
+                                        style="color: #569cd6;">as</span><span style="color: #d4d4d4;"> customer,</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; p.name </span><span
+                                        style="color: #569cd6;">as</span><span style="color: #d4d4d4;"> product</span>
+                        </div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers c,
+                                        products p</span></div>
+                        <div><span style="color: #569cd6;">ORDER</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">BY</span><span style="color: #d4d4d4;">
+                                        c.first_name;</span></div><br>
+                        <div><span style="color: #6a9955;">--excute this to understand more</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> * </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;">
+                                        customers;</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> * </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;">
+                                        products;</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; c.customer_id </span><span
+                                        style="color: #569cd6;">as</span><span style="color: #d4d4d4;"> num1,</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; p.product_id </span><span
+                                        style="color: #569cd6;">as</span><span style="color: #d4d4d4;"> num2</span>
+                        </div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers c</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">CROSS</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">JOIN</span><span style="color: #d4d4d4;"> products
+                                        p</span></div>
+                        <div><span style="color: #569cd6;">ORDER</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">BY</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; c.customer_id,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; p.product_id;</span></div>
+                </div>
+        </div>
+        <h3>Unions</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">-- combine records {rows} from multiple queries using the
+                                        same table ;</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; order_id,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; order_date,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #ce9178;">'Acive'</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #569cd6;">as</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #569cd6;">status</span></div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> orders</span></div>
+                        <div><span style="color: #569cd6;">WHERE</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; order_date &gt;= </span><span
+                                        style="color: #ce9178;">'2019-01-01'</span></div>
+                        <div><span style="color: #569cd6;">UNION</span></div>
+                        <div><span style="color: #6a9955;">-- combine </span></div>
+                        <div><span style="color: #569cd6;">SELECT</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; order_id,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; order_date,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; </span><span
+                                        style="color: #ce9178;">'Archived'</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #569cd6;">as</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #569cd6;">status</span></div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> orders</span></div>
+                        <div><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;"> order_date &lt;
+                                </span><span style="color: #ce9178;">'2019-01-01'</span><span
+                                        style="color: #d4d4d4;">;</span></div><br>
+                        <div><span style="color: #6a9955;">-- combine records {rows} from multiple queries using
+                                        different tables ;</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> first_name
+                                </span><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;">
+                                        customers;</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">name</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;">
+                                        shippers;</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> first_name
+                                </span><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers
+                                </span><span style="color: #569cd6;">UNION</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #569cd6;">name</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;">
+                                        shippers;</span></div><br>
+                        <div><span style="color: #6a9955;">-- error &nbsp;- the 1st query return 2 columns but the
+                                        second return just one</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> first_name,
+                                        last_name</span></div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> customers</span>
+                        </div>
+                        <div><span style="color: #569cd6;">UNION</span></div>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">name</span></div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> shippers;</span>
+                        </div>
+                </div>
+        </div>
+        <h3>Column Attributes</h3>
+        <p>will be revisted</p>
+        <h3>Inserting a Single Row</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">-- id is auto incremented "optional"</span></div><br>
+                        <div><span style="color: #6a9955;">-- birth_date is optional</span></div><br>
+                        <div><span style="color: #6a9955;">-- phone is optional</span></div><br>
+                        <div><span style="color: #6a9955;">--points is optional</span></div><br>
+                        <div><span style="color: #569cd6;">INSERT</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">INTO</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; customers (</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; first_name,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; last_name,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; birth_date,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">address</span><span style="color: #d4d4d4;">,</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; city,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">state</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; )</span></div>
+                        <div><span style="color: #569cd6;">VALUES</span><span style="color: #d4d4d4;"> (</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #ce9178;">'Ali'</span><span style="color: #d4d4d4;">,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #ce9178;">'Saber'</span><span style="color: #d4d4d4;">,</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #ce9178;">"1982-04-21"</span><span
+                                        style="color: #d4d4d4;">,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #ce9178;">'Meet EL korama'</span><span
+                                        style="color: #d4d4d4;">,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #ce9178;">'EL Mansoura'</span><span
+                                        style="color: #d4d4d4;">,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #ce9178;">'EG'</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; );</span></div>
+                </div>
+        </div>
+        <h3>Inserting Multiple Rows</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">-- inserting multiple rows</span></div><br>
+                        <div><span style="color: #6a9955;">-- shipper_id is auto inceremented</span></div><br>
+                        <div><span style="color: #569cd6;">INSERT</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">INTO</span><span style="color: #d4d4d4;">
+                                        shippers(</span><span style="color: #569cd6;">name</span><span
+                                        style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #569cd6;">VALUES</span><span style="color: #d4d4d4;"> (</span><span
+                                        style="color: #ce9178;">'Shipper1'</span><span style="color: #d4d4d4;">),
+                                        (</span><span style="color: #ce9178;">'shipper2'</span><span
+                                        style="color: #d4d4d4;">), (</span><span
+                                        style="color: #ce9178;">'shipper3'</span><span style="color: #d4d4d4;">);</span>
+                        </div>
+                </div>
+        </div>
+        <h3>Inserting Hierarchical Rows</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> * </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> orders;</span>
+                        </div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> * </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;">
+                                        order_items;</span></div><br>
+                        <div><span style="color: #569cd6;">INSERT</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">INTO</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; orders(</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; customer_id,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; order_date,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">status</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; )</span></div>
+                        <div><span style="color: #569cd6;">VALUES</span><span style="color: #d4d4d4;">(</span><span
+                                        style="color: #b5cea8;">1</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #ce9178;">"2019-01-02"</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #b5cea8;">1</span><span style="color: #d4d4d4;">);</span>
+                        </div><br>
+                        <div><span style="color: #6a9955;">--return the last inserted id</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;">
+                                        LAST_INSERT_ID();</span></div><br>
+                        <div><span style="color: #6a9955;">-- we can use this function to insert items in
+                                        order_items</span></div><br>
+                        <div><span style="color: #569cd6;">INSERT</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">INTO</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; order_items (</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; order_id,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; product_id,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; quantity,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; unit_price</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; )</span></div>
+                        <div><span style="color: #569cd6;">VALUES</span><span style="color: #d4d4d4;">
+                                        (LAST_INSERT_ID(), </span><span style="color: #b5cea8;">1</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #b5cea8;">1</span><span
+                                        style="color: #d4d4d4;">, </span><span style="color: #b5cea8;">2</span><span
+                                        style="color: #d4d4d4;">.</span><span style="color: #b5cea8;">95</span><span
+                                        style="color: #d4d4d4;">), (LAST_INSERT_ID(), </span><span
+                                        style="color: #b5cea8;">2</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">1</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #b5cea8;">3</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #b5cea8;">95</span><span style="color: #d4d4d4;">);</span></div>
+                </div>
+        </div>
+        <h3>the rest of the course</h3>
+        <div class="cods" contenteditable="" spellcheck="false">
+                <div>
+                        <div><span style="color: #6a9955;">--copy table</span></div><br>
+                        <div><span style="color: #569cd6;">CREATE</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">TABLE</span><span style="color: #d4d4d4;">
+                                        orders_archived </span><span style="color: #569cd6;">AS</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #569cd6;">SELECT</span><span
+                                        style="color: #d4d4d4;"> * </span><span style="color: #569cd6;">FROM</span><span
+                                        style="color: #d4d4d4;"> orders;</span></div><br>
+                        <div><span style="color: #6a9955;">--copy table conditional</span></div><br>
+                        <div><span style="color: #569cd6;">INSERT</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">INTO</span><span style="color: #d4d4d4;">
+                                        orders_archived</span></div>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> *</span></div>
+                        <div><span style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;"> orders</span></div>
+                        <div><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;"> order_date &lt;
+                                </span><span style="color: #ce9178;">"2019-01-01"</span><span
+                                        style="color: #d4d4d4;">;</span></div><br>
+                        <div><span style="color: #6a9955;">--Updating a Single Row</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> * </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;">
+                                        sql_invoicing.invoices;</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> * </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;">
+                                        sql_invoicing.clients;</span></div><br>
+                        <div><span style="color: #569cd6;">UPDATE</span><span style="color: #d4d4d4;">
+                                        sql_invoicing.invoices</span></div>
+                        <div><span style="color: #569cd6;">SET</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; payment_total = </span><span
+                                        style="color: #b5cea8;">10</span><span style="color: #d4d4d4;">,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; payment_date = </span><span
+                                        style="color: #ce9178;">"2019-03-01"</span></div>
+                        <div><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;"> invoice_id =
+                                </span><span style="color: #b5cea8;">1</span><span style="color: #d4d4d4;">;</span>
+                        </div><br>
+                        <div><span style="color: #6a9955;">--if we update the wrong row</span></div><br>
+                        <div><span style="color: #569cd6;">UPDATE</span><span style="color: #d4d4d4;">
+                                        sql_invoicing.invoices</span></div>
+                        <div><span style="color: #569cd6;">SET</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; payment_total = </span><span
+                                        style="color: #569cd6;">DEFAULT</span><span style="color: #d4d4d4;">,</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; payment_date = </span><span
+                                        style="color: #569cd6;">DEFAULT</span></div>
+                        <div><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;"> invoice_id =
+                                </span><span style="color: #b5cea8;">1</span><span style="color: #d4d4d4;">;</span>
+                        </div><br>
+                        <div><span style="color: #6a9955;">-- update the 3rd row in sql_invoicing.invoices</span></div>
+                        <br>
+                        <div><span style="color: #569cd6;">UPDATE</span><span style="color: #d4d4d4;">
+                                        sql_invoicing.invoices</span></div>
+                        <div><span style="color: #569cd6;">SET</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; payment_total = invoice_total * </span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #b5cea8;">5</span><span style="color: #d4d4d4;">,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; payment_date = due_date</span></div>
+                        <div><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;"> invoice_id =
+                                </span><span style="color: #b5cea8;">3</span><span style="color: #d4d4d4;">;</span>
+                        </div><br>
+                        <div><span style="color: #6a9955;">--updating multiple rows</span></div><br>
+                        <div><span style="color: #6a9955;">--for one client_id</span></div><br>
+                        <div><span style="color: #569cd6;">UPDATE</span><span style="color: #d4d4d4;">
+                                        sql_invoicing.invoices</span></div>
+                        <div><span style="color: #569cd6;">SET</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; payment_total = invoice_total * </span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #b5cea8;">5</span><span style="color: #d4d4d4;">,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; payment_date = due_date</span></div>
+                        <div><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;"> client_id =
+                                </span><span style="color: #b5cea8;">3</span><span style="color: #d4d4d4;">;</span>
+                        </div><br>
+                        <div><span style="color: #6a9955;">--for multiple client_id</span></div><br>
+                        <div><span style="color: #569cd6;">UPDATE</span><span style="color: #d4d4d4;">
+                                        sql_invoicing.invoices</span></div>
+                        <div><span style="color: #569cd6;">SET</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; payment_total = invoice_total * </span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #b5cea8;">5</span><span style="color: #d4d4d4;">,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; payment_date = due_date</span></div>
+                        <div><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;"> client_id
+                                </span><span style="color: #569cd6;">IN</span><span style="color: #d4d4d4;">
+                                        (</span><span style="color: #b5cea8;">3</span><span style="color: #d4d4d4;">,
+                                </span><span style="color: #b5cea8;">4</span><span style="color: #d4d4d4;">);</span>
+                        </div><br>
+                        <div><span style="color: #6a9955;">-- Using Subqueries in updates</span></div><br>
+                        <div><span style="color: #569cd6;">UPDATE</span><span style="color: #d4d4d4;">
+                                        sql_invoicing.invoices</span></div>
+                        <div><span style="color: #569cd6;">SET</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; payment_total = invoice_total * </span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #b5cea8;">5</span><span style="color: #d4d4d4;">,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; payment_date = due_date</span></div>
+                        <div><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;"> client_id =
+                                        (</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;">
+                                        client_id</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">FROM</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        sql_invoicing.clients</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">name</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">"Myworks"</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; );</span></div><br>
+                        <div><span style="color: #6a9955;">-- udating all invoices loacted in NY,CA,</span></div><br>
+                        <div><span style="color: #569cd6;">UPDATE</span><span style="color: #d4d4d4;">
+                                        sql_invoicing.invoices</span></div>
+                        <div><span style="color: #569cd6;">SET</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; payment_total = invoice_total * </span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #b5cea8;">5</span><span style="color: #d4d4d4;">,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; payment_date = due_date</span></div>
+                        <div><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;"> client_id
+                                </span><span style="color: #569cd6;">IN</span><span style="color: #d4d4d4;"> (</span>
+                        </div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;">
+                                        client_id</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">FROM</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        sql_invoicing.clients</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">WHERE</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">state</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">IN</span><span style="color: #d4d4d4;"> (</span><span
+                                        style="color: #ce9178;">'CA'</span><span style="color: #d4d4d4;">, </span><span
+                                        style="color: #ce9178;">'NY'</span><span style="color: #d4d4d4;">)</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; );</span></div><br>
+                        <div><span style="color: #569cd6;">UPDATE</span><span style="color: #d4d4d4;">
+                                        sql_invoicing.invoices</span></div>
+                        <div><span style="color: #569cd6;">SET</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; payment_total = invoice_total * </span><span
+                                        style="color: #b5cea8;">0</span><span style="color: #d4d4d4;">.</span><span
+                                        style="color: #b5cea8;">5</span><span style="color: #d4d4d4;">,</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; payment_date = due_date</span></div>
+                        <div><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;"> payment_date
+                                </span><span style="color: #569cd6;">IS</span><span style="color: #d4d4d4;">
+                                </span><span style="color: #569cd6;">NULL</span><span style="color: #d4d4d4;">;</span>
+                        </div><br>
+                        <div><span style="color: #6a9955;">-- deleting row</span></div><br>
+                        <div><span style="color: #6a9955;">-- the next statment delete all the records in this
+                                        table</span></div><br>
+                        <div><span style="color: #569cd6;">DELETE</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;">
+                                        sql_invoicing.invoices;</span></div><br>
+                        <div><span style="color: #6a9955;">-- delete fom invoices with invoice_id &nbsp;= 1</span></div>
+                        <br>
+                        <div><span style="color: #569cd6;">DELETE</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;">
+                                        sql_invoicing.invoices </span><span style="color: #569cd6;">WHERE</span><span
+                                        style="color: #d4d4d4;"> invoice_id = </span><span
+                                        style="color: #b5cea8;">1</span><span style="color: #d4d4d4;">;</span></div><br>
+                        <div><span style="color: #6a9955;">-- delete by subqueries</span></div><br>
+                        <div><span style="color: #569cd6;">DELETE</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">FROM</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; sql_invoicing.invoices</span></div>
+                        <div><span style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;"> client_id =
+                                        (</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;">
+                                        client_id</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">FROM</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                        sql_invoicing.clients</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; &nbsp; &nbsp; </span><span
+                                        style="color: #569cd6;">WHERE</span><span style="color: #d4d4d4;"> </span><span
+                                        style="color: #569cd6;">name</span><span style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">"Myworks"</span></div>
+                        <div><span style="color: #d4d4d4;">&nbsp; &nbsp; );</span></div><br>
+                        <div><span style="color: #569cd6;">SELECT</span><span style="color: #d4d4d4;"> * </span><span
+                                        style="color: #569cd6;">FROM</span><span style="color: #d4d4d4;">
+                                        sql_invoicing.clients </span><span style="color: #569cd6;">WHERE</span><span
+                                        style="color: #d4d4d4;"> </span><span style="color: #569cd6;">name</span><span
+                                        style="color: #d4d4d4;"> = </span><span
+                                        style="color: #ce9178;">"Myworks"</span><span style="color: #d4d4d4;">;</span>
+                        </div>
+                </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

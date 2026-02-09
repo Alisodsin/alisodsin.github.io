@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="./javascript.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./oo.js" defer=""></script>
+    <style>
+        .dad {
+            color: #f44336 !important;
+            font-size: larger;
+        }
+
+        li {
+            font-family: monospace;
+            color: blue;
+            list-style-type: none;
+        }
+
+        ol>li {
+            font-family: monospace;
+            color: rgb(181, 181, 201);
+            list-style-type: decimal;
+            font-size: 13px;
+        }
+
+        body {
+            background: rgb(0, 0, 0);
+        }
+
+        h3 {
+            color: #00ffff !important;
+            font-size: initial;
+        }
+
+        .cods {
+            color: rgb(212, 212, 212);
+            background-color: rgb(30, 30, 30);
+            font-family: monospace;
+            font-size: 13px;
+            white-space: nowrap;
+            overflow: auto;
+            padding: 10px;
+            border-radius: 3%;
+            outline: none;
+        }
+
+        p {
+            color: bisque !important;
+            font-size: smaller !important;
+        }
+
+        .son li {
+            color: bisque !important;
+            font-size: smaller !important;
+            list-style-type: decimal;
+        }
+
+        table,
+        th,
+        td {
+            color: bisque;
+            text-align: center;
+            border: 1px solid white;
+            border-collapse: collapse;
+            font-size: small;
+        }
+    </style>
+    <title>JavaScript_2</title>
+</head>
+
+<body>
+    <details class="dad">
+        <summary>Document</summary>
+        <ul>
+            <li>
+                <details>
+                    <summary>Browser environment, specs</summary>
+                    <h3>DOM (Document Object Model)</h3>
+                    <p>Here’s a bird’s-eye view of what we have when JavaScript runs in a web browser:</p>
+                    <img src="https://javascript.info/article/browser-environment/windowObjects.svg">
+                    <p>The Document Object Model, or DOM for short, represents all page content as objects that can be
+                        modified.</p>
+                    <p>The document object is the main “entry point” to the page. We can change or create anything on
+                        the page using it.</p>
+                    <div class="cods" contenteditable="" spellcheck="false">
+                        <div>
+                            <div><span style="color: #6a9955;">// change the background color to red</span></div>
+                            <div><span style="color: #9cdcfe;">document</span><span
+                                    style="color: #cccccc;">.</span><span style="color: #9cdcfe;">body</span><span
+                                    style="color: #cccccc;">.</span><span style="color: #4fc1ff;">style</span><span
+                                    style="color: #cccccc;">.</span><span style="color: #9cdcfe;">background</span><span
+                                    style="color: #cccccc;"> </span><span style="color: #d4d4d4;">=</span><span
+                                    style="color: #cccccc;"> </span><span style="color: #ce9178;">"red"</span><span
+                                    style="color: #cccccc;">;</span></div>
+                            <div><span style="color: #6a9955;">// change it back after 1 second</span></div>
+                            <div><span style="color: #dcdcaa;">setTimeout</span><span style="color: #cccccc;">(()
+                                </span><span style="color: #569cd6;">=&gt;</span><span style="color: #cccccc;">
+                                </span><span style="color: #9cdcfe;">document</span><span
+                                    style="color: #cccccc;">.</span><span style="color: #9cdcfe;">body</span><span
+                                    style="color: #cccccc;">.</span><span style="color: #4fc1ff;">style</span><span
+                                    style="color: #cccccc;">.</span><span style="color: #9cdcfe;">background</span><span
+                                    style="color: #cccccc;"> </span><span style="color: #d4d4d4;">=</span><span
+                                    style="color: #cccccc;"> </span><span style="color: #ce9178;">""</span><span
+                                    style="color: #cccccc;">, </span><span style="color: #b5cea8;">1000</span><span
+                                    style="color: #cccccc;">);</span></div>
+                        </div>
+                    </div>
+                    <h3>BOM (Browser Object Model)</h3>
+                    <p>The Browser Object Model (BOM) represents additional objects provided by the browser (host
+                        environment) for working with everything except the document.</p>
+                    <p>For instance:</p>
+                    <ol>
+                        <li>The navigator object provides background information about the browser and the operating
+                            system. There are many properties, but the two most widely known are: navigator.userAgent –
+                            about the current browser, and navigator.platform – about the platform (can help to
+                            differentiate between Windows/Linux/Mac etc).</li>
+                        <li>The location object allows us to read the current URL and can redirect the browser to a new
+                            one.</li>
+                    </ol>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>DOM tree</summary>
+                    <ul>
+                        <li>
+                            <h3>An example of the DOM</h3>
+                            <p>Let’s start with the following simple document:</p>
+                            <div class="cods" contenteditable="" spellcheck="false">
+                                <div>
+                                    <div><span style="color: #808080;">&lt;!</span><span
+                                            style="color: #569cd6;">DOCTYPE</span><span style="color: #cccccc;">
+                                        </span><span style="color: #9cdcfe;">HTML</span><span
+                                            style="color: #808080;">&gt;</span></div>
+                                    <div><span style="color: #808080;">&lt;</span><span
+                                            style="color: #569cd6;">html</span><span style="color: #808080;">&gt;</span>
+                                    </div><br>
+                                    <div><span style="color: #808080;">&lt;</span><span
+                                            style="color: #569cd6;">head</span><span style="color: #808080;">&gt;</span>
+                                    </div>
+                                    <div><span style="color: #cccccc;">&nbsp; </span><span
+                                            style="color: #808080;">&lt;</span><span
+                                            style="color: #569cd6;">title</span><span
+                                            style="color: #808080;">&gt;</span><span style="color: #cccccc;">About
+                                            elk</span><span style="color: #808080;">&lt;/</span><span
+                                            style="color: #569cd6;">title</span><span
+                                            style="color: #808080;">&gt;</span></div>
+                                    <div><span style="color: #808080;">&lt;/</span><span
+                                            style="color: #569cd6;">head</span><span style="color: #808080;">&gt;</span>
+                                    </div><br>
+                                    <div><span style="color: #808080;">&lt;</span><span
+                                            style="color: #569cd6;">body</span><span style="color: #808080;">&gt;</span>
+                                    </div>
+                                    <div><span style="color: #cccccc;">&nbsp; The truth about elk.</span></div>
+                                    <div><span style="color: #808080;">&lt;/</span><span
+                                            style="color: #569cd6;">body</span><span style="color: #808080;">&gt;</span>
+                                    </div><br>
+                                    <div><span style="color: #808080;">&lt;/</span><span
+                                            style="color: #569cd6;">html</span><span style="color: #808080;">&gt;</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>The DOM represents HTML as a tree structure of tags. Here’s how it looks:</p>
+                            <div class="domtree"><svg width="690" height="320">
+                                    <g transform="translate(20,30)">
+                                        <path class="link"
+                                            style="fill: none; stroke: rgb(190, 195, 199); stroke-width: 1px;"
+                                            d="M7,0L7,30L40.333333333333336,30"></path>
+                                        <path class="link"
+                                            style="fill: none; stroke: rgb(190, 195, 199); stroke-width: 1px;"
+                                            d="M7,0L7,180L40.333333333333336,180"></path>
+                                        <path class="link"
+                                            style="fill: none; stroke: rgb(190, 195, 199); stroke-width: 1px;"
+                                            d="M7,0L7,210L40.333333333333336,210"></path>
+                                        <path class="link"
+                                            style="fill: none; stroke: rgb(190, 195, 199); stroke-width: 1px;"
+                                            d="M40.333333333333336,30L40.333333333333336,60L73.66666666666667,60">
+                                        </path>
+                                        <path class="link"
+                                            style="fill: none; stroke: rgb(190, 195, 199); stroke-width: 1px;"
+                                            d="M40.333333333333336,30L40.333333333333336,90L73.66666666666667,90">
+                                        </path>
+                                        <path class="link"
+                                            style="fill: none; stroke: rgb(190, 195, 199); stroke-width: 1px;"
+                                            d="M40.333333333333336,30L40.333333333333336,150L73.66666666666667,150">
+                                        </path>
+                                        <path class="link"
+                                            style="fill: none; stroke: rgb(190, 195, 199); stroke-width: 1px;"
+                                            d="M73.66666666666667,90L73.66666666666667,120L107,120"></path>
+                                        <path class="link"
+                                            style="fill: none; stroke: rgb(190, 195, 199); stroke-width: 1px;"
+                                            d="M40.333333333333336,210L40.333333333333336,240L73.66666666666667,240">
+                                        </path>
+                                        <g class="node" transform="translate(0,0)" style="opacity: 1;">
+                                            <rect y="-12.5" x="-5" rx="4" ry="4" height="25" width="280"
+                                                style="fill: rgb(206, 224, 244); cursor: pointer;"></rect><text dy="4.5"
+                                                dx="3.5" style="fill: black; pointer-events: none;">▾ </text><text
+                                                dy="4.5" dx="16.5"
+                                                style="font: 14px Consolas, Lucida Console, Menlo, Monaco, monospace; fill: rgb(51, 51, 51); pointer-events: none;">HTML</text>
+                                        </g>
+                                        <g class="node" transform="translate(33.33333206176758,30)" style="opacity: 1;">
+                                            <rect y="-12.5" x="-5" rx="4" ry="4" height="25" width="280"
+                                                style="fill: rgb(206, 224, 244); cursor: pointer;"></rect><text dy="4.5"
+                                                dx="3.5" style="fill: black; pointer-events: none;">▾ </text><text
+                                                dy="4.5" dx="16.5"
+                                                style="font: 14px Consolas, Lucida Console, Menlo, Monaco, monospace; fill: rgb(51, 51, 51); pointer-events: none;">HEAD</text>
+                                        </g>
+                                        <g class="node" transform="translate(66.66666412353516,60)" style="opacity: 1;">
+                                            <rect y="-12.5" x="-5" rx="4" ry="4" height="25" width="280"
+                                                style="fill: rgb(255, 222, 153); cursor: pointer;"></rect><text dy="4.5"
+                                                dx="3.5" style="fill: black; pointer-events: none;"></text><text
+                                                dy="4.5" dx="5.5"
+                                                style="font: 14px Consolas, Lucida Console, Menlo, Monaco, monospace; fill: rgb(51, 51, 51); pointer-events: none;">#text
+                                                ↵␣␣</text>
+                                        </g>
+                                        <g class="node" transform="translate(66.66666412353516,90)" style="opacity: 1;">
+                                            <rect y="-12.5" x="-5" rx="4" ry="4" height="25" width="280"
+                                                style="fill: rgb(206, 224, 244); cursor: pointer;"></rect><text dy="4.5"
+                                                dx="3.5" style="fill: black; pointer-events: none;">▾ </text><text
+                                                dy="4.5" dx="16.5"
+                                                style="font: 14px Consolas, Lucida Console, Menlo, Monaco, monospace; fill: rgb(51, 51, 51); pointer-events: none;">TITLE</text>
+                                        </g>
+                                        <g class="node" transform="translate(100,120)" style="opacity: 1;">
+                                            <rect y="-12.5" x="-5" rx="4" ry="4" height="25" width="280"
+                                                style="fill: rgb(255, 222, 153); cursor: pointer;"></rect><text dy="4.5"
+                                                dx="3.5" style="fill: black; pointer-events: none;"></text><text
+                                                dy="4.5" dx="5.5"
+                                                style="font: 14px Consolas, Lucida Console, Menlo, Monaco, monospace; fill: rgb(51, 51, 51); pointer-events: none;">#text
+                                                About elk</text>
+                                        </g>
+                                        <g class="node" transform="translate(66.66666412353516,150)"
+                                            style="opacity: 1;">
+                                            <rect y="-12.5" x="-5" rx="4" ry="4" height="25" width="280"
+                                                style="fill: rgb(255, 222, 153); cursor: pointer;"></rect><text dy="4.5"
+                                                dx="3.5" style="fill: black; pointer-events: none;"></text><text
+                                                dy="4.5" dx="5.5"
+                                                style="font: 14px Consolas, Lucida Console, Menlo, Monaco, monospace; fill: rgb(51, 51, 51); pointer-events: none;">#text
+                                                ↵</text>
+                                        </g>
+                                        <g class="node" transform="translate(33.33333206176758,180)"
+                                            style="opacity: 1;">
+                                            <rect y="-12.5" x="-5" rx="4" ry="4" height="25" width="280"
+                                                style="fill: rgb(255, 222, 153); cursor: pointer;"></rect><text dy="4.5"
+                                                dx="3.5" style="fill: black; pointer-events: none;"></text><text
+                                                dy="4.5" dx="5.5"
+                                                style="font: 14px Consolas, Lucida Console, Menlo, Monaco, monospace; fill: rgb(51, 51, 51); pointer-events: none;">#text
+                                                ↵</text>
+                                        </g>
+                                        <g class="node" transform="translate(33.33333206176758,210)"
+                                            style="opacity: 1;">
+                                            <rect y="-12.5" x="-5" rx="4" ry="4" height="25" width="280"
+                                                style="fill: rgb(206, 224, 244); cursor: pointer;"></rect><text dy="4.5"
+                                                dx="3.5" style="fill: black; pointer-events: none;">▾ </text><text
+                                                dy="4.5" dx="16.5"
+                                                style="font: 14px Consolas, Lucida Console, Menlo, Monaco, monospace; fill: rgb(51, 51, 51); pointer-events: none;">BODY</text>
+                                        </g>
+                                        <g class="node" transform="translate(66.66666412353516,240)"
+                                            style="opacity: 1;">
+                                            <rect y="-12.5" x="-5" rx="4" ry="4" height="25" width="280"
+                                                style="fill: rgb(255, 222, 153); cursor: pointer;"></rect><text dy="4.5"
+                                                dx="3.5" style="fill: black; pointer-events: none;"></text><text
+                                                dy="4.5" dx="5.5"
+                                                style="font: 14px Consolas, Lucida Console, Menlo, Monaco, monospace; fill: rgb(51, 51, 51); pointer-events: none;">#text
+                                                ↵␣␣The truth about elk.↵</text>
+                                        </g>
+                                    </g>
+                                </svg></div>
+                            <p>On the picture above, you can click on element nodes and their children will
+                                open/collapse.</p>
+                            <p>Every tree node is an object.</p>
+                            <p>Tags are element nodes (or just elements) and form the tree structure: <html> is at the
+                                root, then
+
+                                <head> and
+
+                                <body> are its children, etc.</p>
+                            <p>The text inside elements forms text nodes, labelled as #text. A text node contains only a
+                                string. It may not have children and is always a leaf of the tree.</p>
+
+                            <p>For instance, the &lt;title&gt; tag has the text "About elk".</p>
+                            <p>Please note the special characters in text nodes:</p>
+                            <ol>
+                                <li>a newline: <code>↵</code> (in JavaScript known as <code>\n</code>)</li>
+                                <li>a space: <code>␣</code></li>
+                            </ol>
+                        </li>
+                        <li>
+                            <h3>Autocorrection</h3>
+                            <ol>
+                                <li>When encountering malformed HTML, the browser automatically corrects it in the DOM.
+                                </li>
+                                <li>The top tags, such as &lt;html&gt; and &lt;body&gt;, are created by the browser if
+                                    missing in the document.</li>
+                                <li>For minimal HTML content like "Hello," the browser adds necessary tags, resulting in
+                                    a complete DOM structure.</li>
+                            </ol>
+                        </li>
+                        <li>
+                            <h3>Other node types</h3>
+                            <p>Apart from element nodes and text nodes, there are other node types in the DOM (Document
+                                Object Model) hierarchy. Some of the commonly encountered node types are:</p>
+                            <ol>
+                                <li>
+                                    <p>Comment nodes (<code>Node.COMMENT_NODE</code>): These nodes represent HTML or XML
+                                        comments within the document. They can be accessed using the
+                                        <code>Node.nodeType</code> property, which returns a value of <code>8</code>.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>Attribute nodes (<code>Node.ATTRIBUTE_NODE</code>): These nodes represent
+                                        attributes of an element. They are accessed through the
+                                        <code>Element.getAttributeNode()</code> method or by accessing the
+                                        <code>attributes</code> property of an element node.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>Document nodes (<code>Node.DOCUMENT_NODE</code>): This node represents the entire
+                                        HTML or XML document. It is the root node of the DOM tree.</p>
+                                </li>
+                                <li>
+                                    <p>DocumentType nodes (<code>Node.DOCUMENT_TYPE_NODE</code>): These nodes represent
+                                        the <code>&lt;!DOCTYPE&gt;</code> declaration of the document, which specifies
+                                        the document type.</p>
+                                </li>
+                                <li>
+                                    <p>Processing Instruction nodes (<code>Node.PROCESSING_INSTRUCTION_NODE</code>):
+                                        These nodes represent processing instructions within an XML document.</p>
+                                </li>
+                                <li>
+                                    <p>CDATASection nodes (<code>Node.CDATA_SECTION_NODE</code>): These nodes represent
+                                        CDATA sections within an XML document. CDATA sections are used to escape blocks
+                                        of text that may contain special characters.</p>
+                                </li>
+                                <li>
+                                    <p>EntityReference nodes (<code>Node.ENTITY_REFERENCE_NODE</code>): These nodes
+                                        represent entity references within an XML document. Entity references are used
+                                        to represent special characters or predefined entities.</p>
+                                </li>
+                                <li>
+                                    <p>Entity nodes (<code>Node.ENTITY_NODE</code>): These nodes represent entity
+                                        declarations within an XML document. Entity declarations define named entities.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>DocumentFragment nodes (<code>Node.DOCUMENT_FRAGMENT_NODE</code>): These nodes
+                                        represent a lightweight container used to hold a collection of nodes. They are
+                                        useful for manipulating groups of nodes before appending them to the document.
+                                    </p>
+                                </li>
+                            </ol>
+                            <p>These are some of the commonly encountered node types in the DOM. Each node type has a
+                                corresponding value defined in the Node interface, allowing you to check the type of a
+                                node using its nodeType property.</p>
+                        </li>
+                    </ul>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>Walking the DOM</summary>
+                    <ul>
+                        <li>
+                            <p>Here’s a picture of links that allow for travel between DOM nodes:</p>
+                            <div style="width:fit-content;background-color:white;"> <img
+                                    src="https://javascript.info/article/dom-navigation/dom-links.svg">
+                            </div>
+                        </li>
+                        <li>
+                            <h3>Children: childNodes, firstChild, lastChild</h3>
+                            <p>There are two terms that we’ll use from now on:</p>
+                            <ol>
+                                <li>Child nodes (or children) : direct children</li>
+                                <li>Descendants : children, their children and so on. </li>
+                            </ol>
+                            <p> For instance, here &lt;body&gt; has children &lt;div&gt; and &lt;ul&gt; and few blank
+                                text nodes
+
+                            </p>
+                            <div class="cods" contenteditable="" spellcheck="false">
+                                <div>
+                                    <div><span style="color: #808080;">&lt;</span><span
+                                            style="color: #569cd6;">html</span><span style="color: #808080;">&gt;</span>
+                                    </div><br>
+                                    <div><span style="color: #808080;">&lt;</span><span
+                                            style="color: #569cd6;">body</span><span style="color: #808080;">&gt;</span>
+                                    </div>
+                                    <div><span style="color: #cccccc;">&nbsp; </span><span
+                                            style="color: #808080;">&lt;</span><span
+                                            style="color: #569cd6;">div</span><span
+                                            style="color: #808080;">&gt;</span><span
+                                            style="color: #cccccc;">Begin</span><span
+                                            style="color: #808080;">&lt;/</span><span
+                                            style="color: #569cd6;">div</span><span style="color: #808080;">&gt;</span>
+                                    </div><br>
+                                    <div><span style="color: #cccccc;">&nbsp; </span><span
+                                            style="color: #808080;">&lt;</span><span
+                                            style="color: #569cd6;">ul</span><span style="color: #808080;">&gt;</span>
+                                    </div>
+                                    <div><span style="color: #cccccc;">&nbsp; &nbsp; </span><span
+                                            style="color: #808080;">&lt;</span><span
+                                            style="color: #569cd6;">li</span><span style="color: #808080;">&gt;</span>
+                                    </div>
+                                    <div><span style="color: #cccccc;">&nbsp; &nbsp; &nbsp; </span><span
+                                            style="color: #808080;">&lt;</span><span
+                                            style="color: #569cd6;">b</span><span
+                                            style="color: #808080;">&gt;</span><span
+                                            style="color: #cccccc;">Information</span><span
+                                            style="color: #808080;">&lt;/</span><span
+                                            style="color: #569cd6;">b</span><span style="color: #808080;">&gt;</span>
+                                    </div>
+                                    <div><span style="color: #cccccc;">&nbsp; &nbsp; </span><span
+                                            style="color: #808080;">&lt;/</span><span
+                                            style="color: #569cd6;">li</span><span style="color: #808080;">&gt;</span>
+                                    </div>
+                                    <div><span style="color: #cccccc;">&nbsp; </span><span
+                                            style="color: #808080;">&lt;/</span><span
+                                            style="color: #569cd6;">ul</span><span style="color: #808080;">&gt;</span>
+                                    </div>
+                                    <div><span style="color: #808080;">&lt;/</span><span
+                                            style="color: #569cd6;">body</span><span style="color: #808080;">&gt;</span>
+                                    </div><br>
+                                    <div><span style="color: #808080;">&lt;/</span><span
+                                            style="color: #569cd6;">html</span><span style="color: #808080;">&gt;</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>…And descendants of &lt;body&gt; are not only direct children &lt;div&gt;, &lt;ul&gt; but
+                                also more deeply nested elements, such as &lt;li&gt; (a child of &lt;ul&gt;) and
+                                &lt;b&gt; (a child of &lt;li&gt;) – the entire subtree.</p>
+                            <p>The childNodes collection lists all child nodes, including text nodes.</p>
+                            <div class="cods" contenteditable="" spellcheck="false">
+                                <div>
+                                    <div><span style="color: #9cdcfe;">console</span><span
+                                            style="color: #cccccc;">.</span><span
+                                            style="color: #dcdcaa;">log</span><span
+                                            style="color: #cccccc;">(</span><span
+                                            style="color: #9cdcfe;">document</span><span
+                                            style="color: #cccccc;">.</span><span
+                                            style="color: #9cdcfe;">body</span><span
+                                            style="color: #cccccc;">.</span><span
+                                            style="color: #4fc1ff;">childNodes</span><span
+                                            style="color: #cccccc;">);</span></div>
+                                </div>
+                            </div>
+                            <p>Properties firstChild and lastChild give fast access to the first and last
+                                children.There’s also a special function elem.hasChildNodes() to check whether there are
+                                any child nodes.</p>
+                            <div class="cods" contenteditable="" spellcheck="false">
+                                <div>
+                                    <div><span style="color: #9cdcfe;">console</span><span
+                                            style="color: #cccccc;">.</span><span
+                                            style="color: #dcdcaa;">log</span><span
+                                            style="color: #cccccc;">(</span><span
+                                            style="color: #9cdcfe;">document</span><span
+                                            style="color: #cccccc;">.</span><span
+                                            style="color: #9cdcfe;">body</span><span
+                                            style="color: #cccccc;">.</span><span
+                                            style="color: #4fc1ff;">lastChild</span><span style="color: #cccccc;">);
+                                            &nbsp;</span><span style="color: #6a9955;">// #text "\n\n\n"</span></div>
+                                    <div><span style="color: #9cdcfe;">console</span><span
+                                            style="color: #cccccc;">.</span><span
+                                            style="color: #dcdcaa;">log</span><span
+                                            style="color: #cccccc;">(</span><span
+                                            style="color: #9cdcfe;">document</span><span
+                                            style="color: #cccccc;">.</span><span
+                                            style="color: #9cdcfe;">body</span><span
+                                            style="color: #cccccc;">.</span><span
+                                            style="color: #4fc1ff;">firstChild</span><span style="color: #cccccc;">);
+                                        </span><span style="color: #6a9955;">// #text "\n &nbsp; &nbsp; &nbsp;
+                                            &nbsp;"</span></div>
+                                    <div><span style="color: #9cdcfe;">console</span><span
+                                            style="color: #cccccc;">.</span><span
+                                            style="color: #dcdcaa;">log</span><span
+                                            style="color: #cccccc;">(</span><span
+                                            style="color: #9cdcfe;">document</span><span
+                                            style="color: #cccccc;">.</span><span
+                                            style="color: #9cdcfe;">body</span><span
+                                            style="color: #cccccc;">.</span><span
+                                            style="color: #dcdcaa;">hasChildNodes</span><span
+                                            style="color: #cccccc;">(</span><span
+                                            style="color: #9cdcfe;">div</span><span style="color: #cccccc;">));
+                                        </span><span style="color: #6a9955;">// true</span></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <h3>Siblings and the parent</h3>
+
+
+                            <div class="cods" contenteditable="" spellcheck="false">
+                                <div>
+                                    <div><span style="color: #6a9955;">// parent of &lt;body&gt; is &lt;html&gt;</span>
+                                    </div>
+                                    <div><span style="color: #9cdcfe;">console</span><span
+                                            style="color: #cccccc;">.</span><span
+                                            style="color: #dcdcaa;">log</span><span style="color: #cccccc;">(
+                                        </span><span style="color: #9cdcfe;">document</span><span
+                                            style="color: #cccccc;">.</span><span
+                                            style="color: #9cdcfe;">body</span><span
+                                            style="color: #cccccc;">.</span><span
+                                            style="color: #4fc1ff;">parentNode</span><span style="color: #cccccc;">
+                                        </span><span style="color: #d4d4d4;">===</span><span style="color: #cccccc;">
+                                        </span><span style="color: #9cdcfe;">document</span><span
+                                            style="color: #cccccc;">.</span><span
+                                            style="color: #4fc1ff;">documentElement</span><span style="color: #cccccc;">
+                                            ); </span><span style="color: #6a9955;">// true</span></div><br>
+                                    <div><span style="color: #6a9955;">// after &lt;head&gt; goes &lt;body&gt;</span>
+                                    </div>
+                                    <div><span style="color: #9cdcfe;">console</span><span
+                                            style="color: #cccccc;">.</span><span
+                                            style="color: #dcdcaa;">log</span><span style="color: #cccccc;">(
+                                        </span><span style="color: #9cdcfe;">document</span><span
+                                            style="color: #cccccc;">.</span><span
+                                            style="color: #4fc1ff;">head</span><span
+                                            style="color: #cccccc;">.</span><span
+                                            style="color: #4fc1ff;">nextSibling</span><span style="color: #cccccc;"> );
+                                        </span><span style="color: #6a9955;">// HTMLBodyElement</span></div><br>
+                                    <div><span style="color: #6a9955;">// before &lt;body&gt; goes &lt;head&gt;</span>
+                                    </div>
+                                    <div><span style="color: #9cdcfe;">console</span><span
+                                            style="color: #cccccc;">.</span><span
+                                            style="color: #dcdcaa;">log</span><span style="color: #cccccc;">(
+                                        </span><span style="color: #9cdcfe;">document</span><span
+                                            style="color: #cccccc;">.</span><span
+                                            style="color: #9cdcfe;">body</span><span
+                                            style="color: #cccccc;">.</span><span
+                                            style="color: #4fc1ff;">previousSibling</span><span style="color: #cccccc;">
+                                            ); </span><span style="color: #6a9955;">// HTMLHeadElement</span></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <h3>Element-only navigation</h3>
+                            <p> for many tasks we don’t want text or comment nodes. We want to manipulate element nodes
+                                that represent tags and form the structure of the page.</p>
+                            <p>So let’s see more navigation links that only take element nodes into account:</p>
+                            <div style="background-color:white;width:fit-content;"><img
+                                    src="https://javascript.info/article/dom-navigation/dom-links-elements.svg"></div>
+                            <p>The links are similar to those given above, just with Element word inside:</p>
+                            <ol>
+                                <li><code>children</code> – only those children that are element nodes.</li>
+                                <li><code>firstElementChild</code>, <code>lastElementChild</code> – first and last
+                                    element children.</li>
+                                <li><code>previousElementSibling</code>, <code>nextElementSibling</code> – neighbor
+                                    elements.</li>
+                                <li><code>parentElement</code> – parent element.</li>
+                            </ol>
+                        </li>
+                        <li>
+                            <h3>More links: tables</h3>
+                            <p>The &lt;table&gt; element supports (in addition to the given above) these properties:</p>
+                            <ol>
+                                <li><code>table.rows</code> – the collection of <code>&lt;tr&gt;</code> elements of the
+                                    table.</li>
+                                <li><code>table.caption/tHead/tFoot</code> – references to elements
+                                    <code>&lt;caption&gt;</code>, <code>&lt;thead&gt;</code>,
+                                    <code>&lt;tfoot&gt;</code>.
+                                </li>
+                                <li><code>table.tBodies</code> – the collection of <code>&lt;tbody&gt;</code> elements
+                                    (can be many according to the standard, but there will always be at least one – even
+                                    if it is not in the source HTML, the browser will put it in the DOM).</li>
+                            </ol>
+                            <p><strong><code>&lt;thead&gt;</code>, <code>&lt;tfoot&gt;</code>,
+                                    <code>&lt;tbody&gt;</code></strong> elements provide the <code>rows</code> property:
+                            </p>
+                            <ol>
+                                <li><code>tbody.rows</code> – the collection of <code>&lt;tr&gt;</code> inside.</li>
+                            </ol>
+                            <p><strong><code>&lt;tr&gt;</code>:</strong></p>
+                            <ol>
+                                <li><code>tr.cells</code> – the collection of <code>&lt;td&gt;</code> and
+                                    <code>&lt;th&gt;</code> cells inside the given <code>&lt;tr&gt;</code>.
+                                </li>
+                                <li><code>tr.sectionRowIndex</code> – the position (index) of the given
+                                    <code>&lt;tr&gt;</code> inside the enclosing
+                                    <code>&lt;thead&gt;/&lt;tbody&gt;/&lt;tfoot&gt;</code>.
+                                </li>
+                                <li><code>tr.rowIndex</code> – the number of the <code>&lt;tr&gt;</code> in the table as
+                                    a whole (including all table rows).</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>Searching: getElement*, querySelector*</summary>
+                    <ul>
+                        <li>
+                            <h3>document.getElementById or just id</h3>
+                        </li>
+                        <li>
+                            <h3>querySelectorAll</h3>
+                        </li>
+                        <li>
+                            <h3>querySelector</h3>
+                        </li>
+                        <li>
+                            <h3>matches</h3>
+                            <p>The <a href="https://dom.spec.whatwg.org/#dom-element-matches">elem.matches(css)</a> does
+                                not look for anything, it merely checks if <code>elem</code> matches the given
+                                CSS-selector. It returns <code>true</code> or <code>false</code>.</p>
+                        </li>
+                        <li>
+                            <h3>closest</h3>
+                            <p>The method elem.closest(css) looks for the nearest ancestor that matches the
+                                CSS-selector. The elem itself is also included in the search.</p>
+                        </li>
+                        <li>
+                            <h3>getElementsBy*</h3>
+                            <p>There are also other methods to look for nodes by a tag, class, etc.</p>
+                            <p>Today, they are mostly history, as querySelector is more powerful and shorter to write.
+                            </p>
+                            <p>So here we cover them mainly for completeness, while you can still find them in the old
+                                scripts.</p>
+                            <ol>
+                                <li><code>elem.getElementsByTagName(tag)</code> looks for elements with the given tag
+                                    and returns the collection of them. The <code>tag</code> parameter can also be a
+                                    star <code>"*"</code> for “any tags”.</li>
+                                <li><code>elem.getElementsByClassName(className)</code> returns elements that have the
+                                    given CSS class.</li>
+                                <li><code>document.getElementsByName(name)</code> returns elements with the given
+                                    <code>name</code> attribute, document-wide. Very rarely used.
+                                </li>
+                            </ol>
+                        </li>
+                    </ul>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>Node properties: type, tag and contents</summary>
+                    <ul>
+                        <li>
+                            <h3>DOM node classes</h3>
+                            <p>Here’s the picture of all node classes and inhertance</p>
+                            <div style="width:fit-content;background-color:white;">
+
+                                <img
+                                    src="https://javascript.info/article/basic-dom-node-properties/dom-class-hierarchy.svg">
+
+                            </div>
+
+
+
+
+
+
+                        </li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+
+
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>Browser environment, specs</summary>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>Browser environment, specs</summary>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>Browser environment, specs</summary>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>Browser environment, specs</summary>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>Browser environment, specs</summary>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>Browser environment, specs</summary>
+                </details>
+            </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </ul>
+    </details>
+    <details class="dad">
+        <summary>Introduction to Events</summary>
+        <ul></ul>
+    </details>
+    <details class="dad">
+        <summary>UI Events</summary>
+        <ul></ul>
+    </details>
+    <details class="dad">
+        <summary>Forms, controls</summary>
+        <ul></ul>
+    </details>
+    <details class="dad">
+        <summary>Document and resource loading</summary>
+        <ul></ul>
+    </details>
+    <details class="dad">
+        <summary>Miscellaneous</summary>
+        <ul></ul>
+    </details>
+</body>
+
+</html>
