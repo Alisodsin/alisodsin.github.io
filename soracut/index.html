@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A professional image cropping tool">
+    <title>Pro Photo Cropper</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="glass-bg"></div>
+    <div class="container">
+        <header class="app-header">
+            <h1>Pro Photo Cropper <span class="emoji">✂️</span></h1>
+            <p>Professional and secure high-precision image cropping</p>
+        </header>
+
+        <main class="app-main">
+            <!-- Upload Area -->
+            <section id="upload-screen" class="upload-area active">
+                <div class="upload-content">
+                    <div class="icon-container">
+                        <svg class="upload-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
+                        </svg>
+                    </div>
+                    <h2>Drag & Drop image or click to select</h2>
+                    <p>Or try pasting an image directly (Ctrl+V)</p>
+                    <div style="display: flex; gap: 1rem; margin-top: 1rem; position: relative; z-index: 10;">
+                        <button class="btn btn-primary" id="btn-browse">Browse Files</button>
+                        <button class="btn btn-outline" id="btn-paste">📋 Paste from Clipboard</button>
+                    </div>
+                    <input type="file" id="file-input" accept="image/*" hidden>
+                </div>
+            </section>
+
+            <!-- Workspace Area -->
+            <section id="workspace-screen" class="workspace-area hidden">
+                <div class="toolbar">
+                    <div class="toolbar-section">
+                        <div class="ratio-group">
+                            <button class="btn-tool active" data-ratio="free">Free</button>
+                            <button class="btn-tool" data-ratio="1">1:1</button>
+                            <button class="btn-tool" data-ratio="1.7778">16:9</button>
+                            <button class="btn-tool" data-ratio="1.3333">4:3</button>
+                            <button class="btn-tool" data-ratio="0.6667">2:3</button>
+                        </div>
+                    </div>
+                    <div class="toolbar-section actions">
+                        <button class="btn btn-outline" id="btn-cancel">Cancel</button>
+                        <button class="btn btn-secondary" id="btn-copy">Copy Image</button>
+                        <button class="btn btn-primary shine-effect" id="btn-download">Crop & Download</button>
+                    </div>
+                </div>
+
+                <div class="editor-workspace">
+                    <div class="canvas-container" id="canvas-container">
+                        <canvas id="image-canvas"></canvas>
+                        <div class="crop-box" id="crop-box">
+                            <!-- Drag handles -->
+                            <div class="handle nw" data-handle="nw"></div>
+                            <div class="handle ne" data-handle="ne"></div>
+                            <div class="handle sw" data-handle="sw"></div>
+                            <div class="handle se" data-handle="se"></div>
+                            <div class="handle n" data-handle="n"></div>
+                            <div class="handle s" data-handle="s"></div>
+                            <div class="handle w" data-handle="w"></div>
+                            <div class="handle e" data-handle="e"></div>
+                            <!-- Rule of thirds grid -->
+                            <div class="grid-lines">
+                                <div class="grid-line v-1"></div>
+                                <div class="grid-line v-2"></div>
+                                <div class="grid-line h-1"></div>
+                                <div class="grid-line h-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="app-footer">
+            <p>All processing strictly local 🔒 No images are uploaded to the internet.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
